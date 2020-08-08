@@ -9017,7 +9017,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-ams-my-property-asset-configuration-asset-configuration-module */
-            [__webpack_require__.e("default~modules-ams-broadcast-broadcast-module~modules-ams-work-permit-work-permit-module~modules-pu~4192b886"), __webpack_require__.e("common"), __webpack_require__.e("src-app-modules-ams-my-property-asset-configuration-asset-configuration-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-broadcast-broadcast-module~modules-ams-inventory-inventory-module~modules-ams-vi~7bbcdb91"), __webpack_require__.e("common"), __webpack_require__.e("src-app-modules-ams-my-property-asset-configuration-asset-configuration-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/my-property/asset-configuration/asset-configuration.module */
             "./src/app/modules/ams/my-property/asset-configuration/asset-configuration.module.ts")).then(function (m) {
               return m.AssetConfigurationModule;

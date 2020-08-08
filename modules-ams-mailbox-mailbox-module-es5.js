@@ -677,10 +677,10 @@
               "isActive": true,
               "insertedBy": parseInt(localStorage.getItem('userId')),
               "roleid": parseInt(localStorage.getItem('roleId')),
-              "category": 0,
-              "attachment1": 0,
-              "attachment2": 0,
-              "attachment3": 0,
+              "category": null,
+              "attachment1": null,
+              "attachment2": null,
+              "attachment3": null,
               "recipients": []
             };
           }
@@ -1532,13 +1532,14 @@
               userId: parseInt(localStorage.getItem('userId')),
               RoleId: parseInt(localStorage.getItem('roleId')),
               fromDate: '2020-01-01',
-              toDate: '2020-01-01',
+              toDate: '2021-01-01',
               PageNo: this.pagination.currentPage,
               recordsNo: 10
             };
             this.messageInbox.getMessageInboxReceivedByUserIdAndRole(queryParamBase).subscribe(function (resp) {
-              _this10.mails = resp;
-              _this10.pagination.totalResults = 45;
+              _this10.mails = resp[0].inboxResult;
+              console.log('resp', resp);
+              _this10.pagination.totalResults = resp[0].totalRecords;
 
               _this10.calculatePagination('refresh');
 
@@ -1578,6 +1579,7 @@
             this.pagination.lastPage = lastPage;
             this.pagination.startIndex = begin;
             this.pagination.endIndex = end - 1;
+            console.log('........', this.pagination);
 
             if (category == 'new') {
               this.getMailList();

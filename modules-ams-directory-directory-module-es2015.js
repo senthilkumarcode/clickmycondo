@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"directory-setup-wrapper\">\n\n    <h5 class=\"mb-4\">Add Directory</h5>\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isDirectoryTypeLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isDirectoryTypeLoaded\">\n\n\t\t\t\t\t<form #createDirectoryTypeForm = \"ngForm\" name=\"createDirectoryTypeForm\" (ngSubmit)=\"submitDirectoryTypeForm(createDirectoryTypeForm)\"  novalidate>\n\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"\n\t\t\t\t\t\t\t\t\tcol-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Create Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"directoryType\" [(ngModel)]=\"directory.directoryType\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Directory Description</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Enter\" name=\"directoryDescription\" [(ngModel)]=\"directory.directoryDescription\" required></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"createDirectoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\n\n\n\t\t\t\n\t\t\t\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeId')\">Directory Type ID<span [ngClass]=\"getFieldOrderBy('directoryTypeId')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeName')\">Directory Type <span [ngClass]=\"getFieldOrderBy('directoryTypeName')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Directory Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let directory of allDirectory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n\t\t\t\t\t\t\t\t  <td class=\"name\" >{{directory.directoryTypeId}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.directoryTypeName}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.description}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\">\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t\t\t  </td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t\t</app-pagination>\n\n\t\t\t\n\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"directory-setup-wrapper\">\n\t<div class=\"main\">\n  <condo-card>\n\t<div CondoCardHeader >      \n\t  <div class=\"row\">\n\t\t<div class=\"col-sm-3 \">\n\t\t  <h4>\n\t\t\tAdd Directory\n\t\t  </h4>\n\t\t  <p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t</div>\n\t\t<div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n\t\t \n\t\t  <div class=\"\">\n\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t<input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n\t\t\t\t[(ngModel)]=\"search\" >\n\t\t\t  </div>\n\t\t  </div>\n\t\t</div>\n\t  </div>  \n\t</div>\n  \n\t<div CondoCardBody >\n  \n\t  <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->  \n\t  <ng-container>\n\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\" #data>\n\t\t  <thead>\n\t\t\t<tr>\t\t\t  \n\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeName')\">Directory Type<span\n\t\t\t\t  [ngClass]=\"getFieldOrderBy('directoryTypeName')\"></span></th>\n\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Directory Description <span\n\t\t\t\t  [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t  <th scope=\"col\">Action</th>\n\t\t\t</tr>\n\t\t  </thead>\n\t\t  <tbody>      \n\t\t\t<ng-container>\n\t\t\t  <tr class=\"shadow\">\n\t\t\t\t<td>\t\t\t\t  \n\t\t\t\t  <div class=\"input-box\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\"  name=\"dirType\" [(ngModel)]=\"row.directoryType\">\n\t\t\t\t  </div>\n\t\t\t\t</td>\n\t\t\t\t<td>                   \n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\"  name=\"dirDescription\" [(ngModel)]=\"row.directoryDescription\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t</div>                              \n\t\t\t\t</td>\n\t\t\t\t<td>\t\t\t\t \n\t\t\t\t\t<mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"!row.directoryType || !row.directoryDescription ?'custom-icon-disabled':''\"\n\t\t\t\t\t(click)=\"add(row)\" ></mat-icon>\t\t\t  \n\t\t\t\t</td>\n\t\t\t  </tr>\n\t\t\t</ng-container>\n\t\t\t<ng-container\t\t\t\t\t\t\n\t\t\t  *ngFor=\"let list of allDirectory | simpleSearch :search | sort : list?.warehouseId: unitOrder;let Index=index\">\n\t\t\t  <tr>\t\n\t\t\t\t<td>\n\t\t\t\t\t<span [ngClass]=\"directoryIndex == Index?'d-none':''\">\n\t\t\t\t\t  {{list.directoryTypeName}}\n\t\t\t\t\t</span>\t\t\t\t \n\t\t\t\t\t<div class=\"input-box\" *ngIf=\"directoryIndex == Index\">\n\t\t\t\t\t  <input type=\"text\" class=\"form-control\" name=\"directoryTypeName\" [(ngModel)]=\"list.directoryTypeName\">\n\t\t\t\t  </div>\t\t\t\t\n\t\t\t\t  </td>\n\t\t\t\t<td>\n\t\t\t\t\t<span [ngClass]=\"directoryIndex == Index?'d-none':''\">\n\t\t\t\t\t  {{list.description}}\n\t\t\t\t\t</span>\t\t\t\t \n\t\t\t\t\t<div class=\"input-box\" *ngIf=\"directoryIndex == Index\">\n\t\t\t\t\t  <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n\t\t\t\t  </div>\t\t\t\t\n\t\t\t\t</td>\t\t\t\n\t\t\t\t<td>   \n\t\t\t\t\t<div class=\"d-flex  align-items-center\"> \n\t\t\t\t\t<span [ngClass]=\"directoryIndex == Index?'d-none':''\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" (click)=\"directoryIndex = Index\" aria-hidden=\"true\"  ></mat-icon>\n\t\t\t\t\t\t   </span>\n\t\t\t\t\t\t   <div class=\"pt-3 d-flex\">\n\t\t\t\t\t<mat-icon  svgIcon=\"mat_outline:save\"  title=\"save\"\n\t\t\t\t\t[ngClass]=\"!list.directoryTypeName || !list.description ?'custom-icon-disabled':''\"\n\t\t\t\t\t*ngIf=\"directoryIndex == Index\"  class=\"pt-1\" (click)=\"update(list)\" ></mat-icon>\t\n\t\t\t      \t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"directoryIndex == Index\"\n\t\t\t\t\t(click)=\"directoryIndex = -1\"></mat-icon>\n\t\t\t     \t</div>\t\t\t\t \n\t\t\t\t\t<span  [ngClass]=\"directoryIndex == Index?'d-none':''\">\n                        <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 icon delete\" (click)=\"delete(index,list)\" ></mat-icon>\n                    </span>\n\t\t\t\t</div>  \n\t\t\t\t</td>\n\t\t\t  </tr>\n\t\t\t</ng-container>\n\t\t  </tbody>  \n\t\t</table>\t\t\n\t  </ng-container>  \n\t</div>  \n  </condo-card>\n  </div>\n  </div>\n");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-assets-category-wrapper profile-section\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    \n        <app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n    \n        <ng-container *ngIf=\"isDataLoaded && !isNoItemsAvailable()\">\n        \n            <!-- <h5 class=\"float-left mt-2\">Asset - {{assetCategoryName}}</h5> -->\n    \n            <!-- <ul class=\"legends list-inline\">\n                <li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span>Maintenance Due</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Maintenance Done</li>\n            </ul> -->\n    \n            <div class=\"card clear\">\n    \n                <div class=\"card-body p-0\">\n    \n                        <form [formGroup]=\"userTable\">\n                                <table class=\"table\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                              <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                                              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                                              <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                                              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n                            \n                                              <th scope=\"col\">Action</th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                                              <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                                                <td>\n                                                <mat-form-field>\n                                                        <input matInput type=\"text\" formControlName=\"serviceType\">\n    \n                                                </mat-form-field>\n                                                </td>\n                                                <td>\n                                                  <mat-form-field>\n                                                        <input matInput type=\"number\" formControlName=\"phone\">\n                                                    \n                                                  </mat-form-field>\n                                                </td>\n                                                <td>\n                                                  <mat-form-field>\n                                                        <input matInput type=\"text\" formControlName=\"contactperson\">\n                                                    \n                                                  </mat-form-field>\n                                                </td>\n                                                \n                                                <td>\n                                                  <mat-form-field>\n                                                        <input matInput type=\"email\" formControlName=\"email\">\n                                                  </mat-form-field>\n                                                </td>\n                                                <td>\n                                                  <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                                                  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                    </a>\n                                                    <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                                                            <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                                                        </a>\n                                                  <!-- <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                                                  \n                                                </td>\n                                              </tr>\n    \n                                              <tr *ngIf=\"!group.get('isEditable').value\" >\n                                                <td>\n                                                  {{group.get('serviceType').value}}\n                                                </td>\n                                                <td>\n                                                  {{group.get('phone').value}}\n                                                </td>\n                                                <td>\n                                                    {{group.get('contactperson').value}}\n                                                </td>\n                                                \n                                                <td>\n                                                  {{group.get('email').value}}\n                                                </td>\n                                                <td>\n                                                        <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon> -->\n                                                        <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                                                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                                            </a>\n                                                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                                                    <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                                </a>\n                                                        <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                                                  \n                                                </td>\n                                              </tr>\n                                            </ng-container>\n                                          </tbody>\n                                        \n                                    </table>\n                                    <div class=\"action-container\">\n                                            <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                                            <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n                                          </div>\n                                    </form>\n    \n    \n                    \n                </div>\n    \n            </div>\n    \n        </ng-container>\n    \n        <ng-container *ngIf=\"isDataLoaded && isNoItemsAvailable()\">\n            <div class=\"card\">\n                <div class=\"card-body\">\n                    <h5 class=\"float-left mt-2\">No Records Found</h5>\n                </div>\n            </div>\n        </ng-container>\n    \n    </div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-assets-category-wrapper profile-section\" >  \n  <condo-card>\n    <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div>\n        <h4>Directory Asset Category</h4>\n        <p class=\"text-secondary\">{{assetDataList?.length}} Items</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n        [(ngModel)]=\"search\" >\n      </div>\n    </div>\t\n    </div>\t\t\t\t\t\n    <div CondoCardBody>\n      <form>\n        <table class=\"table\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>              \n              <th scope=\"col\" (click)=\"sortUnitData('serviceName')\">Service Type\n                <span [ngClass]=\"getFieldOrderBy('serviceName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone\n                <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('contactPersonName')\">Contact Person\n                <span [ngClass]=\"getFieldOrderBy('contactPersonName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email\n                <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>             \n              <th scope=\"col\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <ng-container>\n              <tr class=\"shadow\">  \n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serType\"\n                    [(ngModel)]=\"row.serviceType\" >\n                  </div>\t\n                </td>\n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phoneNo\"\n                    [(ngModel)]=\"row.phone\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"contperson\"\n                    [(ngModel)]=\"row.contactperson\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"emailId\"\n                    [(ngModel)]=\"row.email\" >\n                  </div>\t\n                </td>               \n                <td>                  \n                    <mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"!row.serviceType  ?'custom-icon-disabled':''\"\n                    (click)=\"add(row)\"  ></mat-icon>\t\n                </td>\n              </tr>\n            </ng-container>\n            <ng-container *ngFor=\"let list of assetDataList  | simpleSearch: search | sort : list?.warehouseId: unitOrder;let categoryIndex=index\">\n              <tr>                \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.serviceName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serviceName\"\n                    [(ngModel)]=\"list.serviceName\" >\n                  </div>\n                </td>     \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.phone}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phone\"\n                    [(ngModel)]=\"list.phone\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.contactPersonName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"contactPersonName\"\n                    [(ngModel)]=\"list.contactPersonName\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.email}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"email\"\n                    [(ngModel)]=\"list.email\" >\n                  </div>\n                </td>                \n                <td>\n                  <div class=\"d-flex  align-items-center\"> \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" (click)=\"currentIndex = categoryIndex\"  ></mat-icon>\n                    </span>                  \n                    <div class=\"pt-3 d-flex\">\t\n                    <mat-icon   class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!list.serviceName ?'custom-icon-disabled':''\"  \n                    *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"update(list)\" ></mat-icon>                  \n                    <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"currentIndex = -1\"></mat-icon>\n                    </div>               \n                    <span  [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 icon delete\" (click)=\"delete(index,list)\" ></mat-icon>\n                    </span>\n                    </div>\n                </td>\n              </tr>\n            </ng-container>\n          </tbody>\n        </table>            \n      </form>\n    </div>\n  </condo-card>\n\n</div>\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isExternalDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isExternalDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n    <table class=\"table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\n                  <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                  <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                    <td>\n                    <mat-form-field>\n                        <!-- <mat-select formControlName=\"serviceType\">\n                        <mat-option value=\"Police\">Police</mat-option>\n                        </mat-select> -->\n                        <input matInput type=\"text\" formControlName=\"serviceType\">\n                    </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"number\" formControlName=\"phone\">\n                        \n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"contactperson\">\n                        \n                      </mat-form-field>\n                    </td>\n                    \n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"email\" formControlName=\"email\">\n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i,group)\">delete_forever</mat-icon>\n                      <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                        <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                      </a>\n                      \n                    </td>\n                  </tr>\n                  <tr *ngIf=\"!group.get('isEditable').value\" >\n                    <td>\n                      {{group.get('serviceType').value}}\n                    </td>\n                    <td>\n                      {{group.get('phone').value}}\n                    </td>\n                    <td>\n                        {{group.get('contactperson').value}}\n                    </td>\n                    \n                    <td>\n                      {{group.get('email').value}}\n                    </td>\n                    <td>\n                            <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                            <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                              </a>\n                              <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                              </a>\n                            \n                      \n                    </td>\n                  </tr>\n                </ng-container>\n              </tbody>\n            \n        </table>\n        <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n        </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"property-assets-category-wrapper profile-section\" >  \n  <condo-card>\n    <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div>\n          <h4>External Directory </h4>\n        <p class=\"text-secondary\">{{externalListData?.length}} Items</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n        [(ngModel)]=\"search\" >\n      </div>\n    </div>\t\n    </div>\t\t\t\t\t\n    <div CondoCardBody>\n      <form>\n        <table class=\"table\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>              \n              <th scope=\"col\" (click)=\"sortUnitData('serviceName')\">Service Type\n                <span [ngClass]=\"getFieldOrderBy('serviceName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone\n                <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('contactPersonName')\">Contact Person\n                <span [ngClass]=\"getFieldOrderBy('contactPersonName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email\n                <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>             \n              <th scope=\"col\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <ng-container>\n              <tr class=\"shadow\">  \n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serType\"\n                    [(ngModel)]=\"row.serviceType\" >\n                  </div>\t\n                </td>\n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phoneNo\"\n                    [(ngModel)]=\"row.phone\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"contperson\"\n                    [(ngModel)]=\"row.contactperson\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"emailId\"\n                    [(ngModel)]=\"row.email\" >\n                  </div>\t\n                </td>               \n                <td>                  \n                    <mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!row.serviceType  ?'custom-icon-disabled':''\"\n                    (click)=\"add(row)\" ></mat-icon>\n                </td>\n              </tr>\n            </ng-container>\n            <ng-container *ngFor=\"let list of externalListData  | simpleSearch: search | sort : list?.warehouseId: unitOrder;let categoryIndex=index\">\n              <tr>                \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.serviceName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serviceName\"\n                    [(ngModel)]=\"list.serviceName\" >\n                  </div>\n                </td>     \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.phone}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phone\"\n                    [(ngModel)]=\"list.phone\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.contactPersonName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"contactPersonName\"\n                    [(ngModel)]=\"list.contactPersonName\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.email}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"email\"\n                    [(ngModel)]=\"list.email\" >\n                  </div>\n                </td>                \n                <td>\n                  <div class=\"d-flex  align-items-center\">                   \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\" >\n                      <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" (click)=\"currentIndex = categoryIndex\" ></mat-icon>\n                    </span>                 \n                    <div class=\"pt-3 d-flex\">\n                    <mat-icon  class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [disabled]=\"!list.serviceName ?'custom-icon-disabled':''\"\n                    *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"update(list)\"></mat-icon>                   \n                    <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"currentIndex = -1\"></mat-icon>\n                  </div>                 \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:trash-2'\" (click)=\"delete(index,list)\"  class=\"pt-2 icon delete\" ></mat-icon>\n                    </span>\n                    </div>\n                </td>\n              </tr>\n            </ng-container>\n          </tbody>\n        </table>            \n      </form>\n    </div>\n  </condo-card>\n\n</div>\n\n\n\n\n\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isInternalDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isInternalDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n    <table class=\"table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\n                  <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                  <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                    <td>\n                    <mat-form-field>\n                        <!-- <mat-select formControlName=\"serviceType\">\n                        <mat-option value=\"Laundery\">Laundery</mat-option>\n                        <mat-option value=\"PhotoCopy\">Photo Copy</mat-option>\n                        <mat-option value=\"Ticketing\">Ticketing</mat-option>\n                        </mat-select> -->\n                        <input matInput type=\"text\" formControlName=\"serviceType\">\n                    </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"number\" formControlName=\"phone\">\n                        \n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"contactperson\">\n                        \n                      </mat-form-field>\n                    </td>\n                    \n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"email\" formControlName=\"email\">\n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon>\n                      <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                        <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                      </a>\n                      \n                    </td>\n                  </tr>\n                  <tr *ngIf=\"!group.get('isEditable').value\" >\n                    <td>\n                      {{group.get('serviceType').value}}\n                    </td>\n                    <td>\n                      {{group.get('phone').value}}\n                    </td>\n                    <td>\n                        {{group.get('contactperson').value}}\n                    </td>\n                    \n                    <td>\n                      {{group.get('email').value}}\n                    </td>\n                    <td>\n                            <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                            <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                              <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                            </a>\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                              <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                            </a>\n                      \n                    </td>\n                  </tr>\n                </ng-container>\n              </tbody>\n            \n        </table>\n        <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n        </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n\n\n\n\n\n\n<div class=\"property-assets-category-wrapper profile-section\" >  \n  <condo-card>\n    <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div> \n        <h4>Internal Directory </h4>\n        <p class=\"text-secondary\">{{internalListData?.length}} Items</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n        [(ngModel)]=\"search\" >\n      </div>\n    </div>\t\n    </div>\t\t\t\t\t\n    <div CondoCardBody>\n      <form>\n        <table class=\"table\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>             \n              <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type\n                <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone\n                <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('contactPersonName')\">Contact Person\n                <span [ngClass]=\"getFieldOrderBy('contactPersonName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email\n                <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>             \n              <th scope=\"col\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <ng-container>\n              <tr class=\"shadow\">  \n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serType\"\n                    [(ngModel)]=\"row.serviceType\" >\n                  </div>\t\n                </td>\n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phoneNo\"\n                    [(ngModel)]=\"row.phone\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"contperson\"\n                    [(ngModel)]=\"row.contactperson\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"emailId\"\n                    [(ngModel)]=\"row.email\" >\n                  </div>\t\n                </td>               \n                <td>\n                 \n                    <mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!row.serviceType  ?'custom-icon-disabled':''\"\n                    (click)=\"add(row)\" ></mat-icon>\n                </td>\n              </tr>\n              <!-- </form> -->\n            </ng-container>\n            <ng-container *ngFor=\"let list of internalListData  | simpleSearch: search | sort : list?.warehouseId: unitOrder;let categoryIndex=index\">\n              <tr>                \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.serviceName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serviceType\"\n                    [(ngModel)]=\"list.serviceType\" >\n                  </div>\n                </td>     \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.phone}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phone\"\n                    [(ngModel)]=\"list.phone\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.contactPersonName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"contactperson\"\n                    [(ngModel)]=\"list.contactperson\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.email}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"email\"\n                    [(ngModel)]=\"list.email\" >\n                  </div>\n                </td>                \n                <td>\n                  <div class=\"d-flex  align-items-center\"> \n               \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\" >\n                      <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\"  (click)=\"currentIndex = categoryIndex\" ></mat-icon>\n                    </span>                  \n                    <div class=\"pt-3 d-flex\">\t\n                    <mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!list.serviceType ?'custom-icon-disabled':''\"\n                    *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"update(list)\" ></mat-icon>                \n                    <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"currentIndex = -1\"></mat-icon>\n                    </div>                 \n                    <span  [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:trash-2'\" (click)=\"delete(index,list)\"  class=\"pt-2 icon delete\" ></mat-icon>\n                    </span>\n                    </div>\n                </td>\n              </tr>\n            </ng-container>\n          </tbody>\n        </table>            \n      </form>\n    </div>\n  </condo-card>\n\n</div>\n\n\n\n\n\n");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <ng-container *ngIf=\"isDataLoaded\">\n    <div class=\"maintain-directory-wrapper\">\n      <!-- <div class=\"card\">\n        <div class=\"card-body p-0\">\n          <nav class=\"nav nav-pills\" id=\"directory-wrapper\">\n            <ul class=\"tabs mr-auto\" id=\"directory-tabs\">\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"external\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">External Directory</a></li>\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"internal\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">Internal Directory</a></li>\n              \n              <li *ngFor=\"let asset of assetCategoriesData\">\n                <a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"asset/{{asset.directoryTypeId}}\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">{{asset.directoryTypeName}}</a></li>\n            </ul>\n            <div class=\"buttons ml-auto\">\n              <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n              </a>\n              <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n              </a>\n            </div>\n          </nav>\n        </div>\n      </div>\n  \n      <div class=\"d-block mt-5\">\n        <div class=\"pt-2\">\n          <router-outlet></router-outlet>\n        </div>\n      </div> -->\n      <div class=\"main\">\n        <h4 class=\"mb-4\">Maintain Directory</h4>\n        <div class=\"bg-card shadow p-0\">\n          <nav mat-tab-nav-bar>\n            <a mat-tab-link \n            [routerLink]=\"'external'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            External Directory\n            </a>\n            <a mat-tab-link \n            [routerLink]=\"'internal'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            Internal Directory\n            </a>\n            <a mat-tab-link \n            *ngFor=\"let asset of assetCategoriesData\"\n            [routerLink]=\"'asset/'+asset.directoryTypeId\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            {{asset.directoryTypeName}}\n            </a>\n          </nav>\n          <router-outlet></router-outlet>\n        </div>\n      </div>\n    </div>\n  </ng-container>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n  <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n\n  <ng-container *ngIf=\"isDataLoaded\">\n    <div class=\"maintain-directory-wrapper\">\n      <!-- <div class=\"card\">\n        <div class=\"card-body p-0\">\n          <nav class=\"nav nav-pills\" id=\"directory-wrapper\">\n            <ul class=\"tabs mr-auto\" id=\"directory-tabs\">\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"external\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">External Directory</a></li>\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"internal\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">Internal Directory</a></li>\n              \n              <li *ngFor=\"let asset of assetCategoriesData\">\n                <a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"asset/{{asset.directoryTypeId}}\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">{{asset.directoryTypeName}}</a></li>\n            </ul>\n            <div class=\"buttons ml-auto\">\n              <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n              </a>\n              <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n              </a>\n            </div>\n          </nav>\n        </div>\n      </div>\n  \n      <div class=\"d-block mt-5\">\n        <div class=\"pt-2\">\n          <router-outlet></router-outlet>\n        </div>\n      </div> -->\n      <div class=\"main\">\n        <h4 class=\"mb-4\">Maintain Directory</h4>\n        <div class=\"bg-card shadow p-0\">\n          <nav mat-tab-nav-bar>\n            <a mat-tab-link \n            [routerLink]=\"'external'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            External Directory\n            </a>          \n            <a mat-tab-link \n            [routerLink]=\"'internal'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            Internal Directory\n            </a>\n            <a mat-tab-link \n            *ngFor=\"let asset of assetCategoriesData\"\n            [routerLink]=\"'asset/'+asset.directoryTypeId\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            {{asset.directoryTypeName}}\n            </a>\n          </nav>          \n             <router-outlet></router-outlet>      \n        </div>\n      </div>\n    </div>\n  </ng-container>\n");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".icon {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvZGlyZWN0b3J5LXNldHVwL2RpcmVjdG9yeS1zZXR1cC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL2RpcmVjdG9yeS1zZXR1cC9kaXJlY3Rvcnktc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaWNvbntcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvZGlyZWN0b3J5LXNldHVwL2RpcmVjdG9yeS1zZXR1cC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLG9CQUFBO0VBQ0EsWUFBQTtBQUNEIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvZGlyZWN0b3J5LXNldHVwL2RpcmVjdG9yeS1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jdXN0b20taWNvbi1kaXNhYmxlZHtcblx0cG9pbnRlci1ldmVudHM6bm9uZTtcblx0b3BhY2l0eTowLjQ7XG4gIH0iXX0= */");
 
 /***/ }),
 
@@ -106,20 +106,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
 
 
 let DirectorySetupComponent = class DirectorySetupComponent {
-    constructor(apartmentService, sharedService, sessionService) {
+    constructor(apartmentService, sharedService, sessionService, injector) {
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.injector = injector;
         this.directoryType = '';
         this.isDirectoryTypeLoaded = false;
         this.errorMessage = '';
         this.isError = false;
+        this.row = {};
         this.wpData = '';
         this.unitFieldType = 'directoryTypeId';
         this.unitOrder = false;
@@ -136,7 +140,24 @@ let DirectorySetupComponent = class DirectorySetupComponent {
             directoryType: '',
             directoryDescription: ''
         };
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         this.getDirectoryType();
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                const params = {
+                    DirectoryTypeId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.apartmentService.deleteDirectoryType(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.setAlertMessage(' deleted successfully');
+                        this.getDirectoryType();
+                    }
+                }, (err) => {
+                    this.sharedService.setAlertMessage(err);
+                });
+            }
+        });
     }
     submitDirectoryTypeForm(form) {
         const params = {
@@ -250,11 +271,77 @@ let DirectorySetupComponent = class DirectorySetupComponent {
             this.sharedService.setAlertMessage(err);
         });
     }
+    add(data) {
+        const params = {
+            directoryType: {
+                directoryTypeId: 0,
+                apartmentId: this.sessionService.apartmentId,
+                directoryTypeName: data.directoryType,
+                description: data.directoryDescription,
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString(),
+                directoryRecords: []
+            }
+        };
+        this.apartmentService.addDirectoryType(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage(' added successfully');
+                this.directoryTypeId = 0;
+                this.directory = {
+                    directoryType: '',
+                    directoryDescription: ''
+                };
+                this.row = {};
+                this.getDirectoryType();
+            }
+            else {
+            }
+        });
+    }
+    update(data) {
+        // 	let reqObj: any = {};
+        const params = {
+            directoryType: {
+                directoryTypeId: data.directoryTypeId,
+                apartmentId: this.sessionService.apartmentId,
+                directoryTypeName: data.directoryTypeName,
+                description: data.description,
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString(),
+                directoryRecords: []
+            }
+        };
+        this.apartmentService.updateDirectoryType(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage(' updated successfully');
+                this.directoryTypeId = 0;
+                this.directory = {
+                    directoryType: '',
+                    directoryDescription: ''
+                };
+                this.directoryIndex = -1;
+                // this.getDirectoryType();
+            }
+            else {
+            }
+        });
+    }
+    delete(index, data) {
+        // console.log(data.warehouseId);  
+        this.modalService.showConfirmModal(data.directoryTypeId);
+    }
 };
 DirectorySetupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 DirectorySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -264,7 +351,8 @@ DirectorySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], DirectorySetupComponent);
 
 
@@ -280,7 +368,7 @@ DirectorySetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2RpcmVjdG9yeS1hc3NldC1jYXRlZ29yeS9kaXJlY3RvcnktYXNzZXQtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxhQUFBO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2Ftcy9kaXJlY3RvcnkvY29tcG9uZW50cy9tYWludGFpbi1kaXJlY3RvcnkvZGlyZWN0b3J5LWFzc2V0LWNhdGVnb3J5L2RpcmVjdG9yeS1hc3NldC1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3Rpb24tY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2RpcmVjdG9yeS1hc3NldC1jYXRlZ29yeS9kaXJlY3RvcnktYXNzZXQtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRCxvQkFBQTtFQUNBLFlBQUE7QUFBRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL21haW50YWluLWRpcmVjdG9yeS9kaXJlY3RvcnktYXNzZXQtY2F0ZWdvcnkvZGlyZWN0b3J5LWFzc2V0LWNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4gIC5jdXN0b20taWNvbi1kaXNhYmxlZHtcblx0cG9pbnRlci1ldmVudHM6bm9uZTtcblx0b3BhY2l0eTowLjQ7XG4gIH0iXX0= */");
 
 /***/ }),
 
@@ -300,8 +388,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
 
 
@@ -311,8 +400,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
-    constructor(router, route, apartmentService, lookupService, sharedService, sessionService, fb) {
+    constructor(router, route, apartmentService, lookupService, sharedService, sessionService, fb, injector) {
         this.router = router;
         this.route = route;
         this.apartmentService = apartmentService;
@@ -320,6 +410,7 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.fb = fb;
+        this.injector = injector;
         this.isDataLoaded = false;
         this.isError = false;
         this.alertMessage = '';
@@ -329,6 +420,8 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
         this.isExternalDataLoaded = false;
         this.externalDeleteId = '';
         this.errorMessage = '';
+        this.row = {};
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         this.userTable = this.fb.group({
             tableRows: this.fb.array([])
         });
@@ -353,21 +446,21 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
             // }
             // else {
             //   this.assetCategoryName = res[0].categoryName
-            const control = this.userTable.get('tableRows');
-            control.clear();
-            // tslint:disable-next-line:no-shadowed-variable
-            this.assetDataList.forEach((element, index) => {
-                const formcontrol = this.userTable.get('tableRows');
-                formcontrol.push(this.fb.group({
-                    directoryRecordId: [element.directoryRecordId],
-                    serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                    email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-                    contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                    phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(10)]],
-                    isEditable: [false]
-                }));
-            });
-            this.addRow();
+            // const control =  this.userTable.get('tableRows') as FormArray;
+            // control.clear();
+            // // tslint:disable-next-line:no-shadowed-variable
+            // this.assetDataList.forEach((element, index) => {
+            //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+            //   formcontrol.push(this.fb.group({
+            //     directoryRecordId: [element.directoryRecordId],
+            //     serviceType: [element.serviceName, Validators.required],
+            //     email: [element.email, [Validators.email, Validators.required]],
+            //     contactperson: [element.contactPersonName, Validators.required],
+            //     phone: [element.phone, [Validators.required, Validators.maxLength(10)]],
+            //     isEditable: [false]
+            //   }));
+            // });
+            // this.addRow();
             // const formcontrol =  this.userTable.get('tableRows') as FormArray;
             //   _.each(this.assetDataList, function(item, i, formcontrol: FormArray, fb: FormBuilder) {
             //     debugger;
@@ -388,6 +481,26 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
         this.touchedRows = [];
         this.userTable = this.fb.group({
             tableRows: this.fb.array([])
+        });
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                const params = {
+                    // tslint:disable-next-line:radix
+                    DirectoryRecordId: id,
+                    deleteBy: 1
+                };
+                this.apartmentService.deleteDirectoryRecord(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.setAlertMessage(' deleted successfully');
+                        this.getAssetDirectoryItems();
+                    }
+                    else {
+                    }
+                });
+            }
+            else {
+                this.sharedService.setAlertMessage('record not delete');
+            }
         });
     }
     ngAfterViewInit() {
@@ -410,10 +523,10 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
     initiateForm() {
         return this.fb.group({
             directoryRecordId: [''],
-            serviceType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-            contactperson: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-            phone: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(10)]],
+            serviceType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required],
+            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required]],
+            contactperson: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required],
+            phone: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].maxLength(10)]],
             isEditable: [true]
         });
     }
@@ -502,15 +615,87 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
         console.log(this.touchedRows);
     }
+    add(data) {
+        const params = {
+            directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: 0,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: this.route.params['value'].id,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: 1,
+                insertedOn: new Date().toISOString(),
+                updatedBy: 1,
+                updatedOn: new Date().toISOString()
+            }
+        };
+        this.apartmentService.addDirectoryRecords(params).subscribe((res) => {
+            if (res.message) {
+                this.row = {};
+                this.sharedService.setAlertMessage(' added successfully');
+                this.getAssetDirectoryItems();
+            }
+            else {
+            }
+        });
+    }
+    update(data) {
+        // 	let reqObj: any = {};
+        const params = {
+            directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: data.directoryRecordId,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: this.route.params['value'].id,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceName,
+                phone: data.phone,
+                contactPersonName: data.contactPersonName,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: 1,
+                insertedOn: new Date().toISOString(),
+                updatedBy: 1,
+                updatedOn: new Date().toISOString()
+            }
+        };
+        this.apartmentService.updateDirectoryRecords(params).subscribe((res) => {
+            if (res) {
+                this.sharedService.setAlertMessage("Updated successfully");
+                // this.isAssetLoaded = false;
+                this.currentIndex = -1;
+            }
+        });
+    }
+    delete(index, data) {
+        // console.log(data.warehouseId);  
+        this.modalService.showConfirmModal(data.directoryRecordId);
+    }
 };
 DirectoryAssetCategoryComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] }
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 DirectoryAssetCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -520,11 +705,12 @@ DirectoryAssetCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]])
+        _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], DirectoryAssetCategoryComponent);
 
 
@@ -540,7 +726,7 @@ DirectoryAssetCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("header {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2V4dGVybmFsLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRjs7QUFFQTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBRUE7RUFDRSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQUVGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2V4dGVybmFsLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBzdGlja3k7XG4gIHRvcDowO1xuICBwYWRkaW5nOiAxNXB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59XG5cbm1hdC1pY29uIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHRib2R5IHRyIHRkLFxuLnRhYmxlIHRoZWFkIHRoLFxuLnRhYmxlIHRoZWFkIHtcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkICA7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xuXG59XG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2V4dGVybmFsLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxvQkFBQTtFQUNBLFlBQUE7QUFDRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL21haW50YWluLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkvZXh0ZXJuYWwtZGlyZWN0b3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbS1pY29uLWRpc2FibGVke1xuXHRwb2ludGVyLWV2ZW50czpub25lO1xuXHRvcGFjaXR5OjAuNDtcbiAgfSJdfQ== */");
 
 /***/ }),
 
@@ -560,6 +746,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
@@ -567,11 +755,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExternalDirectoryComponent = class ExternalDirectoryComponent {
-    constructor(fb, apartmentService, sessionService, sharedService) {
+    constructor(fb, apartmentService, sessionService, sharedService, injector) {
         this.fb = fb;
         this.apartmentService = apartmentService;
         this.sessionService = sessionService;
         this.sharedService = sharedService;
+        this.injector = injector;
         this.unitFieldType = 'unitno';
         this.unitOrder = false;
         this.externalData = '';
@@ -580,6 +769,8 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         this.errorMessage = '';
         this.isError = false;
         this.alertMessage = '';
+        this.row = {};
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     ngOnInit() {
         this.isExternalDataLoaded = true;
@@ -589,6 +780,26 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         });
         // this.addRow();
         this.getAssetDirectoryItems();
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                const params = {
+                    // tslint:disable-next-line:radix
+                    DirectoryRecordId: id,
+                    deleteBy: 1
+                };
+                this.apartmentService.deleteDirectoryRecord(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.setAlertMessage(' deleted successfully');
+                        this.getAssetDirectoryItems();
+                    }
+                    else {
+                    }
+                });
+            }
+            else {
+                this.sharedService.setAlertMessage('record not delete');
+            }
+        });
     }
     ngAfterViewInit() {
         this.control = this.userTable.get('tableRows');
@@ -744,12 +955,84 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
             this.alertMessage = 'Some error occured';
         });
     }
+    add(data) {
+        const params = {
+            directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: 0,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+            }
+        };
+        this.apartmentService.addDirectoryRecords(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage(' added successfully');
+                this.row = {};
+                this.getAssetDirectoryItems();
+            }
+            else {
+            }
+        });
+    }
+    update(data) {
+        // 	let reqObj: any = {};
+        const params = {
+            directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: data.directoryRecordId,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceName,
+                phone: data.phone,
+                contactPersonName: data.contactPersonName,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+            }
+        };
+        this.apartmentService.updateDirectoryRecords(params).subscribe((res) => {
+            if (res) {
+                this.sharedService.setAlertMessage("Updated successfully");
+                // this.isAssetLoaded = false;
+                this.currentIndex = -1;
+            }
+        });
+    }
+    delete(index, data) {
+        // console.log(data.warehouseId);  
+        this.modalService.showConfirmModal(data.directoryRecordId);
+    }
 };
 ExternalDirectoryComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 ExternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -760,7 +1043,8 @@ ExternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], ExternalDirectoryComponent);
 
 
@@ -776,7 +1060,7 @@ ExternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("header {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2ludGVybmFsLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRjs7QUFFQTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBRUE7RUFDRSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQUVGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2ludGVybmFsLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBzdGlja3k7XG4gIHRvcDowO1xuICBwYWRkaW5nOiAxNXB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59XG5cbm1hdC1pY29uIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHRib2R5IHRyIHRkLFxuLnRhYmxlIHRoZWFkIHRoLFxuLnRhYmxlIHRoZWFkIHtcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkICA7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xuXG59XG4iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2ludGVybmFsLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxvQkFBQTtFQUNBLFlBQUE7QUFDRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL21haW50YWluLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkvaW50ZXJuYWwtZGlyZWN0b3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbS1pY29uLWRpc2FibGVke1xuXHRwb2ludGVyLWV2ZW50czpub25lO1xuXHRvcGFjaXR5OjAuNDtcbiAgfSJdfQ== */");
 
 /***/ }),
 
@@ -796,6 +1080,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
@@ -803,11 +1089,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let InternalDirectoryComponent = class InternalDirectoryComponent {
-    constructor(fb, apartmentService, sessionService, sharedService) {
+    constructor(fb, apartmentService, sessionService, sharedService, injector) {
         this.fb = fb;
         this.apartmentService = apartmentService;
         this.sessionService = sessionService;
         this.sharedService = sharedService;
+        this.injector = injector;
         this.unitFieldType = "unitno";
         this.unitOrder = false;
         this.internalData = "";
@@ -816,6 +1103,8 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
         this.errorMessage = "";
         this.isError = false;
         this.alertMessage = '';
+        this.row = {};
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     ngOnInit() {
         this.isInternalDataLoaded = true;
@@ -825,6 +1114,26 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
         });
         //this.addRow();
         this.getAssetDirectoryItems();
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                const params = {
+                    // tslint:disable-next-line:radix
+                    DirectoryRecordId: id,
+                    deleteBy: 1
+                };
+                this.apartmentService.deleteDirectoryRecord(params).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.setAlertMessage(' deleted successfully');
+                        this.getAssetDirectoryItems();
+                    }
+                    else {
+                    }
+                });
+            }
+            else {
+                this.sharedService.setAlertMessage('record not delete');
+            }
+        });
     }
     ngAfterViewInit() {
         this.control = this.userTable.get('tableRows');
@@ -956,18 +1265,18 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
             const control = this.userTable.get('tableRows');
             control.clear();
             // tslint:disable-next-line:no-shadowed-variable
-            this.internalListData.forEach((element, index) => {
-                const formcontrol = this.userTable.get('tableRows');
-                formcontrol.push(this.fb.group({
-                    directoryRecordId: [element.directoryRecordId],
-                    serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                    email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                    contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                    phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(10)]],
-                    isEditable: [false]
-                }));
-            });
-            this.addRow();
+            // this.internalListData.forEach((element, index) => {
+            //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+            //   formcontrol.push(this.fb.group({
+            //     directoryRecordId: [element.directoryRecordId],
+            //     serviceType: [element.serviceName, Validators.required],
+            //     email: [element.email, [Validators.email, Validators.required]],
+            //     contactperson: [element.contactPersonName, Validators.required],
+            //     phone: [element.phone, [Validators.required, Validators.maxLength(10)]],
+            //     isEditable: [false]
+            //   }));
+            // });
+            // this.addRow();
             // const formcontrol =  this.userTable.get('tableRows') as FormArray;
             //   _.each(this.assetDataList, function(item, i, formcontrol: FormArray, fb: FormBuilder) {
             //     debugger;
@@ -980,12 +1289,84 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
             this.alertMessage = 'Some error occured';
         });
     }
+    add(data) {
+        const params = {
+            directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: 0,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+            }
+        };
+        this.apartmentService.addDirectoryRecords(params).subscribe((res) => {
+            if (res.message) {
+                this.sharedService.setAlertMessage(' added successfully');
+                this.row = {};
+                this.getAssetDirectoryItems();
+            }
+            else {
+            }
+        });
+    }
+    update(data) {
+        // 	let reqObj: any = {};
+        const params = {
+            directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: data.directoryRecordId,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+            }
+        };
+        this.apartmentService.updateDirectoryRecords(params).subscribe((res) => {
+            if (res) {
+                this.sharedService.setAlertMessage("Updated successfully");
+                // this.isAssetLoaded = false;
+                this.currentIndex = -1;
+            }
+        });
+    }
+    delete(index, data) {
+        // console.log(data.warehouseId);  
+        this.modalService.showConfirmModal(data.directoryRecordId);
+    }
 };
 InternalDirectoryComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 InternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -996,7 +1377,8 @@ InternalDirectoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], InternalDirectoryComponent);
 
 
@@ -1268,6 +1650,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_maintain_directory_external_directory_external_directory_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/maintain-directory/external-directory/external-directory.component */ "./src/app/modules/ams/directory/components/maintain-directory/external-directory/external-directory.component.ts");
 /* harmony import */ var _components_maintain_directory_internal_directory_internal_directory_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/maintain-directory/internal-directory/internal-directory.component */ "./src/app/modules/ams/directory/components/maintain-directory/internal-directory/internal-directory.component.ts");
 /* harmony import */ var _components_maintain_directory_directory_asset_category_directory_asset_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/maintain-directory/directory-asset-category/directory-asset-category.component */ "./src/app/modules/ams/directory/components/maintain-directory/directory-asset-category/directory-asset-category.component.ts");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+
 
 
 
@@ -1292,7 +1676,8 @@ DirectoryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"],
-            _directory_routing_module__WEBPACK_IMPORTED_MODULE_3__["DirectoryRoutingModule"]
+            _directory_routing_module__WEBPACK_IMPORTED_MODULE_3__["DirectoryRoutingModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"]
         ],
         bootstrap: [_components_directory_setup_directory_setup_component__WEBPACK_IMPORTED_MODULE_5__["DirectorySetupComponent"]]
     })

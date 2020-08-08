@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"directory-setup-wrapper\">\n\n    <h5 class=\"mb-4\">Add Directory</h5>\n\t<div class=\"card mb-30\">\n\t\t<div class=\"card-body\">\n\t\t\t\n\t\t\t<app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message>\n\n\t\t\t<app-loader *ngIf=\"!isDirectoryTypeLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isDirectoryTypeLoaded\">\n\n\t\t\t\t\t<form #createDirectoryTypeForm = \"ngForm\" name=\"createDirectoryTypeForm\" (ngSubmit)=\"submitDirectoryTypeForm(createDirectoryTypeForm)\"  novalidate>\n\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"\n\t\t\t\t\t\t\t\t\tcol-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Create Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"directoryType\" [(ngModel)]=\"directory.directoryType\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Directory Description</label>\n\t\t\t\t\t\t\t\t\t\t\t<textarea class=\"form-control\" placeholder=\"Enter\" name=\"directoryDescription\" [(ngModel)]=\"directory.directoryDescription\" required></textarea>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<button class=\"btn blue mr-2\" [disabled]=\"createDirectoryTypeForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\n\n\n\t\t\t\n\t\t\t\t\t\t<table  class=\"table shrink-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeId')\">Directory Type ID<span [ngClass]=\"getFieldOrderBy('directoryTypeId')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeName')\">Directory Type <span [ngClass]=\"getFieldOrderBy('directoryTypeName')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Directory Description <span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t\t  <th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let directory of allDirectory | orderBy : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex | simpleSearch: wpData ; let i = index\">\n\t\t\t\t\t\t\t\t  <td class=\"name\" >{{directory.directoryTypeId}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.directoryTypeName}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\" >{{directory.description}}</td>\n\t\t\t\t\t\t\t\t  <td class=\"grey\">\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon edit\" name=\"edit\"></i-feather></a>&nbsp;\n\t\t\t\t\t\t\t\t\t<a class=\"\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t\t\t  </td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t\t</app-pagination>\n\n\t\t\t\n\t\t\t\n\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t</ng-container>\n\t\t\t\n\t\t</div>\n\t\n\t</div>\n\n</div>\n";
+      __webpack_exports__["default"] = "\n<div class=\"directory-setup-wrapper\">\n\t<div class=\"main\">\n  <condo-card>\n\t<div CondoCardHeader >      \n\t  <div class=\"row\">\n\t\t<div class=\"col-sm-3 \">\n\t\t  <h4>\n\t\t\tAdd Directory\n\t\t  </h4>\n\t\t  <p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t</div>\n\t\t<div class=\"col-sm-9 d-flex justify-content-end align-items-center\">\n\t\t \n\t\t  <div class=\"\">\n\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t<input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n\t\t\t\t[(ngModel)]=\"search\" >\n\t\t\t  </div>\n\t\t  </div>\n\t\t</div>\n\t  </div>  \n\t</div>\n  \n\t<div CondoCardBody >\n  \n\t  <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->  \n\t  <ng-container>\n\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\" #data>\n\t\t  <thead>\n\t\t\t<tr>\t\t\t  \n\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('directoryTypeName')\">Directory Type<span\n\t\t\t\t  [ngClass]=\"getFieldOrderBy('directoryTypeName')\"></span></th>\n\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('description')\">Directory Description <span\n\t\t\t\t  [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t  <th scope=\"col\">Action</th>\n\t\t\t</tr>\n\t\t  </thead>\n\t\t  <tbody>      \n\t\t\t<ng-container>\n\t\t\t  <tr class=\"shadow\">\n\t\t\t\t<td>\t\t\t\t  \n\t\t\t\t  <div class=\"input-box\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\"  name=\"dirType\" [(ngModel)]=\"row.directoryType\">\n\t\t\t\t  </div>\n\t\t\t\t</td>\n\t\t\t\t<td>                   \n\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\"  name=\"dirDescription\" [(ngModel)]=\"row.directoryDescription\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t</div>                              \n\t\t\t\t</td>\n\t\t\t\t<td>\t\t\t\t \n\t\t\t\t\t<mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"!row.directoryType || !row.directoryDescription ?'custom-icon-disabled':''\"\n\t\t\t\t\t(click)=\"add(row)\" ></mat-icon>\t\t\t  \n\t\t\t\t</td>\n\t\t\t  </tr>\n\t\t\t</ng-container>\n\t\t\t<ng-container\t\t\t\t\t\t\n\t\t\t  *ngFor=\"let list of allDirectory | simpleSearch :search | sort : list?.warehouseId: unitOrder;let Index=index\">\n\t\t\t  <tr>\t\n\t\t\t\t<td>\n\t\t\t\t\t<span [ngClass]=\"directoryIndex == Index?'d-none':''\">\n\t\t\t\t\t  {{list.directoryTypeName}}\n\t\t\t\t\t</span>\t\t\t\t \n\t\t\t\t\t<div class=\"input-box\" *ngIf=\"directoryIndex == Index\">\n\t\t\t\t\t  <input type=\"text\" class=\"form-control\" name=\"directoryTypeName\" [(ngModel)]=\"list.directoryTypeName\">\n\t\t\t\t  </div>\t\t\t\t\n\t\t\t\t  </td>\n\t\t\t\t<td>\n\t\t\t\t\t<span [ngClass]=\"directoryIndex == Index?'d-none':''\">\n\t\t\t\t\t  {{list.description}}\n\t\t\t\t\t</span>\t\t\t\t \n\t\t\t\t\t<div class=\"input-box\" *ngIf=\"directoryIndex == Index\">\n\t\t\t\t\t  <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n\t\t\t\t  </div>\t\t\t\t\n\t\t\t\t</td>\t\t\t\n\t\t\t\t<td>   \n\t\t\t\t\t<div class=\"d-flex  align-items-center\"> \n\t\t\t\t\t<span [ngClass]=\"directoryIndex == Index?'d-none':''\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" (click)=\"directoryIndex = Index\" aria-hidden=\"true\"  ></mat-icon>\n\t\t\t\t\t\t   </span>\n\t\t\t\t\t\t   <div class=\"pt-3 d-flex\">\n\t\t\t\t\t<mat-icon  svgIcon=\"mat_outline:save\"  title=\"save\"\n\t\t\t\t\t[ngClass]=\"!list.directoryTypeName || !list.description ?'custom-icon-disabled':''\"\n\t\t\t\t\t*ngIf=\"directoryIndex == Index\"  class=\"pt-1\" (click)=\"update(list)\" ></mat-icon>\t\n\t\t\t      \t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"directoryIndex == Index\"\n\t\t\t\t\t(click)=\"directoryIndex = -1\"></mat-icon>\n\t\t\t     \t</div>\t\t\t\t \n\t\t\t\t\t<span  [ngClass]=\"directoryIndex == Index?'d-none':''\">\n                        <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 icon delete\" (click)=\"delete(index,list)\" ></mat-icon>\n                    </span>\n\t\t\t\t</div>  \n\t\t\t\t</td>\n\t\t\t  </tr>\n\t\t\t</ng-container>\n\t\t  </tbody>  \n\t\t</table>\t\t\n\t  </ng-container>  \n\t</div>  \n  </condo-card>\n  </div>\n  </div>\n";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-assets-category-wrapper profile-section\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    \n        <app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n    \n        <ng-container *ngIf=\"isDataLoaded && !isNoItemsAvailable()\">\n        \n            <!-- <h5 class=\"float-left mt-2\">Asset - {{assetCategoryName}}</h5> -->\n    \n            <!-- <ul class=\"legends list-inline\">\n                <li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span>Maintenance Due</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Maintenance Done</li>\n            </ul> -->\n    \n            <div class=\"card clear\">\n    \n                <div class=\"card-body p-0\">\n    \n                        <form [formGroup]=\"userTable\">\n                                <table class=\"table\" [ngClass]=\"isMobileView()\">\n                                        <thead>\n                                            <tr>\n                                              <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                                              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                                              <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                                              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n                            \n                                              <th scope=\"col\">Action</th>\n                                            </tr>\n                                        </thead>\n                                        <tbody>\n                                            <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                                              <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                                                <td>\n                                                <mat-form-field>\n                                                        <input matInput type=\"text\" formControlName=\"serviceType\">\n    \n                                                </mat-form-field>\n                                                </td>\n                                                <td>\n                                                  <mat-form-field>\n                                                        <input matInput type=\"number\" formControlName=\"phone\">\n                                                    \n                                                  </mat-form-field>\n                                                </td>\n                                                <td>\n                                                  <mat-form-field>\n                                                        <input matInput type=\"text\" formControlName=\"contactperson\">\n                                                    \n                                                  </mat-form-field>\n                                                </td>\n                                                \n                                                <td>\n                                                  <mat-form-field>\n                                                        <input matInput type=\"email\" formControlName=\"email\">\n                                                  </mat-form-field>\n                                                </td>\n                                                <td>\n                                                  <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                                                  <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                    </a>\n                                                    <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                                                            <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                                                        </a>\n                                                  <!-- <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                                                  \n                                                </td>\n                                              </tr>\n    \n                                              <tr *ngIf=\"!group.get('isEditable').value\" >\n                                                <td>\n                                                  {{group.get('serviceType').value}}\n                                                </td>\n                                                <td>\n                                                  {{group.get('phone').value}}\n                                                </td>\n                                                <td>\n                                                    {{group.get('contactperson').value}}\n                                                </td>\n                                                \n                                                <td>\n                                                  {{group.get('email').value}}\n                                                </td>\n                                                <td>\n                                                        <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon> -->\n                                                        <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                                                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                                                            </a>\n                                                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                                                    <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                                                                </a>\n                                                        <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                                                  \n                                                </td>\n                                              </tr>\n                                            </ng-container>\n                                          </tbody>\n                                        \n                                    </table>\n                                    <div class=\"action-container\">\n                                            <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                                            <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n                                          </div>\n                                    </form>\n    \n    \n                    \n                </div>\n    \n            </div>\n    \n        </ng-container>\n    \n        <ng-container *ngIf=\"isDataLoaded && isNoItemsAvailable()\">\n            <div class=\"card\">\n                <div class=\"card-body\">\n                    <h5 class=\"float-left mt-2\">No Records Found</h5>\n                </div>\n            </div>\n        </ng-container>\n    \n    </div>\n";
+      __webpack_exports__["default"] = "<div class=\"property-assets-category-wrapper profile-section\" >  \n  <condo-card>\n    <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div>\n        <h4>Directory Asset Category</h4>\n        <p class=\"text-secondary\">{{assetDataList?.length}} Items</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n        [(ngModel)]=\"search\" >\n      </div>\n    </div>\t\n    </div>\t\t\t\t\t\n    <div CondoCardBody>\n      <form>\n        <table class=\"table\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>              \n              <th scope=\"col\" (click)=\"sortUnitData('serviceName')\">Service Type\n                <span [ngClass]=\"getFieldOrderBy('serviceName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone\n                <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('contactPersonName')\">Contact Person\n                <span [ngClass]=\"getFieldOrderBy('contactPersonName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email\n                <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>             \n              <th scope=\"col\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <ng-container>\n              <tr class=\"shadow\">  \n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serType\"\n                    [(ngModel)]=\"row.serviceType\" >\n                  </div>\t\n                </td>\n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phoneNo\"\n                    [(ngModel)]=\"row.phone\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"contperson\"\n                    [(ngModel)]=\"row.contactperson\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"emailId\"\n                    [(ngModel)]=\"row.email\" >\n                  </div>\t\n                </td>               \n                <td>                  \n                    <mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" [ngClass]=\"!row.serviceType  ?'custom-icon-disabled':''\"\n                    (click)=\"add(row)\"  ></mat-icon>\t\n                </td>\n              </tr>\n            </ng-container>\n            <ng-container *ngFor=\"let list of assetDataList  | simpleSearch: search | sort : list?.warehouseId: unitOrder;let categoryIndex=index\">\n              <tr>                \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.serviceName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serviceName\"\n                    [(ngModel)]=\"list.serviceName\" >\n                  </div>\n                </td>     \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.phone}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phone\"\n                    [(ngModel)]=\"list.phone\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.contactPersonName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"contactPersonName\"\n                    [(ngModel)]=\"list.contactPersonName\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.email}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"email\"\n                    [(ngModel)]=\"list.email\" >\n                  </div>\n                </td>                \n                <td>\n                  <div class=\"d-flex  align-items-center\"> \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" (click)=\"currentIndex = categoryIndex\"  ></mat-icon>\n                    </span>                  \n                    <div class=\"pt-3 d-flex\">\t\n                    <mat-icon   class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!list.serviceName ?'custom-icon-disabled':''\"  \n                    *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"update(list)\" ></mat-icon>                  \n                    <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"currentIndex = -1\"></mat-icon>\n                    </div>               \n                    <span  [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 icon delete\" (click)=\"delete(index,list)\" ></mat-icon>\n                    </span>\n                    </div>\n                </td>\n              </tr>\n            </ng-container>\n          </tbody>\n        </table>            \n      </form>\n    </div>\n  </condo-card>\n\n</div>\n";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<app-loader *ngIf=\"!isExternalDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isExternalDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n    <table class=\"table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\n                  <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                  <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                    <td>\n                    <mat-form-field>\n                        <!-- <mat-select formControlName=\"serviceType\">\n                        <mat-option value=\"Police\">Police</mat-option>\n                        </mat-select> -->\n                        <input matInput type=\"text\" formControlName=\"serviceType\">\n                    </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"number\" formControlName=\"phone\">\n                        \n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"contactperson\">\n                        \n                      </mat-form-field>\n                    </td>\n                    \n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"email\" formControlName=\"email\">\n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i,group)\">delete_forever</mat-icon>\n                      <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                        <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                      </a>\n                      \n                    </td>\n                  </tr>\n                  <tr *ngIf=\"!group.get('isEditable').value\" >\n                    <td>\n                      {{group.get('serviceType').value}}\n                    </td>\n                    <td>\n                      {{group.get('phone').value}}\n                    </td>\n                    <td>\n                        {{group.get('contactperson').value}}\n                    </td>\n                    \n                    <td>\n                      {{group.get('email').value}}\n                    </td>\n                    <td>\n                            <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                            <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                              </a>\n                              <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                                <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                              </a>\n                            \n                      \n                    </td>\n                  </tr>\n                </ng-container>\n              </tbody>\n            \n        </table>\n        <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n        </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n";
+      __webpack_exports__["default"] = "\n<div class=\"property-assets-category-wrapper profile-section\" >  \n  <condo-card>\n    <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div>\n          <h4>External Directory </h4>\n        <p class=\"text-secondary\">{{externalListData?.length}} Items</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n        [(ngModel)]=\"search\" >\n      </div>\n    </div>\t\n    </div>\t\t\t\t\t\n    <div CondoCardBody>\n      <form>\n        <table class=\"table\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>              \n              <th scope=\"col\" (click)=\"sortUnitData('serviceName')\">Service Type\n                <span [ngClass]=\"getFieldOrderBy('serviceName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone\n                <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('contactPersonName')\">Contact Person\n                <span [ngClass]=\"getFieldOrderBy('contactPersonName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email\n                <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>             \n              <th scope=\"col\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <ng-container>\n              <tr class=\"shadow\">  \n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serType\"\n                    [(ngModel)]=\"row.serviceType\" >\n                  </div>\t\n                </td>\n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phoneNo\"\n                    [(ngModel)]=\"row.phone\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"contperson\"\n                    [(ngModel)]=\"row.contactperson\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"emailId\"\n                    [(ngModel)]=\"row.email\" >\n                  </div>\t\n                </td>               \n                <td>                  \n                    <mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!row.serviceType  ?'custom-icon-disabled':''\"\n                    (click)=\"add(row)\" ></mat-icon>\n                </td>\n              </tr>\n            </ng-container>\n            <ng-container *ngFor=\"let list of externalListData  | simpleSearch: search | sort : list?.warehouseId: unitOrder;let categoryIndex=index\">\n              <tr>                \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.serviceName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serviceName\"\n                    [(ngModel)]=\"list.serviceName\" >\n                  </div>\n                </td>     \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.phone}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phone\"\n                    [(ngModel)]=\"list.phone\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.contactPersonName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"contactPersonName\"\n                    [(ngModel)]=\"list.contactPersonName\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.email}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"email\"\n                    [(ngModel)]=\"list.email\" >\n                  </div>\n                </td>                \n                <td>\n                  <div class=\"d-flex  align-items-center\">                   \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\" >\n                      <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" (click)=\"currentIndex = categoryIndex\" ></mat-icon>\n                    </span>                 \n                    <div class=\"pt-3 d-flex\">\n                    <mat-icon  class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [disabled]=\"!list.serviceName ?'custom-icon-disabled':''\"\n                    *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"update(list)\"></mat-icon>                   \n                    <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"currentIndex = -1\"></mat-icon>\n                  </div>                 \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:trash-2'\" (click)=\"delete(index,list)\"  class=\"pt-2 icon delete\" ></mat-icon>\n                    </span>\n                    </div>\n                </td>\n              </tr>\n            </ng-container>\n          </tbody>\n        </table>            \n      </form>\n    </div>\n  </condo-card>\n\n</div>\n\n\n\n\n\n";
       /***/
     },
 
@@ -82,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<app-loader *ngIf=\"!isInternalDataLoaded\"></app-loader>\n\n<div class=\"card table-card mb-30\" *ngIf=\"isInternalDataLoaded\">\n\n\n    <div class=\"card-body p-0\">\n            <form [formGroup]=\"userTable\">\n    <table class=\"table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                  <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Contact Person <span [ngClass]=\"getFieldOrderBy('contactperson')\"></span></th>\n                  <th scope=\"col\" (click)=\"sortUnitData('email')\">Email <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>\n\n                  <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody>\n                <ng-container formArrayName=\"tableRows\" *ngFor=\"let group of getFormControls.controls ; let i=index\">\n                  <tr *ngIf=\"group.get('isEditable').value\" [formGroupName]=\"i\">\n                    <td>\n                    <mat-form-field>\n                        <!-- <mat-select formControlName=\"serviceType\">\n                        <mat-option value=\"Laundery\">Laundery</mat-option>\n                        <mat-option value=\"PhotoCopy\">Photo Copy</mat-option>\n                        <mat-option value=\"Ticketing\">Ticketing</mat-option>\n                        </mat-select> -->\n                        <input matInput type=\"text\" formControlName=\"serviceType\">\n                    </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"number\" formControlName=\"phone\">\n                        \n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"text\" formControlName=\"contactperson\">\n                        \n                      </mat-form-field>\n                    </td>\n                    \n                    <td>\n                      <mat-form-field>\n                            <input matInput type=\"email\" formControlName=\"email\">\n                      </mat-form-field>\n                    </td>\n                    <td>\n                      <!-- <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon>\n                      <mat-icon class=\"done\" (click)=\"doneRow(group)\">done</mat-icon> -->\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                        <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                      </a>\n                      <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"doneRow(group)\">\n                        <i-feather class=\"icon check\" name=\"check\"></i-feather>\n                      </a>\n                      \n                    </td>\n                  </tr>\n                  <tr *ngIf=\"!group.get('isEditable').value\" >\n                    <td>\n                      {{group.get('serviceType').value}}\n                    </td>\n                    <td>\n                      {{group.get('phone').value}}\n                    </td>\n                    <td>\n                        {{group.get('contactperson').value}}\n                    </td>\n                    \n                    <td>\n                      {{group.get('email').value}}\n                    </td>\n                    <td>\n                            <!-- <mat-icon class=\"edit\" (click)=\"editRow(group)\">edit</mat-icon>\n                            <mat-icon class=\"delete\" (click)=\"deleteRow(i, group)\">delete_forever</mat-icon> -->\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"editRow(group)\">\n                              <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                            </a>\n                            <a href=\"javascript:void(0)\" class=\"mr-2\" (click)=\"deleteRow(i, group)\">\n                              <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                            </a>\n                      \n                    </td>\n                  </tr>\n                </ng-container>\n              </tbody>\n            \n        </table>\n        <div class=\"action-container\">\n                <button mat-raised-button type=\"submit\" (click)=\"addRow()\">Add row</button>\n                <!-- <button mat-raised-button [disabled]=\"userTable.invalid\" type=\"submit\" (click)=\"submitForm()\">Submit</button> -->\n              </div>\n        </form>\n\n        <!-- <div class=\"output\">\n                <p>Form Data:  {{userTable.value | json}}</p>\n                  <p>Is Valid: {{userTable.valid}}</p>\n              </div> -->\n    </div>\n\n</div>\n";
+      __webpack_exports__["default"] = "\n\n\n\n\n\n\n\n<div class=\"property-assets-category-wrapper profile-section\" >  \n  <condo-card>\n    <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div> \n        <h4>Internal Directory </h4>\n        <p class=\"text-secondary\">{{internalListData?.length}} Items</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n        [(ngModel)]=\"search\" >\n      </div>\n    </div>\t\n    </div>\t\t\t\t\t\n    <div CondoCardBody>\n      <form>\n        <table class=\"table\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>             \n              <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Service Type\n                <span [ngClass]=\"getFieldOrderBy('serviceType')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('phone')\">Phone\n                <span [ngClass]=\"getFieldOrderBy('phone')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('contactPersonName')\">Contact Person\n                <span [ngClass]=\"getFieldOrderBy('contactPersonName')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('email')\">Email\n                <span [ngClass]=\"getFieldOrderBy('email')\"></span></th>             \n              <th scope=\"col\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <ng-container>\n              <tr class=\"shadow\">  \n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serType\"\n                    [(ngModel)]=\"row.serviceType\" >\n                  </div>\t\n                </td>\n                <td>                     \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phoneNo\"\n                    [(ngModel)]=\"row.phone\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"contperson\"\n                    [(ngModel)]=\"row.contactperson\" >\n                  </div>\t\n                </td>\n                <td>                 \n                  <div class=\"input-box\">\n                    <input type=\"text\" class=\"form-control\"   name=\"emailId\"\n                    [(ngModel)]=\"row.email\" >\n                  </div>\t\n                </td>               \n                <td>\n                 \n                    <mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!row.serviceType  ?'custom-icon-disabled':''\"\n                    (click)=\"add(row)\" ></mat-icon>\n                </td>\n              </tr>\n              <!-- </form> -->\n            </ng-container>\n            <ng-container *ngFor=\"let list of internalListData  | simpleSearch: search | sort : list?.warehouseId: unitOrder;let categoryIndex=index\">\n              <tr>                \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.serviceName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"serviceType\"\n                    [(ngModel)]=\"list.serviceType\" >\n                  </div>\n                </td>     \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.phone}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"phone\"\n                    [(ngModel)]=\"list.phone\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.contactPersonName}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"contactperson\"\n                    [(ngModel)]=\"list.contactperson\" >\n                  </div>\n                </td>   \n                <td>\n                  <span\n                    [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                    {{list.email}}\n                  </span>                \n                  <div class=\"input-box\" *ngIf=\"currentIndex == categoryIndex\">\n                    <input type=\"text\" class=\"form-control\"  name=\"email\"\n                    [(ngModel)]=\"list.email\" >\n                  </div>\n                </td>                \n                <td>\n                  <div class=\"d-flex  align-items-center\"> \n               \n                    <span [ngClass]=\"currentIndex == categoryIndex?'d-none':''\" >\n                      <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\"  (click)=\"currentIndex = categoryIndex\" ></mat-icon>\n                    </span>                  \n                    <div class=\"pt-3 d-flex\">\t\n                    <mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                    [ngClass]=\"!list.serviceType ?'custom-icon-disabled':''\"\n                    *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"update(list)\" ></mat-icon>                \n                    <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"currentIndex == categoryIndex\"\n                    (click)=\"currentIndex = -1\"></mat-icon>\n                    </div>                 \n                    <span  [ngClass]=\"currentIndex == categoryIndex?'d-none':''\">\n                      <mat-icon [svgIcon]=\"'feather:trash-2'\" (click)=\"delete(index,list)\"  class=\"pt-2 icon delete\" ></mat-icon>\n                    </span>\n                    </div>\n                </td>\n              </tr>\n            </ng-container>\n          </tbody>\n        </table>            \n      </form>\n    </div>\n  </condo-card>\n\n</div>\n\n\n\n\n\n";
       /***/
     },
 
@@ -102,7 +102,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <ng-container *ngIf=\"isDataLoaded\">\n    <div class=\"maintain-directory-wrapper\">\n      <!-- <div class=\"card\">\n        <div class=\"card-body p-0\">\n          <nav class=\"nav nav-pills\" id=\"directory-wrapper\">\n            <ul class=\"tabs mr-auto\" id=\"directory-tabs\">\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"external\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">External Directory</a></li>\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"internal\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">Internal Directory</a></li>\n              \n              <li *ngFor=\"let asset of assetCategoriesData\">\n                <a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"asset/{{asset.directoryTypeId}}\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">{{asset.directoryTypeName}}</a></li>\n            </ul>\n            <div class=\"buttons ml-auto\">\n              <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n              </a>\n              <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n              </a>\n            </div>\n          </nav>\n        </div>\n      </div>\n  \n      <div class=\"d-block mt-5\">\n        <div class=\"pt-2\">\n          <router-outlet></router-outlet>\n        </div>\n      </div> -->\n      <div class=\"main\">\n        <h4 class=\"mb-4\">Maintain Directory</h4>\n        <div class=\"bg-card shadow p-0\">\n          <nav mat-tab-nav-bar>\n            <a mat-tab-link \n            [routerLink]=\"'external'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            External Directory\n            </a>\n            <a mat-tab-link \n            [routerLink]=\"'internal'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            Internal Directory\n            </a>\n            <a mat-tab-link \n            *ngFor=\"let asset of assetCategoriesData\"\n            [routerLink]=\"'asset/'+asset.directoryTypeId\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            {{asset.directoryTypeName}}\n            </a>\n          </nav>\n          <router-outlet></router-outlet>\n        </div>\n      </div>\n    </div>\n  </ng-container>\n";
+      __webpack_exports__["default"] = "\n\n  <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n\n  <ng-container *ngIf=\"isDataLoaded\">\n    <div class=\"maintain-directory-wrapper\">\n      <!-- <div class=\"card\">\n        <div class=\"card-body p-0\">\n          <nav class=\"nav nav-pills\" id=\"directory-wrapper\">\n            <ul class=\"tabs mr-auto\" id=\"directory-tabs\">\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"external\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">External Directory</a></li>\n              <li><a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"internal\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">Internal Directory</a></li>\n              \n              <li *ngFor=\"let asset of assetCategoriesData\">\n                <a class=\"nav-item nav-link\" href=\"javascript:void(0)\"\n              routerLink=\"asset/{{asset.directoryTypeId}}\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">{{asset.directoryTypeName}}</a></li>\n            </ul>\n            <div class=\"buttons ml-auto\">\n              <a class=\"nav-item nav-link prev\" (click)=\"moveTabLeft()\"href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-left\" aria-hidden=\"true\"></i>\n              </a>\n              <a class=\"nav-item nav-link next\" (click)=\"moveTabRight()\" href=\"javascript:void(0)\">\n                <i class=\"fa fa-angle-right\" aria-hidden=\"true\"></i>\n              </a>\n            </div>\n          </nav>\n        </div>\n      </div>\n  \n      <div class=\"d-block mt-5\">\n        <div class=\"pt-2\">\n          <router-outlet></router-outlet>\n        </div>\n      </div> -->\n      <div class=\"main\">\n        <h4 class=\"mb-4\">Maintain Directory</h4>\n        <div class=\"bg-card shadow p-0\">\n          <nav mat-tab-nav-bar>\n            <a mat-tab-link \n            [routerLink]=\"'external'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            External Directory\n            </a>          \n            <a mat-tab-link \n            [routerLink]=\"'internal'\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            Internal Directory\n            </a>\n            <a mat-tab-link \n            *ngFor=\"let asset of assetCategoriesData\"\n            [routerLink]=\"'asset/'+asset.directoryTypeId\" \n            routerLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n            {{asset.directoryTypeName}}\n            </a>\n          </nav>          \n             <router-outlet></router-outlet>      \n        </div>\n      </div>\n    </div>\n  </ng-container>\n";
       /***/
     },
 
@@ -142,7 +142,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".icon {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvZGlyZWN0b3J5LXNldHVwL2RpcmVjdG9yeS1zZXR1cC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL2RpcmVjdG9yeS1zZXR1cC9kaXJlY3Rvcnktc2V0dXAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaWNvbntcbiAgICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */";
+      __webpack_exports__["default"] = ".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvZGlyZWN0b3J5LXNldHVwL2RpcmVjdG9yeS1zZXR1cC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLG9CQUFBO0VBQ0EsWUFBQTtBQUNEIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvZGlyZWN0b3J5LXNldHVwL2RpcmVjdG9yeS1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jdXN0b20taWNvbi1kaXNhYmxlZHtcblx0cG9pbnRlci1ldmVudHM6bm9uZTtcblx0b3BhY2l0eTowLjQ7XG4gIH0iXX0= */";
       /***/
     },
 
@@ -195,18 +195,26 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
 
       var DirectorySetupComponent = /*#__PURE__*/function () {
-        function DirectorySetupComponent(apartmentService, sharedService, sessionService) {
+        function DirectorySetupComponent(apartmentService, sharedService, sessionService, injector) {
           _classCallCheck(this, DirectorySetupComponent);
 
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.injector = injector;
           this.directoryType = '';
           this.isDirectoryTypeLoaded = false;
           this.errorMessage = '';
           this.isError = false;
+          this.row = {};
           this.wpData = '';
           this.unitFieldType = 'directoryTypeId';
           this.unitOrder = false;
@@ -220,18 +228,39 @@
         _createClass(DirectorySetupComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this = this;
+
             this.directoryTypeId = 0;
             this.isDirectoryTypeLoaded = true;
             this.directory = {
               directoryType: '',
               directoryDescription: ''
             };
+            this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
             this.getDirectoryType();
+            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var params = {
+                  DirectoryTypeId: id,
+                  deleteBy: parseInt(_this.sessionService.userId)
+                };
+
+                _this.apartmentService.deleteDirectoryType(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this.sharedService.setAlertMessage(' deleted successfully');
+
+                    _this.getDirectoryType();
+                  }
+                }, function (err) {
+                  _this.sharedService.setAlertMessage(err);
+                });
+              }
+            });
           }
         }, {
           key: "submitDirectoryTypeForm",
           value: function submitDirectoryTypeForm(form) {
-            var _this = this;
+            var _this2 = this;
 
             var params = {
               directoryType: {
@@ -251,29 +280,29 @@
             if (this.directoryTypeId === 0) {
               this.apartmentService.addDirectoryType(params).subscribe(function (res) {
                 if (res.message) {
-                  _this.sharedService.setAlertMessage(' added successfully');
+                  _this2.sharedService.setAlertMessage(' added successfully');
 
-                  _this.directoryTypeId = 0;
-                  _this.directory = {
+                  _this2.directoryTypeId = 0;
+                  _this2.directory = {
                     directoryType: '',
                     directoryDescription: ''
                   };
 
-                  _this.getDirectoryType();
+                  _this2.getDirectoryType();
                 } else {}
               });
             } else {
               this.apartmentService.updateDirectoryType(params).subscribe(function (res) {
                 if (res.message) {
-                  _this.sharedService.setAlertMessage(' updated successfully');
+                  _this2.sharedService.setAlertMessage(' updated successfully');
 
-                  _this.directoryTypeId = 0;
-                  _this.directory = {
+                  _this2.directoryTypeId = 0;
+                  _this2.directory = {
                     directoryType: '',
                     directoryDescription: ''
                   };
 
-                  _this.getDirectoryType();
+                  _this2.getDirectoryType();
                 } else {}
               });
             }
@@ -282,20 +311,20 @@
         }, {
           key: "getDirectoryType",
           value: function getDirectoryType() {
-            var _this2 = this;
+            var _this3 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getAllDirectoryTypeByApartmentId(params).subscribe(function (res) {
-              _this2.allDirectory = res;
-              _this2.isDirectoryTypeLoaded = true;
-              _this2.totalItems = _this2.allDirectory.length;
+              _this3.allDirectory = res;
+              _this3.isDirectoryTypeLoaded = true;
+              _this3.totalItems = _this3.allDirectory.length;
 
-              if (_this2.totalItems > _this2.itemLimit) {
-                _this2.ItemEndIndex = _this2.itemLimit;
+              if (_this3.totalItems > _this3.itemLimit) {
+                _this3.ItemEndIndex = _this3.itemLimit;
               } else {
-                _this2.ItemEndIndex = _this2.totalItems;
+                _this3.ItemEndIndex = _this3.totalItems;
               }
             });
           }
@@ -327,7 +356,7 @@
         }, {
           key: "getDirectoryTypeByDirectoryTypeId",
           value: function getDirectoryTypeByDirectoryTypeId(typeId) {
-            var _this3 = this;
+            var _this4 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
@@ -336,7 +365,7 @@
             this.directoryTypeId = typeId;
             this.apartmentService.getDirectoryTypeByDirectoryTypeId(params).subscribe(function (res) {
               var resDirectory = res;
-              _this3.directory = {
+              _this4.directory = {
                 directoryType: resDirectory[0].directoryTypeName,
                 directoryDescription: resDirectory[0].description
               };
@@ -346,7 +375,7 @@
         }, {
           key: "deleteByDirectoryTypeId",
           value: function deleteByDirectoryTypeId(typeId) {
-            var _this4 = this;
+            var _this5 = this;
 
             var params = {
               DirectoryTypeId: parseInt(typeId),
@@ -355,13 +384,86 @@
             this.directoryTypeId = typeId;
             this.apartmentService.deleteDirectoryType(params).subscribe(function (res) {
               if (res.message) {
-                _this4.sharedService.setAlertMessage(' deleted successfully');
+                _this5.sharedService.setAlertMessage(' deleted successfully');
 
-                _this4.getDirectoryType();
+                _this5.getDirectoryType();
               }
             }, function (err) {
-              _this4.sharedService.setAlertMessage(err);
+              _this5.sharedService.setAlertMessage(err);
             });
+          }
+        }, {
+          key: "add",
+          value: function add(data) {
+            var _this6 = this;
+
+            var params = {
+              directoryType: {
+                directoryTypeId: 0,
+                apartmentId: this.sessionService.apartmentId,
+                directoryTypeName: data.directoryType,
+                description: data.directoryDescription,
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString(),
+                directoryRecords: []
+              }
+            };
+            this.apartmentService.addDirectoryType(params).subscribe(function (res) {
+              if (res.message) {
+                _this6.sharedService.setAlertMessage(' added successfully');
+
+                _this6.directoryTypeId = 0;
+                _this6.directory = {
+                  directoryType: '',
+                  directoryDescription: ''
+                };
+                _this6.row = {};
+
+                _this6.getDirectoryType();
+              } else {}
+            });
+          }
+        }, {
+          key: "update",
+          value: function update(data) {
+            var _this7 = this;
+
+            // 	let reqObj: any = {};
+            var params = {
+              directoryType: {
+                directoryTypeId: data.directoryTypeId,
+                apartmentId: this.sessionService.apartmentId,
+                directoryTypeName: data.directoryTypeName,
+                description: data.description,
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString(),
+                directoryRecords: []
+              }
+            };
+            this.apartmentService.updateDirectoryType(params).subscribe(function (res) {
+              if (res.message) {
+                _this7.sharedService.setAlertMessage(' updated successfully');
+
+                _this7.directoryTypeId = 0;
+                _this7.directory = {
+                  directoryType: '',
+                  directoryDescription: ''
+                };
+                _this7.directoryIndex = -1; // this.getDirectoryType();
+              } else {}
+            });
+          }
+        }, {
+          key: "delete",
+          value: function _delete(index, data) {
+            // console.log(data.warehouseId);  
+            this.modalService.showConfirmModal(data.directoryTypeId);
           }
         }]);
 
@@ -375,6 +477,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
       };
 
@@ -386,7 +490,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./directory-setup.component.scss */
         "./src/app/modules/ams/directory/components/directory-setup/directory-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], DirectorySetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], DirectorySetupComponent);
       /***/
     },
 
@@ -406,7 +510,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2RpcmVjdG9yeS1hc3NldC1jYXRlZ29yeS9kaXJlY3RvcnktYXNzZXQtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxhQUFBO0VBQ0EsOEJBQUE7RUFDQSxhQUFBO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2Ftcy9kaXJlY3RvcnkvY29tcG9uZW50cy9tYWludGFpbi1kaXJlY3RvcnkvZGlyZWN0b3J5LWFzc2V0LWNhdGVnb3J5L2RpcmVjdG9yeS1hc3NldC1jYXRlZ29yeS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hY3Rpb24tY29udGFpbmVyIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBwYWRkaW5nOiAyMHB4O1xuICB9Il19 */";
+      __webpack_exports__["default"] = ".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2RpcmVjdG9yeS1hc3NldC1jYXRlZ29yeS9kaXJlY3RvcnktYXNzZXQtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRCxvQkFBQTtFQUNBLFlBQUE7QUFBRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL21haW50YWluLWRpcmVjdG9yeS9kaXJlY3RvcnktYXNzZXQtY2F0ZWdvcnkvZGlyZWN0b3J5LWFzc2V0LWNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4gIC5jdXN0b20taWNvbi1kaXNhYmxlZHtcblx0cG9pbnRlci1ldmVudHM6bm9uZTtcblx0b3BhY2l0eTowLjQ7XG4gIH0iXX0= */";
       /***/
     },
 
@@ -468,20 +572,26 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js"); // import { AssetService } from 'src/app/api/services/asset.service';
 
 
       var DirectoryAssetCategoryComponent = /*#__PURE__*/function () {
-        function DirectoryAssetCategoryComponent(router, route, apartmentService, lookupService, sharedService, sessionService, fb) {
-          var _this5 = this;
+        function DirectoryAssetCategoryComponent(router, route, apartmentService, lookupService, sharedService, sessionService, fb, injector) {
+          var _this8 = this;
 
           _classCallCheck(this, DirectoryAssetCategoryComponent);
 
@@ -492,6 +602,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.fb = fb;
+          this.injector = injector;
           this.isDataLoaded = false;
           this.isError = false;
           this.alertMessage = '';
@@ -501,12 +612,14 @@
           this.isExternalDataLoaded = false;
           this.externalDeleteId = '';
           this.errorMessage = '';
+          this.row = {};
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
           this.userTable = this.fb.group({
             tableRows: this.fb.array([])
           });
           this.route.params.subscribe(function (params) {
-            if (_this5.router.url.indexOf('maintain/asset') !== -1) {
-              _this5.getAssetDirectoryItems();
+            if (_this8.router.url.indexOf('maintain/asset') !== -1) {
+              _this8.getAssetDirectoryItems();
             }
           });
         }
@@ -514,7 +627,7 @@
         _createClass(DirectoryAssetCategoryComponent, [{
           key: "getAssetDirectoryItems",
           value: function getAssetDirectoryItems() {
-            var _this6 = this;
+            var _this9 = this;
 
             this.isDataLoaded = false; // tslint:disable-next-line:no-string-literal
 
@@ -524,41 +637,37 @@
               directoryTypeId: this.assetDirectoryTypeId
             };
             this.apartmentService.getAllDirectoryRecordsByDirectoryTypeId(params).subscribe(function (res) {
-              _this6.assetDataList = res; // if(res == undefined || res.length == 0){
+              _this9.assetDataList = res; // if(res == undefined || res.length == 0){
               //   this.assetCategoryName = ""
               // }
               // else {
               //   this.assetCategoryName = res[0].categoryName
-
-              var control = _this6.userTable.get('tableRows');
-
-              control.clear(); // tslint:disable-next-line:no-shadowed-variable
-
-              _this6.assetDataList.forEach(function (element, index) {
-                var formcontrol = _this6.userTable.get('tableRows');
-
-                formcontrol.push(_this6.fb.group({
-                  directoryRecordId: [element.directoryRecordId],
-                  serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                  email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-                  contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-                  phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(10)]],
-                  isEditable: [false]
-                }));
-              });
-
-              _this6.addRow(); // const formcontrol =  this.userTable.get('tableRows') as FormArray;
+              // const control =  this.userTable.get('tableRows') as FormArray;
+              // control.clear();
+              // // tslint:disable-next-line:no-shadowed-variable
+              // this.assetDataList.forEach((element, index) => {
+              //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+              //   formcontrol.push(this.fb.group({
+              //     directoryRecordId: [element.directoryRecordId],
+              //     serviceType: [element.serviceName, Validators.required],
+              //     email: [element.email, [Validators.email, Validators.required]],
+              //     contactperson: [element.contactPersonName, Validators.required],
+              //     phone: [element.phone, [Validators.required, Validators.maxLength(10)]],
+              //     isEditable: [false]
+              //   }));
+              // });
+              // this.addRow();
+              // const formcontrol =  this.userTable.get('tableRows') as FormArray;
               //   _.each(this.assetDataList, function(item, i, formcontrol: FormArray, fb: FormBuilder) {
               //     debugger;
               //   })
               // }
 
-
-              _this6.isDataLoaded = true;
+              _this9.isDataLoaded = true;
             }, function (error) {
-              _this6.isDataLoaded = true;
-              _this6.isError = true;
-              _this6.alertMessage = 'Some error occured';
+              _this9.isDataLoaded = true;
+              _this9.isError = true;
+              _this9.alertMessage = 'Some error occured';
             });
           }
         }, {
@@ -569,10 +678,31 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this10 = this;
+
             this.isExternalDataLoaded = true;
             this.touchedRows = [];
             this.userTable = this.fb.group({
               tableRows: this.fb.array([])
+            });
+            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var params = {
+                  // tslint:disable-next-line:radix
+                  DirectoryRecordId: id,
+                  deleteBy: 1
+                };
+
+                _this10.apartmentService.deleteDirectoryRecord(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this10.sharedService.setAlertMessage(' deleted successfully');
+
+                    _this10.getAssetDirectoryItems();
+                  } else {}
+                });
+              } else {
+                _this10.sharedService.setAlertMessage('record not delete');
+              }
             });
           }
         }, {
@@ -603,10 +733,10 @@
           value: function initiateForm() {
             return this.fb.group({
               directoryRecordId: [''],
-              serviceType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-              email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
-              contactperson: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
-              phone: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(10)]],
+              serviceType: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required],
+              email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required]],
+              contactperson: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required],
+              phone: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].maxLength(10)]],
               isEditable: [true]
             });
           }
@@ -619,7 +749,7 @@
         }, {
           key: "deleteRow",
           value: function deleteRow(index, group) {
-            var _this7 = this;
+            var _this11 = this;
 
             var control = this.userTable.get('tableRows');
 
@@ -632,7 +762,7 @@
               };
               this.apartmentService.deleteDirectoryRecord(params).subscribe(function (res) {
                 if (res.message) {
-                  _this7.sharedService.setAlertMessage(' deleted successfully');
+                  _this11.sharedService.setAlertMessage(' deleted successfully');
                 } else {}
               });
             } else {
@@ -647,7 +777,7 @@
         }, {
           key: "doneRow",
           value: function doneRow(group) {
-            var _this8 = this;
+            var _this12 = this;
 
             group.get('isEditable').setValue(false);
             var recordID = group.get('directoryRecordId').value;
@@ -678,13 +808,13 @@
             if (recordID !== '') {
               this.apartmentService.updateDirectoryRecords(params).subscribe(function (res) {
                 if (res.message) {
-                  _this8.sharedService.setAlertMessage(' updated successfully');
+                  _this12.sharedService.setAlertMessage(' updated successfully');
                 } else {}
               });
             } else {
               this.apartmentService.addDirectoryRecords(params).subscribe(function (res) {
                 if (res.message) {
-                  _this8.sharedService.setAlertMessage(' added successfully');
+                  _this12.sharedService.setAlertMessage(' added successfully');
                 } else {}
               });
             }
@@ -706,6 +836,88 @@
             console.log(this.touchedRows);
           }
         }, {
+          key: "add",
+          value: function add(data) {
+            var _this13 = this;
+
+            var params = {
+              directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: 0,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: this.route.params['value'].id,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: 1,
+                insertedOn: new Date().toISOString(),
+                updatedBy: 1,
+                updatedOn: new Date().toISOString()
+              }
+            };
+            this.apartmentService.addDirectoryRecords(params).subscribe(function (res) {
+              if (res.message) {
+                _this13.row = {};
+
+                _this13.sharedService.setAlertMessage(' added successfully');
+
+                _this13.getAssetDirectoryItems();
+              } else {}
+            });
+          }
+        }, {
+          key: "update",
+          value: function update(data) {
+            var _this14 = this;
+
+            // 	let reqObj: any = {};
+            var params = {
+              directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: data.directoryRecordId,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: this.route.params['value'].id,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceName,
+                phone: data.phone,
+                contactPersonName: data.contactPersonName,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: 1,
+                insertedOn: new Date().toISOString(),
+                updatedBy: 1,
+                updatedOn: new Date().toISOString()
+              }
+            };
+            this.apartmentService.updateDirectoryRecords(params).subscribe(function (res) {
+              if (res) {
+                _this14.sharedService.setAlertMessage("Updated successfully"); // this.isAssetLoaded = false;
+
+
+                _this14.currentIndex = -1;
+              }
+            });
+          }
+        }, {
+          key: "delete",
+          value: function _delete(index, data) {
+            // console.log(data.warehouseId);  
+            this.modalService.showConfirmModal(data.directoryRecordId);
+          }
+        }, {
           key: "getFormControls",
           get: function get() {
             var control = this.userTable.get('tableRows');
@@ -722,7 +934,7 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
@@ -730,7 +942,9 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
       };
 
@@ -742,7 +956,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./directory-asset-category.component.scss */
         "./src/app/modules/ams/directory/components/maintain-directory/directory-asset-category/directory-asset-category.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]])], DirectoryAssetCategoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormBuilder"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], DirectoryAssetCategoryComponent);
       /***/
     },
 
@@ -762,7 +976,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "header {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2V4dGVybmFsLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRjs7QUFFQTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBRUE7RUFDRSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQUVGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2V4dGVybmFsLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBzdGlja3k7XG4gIHRvcDowO1xuICBwYWRkaW5nOiAxNXB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59XG5cbm1hdC1pY29uIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHRib2R5IHRyIHRkLFxuLnRhYmxlIHRoZWFkIHRoLFxuLnRhYmxlIHRoZWFkIHtcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkICA7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xuXG59XG4iXX0= */";
+      __webpack_exports__["default"] = ".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2V4dGVybmFsLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxvQkFBQTtFQUNBLFlBQUE7QUFDRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL21haW50YWluLWRpcmVjdG9yeS9leHRlcm5hbC1kaXJlY3RvcnkvZXh0ZXJuYWwtZGlyZWN0b3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbS1pY29uLWRpc2FibGVke1xuXHRwb2ludGVyLWV2ZW50czpub25lO1xuXHRvcGFjaXR5OjAuNDtcbiAgfSJdfQ== */";
       /***/
     },
 
@@ -821,15 +1035,22 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
 
       var ExternalDirectoryComponent = /*#__PURE__*/function () {
-        function ExternalDirectoryComponent(fb, apartmentService, sessionService, sharedService) {
+        function ExternalDirectoryComponent(fb, apartmentService, sessionService, sharedService, injector) {
           _classCallCheck(this, ExternalDirectoryComponent);
 
           this.fb = fb;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
           this.sharedService = sharedService;
+          this.injector = injector;
           this.unitFieldType = 'unitno';
           this.unitOrder = false;
           this.externalData = '';
@@ -838,11 +1059,15 @@
           this.errorMessage = '';
           this.isError = false;
           this.alertMessage = '';
+          this.row = {};
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(ExternalDirectoryComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this15 = this;
+
             this.isExternalDataLoaded = true;
             this.touchedRows = [];
             this.userTable = this.fb.group({
@@ -850,6 +1075,25 @@
             }); // this.addRow();
 
             this.getAssetDirectoryItems();
+            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var params = {
+                  // tslint:disable-next-line:radix
+                  DirectoryRecordId: id,
+                  deleteBy: 1
+                };
+
+                _this15.apartmentService.deleteDirectoryRecord(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this15.sharedService.setAlertMessage(' deleted successfully');
+
+                    _this15.getAssetDirectoryItems();
+                  } else {}
+                });
+              } else {
+                _this15.sharedService.setAlertMessage('record not delete');
+              }
+            });
           }
         }, {
           key: "ngAfterViewInit",
@@ -895,7 +1139,7 @@
         }, {
           key: "deleteRow",
           value: function deleteRow(index, group) {
-            var _this9 = this;
+            var _this16 = this;
 
             // const control =  this.userTable.get('tableRows') as FormArray;
             // control.removeAt(index);
@@ -910,7 +1154,7 @@
               };
               this.apartmentService.deleteDirectoryRecord(params).subscribe(function (res) {
                 if (res.message) {
-                  _this9.sharedService.setAlertMessage(' deleted successfully');
+                  _this16.sharedService.setAlertMessage(' deleted successfully');
                 } else {}
               });
             } else {
@@ -925,7 +1169,7 @@
         }, {
           key: "doneRow",
           value: function doneRow(group) {
-            var _this10 = this;
+            var _this17 = this;
 
             group.get('isEditable').setValue(false);
             var recordID = group.get('directoryRecordId').value;
@@ -956,13 +1200,13 @@
             if (recordID !== '') {
               this.apartmentService.updateDirectoryRecords(params).subscribe(function (res) {
                 if (res.message) {
-                  _this10.sharedService.setAlertMessage(' updated successfully');
+                  _this17.sharedService.setAlertMessage(' updated successfully');
                 } else {}
               });
             } else {
               this.apartmentService.addDirectoryRecords(params).subscribe(function (res) {
                 if (res.message) {
-                  _this10.sharedService.setAlertMessage(' added successfully');
+                  _this17.sharedService.setAlertMessage(' added successfully');
                 } else {}
               });
             }
@@ -986,7 +1230,7 @@
         }, {
           key: "getAssetDirectoryItems",
           value: function getAssetDirectoryItems() {
-            var _this11 = this;
+            var _this18 = this;
 
             this.isExternalDataLoaded = false;
             var params = {
@@ -994,20 +1238,20 @@
               directoryTypeId: 6
             };
             this.apartmentService.getAllDirectoryRecordsByDirectoryTypeId(params).subscribe(function (res) {
-              _this11.externalListData = res; // if(res == undefined || res.length == 0){
+              _this18.externalListData = res; // if(res == undefined || res.length == 0){
               //   this.assetCategoryName = ""
               // }
               // else {
               //   this.assetCategoryName = res[0].categoryName
 
-              var control = _this11.userTable.get('tableRows');
+              var control = _this18.userTable.get('tableRows');
 
               control.clear(); // tslint:disable-next-line:no-shadowed-variable
 
-              _this11.externalListData.forEach(function (element, index) {
-                var formcontrol = _this11.userTable.get('tableRows');
+              _this18.externalListData.forEach(function (element, index) {
+                var formcontrol = _this18.userTable.get('tableRows');
 
-                formcontrol.push(_this11.fb.group({
+                formcontrol.push(_this18.fb.group({
                   directoryRecordId: [element.directoryRecordId],
                   serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                   email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
@@ -1017,19 +1261,101 @@
                 }));
               });
 
-              _this11.addRow(); // const formcontrol =  this.userTable.get('tableRows') as FormArray;
+              _this18.addRow(); // const formcontrol =  this.userTable.get('tableRows') as FormArray;
               //   _.each(this.assetDataList, function(item, i, formcontrol: FormArray, fb: FormBuilder) {
               //     debugger;
               //   })
               // }
 
 
-              _this11.isExternalDataLoaded = true;
+              _this18.isExternalDataLoaded = true;
             }, function (error) {
-              _this11.isExternalDataLoaded = true;
-              _this11.isError = true;
-              _this11.alertMessage = 'Some error occured';
+              _this18.isExternalDataLoaded = true;
+              _this18.isError = true;
+              _this18.alertMessage = 'Some error occured';
             });
+          }
+        }, {
+          key: "add",
+          value: function add(data) {
+            var _this19 = this;
+
+            var params = {
+              directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: 0,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+              }
+            };
+            this.apartmentService.addDirectoryRecords(params).subscribe(function (res) {
+              if (res.message) {
+                _this19.sharedService.setAlertMessage(' added successfully');
+
+                _this19.row = {};
+
+                _this19.getAssetDirectoryItems();
+              } else {}
+            });
+          }
+        }, {
+          key: "update",
+          value: function update(data) {
+            var _this20 = this;
+
+            // 	let reqObj: any = {};
+            var params = {
+              directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: data.directoryRecordId,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceName,
+                phone: data.phone,
+                contactPersonName: data.contactPersonName,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+              }
+            };
+            this.apartmentService.updateDirectoryRecords(params).subscribe(function (res) {
+              if (res) {
+                _this20.sharedService.setAlertMessage("Updated successfully"); // this.isAssetLoaded = false;
+
+
+                _this20.currentIndex = -1;
+              }
+            });
+          }
+        }, {
+          key: "delete",
+          value: function _delete(index, data) {
+            // console.log(data.warehouseId);  
+            this.modalService.showConfirmModal(data.directoryRecordId);
           }
         }, {
           key: "getFormControls",
@@ -1051,6 +1377,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
       };
 
@@ -1062,7 +1390,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./external-directory.component.scss */
         "./src/app/modules/ams/directory/components/maintain-directory/external-directory/external-directory.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])], ExternalDirectoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], ExternalDirectoryComponent);
       /***/
     },
 
@@ -1082,7 +1410,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "header {\n  background-color: #333;\n  color: #fff;\n  overflow: auto;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0;\n  padding: 15px;\n  display: flex;\n  justify-content: space-between;\n  margin-bottom: 50px;\n}\n\nmat-icon {\n  cursor: pointer;\n}\n\n.action-container {\n  display: flex;\n  justify-content: space-between;\n  padding: 20px;\n}\n\n.table {\n  padding: 20px;\n}\n\n.table tbody tr td,\n.table thead th,\n.table thead {\n  border-left: 1px solid #dee2e6;\n  border-right: 1px solid #dee2e6;\n  border-bottom: 1px solid #dee2e6;\n}\n\n.output {\n  padding: 20px;\n}\n\n.delete {\n  color: red;\n}\n\n.done {\n  color: green;\n}\n\n.edit {\n  color: yellow;\n}\n\nspan.ui-column-resizer {\n  width: 100%;\n  height: 100%;\n  cursor: col-resize;\n  padding: 30px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2ludGVybmFsLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxjQUFBO0VBQ0Esd0JBQUE7RUFBQSxnQkFBQTtFQUNBLE1BQUE7RUFDQSxhQUFBO0VBQ0EsYUFBQTtFQUNBLDhCQUFBO0VBQ0EsbUJBQUE7QUFDRjs7QUFFQTtFQUNFLGVBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7RUFDQSw4QkFBQTtFQUNBLGFBQUE7QUFDRjs7QUFFQTtFQUNFLGFBQUE7QUFDRjs7QUFFQTs7O0VBR0UsOEJBQUE7RUFDQSwrQkFBQTtFQUNBLGdDQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBRUE7RUFDRSxVQUFBO0FBQ0Y7O0FBRUE7RUFDRSxZQUFBO0FBQ0Y7O0FBRUE7RUFDRSxhQUFBO0FBQ0Y7O0FBQ0E7RUFDRSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0EsYUFBQTtBQUVGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2ludGVybmFsLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJoZWFkZXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMzMzO1xuICBjb2xvcjogI2ZmZjtcbiAgb3ZlcmZsb3c6IGF1dG87XG4gIHBvc2l0aW9uOiBzdGlja3k7XG4gIHRvcDowO1xuICBwYWRkaW5nOiAxNXB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gIG1hcmdpbi1ib3R0b206IDUwcHg7XG59XG5cbm1hdC1pY29uIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4uYWN0aW9uLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHtcbiAgcGFkZGluZzogMjBweDtcbn1cblxuLnRhYmxlIHRib2R5IHRyIHRkLFxuLnRhYmxlIHRoZWFkIHRoLFxuLnRhYmxlIHRoZWFkIHtcbiAgYm9yZGVyLWxlZnQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItcmlnaHQ6IDFweCBzb2xpZCAjZGVlMmU2O1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2RlZTJlNjtcbn1cblxuLm91dHB1dCB7XG4gIHBhZGRpbmc6IDIwcHg7XG59XG5cbi5kZWxldGUge1xuICBjb2xvcjogcmVkICA7XG59XG5cbi5kb25lIHtcbiAgY29sb3I6IGdyZWVuO1xufVxuXG4uZWRpdCB7XG4gIGNvbG9yOiB5ZWxsb3c7XG59XG5zcGFuLnVpLWNvbHVtbi1yZXNpemVyIHtcbiAgd2lkdGg6IDEwMCU7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBjb2wtcmVzaXplO1xuICBwYWRkaW5nOiAzMHB4O1xuXG59XG4iXX0= */";
+      __webpack_exports__["default"] = ".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZGlyZWN0b3J5L2NvbXBvbmVudHMvbWFpbnRhaW4tZGlyZWN0b3J5L2ludGVybmFsLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxvQkFBQTtFQUNBLFlBQUE7QUFDRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RpcmVjdG9yeS9jb21wb25lbnRzL21haW50YWluLWRpcmVjdG9yeS9pbnRlcm5hbC1kaXJlY3RvcnkvaW50ZXJuYWwtZGlyZWN0b3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbS1pY29uLWRpc2FibGVke1xuXHRwb2ludGVyLWV2ZW50czpub25lO1xuXHRvcGFjaXR5OjAuNDtcbiAgfSJdfQ== */";
       /***/
     },
 
@@ -1141,15 +1469,22 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
 
       var InternalDirectoryComponent = /*#__PURE__*/function () {
-        function InternalDirectoryComponent(fb, apartmentService, sessionService, sharedService) {
+        function InternalDirectoryComponent(fb, apartmentService, sessionService, sharedService, injector) {
           _classCallCheck(this, InternalDirectoryComponent);
 
           this.fb = fb;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
           this.sharedService = sharedService;
+          this.injector = injector;
           this.unitFieldType = "unitno";
           this.unitOrder = false;
           this.internalData = "";
@@ -1158,11 +1493,15 @@
           this.errorMessage = "";
           this.isError = false;
           this.alertMessage = '';
+          this.row = {};
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(InternalDirectoryComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this21 = this;
+
             this.isInternalDataLoaded = true;
             this.touchedRows = [];
             this.userTable = this.fb.group({
@@ -1170,6 +1509,25 @@
             }); //this.addRow();
 
             this.getAssetDirectoryItems();
+            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var params = {
+                  // tslint:disable-next-line:radix
+                  DirectoryRecordId: id,
+                  deleteBy: 1
+                };
+
+                _this21.apartmentService.deleteDirectoryRecord(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this21.sharedService.setAlertMessage(' deleted successfully');
+
+                    _this21.getAssetDirectoryItems();
+                  } else {}
+                });
+              } else {
+                _this21.sharedService.setAlertMessage('record not delete');
+              }
+            });
           }
         }, {
           key: "ngAfterViewInit",
@@ -1215,7 +1573,7 @@
         }, {
           key: "deleteRow",
           value: function deleteRow(index, group) {
-            var _this12 = this;
+            var _this22 = this;
 
             // const control =  this.userTable.get('tableRows') as FormArray;
             // control.removeAt(index);
@@ -1230,7 +1588,7 @@
               };
               this.apartmentService.deleteDirectoryRecord(params).subscribe(function (res) {
                 if (res.message) {
-                  _this12.sharedService.setAlertMessage(' deleted successfully');
+                  _this22.sharedService.setAlertMessage(' deleted successfully');
                 } else {}
               });
             } else {
@@ -1245,7 +1603,7 @@
         }, {
           key: "doneRow",
           value: function doneRow(group) {
-            var _this13 = this;
+            var _this23 = this;
 
             group.get('isEditable').setValue(false);
             var recordID = group.get('directoryRecordId').value;
@@ -1276,13 +1634,13 @@
             if (recordID !== '') {
               this.apartmentService.updateDirectoryRecords(params).subscribe(function (res) {
                 if (res.message) {
-                  _this13.sharedService.setAlertMessage(' updated successfully');
+                  _this23.sharedService.setAlertMessage(' updated successfully');
                 } else {}
               });
             } else {
               this.apartmentService.addDirectoryRecords(params).subscribe(function (res) {
                 if (res.message) {
-                  _this13.sharedService.setAlertMessage(' added successfully');
+                  _this23.sharedService.setAlertMessage(' added successfully');
                 } else {}
               });
             }
@@ -1306,7 +1664,7 @@
         }, {
           key: "getAssetDirectoryItems",
           value: function getAssetDirectoryItems() {
-            var _this14 = this;
+            var _this24 = this;
 
             this.isInternalDataLoaded = false;
             var params = {
@@ -1314,42 +1672,121 @@
               directoryTypeId: 5
             };
             this.apartmentService.getAllDirectoryRecordsByDirectoryTypeId(params).subscribe(function (res) {
-              _this14.internalListData = res; // if(res == undefined || res.length == 0){
+              _this24.internalListData = res; // if(res == undefined || res.length == 0){
               //   this.assetCategoryName = ""
               // }
               // else {
               //   this.assetCategoryName = res[0].categoryName
 
-              var control = _this14.userTable.get('tableRows');
+              var control = _this24.userTable.get('tableRows');
 
               control.clear(); // tslint:disable-next-line:no-shadowed-variable
-
-              _this14.internalListData.forEach(function (element, index) {
-                var formcontrol = _this14.userTable.get('tableRows');
-
-                formcontrol.push(_this14.fb.group({
-                  directoryRecordId: [element.directoryRecordId],
-                  serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                  email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
-                  contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
-                  phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(10)]],
-                  isEditable: [false]
-                }));
-              });
-
-              _this14.addRow(); // const formcontrol =  this.userTable.get('tableRows') as FormArray;
+              // this.internalListData.forEach((element, index) => {
+              //   const formcontrol =  this.userTable.get('tableRows') as FormArray;
+              //   formcontrol.push(this.fb.group({
+              //     directoryRecordId: [element.directoryRecordId],
+              //     serviceType: [element.serviceName, Validators.required],
+              //     email: [element.email, [Validators.email, Validators.required]],
+              //     contactperson: [element.contactPersonName, Validators.required],
+              //     phone: [element.phone, [Validators.required, Validators.maxLength(10)]],
+              //     isEditable: [false]
+              //   }));
+              // });
+              // this.addRow();
+              // const formcontrol =  this.userTable.get('tableRows') as FormArray;
               //   _.each(this.assetDataList, function(item, i, formcontrol: FormArray, fb: FormBuilder) {
               //     debugger;
               //   })
               // }
 
-
-              _this14.isInternalDataLoaded = true;
+              _this24.isInternalDataLoaded = true;
             }, function (error) {
-              _this14.isInternalDataLoaded = true;
-              _this14.isError = true;
-              _this14.alertMessage = 'Some error occured';
+              _this24.isInternalDataLoaded = true;
+              _this24.isError = true;
+              _this24.alertMessage = 'Some error occured';
             });
+          }
+        }, {
+          key: "add",
+          value: function add(data) {
+            var _this25 = this;
+
+            var params = {
+              directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: 0,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+              }
+            };
+            this.apartmentService.addDirectoryRecords(params).subscribe(function (res) {
+              if (res.message) {
+                _this25.sharedService.setAlertMessage(' added successfully');
+
+                _this25.row = {};
+
+                _this25.getAssetDirectoryItems();
+              } else {}
+            });
+          }
+        }, {
+          key: "update",
+          value: function update(data) {
+            var _this26 = this;
+
+            // 	let reqObj: any = {};
+            var params = {
+              directoryRecord: {
+                // tslint:disable-next-line:radix
+                directoryRecordId: data.directoryRecordId,
+                // tslint:disable-next-line:no-string-literal
+                directoryTypeId: 6,
+                // tslint:disable-next-line:radix
+                apartmentId: this.sessionService.apartmentId,
+                serviceName: data.serviceType,
+                phone: data.phone,
+                contactPersonName: data.contactperson,
+                email: data.email,
+                workingHours: '3',
+                address: '',
+                comment1: '',
+                comment2: '',
+                isActive: true,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: parseInt(this.sessionService.userId),
+                updatedOn: new Date().toISOString()
+              }
+            };
+            this.apartmentService.updateDirectoryRecords(params).subscribe(function (res) {
+              if (res) {
+                _this26.sharedService.setAlertMessage("Updated successfully"); // this.isAssetLoaded = false;
+
+
+                _this26.currentIndex = -1;
+              }
+            });
+          }
+        }, {
+          key: "delete",
+          value: function _delete(index, data) {
+            // console.log(data.warehouseId);  
+            this.modalService.showConfirmModal(data.directoryRecordId);
           }
         }, {
           key: "getFormControls",
@@ -1371,6 +1808,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
       };
 
@@ -1382,7 +1821,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./internal-directory.component.scss */
         "./src/app/modules/ams/directory/components/maintain-directory/internal-directory/internal-directory.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])], InternalDirectoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], InternalDirectoryComponent);
       /***/
     },
 
@@ -1513,7 +1952,7 @@
         }, {
           key: "widthOfList",
           value: function widthOfList() {
-            var _this15 = this;
+            var _this27 = this;
 
             this.itemPositions = [];
             var marginWidth = 60;
@@ -1525,7 +1964,7 @@
               itemsWidth += itemWidth;
 
               if (itemsWidth > wrapperWidth) {
-                _this15.itemPositions.push(itemsWidth - wrapperWidth);
+                _this27.itemPositions.push(itemsWidth - wrapperWidth);
               }
             });
             return itemsWidth;
@@ -1548,23 +1987,23 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this16 = this;
+            var _this28 = this;
 
             //get all asset categories
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getAllDirectoryTypeByApartmentId(params).subscribe(function (res) {
-              _this16.isDataLoaded = true;
-              _this16.assetCategoriesData = res.filter(function (item) {
+              _this28.isDataLoaded = true;
+              _this28.assetCategoriesData = res.filter(function (item) {
                 return item.isActive;
               });
               setTimeout(function () {
-                _this16.tab = document.getElementById('directory-tabs');
-                _this16.tabItems = _this16.tab.getElementsByTagName("li");
-                _this16.totalTabItems = _this16.tabItems.length;
+                _this28.tab = document.getElementById('directory-tabs');
+                _this28.tabItems = _this28.tab.getElementsByTagName("li");
+                _this28.totalTabItems = _this28.tabItems.length;
 
-                _this16.widthOfList();
+                _this28.widthOfList();
               }, 1000);
             }); // this.lookupService.getLookupValueByLookupTypeId(19).subscribe((res:any) => {
             //   this.isDataLoaded = true;
@@ -1889,6 +2328,12 @@
       var _components_maintain_directory_directory_asset_category_directory_asset_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/maintain-directory/directory-asset-category/directory-asset-category.component */
       "./src/app/modules/ams/directory/components/maintain-directory/directory-asset-category/directory-asset-category.component.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/app/modules/ui/card/card.module */
+      "./src/app/modules/ui/card/card.module.ts");
 
       var DirectoryModule = function DirectoryModule() {
         _classCallCheck(this, DirectoryModule);
@@ -1896,7 +2341,7 @@
 
       DirectoryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_directory_component__WEBPACK_IMPORTED_MODULE_4__["DirectoryComponent"], _components_directory_setup_directory_setup_component__WEBPACK_IMPORTED_MODULE_5__["DirectorySetupComponent"], _components_maintain_directory_maintain_directory_component__WEBPACK_IMPORTED_MODULE_7__["MaintainDirectoryComponent"], _components_maintain_directory_external_directory_external_directory_component__WEBPACK_IMPORTED_MODULE_8__["ExternalDirectoryComponent"], _components_maintain_directory_internal_directory_internal_directory_component__WEBPACK_IMPORTED_MODULE_9__["InternalDirectoryComponent"], _components_maintain_directory_directory_asset_category_directory_asset_category_component__WEBPACK_IMPORTED_MODULE_10__["DirectoryAssetCategoryComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _directory_routing_module__WEBPACK_IMPORTED_MODULE_3__["DirectoryRoutingModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _directory_routing_module__WEBPACK_IMPORTED_MODULE_3__["DirectoryRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"]],
         bootstrap: [_components_directory_setup_directory_setup_component__WEBPACK_IMPORTED_MODULE_5__["DirectorySetupComponent"]]
       })], DirectoryModule);
       /***/

@@ -407,10 +407,10 @@ let MailboxComposeComponent = class MailboxComposeComponent {
             "isActive": true,
             "insertedBy": parseInt(localStorage.getItem('userId')),
             "roleid": parseInt(localStorage.getItem('roleId')),
-            "category": 0,
-            "attachment1": 0,
-            "attachment2": 0,
-            "attachment3": 0,
+            "category": null,
+            "attachment1": null,
+            "attachment2": null,
+            "attachment3": null,
             "recipients": []
         };
     }
@@ -1025,13 +1025,14 @@ let MailboxListComponent = class MailboxListComponent {
             userId: parseInt(localStorage.getItem('userId')),
             RoleId: parseInt(localStorage.getItem('roleId')),
             fromDate: '2020-01-01',
-            toDate: '2020-01-01',
+            toDate: '2021-01-01',
             PageNo: this.pagination.currentPage,
             recordsNo: 10,
         };
         this.messageInbox.getMessageInboxReceivedByUserIdAndRole(queryParamBase).subscribe((resp) => {
-            this.mails = resp;
-            this.pagination.totalResults = 45;
+            this.mails = resp[0].inboxResult;
+            console.log('resp', resp);
+            this.pagination.totalResults = resp[0].totalRecords;
             this.calculatePagination('refresh');
             this.mailsLoading = false;
         });
@@ -1061,6 +1062,7 @@ let MailboxListComponent = class MailboxListComponent {
         this.pagination.lastPage = lastPage;
         this.pagination.startIndex = begin;
         this.pagination.endIndex = end - 1;
+        console.log('........', this.pagination);
         if (category == 'new') {
             this.getMailList();
         }

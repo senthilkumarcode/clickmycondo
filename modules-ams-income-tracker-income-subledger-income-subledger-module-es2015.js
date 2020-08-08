@@ -265,7 +265,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
                 datafield: 'due_Indicator',
                 width: 150,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell"><span class="dots rt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
+                    return '<div class="jqx-custom-inner-cell"><span class="dots mt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
                 },
                 renderer: columnrenderer
             }, {

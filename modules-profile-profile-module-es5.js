@@ -147,9 +147,7 @@
 
         _createClass(ResetPasswordComponent, [{
           key: "logout",
-          value: function logout() {
-            this.sharedService.logout();
-          }
+          value: function logout() {}
         }, {
           key: "submitResetPasswordForm",
           value: function submitResetPasswordForm(form) {

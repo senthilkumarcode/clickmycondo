@@ -78,7 +78,6 @@ let ResetPasswordComponent = class ResetPasswordComponent {
         this.genderType = null;
     }
     logout() {
-        this.sharedService.logout();
     }
     submitResetPasswordForm(form) {
         this.isSubmitted = false;

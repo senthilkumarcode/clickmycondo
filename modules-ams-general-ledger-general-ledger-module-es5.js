@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<h4 class=\"mt-5 mb-4\">Setup Bank and Petty Cash Details</h4>\n\n<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>{{glAccountIndicator}} Accounts</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-account type=\"add\" [glaccountTypeId]=\"glaccountTypeId\" [group]=\"glAccountIndicator\"></app-add-gl-account>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Group<span (click)=\"sortUnitData('glGroupName')\" [ngClass]=\"getFieldOrderBy('glGroupName')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">GL Account No<span (click)=\"sortUnitData('glaccountNumber_Label')\" [ngClass]=\"getFieldOrderBy('glaccountNumber_Label')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Account Name<span (click)=\"sortUnitData('glaccountName')\" [ngClass]=\"getFieldOrderBy('glaccountName')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Opening Balance<span (click)=\"sortUnitData('openingBalance')\" [ngClass]=\"getFieldOrderBy('openingBalance')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Balance Date<span (click)=\"sortUnitData('openingBalanceDate')\" [ngClass]=\"getFieldOrderBy('openingBalanceDate')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t  <tr *ngFor=\"let account of glAccountsDataList | simpleSearch: glAccountData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" \n\t\t\t\t  [ngClass]=\"account.isActive ? 'active' : 'notactive'\">\n\t\t\t\t\t<td class=\"name\">{{getGroup(account, account.glgroupId)}}</td>\n\t\t\t\t\t<td class=\"name\">{{account.glaccountNumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{account.glaccountName}}</td>\n\t\t\t\t\t<td class=\"grey\">{{account.openingBalance}}</td>\n\t\t\t\t\t<td class=\"grey\">{{getDate(account.openingBalanceDate)}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<app-add-gl-account type=\"edit\" [glaccountTypeId]=\"glaccountTypeId\" [group]=\"glAccountIndicator\" [glAccountId]=\"account.glaccountId\"></app-add-gl-account>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(account.glaccountId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t  <span class=\"dots rt-3\"></span>\n\t\t\t\t\t  \t</a>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>\n\n";
+      __webpack_exports__["default"] = "<h4 class=\"mt-5 mb-4\">Setup Bank and Petty Cash Details</h4>\n\n\n<condo-card>\n\n\t<div CondoCardHeader>\n\n\t\t<div class=\"d-flex\">\n\t\t\t<div>\n\t\t\t\t<h5>{{glAccountIndicator}} Accounts</h5>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<app-add-gl-account type=\"add\" [glaccountTypeId]=\"glaccountTypeId\" [group]=\"glAccountIndicator\"></app-add-gl-account>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n\t<div CondoCardBody>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t<thead>\n\t\t\t\t  <tr>\n\t\t\t\t\t  <th scope=\"col\">Group<span (click)=\"sortUnitData('glGroupName')\" [ngClass]=\"getFieldOrderBy('glGroupName')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">GL Account No<span (click)=\"sortUnitData('glaccountNumber_Label')\" [ngClass]=\"getFieldOrderBy('glaccountNumber_Label')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Account Name<span (click)=\"sortUnitData('glaccountName')\" [ngClass]=\"getFieldOrderBy('glaccountName')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Opening Balance<span (click)=\"sortUnitData('openingBalance')\" [ngClass]=\"getFieldOrderBy('openingBalance')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\">Balance Date<span (click)=\"sortUnitData('openingBalanceDate')\" [ngClass]=\"getFieldOrderBy('openingBalanceDate')\"></span></th>\n\t\t\t\t\t  <th scope=\"col\" class=\"simple-actions\">Actions</th>\n\t\t\t\t  </tr>\n\t\t\t  </thead>\n\t\t\t  <tbody>\n\t\t\t\t  <tr *ngFor=\"let account of glAccountsDataList | simpleSearch: glAccountData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\" \n\t\t\t\t  [ngClass]=\"account.isActive ? 'active' : 'notactive'\">\n\t\t\t\t\t<td class=\"name\">{{getGroup(account, account.glgroupId)}}</td>\n\t\t\t\t\t<td class=\"name\">{{account.glaccountNumber}}</td>\n\t\t\t\t\t<td class=\"grey\">{{account.glaccountName}}</td>\n\t\t\t\t\t<td class=\"grey\">{{account.openingBalance}}</td>\n\t\t\t\t\t<td class=\"grey\">{{getDate(account.openingBalanceDate)}}</td>\n\t\t\t\t\t<td class=\"simple-actions\">\n\t\t\t\t\t\t<app-add-gl-account type=\"edit\" [glaccountTypeId]=\"glaccountTypeId\" [group]=\"glAccountIndicator\" [glAccountId]=\"account.glaccountId\"></app-add-gl-account>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\"  class=\"mr-2\" (click)=\"showConfirmModal(account.glaccountId)\"><i-feather class=\"icon delete\" name=\"trash\"></i-feather></a>\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"no-link\">\n\t\t\t\t\t\t  <span class=\"dots rt-3\"></span>\n\t\t\t\t\t  \t</a>\n\t\t\t\t\t</td>\n\t\t\t\t  </tr>\n\t\t\t  </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t  <p class=\"text-secondary p-4\">No Records Found</p>\n\t\t  </div>\n\t\t\t<app-pagination \n\t\t\t  [totalItems]=\"totalItems\"  \n\t\t\t  [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t  [ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t  [itemLimit] = \"itemLimit\"\n\t\t\t  (outputParams) = \"getIndexParams($event)\">\t\n\t\t  </app-pagination>\n\n\t\t</ng-container>\n\n\t</div>\n\n</condo-card>\n\n";
       /***/
     },
 
@@ -766,15 +766,19 @@
               this.accountsService.addGlAccount(params).subscribe(function (res) {
                 _this2.isAccountAdded = true;
 
-                if (res.message) {
-                  _this2.sharedService.setAlertMessage("Account added successfully");
+                if (res.code == 200) {
+                  _this2.sharedService.openSnackBar('Gl Account Updated', 'success');
 
                   _this2.sharedService.setGlAccountAdded(true);
                 } else {
-                  _this2.modalService.showErrorModal(res.errorMessage);
+                  _this2.sharedService.openSnackBar('Gl Account Updated', 'error');
 
                   _this2.sharedService.setGlAccountAdded(false);
                 }
+              }, function (error) {
+                _this2.isAccountAdded = true;
+
+                _this2.sharedService.openSnackBar('Gl Account Updated', 'error');
               });
             } else {
               var _details = {
@@ -800,16 +804,19 @@
               this.accountsService.updateGlAccount(_params).subscribe(function (res) {
                 _this2.isAccountAdded = true;
 
-                if (res.message) {
-                  _this2.sharedService.setAlertMessage("Account updated successfully");
+                if (res.code == 200) {
+                  _this2.sharedService.openSnackBar('Gl Account Updated', 'success');
 
                   _this2.sharedService.setGlAccountAdded(true);
                 } else {
-                  _this2.isError = true;
-                  _this2.errorMessage = res.errorMessage;
+                  _this2.sharedService.openSnackBar('Gl Account Added', 'error');
 
                   _this2.sharedService.setGlAccountAdded(false);
                 }
+              }, function (error) {
+                _this2.isAccountAdded = true;
+
+                _this2.sharedService.openSnackBar('Some error occured', 'error');
               });
             }
           }
