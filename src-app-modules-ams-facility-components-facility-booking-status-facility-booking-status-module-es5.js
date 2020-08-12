@@ -393,15 +393,22 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
 
       var FacilityBookingListComponent = /*#__PURE__*/function () {
-        function FacilityBookingListComponent(facilityService, sessionService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
+        function FacilityBookingListComponent(facilityService, sessionService, lookupService, router, injector, activeRouter, sharedService, changeDetectorRef, dialog) {
           _classCallCheck(this, FacilityBookingListComponent);
 
           this.facilityService = facilityService;
           this.sessionService = sessionService;
           this.lookupService = lookupService;
           this.router = router;
+          this.injector = injector;
           this.activeRouter = activeRouter;
           this.sharedService = sharedService;
           this.changeDetectorRef = changeDetectorRef;
@@ -420,6 +427,7 @@
           this.isBookingDataLoaded = false;
           this.isAdminLogin = false;
           this.totalItems = 0;
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
         }
 
         _createClass(FacilityBookingListComponent, [{
@@ -739,7 +747,7 @@
               renderer: columnrenderer
             }]; //delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
                 var params = {
                   apartmentFacilityBookingId: item,
@@ -753,6 +761,11 @@
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -768,6 +781,8 @@
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]
         }, {
@@ -806,7 +821,7 @@
         }],
         ondeleteSlot: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:ondeleteMeeting', ['$event.detail']]
+          args: ['window:ondeleteFacility', ['$event.detail']]
         }]
       };
       FacilityBookingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -818,7 +833,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./facility-booking-list.component.scss */
         "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-list/facility-booking-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], FacilityBookingListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], FacilityBookingListComponent);
 
       function statusFacilityBooking(row) {
         var event = new CustomEvent('onStatusFacilityBooking', {
@@ -854,7 +869,7 @@
       window.viewFacilityBooking = viewFacilityBooking;
 
       function showConfirmDelete(row) {
-        var event = new CustomEvent('ondeleteMeeting', {
+        var event = new CustomEvent('ondeleteFacility', {
           detail: {
             rowId: row
           }

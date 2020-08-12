@@ -213,6 +213,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
@@ -225,11 +227,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let FacilityBookingListComponent = class FacilityBookingListComponent {
-    constructor(facilityService, sessionService, lookupService, router, activeRouter, sharedService, changeDetectorRef, dialog) {
+    constructor(facilityService, sessionService, lookupService, router, injector, activeRouter, sharedService, changeDetectorRef, dialog) {
         this.facilityService = facilityService;
         this.sessionService = sessionService;
         this.lookupService = lookupService;
         this.router = router;
+        this.injector = injector;
         this.activeRouter = activeRouter;
         this.sharedService = sharedService;
         this.changeDetectorRef = changeDetectorRef;
@@ -248,6 +251,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
         this.isBookingDataLoaded = false;
         this.isAdminLogin = false;
         this.totalItems = 0;
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
     }
     onBackdropClicked() {
         // Get the current activated route
@@ -523,7 +527,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
                 renderer: columnrenderer
             }];
         //delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(item => {
             if (item != null) {
                 var params = {
                     apartmentFacilityBookingId: item,
@@ -536,12 +540,16 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
             }
         });
     }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
+    }
 };
 FacilityBookingListComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
@@ -553,7 +561,7 @@ FacilityBookingListComponent.propDecorators = {
     changeStatus: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onStatusFacilityBooking', ['$event.detail'],] }],
     editBooking: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditFacilityBooking', ['$event.detail'],] }],
     viewBooking: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onViewFacilityBooking', ['$event.detail'],] }],
-    ondeleteSlot: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:ondeleteMeeting', ['$event.detail'],] }]
+    ondeleteSlot: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:ondeleteFacility', ['$event.detail'],] }]
 };
 FacilityBookingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -566,6 +574,7 @@ FacilityBookingListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
@@ -600,7 +609,7 @@ function viewFacilityBooking(row) {
 }
 window.viewFacilityBooking = viewFacilityBooking;
 function showConfirmDelete(row) {
-    var event = new CustomEvent('ondeleteMeeting', {
+    var event = new CustomEvent('ondeleteFacility', {
         detail: {
             rowId: row
         }

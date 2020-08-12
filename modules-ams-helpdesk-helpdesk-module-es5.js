@@ -2523,7 +2523,7 @@
         path: 'edit-staff/:id',
         component: _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskEditStaffComponent"]
       }, {
-        path: 'add-ticket',
+        path: 'create-ticket',
         component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_11__["HelpDeskCreateTicketComponent"]
       }, {
         path: 'edit-ticket/:id',

@@ -1713,7 +1713,7 @@ const routes = [
         ]
     },
     { path: 'edit-staff/:id', component: _components_helpdesk_setup_helpdesk_edit_staff_helpdesk_edit_staff_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskEditStaffComponent"] },
-    { path: 'add-ticket', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_11__["HelpDeskCreateTicketComponent"] },
+    { path: 'create-ticket', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_11__["HelpDeskCreateTicketComponent"] },
     { path: 'edit-ticket/:id', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_11__["HelpDeskCreateTicketComponent"] },
     { path: 'all-tickets', component: src_app_shared_components_helpdesk_all_tickets_helpdesk_all_tickets_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskAllTicketsComponent"] },
     { path: 'open-tickets', component: _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_8__["OpenTicketsReportComponent"] },

@@ -22,20 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-create-wrapper\">\n  <div class=\"main\">\n    <div class=\"d-flex mb-4\">\n      <h4 *ngIf=\"pageType=='create'\">Create WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='edit'\">Edit WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='view'\">View WorkPermit</h4>\n      <div class=\"ml-auto\" *ngIf=\"pageType=='view'\">\n        <button mat-stroked-button  (click)=\"downloadPdf()\">\n          <mat-icon class=\"icon-size-20\" [svgIcon]=\"'save'\"></mat-icon>\n          <span class=\"ml-2\">Export</span>\n        </button>\n      </div>\n    </div>\n    <div class=\"bg-card shadow\" id=\"pdf\">\n      <!-- PDF Download View -->\n      <div class=\"row\" *ngIf=\"pageType=='view' && isPDFDow\">\n        <div class=\"col-sm-12\">\n          <h5>WorkPermit No: {{workPermit.workPermitId}}</h5>\n          <div class=\"text-center mb-4\"> \n            <h6>{{apartmentInfo.apartmentName}} Apartments</h6>\n            <p>{{apartmentInfo.address1}},{{apartmentInfo.city}}</p>\n          </div>\n        </div>\n      </div>\n      <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\">\n        <div class=\"row\" *ngIf=\"isAdmin()\">\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n              <label>Block No*</label>\n              <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n            <div class=\"select-box\">\n              <label>Unit No*</label>\n              <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"workPermit.apartmentUnitId\" (change)=\"getPrimaryName()\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"workPermit.apartmentUnitId\">\n            <div class=\"input-box\">\n              <label>Primary Name</label>\n              <input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>WorkPermit Type*</label>\n              <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workPermit.workPermitTypeId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of workPermitTypeList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Nature of work*</label>\n              <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workPermit.workNatureId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of natureWorkList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Contact Number*</label>\n              <input type=\"number\" class=\"form-control\" placeholder=\"contact\" name=\"WPContact\" [(ngModel)]=\"workPermit.contactNumber\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Vendor/Contractor*</label>\n              <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workPermit.vendorId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let vendor of vendorList\" [ngValue]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Person In Charge*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Person In Charge\" name=\"WPIncharge\" [(ngModel)]=\"workPermit.inChargePerson\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Start Date</label>\n              <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\"\n                [owlDateTimeTrigger]=\"WPStartdate\" placeholder=\"Date\" [(ngModel)]=\"workPermit.startDate\" [disabled]=\"viewMode\" required>\n              <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>End Date</label>\n                <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                  placeholder=\"Date\" [(ngModel)]=\"workPermit.endDate\" [disabled]=\"viewMode\" required>\n                <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>Start Time</label>\n                <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\"\n                  [owlDateTimeTrigger]=\"WPStarttime\" placeholder=\"Time\" [(ngModel)]=\"workPermit.startTime\" [disabled]=\"viewMode\" required>\n                <owl-date-time #WPStarttime [pickerType]=\"'timer'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>End Time</label>\n                <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                  placeholder=\"Time\" [(ngModel)]=\"workPermit.endTime\" [disabled]=\"viewMode\" required>\n                <owl-date-time #WPEndtime [pickerType]=\"'timer'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                </div>\n              </div>\n            </div>\n        </div>\n        <!-- Accordion -->\n        <div class=\"row\">\n          <div class=\"col-sm-6 mb-30\">\n            <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Workers/Personnels</b></p>\n            <table *ngIf=\"pageType!='view'\" class=\"mini-table\" [ngClass]=\"isMobileView()\">\n              <thead>\n                <tr>\n                  <th width=\"35%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                      [(ngModel)]=\"worker.workerName\" maxlength=\"16\">\n                  </th>\n                  <th width=\"60%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                      [(ngModel)]=\"worker.workDescription\">\n                  </th>\n                  <th width=\"5%\" align=\"right\">\n                    <a class=\"btn lime-green\" (click)=\"addWorkers()\">\n                      <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                    </a>\n                  </th>\n                </tr>\n              </thead>\n            </table>\n            <mat-accordion #myaccordion1=\"matAccordion\" multi=\"true\">\n              <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Workers List <span *ngIf=\"workersList.length!==0\">({{workersList.length}})</span></mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                  <div class=\"details\">\n                    <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                      <thead>\n                        <tr>\n                          <th class=\"name\">Name</th>\n                          <th class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">Description</th>\n                          <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                        </tr>\n                      </thead>\n                      <tbody *ngIf=\"workersList.length!=0\">\n                        <tr *ngFor=\"let worker of workersList;index as i;\">\n                          <td class=\"name\">{{worker.workerName}}</td>\n                          <td class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">{{worker.workDescription}}</td>\n                          <td class=\"action\" *ngIf=\"pageType!='view'\">\n                            <a class=\"pr-2\" (click)=\"editlistItems(i, 'worker',worker)\">\n                              <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                            </a>\n                            <a (click)=\"deletelistItems(i, 'worker')\">\n                              <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                            </a>\n                          </td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </div>\n                </mat-panel-description>\n              </mat-expansion-panel>\n            </mat-accordion>\n          </div>\n          <div class=\"col-sm-6 mb-30\">\n            <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Materials</b></p>\n            <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n              <thead>\n                <tr>\n                  <th width=\"30%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                      [(ngModel)]=\"material.material\" maxlength=\"16\">\n                  </th>\n                  <th width=\"15%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                      [(ngModel)]=\"material.quantity\">\n                  </th>\n                  <th width=\"50%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                      [(ngModel)]=\"material.description\">\n                  </th>\n                  <th width=\"5%\" align=\"right\">\n                    <a class=\"btn lime-green\" (click)=\"addMaterials()\">\n                      <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                    </a>\n                  </th>\n                </tr>\n              </thead>\n            </table>\n            <mat-accordion #myaccordion2=\"matAccordion\" multi=\"true\">\n              <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Material List <span *ngIf=\"materialsList.length!=0\">({{materialsList.length}})</span></mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                  <div class=\"details\">\n                    <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                      <thead>\n                        <tr>\n                          <th class=\"name\">Name</th>\n                          <th class=\"action\">Qty</th>\n                          <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                          <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                        </tr>\n                      </thead>\n                      <tbody *ngIf=\"materialsList.length!=0\">\n                        <tr *ngFor=\"let material of materialsList;index as i;\">\n                          <td class=\"name\">{{material.material}}</td>\n                          <td class=\"action\">{{material.quantity}}</td>\n                          <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{material.description}}</td>\n                          <td class=\"action\" *ngIf=\"pageType!='view'\">\n                            <a class=\"pr-2\" (click)=\"editlistItems(i, 'material',material)\">\n                              <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                            </a>\n                            <a class=\"\" (click)=\"deletelistItems(i, 'material')\">\n                              <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                            </a>\n                          </td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </div>\n                </mat-panel-description>\n              </mat-expansion-panel>\n            </mat-accordion>\n          </div>\n          <div class=\"col-sm-6 mb-30\">\n            <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Tools</b></p>\n            <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n              <thead>\n                <tr>\n                  <th width=\"30%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                      [(ngModel)]=\"tool.tool\" maxlength=\"16\">\n                  </th>\n                  <th width=\"15%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                      [(ngModel)]=\"tool.quantity\">\n                  </th>\n                  <th width=\"50%\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                      [(ngModel)]=\"tool.description\">\n                  </th>\n                  <th width=\"5%\" align=\"right\">\n                    <a class=\"btn lime-green\" (click)=\"addTools()\">\n                      <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                    </a>\n                  </th>\n                </tr>\n              </thead>\n            </table>\n            <mat-accordion #myaccordion3=\"matAccordion\" multi=\"true\">\n              <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Tools List <span *ngIf=\"toolsList.length!=0\">({{toolsList.length}})</span></mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                  <div class=\"details\">\n                    <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                      <thead>\n                        <tr>\n                          <th class=\"name\">Name</th>\n                          <th class=\"action\">Qty</th>\n                          <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                          <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                        </tr>\n                      </thead>\n                      <tbody *ngIf=\"toolsList.length!=0\">\n                        <tr *ngFor=\"let tool of toolsList;index as i;\">\n                          <td class=\"name\">{{tool.tool}}</td>\n                          <td class=\"action\">{{tool.quantity}}</td>\n                          <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{tool.description}}</td>\n                          <td class=\"action\" *ngIf=\"pageType!='view'\">\n                            <a class=\"pr-2\" (click)=\"editlistItems(i, 'tool',tool)\">\n                              <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                            </a>\n                            <a class=\"\" (click)=\"deletelistItems(i, 'tool')\">\n                              <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                            </a>\n                          </td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </div>\n                </mat-panel-description>\n              </mat-expansion-panel>\n            </mat-accordion>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <p>Terms and Condition</p>\n            <p class=\"text-hint\">{{workPermit.termsConditions}}</p>\n          </div>\n          <div class=\"col-sm-6\" *ngIf=\"pageType!='view'\">\n            <div class=\"float-right\">\n              <button mat-flat-button *ngIf=\"pageType=='create'\" [color]=\"'primary'\" (click)=\"createWorkPermit()\" [disabled]=\"createWorkPermitForm.invalid\">Create</button>\n              <button mat-flat-button *ngIf=\"pageType=='edit'\"  [color]=\"'primary'\" (click)=\"updateWorkPermit()\" [disabled]=\"createWorkPermitForm.invalid\">Update</button>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.html":
-/*!***********************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.html ***!
-  \***********************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"general-workpermit-wrapper\">\n\t\n\t<app-nav-pills-tabs [navArray] =\"navArray\"></app-nav-pills-tabs>\n\n\t<div class=\"d-block mt-5\">\n\t\t<div class=\"pt-3\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-create-wrapper\">\n  <div class=\"main\">\n    <div class=\"d-flex mb-4\">\n      <h4 *ngIf=\"pageType=='create'\">Create WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='edit'\">Edit WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='view'\">View WorkPermit</h4>\n      <div class=\"ml-auto\" *ngIf=\"pageType=='view'\">\n        <button mat-stroked-button  (click)=\"downloadPdf()\">\n          <mat-icon class=\"icon-size-20\" [svgIcon]=\"'save'\"></mat-icon>\n          <span class=\"ml-2\">Export</span>\n        </button>\n      </div>\n    </div>\n    <div class=\"bg-card shadow\" id=\"pdf\">\n      <!-- PDF Download View -->\n      <div class=\"row\" *ngIf=\"pageType=='view' && isPDFDow\">\n        <div class=\"col-sm-12\">\n          <h5>WorkPermit No: {{workPermit.workPermitId}}</h5>\n          <div class=\"text-center mb-4\"> \n            <h6>{{apartmentInfo.apartmentName}} Apartments</h6>\n            <p>{{apartmentInfo.address1}},{{apartmentInfo.city}}</p>\n          </div>\n        </div>\n      </div>\n      <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\">\n        <div class=\"row\" *ngIf=\"isAdmin()\">\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n              <label>Block No*</label>\n              <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n            <div class=\"select-box\">\n              <label>Unit No*</label>\n              <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"workPermit.apartmentUnitId\" (change)=\"getPrimaryName()\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"workPermit.apartmentUnitId\">\n            <div class=\"input-box\">\n              <label>Primary Name</label>\n              <input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>WorkPermit Type*</label>\n              <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workPermit.workPermitTypeId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of workPermitTypeList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Nature of work*</label>\n              <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workPermit.workNatureId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of natureWorkList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Contact Number*</label>\n              <input type=\"number\" class=\"form-control\" placeholder=\"contact\" name=\"WPContact\" [(ngModel)]=\"workPermit.contactNumber\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Vendor/Contractor*</label>\n              <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workPermit.vendorId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let vendor of vendorList\" [ngValue]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Person In Charge*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Person In Charge\" name=\"WPIncharge\" [(ngModel)]=\"workPermit.inChargePerson\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n        </div>\n        <!-- Time and Minutes -->\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Start Date*</label>\n              <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\"\n                [owlDateTimeTrigger]=\"WPStartdate\" placeholder=\"Date\" [(ngModel)]=\"workPermit.startDate\" [disabled]=\"viewMode\" required>\n              <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>End Date*</label>\n                <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                  placeholder=\"Date\" [(ngModel)]=\"workPermit.endDate\" [disabled]=\"viewMode\" required>\n                <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>Start Time*</label>\n                <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\"\n                  [owlDateTimeTrigger]=\"WPStarttime\" placeholder=\"Time\" [(ngModel)]=\"workPermit.startTime\" [disabled]=\"viewMode\" required>\n                <owl-date-time #WPStarttime [pickerType]=\"'timer'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-2\">\n              <div class=\"input-box\">\n                <label>End Time*</label>\n                <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                  placeholder=\"Time\" [(ngModel)]=\"workPermit.endTime\" [disabled]=\"viewMode\" required>\n                <owl-date-time #WPEndtime [pickerType]=\"'timer'\"></owl-date-time>\n                <div class=\"date-btn\">\n                  <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                </div>\n              </div>\n            </div>\n        </div>\n         <!-- StatusList -->\n         <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box radio-box\">\n              <label>Status</label>\n              <div class=\"form-group\" *ngFor=\"let data of statusList;let i=index\">\n                <input name=\"workPermitStatus\" id=\"status{{i}}\" [(ngModel)]=\"workPermit.workPermitStatusId\" [value]=\"data.lookupValueId\" type=\"radio\">\n                <label class=\"radio-inline\" for=\"status{{i}}\">{{data.lookupValueName}}</label>\n              </div>\n            </div>\n          </div>\n        </div>\n        <!-- Accordion -->\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Workers/Personnels</b></p>\n              <table *ngIf=\"pageType!='view'\" class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"35%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"worker.workerName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"60%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"worker.workDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addWorkers()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion1=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Workers List <span *ngIf=\"workersList.length!==0\">({{workersList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"workersList.length!=0\">\n                          <tr *ngFor=\"let worker of workersList;index as i;\">\n                            <td class=\"name\">{{worker.workerName}}</td>\n                            <td class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">{{worker.workDescription}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <a class=\"pr-2\" (click)=\"editlistItems(i, 'worker',worker)\">\n                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                              </a>\n                              <a (click)=\"deletelistItems(i, 'worker',worker)\">\n                                <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                              </a>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Materials</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"material.material\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"material.quantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"material.description\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addMaterials()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion2=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Material List <span *ngIf=\"materialsList.length!=0\">({{materialsList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"action\">Qty</th>\n                            <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"materialsList.length!=0\">\n                          <tr *ngFor=\"let material of materialsList;index as i;\">\n                            <td class=\"name\">{{material.material}}</td>\n                            <td class=\"action\">{{material.quantity}}</td>\n                            <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{material.description}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <a class=\"pr-2\" (click)=\"editlistItems(i, 'material',material)\">\n                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                              </a>\n                              <a class=\"\" (click)=\"deletelistItems(i, 'material',material)\">\n                                <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                              </a>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"font-med mb-2\" *ngIf=\"pageType!='view'\"><b>List of Tools</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                        [(ngModel)]=\"tool.tool\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                        [(ngModel)]=\"tool.quantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                        [(ngModel)]=\"tool.description\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <a class=\"btn lime-green\" (click)=\"addTools()\">\n                        <i-feather class=\"icon plus\" name=\"plus\"></i-feather>Add\n                      </a>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion3=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Tools List <span *ngIf=\"toolsList.length!=0\">({{toolsList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"action\">Qty</th>\n                            <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"toolsList.length!=0\">\n                          <tr *ngFor=\"let tool of toolsList;index as i;\">\n                            <td class=\"name\">{{tool.tool}}</td>\n                            <td class=\"action\">{{tool.quantity}}</td>\n                            <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{tool.description}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <a class=\"pr-2\" (click)=\"editlistItems(i, 'tool',tool)\">\n                                <i-feather class=\"icon edit\" name=\"edit\"></i-feather>\n                              </a>\n                              <a class=\"\" (click)=\"deletelistItems(i, 'tool',tool)\">\n                                <i-feather class=\"icon delete\" name=\"trash\"></i-feather>\n                              </a>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <p>Terms and Condition</p>\n            <p class=\"text-hint\">{{workPermit.termsConditions}}</p>\n          </div>\n          <div class=\"col-sm-6\" *ngIf=\"pageType!='view'\">\n            <div class=\"float-right\">\n              <button mat-flat-button *ngIf=\"pageType=='create'\" [color]=\"'primary'\" (click)=\"createWorkPermit()\" [disabled]=\"createWorkPermitForm.invalid\">Create</button>\n              <button mat-flat-button *ngIf=\"pageType=='edit'\"  [color]=\"'primary'\" (click)=\"updateWorkPermit()\" [disabled]=\"createWorkPermitForm.invalid\">Update</button>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -48,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"nature-work-setup-wrapper\">\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Nature Of Work*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"type\" [(ngModel)]=\"natureOfWork.lookupValueName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <textarea class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"natureOfWork.description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"clickMode=''\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Nature Of Work</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"natureFilter\"  (ngModelChange)=\"searchNatureOfWork()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWork()\">Create Nature Of Work</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"natureWorkList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"nature-work-setup-wrapper\">\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Nature Of Work*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"type\" [(ngModel)]=\"natureOfWork.lookupValueName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"natureOfWork.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"clickMode=''\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Nature Of Work</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"natureFilter\"  (ngModelChange)=\"searchNatureOfWork()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWork()\">Create Nature Of Work</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"natureWorkList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ");
 
 /***/ }),
 
@@ -74,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"work-permit-type-setup-wrapper\">\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Type*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"name\" [(ngModel)]=\"workpermit.lookupValueName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Description</label>\n                        <textarea class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"workpermit.description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkPermitType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkPermitType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"clickMode=''\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>WorkPermit Title</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"workPermitFilter\"  (ngModelChange)=\"searchWorkPermit()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create WorkPermit Type</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\t\t");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"work-permit-type-setup-wrapper\">\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Type*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"name\" [(ngModel)]=\"workpermit.lookupValueName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"workpermit.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkPermitType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkPermitType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"clickMode=''\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>WorkPermit Title</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"workPermitFilter\"  (ngModelChange)=\"searchWorkPermit()\">\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create WorkPermit Type</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\t\t");
 
 /***/ }),
 
@@ -167,7 +154,7 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
             params.statusIds = '355';
         }
         this.workPermit.getAllWorkPermitsByStatues(params).subscribe((res) => {
-            this.workPermitListData = res;
+            this.workPermitListData = res.reverse();
             this.totalItems = this.workPermitListData.length;
             this.gridSourceData = {
                 localdata: this.workPermitListData,
@@ -415,14 +402,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/expansion.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/expansion.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
 
 
 
@@ -436,14 +427,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WorkpermitCreateComponent = class WorkpermitCreateComponent {
-    constructor(router, route, vendor, apartmentService, workPermitService, lookupService, sessionService) {
+    constructor(router, route, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService) {
         this.router = router;
         this.route = route;
         this.vendor = vendor;
         this.apartmentService = apartmentService;
         this.workPermitService = workPermitService;
+        this.injector = injector;
         this.lookupService = lookupService;
         this.sessionService = sessionService;
+        this.sharedService = sharedService;
         this.workPermit = {
             workNatureId: null,
             workPermitTypeId: null,
@@ -458,6 +451,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.natureWorkList = [];
         this.workPermitTypeList = [];
         this.vendorList = [];
+        this.statusList = [];
         //subModule
         this.worker = {};
         this.workersList = [];
@@ -469,6 +463,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.viewMode = false;
         this.apartmentInfo = {};
         this.isPDFDow = false;
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -523,15 +518,25 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             this.tool = {};
         }
     }
-    deletelistItems(index, listName) {
+    deletelistItems(index, listName, data) {
         if (listName === 'worker') {
-            this.workersList.splice(index, 1);
+            if (data.workPermitWorkersId == 0)
+                this.workersList.splice(index, 1);
+            else
+                this.modalService.showConfirmModal({ type: listName, id: data.workPermitWorkersId, index: index });
         }
         else if (listName === 'material') {
+            if (data.workPermitMaterialsId == 0)
+                this.materialsList.splice(index, 1);
+            else
+                this.modalService.showConfirmModal({ type: listName, id: data.workPermitMaterialsId, index: index });
             this.materialsList.splice(index, 1);
         }
         else {
-            this.toolsList.splice(index, 1);
+            if (data.workPermitToolsId == 0)
+                this.toolsList.splice(index, 1);
+            else
+                this.modalService.showConfirmModal({ type: listName, id: data.workPermitToolsId, index: index });
         }
     }
     //edit listWorkers 
@@ -551,20 +556,20 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
     }
     createWorkPermit() {
         let params = {
-            workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, startTime: moment__WEBPACK_IMPORTED_MODULE_8__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_8__(this.workPermit.endTime).format('HH:mm'), isApproved: true, description: "string", insertedBy: parseInt(this.sessionService.userId), insertedOn: new Date().toISOString(), updatedBy: null, updatedOn: null })
+            workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'), isApproved: true, description: "string", insertedBy: parseInt(this.sessionService.userId), insertedOn: new Date().toISOString(), updatedBy: null, updatedOn: null })
         };
         this.workPermitService.addWorkPermit(params).subscribe((res) => {
-            if (!isNaN(res)) {
-                this.createWorkers(res);
-                this.createMaterials(res);
-                this.createTools(res);
+            if (!isNaN(res.message)) {
+                this.createWorkers(res.message);
+                this.createMaterials(res.message);
+                this.createTools(res.message);
                 this.router.navigate(['/ams/work-permit/pending']);
             }
         });
     }
     updateWorkPermit() {
         let params = {
-            workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, startTime: moment__WEBPACK_IMPORTED_MODULE_8__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_8__(this.workPermit.endTime).format('HH:mm'), updatedBy: parseInt(this.sessionService.userId), updatedOn: new Date().toISOString() })
+            workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'), updatedBy: parseInt(this.sessionService.userId), updatedOn: new Date().toISOString() })
         };
         this.workPermitService.updateWorkPermit(params).subscribe((res) => {
             if (res.message == 'WorkPermit Updated.') {
@@ -611,6 +616,36 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                 this.workPermitService.updateWorkPermitTools(params).toPromise();
         }
     }
+    deleteWorkers(id, index) {
+        let params = {
+            workPermitWorkersId: id,
+            deleteBy: this.sessionService.userId,
+        };
+        this.workPermitService.deleteWorkPermitWorkers(params).subscribe((res) => {
+            this.sharedService.setUnitListDeleteIndex(null);
+            this.workersList.splice(index, 1);
+        });
+    }
+    deleteMaterials(id, index) {
+        let params = {
+            workPermitMaterialsId: id,
+            deleteBy: this.sessionService.userId,
+        };
+        this.workPermitService.deleteWorkPermitMaterials(params).subscribe((res) => {
+            this.sharedService.setUnitListDeleteIndex(null);
+            this.materialsList.splice(index, 1);
+        });
+    }
+    deleteTools(id, index) {
+        let params = {
+            workPermitToolsId: id,
+            deleteBy: this.sessionService.userId,
+        };
+        this.workPermitService.deleteWorkPermitTools(params).subscribe((res) => {
+            this.sharedService.setUnitListDeleteIndex(null);
+            this.toolsList.splice(index, 1);
+        });
+    }
     downloadPdf() {
         this.accordion1.openAll();
         this.accordion2.openAll();
@@ -618,14 +653,14 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.isPDFDow = true;
         setTimeout(() => {
             var data = document.getElementById('pdf');
-            html2canvas__WEBPACK_IMPORTED_MODULE_9___default()(data).then(canvas => {
+            html2canvas__WEBPACK_IMPORTED_MODULE_10___default()(data).then(canvas => {
                 // Few necessary setting options  
                 var imgWidth = 208;
                 var pageHeight = 295;
                 var imgHeight = canvas.height * imgWidth / canvas.width;
                 var heightLeft = imgHeight;
                 const contentDataURL = canvas.toDataURL('image/png');
-                let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_10__('p', 'mm', 'a4'); // A4 size page of PDF  
+                let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_11__('p', 'mm', 'a4'); // A4 size page of PDF  
                 var position = 0;
                 pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
                 pdf.save('work-permit.pdf');
@@ -661,6 +696,12 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.vendor.getAllWorkPermitVendorByApartmentId(vendor).subscribe((res) => {
             this.vendorList = res;
         });
+        let statusParams = {
+            LookupTypeId: 91
+        };
+        this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
+            this.statusList = res;
+        });
         //Edit Mode
         this.route.queryParams.subscribe((params) => {
             if (params.id) {
@@ -681,8 +722,8 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                 }
                 this.workPermitService.getWorkPermitById(entity).subscribe((res) => {
                     this.workPermit = res[0];
-                    this.workPermit.startTime = moment__WEBPACK_IMPORTED_MODULE_8__(res[0].startTime, 'HH:mm').format();
-                    this.workPermit.endTime = moment__WEBPACK_IMPORTED_MODULE_8__(res[0].endTime, 'HH:mm').format();
+                    this.workPermit.startTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].startTime, 'HH:mm').format();
+                    this.workPermit.endTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].endTime, 'HH:mm').format();
                     //getBlockNo
                     let unitDetails = {
                         apartmentBlockUnitId: res[0].apartmentUnitId,
@@ -715,6 +756,18 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
                 });
             }
         });
+        //delete workers,tools and materials
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(item => {
+            if (item && item.id && item.type == 'worker')
+                this.deleteWorkers(item.id, item.index);
+            else if (item && item.id && item.type == 'material')
+                this.deleteMaterials(item.id, item.index);
+            else if (item && item.id && item.type == 'tool')
+                this.deleteTools(item.id, item.index);
+        });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 WorkpermitCreateComponent.ctorParameters = () => [
@@ -723,8 +776,10 @@ WorkpermitCreateComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"] }
 ];
 WorkpermitCreateComponent.propDecorators = {
     accordion1: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['myaccordion1',] }],
@@ -742,60 +797,11 @@ WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"]])
 ], WorkpermitCreateComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.scss":
-/*!*********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.scss ***!
-  \*********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3dvcmstcGVybWl0L2NvbXBvbmVudHMvd29ya3Blcm1pdC1zZXR0aW5nL3dvcmtwZXJtaXQtc2V0dGluZy5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts":
-/*!*******************************************************************************************************!*\
-  !*** ./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts ***!
-  \*******************************************************************************************************/
-/*! exports provided: WorkpermitSettingComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkpermitSettingComponent", function() { return WorkpermitSettingComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let WorkpermitSettingComponent = class WorkpermitSettingComponent {
-    constructor() { }
-    ngOnInit() {
-        this.navArray = [
-            { link: 'setup', name: 'Setup' },
-            { link: 'approval', name: 'Approval List' },
-            { link: 'create', name: 'Create work Permit' },
-        ];
-    }
-};
-WorkpermitSettingComponent.ctorParameters = () => [];
-WorkpermitSettingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-workpermit-setting',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./workpermit-setting.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./workpermit-setting.component.scss */ "./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], WorkpermitSettingComponent);
 
 
 
@@ -828,10 +834,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -841,15 +847,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
-    constructor(lookupService, sharedService, cookieService, injector, dialog) {
+    constructor(lookupService, sharedService, injector, sessionService, dialog) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.injector = injector;
+        this.sessionService = sessionService;
         this.dialog = dialog;
         this.isDataLoaded = true;
         this.natureOfWork = {};
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     searchNatureOfWork() {
         if (this.natureFilter != "") {
@@ -894,12 +900,12 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
         let params = {
             lookupvalue: {
                 "lookupValueId": 0,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "lookupTypeId": 89,
                 "lookupValueName": this.natureOfWork.lookupValueName,
                 "description": this.natureOfWork.description,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -917,12 +923,12 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
         let params = {
             lookupvalue: {
                 "lookupValueId": this.natureOfWork.lookupValueId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "lookupTypeId": 89,
                 "lookupValueName": this.natureOfWork.lookupValueName,
                 "description": this.natureOfWork.description,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -991,7 +997,7 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
             if (item != null) {
                 let params = {
                     lookupValueId: item,
-                    updateUserId: parseInt(this.cookieService.get('userId'))
+                    updateUserId: this.sessionService.userId,
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
                     if (res) {
@@ -1009,9 +1015,9 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
 NatureOfWorkSetupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
 ];
 NatureOfWorkSetupComponent.propDecorators = {
     dataGrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['dataGrid', { static: false },] }],
@@ -1026,9 +1032,9 @@ NatureOfWorkSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
 ], NatureOfWorkSetupComponent);
 
 function editNatureWork(row) {
@@ -1132,10 +1138,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -1145,15 +1151,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
-    constructor(lookupService, sharedService, cookieService, injector, dialog) {
+    constructor(lookupService, sharedService, injector, sessionService, dialog) {
         this.lookupService = lookupService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.injector = injector;
+        this.sessionService = sessionService;
         this.dialog = dialog;
         this.isDataLoaded = true;
         this.workpermit = {};
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
     }
     searchWorkPermit() {
         if (this.workPermitFilter != "") {
@@ -1198,12 +1204,12 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
         let params = {
             lookupvalue: {
                 "lookupValueId": 0,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "lookupTypeId": 90,
                 "lookupValueName": this.workpermit.lookupValueName,
                 "description": this.workpermit.description,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -1221,12 +1227,12 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
         let params = {
             lookupvalue: {
                 "lookupValueId": this.workpermit.lookupValueId,
-                "apartmentId": parseInt(this.cookieService.get('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "lookupTypeId": 90,
                 "lookupValueName": this.workpermit.lookupValueName,
                 "description": this.workpermit.description,
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -1295,7 +1301,7 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
             if (item != null) {
                 let params = {
                     lookupValueId: item,
-                    updateUserId: parseInt(this.cookieService.get('userId'))
+                    updateUserId: this.sessionService.userId,
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
                     if (res) {
@@ -1313,9 +1319,9 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
 WorkpermitTypeSetupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
 ];
 WorkpermitTypeSetupComponent.propDecorators = {
     dataGrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['dataGrid', { static: false },] }],
@@ -1330,9 +1336,9 @@ WorkpermitTypeSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
 ], WorkpermitTypeSetupComponent);
 
 function editWorkPermit(row) {
@@ -1574,11 +1580,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/workpermit-setup/workpermit-setup.component */ "./src/app/modules/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts");
 /* harmony import */ var _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/workpermit-approval/workpermit-approval.component */ "./src/app/modules/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts");
 /* harmony import */ var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/workpermit-create/workpermit-create.component */ "./src/app/modules/ams/work-permit/components/workpermit-create/workpermit-create.component.ts");
-/* harmony import */ var _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/workpermit-setting/workpermit-setting.component */ "./src/app/modules/ams/work-permit/components/workpermit-setting/workpermit-setting.component.ts");
-/* harmony import */ var _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/workpermit-status/workpermit-status.component */ "./src/app/modules/ams/work-permit/components/workpermit-status/workpermit-status.component.ts");
-/* harmony import */ var _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component */ "./src/app/modules/ams/work-permit/components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component.ts");
-/* harmony import */ var _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component */ "./src/app/modules/ams/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.ts");
-
+/* harmony import */ var _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/workpermit-status/workpermit-status.component */ "./src/app/modules/ams/work-permit/components/workpermit-status/workpermit-status.component.ts");
+/* harmony import */ var _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component */ "./src/app/modules/ams/work-permit/components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component.ts");
+/* harmony import */ var _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component */ "./src/app/modules/ams/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.ts");
 
 
 
@@ -1601,10 +1605,9 @@ WorkPermitModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_7__["WorkpermitSetupComponent"],
             _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_8__["WorkpermitApprovalComponent"],
             _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitCreateComponent"],
-            _components_workpermit_setting_workpermit_setting_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitSettingComponent"],
-            _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitStatusComponent"],
-            _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_12__["WorkpermitTypeSetupComponent"],
-            _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_13__["NatureOfWorkSetupComponent"]
+            _components_workpermit_status_workpermit_status_component__WEBPACK_IMPORTED_MODULE_10__["WorkpermitStatusComponent"],
+            _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_11__["WorkpermitTypeSetupComponent"],
+            _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_12__["NatureOfWorkSetupComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

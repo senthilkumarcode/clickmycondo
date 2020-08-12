@@ -78,152 +78,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/@condo/directives/scrollbar/index.ts":
-/*!**************************************************!*\
-  !*** ./src/@condo/directives/scrollbar/index.ts ***!
-  \**************************************************/
-/*! exports provided: CondoScrollbarDirective, CondoScrollbarModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_condo_directives_scrollbar_public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/@condo/directives/scrollbar/public-api */ "./src/@condo/directives/scrollbar/public-api.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CondoScrollbarDirective", function() { return src_condo_directives_scrollbar_public_api__WEBPACK_IMPORTED_MODULE_0__["CondoScrollbarDirective"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CondoScrollbarModule", function() { return src_condo_directives_scrollbar_public_api__WEBPACK_IMPORTED_MODULE_0__["CondoScrollbarModule"]; });
-
-
-
-
-/***/ }),
-
-/***/ "./src/@condo/pipes/find-by-key/find-by-key.module.ts":
-/*!************************************************************!*\
-  !*** ./src/@condo/pipes/find-by-key/find-by-key.module.ts ***!
-  \************************************************************/
-/*! exports provided: CondoFindByKeyPipeModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CondoFindByKeyPipeModule", function() { return CondoFindByKeyPipeModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_condo_pipes_find_by_key_find_by_key_pipe__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/@condo/pipes/find-by-key/find-by-key.pipe */ "./src/@condo/pipes/find-by-key/find-by-key.pipe.ts");
-
-
-
-let CondoFindByKeyPipeModule = class CondoFindByKeyPipeModule {
-};
-CondoFindByKeyPipeModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [
-            src_condo_pipes_find_by_key_find_by_key_pipe__WEBPACK_IMPORTED_MODULE_2__["CondoFindByKeyPipe"]
-        ],
-        exports: [
-            src_condo_pipes_find_by_key_find_by_key_pipe__WEBPACK_IMPORTED_MODULE_2__["CondoFindByKeyPipe"]
-        ]
-    })
-], CondoFindByKeyPipeModule);
-
-
-
-/***/ }),
-
-/***/ "./src/@condo/pipes/find-by-key/find-by-key.pipe.ts":
-/*!**********************************************************!*\
-  !*** ./src/@condo/pipes/find-by-key/find-by-key.pipe.ts ***!
-  \**********************************************************/
-/*! exports provided: CondoFindByKeyPipe */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CondoFindByKeyPipe", function() { return CondoFindByKeyPipe; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-/**
- * Finds an object from given source using the given key - value pairs
- */
-let CondoFindByKeyPipe = class CondoFindByKeyPipe {
-    /**
-     * Constructor
-     */
-    constructor() {
-    }
-    /**
-     * Transform
-     *
-     * @param value A string or an array of strings to find from source
-     * @param key Key of the object property to look for
-     * @param source Array of objects to find from
-     */
-    transform(value, key, source) {
-        // If the given value is an array of strings...
-        if (Array.isArray(value)) {
-            return value.map((item) => {
-                return source.find((sourceItem) => sourceItem[key] === item);
-            });
-        }
-        // If the value is a string...
-        return source.find(sourceItem => sourceItem[key] === value);
-    }
-};
-CondoFindByKeyPipe.ctorParameters = () => [];
-CondoFindByKeyPipe = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-        name: 'condoFindByKey',
-        pure: false
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], CondoFindByKeyPipe);
-
-
-
-/***/ }),
-
-/***/ "./src/@condo/pipes/find-by-key/index.ts":
-/*!***********************************************!*\
-  !*** ./src/@condo/pipes/find-by-key/index.ts ***!
-  \***********************************************/
-/*! exports provided: CondoFindByKeyPipe, CondoFindByKeyPipeModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_condo_pipes_find_by_key_public_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/@condo/pipes/find-by-key/public-api */ "./src/@condo/pipes/find-by-key/public-api.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CondoFindByKeyPipe", function() { return src_condo_pipes_find_by_key_public_api__WEBPACK_IMPORTED_MODULE_0__["CondoFindByKeyPipe"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CondoFindByKeyPipeModule", function() { return src_condo_pipes_find_by_key_public_api__WEBPACK_IMPORTED_MODULE_0__["CondoFindByKeyPipeModule"]; });
-
-
-
-
-/***/ }),
-
-/***/ "./src/@condo/pipes/find-by-key/public-api.ts":
-/*!****************************************************!*\
-  !*** ./src/@condo/pipes/find-by-key/public-api.ts ***!
-  \****************************************************/
-/*! exports provided: CondoFindByKeyPipe, CondoFindByKeyPipeModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var src_condo_pipes_find_by_key_find_by_key_pipe__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/@condo/pipes/find-by-key/find-by-key.pipe */ "./src/@condo/pipes/find-by-key/find-by-key.pipe.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CondoFindByKeyPipe", function() { return src_condo_pipes_find_by_key_find_by_key_pipe__WEBPACK_IMPORTED_MODULE_0__["CondoFindByKeyPipe"]; });
-
-/* harmony import */ var src_condo_pipes_find_by_key_find_by_key_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/@condo/pipes/find-by-key/find-by-key.module */ "./src/@condo/pipes/find-by-key/find-by-key.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CondoFindByKeyPipeModule", function() { return src_condo_pipes_find_by_key_find_by_key_module__WEBPACK_IMPORTED_MODULE_1__["CondoFindByKeyPipeModule"]; });
-
-
-
-
-
-/***/ }),
-
 /***/ "./src/app/api/controllers/MessageInbox.ts":
 /*!*************************************************!*\
   !*** ./src/app/api/controllers/MessageInbox.ts ***!
@@ -279,6 +133,29 @@ let MessageInboxService = class MessageInboxService {
         });
         return this.http.get(`/api/MessageInbox/GetMessageInboxReceivedByUserIdAndRole`, { params: queryParams });
     }
+    /** http://undefined/swagger/swagger-ui.html#!/MessageInbox/GetMessageInboxSendByUserId */
+    getMessageInboxSendByUserId(params) {
+        const queryParamBase = {
+            apartmentId: params.apartmentId,
+            userId: params.userId,
+            fromDate: params.fromDate,
+            toDate: params.toDate,
+            PageNo: params.PageNo,
+            recordsNo: params.recordsNo,
+        };
+        let queryParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]();
+        Object.entries(queryParamBase).forEach(([key, value]) => {
+            if (value !== undefined) {
+                if (typeof value === 'string')
+                    queryParams = queryParams.set(key, value);
+                else if (Array.isArray(value))
+                    value.forEach(v => queryParams = queryParams.append(key, v));
+                else
+                    queryParams = queryParams.set(key, JSON.stringify(value));
+            }
+        });
+        return this.http.get(`/api/MessageInbox/GetMessageInboxSendByUserId`, { params: queryParams });
+    }
     /** http://undefined/swagger/swagger-ui.html#!/MessageInbox/GetMessageInboxTrashedByUserIdAndRole */
     getMessageInboxTrashedByUserIdAndRole(params) {
         const queryParamBase = {
@@ -302,6 +179,45 @@ let MessageInboxService = class MessageInboxService {
             }
         });
         return this.http.get(`/api/MessageInbox/GetMessageInboxTrashedByUserIdAndRole`, { params: queryParams });
+    }
+    /** http://undefined/swagger/swagger-ui.html#!/MessageInbox/GetMessageInboxbyMessageID */
+    getMessageInboxbyMessageId(params) {
+        const queryParamBase = {
+            apartmentId: params.apartmentId,
+            messageId: params.messageId,
+        };
+        let queryParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]();
+        Object.entries(queryParamBase).forEach(([key, value]) => {
+            if (value !== undefined) {
+                if (typeof value === 'string')
+                    queryParams = queryParams.set(key, value);
+                else if (Array.isArray(value))
+                    value.forEach(v => queryParams = queryParams.append(key, v));
+                else
+                    queryParams = queryParams.set(key, JSON.stringify(value));
+            }
+        });
+        return this.http.get(`/api/MessageInbox/GetMessageInboxbyMessageID`, { params: queryParams });
+    }
+    /** http://undefined/swagger/swagger-ui.html#!/MessageInbox/deleteMessageInboxbyMessageID */
+    deleteMessageInboxbyMessageId(params) {
+        const queryParamBase = {
+            apartmentId: params.apartmentId,
+            messageId: params.messageId,
+            deletedBy: params.deletedBy,
+        };
+        let queryParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpParams"]();
+        Object.entries(queryParamBase).forEach(([key, value]) => {
+            if (value !== undefined) {
+                if (typeof value === 'string')
+                    queryParams = queryParams.set(key, value);
+                else if (Array.isArray(value))
+                    value.forEach(v => queryParams = queryParams.append(key, v));
+                else
+                    queryParams = queryParams.set(key, JSON.stringify(value));
+            }
+        });
+        return this.http.post(`/api/MessageInbox/deleteMessageInboxbyMessageID`, {}, { params: queryParams });
     }
 };
 MessageInboxService.ctorParameters = () => [

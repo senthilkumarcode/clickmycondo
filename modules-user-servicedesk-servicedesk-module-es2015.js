@@ -144,10 +144,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_create_ticket_create_ticket_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/create-ticket/create-ticket.component */ "./src/app/modules/user/servicedesk/components/create-ticket/create-ticket.component.ts");
-/* harmony import */ var src_app_shared_components_helpdesk_all_tickets_helpdesk_all_tickets_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component */ "./src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component.ts");
-/* harmony import */ var src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/components/help-desk-create-ticket/help-desk-create-ticket.component */ "./src/app/shared/components/help-desk-create-ticket/help-desk-create-ticket.component.ts");
-
+/* harmony import */ var src_app_shared_components_helpdesk_all_tickets_helpdesk_all_tickets_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component */ "./src/app/shared/components/helpdesk-all-tickets/helpdesk-all-tickets.component.ts");
+/* harmony import */ var src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/components/help-desk-create-ticket/help-desk-create-ticket.component */ "./src/app/shared/components/help-desk-create-ticket/help-desk-create-ticket.component.ts");
 
 
 
@@ -155,10 +153,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'create-ticket', pathMatch: 'full' },
-    { path: 'create-ticket', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_5__["HelpDeskCreateTicketComponent"] },
-    { path: 'edit-ticket', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_5__["HelpDeskCreateTicketComponent"] },
-    { path: 'edit-ticket/:id', component: _components_create_ticket_create_ticket_component__WEBPACK_IMPORTED_MODULE_3__["CreateTicketComponent"] },
-    { path: 'view-ticket', component: src_app_shared_components_helpdesk_all_tickets_helpdesk_all_tickets_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskAllTicketsComponent"] },
+    { path: 'create-ticket', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_4__["HelpDeskCreateTicketComponent"] },
+    { path: 'edit-ticket/:id', component: src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_4__["HelpDeskCreateTicketComponent"] },
+    { path: 'view-ticket', component: src_app_shared_components_helpdesk_all_tickets_helpdesk_all_tickets_component__WEBPACK_IMPORTED_MODULE_3__["HelpdeskAllTicketsComponent"] },
     { path: '**', redirectTo: 'create-ticket', pathMatch: 'full' }
 ];
 let ServicedeskRoutingModule = class ServicedeskRoutingModule {
