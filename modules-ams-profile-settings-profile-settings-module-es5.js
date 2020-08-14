@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"poiManagement\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" [appDragAndDrop] (click)=\"fileInput.click()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>";
+      __webpack_exports__["default"] = "<div class=\"poiManagement m-5\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-20\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input  #nodeId type=\"text\" id=\"spanNode\">\n      <input  #poiId type=\"text\" id=\"poiId\">\n      <input  #nodeKind type=\"text\" id=\"nodeKind\">\n      <input  #type type=\"text\" id=\"type\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" [appDragAndDrop] (click)=\"fileInput.click()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>";
       /***/
     },
 
@@ -83,26 +83,6 @@
 
 
       __webpack_exports__["default"] = "<div class=\"document-setup-wrapper\">\n\t<h5 class=\"mb-4\">Configuration - Towers, Floors and Units</h5>\n\t<div class=\"card mb-3\">\n\t\t<div class=\"card-body\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>No of Towers*</label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"No of Towers\" name=\"noOfTower\" [(ngModel)]=\"noOfTowers\" (ngModelChange)=\"towerSubject.next($event)\" [disabled]=\"pageType == 'edit' ? true : false\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\t<div class=\"card\" *ngIf=\"tableInfo\">\n\t\t<div class=\"card-body\">\n\t\t\t<form [formGroup]=\"floorTable\">\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container formArrayName=\"floor\" *ngFor=\"let group of floorControlArray.controls ; let i=index\">\n\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType == 'create'\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"towerSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"action-container\" *ngIf=\"pageType == 'edit'\">\n\t\t\t\t\t<button mat-raised-button type=\"submit\" (click)=\"addNewTower()\">Add row</button>\n\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"towerSubmit()\">Update</button>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"newTower\">\n\t\t\t\t\t<table class=\"table mt-3\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\"></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Tower Name</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">No of Floors</th>\n\t\t\t\t\t\t\t\t<th scope=\"col\">Total of Units</th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<ng-container formArrayName=\"addFloor\" *ngFor=\"let group of floorTable.get('addFloor')['controls'] ; let i=index\">\n\t\t\t\t\t\t\t\t<tr [formGroupName]=\"i\">\n\t\t\t\t\t\t\t\t\t<td>{{group.get('apartmentBlock').value}}</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" formControlName=\"apartmentBlockNumber\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalnofloors\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t\t<input matInput type=\"number\" formControlName=\"totalNounits\">\n\t\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\t\t\t\t\t<div class=\"action-container float-right\">\n\t\t\t\t\t\t<button mat-raised-button [disabled]=\"floorTable.invalid\" type=\"submit\" (click)=\"newTowerSubmit()\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t<div class=\"mt-5\" *ngFor=\"let data of formData;let i=index\">\n\t\t\t\t<h5 class=\"mb-5 font-medium\" *ngIf=\"data\"><span>{{data[0].apartmentBlockNumber}}</span></h5>\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t<th class=\"floor-no-width \">Floor No</th>\n\t\t\t\t\t\t\t<th class=\"floor-name-width\">Floor Name</th>\n\t\t\t\t\t\t\t<th class=\"floor-no-width\">Unit</th>\n\t\t\t\t\t\t\t<th scope=\"col\">Unit No</th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<ng-container *ngFor=\"let child of data;let j=index;\">\n\t\t\t\t\t\t\t<tr *ngIf=\"!data[0].edit\">\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.floorLabel\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t<mat-form-field>\n\t\t\t\t\t\t\t\t\t\t<input matInput type=\"text\" [(ngModel)]=\"child.apartmentBlockUnitNumber\" (keyup)=\"calculateUnit(child.apartmentBlockUnitNumber,i,j)\">\n\t\t\t\t\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t<tr *ngIf=\"data[0].edit\">\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width \">Floor {{child.floorno}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-name-width\">{{child.floorLabel}}</td>\n\t\t\t\t\t\t\t\t<td class=\"floor-no-width\">{{child.unit}}</td>\n\t\t\t\t\t\t\t\t<td>{{child.apartmentBlockUnitNumber}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType=='create'\">\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"floorSubmit(data)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"action-container float-right\" *ngIf=\"pageType=='edit'\">\n\t\t\t\t\t<button mat-raised-button class=\"mr-2\" type=\"submit\" (click)=\"editMode(data[0].edit,i)\">\n\t\t\t\t\t\t<span *ngIf=\"data[0].edit\">Edit</span>\n\t\t\t\t\t\t<span *ngIf=\"!data[0].edit\">Non Edit</span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button mat-raised-button [disabled]=\"data[0].button\" type=\"submit\" (click)=\"floorSubmit(data)\">Update</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n";
-      /***/
-    },
-
-    /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html":
-    /*!******************************************************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html ***!
-      \******************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsProfileSettingsComponentsAddPropertyDialogAddPropertyDialogComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<h2 mat-dialog-title>Add Property</h2>\n<mat-divider></mat-divider>\n<mat-dialog-content class=\"mat-typography\">\n    <div class=\"row mt-4 mb-4\">\n        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n            <div class=\"input-box\">\n                <label>Node Id</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\">\n            </div>\n        </div>\n        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n            <div class=\"input-box\">\n                <label>POI Id</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\">\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 \">\n            <div class=\"select-box\">\n                <label>Property Type</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Units</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Facility Type</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset Category</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset Sub Category</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        </div>\n</mat-dialog-content>\n<mat-dialog-actions align=\"end\">\n  <button mat-button mat-dialog-close>Cancel</button>\n  <button mat-button [mat-dialog-close]=\"true\" cdkFocusInitial>Submit</button>\n</mat-dialog-actions>";
       /***/
     },
 
@@ -523,62 +503,55 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/FileDetails */
       "./src/app/api/controllers/FileDetails.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Document */
       "./src/app/api/controllers/Document.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/file-upload.service */
       "./src/app/shared/services/file-upload.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/file-download.service */
       "./src/app/shared/services/file-download.service.ts");
       /* harmony import */
 
 
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/platform-browser */
       "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var _add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ../add-property-dialog/add-property-dialog.component */
       "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
 
       var graph;
 
       var AddFloorUnitGraphicComponent = /*#__PURE__*/function () {
-        function AddFloorUnitGraphicComponent(element, apartmentService, documentService, sessionService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
+        function AddFloorUnitGraphicComponent(element, apartmentService, documentService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
           _classCallCheck(this, AddFloorUnitGraphicComponent);
 
           this.element = element;
           this.apartmentService = apartmentService;
           this.documentService = documentService;
-          this.sessionService = sessionService;
           this.fileUploadService = fileUploadService;
           this.fileDownloadService = fileDownloadService;
           this.sanitizer = sanitizer;
@@ -610,10 +583,10 @@
               if (this.onChangeVal.nodeId >= 0 && this.onChangeVal.poiId) {
                 localStorage.removeItem('onchange');
                 this.currentPOIId = this.onChangeVal.poiId;
-                this.addPorperty('edit');
+                this.addProperty('edit');
               } else if (this.onChangeVal.nodeId >= 0) {
                 localStorage.removeItem('onchange');
-                this.addPorperty('add');
+                this.addProperty('add');
               }
             }
           }
@@ -629,7 +602,7 @@
             var _this2 = this;
 
             var param = {
-              apartmentId: this.sessionService.apartmentId
+              apartmentId: parseInt(localStorage.getItem('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(param).subscribe(function (resp) {
               _this2.towerList = resp;
@@ -644,7 +617,7 @@
             var _this3 = this;
 
             var getFloorParam = {
-              apartmentId: this.sessionService.apartmentId,
+              apartmentId: parseInt(localStorage.getItem('apartmentId')),
               apartmentblockId: this.selectedTower
             };
             this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe(function (resp) {
@@ -665,23 +638,48 @@
             if (this.selectedFloor) {
               this.floorList.filter(function (key) {
                 if (key.apartmentBlockFloorId == _this4.selectedFloor) {
+                  _this4.selectedFloorLabel = key.floorLabel;
+                  _this4.selectedFloorNo = key.floorno;
+
                   _this4.getPropertyMap(key.propertyMapFileId);
                 }
               });
             }
           }
         }, {
-          key: "addPorperty",
-          value: function addPorperty(type) {
-            var data;
-            var dialogRef = this.dialog.open(_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"], {
+          key: "addProperty",
+          value: function addProperty(type) {
+            var _this5 = this;
+
+            var data = this.onChangeVal;
+            data['type'] = type;
+            data['apartmentBlockId'] = this.selectedFloor;
+            var dialogRef = this.dialog.open(_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_9__["AddPropertyDialogComponent"], {
               width: '20%',
               position: {
                 right: '10%'
               },
               data: data
             });
-            dialogRef.afterClosed().subscribe(function (result) {});
+            dialogRef.afterClosed().subscribe(function (result) {
+              if (result) {
+                var objectVal = [];
+
+                for (var key in result) {
+                  objectVal.push(key);
+                }
+
+                objectVal.splice(0, 2); // let arrObjVal = JSON.stringify(objectVal);
+
+                console.log(objectVal.toString());
+                $('#nodeKind').val(objectVal.toString());
+                $('#spanNode').val(_this5.onChangeVal.nodeId);
+                $('#poiId').val(result.poiId);
+                $('#type').val(result.type);
+
+                _this5.updatePOI();
+              }
+            });
           }
         }, {
           key: "isUploadCompleted",
@@ -691,55 +689,67 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this5 = this;
+            var _this6 = this;
 
             var file = event[0];
-            var userId = parseInt(this.sessionService.userId);
+            var userId = parseInt(localStorage.getItem('userId'));
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
-                _this5.uploadResponse = res;
+                _this6.uploadResponse = res;
               }
 
-              if (_this5.isUploadCompleted()) {
-                _this5.addPropertyMap(_this5.uploadResponse.fileId);
+              if (_this6.isUploadCompleted()) {
+                _this6.addPropertyMap(_this6.uploadResponse.fileId);
               }
             });
           }
         }, {
           key: "getPropertyMap",
           value: function getPropertyMap(propertyId) {
-            var _this6 = this;
+            var _this7 = this;
 
             var getFloorProperty = {
               propertyMapFileId: propertyId
             };
             this.apartmentService.getPropertyMapFileById(getFloorProperty).subscribe(function (resp) {
               if (resp && resp.length) {
-                _this6.floorPropertyData = resp[0];
+                _this7.floorPropertyData = resp[0];
 
-                _this6.assignData(_this6.floorPropertyData);
+                _this7.assignData(_this7.floorPropertyData);
               }
             }, function (error) {});
           }
         }, {
           key: "assignData",
           value: function assignData(data) {
-            var _this7 = this;
+            var _this8 = this;
 
             if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0 && data.mapJsonFile != "") {
               this.isShowBuilder = true;
               setTimeout(function () {
-                _this7.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                var svgElem = document.getElementById('bgimage');
+
+                if (svgElem) {
+                  svgElem.parentNode.removeChild(svgElem);
+                }
+
+                _this8.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
 
 
-                graph.deleteGraph();
-                localStorage.setItem('graphData', data.mapJsonFile);
-                graph.customGraphUpdate();
+                graph.deleteGraph(); // localStorage.setItem('graphData', data.mapJsonFile);
+
+                graph.customGraphUpdate(data.mapJsonFile, undefined);
               }, 1);
             } else if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0) {
               this.isShowBuilder = true;
               setTimeout(function () {
-                _this7.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                var svgElem = document.getElementById('bgimage');
+
+                if (svgElem) {
+                  svgElem.parentNode.removeChild(svgElem);
+                }
+
+                _this8.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
 
               }, 1);
             } else {
@@ -749,26 +759,26 @@
         }, {
           key: "getFileDetails",
           value: function getFileDetails(imageId) {
-            var _this8 = this;
+            var _this9 = this;
 
             var newParams = {
               fileDetailsId: imageId,
-              apartmentId: Number(this.sessionService.apartmentId)
+              apartmentId: Number(localStorage.getItem('apartmentId'))
             };
             this.fileDetailService.getFileDetailsById(newParams).subscribe(function (res) {
-              _this8.downloadFile(res[0].filePath);
+              _this9.downloadFile(res[0].filePath);
             });
           }
         }, {
           key: "downloadFile",
           value: function downloadFile(filePath) {
-            var _this9 = this;
+            var _this10 = this;
 
             this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this9.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this10.sanitizer.bypassSecurityTrustUrl(objectURL);
 
               graph.customImageUpdalod(sanitizeUrl.changingThisBreaksApplicationSecurity);
             });
@@ -803,64 +813,61 @@
         }, {
           key: "addPropertyMap",
           value: function addPropertyMap(imageId) {
-            var _this10 = this;
+            var _this11 = this;
 
             this.downloadGraph();
             var addPropertyMap = {
               propertyMapFile: {
                 "propertyMapFileId": 0,
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockId": 0,
+                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "apartmentBlockId": this.selectedTower,
                 "description": "",
                 "isIndoor": true,
-                "floorno": 0,
-                "floorLabel": "",
+                "floorno": this.selectedFloorNo,
+                "floorLabel": this.selectedFloorLabel,
                 "floorPictureFileDetailsId": imageId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedBy": parseInt(localStorage.getItem('userId')),
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
-                "apartmentBlockFloorId": 0
+                "apartmentBlockFloorId": this.selectedFloor
               }
             };
             this.apartmentService.addPropertyMapFile(addPropertyMap).subscribe(function (resp) {
-              _this10.floorPropertyData = resp;
+              _this11.floorPropertyData = resp;
 
-              _this10.assignData(_this10.floorPropertyData);
+              _this11.assignData(_this11.floorPropertyData);
             }, function (error) {});
           }
         }, {
           key: "updateProperty",
           value: function updateProperty() {
-            var _this11 = this;
+            var _this12 = this;
 
             this.downloadGraph();
             var updatePropertyMap = {
               propertyMapFile: {
                 "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockId": 0,
+                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "apartmentBlockId": this.selectedFloor,
                 "description": "",
                 "isIndoor": true,
-                "floorno": 0,
-                "floorLabel": "",
+                "floorno": this.selectedFloorNo,
+                "floorLabel": this.selectedFloorLabel,
                 "floorPictureFileDetailsId": this.floorPropertyData.floorPictureFileDetailsId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(this.sessionService.userId),
+                "updatedBy": parseInt(localStorage.getItem('userId')),
                 "updatedOn": new Date().toISOString(),
-                "apartmentBlockFloorId": 0
+                "apartmentBlockFloorId": this.selectedTower
               }
             };
             this.apartmentService.updatePropertyMapFile(updatePropertyMap).subscribe(function (resp) {
-              console.log('resp', resp);
-              _this11.floorPropertyData = resp;
-
-              _this11.assignData(_this11.floorPropertyData);
+              _this12.floorPropertyData = resp; // this.assignData(this.floorPropertyData)
             }, function (error) {});
           }
         }, {
@@ -923,6 +930,14 @@
             // saveAs(blob, "mydag.json");
           }
         }, {
+          key: "updatePOI",
+          value: function updatePOI() {
+            if ($('#poiId').val() && $('#nodeKind').val() && $('#spanNode').val()) {
+              graph.setPOIId();
+              this.updateProperty();
+            }
+          }
+        }, {
           key: "browseFile",
           value: function browseFile() {
             var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
@@ -939,19 +954,17 @@
         }, {
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"]
+          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+          type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__["FileUploadService"]
         }, {
-          type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"]
+          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"]
         }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"]
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"]
         }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
-        }, {
-          type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]
+          type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"]
         }];
       };
 
@@ -967,6 +980,10 @@
         nodeKind: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['nodeKind']
+        }],
+        Nodetype: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['type']
         }],
         onKeyDown: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
@@ -985,7 +1002,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-floor-unit-graphic.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_6__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_4__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
       /***/
     },
 
@@ -1157,20 +1174,20 @@
         }, {
           key: "getApartmentTowerAndFloor",
           value: function getApartmentTowerAndFloor(pagetype) {
-            var _this12 = this;
+            var _this13 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this12.pageType = pagetype;
-                _this12.noOfTowers = res.length;
-                _this12.tableInfo = true;
-                _this12.formData = [];
+                _this13.pageType = pagetype;
+                _this13.noOfTowers = res.length;
+                _this13.tableInfo = true;
+                _this13.formData = [];
 
                 for (var i = 0; i < res.length; i++) {
-                  _this12.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+                  _this13.floorControlArray.push(new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
                     'apartmentBlock': new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]({
                       value: "Tower".concat(i + 1),
                       disabled: true
@@ -1182,27 +1199,27 @@
                   }));
 
                   var blockId = {
-                    apartmentId: _this12.sessionService.apartmentId,
+                    apartmentId: _this13.sessionService.apartmentId,
                     apartmentBlockId: res[i].apartmentBlockId
                   };
 
-                  _this12.initalFloor(blockId, res[i], i);
+                  _this13.initalFloor(blockId, res[i], i);
                 }
               } else {
-                _this12.pageType = 'create';
+                _this13.pageType = 'create';
               }
             });
           }
         }, {
           key: "initalFloor",
           value: function initalFloor(blockId, tower, index) {
-            var _this13 = this;
+            var _this14 = this;
 
             this.apartmentService.getViewFloorNoBlockUnitNumberByApartmentId(blockId).subscribe(function (res) {
               if (res.length > 0) {
                 res[0].apartmentBlockNumber = tower.apartmentBlockNumber;
                 res[0].button = false;
-                res[0].edit = _this13.pageType == 'create' ? false : true;
+                res[0].edit = _this14.pageType == 'create' ? false : true;
                 res.forEach(function (data) {
                   data.apartmentBlockUnitNumber = data.apartmentBlockUnitNumbers;
                   var unitSplit = data.apartmentBlockUnitNumbers.split(',');
@@ -1224,7 +1241,7 @@
                   }
                 }
 
-                _this13.formData.splice(index, 0, res);
+                _this14.formData.splice(index, 0, res);
               } else {
                 for (var _i = 0; _i < tower.totalnofloors; _i++) {
                   var _entity = {
@@ -1245,14 +1262,14 @@
                   res.push(_entity);
                 }
 
-                _this13.formData.splice(index, 0, res);
+                _this14.formData.splice(index, 0, res);
               }
             });
           }
         }, {
           key: "towerSubmit",
           value: function towerSubmit() {
-            var _this14 = this;
+            var _this15 = this;
 
             var params = {};
             params.apartmentBlocks = [];
@@ -1274,7 +1291,7 @@
 
             var apiMethod = this.pageType == 'create' ? 'addApartmentBlock' : 'updateApartmentBlock';
             this.apartmentService[apiMethod](params).subscribe(function (res) {
-              _this14.getApartmentTowerAndFloor(_this14.pageType);
+              _this15.getApartmentTowerAndFloor(_this15.pageType);
             });
           }
         }, {
@@ -1304,7 +1321,7 @@
         }, {
           key: "newTowerSubmit",
           value: function newTowerSubmit() {
-            var _this15 = this;
+            var _this16 = this;
 
             var params = {};
             params.apartmentBlocks = [];
@@ -1325,38 +1342,38 @@
             }
 
             this.apartmentService.addApartmentBlock(params).subscribe(function (res) {
-              _this15.getApartmentTowerAndFloor('edit');
+              _this16.getApartmentTowerAndFloor('edit');
 
-              _this15.newTower = false;
+              _this16.newTower = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.getApartmentTowerAndFloor('edit');
             this.towerSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(1000), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["distinctUntilChanged"])()).subscribe(function (value) {
-              _this16.formData = [];
+              _this17.formData = [];
 
-              if (_this16.noOfTowers > 0) {
-                _this16.tableInfo = true;
+              if (_this17.noOfTowers > 0) {
+                _this17.tableInfo = true;
 
-                if (_this16.floorControlArray.length > 0) {
-                  while (_this16.floorControlArray.length != 0) {
-                    _this16.floorControlArray.removeAt(0);
+                if (_this17.floorControlArray.length > 0) {
+                  while (_this17.floorControlArray.length != 0) {
+                    _this17.floorControlArray.removeAt(0);
                   }
 
-                  for (var i = 0; i < _this16.noOfTowers; i++) {
-                    _this16.addTower(i);
+                  for (var i = 0; i < _this17.noOfTowers; i++) {
+                    _this17.addTower(i);
                   }
                 } else {
-                  for (var _i2 = 0; _i2 < _this16.noOfTowers; _i2++) {
-                    _this16.addTower(_i2);
+                  for (var _i2 = 0; _i2 < _this17.noOfTowers; _i2++) {
+                    _this17.addTower(_i2);
                   }
                 }
               } else {
-                _this16.tableInfo = false;
+                _this17.tableInfo = false;
               }
             });
           }
@@ -1387,104 +1404,6 @@
         /*! ./add-floor-unit.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AddFloorUnitComponent);
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss":
-    /*!****************************************************************************************************************!*\
-      !*** ./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss ***!
-      \****************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesAmsProfileSettingsComponentsAddPropertyDialogAddPropertyDialogComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Byb2ZpbGUtc2V0dGluZ3MvY29tcG9uZW50cy9hZGQtcHJvcGVydHktZGlhbG9nL2FkZC1wcm9wZXJ0eS1kaWFsb2cuY29tcG9uZW50LnNjc3MifQ== */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts":
-    /*!**************************************************************************************************************!*\
-      !*** ./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts ***!
-      \**************************************************************************************************************/
-
-    /*! exports provided: AddPropertyDialogComponent */
-
-    /***/
-    function srcAppModulesAmsProfileSettingsComponentsAddPropertyDialogAddPropertyDialogComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "AddPropertyDialogComponent", function () {
-        return AddPropertyDialogComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/material/dialog */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-
-      var AddPropertyDialogComponent = /*#__PURE__*/function () {
-        function AddPropertyDialogComponent(dialogRef, data) {
-          _classCallCheck(this, AddPropertyDialogComponent);
-
-          this.dialogRef = dialogRef;
-          this.data = data;
-        }
-
-        _createClass(AddPropertyDialogComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {}
-        }]);
-
-        return AddPropertyDialogComponent;
-      }();
-
-      AddPropertyDialogComponent.ctorParameters = function () {
-        return [{
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
-          }]
-        }];
-      };
-
-      AddPropertyDialogComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-add-property-dialog',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./add-property-dialog.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./add-property-dialog.component.scss */
-        "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])], AddPropertyDialogComponent);
       /***/
     },
 
@@ -1595,13 +1514,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this18 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this17.unitBlocksData = res;
+              _this18.unitBlocksData = res;
             });
             this.unitArray = Array(this.unitCount).fill(0).map(function (x, i) {
               return i;
@@ -1736,7 +1655,7 @@
         }, {
           key: "submitAddUnitForm",
           value: function submitAddUnitForm(form) {
-            var _this18 = this;
+            var _this19 = this;
 
             this.isUnitSubmitted = true;
             this.isUnitAdded = false;
@@ -1764,34 +1683,34 @@
             };
             this.apartmentService.addApartmentBlockUnit(params).subscribe(function (res) {
               if (res.message) {
-                _this18.isUnitAdded = true;
+                _this19.isUnitAdded = true;
               } else {
-                _this18.isUnitSubmitted = false;
-                _this18.isError = true;
-                _this18.errorMessage = res.errorMessage;
+                _this19.isUnitSubmitted = false;
+                _this19.isError = true;
+                _this19.errorMessage = res.errorMessage;
               }
             }, function (error) {
-              _this18.isError = true;
-              _this18.errorMessage = "Some error Occured";
+              _this19.isError = true;
+              _this19.errorMessage = "Some error Occured";
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this20 = this;
 
             this.unit = {};
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this19.unitBlocksData = res;
+              _this20.unitBlocksData = res;
             });
             var unitParams = {
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-              _this19.unitTypeData = res;
+              _this20.unitTypeData = res;
             });
           }
         }]);

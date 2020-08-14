@@ -314,6 +314,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html":
+    /*!******************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html ***!
+      \******************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsProfileSettingsComponentsAddPropertyDialogAddPropertyDialogComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<h2 mat-dialog-title>Add Property</h2>\n<mat-divider></mat-divider>\n<mat-dialog-content class=\"mat-typography\">\n    <div class=\"row mt-4 mb-4\">\n        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n            <div class=\"input-box\">\n                <label>Node Id</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\">\n            </div>\n        </div>\n        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n            <div class=\"input-box\">\n                <label>POI Id</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Enter Tag No\" name=\"assetTagNo\">\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 \">\n            <div class=\"select-box\">\n                <label>Property Type</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Units</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Facility Type</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset Category</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset Sub Category</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\">\n            <div class=\"select-box\">\n                <label>Asset</label>\n                <select \n                    name=\"assetCategory\" \n                    id=\"assetCategory\" \n                    class=\"form-control\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                </select>\n            </div>\n        </div>\n        </div>\n</mat-dialog-content>\n<mat-dialog-actions align=\"end\">\n  <button mat-button mat-dialog-close>Cancel</button>\n  <button mat-button [mat-dialog-close]=\"true\" cdkFocusInitial>Submit</button>\n</mat-dialog-actions>";
+      /***/
+    },
+
+    /***/
     "./src/@condo/directives/scrollbar/index.ts":
     /*!**************************************************!*\
       !*** ./src/@condo/directives/scrollbar/index.ts ***!
@@ -556,6 +576,104 @@
       });
       /***/
 
+    },
+
+    /***/
+    "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss":
+    /*!****************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss ***!
+      \****************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsProfileSettingsComponentsAddPropertyDialogAddPropertyDialogComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Byb2ZpbGUtc2V0dGluZ3MvY29tcG9uZW50cy9hZGQtcHJvcGVydHktZGlhbG9nL2FkZC1wcm9wZXJ0eS1kaWFsb2cuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts":
+    /*!**************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts ***!
+      \**************************************************************************************************************/
+
+    /*! exports provided: AddPropertyDialogComponent */
+
+    /***/
+    function srcAppModulesAmsProfileSettingsComponentsAddPropertyDialogAddPropertyDialogComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AddPropertyDialogComponent", function () {
+        return AddPropertyDialogComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+
+      var AddPropertyDialogComponent = /*#__PURE__*/function () {
+        function AddPropertyDialogComponent(dialogRef, data) {
+          _classCallCheck(this, AddPropertyDialogComponent);
+
+          this.dialogRef = dialogRef;
+          this.data = data;
+        }
+
+        _createClass(AddPropertyDialogComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return AddPropertyDialogComponent;
+      }();
+
+      AddPropertyDialogComponent.ctorParameters = function () {
+        return [{
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
+          }]
+        }];
+      };
+
+      AddPropertyDialogComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-add-property-dialog',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./add-property-dialog.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./add-property-dialog.component.scss */
+        "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])], AddPropertyDialogComponent);
+      /***/
     }
   }]);
 })();

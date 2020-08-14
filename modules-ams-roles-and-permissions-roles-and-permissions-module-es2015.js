@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #createParkingSlotForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"row m-0 pt-4\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Roles Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"roleName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t<textarea name=\"description\" id=\"\" cols=\"10\" rows=\"3\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row m-0 pb-4\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #createParkingSlotForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"row m-0 pt-4\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Roles Type</label>\n\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleTypeId\"  class=\"form-control\">\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" value=\"{{item.value}}\">{{item?.name}}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Roles Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\" rows=\"3\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row m-0 pb-4\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addRole()\" >Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <div class=\"row\">\n                    <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                        <mat-selection-list #menu [multiple]=\"false\">\n                            <mat-list-option\n                                *ngFor=\"let item of menuList\">\n                                <div class=\"form-check recur-check float-left\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                    <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                </div>\n                            </mat-list-option>\n                        </mat-selection-list>\n                    </div>\n                    <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                        <mat-selection-list #submenu [multiple]=\"false\">\n                            <mat-list-option *ngFor=\"let item of subMenuList\">\n                                <div class=\"form-check recur-check float-left\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                    <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                </div>\n                            </mat-list-option>\n                        </mat-selection-list>\n                    </div>\n                    <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                        <mat-list role=\"list\">\n                            <mat-list-item role=\"listitem\" *ngFor=\"let item of actionList\">\n                                <div class=\"form-check recur-check float-left\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                    <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                </div>\n                                <!-- <mat-divider></mat-divider> -->\n                            </mat-list-item>\n                        </mat-list>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <div class=\"p-5\" >\n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\" >\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\" >\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\" [value]=\"item\" >\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -64,21 +64,87 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddRoleComponent", function() { return AddRoleComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
 
 
 let AddRoleComponent = class AddRoleComponent {
-    constructor() { }
+    constructor(userService, router, screenService) {
+        this.userService = userService;
+        this.router = router;
+        this.screenService = screenService;
+        this.allRoles = [];
+    }
     ngOnInit() {
+        this.getAllRoles();
+    }
+    getAllRoles() {
+        this.userService.getAllRoleTypes().subscribe((resp) => {
+            this.allRoles = resp;
+            if (this.allRoles && this.allRoles.length) {
+                this.allRoles.filter(key => {
+                    if (key.value == 2 || key.value == 4 || key.value == 5) {
+                        this.allRoles.splice(this.allRoles.indexOf(key), 1);
+                    }
+                });
+            }
+        });
+    }
+    addRole() {
+        let addMenuLevelParam = {
+            "menuSecLevelId": 0,
+            "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+            "name": this.roleName,
+            "isActive": true,
+            "insertedBy": parseInt(localStorage.getItem('userId')),
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": parseInt(localStorage.getItem('userId')),
+            "updatedOn": "2020-08-09T06:22:21.539Z"
+        };
+        let secLevelParam = {
+            seclevel: addMenuLevelParam
+        };
+        this.screenService.addMenuSecLevel(secLevelParam).subscribe((resp) => {
+            if (resp && resp.message) {
+                let addMenuRoleSecLevel = {
+                    "menuRoleSecLevelId": 0,
+                    "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                    "roleId": parseInt(this.roleTypeId),
+                    "secLevelId": resp.message,
+                    "isActive": true,
+                    "insertedBy": parseInt(localStorage.getItem('userId')),
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": parseInt(localStorage.getItem('userId')),
+                    "updatedOn": "2020-08-09T06:22:21.539Z"
+                };
+                let roleSecLevelParam = {
+                    roleseclevel: addMenuRoleSecLevel
+                };
+                this.screenService.addMenuRoleSecLevel(roleSecLevelParam).subscribe(resp => {
+                    this.router.navigate(['./']);
+                });
+            }
+        });
     }
 };
-AddRoleComponent.ctorParameters = () => [];
+AddRoleComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"] }
+];
 AddRoleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-role',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-role.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/add-role/add-role.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-role.component.scss */ "./src/app/modules/ams/roles-and-permissions/add-role/add-role.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])
 ], AddRoleComponent);
 
 
@@ -332,24 +398,122 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SetPermissionsComponent", function() { return SetPermissionsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+
 
 
 let SetPermissionsComponent = class SetPermissionsComponent {
-    constructor() { }
+    constructor(screenService) {
+        this.screenService = screenService;
+        this.menuList = [];
+    }
     ngOnInit() {
-        this.menuList = ['Parking Management', 'Profile Setting', 'Inventory Management', 'Dashboard', 'Asset Management'];
-        this.subMenuList = ['Setup', 'Manage Booking', 'Booking History'];
-        this.actionList = ['View', 'Create', 'Edit', 'Delete'];
+        this.getScreenList();
+        this.actionList = [
+            {
+                name: 'add',
+                functionId: 0,
+                checked: false
+            },
+            {
+                name: 'edit',
+                functionId: 0,
+                checked: false
+            },
+            {
+                name: 'display',
+                functionId: 0,
+                checked: false
+            },
+            {
+                name: 'delete',
+                functionId: 0,
+                checked: false
+            }
+        ];
+    }
+    getScreenList() {
+        let queryParamBase = {
+            ApartmentId: parseInt(localStorage.getItem('apartmentId')),
+            RoleId: parseInt(localStorage.getItem('roleId')),
+        };
+        this.screenService.getMenuFunctionByRoleIdMultiFilter(queryParamBase).subscribe((resp) => {
+            this.menuList = resp;
+            if (this.menuList && this.menuList.length) {
+                this.selectedMenuName = this.menuList[0].menuName;
+                this.changeMenu('');
+            }
+        });
+    }
+    changeMenu(event) {
+        if (event) {
+            this.selectedMenuName = event.option.value ? event.option.value.menuName : '';
+        }
+        if (this.selectedMenuName) {
+            this.menuList.filter(key => {
+                if (key.menuName == this.selectedMenuName) {
+                    this.subMenuList = key.subMenuNames;
+                    this.selectedSubMenuName = this.subMenuList.length ? this.subMenuList[0].subMenuName : '';
+                    this.changeSubMenu('');
+                }
+            });
+        }
+    }
+    changeSubMenu(event) {
+        if (event) {
+            this.actions = event.option.value ? event.option.value.actions : {};
+        }
+        else {
+            this.subMenuList.filter(key => {
+                if (this.selectedSubMenuName == key.subMenuName) {
+                    this.actions = key.actions;
+                    this.mapActions();
+                }
+            });
+        }
+    }
+    mapActions() {
+        this.actionList[0].functionId = this.actions.add_FunctionId;
+        this.actionList[1].functionId = this.actions.edit_FunctionId;
+        this.actionList[2].functionId = this.actions.display_FunctionId;
+        this.actionList[3].functionId = this.actions.delete_FunctionId;
+        this.actionList[0].checked = this.actions.add;
+        this.actionList[1].checked = this.actions.edit;
+        this.actionList[2].checked = this.actions.display;
+        this.actionList[3].checked = this.actions.delete;
+    }
+    changeActions(event) {
+        if (event.option.value) {
+            let addFunctionParam = {
+                "menuSecLevelFunctionId": 0,
+                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "secLevelId": null,
+                "functionId": event.option.value.functionId,
+                "orderNo": 0,
+                "isActive": !event.option.value.checked,
+                "insertedBy": parseInt(localStorage.getItem('roleId')),
+                "insertedOn": new Date().toString(),
+                "updatedBy": parseInt(localStorage.getItem('roleId')),
+                "updatedOn": "2020-08-13T12:10:58.204Z"
+            };
+            let queryParamBase = {
+                seclevelFunctionmap: addFunctionParam
+            };
+            this.screenService.addMenuSecLevelFunctionMapping(queryParamBase).subscribe((resp) => {
+            });
+        }
     }
 };
-SetPermissionsComponent.ctorParameters = () => [];
+SetPermissionsComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"] }
+];
 SetPermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-set-permissions',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./set-permissions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./set-permissions.component.scss */ "./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"]])
 ], SetPermissionsComponent);
 
 
