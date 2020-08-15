@@ -3868,11 +3868,10 @@
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var BookingConfirmationComponent = /*#__PURE__*/function () {
-        function BookingConfirmationComponent(dialogRef, data) {
+        function BookingConfirmationComponent(dialogRef) {
           _classCallCheck(this, BookingConfirmationComponent);
 
           this.dialogRef = dialogRef;
-          this.data = data;
         }
 
         _createClass(BookingConfirmationComponent, [{
@@ -3889,12 +3888,6 @@
       BookingConfirmationComponent.ctorParameters = function () {
         return [{
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
-          }]
         }];
       };
 
@@ -3906,7 +3899,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./booking-confirmation.component.scss */
         "./src/app/modules/ams/parking-management/components/parking-manage-booking/booking-confirmation/booking-confirmation.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])], BookingConfirmationComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]])], BookingConfirmationComponent);
       /***/
     },
 

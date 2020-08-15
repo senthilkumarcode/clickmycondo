@@ -2620,9 +2620,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BookingConfirmationComponent = class BookingConfirmationComponent {
-    constructor(dialogRef, data) {
+    constructor(dialogRef) {
         this.dialogRef = dialogRef;
-        this.data = data;
     }
     ngOnInit() {
     }
@@ -2630,8 +2629,7 @@ let BookingConfirmationComponent = class BookingConfirmationComponent {
     }
 };
 BookingConfirmationComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] }
 ];
 BookingConfirmationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2639,7 +2637,7 @@ BookingConfirmationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./booking-confirmation.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/parking-management/components/parking-manage-booking/booking-confirmation/booking-confirmation.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./booking-confirmation.component.scss */ "./src/app/modules/ams/parking-management/components/parking-manage-booking/booking-confirmation/booking-confirmation.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]])
 ], BookingConfirmationComponent);
 
 
