@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"select-wrapper input-box\" #selectFieldElem>\n    <label [ngClass]=\"isLabel == 'false' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n    <div class=\"input-wrapper\">\n        <input type=\"text\" \n\t\treadonly\n\t\tclass=\"form-control condo-select\" \n\t\tplaceholder = \"{{fieldPlaceholder}}\"\n\t\tname = \"{{fieldName}}\"\n\t\t[required]=\"isFieldRequired() ? 'required' : null\"\n        [(ngModel)]=\"selectedModel\"\n        (click)=\"OpenDropDown()\"\n        [ngClass]=\"isDisabled? 'input-disabled' : ''\"\n        autocomplete=\"off\" readonly>\n        <mat-icon [color]=\"'warn'\" class=\"close\" [svgIcon]=\"'close'\" *ngIf=\"isValue()\" (click)=\"clearSelection()\"></mat-icon>\n    </div>\n   \n</div>\n\n <!-- Tags panel -->\n <ng-template #selectPanel>\n    <app-panel-list [fieldList]=\"fieldList\" \n    [fieldValue]=\"fieldValue\" \n    [selectedItem]=\"selectedItem\"\n    (outputParams)=\"getFieldModel($event)\" ></app-panel-list>\n </ng-template>";
+      __webpack_exports__["default"] = "<div class=\"select-wrapper input-box\" #selectFieldElem>\n    <label [ngClass]=\"isLabel == 'false' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{getLabelText(labelText)}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n    <div class=\"input-wrapper\">\n        <input type=\"text\" \n\t\treadonly\n\t\tclass=\"form-control condo-select\" \n\t\tplaceholder = \"{{fieldPlaceholder}}\"\n\t\tname = \"{{fieldName}}\"\n\t\t[required]=\"isFieldRequired() ? 'required' : null\"\n        [(ngModel)]=\"selectedModel\"\n        (click)=\"OpenDropDown()\"\n        [ngClass]=\"isDisabled? 'input-disabled' : ''\"\n        autocomplete=\"off\" readonly>\n        <mat-icon [color]=\"'warn'\" class=\"close\" [svgIcon]=\"'close'\" *ngIf=\"isValue()\" (click)=\"clearSelection()\"></mat-icon>\n    </div>\n   \n</div>\n\n <!-- Tags panel -->\n <ng-template #selectPanel>\n    <app-panel-list [fieldList]=\"fieldList\" \n    [fieldValue]=\"fieldValue\" \n    [selectedItem]=\"selectedItem\"\n    (outputParams)=\"getFieldModel($event)\" ></app-panel-list>\n </ng-template>";
       /***/
     },
 
@@ -328,6 +328,11 @@
             return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
               return index === 0 ? word.toLowerCase() : word.toUpperCase();
             }).replace(/\s+/g, '');
+          }
+        }, {
+          key: "getLabelText",
+          value: function getLabelText(text) {
+            return text.replace(/[0-9]/g, '');
           }
         }, {
           key: "ngOnInit",
