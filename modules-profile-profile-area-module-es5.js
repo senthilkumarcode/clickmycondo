@@ -34,7 +34,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm = \"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\" novalidate>\n\t\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Phone No\" name=\"phoneNumber\" [(ngModel)]=\"user.phoneNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\" [(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Blood Group*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Blood Group\" name=\"bloodGroup\" [(ngModel)]=\"user.bloodGroup\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\t\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm = \"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\" novalidate>\n\t\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\" placeholder=\"Phone No\" name=\"phoneNumber\" [(ngModel)]=\"user.phoneNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\" [(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Blood Group*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Blood Group\" name=\"bloodGroup\" [(ngModel)]=\"user.bloodGroup\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\t\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>\n";
       /***/
     },
 
@@ -54,7 +54,27 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-area content-layout left-sidebar-fullheight-basic-inner-scroll\">\n    \n    <mat-drawer-container>\n\n        <mat-drawer [mode]=\"drawerMode\"\n                    [opened]=\"drawerOpened\"\n                    #drawer>\n\n            <!-- Mailbox sidebar -->\n            <profile-sidebar></profile-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <router-outlet></router-outlet>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-area content-layout\">\n    \n    <mat-drawer-container>\n\n        <mat-drawer [mode]=\"drawerMode\"\n                    [opened]=\"drawerOpened\"\n                    #drawer>\n\n            <!-- Mailbox sidebar -->\n            <profile-sidebar></profile-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <router-outlet></router-outlet>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.html":
+    /*!****************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.html ***!
+      \****************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesProfileProfileFamilyMembersDetailsProfileFamilyMembersDetailsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<!-- <div class=\"icon-wrapper float-right mb-2\" *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t\t</div>\n\n\t\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit && !isFamilyNew\">\n\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t\t</div>\n\n\t\t<div class=\"icon-wrapper red float-right\" *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t\t<i-feather class=\"icon delete\" name=\"trash\" (click)=\"deleteMember()\"></i-feather>\n\t\t</div> -->\n\n\t\t<div class=\"row\" *ngIf=\"!isFamilyNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t(click)=\"showEditForm()\">{{isEdit ? 'Back' : 'Edit'}}</button>\n\t\t\t\t\t<div class=\"icon-wrapper red float-right ml-3\" *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t\t\t\t\t<i-feather class=\"icon delete\" name=\"trash\" (click)=\"deleteMember()\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-container>\n\n\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\"\n\t\t\t(ngSubmit)=\"submitProfileFamilyForm(profileFamilyForm)\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\tname=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"relationship\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.relationship\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"user.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profileFamilyForm.invalid\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\n\n\t\t</form>\n\n\t</ng-container>\n\n\n</div>";
       /***/
     },
 
@@ -74,7 +94,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-family-wrapper profile-section\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card mb-20 no-shadow\" *ngIf=\"isDataLoaded && !isFamilyMembersAvailable()\">\n\t\t\n\t\t<div class=\"card-header at-header red\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<div class=\"sub-details\">\n    \t\t\t\t<h6 class=\"mb-2\">No Members added yet</h6>\n    \t\t\t</div>\n    \t\t</div>\n\t  \t</div>\n\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\n\t\t<div class=\"accor-special\" id=\"familyAccordion\">\n\n\t\t\t<ng-container *ngIf=\"isFamilyMembersAvailable()\">\n\n\t\t\t\t<div class=\"accor-box\" *ngFor=\"let person of familyDataList; let i = index\">\n\n\t\t\t\t\t<li class=\"accor-lists\" data-toggle=\"collapse\" attr.data-target=\"#familyLevel{{i}}\" aria-expanded=\"true\" attr.aria-controls=\"Level{{i}}\" [ngClass]=\"person.isCollapsed ? '' : 'collapsed'\" (click)=\"person.isCollapsed = !person.isCollapsed\">\n\t\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t\t<h6 class=\"text-capitalize\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t\t<div class=\"desp\">\n\t\t\t\t\t\t\t\t<p>Relationship: <span>{{person.relationship}}</span></p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</li>\n\t\t\t\t\t<div id=\"familyLevel{{i}}\" class=\"collapse details\" attr.aria-labelledby=\"Level{{i}}\" data-parent=\"#familyAccordion\">\n\t\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t\t<div class=\"accor-box\">\n\t\t\t\t\n\t\t\t\t<li class=\"accor-lists add-list collapsed\" data-toggle=\"collapse\" data-target=\"#addfamilyLevel\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"addfamilyLevel\" class=\"collapse details\" aria-labelledby=\"collapseOne\" data-parent=\"#familyAccordion\">\n\t\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-family-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Family Members</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && !isFamilyMembersAvailable()\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -94,7 +114,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-interest-Group-wrapper p-5\">\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n    \n    <div class=\"d-flex mb-4\">\n\t\t\t<h4>My Interest Group</h4>\n    </div>\n\n    <form>\n\n      <h6 class=\"mb-4\">User previleged</h6>\n      <div class=\"bg-card shadow form-check p-4 d-inline-flex mr-3 mb-3\" *ngFor=\"let interestGroup of userInterestGroupCategory\">\n        <input type=\"checkbox\" [checked]=\"interestGroup.IsAssigned\"  class=\"form-check-input\" [id]=\"interestGroup.groupName\" [name]=\"interestGroup.groupName\" (change)=ChangeInterestGroup(interestGroup)>\n        <label class=\"form-check-label\" [for]=\"interestGroup.groupName\">{{interestGroup.groupName}}</label>\n      </div>\n  \n      <h6 class=\"mb-4 mt-4\">Admin previleged</h6>\n      <div class=\"bg-card shadow form-check p-4 d-inline-flex mr-3 mb-3\" *ngFor=\"let interestGroup of adminInterestGroupCategory\">\n        <input type=\"checkbox\" [checked]=\"interestGroup.IsAssigned\" class=\"form-check-input\" \n        [id]=\"interestGroup.groupName\" [name]=\"interestGroup.groupName\" disabled>\n        <label class=\"form-check-label\" [for]=\"interestGroup.groupName\">{{interestGroup.groupName}}</label>\n      </div>\n  \n    </form>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-interest-Group-wrapper p-5\">\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n    \n    <div class=\"d-flex mb-4\">\n\t\t\t<h4>My Interest Group</h4>\n    </div>\n\n    <form>\n\n      <h6 class=\"mb-4 text-secondary\">User previleged</h6>\n      <div class=\"bg-card shadow form-check p-4 d-inline-flex mr-3 mb-3\" *ngFor=\"let interestGroup of userInterestGroupCategory\">\n        <input type=\"checkbox\" [checked]=\"interestGroup.IsAssigned\"  class=\"form-check-input\" [id]=\"interestGroup.groupName\" [name]=\"interestGroup.groupName\" (change)=ChangeInterestGroup(interestGroup)>\n        <label class=\"form-check-label\" [for]=\"interestGroup.groupName\">{{interestGroup.groupName}}</label>\n      </div>\n  \n      <h6 class=\"mb-4 mt-4 text-secondary\">Admin previleged</h6>\n      <div class=\"bg-card shadow form-check p-4 d-inline-flex mr-3 mb-3\" *ngFor=\"let interestGroup of adminInterestGroupCategory\">\n        <input type=\"checkbox\" [checked]=\"interestGroup.IsAssigned\" class=\"form-check-input\" \n        [id]=\"interestGroup.groupName\" [name]=\"interestGroup.groupName\" disabled>\n        <label class=\"form-check-label\" [for]=\"interestGroup.groupName\">{{interestGroup.groupName}}</label>\n      </div>\n  \n    </form>\n\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -134,7 +154,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper profile-section\">\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isDataLoaded && !isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm('edit')\"></i-feather>\n\t</div>\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<ng-container *ngIf=\"isDataLoaded && !isEdit\">\n\n\t\t<form #leaseInfoForm=\"ngForm\" name=\"leaseInfoForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{rent.startDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{rent.expiryDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\n\t</ng-container>\n\n\t<div *ngIf=\"isDataLoaded && isEdit\" class=\"card mb-30\">\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n\t\t\t\t<h5>\n\t\t\t\t\t<span>Create Rental/Lease Information</span>\n\t\t\t\t</h5>\n\t\t\t</div>\n\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\" href=\"javascript:void(0)\" (click)=\"showEditForm('back')\">\n\t\t\t\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\"></i-feather>\n\t\t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<div class=\"card-body\">\n\t\t\t<ng-container>\n\t\t\t\t<form *ngIf=\"isDataLoaded\" #leaseInfoForm=\"ngForm\" name=\"leaseInfoForm\"\n\t\t\t\t\t(ngSubmit)=\"submitLeaseInfoForm(leaseInfoForm)\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Start Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"rent.startDate\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expiry Date*</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"leaseInfoForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6 a-space\">\n\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"t-decor\" (click)=\"showHistory()\">History</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\n\t\t\t</ng-container>\n\t\t</div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" (ngSubmit)=\"submitLeaseInfoForm(leaseInfoForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{rent.startDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{rent.expiryDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"rent.startDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -194,7 +214,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-pets-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Pets</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<label>Select Unit</label>\n\t\t\t\t\t\t<select \n\t\t\t\t\t\t\tname=\"unitNo\" \n\t\t\t\t\t\t\tid=\"unitNo\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t[(ngModel)]=\"userUnitId\" (ngModelChange)=\"showUnitDetails(userUnitId)\" required>\n\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitListData\" [value]=\"item.apartmentBlockUnitId\">{{ getUnitName(item.apartmentBlockUnitId) }}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUnitSelected && isUserDataLoaded && this.petDataList && !this.petDataList.length\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\n\t<ng-container *ngIf=\"isUnitSelected && isUserDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{getPetType(item.pet.petTypeId)}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [petData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [isPetNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\t\t\n\t\t\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-pets-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Pets</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"unitListData\"\n\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t[fieldModel]=\"userUnitId\"\n\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div>\n\n\t</form>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && !isUnitSelected && !isPetsAvailable\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\n\t<ng-container *ngIf=\"isUnitSelected && isUserDataLoaded && isPetsAvailable\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{getPetType(item.pet.petTypeId)}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [petData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [isPetNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\t\t\n\t\t\n\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -254,7 +274,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-unit wrapper p-5\">\n\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Unit Details</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" (ngSubmit)=\"submitProfileUnitForm(profileUnitForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t<ng-container>\n\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Block Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Type</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.unitType}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.intercom}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Car</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.cars}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</ng-container>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t</ng-container>\n\t\t\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\n\t\t\t\t\t<div class=\"row\">\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"block.apartmentBlockId\" (ngModelChange)=\"getUnits(block.apartmentBlockId)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"unitNo\" \n\t\t\t\t\t\t\t\t\tid=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"block.apartmentBlockUnitId\" required [disabled]=\"!isBlockSelected\">\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Unit Type*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"unitType\" \n\t\t\t\t\t\t\t\t\tid=\"unitType\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"block.unitType\" (ngModelChange)=\"getUnitType(block.unitType)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitTypeData\" [value]=\"item.lookupValueName\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Car (in number)*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitCar\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"block.cars\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"advanceAmount\" [(ngModel)]=\"block.intercom\" minlength=\"6\" maxlength=\"10\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-unit wrapper p-5\">\n\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Unit Details</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" (ngSubmit)=\"submitProfileUnitForm(profileUnitForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t<ng-container>\n\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Block Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Type</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.unitType}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.intercom}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Car</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.cars}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</ng-container>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t</ng-container>\n\t\t\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\n\t\t\t\t\t<div class=\"row\">\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"blockNo\" \n\t\t\t\t\t\t\t\t\tid=\"blockNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"block.apartmentBlockId\" (ngModelChange)=\"getUnits(block.apartmentBlockId)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"unitNo\" \n\t\t\t\t\t\t\t\t\tid=\"unitNo\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"block.apartmentBlockUnitId\" required [disabled]=\"!isBlockSelected\">\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockUnitData\" [value]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Unit Type*</label>\n\t\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\t\tname=\"unitType\" \n\t\t\t\t\t\t\t\t\tid=\"unitType\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"block.unitType\" (ngModelChange)=\"getUnitType(block.unitType)\" required>\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitTypeData\" [value]=\"item.lookupValueName\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Car (in number)*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitCar\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"block.cars\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"advanceAmount\" [(ngModel)]=\"block.intercom\" minlength=\"6\" maxlength=\"10\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isUserDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\t\n</div>";
       /***/
     },
 
@@ -294,7 +314,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper profile-section\">\n  <!-- <div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isDataLoaded && !isEdit\">\n    <i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n  </div> -->\n\n  <div class=\"row mb-3 \" *ngIf=\"isDataLoaded\">\n    <div class=\"col-sm-12\">\n      <div class=\"text-right\">\n        <button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">{{isEdit ? 'Back' : 'Edit'}}</button>\n      </div>\n    </div>\n  </div>\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  <ng-container *ngIf=\"isDataLoaded && !isEdit\">\n\n    <form #absenceForm=\"ngForm\" name=\"leaseInfoForm\" absenceForm>\n\n      <div class=\"data-wrapper\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n        </div>\n      </div>\n    </form>\n  </ng-container>\n  <div *ngIf=\"isDataLoaded && isEdit\" class=\"card mb-30\">\n    <div class=\"card-body\">\n      <ng-container>\n        <form #absenceForm=\"ngForm\" name=\"absenceForm\" (ngSubmit)=\"submitAbsenceForm(absenceForm)\" novalidate>\n          <div class=\"row\">\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>From Date*</label>\n                <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                  placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n                <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                  <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>To Date*</label>\n                <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                  placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n                <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n                <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                  <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                </div>\n              </div>\n            </div>\n            <div class=\"col-sm-12\">\n              <div class=\"input-box\">\n                <h6>Please contact my local representative given below</h6>\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Local Representative Name 1*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                  required>\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Phone/Mobile*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo\"\n                  [(ngModel)]=\"data.localContactP1phone\">\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Alternate Phone Number</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo\"\n                  [(ngModel)]=\"data.localcontactP1alternatephone\">\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Email*</label>\n                <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                  [(ngModel)]=\"data.localcontactP1email\" required>\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Local Representative Name 2*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                  [(ngModel)]=\"data.localContactP2\" required>\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Phone/Mobile*</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo1\"\n                  [(ngModel)]=\"data.localContactP2phone\" required>\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Alternate Phone Number</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo1\"\n                  [(ngModel)]=\"data.localcontactP2alternatephone\">\n              </div>\n            </div>\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Email*</label>\n                <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1\"\n                  [(ngModel)]=\"data.localcontactP2email\" required>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"row\">\n            <div class=\"col-sm-6\">\n              <div class=\"text-center mt-5\">\n                <button mat-flat-button [color]=\"'primary'\" [disabled]=\"absenceForm.invalid\">Submit</button>\n              </div>\n            </div>\n            <div class=\"col-sm-6 a-space\">\n              <a href=\"javascript:void(0)\" class=\"t-decor\" (click)=\"showHistory()\">History</a>\n            </div>\n          </div>\n\n        </form>\n\n      </ng-container>\n    </div>\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper p-5\">\n  \n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">Edit</button>\n      </div>\n      <div class=\"ml-auto\" *ngIf=\"isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" (ngSubmit)=\"submitAbsenceForm(absenceForm)\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n      <ng-container *ngIf=\"!isEdit\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <ng-container *ngIf=\"isEdit\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo\"\n                [(ngModel)]=\"data.localContactP1phone\">\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo\"\n                [(ngModel)]=\"data.localcontactP1alternatephone\">\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo1\"\n                [(ngModel)]=\"data.localContactP2phone\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Phone no\" name=\"phoneNo1\"\n                [(ngModel)]=\"data.localcontactP2alternatephone\">\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>";
       /***/
     },
 
@@ -314,7 +334,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-vehicle-details-wrapper profile-section\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<!-- <div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isDataLoaded && !isEdit && !isVehicleNew\">\n\t\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t\t</div>\n\n\t\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit && !isVehicleNew\">\n\t\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t\t</div> -->\n\n\t\t\n\t<div class=\"row\" *ngIf=\"isDataLoaded && !isVehicleNew\" >\n\t\t<div class=\"col-sm-12\">\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">{{isEdit ? 'Back' : 'Edit'}}</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isVehicleNew\">\n\t\t\t\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\"  novalidate>\n\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Number</label>\n\t\t\t\t                <p>{{vehicle.vehicleNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Type</label>\n\t\t\t\t                <p>{{getVehicleType(vehicle.vehicleTypeId) | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Manufacturer</label>\n\t\t\t\t                <p>{{vehicle.vehicleManufacturer | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Color</label>\n\t\t\t\t                <p>{{vehicle.vehicleColor | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Driver Number</label>\n\t\t\t\t                <p>{{vehicle.vehicleDriverNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit || isVehicleNew\">\n\t\t\t\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" (ngSubmit)=\"submitProfilVehicleForm(profileVehicleForm)\"  novalidate>\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Number*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleNumber\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleNumber\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Vehicle Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"vehicleTypeId\" \n\t\t\t\t\t\t\t        id=\"vehicleTypeId\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"vehicle.vehicleTypeId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of vehicleTypeList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Manufacturer*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleManufacturer\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleManufacturer\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Color</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleColor\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleColor\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Driver Number</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleDriverNumber\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleDriverNumber\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profileVehicleForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</ng-container>\n\n\t</ng-container>\n\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-vehicle-details-wrapper profile-section\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\n\t<div class=\"row\" *ngIf=\"isDataLoaded && !isVehicleNew\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">{{isEdit ? 'Back' : 'Edit'}}</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isVehicleNew\">\n\t\t\t\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\"  novalidate>\n\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Number</label>\n\t\t\t\t                <p>{{vehicle.vehicleNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Type</label>\n\t\t\t\t                <p>{{getVehicleType(vehicle.vehicleTypeId) | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Manufacturer</label>\n\t\t\t\t                <p>{{vehicle.vehicleManufacturer | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Color</label>\n\t\t\t\t                <p>{{vehicle.vehicleColor | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Driver Number</label>\n\t\t\t\t                <p>{{vehicle.vehicleDriverNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit || isVehicleNew\">\n\t\t\t\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" (ngSubmit)=\"submitProfilVehicleForm(profileVehicleForm)\"  novalidate>\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Number*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleNumber\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleNumber\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Vehicle Type*</label>\n\t\t\t                    <select \n\t\t\t\t\t\t\t        name=\"vehicleTypeId\" \n\t\t\t\t\t\t\t        id=\"vehicleTypeId\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"vehicle.vehicleTypeId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of vehicleTypeList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Manufacturer*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleManufacturer\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleManufacturer\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Color</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleColor\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleColor\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Driver Number</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleDriverNumber\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleDriverNumber\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profileVehicleForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</ng-container>\n\n\t</ng-container>\n\n\n\n</div>\n";
       /***/
     },
 
@@ -334,7 +354,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-vehicles-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Unit vehicles and Parking</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow primary\" *ngIf=\"isUserDataLoaded\">\n\t\t<h6 class=\"mb-2\">Parking Slots Available</h6>\n\t\t<p class=\"text-secondary d-inline-block ft mr-md-2\" *ngFor=\" let item of parkingSlotsDataList; let i = index; last as isLast\">\n\t\t\t{{item.slotName}}<span *ngIf=\"!isLast\">,</span>\n\t\t</p>\n\t\t<p class=\"text-secondary d-inline-block\" *ngIf=\"isPlotNotAvailable()\">\n\t\t\tNot Allocated\n\t\t</p>\n\t</div>\n\t\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && isVehicleNotAvailable()\">\n\t\t<h6>No Vehicle added yet</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of vehicleDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Type: <span class=\"font-normal\">{{getVehicleType(item.vehicle.vehicleTypeId)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t\t\n\t\t\n\t\t<!-- <div class=\"accor-special\" id=\"vehicleAccordion\">\n\n\t\t\t<div class=\"accor-box\" *ngFor=\"let item of vehicleDataList; let i = index\">\n\n\t\t\t\t<li class=\"accor-lists\" data-toggle=\"collapse\" attr.data-target=\"#vehicleCollapse{{i}}\" aria-expanded=\"true\" attr.aria-controls=\"Collapse{{i}}\" [ngClass]=\"item.isCollapsed ? '' : 'collapsed'\" (click)=\"item.isCollapsed = !item.isCollapsed\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<div class=\"desp\">\n\t\t\t\t\t\t\t<p>Type: <span>{{getVehicleType(item.vehicle.vehicleTypeId)}}</span></p>\n\t\t\t\t\t\t\t<p>Manufacturer: <span>{{item.vehicle.vehicleManufacturer}}</span></p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"vehicleCollapse{{i}}\" class=\"collapse details\" attr.aria-labelledby=\"Collapse{{i}}\" data-parent=\"#vehicleAccordion\">\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"accor-box\" >\n\t\t\t\t\n\t\t\t\t<li class=\"accor-lists add-list collapsed\" data-toggle=\"collapse\" data-target=\"#addVehicleCollapse\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n\t\t\t\t\t<div class=\"float-left\">\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\"></i-feather>\n\t\t\t\t\t</div>\n\t\t\t\t</li>\n\t\t\t\t<div id=\"addVehicleCollapse\" class=\"collapse details\" aria-labelledby=\"collapseOne\" data-parent=\"#vehicleAccordion\">\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</div> -->\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-vehicles-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Unit vehicles and Parking</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow primary\" *ngIf=\"isUserDataLoaded\">\n\t\t<h6 class=\"mb-2\">Parking Slots Available</h6>\n\t\t<p class=\"text-secondary d-inline-block ft mr-md-2\" *ngFor=\" let item of parkingSlotsDataList; let i = index; last as isLast\">\n\t\t\t{{item.slotName}}<span *ngIf=\"!isLast\">,</span>\n\t\t</p>\n\t\t<p class=\"text-secondary d-inline-block\" *ngIf=\"isPlotNotAvailable()\">\n\t\t\tNot Allocated\n\t\t</p>\n\t</div>\n\t\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && isVehicleNotAvailable()\">\n\t\t<h6>No Vehicle added yet</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of vehicleDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Type: <span class=\"font-normal\">{{item.vehicle.vehicleModel}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -374,7 +394,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper profile-section\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n<!-- \n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isDataLoaded && !isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div> -->\n\t<div class=\"row\" *ngIf=\"isDataLoaded\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">{{isEdit ? 'Back' : 'Edit'}}</button>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\t<ng-container *ngIf=\"isDataLoaded && !isEdit\">\n\n\t\t<form #propertyManagerForm=\"ngForm\" name=\"propertyManagerForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company</label>\n\t\t\t\t\t\t\t<p>{{propertyData.propertyManagerName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person</label>\n\t\t\t\t\t\t\t<p>{{propertyData.contactPerson}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{propertyData.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<p>{{propertyData.city}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<p>{{propertyData.state}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<p>{{propertyData.pin}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isDataLoaded && isEdit\">\n\n\t\t<form #propertyManagerForm=\"ngForm\" name=\"propertyManagerForm\"\n\t\t\t(ngSubmit)=\"submitpropertyManagerForm(propertyManagerForm)\" novalidate>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Property Company*</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.propertyManagerName\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Contact Person*</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.contactPerson\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\"\n\t\t\t\t\t\t\tplaceholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo1\" [(ngModel)]=\"propertyData.phone1\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo2\" [(ngModel)]=\"propertyData.phone2\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address1\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address2\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.city\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.state\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\"\n\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.pin\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t<button class=\"btn lime-green\" [disabled]=\"propertyManagerForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Property Manager</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit && isDataAvailable\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"bg-card shadow warn\" *ngIf=\"!isDataAvailable\">\n\t\t\t<h6>No Records</h6>\n\t\t</div>\n\t</ng-container>\n\n\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" (ngSubmit)=\"submitPropertyManagerForm(propertyManagerForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded && isDataAvailable\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company</label>\n\t\t\t\t\t\t\t<p>{{propertyData.propertyManagerName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person</label>\n\t\t\t\t\t\t\t<p>{{propertyData.contactPerson}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{propertyData.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<p>{{propertyData.city}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<p>{{propertyData.state}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<p>{{propertyData.pin}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.propertyManagerName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.contactPerson\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo1\" [(ngModel)]=\"propertyData.phone1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo2\" [(ngModel)]=\"propertyData.phone2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address1\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.city\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.state\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.pin\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -1094,115 +1114,133 @@
       /* harmony import */
 
 
-      var src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/modules/ui/card/card.module */
+      "./src/app/modules/ui/card/card.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/modules/ui/select/select.module */
+      "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/@condo/directives/scrollbar */
       "./src/@condo/directives/scrollbar/index.ts");
       /* harmony import */
 
 
-      var _angular_material_chips__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! @angular/material/chips */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/chips.js");
       /* harmony import */
 
 
-      var _profile_area_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _profile_area_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./profile-area.component */
       "./src/app/modules/profile/profile-area.component.ts");
       /* harmony import */
 
 
-      var _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./profile-area-basic/profile-area-basic.component */
       "./src/app/modules/profile/profile-area-basic/profile-area-basic.component.ts");
       /* harmony import */
 
 
-      var _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./profile-sidebar/profile-sidebar.component */
       "./src/app/modules/profile/profile-sidebar/profile-sidebar.component.ts");
       /* harmony import */
 
 
-      var _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./profile-pic/profile-pic.component */
       "./src/app/modules/profile/profile-pic/profile-pic.component.ts");
       /* harmony import */
 
 
-      var _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./profile-password/profile-password.component */
       "./src/app/modules/profile/profile-password/profile-password.component.ts");
       /* harmony import */
 
 
-      var _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./profile-vehicles/profile-vehicles.component */
       "./src/app/modules/profile/profile-vehicles/profile-vehicles.component.ts");
       /* harmony import */
 
 
-      var _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ./profile-vehicle-details/profile-vehicle-details.component */
       "./src/app/modules/profile/profile-vehicle-details/profile-vehicle-details.component.ts");
       /* harmony import */
 
 
-      var _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ./profile-family-members/profile-family-members.component */
       "./src/app/modules/profile/profile-family-members/profile-family-members.component.ts");
       /* harmony import */
 
 
-      var _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      /*! ./profile-family-members-details/profile-family-members-details.component */
+      "./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.ts");
+      /* harmony import */
+
+
+      var _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ./profile-pet/profile-pet.component */
       "./src/app/modules/profile/profile-pet/profile-pet.component.ts");
       /* harmony import */
 
 
-      var _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
       /*! ./profile-pet-details/profile-pet-details.component */
       "./src/app/modules/profile/profile-pet-details/profile-pet-details.component.ts");
       /* harmony import */
 
 
-      var _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! ./property-manager/property-manager.component */
       "./src/app/modules/profile/property-manager/property-manager.component.ts");
       /* harmony import */
 
 
-      var _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      var _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! ./profile-unit-details/profile-unit-details.component */
       "./src/app/modules/profile/profile-unit-details/profile-unit-details.component.ts");
       /* harmony import */
 
 
-      var _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      var _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
       /*! ./profile-unit-staffs/profile-unit-staffs.component */
       "./src/app/modules/profile/profile-unit-staffs/profile-unit-staffs.component.ts");
       /* harmony import */
 
 
-      var _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+      var _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
       /*! ./profile-lease-info/profile-lease-info.component */
       "./src/app/modules/profile/profile-lease-info/profile-lease-info.component.ts");
       /* harmony import */
 
 
-      var _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      var _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
       /*! ./profile-interest-group/profile-interest-group.component */
       "./src/app/modules/profile/profile-interest-group/profile-interest-group.component.ts");
       /* harmony import */
 
 
-      var _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      var _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
       /*! ./profile-user-absence/profile-user-absence.component */
       "./src/app/modules/profile/profile-user-absence/profile-user-absence.component.ts");
       /* harmony import */
 
 
-      var _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+      var _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
       /*! ./property-manager/property-manager-create/property-manager-create.component */
       "./src/app/modules/profile/property-manager/property-manager-create/property-manager-create.component.ts");
 
@@ -1211,10 +1249,347 @@
       };
 
       ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_10__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_11__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_12__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_13__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_14__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_15__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_16__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_17__["ProfileFamilyMembersComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_18__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_19__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_20__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_21__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_22__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_23__["ProfileLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_24__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_26__["PropertyManagerCreateComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]), _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProfileAreaRoutingModule"], src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_9__["MatChipsModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"]],
-        bootstrap: [_profile_area_component__WEBPACK_IMPORTED_MODULE_10__["ProfileAreaComponent"]]
+        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_15__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_17__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_19__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_21__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_23__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_24__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_26__["ProfileLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_27__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_28__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_29__["PropertyManagerCreateComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]), _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProfileAreaRoutingModule"], src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__["CondoScrollbarModule"]],
+        bootstrap: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"]]
       })], ProfileAreaModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.scss":
+    /*!**************************************************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.scss ***!
+      \**************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesProfileProfileFamilyMembersDetailsProfileFamilyMembersDetailsComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLWZhbWlseS1tZW1iZXJzLWRldGFpbHMvcHJvZmlsZS1mYW1pbHktbWVtYmVycy1kZXRhaWxzLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.ts":
+    /*!************************************************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.ts ***!
+      \************************************************************************************************************/
+
+    /*! exports provided: ProfileFamilyMembersDetailsComponent */
+
+    /***/
+    function srcAppModulesProfileProfileFamilyMembersDetailsProfileFamilyMembersDetailsComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ProfileFamilyMembersDetailsComponent", function () {
+        return ProfileFamilyMembersDetailsComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! underscore */
+      "./node_modules/underscore/modules/index-all.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+
+      var ProfileFamilyMembersDetailsComponent = /*#__PURE__*/function () {
+        function ProfileFamilyMembersDetailsComponent(router, route, apartmentService, userService, sharedService, lookupService, sessionService) {
+          _classCallCheck(this, ProfileFamilyMembersDetailsComponent);
+
+          this.router = router;
+          this.route = route;
+          this.apartmentService = apartmentService;
+          this.userService = userService;
+          this.sharedService = sharedService;
+          this.lookupService = lookupService;
+          this.sessionService = sessionService;
+          this.isDataLoaded = false;
+          this.isEdit = false;
+          this.genderType = "";
+          this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        }
+
+        _createClass(ProfileFamilyMembersDetailsComponent, [{
+          key: "showEditForm",
+          value: function showEditForm() {
+            this.isEdit = !this.isEdit;
+          }
+        }, {
+          key: "getGender",
+          value: function getGender(id) {
+            return id == '43' ? 'Male' : 'Female';
+          }
+        }, {
+          key: "getDOB",
+          value: function getDOB(date) {
+            if (date === undefined || date.length == 0) {
+              return "";
+            } else {
+              return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YY");
+            }
+          }
+        }, {
+          key: "deleteMember",
+          value: function deleteMember() {
+            var _this3 = this;
+
+            var params = {
+              userFamilyMemberId: parseInt(this.user.userFamilyMemberId),
+              deleteBy: parseInt(this.sessionService.userId)
+            };
+            this.userService.deleteUserFamilyMember(params).subscribe(function (res) {
+              if (res.message) {
+                _this3.isDataLoaded = true;
+
+                _this3.sharedService.setAlertMessage("Member deleted");
+
+                _this3.outputParams.emit(true);
+              } else {
+                _this3.isDataLoaded = true;
+              }
+            });
+          }
+        }, {
+          key: "submitProfileFamilyForm",
+          value: function submitProfileFamilyForm(form) {
+            var _this4 = this;
+
+            if (!this.isEdit) {
+              var details = {
+                "firstName": this.user.firstName,
+                "middleName": this.user.middleName,
+                "lastName": this.user.lastName,
+                "relationship": this.user.relationship,
+                "relatedUserId": this.userId,
+                "emailId": this.user.emailId,
+                "genderId": parseInt(this.genderType),
+                "dob": this.user.dob,
+                "bloodGroup": this.user.bloodGroup,
+                "phoneNumber": this.user.phoneNumber.toString(),
+                "isActive": true,
+                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": 0,
+                "updatedOn": "2020-03-28T10:44:31.345Z",
+                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
+              };
+              var params = {
+                userFamilyMember: details
+              };
+              this.userService.addUserFamilyMember(params).subscribe(function (res) {
+                if (res.message) {
+                  _this4.isDataLoaded = true;
+
+                  _this4.sharedService.setAlertMessage("Family Member added successfully");
+
+                  _this4.outputParams.emit(true);
+                } else {
+                  _this4.isDataLoaded = true;
+                }
+              });
+            } else {
+              var _details = {
+                "userFamilyMemberId": this.user.userFamilyMemberId,
+                "firstName": this.user.firstName,
+                "middleName": this.user.middleName,
+                "lastName": this.user.lastName,
+                "relationship": this.user.relationship,
+                "relatedUserId": this.userId,
+                "emailId": this.user.emailId,
+                "genderId": parseInt(this.genderType),
+                "dob": this.user.dob,
+                "bloodGroup": this.user.bloodGroup,
+                "phoneNumber": this.user.phoneNumber.toString(),
+                "isActive": this.user.isActive,
+                "insertedBy": this.user.insertedBy,
+                "insertedOn": this.user.insertedOn,
+                "updatedBy": parseInt(this.sessionService.userId),
+                "updatedOn": new Date().toISOString(),
+                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
+              };
+              var _params = {
+                userFamilyMember: _details
+              };
+              this.userService.updateUserFamilyMember(_params).subscribe(function (res) {
+                if (res.message) {
+                  _this4.isDataLoaded = true;
+
+                  _this4.sharedService.setAlertMessage("Family Member updated successfully");
+
+                  _this4.outputParams.emit(true);
+                } else {
+                  _this4.isDataLoaded = true;
+                }
+              });
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this5 = this;
+
+            if (this.route.params['value'].id != undefined) {
+              this.userId = this.route.params['value'].id;
+            } else {
+              this.userId = parseInt(this.sessionService.userId);
+            }
+
+            var groupParams = {
+              LookupTypeId: 24
+            };
+            this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
+              _this5.bloodGroupData = res;
+            });
+            var getAllApartmentParam = {
+              userId: this.userId
+            };
+            this.apartmentService.getAllApartmentBlockUnitUsersByUserId(getAllApartmentParam).subscribe(function (unit) {
+              _this5.unitListData = unit;
+
+              _this5.apartmentService.getApartmentBlockUnitByUserId(getAllApartmentParam).subscribe(function (res) {
+                var data = res[0] || {};
+
+                _this5.getUnitUserId(data.apartmentBlockUnitId);
+              }, function (error) {
+                console.log(error);
+              });
+            }, function (error) {});
+
+            if (this.isFamilyNew) {
+              this.user = {};
+              this.user.bloodGroup = "";
+            } else {
+              this.genderType = '' + this.user.genderId;
+            }
+
+            this.isDataLoaded = true;
+          }
+        }, {
+          key: "getUnitUserId",
+          value: function getUnitUserId(id) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.unitListData, function (item) {
+              if (item.apartmentBlockUnitId == id) {
+                return item;
+              }
+            });
+
+            if (data === undefined || data.length == 0) {
+              return '';
+            } else {
+              this.apartmentBlockUnitUserId = data[0].apartmentBlockUnitUserId;
+            }
+          }
+        }]);
+
+        return ProfileFamilyMembersDetailsComponent;
+      }();
+
+      ProfileFamilyMembersDetailsComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }];
+      };
+
+      ProfileFamilyMembersDetailsComponent.propDecorators = {
+        isFamilyNew: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        user: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        outputParams: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }]
+      };
+      ProfileFamilyMembersDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile-family-members-details',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./profile-family-members-details.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./profile-family-members-details.component.scss */
+        "./src/app/modules/profile/profile-family-members-details/profile-family-members-details.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ProfileFamilyMembersDetailsComponent);
       /***/
     },
 
@@ -1316,7 +1691,7 @@
         _createClass(ProfileFamilyMembersComponent, [{
           key: "getParams",
           value: function getParams(event) {
-            var _this3 = this;
+            var _this6 = this;
 
             if (event) {
               this.isDataLoaded = false;
@@ -1324,11 +1699,11 @@
                 apartmentBlockUnitUserId: this.userId
               };
               this.userService.getUserFamilyMembersByUserId(getFamilyDetails).subscribe(function (res) {
-                _this3.familyDataList = res.filter(function (item) {
+                _this6.familyDataList = res.filter(function (item) {
                   return item.isActive;
                 });
                 ;
-                _this3.isDataLoaded = true;
+                _this6.isDataLoaded = true;
               });
             }
           }
@@ -1340,7 +1715,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this7 = this;
 
             if (this.route.params['value'].id != undefined) {
               this.userId = this.route.params['value'].id;
@@ -1352,11 +1727,11 @@
               apartmentBlockUnitUserId: this.userId
             };
             this.userService.getUserFamilyMembersByUserId(getFamilyMember).subscribe(function (res) {
-              _this4.familyDataList = res.filter(function (item) {
+              _this7.familyDataList = res.filter(function (item) {
                 return item.isActive;
               });
               ;
-              _this4.isDataLoaded = true;
+              _this7.isDataLoaded = true;
             });
           }
         }]);
@@ -1478,13 +1853,14 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.apartmentService = apartmentService;
+          this.isDataLoaded = false;
         }
 
         _createClass(ProfileInterestGroupComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
             this.apartmentID = this.sessionService.apartmentId;
-            this.userId = parseInt(this.sessionService.userId);
+            this.userId = this.sessionService.userId;
             this.getAllGroupCategory(); // this.getUserDetails();
             // this.getAllGoupUsers();
           } //Get Category Type
@@ -1492,7 +1868,7 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this5 = this;
+            var _this8 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -1500,57 +1876,59 @@
             this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
               var allBroadcastGroupCategory = res; //filter active true items
 
-              _this5.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              _this8.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
                 return data.isActive;
               });
-              _this5.adminInterestGroupCategory = _this5.allBroadcastGroupCategory.filter(function (data) {
+              _this8.adminInterestGroupCategory = _this8.allBroadcastGroupCategory.filter(function (data) {
                 return data.privilege == "Admin";
               });
-              _this5.userInterestGroupCategory = _this5.allBroadcastGroupCategory.filter(function (data) {
+              _this8.userInterestGroupCategory = _this8.allBroadcastGroupCategory.filter(function (data) {
                 return data.privilege.includes("All");
               });
 
-              _this5.getAllGoupUsers();
+              _this8.getAllGoupUsers();
             });
           }
         }, {
           key: "getAllGoupUsers",
           value: function getAllGoupUsers() {
-            var _this6 = this;
+            var _this9 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this6.interestGroupUsers = res;
-              _this6.assignedInterestGroupUsers = _this6.interestGroupUsers.filter(function (data) {
-                return data.userId == _this6.userId && data.isActive;
+              _this9.interestGroupUsers = res;
+              _this9.assignedInterestGroupUsers = _this9.interestGroupUsers.filter(function (data) {
+                return data.userId == _this9.userId && data.isActive;
               });
-              _this6.assignedInterestGroupsToUser = [];
+              _this9.assignedInterestGroupsToUser = [];
 
-              _this6.assignedInterestGroupUsers.forEach(function (element) {
-                _this6.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
-              });
-
-              _this6.adminInterestGroupCategory.forEach(function (element) {
-                element.IsAssigned = _this6.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+              _this9.assignedInterestGroupUsers.forEach(function (element) {
+                _this9.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
               });
 
-              _this6.userInterestGroupCategory.forEach(function (element) {
-                element.IsAssigned = _this6.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+              _this9.adminInterestGroupCategory.forEach(function (element) {
+                element.IsAssigned = _this9.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
               });
+
+              _this9.userInterestGroupCategory.forEach(function (element) {
+                element.IsAssigned = _this9.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+              });
+
+              _this9.isDataLoaded = true;
             });
           }
         }, {
           key: "getUserDetails",
           value: function getUserDetails() {
-            var _this7 = this;
+            var _this10 = this;
 
             var queryParamBase = {
               userId: this.userId
             };
             this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
-              _this7.userDetails = res.filter(function (obj) {
+              _this10.userDetails = res.filter(function (obj) {
                 return obj.apartmentId == this.apartmentId && obj.userid == this.userId;
               });
             });
@@ -1558,11 +1936,11 @@
         }, {
           key: "ChangeInterestGroup",
           value: function ChangeInterestGroup(interestGroup) {
-            var _this8 = this;
+            var _this11 = this;
 
             if (interestGroup.IsAssigned) {
               var categoryUser = this.interestGroupUsers.filter(function (obj) {
-                return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId && obj.userId == _this8.userId;
+                return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId && obj.userId == _this11.userId;
               });
               this.removeUser(categoryUser[0].broadCastGroupCategoryUserId);
             } else {
@@ -1571,13 +1949,13 @@
               };
               this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
                 var currentAppUserUnits = res.filter(function (obj) {
-                  return obj.apartmentId == _this8.apartmentID;
+                  return obj.apartmentId == _this11.apartmentID;
                 });
 
                 if (currentAppUserUnits != undefined && currentAppUserUnits.length > 0) {
                   var userAppUnit = currentAppUserUnits[0];
 
-                  _this8.insertGroupUser(_this8.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
+                  _this11.insertGroupUser(_this11.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
                 }
               });
             } // interestGroup.IsAssigned=!interestGroup.IsAssigned;
@@ -1586,22 +1964,22 @@
         }, {
           key: "removeUser",
           value: function removeUser(broadCastGroupCategoryUserId) {
-            var _this9 = this;
+            var _this12 = this;
 
             var params = {
               broadCastGroupCategoryUserId: broadCastGroupCategoryUserId,
               deleteBy: this.userId
             };
             this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
-              _this9.sharedService.setAlertMessage("User has been removed from interest group successfully");
+              _this12.sharedService.setAlertMessage("User has been removed from interest group successfully");
 
-              _this9.getAllGoupUsers();
+              _this12.getAllGoupUsers();
             }); //}
           }
         }, {
           key: "insertGroupUser",
           value: function insertGroupUser(userId, roleId, blockId, unitId, broadCastGroupCategoryId) {
-            var _this10 = this;
+            var _this13 = this;
 
             var broadCastGroupCategoryUser = {
               'broadCastGroupCategoryUserID': 0,
@@ -1623,9 +2001,9 @@
             };
             this.broadcastService.upsertBroadCastGroupCategoryUser(params).subscribe(function (res) {
               if (res.message) {
-                _this10.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
+                _this13.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
 
-                _this10.getAllGoupUsers();
+                _this13.getAllGoupUsers();
               }
             });
           }
@@ -1904,34 +2282,23 @@
         _createClass(ProfileLeaseInfoComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
-
             this.rent = {};
-            this.userId = this.route.params['value'].id;
-            var params = {
-              userId: parseInt(this.userId)
-            };
-            this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
-              var data = res[0] || {};
-              _this11.apartmentBlockUnitId = data.apartmentBlockUnitId;
-
-              _this11.getListData();
-            }, function (error) {
-              console.log(error);
-            });
+            this.userId = this.sessionService.profileUserId;
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            this.getListData();
           }
         }, {
           key: "getListData",
           value: function getListData() {
-            var _this12 = this;
+            var _this14 = this;
 
             this.rentService.getAllApartmentBlockUnitRents().subscribe(function (res) {
-              _this12.rentListData = res.filter(function (data) {
-                return data.isActive && data.apartmentBlockUnitId == _this12.apartmentBlockUnitId;
+              _this14.rentListData = res.filter(function (data) {
+                return data.isActive && data.apartmentBlockUnitId == _this14.apartmentBlockUnitId;
               });
-              var length = _this12.rentListData.length - 1;
-              _this12.rent = _this12.rentListData[length];
-              _this12.isDataLoaded = true;
+              var length = _this14.rentListData.length - 1;
+              _this14.rent = _this14.rentListData[length];
+              _this14.isDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -1939,7 +2306,7 @@
         }, {
           key: "submitLeaseInfoForm",
           value: function submitLeaseInfoForm(form) {
-            var _this13 = this;
+            var _this15 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -1964,18 +2331,18 @@
             };
             this.rentService.addApartmentBlockUnitRent(AddApartmentBlockUnitRentParams).subscribe(function (res) {
               if (res.message) {
-                _this13.rent = {};
+                _this15.rent = {};
 
-                _this13.sharedService.setAlertMessage("Lease Info added successfully");
+                _this15.sharedService.setAlertMessage("Lease Info added successfully");
 
-                _this13.getListData();
+                _this15.getListData();
 
-                _this13.isEdit = false;
+                _this15.isEdit = false;
               }
 
-              _this13.isDataLoaded = true;
+              _this15.isDataLoaded = true;
             }, function (error) {
-              _this13.isDataLoaded = true;
+              _this15.isDataLoaded = true;
               console.log(error);
             });
           }
@@ -2300,7 +2667,7 @@
         }, {
           key: "submitProfilPetForm",
           value: function submitProfilPetForm(form) {
-            var _this14 = this;
+            var _this16 = this;
 
             this.isDataLoaded = false;
 
@@ -2320,35 +2687,35 @@
               this.petService.addPet(params).subscribe(function (res) {
                 if (res.message) {
                   var unitDetails = {
-                    "apartmentBlockUnitId": parseInt(_this14.apartmentBlockUnitId),
+                    "apartmentBlockUnitId": parseInt(_this16.apartmentBlockUnitId),
                     "petId": res.message,
                     "isActive": true,
-                    "insertedBy": parseInt(_this14.sessionService.userId),
+                    "insertedBy": parseInt(_this16.sessionService.userId),
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": "2020-03-27T07:52:53.767Z"
                   };
-                  var _params = {
+                  var _params2 = {
                     apartmentBlockUnitPet: unitDetails
                   };
 
-                  _this14.petService.addApartmentBlockUnitPet(_params).subscribe(function (res) {
+                  _this16.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                     if (res.message) {
-                      _this14.isDataLoaded = true;
+                      _this16.isDataLoaded = true;
 
-                      _this14.sharedService.setAlertMessage("Pet added successfully");
+                      _this16.sharedService.setAlertMessage("Pet added successfully");
 
-                      _this14.outputParams.emit(true);
+                      _this16.outputParams.emit(true);
                     } else {
-                      _this14.isDataLoaded = true;
+                      _this16.isDataLoaded = true;
                     }
                   });
                 } else {
-                  _this14.isDataLoaded = true;
+                  _this16.isDataLoaded = true;
                 }
               });
             } else {
-              var _details = {
+              var _details2 = {
                 "petId": this.pet.petId,
                 "petTypeId": parseInt(this.pet.petTypeId),
                 "dob": this.pet.dob,
@@ -2358,38 +2725,38 @@
                 "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": new Date().toISOString()
               };
-              var _params2 = {
-                pet: _details
+              var _params3 = {
+                pet: _details2
               };
-              this.petService.updatePet(_params2).subscribe(function (res) {
+              this.petService.updatePet(_params3).subscribe(function (res) {
                 if (res.message) {
                   var unitDetails = {
-                    "apartmentBlockUnitPetId": parseInt(_this14.petUnit.apartmentBlockUnitPetId),
-                    "apartmentBlockUnitId": parseInt(_this14.petUnit.apartmentBlockUnitId),
-                    "petId": parseInt(_this14.pet.petId),
-                    "isActive": _this14.petUnit.isActive,
-                    "insertedBy": _this14.petUnit.insertedBy,
-                    "insertedOn": _this14.petUnit.insertedOn,
-                    "updatedBy": parseInt(_this14.sessionService.userId),
+                    "apartmentBlockUnitPetId": parseInt(_this16.petUnit.apartmentBlockUnitPetId),
+                    "apartmentBlockUnitId": parseInt(_this16.petUnit.apartmentBlockUnitId),
+                    "petId": parseInt(_this16.pet.petId),
+                    "isActive": _this16.petUnit.isActive,
+                    "insertedBy": _this16.petUnit.insertedBy,
+                    "insertedOn": _this16.petUnit.insertedOn,
+                    "updatedBy": parseInt(_this16.sessionService.userId),
                     "updatedOn": new Date().toISOString()
                   };
-                  var _params3 = {
+                  var _params4 = {
                     apartmentBlockUnitPet: unitDetails
                   };
 
-                  _this14.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                  _this16.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
                     if (res.message) {
-                      _this14.isDataLoaded = true;
+                      _this16.isDataLoaded = true;
 
-                      _this14.sharedService.setAlertMessage("Pet updated successfully");
+                      _this16.sharedService.setAlertMessage("Pet updated successfully");
 
-                      _this14.outputParams.emit(true);
+                      _this16.outputParams.emit(true);
                     } else {
-                      _this14.isDataLoaded = true;
+                      _this16.isDataLoaded = true;
                     }
                   });
                 } else {
-                  _this14.isDataLoaded = true;
+                  _this16.isDataLoaded = true;
                 }
               });
             }
@@ -2397,7 +2764,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this17 = this;
 
             if (this.route.params['value'].id != undefined) {
               this.userId = this.route.params['value'].id;
@@ -2419,24 +2786,24 @@
               LookupTypeId: 85
             };
             this.lookupService.getLookupValueByLookupTypeId(petTypeParams).subscribe(function (res) {
-              _this15.petTypeList = res;
+              _this17.petTypeList = res;
             });
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   petId: parseInt(id),
-                  deleteBy: parseInt(_this15.sessionService.userId)
+                  deleteBy: parseInt(_this17.sessionService.userId)
                 };
 
-                _this15.petService.deletePet(params).subscribe(function (res) {
+                _this17.petService.deletePet(params).subscribe(function (res) {
                   if (res.message) {
-                    _this15.isDataLoaded = true;
+                    _this17.isDataLoaded = true;
 
-                    _this15.sharedService.setAlertMessage("Pet deleted");
+                    _this17.sharedService.setAlertMessage("Pet deleted");
 
-                    _this15.outputParams.emit(true);
+                    _this17.outputParams.emit(true);
                   } else {
-                    _this15.isDataLoaded = true;
+                    _this17.isDataLoaded = true;
                   }
                 });
               }
@@ -2552,124 +2919,91 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! src/app/api/controllers/Pet */
       "./src/app/api/controllers/Pet.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
       var ProfilePetComponent = /*#__PURE__*/function () {
-        function ProfilePetComponent(router, route, userService, petService, apartmentService, sharedService, lookupService, sessionService) {
+        function ProfilePetComponent(petService, apartmentService, lookupService, sessionService) {
           _classCallCheck(this, ProfilePetComponent);
 
-          this.router = router;
-          this.route = route;
-          this.userService = userService;
           this.petService = petService;
           this.apartmentService = apartmentService;
-          this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.isUserDataLoaded = false;
-          this.isUnitSelected = false;
+          this.isUnitSelected = true;
           this.userUnitId = "";
-          this.isError = false;
-          this.errorMessage = "";
           this.isPetsAvailable = false;
         }
 
         _createClass(ProfilePetComponent, [{
+          key: "getSelectedBlockUnit",
+          value: function getSelectedBlockUnit(event) {
+            this.userUnitId = event[0].apartmentBlockUnitId;
+            this.showUnitDetails();
+          }
+        }, {
           key: "showUnitDetails",
-          value: function showUnitDetails(id) {
-            var _this16 = this;
+          value: function showUnitDetails() {
+            var _this18 = this;
 
             this.isUserDataLoaded = false;
             this.isUnitSelected = true;
             var petListParams = {
-              apartmentBlockUnitId: parseInt(id)
+              apartmentBlockUnitId: parseInt(this.userUnitId)
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length != 0) {
-                _this16.petDataList = res.filter(function (item) {
+                _this18.petDataList = res.filter(function (item) {
                   return item.pet.isActive;
                 });
-                _this16.isPetsAvailable = true;
+                _this18.isPetsAvailable = true;
               } else {
-                _this16.isPetsAvailable = false;
+                _this18.isPetsAvailable = false;
               }
 
-              _this16.isUserDataLoaded = true;
+              _this18.isUserDataLoaded = true;
             });
-          }
-        }, {
-          key: "getUnitName",
-          value: function getUnitName(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.unitNameList, function (item) {
-              if (item.apartmentBlockUnitId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].apartmentBlockUnitNumber;
-            }
           }
         }, {
           key: "getPetType",
           value: function getPetType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.petTypeList, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.petTypeList, function (item) {
               if (item.lookupValueId === id) {
                 return item;
               }
@@ -2687,89 +3021,28 @@
             if (date === undefined || date.length == 0) {
               return "";
             } else {
-              return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD-MM-YY");
+              return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD-MM-YY");
             }
-          }
-        }, {
-          key: "getParams",
-          value: function getParams(event) {
-            var _this17 = this;
-
-            this.isUserDataLoaded = false;
-
-            if (event) {
-              var petListParams = {
-                apartmentBlockUnitId: parseInt(this.userUnitId)
-              };
-              this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
-                if (res.length != 0) {
-                  _this17.petDataList = res.filter(function (item) {
-                    return item.pet.isActive;
-                  });
-                  _this17.isPetsAvailable = true;
-                } else {
-                  _this17.isPetsAvailable = false;
-                }
-
-                _this17.isUserDataLoaded = true;
-              });
-              this.isUserDataLoaded = true;
-            }
-          }
-        }, {
-          key: "isPetsNotAvailable",
-          value: function isPetsNotAvailable() {
-            return this.petDataList.length == 0 ? true : false;
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this19 = this;
 
-            if (this.route.params['value'].id != undefined) {
-              this.userId = this.route.params['value'].id;
-            } else {
-              this.userId = parseInt(this.sessionService.userId);
-            }
-
-            this.unitNameList = [];
-            var blockParams = {
-              apartmentId: this.sessionService.apartmentId
+            this.userId = this.sessionService.profileUserId;
+            var getBlockUnitId = {
+              apartmentBlockUnitId: this.sessionService.apartmentBlockUnitID
             };
-            this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this18.blockData = res;
-            });
+            this.apartmentService.getApartmentBlockUnitById(getBlockUnitId).subscribe(function (res) {
+              _this19.unitListData = res;
+              _this19.isUserDataLoaded = true;
+            }, function (error) {});
             var petParams = {
               LookupTypeId: 85
             };
             this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-              _this18.petTypeList = res;
+              _this19.petTypeList = res;
             });
-            var unitParams = {
-              LookupTypeId: 1
-            };
-            this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-              _this18.unitTypeData = res;
-              var getAllApartmentParam = {
-                userId: _this18.userId
-              };
-
-              _this18.apartmentService.getAllApartmentBlockUnitUsersByUserId(getAllApartmentParam).subscribe(function (unit) {
-                _this18.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this18.unitListData, function (item) {
-                  var getBlockUnitId = {
-                    apartmentBlockUnitId: item.apartmentBlockUnitId
-                  };
-
-                  _this18.apartmentService.getApartmentBlockUnitById(getBlockUnitId).subscribe(function (data) {
-                    _this18.unitNameList.push(data[0]);
-
-                    _this18.isUserDataLoaded = true;
-                  }, function (error) {});
-                });
-              }, function (error) {});
-            });
-            this.isUserDataLoaded = true;
           }
         }]);
 
@@ -2778,29 +3051,16 @@
 
       ProfilePetComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_2__["PetService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
-          type: src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_4__["PetService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
-      ProfilePetComponent.propDecorators = {
-        userId: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
       ProfilePetComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-pet',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -2809,7 +3069,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-pet.component.scss */
         "./src/app/modules/profile/profile-pet/profile-pet.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_4__["PetService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], ProfilePetComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_2__["PetService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfilePetComponent);
       /***/
     },
 
@@ -2921,38 +3181,38 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this19 = this;
+            var _this20 = this;
 
             var file = event[0];
             this.profilepPicUploadService.upload(file, this.user.emailId).subscribe(function (res) {
               if (res != undefined) {
-                _this19.uploadResponse = res;
-                var offset = _this19.circumference - _this19.uploadResponse.message / 100 * _this19.circumference;
-                _this19.circle.style.strokeDashoffset = offset;
+                _this20.uploadResponse = res;
+                var offset = _this20.circumference - _this20.uploadResponse.message / 100 * _this20.circumference;
+                _this20.circle.style.strokeDashoffset = offset;
               }
 
-              if (_this19.isUploadCompleted()) {
+              if (_this20.isUploadCompleted()) {
                 var userParams = {
-                  userid: _this19.user.userId
+                  userid: _this20.user.userId
                 };
 
-                _this19.userService.getUserById(userParams).subscribe(function (res) {
+                _this20.userService.getUserById(userParams).subscribe(function (res) {
                   var imagePath = 'data:image/png;base64,' + res[0].image; //admin interface
 
-                  if (_this19.isAdmin()) {
-                    _this19.sharedService.setUserPic(imagePath);
+                  if (_this20.isAdmin()) {
+                    _this20.sharedService.setUserPic(imagePath);
                   } //user interface
                   else {
-                      _this19.sharedService.setProfilePic(imagePath);
+                      _this20.sharedService.setProfilePic(imagePath);
                     }
 
-                  _this19.initialiseProgressRing();
+                  _this20.initialiseProgressRing();
                 }, function (error) {
                   console.log(error);
                 });
               }
             }, function (err) {
-              _this19.error = err;
+              _this20.error = err;
             });
           }
         }, {
@@ -2966,16 +3226,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.imageFormats = this.constantsService.imageFormats.join(',');
             this.circle = document.querySelector('.progress-ring__circle');
             this.initialiseProgressRing();
             this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-              _this20.profilePicUrl = profilePicUrl;
+              _this21.profilePicUrl = profilePicUrl;
             });
             this.sharedService.userpiccast.subscribe(function (userPicUrl) {
-              _this20.userPicUrl = userPicUrl;
+              _this21.userPicUrl = userPicUrl;
             });
           }
         }]);
@@ -3141,12 +3401,11 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
             // Subscribe to the resolved route data
             this._activatedRoute.parent.parent.data.subscribe(function (data) {
-              _this21.user = data.initialData.profileUser;
-              console.log(_this21.user);
+              _this22.user = data.initialData.profileUser;
             }); // Generate menu links
 
 
@@ -3166,7 +3425,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this22 = this;
+            var _this23 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -3178,7 +3437,7 @@
                 title: folder.title,
                 type: 'basic',
                 icon: folder.icon,
-                link: '/' + _this22.pagePath() + '/profile/' + folder.slug
+                link: '/' + _this23.pagePath() + '/profile/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -3190,7 +3449,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this22._foldersMenuData.push(menuItem);
+              _this23._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -3198,19 +3457,19 @@
         }, {
           key: "_generateSettingsMenuLinks",
           value: function _generateSettingsMenuLinks() {
-            var _this23 = this;
+            var _this24 = this;
 
             // Reset the labels menu
             this._settingsMenuData = []; // Iterate through the labels
 
             this.settings.forEach(function (setting) {
               // Generate menu item for the label
-              _this23._settingsMenuData.push({
+              _this24._settingsMenuData.push({
                 id: setting.id,
                 title: setting.title,
                 type: 'basic',
                 icon: setting.icon,
-                link: '/' + _this23.pagePath() + '/profile/' + setting.slug
+                link: '/' + _this24.pagePath() + '/profile/' + setting.slug
               });
             }); // Update the menu data
 
@@ -3384,14 +3643,14 @@
         }, {
           key: "getUnits",
           value: function getUnits(id) {
-            var _this24 = this;
+            var _this25 = this;
 
             var params = {
               apartmentBlockId: parseInt(id)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this24.blockUnitData = res;
-              _this24.isBlockSelected = true;
+              _this25.blockUnitData = res;
+              _this25.isBlockSelected = true;
             });
           }
         }, {
@@ -3459,7 +3718,7 @@
         }, {
           key: "submitProfileUnitForm",
           value: function submitProfileUnitForm(form) {
-            var _this25 = this;
+            var _this26 = this;
 
             this.isUserDataLoaded = false;
             var apartmentBlockUnitUser = {
@@ -3480,58 +3739,58 @@
             this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
               if (res.message) {
                 var details = {
-                  "apartmentBlockUnitId": parseInt(_this25.block.apartmentBlockUnitId),
-                  "apartmentBlockUnitNumber": _this25.block.apartmentBlockUnitNumber,
-                  "apartmentBlockId": parseInt(_this25.block.apartmentBlockId),
-                  "unitTypeId": _this25.unitTypeId,
-                  "builtupArea": _this25.block.builtupArea,
-                  "carpetArea": _this25.block.carpetArea,
-                  "intercom": _this25.block.intercom,
-                  "cars": parseInt(_this25.block.cars),
-                  "isAvailableForRent": _this25.block.isAvailableForRent,
+                  "apartmentBlockUnitId": parseInt(_this26.block.apartmentBlockUnitId),
+                  "apartmentBlockUnitNumber": _this26.block.apartmentBlockUnitNumber,
+                  "apartmentBlockId": parseInt(_this26.block.apartmentBlockId),
+                  "unitTypeId": _this26.unitTypeId,
+                  "builtupArea": _this26.block.builtupArea,
+                  "carpetArea": _this26.block.carpetArea,
+                  "intercom": _this26.block.intercom,
+                  "cars": parseInt(_this26.block.cars),
+                  "isAvailableForRent": _this26.block.isAvailableForRent,
                   "availableDate": "2019-12-13T07:07:59.550Z",
-                  "rentAmount": _this25.block.rentAmount,
-                  "advanceAmount": _this25.block.advanceAmount,
-                  "isPetsAllowed": _this25.block.isPetsAllowed,
-                  "isFurnished": _this25.block.isFurnished,
-                  "isVacant": _this25.block.isVacant,
+                  "rentAmount": _this26.block.rentAmount,
+                  "advanceAmount": _this26.block.advanceAmount,
+                  "isPetsAllowed": _this26.block.isPetsAllowed,
+                  "isFurnished": _this26.block.isFurnished,
+                  "isVacant": _this26.block.isVacant,
                   "propertyManagerId": null,
-                  "isActive": _this25.block.isActive,
-                  "insertedBy": _this25.block.insertedBy,
-                  "insertedOn": _this25.block.insertedOn,
-                  "updatedBy": parseInt(_this25.sessionService.userId),
+                  "isActive": _this26.block.isActive,
+                  "insertedBy": _this26.block.insertedBy,
+                  "insertedOn": _this26.block.insertedOn,
+                  "updatedBy": parseInt(_this26.sessionService.userId),
                   "updatedOn": new Date().toISOString()
                 };
                 var apartmentBlockUnitParams = {
                   apartmentBlockUnit: details
                 };
 
-                _this25.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
+                _this26.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this25.isUserDataLoaded = true;
-                    _this25.isEdit = false;
+                    _this26.isUserDataLoaded = true;
+                    _this26.isEdit = false;
 
-                    _this25.sharedService.setAlertMessage("Unit updated successfully");
+                    _this26.sharedService.setAlertMessage("Unit updated successfully");
 
-                    _this25.isBlockSelected = false;
+                    _this26.isBlockSelected = false;
                   } else {
-                    _this25.isError = true;
-                    _this25.errorMessage = res.errorMessage;
+                    _this26.isError = true;
+                    _this26.errorMessage = res.errorMessage;
                   }
                 }, function (error) {});
               } else {
-                _this25.isError = true;
-                _this25.errorMessage = res.errorMessage;
+                _this26.isError = true;
+                _this26.errorMessage = res.errorMessage;
               }
             }, function (error) {
-              _this25.isError = true;
-              _this25.errorMessage = "Some error occured";
+              _this26.isError = true;
+              _this26.errorMessage = "Some error occured";
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.block = {};
             this.userId = this.sessionService.profileUserId;
@@ -3540,38 +3799,38 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this26.blockData = res;
+              _this27.blockData = res;
             });
             var queryParamBase = {
               userId: this.userId
             }; // get role
 
             this.userService.getRolesByUserId(queryParamBase).subscribe(function (data) {
-              _this26.userType = data[0].roleId.toString();
+              _this27.userType = data[0].roleId.toString();
             }, function (error) {});
             var unitTypeParams = {
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-              _this26.unitTypeData = res;
+              _this27.unitTypeData = res;
               var queryParamBase = {
-                userId: _this26.userId
+                userId: _this27.userId
               };
 
-              _this26.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
-                _this26.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this26.unitListData, function (item) {
+              _this27.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
+                _this27.unitListData = unit;
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this27.unitListData, function (item) {
                   var queryParamBase = {
                     apartmentBlockUnitId: item.apartmentBlockUnitId
                   };
 
-                  _this26.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
-                    _this26.unitNameList.push(data[0]);
+                  _this27.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
+                    _this27.unitNameList.push(data[0]);
 
-                    _this26.isUserDataLoaded = true;
-                    var id = _this26.unitListData[0].apartmentBlockUnitId;
+                    _this27.isUserDataLoaded = true;
+                    var id = _this27.unitListData[0].apartmentBlockUnitId;
 
-                    _this26.showUnitDetails(id);
+                    _this27.showUnitDetails(id);
                   }, function (error) {});
                 });
               }, function (error) {});
@@ -3752,71 +4011,50 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+      var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var _profile_lease_info_create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _profile_lease_info_create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ../profile-lease-info/create-lease-info/create-lease-info.component */
       "./src/app/modules/profile/profile-lease-info/create-lease-info/create-lease-info.component.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
 
       var ProfileUserAbsenceComponent = /*#__PURE__*/function () {
-        function ProfileUserAbsenceComponent(router, route, injector, apartmentService, lookupService, sharedService, sessionService, dialog) {
+        function ProfileUserAbsenceComponent(injector, apartmentService, sharedService, sessionService, dialog) {
           _classCallCheck(this, ProfileUserAbsenceComponent);
 
-          this.router = router;
-          this.route = route;
           this.injector = injector;
           this.apartmentService = apartmentService;
-          this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.dialog = dialog;
@@ -3827,41 +4065,11 @@
         _createClass(ProfileUserAbsenceComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
-
             this.data = {};
-            this.userId = this.route.params['value'].id;
-            var queryParamBase = {
-              userId: this.userId
-            };
-            this.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
-              _this27.unitListData = unit;
-
-              _this27.apartmentService.getApartmentBlockUnitByUserId(queryParamBase).subscribe(function (res) {
-                var data = res[0] || {};
-                _this27.apartmentBlockUnitId = data.apartmentBlockUnitId;
-
-                _this27.getUnitUserId(_this27.apartmentBlockUnitId);
-              }, function (error) {
-                console.log(error);
-              });
-            }, function (error) {});
-          }
-        }, {
-          key: "getUnitUserId",
-          value: function getUnitUserId(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.unitListData, function (item) {
-              if (item.apartmentBlockUnitId == id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.apartmentBlockUnitUserId = data[0].apartmentBlockUnitUserId;
-              this.getHistoryData();
-            }
+            this.userId = this.sessionService.profileUserId;
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            this.getHistoryData();
           }
         }, {
           key: "getHistoryData",
@@ -3869,15 +4077,11 @@
             var _this28 = this;
 
             var params = {
-              "apartmentId": this.sessionService.apartmentId,
-              "ApartmentBlockUnitUserId": this.apartmentBlockUnitUserId
+              apartmentId: this.sessionService.apartmentId,
+              ApartmentBlockUnitUserId: this.apartmentBlockUnitUserId
             };
             this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
               _this28.historyListData = unit.filter(function (data) {
-                // data.outFrom = moment(data.outFrom).format('MM/DD/YYYY');
-                // data.outTo = moment(data.outTo).format('MM/DD/YYYY');
-                // data.startDate = moment(data.outFrom).format('MM/DD/YYYY');
-                // data.expiryDate = moment(data.outTo).format('MM/DD/YYYY');
                 return data.isActive;
               });
               var length = _this28.historyListData.length - 1;
@@ -3900,7 +4104,7 @@
         }, {
           key: "showHistory",
           value: function showHistory() {
-            var dialogRef = this.dialog.open(_profile_lease_info_create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_8__["CreateLeaseInfoComponent"], {
+            var dialogRef = this.dialog.open(_profile_lease_info_create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_6__["CreateLeaseInfoComponent"], {
               width: '400px',
               data: {
                 title: 'Out Of Condo History',
@@ -3932,9 +4136,9 @@
               "outofCondoStatusId": 5,
               "isActive": true,
               "insertedBy": this.userId,
-              "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+              "insertedOn": moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).utc().format().toString(),
               "updatedBy": this.userId,
-              "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+              "updatedOn": moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).utc().format().toString(),
               "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
             };
             var params = {
@@ -3963,21 +4167,15 @@
 
       ProfileUserAbsenceComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-        }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
-        }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
         }];
       };
 
@@ -3989,7 +4187,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-user-absence.component.scss */
         "./src/app/modules/profile/profile-user-absence/profile-user-absence.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])], ProfileUserAbsenceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], ProfileUserAbsenceComponent);
       /***/
     },
 
@@ -4047,61 +4245,39 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! src/app/api/controllers/Vehicle */
       "./src/app/api/controllers/Vehicle.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/Apartment */
-      "./src/app/api/controllers/Apartment.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
 
       var ProfileVehicleDetailsComponent = /*#__PURE__*/function () {
-        function ProfileVehicleDetailsComponent(router, route, userService, vehicleService, apartmentService, sharedService, lookupService, sessionService) {
+        function ProfileVehicleDetailsComponent(vehicleService, sharedService, lookupService, sessionService) {
           _classCallCheck(this, ProfileVehicleDetailsComponent);
 
-          this.router = router;
-          this.route = route;
-          this.userService = userService;
           this.vehicleService = vehicleService;
-          this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
@@ -4118,7 +4294,7 @@
         }, {
           key: "getVehicleType",
           value: function getVehicleType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.vehicleTypeList, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.vehicleTypeList, function (item) {
               if (item.lookupValueId === id) {
                 return item;
               }
@@ -4148,8 +4324,8 @@
                 "isActive": this.vehicle.isActive,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2020-03-26T20:23:25.938Z"
+                "updatedBy": null,
+                "updatedOn": null
               };
               var vehicleParams = {
                 vehicle: details
@@ -4193,7 +4369,7 @@
                 }
               });
             } else {
-              var _details2 = {
+              var _details3 = {
                 "vehicleId": parseInt(this.vehicle.vehicleId),
                 "vehicleNumber": this.vehicle.vehicleNumber,
                 "vehicleTypeId": parseInt(this.vehicle.vehicleTypeId),
@@ -4208,7 +4384,7 @@
                 "updatedOn": new Date().toISOString()
               };
               var _vehicleParams = {
-                vehicle: _details2
+                vehicle: _details3
               };
               this.vehicleService.updateVehicle(_vehicleParams).subscribe(function (res) {
                 if (res.message) {
@@ -4256,12 +4432,7 @@
           value: function ngOnInit() {
             var _this31 = this;
 
-            if (this.route.params['value'].id != undefined) {
-              this.userId = this.route.params['value'].id;
-            } else {
-              this.userId = parseInt(this.sessionService.userId);
-            }
-
+            this.userId = this.sessionService.userId;
             this.vehicleUnit = {};
             this.vehicle = {};
 
@@ -4290,21 +4461,13 @@
 
       ProfileVehicleDetailsComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
-          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -4330,7 +4493,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-vehicle-details.component.scss */
         "./src/app/modules/profile/profile-vehicle-details/profile-vehicle-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], ProfileVehicleDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfileVehicleDetailsComponent);
       /***/
     },
 
@@ -4388,136 +4551,58 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! src/app/api/controllers/Vehicle */
       "./src/app/api/controllers/Vehicle.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/Apartment */
-      "./src/app/api/controllers/Apartment.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
 
       var ProfileVehiclesComponent = /*#__PURE__*/function () {
-        function ProfileVehiclesComponent(router, route, userService, vehicleService, apartmentService, sharedService, lookupService, sessionService) {
+        function ProfileVehiclesComponent(vehicleService, sessionService) {
           _classCallCheck(this, ProfileVehiclesComponent);
 
-          this.router = router;
-          this.route = route;
-          this.userService = userService;
           this.vehicleService = vehicleService;
-          this.apartmentService = apartmentService;
-          this.sharedService = sharedService;
-          this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.isUserDataLoaded = true;
-          this.isUnitSelected = false;
-          this.userUnitId = "";
-          this.isError = false;
-          this.errorMessage = "";
           this.isVehicleAvailable = false;
         }
 
         _createClass(ProfileVehiclesComponent, [{
           key: "showUnitDetails",
-          value: function showUnitDetails(id) {
+          value: function showUnitDetails() {
             var _this32 = this;
 
-            // this.isUserDataLoaded = false;
-            this.isUnitSelected = true;
+            this.isUserDataLoaded = false;
             var vehicleListParams = {
-              apartmentBlockUnitId: parseInt(id)
+              apartmentBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
               _this32.vehicleDataList = res;
+
+              if (_this32.vehicleDataList.length != 0) {
+                _this32.isVehicleAvailable = true;
+              } else {
+                _this32.isVehicleAvailable = false;
+              }
+
               _this32.isUserDataLoaded = true;
             });
             var parkingListParams = {
-              apartmentIdBlockUnitId: parseInt(id)
+              apartmentIdBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
               _this32.parkingSlotsDataList = res;
             });
           }
         }, {
-          key: "getVehicleType",
-          value: function getVehicleType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.vehicleTypeList, function (item) {
-              if (item.lookupValueId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          }
-        }, {
-          key: "getUnitName",
-          value: function getUnitName(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.unitNameList, function (item) {
-              if (item.apartmentBlockUnitId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].apartmentBlockUnitNumber;
-            }
-          }
-        }, {
           key: "getParams",
           value: function getParams(event) {
-            var _this33 = this;
-
             if (event) {
-              var params = {
-                apartmentBlockUnitId: parseInt(this.userUnitId)
-              };
-              this.vehicleService.getAllVehiclesByApartmentBlockUnitId(params).subscribe(function (res) {
-                _this33.vehicleDataList = res;
-                _this33.isUserDataLoaded = true;
-              });
+              this.showUnitDetails();
             }
           }
         }, {
@@ -4533,55 +4618,9 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
-
-            if (this.route.params['value'].id != undefined) {
-              this.userId = this.route.params['value'].id;
-            } else {
-              this.userId = parseInt(this.sessionService.userId);
-            }
-
-            this.unitNameList = [];
-            var blockParams = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this34.blockData = res;
-            });
-            var vehicleTypeParams = {
-              LookupTypeId: 2
-            };
-            this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this34.vehicleTypeList = res;
-            });
-            var unitTypeParams = {
-              LookupTypeId: 1
-            };
-            this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-              _this34.unitTypeData = res;
-              var unitUserParam = {
-                userId: _this34.userId
-              };
-
-              _this34.apartmentService.getAllApartmentBlockUnitUsersByUserId(unitUserParam).subscribe(function (unit) {
-                _this34.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this34.unitListData, function (item) {
-                  var apartmentBlockUnitParam = {
-                    apartmentBlockUnitId: item.apartmentBlockUnitId
-                  };
-
-                  _this34.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitParam).subscribe(function (data) {
-                    _this34.unitNameList.push(data[0]);
-
-                    _this34.isUserDataLoaded = true;
-                    var id = _this34.unitListData[0].apartmentBlockUnitId;
-                    _this34.userUnitId = id;
-
-                    _this34.showUnitDetails(id);
-                  }, function (error) {});
-                });
-              }, function (error) {});
-            });
+            this.userId = this.sessionService.userId;
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            this.showUnitDetails();
           }
         }]);
 
@@ -4590,29 +4629,12 @@
 
       ProfileVehiclesComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-        }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
-        }, {
-          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
         }];
       };
 
-      ProfileVehiclesComponent.propDecorators = {
-        userId: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
       ProfileVehiclesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-vehicles',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -4621,7 +4643,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-vehicles.component.scss */
         "./src/app/modules/profile/profile-vehicles/profile-vehicles.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], ProfileVehiclesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], ProfileVehiclesComponent);
       /***/
     },
 
@@ -4822,7 +4844,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this35 = this;
+            var _this33 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -4849,15 +4871,15 @@
               console.log('res', res);
 
               if (res.message) {
-                _this35.sharedService.setAlertMessage("Property Manager added successfully");
+                _this33.sharedService.setAlertMessage("Property Manager added successfully");
 
-                _this35.propertyData = {};
-                _this35.isDataLoaded = true;
+                _this33.propertyData = {};
+                _this33.isDataLoaded = true;
 
-                _this35.outputParams.emit('close');
+                _this33.outputParams.emit('close');
               }
             }, function (error) {
-              _this35.isDataLoaded = true;
+              _this33.isDataLoaded = true;
               console.log(error);
             });
           }
@@ -5041,31 +5063,37 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isDataLoaded = false;
-          this.isError = false;
-          this.errorMessage = false;
           this.isEdit = false;
+          this.isDataAvailable = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__["ModalService"]);
         }
 
         _createClass(PropertyManagerComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this36 = this;
+            var _this34 = this;
 
-            this.userId = this.route.params['value'].id;
+            this.userId = this.sessionService.profileUserId;
             var params = {
-              userId: parseInt(this.userId)
+              userId: this.userId
             };
             this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
               var data = res[0] || {};
-              _this36.apartmentBlockUnitId = data.apartmentBlockUnitId;
+              _this34.apartmentBlockUnitId = data.apartmentBlockUnitId;
               var param = {
-                apartmentBlockUnitId: parseInt(_this36.apartmentBlockUnitId)
+                apartmentBlockUnitId: _this34.apartmentBlockUnitId
               };
 
-              _this36.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-                _this36.propertyData = res[0];
-                _this36.isDataLoaded = true;
+              _this34.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
+                if (res == [null] || []) {
+                  _this34.propertyData = {};
+                  _this34.isDataAvailable = false;
+                } else {
+                  _this34.propertyData = res[0];
+                  _this34.isDataAvailable = true;
+                }
+
+                _this34.isDataLoaded = true;
               }, function (error) {
                 console.log(error);
               });
@@ -5132,7 +5160,7 @@
         }, {
           key: "submitpropertyManagerForm",
           value: function submitpropertyManagerForm(form) {
-            var _this37 = this;
+            var _this35 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5157,33 +5185,31 @@
               propertyManager: details
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
-              console.log('res', res);
-
               if (res.message) {
-                _this37.sharedService.setAlertMessage("Property Manager updated successfully");
+                _this35.sharedService.setAlertMessage("Property Manager updated successfully");
 
-                _this37.isEdit = false;
+                _this35.isEdit = false;
                 var param = {
-                  apartmentBlockUnitId: parseInt(_this37.apartmentBlockUnitId)
+                  apartmentBlockUnitId: parseInt(_this35.apartmentBlockUnitId)
                 };
 
-                _this37.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-                  _this37.propertyData = res[0] || {};
-                  _this37.isDataLoaded = true;
-                  console.log('propertyData', _this37.propertyData);
+                _this35.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
+                  _this35.propertyData = res[0] || {};
+                  _this35.isDataLoaded = true;
+                  console.log('propertyData', _this35.propertyData);
                 }, function (error) {
                   console.log(error);
                 });
               }
             }, function (error) {
-              _this37.isDataLoaded = true;
+              _this35.isDataLoaded = true;
               console.log(error);
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this38 = this;
+            var _this36 = this;
 
             var message = "Are you sure want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -5194,15 +5220,15 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this38.isDataLoaded = false;
+                _this36.isDataLoaded = false;
                 var details = {
-                  "propertyManagerId": _this38.propertyData.propertyManagerId,
-                  "deleteBy": _this38.userId
+                  "propertyManagerId": _this36.propertyData.propertyManagerId,
+                  "deleteBy": _this36.userId
                 };
 
-                _this38.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                _this36.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                   if (res.message) {
-                    _this38.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                    _this36.sharedService.setAlertMessage("Property Manager Deleted successfully");
                   }
                 }, function (error) {});
               }
