@@ -432,7 +432,9 @@ let IncomeTrackerSetupAutoInvoicingComponent = class IncomeTrackerSetupAutoInvoi
             LookupTypeId: 198
         };
         this.lookupService.getLookupValueByLookupTypeId(vatIndicator).subscribe((res) => {
-            this.vatIndicator = res[0].isDisabled;
+            if (res.length > 0) {
+                this.vatIndicator = res[0].isDisabled;
+            }
         });
     }
 };

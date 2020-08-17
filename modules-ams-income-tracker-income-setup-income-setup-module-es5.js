@@ -672,7 +672,9 @@
               LookupTypeId: 198
             };
             this.lookupService.getLookupValueByLookupTypeId(vatIndicator).subscribe(function (res) {
-              _this5.vatIndicator = res[0].isDisabled;
+              if (res.length > 0) {
+                _this5.vatIndicator = res[0].isDisabled;
+              }
             });
           }
         }]);

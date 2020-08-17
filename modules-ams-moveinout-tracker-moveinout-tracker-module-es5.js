@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<!-- <div class=\"movein-setup-wrapper\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    <div class=\"row mb-3\">\n\t\t<div class=\"ml-auto\">\n\t<ul class=\"legends list-inline\" *ngIf=\"isDataLoaded\">\n\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-green-900\"></span>General</li>\n\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span>Foreign Nationals</li>\n\t</ul>\n\t</div>\n    </div>\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>Documents required</h5>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDocCriteria()\" type=\"button\">Add Document Criteria</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t\n\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t       <th scope=\"col\" (click)=\"sortUnitData('description')\">Name<span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t   <th scope=\"col\" (click)=\"sortUnitData('documentTypeId')\">Category <span [ngClass]=\"getFieldOrderBy('documentTypeId')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('owner')\">Owner <span [ngClass]=\"getFieldOrderBy('owner')\"></span></th>\n\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('tenant')\">Tenant<span [ngClass]=\"getFieldOrderBy('tenant')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('type')\">Type<span [ngClass]=\"getFieldOrderBy('type')\"></span></th>\n\t\t\t\t\t\t  <th></th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t     <tbody>\n\t\t\t\t\t    <tr *ngFor=\"let document of documentDataList | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t\t    \t<td class=\"name\">{{document.description}}</td>\n\t\t\t\t\t    \t<td class=\"name\">{{getCategory(document.documentTypeId)}}</td>\n\t\t\t\t\t    \t<td>\n\t\t\t\t\t\t\t\t<label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" [(ngModel)]=\"document.owner\" [ngClass]=\"document.isMandate ? '' : 'no-link'\">\n\t\t\t\t\t\t\t\t\t<span class=\"slider round\" (click)=\"updateDocType(document)\" [ngClass]=\"document.isMandate ? '' : 'no-link'\"></span>\n\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t     \t </td>\n\t\t\t\t\t\t\t <td>\n\t\t\t\t\t\t\t\t <label class=\"switch float-left\">\n\t\t\t\t\t\t\t\t \t<input type=\"checkbox\" [(ngModel)]=\"document.tenant\" [ngClass]=\"document.isMandate ? '' : 'no-link'\">\n\t\t\t\t\t\t\t\t \t<span class=\"slider round\" (click)=\"updateDocType(document)\" [ngClass]=\"document.isMandate ? '' : 'no-link'\"></span>\n\t\t\t\t\t\t\t\t </label>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td class=\"grey\">\n\t\t\t\t\t\t\t\t<span [ngClass]=\"{ 'dots': true, 'low':document.isForeignNational==null || !document.isForeignNational, 'medium': document.isForeignNational }\"></span>\n\t\t\t\t\t\t\t\t<bdi>{{document.isForeignNational?'Foreign':'General'}} National</bdi>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t<img title=\"Edit\" src=\"assets/images/edit-icon-blue.svg\" class=\"icon-edit mr-3\" (click)=\"openDocCriteriaEdit(document)\" alt=\"\">\n\t\t\t\t\t\t\t\t<img title=\"Remove\" src=\"assets/images/bin-icon-red.svg\" class=\"icon-bin\" alt=\"\" (click)=\"openDeleteConfirm(document.id)\">\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t    </tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</ng-container>\n</div> -->\n\n\n<div class=\"movein-setup-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Documents required</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"search\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDocCriteria()\">Add Document Criteria</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\" [filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" [source]=\"documentDataList\" [columns]=\"columnData\" [columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"movein-moveout-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"movein-moveout-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!documentData.id\"> Create Document</h4>\n\t\t\t\t\t<h4 *ngIf=\"documentData.id\"> Edit Document</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form #documentForm=\"ngForm\" name=\"documentForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t\t<input  type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentData.description\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentTypeId\" id=\"documentTypeId\" class=\"form-control\" [(ngModel)]=\"documentData.documentTypeId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentTypeDataList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block\">\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"ownerField\" name=\"ownerField\" [(ngModel)]=\"documentData.owner\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"ownerField\">Required for Owner</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"tenantField\" name=\"tenantField\" [(ngModel)]=\"documentData.tenant\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"tenantField\">Required for Tenant</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  <label>Category</label>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"general\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"false\"\n\t\t\t\t\t\t\t\t type=\"radio\">\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"general\">General</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"foreign\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"true\"\n\t\t\t\t\t\t\t\t type=\"radio\">\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreign\">Foreign</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t \t<textarea class=\"form-control\" rows=\"2\" placeholder=\"Enter Comments\" name=\"comment\" [(ngModel)]=\"documentData.comments\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"!documentData.id\" mat-flat-button [color]=\"'primary'\" [disabled]=\"documentForm.disabled\" (click)=\"documentCreate()\">Create</button>\n\t\t\t\t\t\t\t\t<button *ngIf=\"documentData.id\" mat-flat-button [color]=\"'primary'\" [disabled]=\"documentForm.disabled\" (click)=\"documentUpdate(documentData)\">Update</button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"goBack()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>Documents required</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"search\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDrawer()\">Add Document Criteria</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\" [filterable]=\"true\" \n\t\t\t\t\t\t\t[sortable]=\"true\" [source]=\"documentDataList\" [columns]=\"columnData\" [columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -2862,7 +2862,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL21vdmVpbm91dC10cmFja2VyL2NvbXBvbmVudHMvbW92ZWluLXNldHVwL21vdmVpbi1zZXR1cC5jb21wb25lbnQuc2NzcyJ9 */";
+      __webpack_exports__["default"] = "app-movein-setup {\n  display: flex;\n  flex: 1 1 auto;\n}\napp-movein-setup .mat-drawer-container .mat-drawer {\n  max-width: 480px !important;\n  width: 480px !important;\n}\napp-movein-setup .mat-drawer-container .mat-drawer .movein-moveout-drawer {\n  padding: 30px 25px 30px 25px;\n}\napp-movein-setup .mat-drawer-container .mat-drawer .movein-moveout-drawer .title {\n  display: flex;\n  margin: 0 0 30px 0;\n}\napp-movein-setup .mat-drawer-container .mat-drawer .movein-moveout-drawer .title h4 {\n  padding: 10px 0 0 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvbW92ZWlub3V0LXRyYWNrZXIvY29tcG9uZW50cy9tb3ZlaW4tc2V0dXAvbW92ZWluLXNldHVwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksYUFBQTtFQUNBLGNBQUE7QUFDSjtBQUFJO0VBQ0ksMkJBQUE7RUFDQSx1QkFBQTtBQUVSO0FBRFE7RUFDSSw0QkFBQTtBQUdaO0FBRlk7RUFDSSxhQUFBO0VBQ0Esa0JBQUE7QUFJaEI7QUFIZ0I7RUFDSSw4QkFBQTtBQUtwQiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL21vdmVpbm91dC10cmFja2VyL2NvbXBvbmVudHMvbW92ZWluLXNldHVwL21vdmVpbi1zZXR1cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImFwcC1tb3ZlaW4tc2V0dXAge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleDogMSAxIGF1dG87XG4gICAgLm1hdC1kcmF3ZXItY29udGFpbmVyIC5tYXQtZHJhd2VyIHtcbiAgICAgICAgbWF4LXdpZHRoOiA0ODBweCAhaW1wb3J0YW50O1xuICAgICAgICB3aWR0aDogNDgwcHggIWltcG9ydGFudDtcbiAgICAgICAgLm1vdmVpbi1tb3Zlb3V0LWRyYXdlciB7XG4gICAgICAgICAgICBwYWRkaW5nOiAzMHB4IDI1cHggMzBweCAyNXB4O1xuICAgICAgICAgICAgLnRpdGxlIHtcbiAgICAgICAgICAgICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgICAgICAgICAgIG1hcmdpbjogMCAwIDMwcHggMDtcbiAgICAgICAgICAgICAgICBoNCB7XG4gICAgICAgICAgICAgICAgICAgIHBhZGRpbmc6IDEwcHggMCAwIDAgIWltcG9ydGFudDtcbiAgICAgICAgICAgICAgICB9XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG59Il19 */";
       /***/
     },
 
@@ -2924,33 +2924,27 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var src_app_shared_components_add_doc_criteria_add_doc_criteria_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/shared/components/add-doc-criteria/add-doc-criteria.component */
-      "./src/app/shared/components/add-doc-criteria/add-doc-criteria.component.ts");
-      /* harmony import */
-
-
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var MoveinSetupComponent = /*#__PURE__*/function () {
         function MoveinSetupComponent(moveInOutService, lookupService, sharedService, sessionService, dialog, injector) {
@@ -2964,84 +2958,26 @@
           this.injector = injector;
           this.isDataLoaded = false;
           this.documentTypeListObject = {};
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
+          this.documentData = {};
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
         }
 
         _createClass(MoveinSetupComponent, [{
-          key: "getStatus",
-          value: function getStatus(value) {
-            if (value) {
-              return 'YES';
-            } else {
-              return 'NO';
-            }
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+            this.documentData = {};
           }
         }, {
-          key: "getCategory",
-          value: function getCategory(Id) {
-            if (this.documentTypeListObject[Id]) {
-              return this.documentTypeListObject[Id].lookupValueName;
-            } else {
-              return '';
-            }
-          }
-        }, {
-          key: "getDocumentType",
-          value: function getDocumentType(priorityId) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.documentTypeDataList, function (item) {
-              if (item.lookupValueId === priorityId) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName == 'General' ? 'low' : 'medium';
-            }
-          }
-        }, {
-          key: "updateDocType",
-          value: function updateDocType(document) {
-            var _this21 = this;
-
-            setTimeout(function () {
-              _this21.isDataLoaded = false;
-              var details = {
-                "id": parseInt(document.id),
-                "description": document.description,
-                "documentTypeId": parseInt(document.documentTypeId),
-                "owner": document.owner,
-                "tenant": document.tenant,
-                "isMoveIn": document.isMoveIn,
-                "comments": document.comments,
-                "isMandate": document.isMandate,
-                "isActive": document.isActive,
-                "insertedBy": parseInt(_this21.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(_this21.sessionService.userId),
-                "updatedOn": new Date().toISOString(),
-                "apartmentId": _this21.sessionService.apartmentId
-              };
-              var params = {
-                moveInOutConfig: details
-              };
-
-              _this21.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
-                if (res.message) {
-                  _this21.isDataLoaded = true;
-
-                  _this21.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
-                } else {
-                  _this21.isDataLoaded = true;
-                }
-              }, function (error) {
-                _this21.isDataLoaded = true;
-              });
-            }, 1000);
+          key: "openDrawer",
+          value: function openDrawer() {
+            this.documentData = {};
+            this.matDrawer.open();
           }
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this22 = this;
+            var _this21 = this;
 
             if (this.search != "") {
               var filtergroup = new jqx.filter();
@@ -3054,7 +2990,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this21.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3063,50 +2999,9 @@
             }
           }
         }, {
-          key: "openDocCriteria",
-          value: function openDocCriteria() {
-            var _this23 = this;
-
-            var dialogRef = this.dialog.open(src_app_shared_components_add_doc_criteria_add_doc_criteria_component__WEBPACK_IMPORTED_MODULE_8__["AddDocCriteriaComponent"], {
-              panelClass: 'material-dialog-medium',
-              data: {
-                type: 'ADD'
-              }
-            });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result.details) {
-                var document = result.details;
-                _this23.isDataLoaded = false;
-                var params = {
-                  moveInOutConfig: {
-                    "description": document.description,
-                    "documentTypeId": parseInt(document.documentTypeId),
-                    "owner": document.owner,
-                    "tenant": document.tenant,
-                    "isMoveIn": document.isMoveIn,
-                    "comments": document.comments,
-                    "isMandate": document.isMandate,
-                    "isActive": document.isActive,
-                    "isForeignNational": document.isForeignNational,
-                    "insertedBy": parseInt(_this23.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
-                    "updatedBy": null,
-                    "updatedOn": null,
-                    "apartmentId": _this23.sessionService.apartmentId
-                  }
-                };
-
-                _this23.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
-                  _this23.isDataLoaded = true;
-
-                  if (res.message) {
-                    _this23.sharedService.setAlertMessage("Document Criteria Added successfully");
-
-                    _this23.getMoveInMoveOutConfigList();
-                  }
-                });
-              }
-            });
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'Document');
           }
         }, {
           key: "deleteMoveIn",
@@ -3120,67 +3015,110 @@
         }, {
           key: "editMoveIn",
           value: function editMoveIn(detail) {
-            var _this24 = this;
-
+            this.documentData = {};
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var dialogRef = this.dialog.open(src_app_shared_components_add_doc_criteria_add_doc_criteria_component__WEBPACK_IMPORTED_MODULE_8__["AddDocCriteriaComponent"], {
-              panelClass: 'material-dialog-medium',
-              data: {
-                type: 'EDIT',
-                data: dataRecord
+            this.documentData = Object.assign({}, dataRecord);
+
+            if (this.documentData.isForeignNational && this.documentData.isForeignNational == 'true') {
+              this.documentData.isForeignNational = true;
+            } else if (this.documentData.isForeignNational && this.documentData.isForeignNational == 'false') {
+              this.documentData.isForeignNational = false;
+            }
+
+            this.matDrawer.open();
+          }
+        }, {
+          key: "onUpdateOwnerOrTenant",
+          value: function onUpdateOwnerOrTenant(detail) {
+            var tableData = this.datagrid.getrowdata(detail.rowId);
+            if (detail.column == 'owner') tableData.owner = !tableData.owner;else tableData.tenant = !tableData.tenant;
+            this.documentUpdate(tableData);
+          }
+        }, {
+          key: "documentCreate",
+          value: function documentCreate() {
+            var _this22 = this;
+
+            this.isDataLoaded = false;
+            var params = {
+              moveInOutConfig: Object.assign(Object.assign({}, this.documentData), {
+                "isActive": true,
+                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "apartmentId": this.sessionService.apartmentId
+              })
+            };
+            this.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
+              _this22.isDataLoaded = true;
+
+              if (res.message) {
+                _this22.goBack();
+
+                _this22.sharedService.setAlertMessage("Document Criteria Added successfully");
+
+                _this22.getMoveInMoveOutConfigList();
               }
             });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result.details) {
-                var document = result.details;
-                _this24.isDataLoaded = false;
-                var params = {
-                  moveInOutConfig: {
-                    "id": parseInt(document.id),
-                    "description": document.description,
-                    "documentTypeId": parseInt(document.documentTypeId),
-                    "owner": document.owner,
-                    "tenant": document.tenant,
-                    "isMoveIn": document.isMoveIn,
-                    "comments": document.comments,
-                    "isMandate": document.isMandate,
-                    "isActive": document.isActive,
-                    "isForeignNational": document.isForeignNational,
-                    "insertedBy": document.insertedBy,
-                    "insertedOn": document.insertedOn,
-                    "updatedBy": parseInt(_this24.sessionService.userId),
-                    "updatedOn": new Date().toISOString(),
-                    "apartmentId": _this24.sessionService.apartmentId
-                  }
-                };
+          }
+        }, {
+          key: "documentUpdate",
+          value: function documentUpdate(document) {
+            var _this23 = this;
 
-                _this24.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
-                  if (res.message) {
-                    _this24.isDataLoaded = true;
-
-                    _this24.getMoveInMoveOutConfigList();
-                  }
-                });
+            this.isDataLoaded = false;
+            var params = {
+              moveInOutConfig: {
+                "id": document.id,
+                "description": document.description,
+                "documentTypeId": document.documentTypeId,
+                "owner": document.owner,
+                "tenant": document.tenant,
+                "isMoveIn": document.isMoveIn,
+                "comments": document.comments,
+                "isMandate": document.isMandate,
+                "isActive": document.isActive,
+                "insertedBy": document.insertedBy,
+                "insertedOn": document.insertedOn,
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": new Date().toISOString(),
+                "apartmentId": this.sessionService.apartmentId
               }
+            };
+            this.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
+              if (res.message) {
+                _this23.isDataLoaded = true;
+
+                _this23.goBack();
+
+                _this23.getMoveInMoveOutConfigList();
+
+                _this23.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
+              } else {
+                _this23.isDataLoaded = true;
+              }
+            }, function (error) {
+              _this23.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveInMoveOutConfigList",
           value: function getMoveInMoveOutConfigList() {
-            var _this25 = this;
+            var _this24 = this;
 
             this.isDataLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.moveInOutService.getMoveInOutConfigByApartmentId(params).subscribe(function (res) {
-              _this25.totalItems = res.length;
+              _this24.totalItems = res.length;
               var tableData = {
                 localdata: res.reverse(),
                 datatype: "array"
               };
-              _this25.documentDataList = new jqx.dataAdapter(tableData);
-              _this25.isDataLoaded = true;
+              _this24.documentDataList = new jqx.dataAdapter(tableData);
+              _this24.isDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -3188,7 +3126,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this25 = this;
 
             this.getMoveInMoveOutConfigList();
 
@@ -3208,29 +3146,49 @@
               renderer: columnrenderer
             }, {
               text: 'Category',
-              datafield: 'apartmentBlockNumber',
+              datafield: 'documentTypeId_Label',
               minwidth: 220,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Owner',
-              datafield: 'apartmentBlockUnitNumber',
-              cellsrenderer: cellsrenderer,
+              datafield: 'owner',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var chkedProperty;
+
+                if (value) {
+                  chkedProperty = 'checked="true"';
+                } else {
+                  chkedProperty = '';
+                }
+
+                return '<div class="jqx-custom-inner-cell">' + '<label class="switch float-left">' + '<input type="checkbox" id="owner" name="owner"' + chkedProperty + '>' + '<div class="slider round" onClick="updateOwnerOrTenant(' + row + ', \'owner\')"></div>' + '</label>' + '</div>';
+              },
               width: 200,
               renderer: columnrenderer
             }, {
               text: 'Tenant',
-              datafield: 'endorsedBy',
-              cellsrenderer: cellsrenderer,
+              datafield: 'tenant',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var chkedProperty;
+
+                if (value) {
+                  chkedProperty = 'checked="true"';
+                } else {
+                  chkedProperty = '';
+                }
+
+                return '<div class="jqx-custom-inner-cell">' + '<label class="switch float-left">' + '<input type="checkbox" id="owner" name="owner"' + chkedProperty + '>' + '<div class="slider round" onClick="updateOwnerOrTenant(' + row + ', \'tenant\')"></div>' + '</label>' + '</div>';
+              },
               width: 200,
               renderer: columnrenderer
             }, {
               text: 'Type',
               datafield: 'isForeignNational',
               cellsrenderer: function cellsrenderer(row, column, national) {
-                if (national) {
+                if (national == 'true') {
                   return '<div class="jqx-custom-inner-cell"><span class="dots rt-1 bg-red-900"></span>Foreign National</div>';
-                } else {
+                } else if (national == 'false') {
                   return '<div class="jqx-custom-inner-cell"><span class="dots rt-1 bg-green-900"></span>General National</div>';
                 }
               },
@@ -3251,14 +3209,14 @@
               if (item != null && item.id) {
                 var params = {
                   Id: parseInt(item.id),
-                  deleteBy: parseInt(_this26.sessionService.userId)
+                  deleteBy: parseInt(_this25.sessionService.userId)
                 };
 
-                _this26.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
+                _this25.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
                   if (res.message) {
-                    _this26.sharedService.setUnitListDeleteIndex(null);
+                    _this25.sharedService.setUnitListDeleteIndex(null);
 
-                    _this26.datagrid.deleterow(item.index);
+                    _this25.datagrid.deleterow(item.index);
                   }
                 }, function (error) {
                   console.log(error);
@@ -3270,12 +3228,12 @@
               LookupTypeId: 72
             };
             this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
-              _this26.documentTypeDataList = res.filter(function (item) {
+              _this25.documentTypeDataList = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this26.documentTypeDataList.forEach(function (element) {
-                _this26.documentTypeListObject[element.lookupValueId] = element;
+              _this25.documentTypeDataList.forEach(function (element) {
+                _this25.documentTypeListObject[element.lookupValueId] = element;
               });
             }, function (error) {});
           }
@@ -3299,7 +3257,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
@@ -3312,6 +3270,12 @@
             "static": false
           }]
         }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
+          }]
+        }],
         deleteMoveIn: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onDeleteMoveIn', ['$event.detail']]
@@ -3319,6 +3283,10 @@
         editMoveIn: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onEditMoveIn', ['$event.detail']]
+        }],
+        onUpdateOwnerOrTenant: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:onUpdateOwnerOrTenant', ['$event.detail']]
         }]
       };
       MoveinSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3326,10 +3294,11 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./movein-setup.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./movein-setup.component.scss */
         "./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], MoveinSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], MoveinSetupComponent);
 
       function deleteMoveIn(row) {
         var event = new CustomEvent('onDeleteMoveIn', {
@@ -3352,6 +3321,18 @@
       }
 
       window.editMoveIn = editMoveIn;
+
+      function updateOwnerOrTenant(row, type) {
+        var event = new CustomEvent('onUpdateOwnerOrTenant', {
+          detail: {
+            rowId: row,
+            column: type
+          }
+        });
+        window.dispatchEvent(event);
+      }
+
+      window.updateOwnerOrTenant = updateOwnerOrTenant;
       /***/
     },
 
@@ -3512,7 +3493,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this27 = this;
+            var _this26 = this;
 
             if (this.moveOutData != "") {
               var filtergroup = new jqx.filter();
@@ -3525,7 +3506,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3613,7 +3594,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(data) {
-            var _this28 = this;
+            var _this27 = this;
 
             var moveOutData = data;
             moveOutData.approvedBy = parseInt(this.sessionService.userId);
@@ -3621,22 +3602,22 @@
             this.isMoveOutSubmitted = false;
             this.moveInOutService.updateMoveOut(moveOutData).subscribe(function (res) {
               if (res.message) {
-                _this28.isMoveOutSubmitted = true;
+                _this27.isMoveOutSubmitted = true;
 
-                _this28.sharedService.setAlertMessage("Moveout approved successfully");
+                _this27.sharedService.setAlertMessage("Moveout approved successfully");
               } else {
-                _this28.isMoveOutSubmitted = true;
-                _this28.isError = true;
-                _this28.alertMessage = res.errorMessage;
+                _this27.isMoveOutSubmitted = true;
+                _this27.isError = true;
+                _this27.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this28.isMoveOutSubmitted = true;
+              _this27.isMoveOutSubmitted = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this29 = this;
+            var _this28 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3689,7 +3670,7 @@
               text: 'Expected Time',
               datafield: 'outTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this29.getTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this28.getTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3711,27 +3692,27 @@
               statusIds: "380"
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
-              _this29.moveOutDataList = res.filter(function (item) {
+              _this28.moveOutDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this29.moveOutDataList);
-              _this29.gridSourceData = {
-                localdata: _this29.moveOutDataList,
+              console.log(_this28.moveOutDataList);
+              _this28.gridSourceData = {
+                localdata: _this28.moveOutDataList,
                 datatype: "array"
               };
-              _this29.listData = new jqx.dataAdapter(_this29.gridSourceData);
-              _this29.totalItems = _this29.moveOutDataList.length;
+              _this28.listData = new jqx.dataAdapter(_this28.gridSourceData);
+              _this28.totalItems = _this28.moveOutDataList.length;
 
-              if (_this29.totalItems > _this29.itemLimit) {
-                _this29.ItemEndIndex = _this29.itemLimit;
+              if (_this28.totalItems > _this28.itemLimit) {
+                _this28.ItemEndIndex = _this28.itemLimit;
               } else {
-                _this29.ItemEndIndex = _this29.totalItems;
+                _this28.ItemEndIndex = _this28.totalItems;
               }
 
-              _this29.isDataLoaded = true;
+              _this28.isDataLoaded = true;
             });
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this29.blockUnitData = res;
+              _this28.blockUnitData = res;
             });
           }
         }]);
@@ -4037,7 +4018,7 @@
         }, {
           key: "showMoveOutDetails",
           value: function showMoveOutDetails(detail) {
-            var _this30 = this;
+            var _this29 = this;
 
             var details = this.datagrid.getrowdata(detail.rowId);
             var type_ = detail.column;
@@ -4050,23 +4031,23 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this30.isDataLoaded = false;
+                _this29.isDataLoaded = false;
                 var params = {
-                  apartmentId: _this30.sessionService.apartmentId,
+                  apartmentId: _this29.sessionService.apartmentId,
                   statusIds: "372,373"
                 };
 
-                _this30.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
-                  _this30.moveOutDataList = res.filter(function (item) {
+                _this29.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
+                  _this29.moveOutDataList = res.filter(function (item) {
                     return item.isActive;
                   });
-                  _this30.gridSourceData = {
-                    localdata: _this30.moveOutDataList,
+                  _this29.gridSourceData = {
+                    localdata: _this29.moveOutDataList,
                     datatype: "array"
                   };
-                  _this30.listData = new jqx.dataAdapter(_this30.gridSourceData);
-                  _this30.totalItems = _this30.moveOutDataList.length;
-                  _this30.isDataLoaded = true;
+                  _this29.listData = new jqx.dataAdapter(_this29.gridSourceData);
+                  _this29.totalItems = _this29.moveOutDataList.length;
+                  _this29.isDataLoaded = true;
                 });
               }
             });
@@ -4074,7 +4055,7 @@
         }, {
           key: "checkOutUser",
           value: function checkOutUser(detail) {
-            var _this31 = this;
+            var _this30 = this;
 
             var message = "Do you want to check Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
@@ -4085,7 +4066,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var data = _this31.datagrid.getrowdata(detail.rowId);
+                var data = _this30.datagrid.getrowdata(detail.rowId);
 
                 var moveOutData = data;
                 var details = {
@@ -4099,11 +4080,11 @@
                   "reqUserId": moveOutData.reqUserId,
                   "statusId": 376,
                   "noDue": moveOutData.noDue,
-                  "approvedBy": parseInt(_this31.sessionService.userId),
+                  "approvedBy": parseInt(_this30.sessionService.userId),
                   "approvedDate": new Date().toISOString(),
                   "insertedBy": moveOutData.insertedBy,
                   "insertedOn": moveOutData.insertedOn,
-                  "updatedBy": parseInt(_this31.sessionService.userId),
+                  "updatedBy": parseInt(_this30.sessionService.userId),
                   "updatedOn": new Date().toISOString(),
                   "apartmentId": moveOutData.apartmentId,
                   "userName": moveOutData.userName,
@@ -4118,36 +4099,36 @@
                   moveOut: details
                 };
 
-                _this31.moveInOutService.updateMoveOut(params).subscribe(function (res) {
+                _this30.moveInOutService.updateMoveOut(params).subscribe(function (res) {
                   if (res.message) {
-                    _this31.sharedService.setAlertMessage("Moved Out successfully");
+                    _this30.sharedService.setAlertMessage("Moved Out successfully");
 
-                    _this31.isDataLoaded = false;
+                    _this30.isDataLoaded = false;
                     var _params3 = {
-                      apartmentId: _this31.sessionService.apartmentId,
+                      apartmentId: _this30.sessionService.apartmentId,
                       statusIds: "372,373"
                     };
 
-                    _this31.moveInOutService.getMoveOutByStatusIds(_params3).subscribe(function (res) {
-                      _this31.moveOutDataList = res.filter(function (item) {
+                    _this30.moveInOutService.getMoveOutByStatusIds(_params3).subscribe(function (res) {
+                      _this30.moveOutDataList = res.filter(function (item) {
                         return item.isActive;
                       });
-                      console.log(_this31.moveOutDataList);
-                      _this31.gridSourceData = {
-                        localdata: _this31.moveOutDataList,
+                      console.log(_this30.moveOutDataList);
+                      _this30.gridSourceData = {
+                        localdata: _this30.moveOutDataList,
                         datatype: "array"
                       };
-                      _this31.listData = new jqx.dataAdapter(_this31.gridSourceData);
-                      _this31.totalItems = _this31.moveOutDataList.length;
-                      _this31.isDataLoaded = true;
+                      _this30.listData = new jqx.dataAdapter(_this30.gridSourceData);
+                      _this30.totalItems = _this30.moveOutDataList.length;
+                      _this30.isDataLoaded = true;
                     });
                   } else {
-                    _this31.isDataLoaded = true;
-                    _this31.isError = true;
-                    _this31.alertMessage = res.errorMessage;
+                    _this30.isDataLoaded = true;
+                    _this30.isError = true;
+                    _this30.alertMessage = res.errorMessage;
                   }
                 }, function (error) {
-                  _this31.isMoveOutSubmitted = true;
+                  _this30.isMoveOutSubmitted = true;
                 });
               }
             });
@@ -4155,7 +4136,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(detail) {
-            var _this32 = this;
+            var _this31 = this;
 
             var data = this.datagrid.getrowdata(detail.rowId);
             var type = detail.column;
@@ -4194,40 +4175,40 @@
               if (res.message) {
                 var msg = type == 'approve' ? 'MoveOut approved successfully' : 'MoveOut Request Rejected';
 
-                _this32.sharedService.setAlertMessage(msg);
+                _this31.sharedService.setAlertMessage(msg);
 
-                _this32.isDataLoaded = false;
+                _this31.isDataLoaded = false;
                 var _params4 = {
-                  apartmentId: _this32.sessionService.apartmentId,
+                  apartmentId: _this31.sessionService.apartmentId,
                   statusIds: "372,373"
                 };
 
-                _this32.moveInOutService.getMoveOutByStatusIds(_params4).subscribe(function (res) {
-                  _this32.moveOutDataList = res.filter(function (item) {
+                _this31.moveInOutService.getMoveOutByStatusIds(_params4).subscribe(function (res) {
+                  _this31.moveOutDataList = res.filter(function (item) {
                     return item.isActive;
                   });
-                  console.log(_this32.moveOutDataList);
-                  _this32.gridSourceData = {
-                    localdata: _this32.moveOutDataList,
+                  console.log(_this31.moveOutDataList);
+                  _this31.gridSourceData = {
+                    localdata: _this31.moveOutDataList,
                     datatype: "array"
                   };
-                  _this32.listData = new jqx.dataAdapter(_this32.gridSourceData);
-                  _this32.totalItems = _this32.moveOutDataList.length;
-                  _this32.isDataLoaded = true;
+                  _this31.listData = new jqx.dataAdapter(_this31.gridSourceData);
+                  _this31.totalItems = _this31.moveOutDataList.length;
+                  _this31.isDataLoaded = true;
                 });
               } else {
-                _this32.isDataLoaded = true;
-                _this32.isError = true;
-                _this32.alertMessage = res.errorMessage;
+                _this31.isDataLoaded = true;
+                _this31.isError = true;
+                _this31.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this32.isMoveOutSubmitted = true;
+              _this31.isMoveOutSubmitted = true;
             });
           }
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this33 = this;
+            var _this32 = this;
 
             if (this.moveOutData != "") {
               var filtergroup = new jqx.filter();
@@ -4240,7 +4221,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this33.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this32.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4251,7 +4232,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this33 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -4304,7 +4285,7 @@
               text: 'Time',
               datafield: 'outTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this34.getTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this33.getTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -4329,7 +4310,7 @@
               minwidth: 120,
               cellclassname: 'action-cell',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this34.moveOutDataList[row].statusId;
+                var id_ = _this33.moveOutDataList[row].statusId;
 
                 if (id_ == 372) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveOutDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu table-action-menu dropdown-menu-right" aria-labelledby="moveOutDropDown">' + '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'approve\')">Approve</a>' + ' <a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'reject\')" >Reject</a>' + '<a href="javascript:void(0)" onClick="showMoveOutDetails(' + row + ', \'edit\')">Edit</a>' + '</div>' + '</div>';
@@ -4346,7 +4327,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this34.moveOutDataList[row].statusId;
+                var id_ = _this33.moveOutDataList[row].statusId;
 
                 if (id_ == 373) {
                   return '<div class="icon-wrapper dots-mr"  onClick="checkOutUser(' + row + ')">' + '<img src="assets/images/checkout-icon.svg" class="svg" width="17" height="17" alt="Check Out">' + '</div>';
@@ -4359,27 +4340,27 @@
               statusIds: "372,373"
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
-              _this34.moveOutDataList = res.filter(function (item) {
+              _this33.moveOutDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this34.moveOutDataList);
-              _this34.gridSourceData = {
-                localdata: _this34.moveOutDataList,
+              console.log(_this33.moveOutDataList);
+              _this33.gridSourceData = {
+                localdata: _this33.moveOutDataList,
                 datatype: "array"
               };
-              _this34.listData = new jqx.dataAdapter(_this34.gridSourceData);
-              _this34.totalItems = _this34.moveOutDataList.length;
+              _this33.listData = new jqx.dataAdapter(_this33.gridSourceData);
+              _this33.totalItems = _this33.moveOutDataList.length;
 
-              if (_this34.totalItems > _this34.itemLimit) {
-                _this34.ItemEndIndex = _this34.itemLimit;
+              if (_this33.totalItems > _this33.itemLimit) {
+                _this33.ItemEndIndex = _this33.itemLimit;
               } else {
-                _this34.ItemEndIndex = _this34.totalItems;
+                _this33.ItemEndIndex = _this33.totalItems;
               }
 
-              _this34.isDataLoaded = true;
+              _this33.isDataLoaded = true;
             });
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this34.blockUnitData = res;
+              _this33.blockUnitData = res;
             });
           }
         }, {
