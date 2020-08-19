@@ -738,37 +738,6 @@ let IncomeCreditListComponent = class IncomeCreditListComponent {
             console.log(error);
         });
     }
-    /*getCreditById(id){
-  
-      this.isCreditNoteLoaded = false;
-  
-      let params = {
-        apartmentId: this.sessionService.apartmentId,
-        blockUnitId: parseInt(id)
-      }
-  
-      this.accountsService.getCreditNotesByApartmentBlockUnit(params).subscribe((res:any) => {
-  
-        var creditNoteDataList = res;
-  
-        this.gridSourceData = {
-          localdata: creditNoteDataList,
-          datatype: "array"
-        }
-        
-        this.creditNoteDataList = new jqx.dataAdapter(this.gridSourceData);
-        this.totalItems = creditNoteDataList.length;
-  
-        this.isCreditNoteLoaded = true;
-  
-        // Mark for check
-        this._changeDetectorRef.markForCheck();
-        
-      }, error => {
-          console.log(error);
-      });
-  
-    }*/
     ngOnDestroy() {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();

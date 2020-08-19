@@ -202,7 +202,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isUserDataLoaded && !isProfile\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\n\n\n\n\t\n\n\t\t<!-- <div class=\"card ov card-table\" *ngIf=\"isUserDataLoaded && !isProfile\">\n\t\t<div class=\"card-header d-flex justify-content-between align-items-center\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Unapproved Users <span class=\"badge blue\">{{totalUserItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit, View and approve documents</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white mt_5\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\trouterLink=\"/ams/unit&users/add-users\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\"\n\t\t\t\t\t[ngClass]=\"isUserSelected ? 'disabled' : ''\">\n    \t\t\t\t\t<i-feather class=\"icon plus\" name=\"plus\"></i-feather>\n    \t\t\t\t\t<span>Add User</span>\n    \t\t\t\t</a>\n\t\t\t\t</li>\n\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t<a class=\"btn lime-green mt_5\"\n    \t\t\t\t(click)=\"approveUsers()\"\n\t\t\t\t\t[ngClass]=\"!isUserSelected ? 'disabled' : ''\">\n\t\t\t\t\t<span>Approve Selected Users</span>\n    \t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body ov p-0\">\n\t\t\t\n\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"unitListData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t\n\n\t\t</div>\n\t</div> -->\n\n\t\t<!-- user Profile -->\n\t\t<div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<app-my-profile type=\"admin\" [isProfile]=\"isProfile\" [userId]=\"viewUserId\"\n\t\t\t\t(outputParams)=\"getParams($event)\"></app-my-profile>\n\t\t</div>\n\n\t\t<div class=\"card mt-30\">\n\t\t\t<!-- <div class=\"card-header pointer\" (click)=\"showLogs()\" [ngClass]=\"isLogs ? '' : 'no-border'\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5 class=\"p-0\">Logs</h5>\n    \t\t</div>\n    \t\t<div class=\"float-right switch\" [ngClass]=\"isLogs ? 'up' : 'down'\">\n    \t\t\t<a href=\"javascript:void(0)\"></a>\n    \t\t</div>\n  \t\t</div> -->\n\t\t\t<div class=\"card-body p-0\" *ngIf=\"isLogs\">\n\n\t\t\t\t<app-loader *ngIf=\"!isLogsDataLoaded\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"isLogsDataLoaded\">\n\n\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('blockno')\">Date <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('blockno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('unitno')\">By <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('unitno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('sqrt')\">Comment <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('sqrt')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">Before <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">After <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let log of logsData | slice:ItemLogStartIndex:ItemLogEndIndex\">\n\t\t\t\t\t\t\t\t<td class=\"name\"><a href=\"javascript:void(0)\">{{log.date}}</a></td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.by}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.comment}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.before}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.after}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalLogItems\" [ItemStartIndex]=\"ItemLogStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemLogEndIndex\" [itemLimit]=\"itemLogLimit\"\n\t\t\t\t\t\t(outputParams)=\"getLogIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<!-- <div class=\"card mt-30\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>Mass Upload</h5>\n    \t\t\t<p>To create Residents accounts in mass, Download this<a href=\"javascript:void(0)\" class=\"tc-blue ml-2 t-decor\">Excel Template</a>\n    \t\t\t</p>\n    \t\t</div>\n    \t\t\n  \t\t</div>\n  \t\t<div class=\"card-body\">\n  \t\t\t<a class=\"btn sf lime-green\">\n\t\t\t\t<span>Upload Document</span>\n\t\t\t</a>\n\t\t\t<p class=\"info\">If you have any trouble in uploading document, Please raise a\n\t\t\t<a href=\"javascript:void(0)\" class=\"tc-red ml-2 t-decor\">support ticket</a></p>\n  \t\t</div>\n  \t</div> -->\n\n\n\t\t<ng-template #viewUnapprovedUserRef let-user>\n\t\t\t<div class=\"user-info info-modal-box rel\">\n\t\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h5>User Info</h5>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t<div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t<h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t\t\t\t\t<p class=\"grey\">{{user?.roleName}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.userId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.emailId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Block No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.phoneNumber}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.bloodGroup}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.address1}} {{user?.address2}} {{user?.zipCode}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</ng-template>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n<!-- <div class=\"unapproved-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t\t\n\n\n\t\t<div class=\"card mt-30\">\n\t\t\t\n\t\t\t<div class=\"card-body p-0\" *ngIf=\"isLogs\">\n\n\t\t\t\t<app-loader *ngIf=\"!isLogsDataLoaded\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"isLogsDataLoaded\">\n\n\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('blockno')\">Date <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('blockno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('unitno')\">By <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('unitno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('sqrt')\">Comment <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('sqrt')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">Before <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">After <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let log of logsData | slice:ItemLogStartIndex:ItemLogEndIndex\">\n\t\t\t\t\t\t\t\t<td class=\"name\"><a href=\"javascript:void(0)\">{{log.date}}</a></td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.by}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.comment}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.before}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.after}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalLogItems\" [ItemStartIndex]=\"ItemLogStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemLogEndIndex\" [itemLimit]=\"itemLogLimit\"\n\t\t\t\t\t\t(outputParams)=\"getLogIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-template #viewUnapprovedUserRef let-user>\n\t\t\t<div class=\"user-info info-modal-box rel\">\n\t\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h5>User Info</h5>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t<div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t<h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t\t\t\t\t<p class=\"grey\">{{user?.roleName}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.userId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.emailId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Block No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.phoneNumber}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.bloodGroup}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.address1}} {{user?.address2}} {{user?.zipCode}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</ng-template>\n\t</div>\n</div> -->";
       /***/
     },
 
@@ -3019,33 +3019,24 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/services/shared-toaster.service */
       "./src/app/shared/services/shared-toaster.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
 
       var UnapprovedComponent = /*#__PURE__*/function () {
-        function UnapprovedComponent(injector, dialog, router, userService, sharedService, sessionService, srvModal, apartmentService, SharedToaster) {
+        function UnapprovedComponent(injector, dialog, _activatedRoute, _router, userService, sharedService, sessionService, srvModal, apartmentService, SharedToaster) {
           _classCallCheck(this, UnapprovedComponent);
 
           this.injector = injector;
           this.dialog = dialog;
-          this.router = router;
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
           this.userService = userService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
@@ -3058,8 +3049,6 @@
           this.ItemLogStartIndex = 0;
           this.itemLogLimit = 15;
           this.unitData = "";
-          this.unitFieldType = "unitno";
-          this.unitOrder = false;
           this.isMobile = false;
           this.selectAllUnapprovedUser = false;
           this.isUserSelected = false;
@@ -3067,8 +3056,6 @@
           this.isUserDataLoaded = false;
           this.isLogsDataLoaded = false;
           this.isProfile = false;
-          this.selectedInput = "";
-          this.columnField = {};
           this.isDefaultSelected = false;
           this.selectAllDefaulters = false;
           this.checkedList = [];
@@ -3087,84 +3074,10 @@
             this.datagrid.exportdata(event, 'unitandusersData');
           }
         }, {
-          key: "getUserIndexParams",
-          value: function getUserIndexParams(event) {
-            this.ItemUserStartIndex = event.ItemStartIndex;
-            this.ItemUserEndIndex = event.ItemEndIndex;
-            this.itemUserLimit = event.itemLimit;
-          }
-        }, {
-          key: "onDateChange",
-          value: function onDateChange(event, type) {
-            if (event != null) {
-              this.selectedInput = type;
-              this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
-            } else {
-              this.columnField = {};
-            }
-          }
-        }, {
-          key: "getBookedDate",
-          value: function getBookedDate(itr, date) {
-            underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.unitListData, function (obj, index) {
-              obj.facilityBookedForDate = moment__WEBPACK_IMPORTED_MODULE_10__(obj.bookedForDate).format("DD/MM/YYYY");
-            });
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("DD/MM/YYYY");
-          }
-        }, {
           key: "getLogIndexParams",
           value: function getLogIndexParams(event) {
             this.ItemLogStartIndex = event.ItemLogStartIndex;
             this.ItemLogEndIndex = event.ItemLogEndIndex;
-          }
-        }, {
-          key: "selectColInput",
-          value: function selectColInput(value) {
-            this.selectedInput = value;
-          }
-        }, {
-          key: "getBlockNo",
-          value: function getBlockNo(item, data) {
-            this.unitListData.map(function (obj) {
-              if (obj.id == item.id) {
-                obj.apartmentBlockNumber = data;
-              }
-            });
-            return data;
-          }
-        }, {
-          key: "getBlockUnitNo",
-          value: function getBlockUnitNo(item, data) {
-            this.unitListData.map(function (obj) {
-              if (obj.id == item.id) {
-                obj.apartmentBlockUnitNumber = data;
-              }
-            });
-            return data;
-          }
-        }, {
-          key: "getNotes",
-          value: function getNotes(data) {
-            if (data === undefined || data.length == 0) return '';else return data[0].notes;
-          }
-        }, {
-          key: "getUserRole",
-          value: function getUserRole(role, index) {
-            if (role === undefined || role.length == 0) {
-              return '';
-            } else {
-              this.unitListData[index].roleName = role[0].roleName;
-              return role[0].roleName;
-            }
-          }
-        }, {
-          key: "getUserRoleInfo",
-          value: function getUserRoleInfo(role) {
-            if (role.userRole === undefined || role.userRole.length == 0) {
-              return '';
-            } else {
-              return role.userRole[0].roleName;
-            }
           }
         }, {
           key: "onResize",
@@ -3178,10 +3091,7 @@
             underscore__WEBPACK_IMPORTED_MODULE_9__["each"](allDataRecords, function (item) {
               item.checked = detail.checked;
             });
-            this.checkedList = allDataRecords; // this.isDefaultSelected = allDataRecords.some(item => {
-            //   return item.checked
-            // })
-
+            this.checkedList = allDataRecords;
             this.datagrid.refresh();
             this.getSelectedUnapprovedUser();
           }
@@ -3191,11 +3101,47 @@
             var allDataRecords = this.datagrid.getrows();
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             dataRecord.checked = detail.checked;
-            this.checkedList = allDataRecords; // this.isDefaultSelected = allDataRecords.some(item => {
-            //   return item.checked
-            // })
-
+            this.checkedList = allDataRecords;
             this.getSelectedUnapprovedUser();
+          }
+        }, {
+          key: "onUnapproveDelete",
+          value: function onUnapproveDelete(detail) {
+            var dataRecord = this.datagrid.getrowdata(detail.rowId);
+            this.modalService.showConfirmModal(dataRecord.id);
+          }
+        }, {
+          key: "onviewUserInfo",
+          value: function onviewUserInfo(detail) {
+            var dataRecord = this.datagrid.getrowdata(detail.rowId);
+            var details = {
+              userId: dataRecord.id,
+              blockId: dataRecord.apartmentBlockUnit[0].apartmentBlockId,
+              unitId: dataRecord.apartmentBlockUnit[0].apartmentBlockUnitId,
+              unituserid: dataRecord.apartmentBlockUnit[0].apartmentBlockUnitUserId
+            };
+            this.sessionService.profileUserId = dataRecord.id;
+            this.viewUserInfo(details);
+          }
+        }, {
+          key: "viewUserInfo",
+          value: function viewUserInfo(details) {
+            this._router.navigate(['/ams/profile', 'basic'], {
+              queryParams: {
+                type: 'user',
+                id: details.userId,
+                blockId: details.blockId,
+                unitId: details.unitId,
+                unituserid: details.unituserid
+              }
+            });
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.isProfile = false;
+
+            this._router.navigate(['/ams/unit&users/unapproved']);
           }
         }, {
           key: "isMobileView",
@@ -3203,17 +3149,9 @@
             return window.innerWidth <= 767 ? 'table-responsive' : '';
           }
         }, {
-          key: "sortUnitData",
-          value: function sortUnitData(type) {
-            this.unitFieldType = type;
-            this.unitOrder = !this.unitOrder;
-          }
-        }, {
-          key: "getFieldOrderBy",
-          value: function getFieldOrderBy(type) {
-            if (this.unitFieldType == type) {
-              return this.unitOrder ? 'desc' : 'asc';
-            } else return '';
+          key: "showConfirmModal",
+          value: function showConfirmModal(id) {
+            this.modalService.showConfirmModal(id);
           }
         }, {
           key: "getAllUnapprovedUser",
@@ -3316,96 +3254,22 @@
             this.isUserSelected = !this.isUserSelected;
           }
         }, {
-          key: "showConfirmModal",
-          value: function showConfirmModal(id) {
-            this.modalService.showConfirmModal(id);
-          }
-        }, {
-          key: "showUserInfo",
-          value: function showUserInfo(user) {
-            var _this23 = this;
-
-            var userId = user.id;
-            var blockData = user.apartmentBlockUnit;
-            var userRole = user.userRole;
-            this.userService.getUserById(userId).subscribe(function (res) {
-              var userData = res[0];
-
-              if (blockData === undefined || blockData.length == 0) {
-                userData.blockNo = "Not Available";
-                userData.unitNo = "";
-              } else {
-                userData.blockNo = blockData[0].apartmentBlockNumber;
-                userData.unitNo = blockData[0].apartmentBlockUnitNumber;
-              }
-
-              if (userRole === undefined || userRole.length == 0) {
-                userData.roleName = "Not Available";
-              } else {
-                userData.roleName = userRole[0].roleName;
-              }
-
-              _this23.dialog.open(_this23.viewUnapprovedUserRef, {
-                panelClass: 'material',
-                disableClose: true,
-                data: userData
-              });
-            });
-          }
-        }, {
-          key: "getParams",
-          value: function getParams(event) {
-            this.isProfile = event;
-          }
-        }, {
-          key: "selectedTab",
-          value: function selectedTab() {
-            setTimeout(function () {
-              var elem = document.querySelector('.user-info-card');
-              var scrollTo = elem.getBoundingClientRect().top - 100;
-              window.scroll({
-                top: scrollTo,
-                behavior: 'smooth'
-              });
-            }, 100);
-          }
-        }, {
-          key: "viewUserInfo",
-          value: function viewUserInfo(id) {
-            var _this24 = this;
-
-            this.isProfile = false;
-            setTimeout(function () {
-              _this24.isProfile = true;
-            }, 10);
-            setTimeout(function () {
-              var elem = document.querySelector('.user-info-card');
-              var scrollTo = elem.getBoundingClientRect().top - 100;
-              window.scroll({
-                top: scrollTo,
-                behavior: 'smooth'
-              });
-            }, 100);
-            this.viewUserId = id;
-            this.router.navigate(['ams/unit&users/unapproved/basic', this.viewUserId]);
-          }
-        }, {
           key: "showLogs",
           value: function showLogs() {
-            var _this25 = this;
+            var _this23 = this;
 
             this.isLogs = !this.isLogs;
             this.sharedService.getJsonData().subscribe(function (res) {
-              _this25.logsData = res.logsData;
-              _this25.totalLogItems = _this25.logsData.length;
+              _this23.logsData = res.logsData;
+              _this23.totalLogItems = _this23.logsData.length;
 
-              if (_this25.totalLogItems > _this25.itemLogLimit) {
-                _this25.ItemLogEndIndex = _this25.itemLogLimit;
+              if (_this23.totalLogItems > _this23.itemLogLimit) {
+                _this23.ItemLogEndIndex = _this23.itemLogLimit;
               } else {
-                _this25.ItemLogEndIndex = _this25.totalLogItems;
+                _this23.ItemLogEndIndex = _this23.totalLogItems;
               }
 
-              _this25.isLogsDataLoaded = true;
+              _this23.isLogsDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -3413,7 +3277,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this26 = this;
+            var _this24 = this;
 
             if (this.unitData != "") {
               var filtergroup = new jqx.filter();
@@ -3426,7 +3290,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this24.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3435,23 +3299,9 @@
             }
           }
         }, {
-          key: "onUnapproveDelete",
-          value: function onUnapproveDelete(detail) {
-            var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var unapprovedId = dataRecord.id;
-            this.modalService.showConfirmModal(unapprovedId);
-          }
-        }, {
-          key: "onviewUserInfo",
-          value: function onviewUserInfo(detail) {
-            var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            this.viewUserInfo(dataRecord.id); // let unapprovedId = dataRecord.unit.idd
-            // this.modalService.showConfirmModal(unapprovedId);
-          }
-        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this25 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3524,7 +3374,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="viewUserInfo(' + row + ')"><i class="fa fa-eye icon eye" aria-hidden="true"></i></a><a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2 text-secondary" onClick="viewUserInfo(' + row + ')"><i class="fa fa-eye" aria-hidden="true"></i></a><a href="javascript:void(0)" class="text-secondary" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash" aria-hidden="true"></i></a></div>';
               },
               renderer: columnrenderer
             }];
@@ -3535,35 +3385,36 @@
               if (id != null) {
                 var params = {
                   userId: id,
-                  updateUserId: parseInt(_this27.sessionService.userId)
+                  updateUserId: parseInt(_this25.sessionService.userId)
                 };
 
-                _this27.userService.deleteUserById(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this27.unitListData, function (type) {
+                _this25.userService.deleteUserById(params).subscribe(function (res) {
+                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this25.unitListData, function (type) {
                     if (type.id == id) {
                       type.active = false;
                     }
                   });
                   setTimeout(function () {
-                    _this27.unitListData = _this27.unitListData.filter(function (type) {
+                    _this25.unitListData = _this25.unitListData.filter(function (type) {
                       return type.id !== id;
                     });
-                    _this27.totalUserItems = _this27.unitListData.length;
+                    _this25.totalUserItems = _this25.unitListData.length;
 
-                    _this27.sharedService.setAlertMessage("User deleted");
+                    _this25.sharedService.setAlertMessage("User deleted");
 
-                    _this27.sharedService.setUnitListDeleteIndex(null);
+                    _this25.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
                 });
               }
             });
+            this.sessionService.profileUserId = this.sessionService.userId;
           }
         }, {
           key: "getUnApprovedList",
           value: function getUnApprovedList() {
-            var _this28 = this;
+            var _this26 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -3571,26 +3422,26 @@
             this.userService.getAllUnApprovedUsersByApartmentId(params).subscribe(function (res) {
               var unitListData = res; //filter active true items
 
-              _this28.unitListData = unitListData.filter(function (data) {
+              _this26.unitListData = unitListData.filter(function (data) {
                 data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
                 data.apartmentBlockNumberJQ = data.apartmentBlockUnit[0].apartmentBlockNumber;
                 data.apartmentBlockUnitNumberJQ = data.apartmentBlockUnit[0].apartmentBlockUnitNumber;
                 return data.active;
               });
-              _this28.gridSourceData = {
+              _this26.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this28.unitListData = new jqx.dataAdapter(_this28.gridSourceData);
-              _this28.totalUserItems = unitListData.length;
+              _this26.unitListData = new jqx.dataAdapter(_this26.gridSourceData);
+              _this26.totalUserItems = unitListData.length;
 
-              if (_this28.totalUserItems > _this28.itemUserLimit) {
-                _this28.ItemUserEndIndex = _this28.itemUserLimit;
+              if (_this26.totalUserItems > _this26.itemUserLimit) {
+                _this26.ItemUserEndIndex = _this26.itemUserLimit;
               } else {
-                _this28.ItemUserEndIndex = _this28.totalUserItems;
+                _this26.ItemUserEndIndex = _this26.totalUserItems;
               }
 
-              _this28.isUserDataLoaded = true;
+              _this26.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -3616,6 +3467,8 @@
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
@@ -3626,9 +3479,9 @@
         }, {
           type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]
         }, {
-          type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]
+          type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_10__["SharedToasterService"]
         }];
       };
 
@@ -3644,6 +3497,10 @@
           args: ['datagrid', {
             "static": false
           }]
+        }],
+        outlet: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"]]
         }],
         onResize: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
@@ -3674,7 +3531,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./unapproved.component.scss */
         "./src/app/modules/ams/unit-users/components/unapproved/unapproved.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]])], UnapprovedComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_10__["SharedToasterService"]])], UnapprovedComponent);
 
       function showConfirmDeleteEvent(row) {
         var event = new CustomEvent('onUnapproveDelete', {
@@ -3947,7 +3804,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this29 = this;
+            var _this27 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -4019,10 +3876,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
@@ -4079,10 +3936,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -4127,10 +3984,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -4181,10 +4038,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
@@ -4235,10 +4092,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
@@ -4289,10 +4146,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
@@ -4334,10 +4191,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
@@ -4385,10 +4242,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
@@ -4431,10 +4288,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
@@ -4477,10 +4334,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
@@ -4523,10 +4380,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this29.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this29.isDataLoaded = true;
+                _this27.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this27.isDataLoaded = true;
 
-                _this29.showItems();
+                _this27.showItems();
               });
             }
           }
@@ -4547,24 +4404,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this28 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this30.unitBlocksData = res;
+              _this28.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this30.route.params['value'].id;
+                return item.lookupValueId == _this28.route.params['value'].id;
               });
-              _this30.pageName = data[0].lookupValueName.replace('/', '');
-              _this30.pageDesp = data[0].description;
+              _this28.pageName = data[0].lookupValueName.replace('/', '');
+              _this28.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -4692,7 +4549,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this29 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -4700,8 +4557,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this31.reportDataList = res;
-              _this31.isDataLoaded = true;
+              _this29.reportDataList = res;
+              _this29.isDataLoaded = true;
             });
           }
         }, {
@@ -4819,6 +4676,12 @@
       var _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/signuprequest/signuprequest.component */
       "./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.ts");
+      /* harmony import */
+
+
+      var src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/modules/profile/profile-resolvers.service */
+      "./src/app/modules/profile/profile-resolvers.service.ts");
 
       var routes = [{
         path: '',
@@ -4829,7 +4692,24 @@
         component: _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_9__["SignuprequestComponent"]
       }, {
         path: 'unapproved',
-        component: _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_4__["UnapprovedComponent"]
+        component: _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_4__["UnapprovedComponent"],
+        children: [{
+          path: 'profile',
+          outlet: "profile",
+          runGuardsAndResolvers: 'always',
+          resolve: {
+            initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_10__["ProfileResolversService"]
+          },
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | src-app-modules-profile-profile-area-module */
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~013cb74d"), __webpack_require__.e("common"), __webpack_require__.e("modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
+            /*! src/app/modules/profile/profile-area.module */
+            "./src/app/modules/profile/profile-area.module.ts")).then(function (m) {
+              return m.ProfileAreaModule;
+            });
+          }
+        }]
       }, {
         path: 'add-users',
         component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"]
