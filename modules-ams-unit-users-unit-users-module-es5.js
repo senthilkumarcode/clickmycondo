@@ -3132,16 +3132,9 @@
                 id: details.userId,
                 blockId: details.blockId,
                 unitId: details.unitId,
-                unituserid: details.unituserid
+                unituserid: details.unituserId
               }
             });
-          }
-        }, {
-          key: "goBack",
-          value: function goBack() {
-            this.isProfile = false;
-
-            this._router.navigate(['/ams/unit&users/unapproved']);
           }
         }, {
           key: "isMobileView",

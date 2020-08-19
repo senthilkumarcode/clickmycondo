@@ -1027,9 +1027,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileFamilyMembersComponent = class ProfileFamilyMembersComponent {
-    constructor(router, route, userService, sharedService, lookupService, sessionService) {
-        this.router = router;
-        this.route = route;
+    constructor(_router, _activatedRoute, userService, sharedService, lookupService, sessionService) {
+        this._router = _router;
+        this._activatedRoute = _activatedRoute;
         this.userService = userService;
         this.sharedService = sharedService;
         this.lookupService = lookupService;
@@ -1053,14 +1053,17 @@ let ProfileFamilyMembersComponent = class ProfileFamilyMembersComponent {
         return this.familyDataList.length != 0 ? true : false;
     }
     ngOnInit() {
-        if (this.route.params['value'].id != undefined) {
-            this.userId = this.route.params['value'].id;
-        }
-        else {
-            this.userId = parseInt(this.sessionService.userId);
-        }
+        this.userId = this.sessionService.profileUserId;
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params['type'] != undefined) {
+                this.apartmentBlockUnitUserId = params['unituserId'];
+            }
+            else if (this.sessionService.roleName != 'Admin') {
+                this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            }
+        });
         let getFamilyMember = {
-            apartmentBlockUnitUserId: this.userId
+            apartmentBlockUnitUserId: this.apartmentBlockUnitUserId
         };
         this.userService.getUserFamilyMembersByUserId(getFamilyMember).subscribe((res) => {
             this.familyDataList = res.filter(item => { return item.isActive; });
@@ -1120,10 +1123,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileInterestGroupComponent", function() { return ProfileInterestGroupComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Broadcast */ "./src/app/api/controllers/Broadcast.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
 
 
 
@@ -1131,9 +1136,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
-    // categories=['dance','cock','xyu'];
-    // adminCategories=['abc','pqr','ghj'];
-    constructor(broadcastService, sharedService, sessionService, apartmentService) {
+    constructor(_router, _activatedRoute, broadcastService, sharedService, sessionService, apartmentService) {
+        this._router = _router;
+        this._activatedRoute = _activatedRoute;
         this.broadcastService = broadcastService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
@@ -1142,10 +1147,8 @@ let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
     }
     ngOnInit() {
         this.apartmentID = this.sessionService.apartmentId;
-        this.userId = this.sessionService.userId;
+        this.userId = this.sessionService.profileUserId;
         this.getAllGroupCategory();
-        // this.getUserDetails();
-        // this.getAllGoupUsers();
     }
     //Get Category Type
     getAllGroupCategory() {
@@ -1262,10 +1265,12 @@ let ProfileInterestGroupComponent = class ProfileInterestGroupComponent {
     }
 };
 ProfileInterestGroupComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] }
 ];
 ProfileInterestGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1273,10 +1278,12 @@ ProfileInterestGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-interest-group.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-interest-group/profile-interest-group.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-interest-group.component.scss */ "./src/app/modules/profile/profile-interest-group/profile-interest-group.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]])
 ], ProfileInterestGroupComponent);
 
 
@@ -1308,15 +1315,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileLeaseInfoComponent", function() { return ProfileLeaseInfoComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Rent */ "./src/app/api/controllers/Rent.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Rent */ "./src/app/api/controllers/Rent.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
@@ -1328,7 +1337,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
-    constructor(injector, userService, rentService, apartmentService, lookupService, sharedService, sessionService) {
+    constructor(_router, _activatedRoute, injector, userService, rentService, apartmentService, lookupService, sharedService, sessionService) {
+        this._router = _router;
+        this._activatedRoute = _activatedRoute;
         this.injector = injector;
         this.userService = userService;
         this.rentService = rentService;
@@ -1338,12 +1349,19 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
         this.sessionService = sessionService;
         this.isDataLoaded = false;
         this.isEdit = false;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
     }
     ngOnInit() {
         this.rent = {};
         this.userId = this.sessionService.profileUserId;
-        this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params['type'] != undefined) {
+                this.apartmentBlockUnitId = params['unitId'];
+            }
+            else if (this.sessionService.roleName != 'Admin') {
+                this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            }
+        });
         this.getListData();
     }
     getListData() {
@@ -1373,9 +1391,9 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
             "field2": "string",
             "isActive": true,
             "insertedBy": this.userId,
-            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).utc().format().toString(),
+            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
             "updatedBy": this.userId,
-            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).utc().format().toString()
+            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString()
         };
         let AddApartmentBlockUnitRentParams = {
             apartmentBlockUnitRent: details
@@ -1408,13 +1426,15 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
     }
 };
 ProfileLeaseInfoComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
-    { type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
+    { type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__["RentService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 ProfileLeaseInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1422,13 +1442,15 @@ ProfileLeaseInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-lease-info.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-lease-info/profile-lease-info.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-lease-info.component.scss */ "./src/app/modules/profile/profile-lease-info/profile-lease-info.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
-        src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
+        src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__["RentService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], ProfileLeaseInfoComponent);
 
 
@@ -2358,14 +2380,16 @@ let ProfileUnitDetailsComponent = class ProfileUnitDetailsComponent {
     ngOnInit() {
         this.block = {};
         this.userId = this.sessionService.profileUserId;
-        this.block.apartmentBlockId = this.sessionService.apartmentBlockID;
-        this.block.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-        this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
         this._activatedRoute.queryParams.subscribe(params => {
             if (params['type'] != undefined) {
                 this.block.apartmentBlockId = params['blockId'];
                 this.block.apartmentBlockUnitId = params['unitId'];
-                this.apartmentBlockUnitUserId = params['unituserid'];
+                this.apartmentBlockUnitUserId = params['unituserId'];
+            }
+            else if (this.sessionService.roleName != 'Admin') {
+                this.block.apartmentBlockId = this.sessionService.apartmentBlockID;
+                this.block.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+                this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
             }
         });
         this.unitNameList = [];
@@ -2517,12 +2541,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileUserAbsenceComponent", function() { return ProfileUserAbsenceComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
@@ -2531,20 +2557,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileUserAbsenceComponent = class ProfileUserAbsenceComponent {
-    constructor(injector, apartmentService, sharedService, sessionService) {
+    constructor(_router, _activatedRoute, injector, apartmentService, sharedService, sessionService) {
+        this._router = _router;
+        this._activatedRoute = _activatedRoute;
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isDataLoaded = false;
         this.isEdit = false;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     ngOnInit() {
         this.data = {};
         this.userId = this.sessionService.profileUserId;
-        this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-        this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params['type'] != undefined) {
+                this.apartmentBlockUnitId = params['unitId'];
+                this.apartmentBlockUnitUserId = params['unituserId'];
+            }
+            else if (this.sessionService.roleName != 'Admin') {
+                this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+                this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            }
+        });
         this.getHistoryData();
     }
     getHistoryData() {
@@ -2593,9 +2629,9 @@ let ProfileUserAbsenceComponent = class ProfileUserAbsenceComponent {
             "outofCondoStatusId": 5,
             "isActive": true,
             "insertedBy": this.userId,
-            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).utc().format().toString(),
+            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
             "updatedBy": this.userId,
-            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).utc().format().toString(),
+            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
             "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
         };
         let params = {
@@ -2615,10 +2651,12 @@ let ProfileUserAbsenceComponent = class ProfileUserAbsenceComponent {
     }
 };
 ProfileUserAbsenceComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 ProfileUserAbsenceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2626,10 +2664,12 @@ ProfileUserAbsenceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-user-absence.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-user-absence/profile-user-absence.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-user-absence.component.scss */ "./src/app/modules/profile/profile-user-absence/profile-user-absence.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], ProfileUserAbsenceComponent);
 
 
@@ -2986,12 +3026,7 @@ let ProfileVehiclesComponent = class ProfileVehiclesComponent {
         return this.vehicleDataList == 0 ? true : false;
     }
     ngOnInit() {
-        if (this.route.params['value'].id != undefined) {
-            this.userId = this.route.params['value'].id;
-        }
-        else {
-            this.userId = parseInt(this.sessionService.userId);
-        }
+        this.userId = this.sessionService.profileUserId;
         this.unitNameList = [];
         let blockParams = {
             apartmentId: this.sessionService.apartmentId

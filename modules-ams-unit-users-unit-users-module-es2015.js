@@ -2202,11 +2202,7 @@ let UnapprovedComponent = class UnapprovedComponent {
         this.viewUserInfo(details);
     }
     viewUserInfo(details) {
-        this._router.navigate(['/ams/profile', 'basic'], { queryParams: { type: 'user', id: details.userId, blockId: details.blockId, unitId: details.unitId, unituserid: details.unituserid } });
-    }
-    goBack() {
-        this.isProfile = false;
-        this._router.navigate(['/ams/unit&users/unapproved']);
+        this._router.navigate(['/ams/profile', 'basic'], { queryParams: { type: 'user', id: details.userId, blockId: details.blockId, unitId: details.unitId, unituserid: details.unituserId } });
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
