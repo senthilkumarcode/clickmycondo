@@ -3662,6 +3662,9 @@
 
             this.block = {};
             this.userId = this.sessionService.profileUserId;
+            this.block.apartmentBlockId = this.sessionService.apartmentBlockID;
+            this.block.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {

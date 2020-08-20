@@ -3523,7 +3523,7 @@ const routes = [
                 resolve: {
                     initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_10__["ProfileResolversService"]
                 },
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~013cb74d"), __webpack_require__.e("common"), __webpack_require__.e("modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~6b08c17b"), __webpack_require__.e("common"), __webpack_require__.e("modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
         ]
     },
     { path: 'add-users', component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"] },

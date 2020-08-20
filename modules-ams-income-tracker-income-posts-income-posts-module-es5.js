@@ -194,7 +194,7 @@
               apartmentId: this.sessionService.apartmentId,
               creditNoteId: id
             };
-            this.accountsService.getCreditNoteById(params).subscribe(function (res) {
+            this.accountsService.xgetCreditNoteById(params).subscribe(function (res) {
               _this3.isCreditSubmitted = true;
 
               if (res === undefined || res.length == 0) {

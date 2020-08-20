@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"forum-category-comment-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Create Post -->\n\t\t<div class=\"mb-5\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<h4 class=\"mb-4\">What is your question ?</h4>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"post\" [(ngModel)]=\"forum.description\"></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t\t<button mat-button (click)=\"uploader.click()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'insert_photo'\"></mat-icon>\n\t\t\t\t\t\t<span>Photo</span>\n\t\t\t\t\t\t<input class=\"form-control file-upload-field\" #uploader type=\"file\" [(ngModel)]=\"uploadFileItem\" (change)=\"uploadImage($event)\" multiple>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class=\"ml-auto\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPost()\">Post</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"upload-preview-img\" *ngIf=\"forum.img\">\n\t\t\t\t\t<img class=\"img-fluid\" [src]=\"forum.img\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t <!-- Loader -->\n\t\t <app-loader *ngIf=\"isLoader\"></app-loader>\n\t\t <!-- NewsFeed -->\n\t\t<ng-container *ngIf=\"!isLoader\">\n\t\t\t<div class=\"mb-4\" *ngFor=\"let data of getallTopicsList\">\n\t\t\t\t<div class=\"bg-card shadow\" [ngClass]=\"{'mb-1' : expanded}\">\n\t\t\t\t\t<!-- Blog Header -->\n\t\t\t\t\t<div class=\"d-flex header\">\n\t\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<p class=\"font-medium\">{{data.insertPersonName}}</p>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateTimeFormat(data.insertedOn)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-icon-button [matMenuTriggerFor]=\"commentReport\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<mat-menu #commentReport=\"matMenu\">\n\t\t\t\t\t\t\t<button mat-menu-item>\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-3\" [svgIcon]=\"'report'\"></mat-icon>\n\t\t\t\t\t\t\t\t\t<span>Report post</span>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Blog Body -->\n\t\t\t\t\t<div class=\"content mt-3 mb-3\">\n\t\t\t\t\t\t<p>{{data.description}}</p>\n\t\t\t\t\t\t<div class=\"view-preview-img mt-3\" *ngIf=\"data.img\">\n\t\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"data.img\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Blog Footer -->\n\t\t\t\t\t<div class=\"mt-3 mb-3 straight-line\"></div>\n\t\t\t\t\t<div class=\"footer\">\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<button mat-button (click)=\"likesUpdate(data)\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"text-red mr-2\" [svgIcon]=\"'mat_outline:favorite'\">\n\t\t\t\t\t\t\t\t</mat-icon>\n\t\t\t\t\t\t\t\t<span>{{data.likes}}</span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"ml-auto\" mat-button (click)=\"viewComments(data)\">\n\t\t\t\t\t\t\t\t<span class=\"mr-1\">{{data.totalComments}} Comments</span>\n\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"data.hide\" [svgIcon]=\"'expand_more'\"></mat-icon>\n\t\t\t\t\t\t\t\t<mat-icon *ngIf=\"!data.hide\" [svgIcon]=\"'expand_less'\"></mat-icon>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Expand -->\n\t\t\t\t<div class=\"bg-card shadow mx-4\" *ngIf=\"data.hide\">\n\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comment\" #input></textarea>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\" (click)=\"addComment(input,data)\">Post</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!--Comment Loader -->\n\t\t\t\t\t<app-loader *ngIf=\"commentLoader\"></app-loader>\n\t\t\t\t\t<!-- Comment History -->\n\t\t\t\t\t<div class=\"view-comment-history\" *ngFor=\"let comment of data.commentList\">\n\t\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t\t<img class=\"comment-profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t\t<div class=\"d-flex flex-column\">\n\t\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t\t<span class=\"font-medium text-nowrap mr-3\">{{comment.insertedBy_Label}}</span>\n\t\t\t\t\t\t\t\t\t<span class=\"text-secondary time-log\">{{getDateTimeFormat(comment.insertedOn)}}</span>\n\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t<p>{{comment.description}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</ng-container>\n\t</div>\n</div>\n\n\n\n\n\n \n\n";
+      __webpack_exports__["default"] = "<div class=\"forum-category-comment-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Create Post -->\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<h4 class=\"mb-4\">What is your question ?</h4>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t<textarea placeholder=\"some text here\" name=\"post\" [(ngModel)]=\"forum.description\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t<button mat-button (click)=\"uploader.click()\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'insert_photo'\"></mat-icon>\n\t\t\t\t\t<span>Photo</span>\n\t\t\t\t\t<input class=\"form-control file-upload-field\" #uploader type=\"file\" [(ngModel)]=\"uploadFileItem\" (change)=\"uploadImage($event)\" multiple>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"ml-auto\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPost()\">Post</button>\n\t\t\t</div>\n\t\t\t<div class=\"upload-preview-img\" *ngIf=\"forum.img\">\n\t\t\t\t<img class=\"img-fluid\" [src]=\"forum.img\">\n\t\t\t</div>\n\t\t</div>\n\t\t <!-- NewsFeed -->\n\t\t <div class=\"mb-4\" *ngFor=\"let data of getallTopicsList\">\n\t\t\t<div class=\"bg-card shadow\" [ngClass]=\"{'mb-1' : expanded}\">\n\t\t\t\t<!-- Blog Header -->\n\t\t\t\t<div class=\"d-flex header\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<p class=\"font-medium\">{{data.insertPersonName}}</p>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateTimeFormat(data.insertedOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class=\"ml-auto\" mat-icon-button [matMenuTriggerFor]=\"commentReport\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t\t<mat-menu #commentReport=\"matMenu\">\n\t\t\t\t\t\t<button mat-menu-item>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-3\" [svgIcon]=\"'report'\"></mat-icon>\n\t\t\t\t\t\t\t\t<span>Report post</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Body -->\n\t\t\t\t<div class=\"content mt-3 mb-3\">\n\t\t\t\t\t<p>{{data.description}}</p>\n\t\t\t\t\t<div class=\"view-preview-img mt-3\" *ngIf=\"data.img\">\n\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"data.img\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Footer -->\n\t\t\t\t<div class=\"mt-3 mb-3 straight-line\"></div>\n\t\t\t\t<div class=\"footer\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<button mat-button (click)=\"likesUpdate(data)\">\n\t\t\t\t\t\t\t<mat-icon class=\"text-red mr-2\" [svgIcon]=\"'mat_outline:favorite'\">\n\t\t\t\t\t\t\t</mat-icon>\n\t\t\t\t\t\t\t<span>{{data.likes}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-button (click)=\"viewComments(data)\">\n\t\t\t\t\t\t\t<span class=\"mr-1\">{{data.totalComments}} Comments</span>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"data.hide\" [svgIcon]=\"'expand_more'\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"!data.hide\" [svgIcon]=\"'expand_less'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Expand -->\n\t\t\t<div class=\"bg-card shadow mx-4\" *ngIf=\"data.hide\">\n\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comment\" #input></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\" (click)=\"addComment(input,data)\">Post</button>\n\t\t\t\t</div>\n\t\t\t\t<!--Comment Loader -->\n\t\t\t\t<app-loader *ngIf=\"commentLoader\"></app-loader>\n\t\t\t\t<!-- Comment History -->\n\t\t\t\t<div class=\"view-comment-history\" *ngFor=\"let comment of data.commentList\">\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<img class=\"comment-profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<div class=\"d-flex flex-column\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span class=\"font-medium text-nowrap mr-3\">{{comment.insertedBy_Label}}</span>\n\t\t\t\t\t\t\t\t<span class=\"text-secondary time-log\">{{getDateTimeFormat(comment.insertedOn)}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p>{{comment.description}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isLoader\"></app-loader>\n\t</div>\n</div>\n\n\n\n\n\n \n\n";
       /***/
     },
 
@@ -299,6 +299,7 @@
           this.forum = {};
           this.isLoader = true;
           this.commentLoader = false;
+          this.pagination = {};
         }
 
         _createClass(ForumComponent, [{
@@ -327,7 +328,7 @@
 
             var params = {
               forumTopics: {
-                "apartmentId": 2,
+                "apartmentId": this.sessionService.apartmentId,
                 "subject": null,
                 "description": this.forum.description,
                 "likes": 0,
@@ -400,36 +401,56 @@
             }
           }
         }, {
+          key: "resetAll",
+          value: function resetAll() {
+            this.pagination = {
+              currentPage: 1,
+              lastPage: 0,
+              totalResult: 0
+            };
+          }
+        }, {
+          key: "scrollHandler",
+          value: function scrollHandler() {
+            if (window.innerHeight + Math.ceil(window.scrollY) >= document.body.offsetHeight) {
+              if (this.pagination.currentPage < this.pagination.lastPage) {
+                this.pagination.currentPage += 1;
+
+                if (this.getallTopicsList.length > 0) {
+                  this.getForumList();
+                }
+              }
+            }
+          }
+        }, {
           key: "getForumList",
           value: function getForumList() {
             var _this4 = this;
 
             this.isLoader = true;
             var params = {
-              id: this.apartmentID
+              id: this.sessionService.apartmentId,
+              PageNo: this.pagination.currentPage,
+              PageSize: 5
             };
             this.ForumTopicsService.getAllForumTopicsByApartmentId(params).subscribe(function (res) {
-              if (res) {
-                _this4.isLoader = false;
-                _this4.getallTopicsList = res.reverse();
+              _this4.isLoader = false;
+              _this4.pagination.totalResult = res[0].count;
+              _this4.pagination.lastPage = Math.max(Math.ceil(_this4.pagination.totalResult / 5), 1);
+
+              if (res[0].outPut.length) {
+                var reverse = res[0].outPut.reverse();
+                reverse.forEach(function (data) {
+                  _this4.getallTopicsList.push(data);
+                });
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
-
-            var params = {
-              apartmentBlockId: this.sessionService.apartmentBlockID
-            };
-            this.apartmentService.getApartmentBlockByBlockId(params).subscribe(function (res) {
-              if (res) {
-                _this5.apartmentID = res.apartmentId;
-
-                _this5.getForumList();
-              }
-            });
+            this.resetAll();
+            this.getForumList();
           }
         }]);
 
@@ -450,6 +471,12 @@
         }];
       };
 
+      ForumComponent.propDecorators = {
+        scrollHandler: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:scroll', ['$event']]
+        }]
+      };
       ForumComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-forum',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
