@@ -149,9 +149,9 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
         this.isCreditSubmitted = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            creditNoteId: id
+            creditnotetransactionID: id
         };
-        this.accountsService.xgetCreditNoteById(params).subscribe((res) => {
+        this.accountsService.getcustcreditnotebyId(params).subscribe((res) => {
             this.isCreditSubmitted = true;
             this.isEdit = true;
             if (res === undefined || res.length == 0) {

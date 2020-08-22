@@ -250,9 +250,9 @@
             this.isCreditSubmitted = false;
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              creditNoteId: id
+              creditnotetransactionID: id
             };
-            this.accountsService.xgetCreditNoteById(params).subscribe(function (res) {
+            this.accountsService.getcustcreditnotebyId(params).subscribe(function (res) {
               _this4.isCreditSubmitted = true;
               _this4.isEdit = true;
 

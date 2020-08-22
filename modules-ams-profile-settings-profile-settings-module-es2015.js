@@ -301,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
@@ -313,7 +315,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var graph;
 let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
-    constructor(element, apartmentService, documentService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
+    constructor(element, apartmentService, documentService, fileUploadService, fileDownloadService, sanitizer, dialog, sessionService, fileDetailService) {
         this.element = element;
         this.apartmentService = apartmentService;
         this.documentService = documentService;
@@ -321,6 +323,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         this.fileDownloadService = fileDownloadService;
         this.sanitizer = sanitizer;
         this.dialog = dialog;
+        this.sessionService = sessionService;
         this.fileDetailService = fileDetailService;
         this.loading = true;
         this.isShowBuilder = false;
@@ -356,7 +359,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
     getBlockList() {
         let param = {
-            apartmentId: parseInt(localStorage.getItem('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(param).subscribe((resp) => {
             this.towerList = resp;
@@ -367,7 +370,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
     getFloorList() {
         let getFloorParam = {
-            apartmentId: parseInt(localStorage.getItem('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             apartmentblockId: this.selectedTower
         };
         this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe((resp) => {
@@ -424,7 +427,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     }
     uploadFile(event) {
         let file = event[0];
-        let userId = parseInt(localStorage.getItem('userId'));
+        let userId = this.sessionService.userId;
         this.fileUploadService.upload(file, userId).subscribe((res) => {
             if (res != undefined) {
                 this.uploadResponse = res;
@@ -479,7 +482,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     getFileDetails(imageId) {
         let newParams = {
             fileDetailsId: imageId,
-            apartmentId: Number(localStorage.getItem('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.fileDetailService.getFileDetailsById(newParams).subscribe((res) => {
             this.downloadFile(res[0].filePath);
@@ -522,7 +525,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         let addPropertyMap = {
             propertyMapFile: {
                 "propertyMapFileId": 0,
-                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": this.selectedTower,
                 "description": "",
                 "isIndoor": true,
@@ -531,7 +534,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
                 "floorPictureFileDetailsId": imageId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
-                "insertedBy": parseInt(localStorage.getItem('userId')),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
@@ -549,7 +552,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         let updatePropertyMap = {
             propertyMapFile: {
                 "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
-                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": this.selectedFloor,
                 "description": "",
                 "isIndoor": true,
@@ -560,7 +563,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(localStorage.getItem('userId')),
+                "updatedBy": this.sessionService.userId,
                 "updatedOn": new Date().toISOString(),
                 "apartmentBlockFloorId": this.selectedTower
             }
@@ -640,6 +643,7 @@ AddFloorUnitGraphicComponent.ctorParameters = () => [
     { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] },
     { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"] }
 ];
 AddFloorUnitGraphicComponent.propDecorators = {
@@ -663,6 +667,7 @@ AddFloorUnitGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"],
         src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"]])
 ], AddFloorUnitGraphicComponent);
 

@@ -542,11 +542,17 @@
       var _add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ../add-property-dialog/add-property-dialog.component */
       "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var graph;
 
       var AddFloorUnitGraphicComponent = /*#__PURE__*/function () {
-        function AddFloorUnitGraphicComponent(element, apartmentService, documentService, fileUploadService, fileDownloadService, sanitizer, dialog, fileDetailService) {
+        function AddFloorUnitGraphicComponent(element, apartmentService, documentService, fileUploadService, fileDownloadService, sanitizer, dialog, sessionService, fileDetailService) {
           _classCallCheck(this, AddFloorUnitGraphicComponent);
 
           this.element = element;
@@ -556,6 +562,7 @@
           this.fileDownloadService = fileDownloadService;
           this.sanitizer = sanitizer;
           this.dialog = dialog;
+          this.sessionService = sessionService;
           this.fileDetailService = fileDetailService;
           this.loading = true;
           this.isShowBuilder = false;
@@ -602,7 +609,7 @@
             var _this2 = this;
 
             var param = {
-              apartmentId: parseInt(localStorage.getItem('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(param).subscribe(function (resp) {
               _this2.towerList = resp;
@@ -617,7 +624,7 @@
             var _this3 = this;
 
             var getFloorParam = {
-              apartmentId: parseInt(localStorage.getItem('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               apartmentblockId: this.selectedTower
             };
             this.apartmentService.getApartmentBlockFloorByApartmentIdBlockId(getFloorParam).subscribe(function (resp) {
@@ -692,7 +699,7 @@
             var _this6 = this;
 
             var file = event[0];
-            var userId = parseInt(localStorage.getItem('userId'));
+            var userId = this.sessionService.userId;
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
                 _this6.uploadResponse = res;
@@ -763,7 +770,7 @@
 
             var newParams = {
               fileDetailsId: imageId,
-              apartmentId: Number(localStorage.getItem('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.fileDetailService.getFileDetailsById(newParams).subscribe(function (res) {
               _this9.downloadFile(res[0].filePath);
@@ -819,7 +826,7 @@
             var addPropertyMap = {
               propertyMapFile: {
                 "propertyMapFileId": 0,
-                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": this.selectedTower,
                 "description": "",
                 "isIndoor": true,
@@ -828,7 +835,7 @@
                 "floorPictureFileDetailsId": imageId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
-                "insertedBy": parseInt(localStorage.getItem('userId')),
+                "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": new Date().toISOString(),
@@ -850,7 +857,7 @@
             var updatePropertyMap = {
               propertyMapFile: {
                 "propertyMapFileId": this.floorPropertyData.propertyMapFileId,
-                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockId": this.selectedFloor,
                 "description": "",
                 "isIndoor": true,
@@ -861,7 +868,7 @@
                 "isActive": true,
                 "insertedBy": 0,
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(localStorage.getItem('userId')),
+                "updatedBy": this.sessionService.userId,
                 "updatedOn": new Date().toISOString(),
                 "apartmentBlockFloorId": this.selectedTower
               }
@@ -964,6 +971,8 @@
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
         }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
+        }, {
           type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"]
         }];
       };
@@ -1002,7 +1011,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-floor-unit-graphic.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_3__["FileDetailsService"]])], AddFloorUnitGraphicComponent);
       /***/
     },
 

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-pay-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<div class=\"bg-card shadow primary\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t<div class=\"sub-details\">\n\t\t\t\t<p class=\"d-inline-block\">\n\t\t\t\t<span class=\"font-medium\">Bill to party: </span>\n\t\t\t\t{{accountDataList | isdefined:'billToParty' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Contact Person: </span>\n\t\t\t\t{{accountDataList | isdefined:'primayContact' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Block: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockNumber' }}</p>\n\t\t\t\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Unit: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockUnitNumber' }}</p>\n\t\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\t\n\t\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t\n\t\t\t<condo-card>\n\t\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Bills to be payed</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t  </jqxGrid>\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\t\n\t\t</ng-container>\n\t\n\t\t<app-income-post-collection *ngIf=\"isInvoiceSelected\" [totalAmountArray]=\"totalAmountArray\" [invoiceIdArray]=\"selectedInvoiceIdArray\" (collectionParams)=\"isCollectionMade($event)\"></app-income-post-collection>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-pay-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<div class=\"bg-card shadow primary\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t<div class=\"sub-details\">\n\t\t\t\t<p class=\"d-inline-block\">\n\t\t\t\t<span class=\"font-medium\">Bill to party: </span>\n\t\t\t\t{{accountDataList | isdefined:'billToParty' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Contact Person: </span>\n\t\t\t\t{{accountDataList | isdefined:'primayContact' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Block: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockNumber' }}</p>\n\t\t\t\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Unit: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockUnitNumber' }}</p>\n\t\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\t\n\t\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t\n\t\t\t<condo-card>\n\t\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Bills to be payed</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t  </jqxGrid>\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\t\n\t\t</ng-container>\n\t\n\t\t<app-income-post-collection class=\"post-collection-comp\" *ngIf=\"isInvoiceSelected\" [totalAmountArray]=\"totalAmountArray\" [invoiceIdArray]=\"selectedInvoiceIdArray\" (collectionParams)=\"isCollectionMade($event)\"></app-income-post-collection>\n\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -142,6 +142,14 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
             return item.checked;
         });
         this.datagrid.refresh();
+        setTimeout(() => {
+            var elem = document.querySelector('.post-collection-comp');
+            var scrollTo = elem.getBoundingClientRect().top - 100;
+            window.scroll({
+                top: scrollTo,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
     onCheckInvoiceRow(detail) {
         let allDataRecords = this.datagrid.getrows();
@@ -159,6 +167,14 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         this.isInvoiceSelected = allDataRecords.some(item => {
             return item.checked;
         });
+        setTimeout(() => {
+            var elem = document.querySelector('.post-collection-comp');
+            var scrollTo = elem.getBoundingClientRect().top - 100;
+            window.scroll({
+                top: scrollTo,
+                behavior: 'smooth'
+            });
+        }, 100);
     }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'PayInvoiceData');
@@ -277,6 +293,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         };
         this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe((res) => {
             var invoiceDataList = res;
+            console.log(res);
             this.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -439,11 +456,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomePostCollectionComponent", function() { return IncomePostCollectionComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+
 
 
 
@@ -452,7 +471,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomePostCollectionComponent = class IncomePostCollectionComponent {
-    constructor(accountsService, lookupService, sharedService, sessionService) {
+    constructor(_activatedRoute, _router, accountsService, lookupService, sharedService, sessionService) {
+        this._activatedRoute = _activatedRoute;
+        this._router = _router;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -468,6 +489,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     }
     getInstrumentType(event) {
         this.collection.instrumentTypeId = event[0].lookupValueId;
+        console.log(this.collection.instrumentTypeId);
     }
     getDepositSlip(event) {
         this.collection.depositSlipNumber = event[0].id;
@@ -475,46 +497,137 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     getPaymentStatus(event) {
         this.collection.collectionStatusId = event[0].lookupValueId;
     }
+    isCreditNotePaymentMode() {
+        return this.collection.instrumentTypeId == 155 ? true : false;
+    }
+    isCustomerAdvancesPaymentMode() {
+        return this.collection.instrumentTypeId == 219 ? true : false;
+    }
+    isSecurityDepositPaymentMode() {
+        return this.collection.instrumentTypeId == 220 ? true : false;
+    }
+    reduceCreditNoteAmount() {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            let details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "custCreditNoteId": null,
+                "glaccountId": null,
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": this.totalAmountArray[index],
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custCreditNote: details
+            };
+            this.accountsService.addCustCreditNotes(params).subscribe((res) => {
+                if (index == (this.invoiceIdArray.length - 1)) {
+                    this.addCollection();
+                }
+            }, error => {
+            });
+        });
+    }
+    reduceCustomerAdvancesAmount() {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            let details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "glaccountId": null,
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": this.totalAmountArray[index],
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custAdvance: details
+            };
+            this.accountsService.addAdvance(params).subscribe((res) => {
+                if (index == (this.invoiceIdArray.length - 1)) {
+                    this.addCollection();
+                }
+            }, error => {
+            });
+        });
+    }
+    reduceSecurityDepositAmount() {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            let details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "securityDepositId": 0,
+                "glaccountId": null,
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": this.totalAmountArray[index],
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custSecurity: details
+            };
+            this.accountsService.addSecurityDeposit(params).subscribe((res) => {
+                if (index == (this.invoiceIdArray.length - 1)) {
+                    this.addCollection();
+                }
+            }, error => {
+            });
+        });
+    }
     submitIncomePostCollectionForm() {
+        if (this.isCreditNotePaymentMode()) {
+            this.reduceCreditNoteAmount();
+        }
+        if (this.isCustomerAdvancesPaymentMode()) {
+            this.reduceCustomerAdvancesAmount();
+        }
+        if (this.isSecurityDepositPaymentMode()) {
+            this.reduceSecurityDepositAmount();
+        }
+    }
+    addCollection() {
         var custInvoiceObjArray = [];
-        if (this.invoiceIdArray.length == 1) {
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, (item, index) => {
-                var details = {
-                    "apartmentId": this.sessionService.apartmentId,
-                    "collectionId": 0,
-                    "invoiceId": item,
-                    "glAccountId": 0,
-                    "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
-                    "amount": this.collection.amount,
-                    "comment": "",
-                    "isActive": true,
-                    "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": "2020-01-10T06:59:54.422Z",
-                    "updatedBy": 0,
-                    "updatedOn": "2020-01-10T06:59:54.422Z"
-                };
-                custInvoiceObjArray.push(details);
-            });
-        }
-        else {
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, (item, index) => {
-                var details = {
-                    "apartmentId": this.sessionService.apartmentId,
-                    "collectionId": 0,
-                    "invoiceId": item,
-                    "glAccountId": 0,
-                    "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
-                    "amount": this.totalAmountArray[index],
-                    "comment": "",
-                    "isActive": true,
-                    "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": "2020-01-10T06:59:54.422Z",
-                    "updatedBy": 0,
-                    "updatedOn": "2020-01-10T06:59:54.422Z"
-                };
-                custInvoiceObjArray.push(details);
-            });
-        }
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            var details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "collectionId": 0,
+                "invoiceId": item,
+                "glAccountId": 0,
+                "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
+                "amount": this.totalAmountArray[index],
+                "comment": "",
+                "isActive": true,
+                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedOn": "2020-01-10T06:59:54.422Z",
+                "updatedBy": 0,
+                "updatedOn": "2020-01-10T06:59:54.422Z"
+            };
+            custInvoiceObjArray.push(details);
+        });
         this.isCollectionSubmitted = false;
         let collectionDetails = {
             "apartmentId": this.sessionService.apartmentId,
@@ -566,6 +679,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         this.collection.collectionAccountTypeId = "";
         this.collection.depositSlipNumber = "";
         this.collection.collectionStatusId = "";
+        this.apartmentBlockUnitId = this._activatedRoute.params['value'].id;
         let paymentListParams = {
             LookupTypeId: 34
         };
@@ -614,10 +728,12 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     }
 };
 IncomePostCollectionComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 IncomePostCollectionComponent.propDecorators = {
     totalAmountArray: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -630,10 +746,12 @@ IncomePostCollectionComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-post-collection.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-pay-invoice/income-post-collection/income-post-collection.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-post-collection.component.scss */ "./src/app/modules/ams/income-tracker/income-pay-invoice/income-post-collection/income-post-collection.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], IncomePostCollectionComponent);
 
 

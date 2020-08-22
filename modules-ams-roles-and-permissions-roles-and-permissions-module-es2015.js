@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #createParkingSlotForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"row m-0 pt-4\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Roles Type</label>\n\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleTypeId\"  class=\"form-control\">\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" value=\"{{item.value}}\">{{item?.name}}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Roles Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\" rows=\"3\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row m-0 pb-4\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addRole()\" >Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #createParkingSlotForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"row m-0 pt-4\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Roles Type</label>\n\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleTypeId\"  class=\"form-control\">\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" value=\"{{item.value}}\">{{item?.name}}</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Roles Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\" rows=\"3\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row m-0 pb-4\">\n<<<<<<< HEAD\n\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button routerLink=\"/ams/roles-permissions/role-permissions-list\"\n\t\t\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Cancel</button>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\" (click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\" (click)=\"updateRole()\">Update</button>\n=======\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<ul class=\"list-inline float-right mt-4\">\n\t\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addRole()\" >Submit</button>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n>>>>>>> afa4e37c2620e07010466e05cdc4a8d52409207f\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-card >\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Roles And Permissions</h4>\n\t\t\t\t\t\t<!-- <p>{{totalItems}} results</p> -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" \n\t\t\t\t\t\thref=\"javascript:void(0)\"\n\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/add-roles-permissions\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Create Roles</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleList\" [columns]=\"roleHeader\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-card >\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Roles And Permissions</h4>\n\t\t\t\t\t\t<!-- <p>{{totalItems}} results</p> -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" \n\t\t\t\t\t\thref=\"javascript:void(0)\"\n\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/add-roles-permissions\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\tCreate Roles</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleList\" [columns]=\"roleHeader\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n    </div>");
 
 /***/ }),
 
@@ -67,20 +67,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
 
 
 let AddRoleComponent = class AddRoleComponent {
-    constructor(userService, router, screenService) {
+    constructor(userService, router, activatedRoute, sessionService, screenService) {
         this.userService = userService;
         this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.sessionService = sessionService;
         this.screenService = screenService;
         this.allRoles = [];
+        this.isCreate = true;
     }
     ngOnInit() {
+        if (this.activatedRoute.params['value'].id != undefined) {
+            this.menuRoleSecLevelId = this.activatedRoute.params['value'].id;
+            this.isCreate = false;
+            this.getRole();
+        }
         this.getAllRoles();
+    }
+    getRole() {
+        let queryParamBase = {
+            apartmentId: this.sessionService.apartmentId,
+            menuRoleSecLevelId: this.menuRoleSecLevelId,
+        };
+        this.screenService.getMenuRoleSecLevelbyRoleSecLevelId(queryParamBase).subscribe(resp => {
+            this.menuRole = resp[0];
+            this.roleTypeId = this.menuRole.roleId;
+            this.roleName = this.menuRole.roleName;
+        });
     }
     getAllRoles() {
         this.userService.getAllRoleTypes().subscribe((resp) => {
@@ -97,12 +118,12 @@ let AddRoleComponent = class AddRoleComponent {
     addRole() {
         let addMenuLevelParam = {
             "menuSecLevelId": 0,
-            "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+            "apartmentId": this.sessionService.apartmentId,
             "name": this.roleName,
             "isActive": true,
-            "insertedBy": parseInt(localStorage.getItem('userId')),
+            "insertedBy": this.sessionService.userId,
             "insertedOn": new Date().toISOString(),
-            "updatedBy": parseInt(localStorage.getItem('userId')),
+            "updatedBy": this.sessionService.userId,
             "updatedOn": "2020-08-09T06:22:21.539Z"
         };
         let secLevelParam = {
@@ -112,13 +133,13 @@ let AddRoleComponent = class AddRoleComponent {
             if (resp && resp.message) {
                 let addMenuRoleSecLevel = {
                     "menuRoleSecLevelId": 0,
-                    "apartmentId": parseInt(localStorage.getItem('apartmentId')),
+                    "apartmentId": this.sessionService.apartmentId,
                     "roleId": parseInt(this.roleTypeId),
                     "secLevelId": resp.message,
                     "isActive": true,
-                    "insertedBy": parseInt(localStorage.getItem('userId')),
+                    "insertedBy": this.sessionService.userId,
                     "insertedOn": new Date().toISOString(),
-                    "updatedBy": parseInt(localStorage.getItem('userId')),
+                    "updatedBy": this.sessionService.userId,
                     "updatedOn": "2020-08-09T06:22:21.539Z"
                 };
                 let roleSecLevelParam = {
@@ -130,10 +151,30 @@ let AddRoleComponent = class AddRoleComponent {
             }
         });
     }
+    updateRole() {
+        let updataParam = {
+            "menuSecLevelId": this.menuRole.menuRoleSecLevelId,
+            "apartmentId": this.sessionService.apartmentId,
+            "name": this.roleName,
+            "isActive": true,
+            "insertedBy": 0,
+            "insertedOn": new Date().toISOString(),
+            "updatedBy": this.sessionService.userId,
+            "updatedOn": new Date().toISOString()
+        };
+        let updateRoleParam = {
+            menuSecLevel: updataParam
+        };
+        this.screenService.updateMenuSecLevel(updateRoleParam).subscribe(resp => {
+            this.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+        });
+    }
 };
 AddRoleComponent.ctorParameters = () => [
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"] }
 ];
 AddRoleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -144,6 +185,8 @@ AddRoleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])
 ], AddRoleComponent);
 
@@ -178,19 +221,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
+
+
+
 
 
 
 
 let RolesAndPermissionsListComponent = class RolesAndPermissionsListComponent {
-    constructor(router) {
+    constructor(router, screenService, sharedService, sessionService, injector) {
         this.router = router;
+        this.screenService = screenService;
+        this.sharedService = sharedService;
+        this.sessionService = sessionService;
+        this.injector = injector;
         this.roleHeader = [];
-        this.roleList = [];
         this.isEnableCreate = true;
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
-    navigateToPermission() {
-        this.router.navigateByUrl('/ams/roles-permissions/set-permission');
+    navigateToPermission(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.router.navigate(['/ams/roles-permissions/set-permission'], { queryParams: { secLevelId: dataRecord.secLevelId, roleId: dataRecord.roleId } });
+    }
+    onEditRole(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let menuRoleSecLevelId = dataRecord.menuRoleSecLevelId;
+        this.router.navigateByUrl('/ams/roles-permissions/edit-roles-permissions/' + menuRoleSecLevelId);
+    }
+    onDeleteRole(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        let menuRoleSecLevelId = dataRecord.menuRoleSecLevelId;
+        this.modalService.showConfirmModal(menuRoleSecLevelId);
     }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
@@ -233,36 +299,55 @@ let RolesAndPermissionsListComponent = class RolesAndPermissionsListComponent {
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="onDeleteRole(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
                 },
                 renderer: columnrenderer
             }];
-        let localData = [
-            {
-                sno: 1,
-                roleName: 'Admin',
-                description: 'Admin Having All the Provisions'
-            },
-            {
-                sno: 2,
-                roleName: 'Staff',
-                description: 'Staff Having All the Provisions'
+        // delete item
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                var params = {
+                    menuRoleSecLevelId: id,
+                    deleteBy: parseInt(this.sessionService.userId)
+                };
+                this.screenService.deleteMenuRoleSecLevel(params).subscribe((res) => {
+                    this.getRolePermissionList();
+                }, error => {
+                    console.log(error);
+                });
             }
-        ];
-        let gridSourceData = {
-            localdata: localData,
-            datatype: "array"
+        });
+        this.getRolePermissionList();
+    }
+    getRolePermissionList() {
+        let param = {
+            apartmentId: this.sessionService.apartmentId
         };
-        this.roleList = new jqx.dataAdapter(gridSourceData);
-        this.isEnableCreate = true;
+        this.screenService.getAllDefaultMenuRoleSecLevelbyApartmentId(param).subscribe((resp) => {
+            let refMenuData = resp.filter(data => {
+                return data.isActive;
+            });
+            let gridSourceData = {
+                localdata: refMenuData,
+                datatype: "array"
+            };
+            this.roleList = new jqx.dataAdapter(gridSourceData);
+            this.isEnableCreate = true;
+        });
     }
 };
 RolesAndPermissionsListComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_4__["ScreenService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 RolesAndPermissionsListComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    navigateToPermission: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:navigateToPermission',] }]
+    navigateToPermission: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:navigateToPermission', ['$event.detail'],] }],
+    onEditRole: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditRole', ['$event.detail'],] }],
+    onDeleteRole: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onDeleteRole', ['$event.detail'],] }]
 };
 RolesAndPermissionsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -270,7 +355,11 @@ RolesAndPermissionsListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./roles-and-permissions-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/roles-and-permissions-list/roles-and-permissions-list.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./roles-and-permissions-list.component.scss */ "./src/app/modules/ams/roles-and-permissions/roles-and-permissions-list/roles-and-permissions-list.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_4__["ScreenService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], RolesAndPermissionsListComponent);
 
 function navigateToPermission() {
@@ -278,6 +367,24 @@ function navigateToPermission() {
     window.dispatchEvent(event);
 }
 window.navigateToPermission = navigateToPermission;
+function onEditRole(row) {
+    var event = new CustomEvent('onEditRole', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.onEditRole = onEditRole;
+function onDeleteRole(row) {
+    var event = new CustomEvent('onDeleteRole', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.onDeleteRole = onDeleteRole;
 
 
 /***/ }),
@@ -308,6 +415,7 @@ const routes = [
     { path: '', redirectTo: 'roles-permissions-list', pathMatch: 'full' },
     { path: 'roles-permissions-list', component: _roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_3__["RolesAndPermissionsListComponent"] },
     { path: 'add-roles-permissions', component: _add_role_add_role_component__WEBPACK_IMPORTED_MODULE_4__["AddRoleComponent"] },
+    { path: 'edit-roles-permissions/:id', component: _add_role_add_role_component__WEBPACK_IMPORTED_MODULE_4__["AddRoleComponent"] },
     { path: 'set-permission', component: _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_5__["SetPermissionsComponent"] },
     { path: '**', redirectTo: 'roles-permissions-list', pathMatch: 'full' }
 ];
@@ -399,12 +507,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
+
 
 
 
 let SetPermissionsComponent = class SetPermissionsComponent {
-    constructor(screenService) {
+    constructor(screenService, sessionService, activatedRoute) {
         this.screenService = screenService;
+        this.sessionService = sessionService;
+        this.activatedRoute = activatedRoute;
         this.menuList = [];
     }
     ngOnInit() {
@@ -434,8 +548,9 @@ let SetPermissionsComponent = class SetPermissionsComponent {
     }
     getScreenList() {
         let queryParamBase = {
-            ApartmentId: parseInt(localStorage.getItem('apartmentId')),
-            RoleId: parseInt(localStorage.getItem('roleId')),
+            ApartmentId: this.sessionService.apartmentId,
+            RoleId: parseInt(this.roleId),
+            secLevelId: parseInt(this.secLevelId)
         };
         this.screenService.getMenuFunctionByRoleIdMultiFilter(queryParamBase).subscribe((resp) => {
             this.menuList = resp;
@@ -484,28 +599,21 @@ let SetPermissionsComponent = class SetPermissionsComponent {
     }
     changeActions(event) {
         if (event.option.value) {
-            let addFunctionParam = {
-                "menuSecLevelFunctionId": 0,
-                "apartmentId": parseInt(localStorage.getItem('apartmentId')),
-                "secLevelId": null,
-                "functionId": event.option.value.functionId,
-                "orderNo": 0,
-                "isActive": !event.option.value.checked,
-                "insertedBy": parseInt(localStorage.getItem('roleId')),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": parseInt(localStorage.getItem('roleId')),
-                "updatedOn": "2020-08-13T12:10:58.204Z"
-            };
             let queryParamBase = {
-                seclevelFunctionmap: addFunctionParam
+                apartmentId: this.sessionService.apartmentId,
+                menuSecLevelFunctionId: event.option.value.functionId,
+                isActive: !event.option.value.checked,
+                updatedBy: this.sessionService.roleId,
             };
-            this.screenService.addMenuSecLevelFunctionMapping(queryParamBase).subscribe((resp) => {
+            this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase).subscribe((resp) => {
             });
         }
     }
 };
 SetPermissionsComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"] }
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] }
 ];
 SetPermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -513,7 +621,9 @@ SetPermissionsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./set-permissions.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./set-permissions.component.scss */ "./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_2__["ScreenService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]])
 ], SetPermissionsComponent);
 
 

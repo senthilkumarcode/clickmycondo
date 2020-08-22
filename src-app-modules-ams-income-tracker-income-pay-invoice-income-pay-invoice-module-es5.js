@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-pay-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<div class=\"bg-card shadow primary\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t<div class=\"sub-details\">\n\t\t\t\t<p class=\"d-inline-block\">\n\t\t\t\t<span class=\"font-medium\">Bill to party: </span>\n\t\t\t\t{{accountDataList | isdefined:'billToParty' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Contact Person: </span>\n\t\t\t\t{{accountDataList | isdefined:'primayContact' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Block: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockNumber' }}</p>\n\t\t\t\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Unit: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockUnitNumber' }}</p>\n\t\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\t\n\t\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t\n\t\t\t<condo-card>\n\t\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Bills to be payed</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t  </jqxGrid>\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\t\n\t\t</ng-container>\n\t\n\t\t<app-income-post-collection *ngIf=\"isInvoiceSelected\" [totalAmountArray]=\"totalAmountArray\" [invoiceIdArray]=\"selectedInvoiceIdArray\" (collectionParams)=\"isCollectionMade($event)\"></app-income-post-collection>\n\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-pay-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<div class=\"bg-card shadow primary\" *ngIf=\"isAccountDataLoaded\">\n\t\t\t<div class=\"sub-details\">\n\t\t\t\t<p class=\"d-inline-block\">\n\t\t\t\t<span class=\"font-medium\">Bill to party: </span>\n\t\t\t\t{{accountDataList | isdefined:'billToParty' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Contact Person: </span>\n\t\t\t\t{{accountDataList | isdefined:'primayContact' }}</p>\n\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Block: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockNumber' }}</p>\n\t\t\t\t\n\t\t\t\t<p class=\"d-inline-block ml-md-4\">\n\t\t\t\t<span class=\"font-medium\">Unit: </span>\n\t\t\t\t{{accountDataList | isdefined:'apartmentBlockUnitNumber' }}</p>\n\t\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\t\n\t\t<ng-container *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t\n\t\t\t<condo-card>\n\t\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Bills to be payed</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t  </jqxGrid>\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\t\n\t\t</ng-container>\n\t\n\t\t<app-income-post-collection class=\"post-collection-comp\" *ngIf=\"isInvoiceSelected\" [totalAmountArray]=\"totalAmountArray\" [invoiceIdArray]=\"selectedInvoiceIdArray\" (collectionParams)=\"isCollectionMade($event)\"></app-income-post-collection>\n\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -260,6 +260,14 @@
               return item.checked;
             });
             this.datagrid.refresh();
+            setTimeout(function () {
+              var elem = document.querySelector('.post-collection-comp');
+              var scrollTo = elem.getBoundingClientRect().top - 100;
+              window.scroll({
+                top: scrollTo,
+                behavior: 'smooth'
+              });
+            }, 100);
           }
         }, {
           key: "onCheckInvoiceRow",
@@ -283,6 +291,14 @@
             this.isInvoiceSelected = allDataRecords.some(function (item) {
               return item.checked;
             });
+            setTimeout(function () {
+              var elem = document.querySelector('.post-collection-comp');
+              var scrollTo = elem.getBoundingClientRect().top - 100;
+              window.scroll({
+                top: scrollTo,
+                behavior: 'smooth'
+              });
+            }, 100);
           }
         }, {
           key: "getPrintParams",
@@ -399,6 +415,7 @@
             };
             this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe(function (res) {
               var invoiceDataList = res;
+              console.log(res);
               _this5.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -657,38 +674,46 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Accounts */
       "./src/app/api/controllers/Accounts.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
 
       var IncomePostCollectionComponent = /*#__PURE__*/function () {
-        function IncomePostCollectionComponent(accountsService, lookupService, sharedService, sessionService) {
+        function IncomePostCollectionComponent(_activatedRoute, _router, accountsService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, IncomePostCollectionComponent);
 
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
           this.accountsService = accountsService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
@@ -707,6 +732,7 @@
           key: "getInstrumentType",
           value: function getInstrumentType(event) {
             this.collection.instrumentTypeId = event[0].lookupValueId;
+            console.log(this.collection.instrumentTypeId);
           }
         }, {
           key: "getDepositSlip",
@@ -719,50 +745,162 @@
             this.collection.collectionStatusId = event[0].lookupValueId;
           }
         }, {
-          key: "submitIncomePostCollectionForm",
-          value: function submitIncomePostCollectionForm() {
+          key: "isCreditNotePaymentMode",
+          value: function isCreditNotePaymentMode() {
+            return this.collection.instrumentTypeId == 155 ? true : false;
+          }
+        }, {
+          key: "isCustomerAdvancesPaymentMode",
+          value: function isCustomerAdvancesPaymentMode() {
+            return this.collection.instrumentTypeId == 219 ? true : false;
+          }
+        }, {
+          key: "isSecurityDepositPaymentMode",
+          value: function isSecurityDepositPaymentMode() {
+            return this.collection.instrumentTypeId == 220 ? true : false;
+          }
+        }, {
+          key: "reduceCreditNoteAmount",
+          value: function reduceCreditNoteAmount() {
             var _this7 = this;
 
-            var custInvoiceObjArray = [];
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, function (item, index) {
+              var details = {
+                "apartmentId": _this7.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(_this7.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "custCreditNoteId": null,
+                "glaccountId": null,
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": _this7.totalAmountArray[index],
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": _this7.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              };
+              var params = {
+                custCreditNote: details
+              };
 
-            if (this.invoiceIdArray.length == 1) {
-              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
-                var details = {
-                  "apartmentId": _this7.sessionService.apartmentId,
-                  "collectionId": 0,
-                  "invoiceId": item,
-                  "glAccountId": 0,
-                  "instrumentTypeId": parseInt(_this7.collection.instrumentTypeId),
-                  "amount": _this7.collection.amount,
-                  "comment": "",
-                  "isActive": true,
-                  "insertedBy": parseInt(_this7.sessionService.userId),
-                  "insertedOn": "2020-01-10T06:59:54.422Z",
-                  "updatedBy": 0,
-                  "updatedOn": "2020-01-10T06:59:54.422Z"
-                };
-                custInvoiceObjArray.push(details);
-              });
-            } else {
-              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](this.invoiceIdArray, function (item, index) {
-                var details = {
-                  "apartmentId": _this7.sessionService.apartmentId,
-                  "collectionId": 0,
-                  "invoiceId": item,
-                  "glAccountId": 0,
-                  "instrumentTypeId": parseInt(_this7.collection.instrumentTypeId),
-                  "amount": _this7.totalAmountArray[index],
-                  "comment": "",
-                  "isActive": true,
-                  "insertedBy": parseInt(_this7.sessionService.userId),
-                  "insertedOn": "2020-01-10T06:59:54.422Z",
-                  "updatedBy": 0,
-                  "updatedOn": "2020-01-10T06:59:54.422Z"
-                };
-                custInvoiceObjArray.push(details);
-              });
+              _this7.accountsService.addCustCreditNotes(params).subscribe(function (res) {
+                if (index == _this7.invoiceIdArray.length - 1) {
+                  _this7.addCollection();
+                }
+              }, function (error) {});
+            });
+          }
+        }, {
+          key: "reduceCustomerAdvancesAmount",
+          value: function reduceCustomerAdvancesAmount() {
+            var _this8 = this;
+
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, function (item, index) {
+              var details = {
+                "apartmentId": _this8.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(_this8.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "glaccountId": null,
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": _this8.totalAmountArray[index],
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": _this8.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              };
+              var params = {
+                custAdvance: details
+              };
+
+              _this8.accountsService.addAdvance(params).subscribe(function (res) {
+                if (index == _this8.invoiceIdArray.length - 1) {
+                  _this8.addCollection();
+                }
+              }, function (error) {});
+            });
+          }
+        }, {
+          key: "reduceSecurityDepositAmount",
+          value: function reduceSecurityDepositAmount() {
+            var _this9 = this;
+
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, function (item, index) {
+              var details = {
+                "apartmentId": _this9.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(_this9.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "securityDepositId": 0,
+                "glaccountId": null,
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": _this9.totalAmountArray[index],
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": _this9.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              };
+              var params = {
+                custSecurity: details
+              };
+
+              _this9.accountsService.addSecurityDeposit(params).subscribe(function (res) {
+                if (index == _this9.invoiceIdArray.length - 1) {
+                  _this9.addCollection();
+                }
+              }, function (error) {});
+            });
+          }
+        }, {
+          key: "submitIncomePostCollectionForm",
+          value: function submitIncomePostCollectionForm() {
+            if (this.isCreditNotePaymentMode()) {
+              this.reduceCreditNoteAmount();
             }
 
+            if (this.isCustomerAdvancesPaymentMode()) {
+              this.reduceCustomerAdvancesAmount();
+            }
+
+            if (this.isSecurityDepositPaymentMode()) {
+              this.reduceSecurityDepositAmount();
+            }
+          }
+        }, {
+          key: "addCollection",
+          value: function addCollection() {
+            var _this10 = this;
+
+            var custInvoiceObjArray = [];
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, function (item, index) {
+              var details = {
+                "apartmentId": _this10.sessionService.apartmentId,
+                "collectionId": 0,
+                "invoiceId": item,
+                "glAccountId": 0,
+                "instrumentTypeId": parseInt(_this10.collection.instrumentTypeId),
+                "amount": _this10.totalAmountArray[index],
+                "comment": "",
+                "isActive": true,
+                "insertedBy": parseInt(_this10.sessionService.userId),
+                "insertedOn": "2020-01-10T06:59:54.422Z",
+                "updatedBy": 0,
+                "updatedOn": "2020-01-10T06:59:54.422Z"
+              };
+              custInvoiceObjArray.push(details);
+            });
             this.isCollectionSubmitted = false;
             var collectionDetails = {
               "apartmentId": this.sessionService.apartmentId,
@@ -795,36 +933,37 @@
             };
             this.accountsService.addCollection(params).subscribe(function (res) {
               if (res.message) {
-                _this7.isCollectionSubmitted = true;
+                _this10.isCollectionSubmitted = true;
 
-                _this7.sharedService.setAlertMessage("Collection done successfully");
+                _this10.sharedService.setAlertMessage("Collection done successfully");
 
-                _this7.collectionParams.emit(true);
+                _this10.collectionParams.emit(true);
               } else {
-                _this7.isCollectionSubmitted = true;
-                _this7.isError = true;
-                _this7.alertMessage = res.errorMessage;
+                _this10.isCollectionSubmitted = true;
+                _this10.isError = true;
+                _this10.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this7.isCollectionSubmitted = true;
+              _this10.isCollectionSubmitted = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this11 = this;
 
             this.collection = {};
             this.collection.instrumentTypeId = "";
             this.collection.collectionAccountTypeId = "";
             this.collection.depositSlipNumber = "";
             this.collection.collectionStatusId = "";
+            this.apartmentBlockUnitId = this._activatedRoute.params['value'].id;
             var paymentListParams = {
               LookupTypeId: 34
             }; //payment status
 
             this.lookupService.getLookupValueByLookupTypeId(paymentListParams).subscribe(function (res) {
-              _this8.paymentStatusListData = res.filter(function (item) {
+              _this11.paymentStatusListData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -833,7 +972,7 @@
             }; //payment mode
 
             this.lookupService.getLookupValueByLookupTypeId(insListParams).subscribe(function (res) {
-              _this8.instrumentTypeListData = res.filter(function (item) {
+              _this11.instrumentTypeListData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -842,7 +981,7 @@
               groupId: 3
             };
             this.accountsService.getGlAccountsByGroupId(accountParams).subscribe(function (res) {
-              _this8.glAccountListData = res;
+              _this11.glAccountListData = res;
             });
             this.depositSlipLisData = [{
               id: 1
@@ -879,13 +1018,17 @@
 
       IncomePostCollectionComponent.ctorParameters = function () {
         return [{
-          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -908,7 +1051,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-post-collection.component.scss */
         "./src/app/modules/ams/income-tracker/income-pay-invoice/income-post-collection/income-post-collection.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], IncomePostCollectionComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], IncomePostCollectionComponent);
       /***/
     }
   }]);
