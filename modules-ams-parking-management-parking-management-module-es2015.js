@@ -1076,8 +1076,12 @@ let AllocatedSlotConfirmationComponent = class AllocatedSlotConfirmationComponen
             });
         }
         else {
+            let staffParms = {
+                apartmentId: this.sessionService.apartmentId,
+                RoleTypeId: this.sessionService.roleTypeId
+            };
             //community Owned staff
-            this.staffService.getAllStaffs().subscribe((res) => {
+            this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 if (res.length) {
                     this.staffsList.dropdownList = res.filter((ele) => {
                         ele.customLabel = `${ele.firstName} ${ele.lastName} ${ele.staffCategory_Label}`;
@@ -1557,7 +1561,11 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
                 autoPosition: false,
                 maxHeight: 130
             };
-            this.staffService.getAllStaffs().subscribe((res) => {
+            let staffParms = {
+                apartmentId: this.sessionService.apartmentId,
+                RoleTypeId: this.sessionService.roleTypeId
+            };
+            this.staffService.getAllStaffs(staffParms).subscribe((res) => {
                 if (res.length) {
                     this.staffsList.dropdownList = res.filter((ele) => {
                         ele.customLabel = `${ele.firstName} ${ele.lastName} ${ele.staffCategory_Label}`;

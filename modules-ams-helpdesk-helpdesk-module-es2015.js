@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex\">\n                <h4 class=\"mb-4\">\n                    <span *ngIf=\"data.type == 'common'\">COMMON TICKET CATEGORY</span>\n                    <span *ngIf=\"data.type == 'private'\">PRIVATE TICKET CATEGORY</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Category Name<span class=\"mandatory\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Category Name\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" (input)=\"errorMessage=''\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"Default Supervisor\"\n                            fieldPlaceholder=\"Default Supervisor\"\n                            [fieldList]=\"staffsList\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticketCategoryData.staffOne\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"isExistUser($event,'one')\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-4\">Esclation Setup (Optional)</h6>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 1 After</label>\n                            <div class=\"d-flex\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Days\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-1 Manager\"\n                        fieldPlaceholder=\"Select Level-1 Manager\"\n                        [fieldList]=\"staffsList\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffTwo\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'two')\" \n                        ></condo-select> \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 2 After</label>\n                            <div class=\"d-flex\">\n                                <input type=\"text\" class=\"form-control d-inline-block w-40\" placeholder=\"Days\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-2 Manager\"\n                        fieldPlaceholder=\"Select Level-2 Manager\"\n                        [fieldList]=\"staffsList\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffThree\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'three')\" \n                        ></condo-select> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\" *ngIf=\"data.mode == 'create'\" (click)=\"createCategory()\">Submit</button>\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\" *ngIf=\"data.mode == 'edit'\" (click)=\"updateCategory()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex\">\n                <h4 class=\"mb-4\">\n                    <span *ngIf=\"data.type == 'common'\">COMMON TICKET CATEGORY</span>\n                    <span *ngIf=\"data.type == 'private'\">PRIVATE TICKET CATEGORY</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form #ticketCategoryForm=\"ngForm\" name=\"ticketCategoryForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Category Name<span class=\"mandatory\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Category Name\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" (input)=\"errorMessage=''\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"Default Supervisor\"\n                            fieldPlaceholder=\"Default Supervisor\"\n                            [fieldList]=\"staffsList\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticketCategoryData.staffOne\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"isExistUser($event,'one')\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-4\">Esclation Setup (Optional)</h6>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 1 After</label>\n                            <div class=\"d-flex\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Days\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-1 Manager\"\n                        fieldPlaceholder=\"Select Level-1 Manager\"\n                        [fieldList]=\"staffsList\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffTwo\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'two')\" \n                        ></condo-select> \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 2 After</label>\n                            <div class=\"d-flex\">\n                                <input type=\"text\" class=\"form-control d-inline-block w-40\" placeholder=\"Days\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-2 Manager\"\n                        fieldPlaceholder=\"Select Level-2 Manager\"\n                        [fieldList]=\"staffsList\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffThree\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'three')\" \n                        ></condo-select> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" [disabled]=\"ticketCategoryForm.invalid\"  mat-flat-button  [color]=\"'primary'\" *ngIf=\"data.mode == 'create'\" (click)=\"createCategory()\">Submit</button>\n                        <button class=\"float-right\" [disabled]=\"ticketCategoryForm.invalid\"  mat-flat-button  [color]=\"'primary'\" *ngIf=\"data.mode == 'edit'\" (click)=\"updateCategory()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -88,32 +88,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-all-tickets-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Status </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Ticket Status\"\n                            fieldPlaceholder=\"Status\"\n                            [fieldList]=\"ticketStatusList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"filterData.ticketStatus\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"dropDownSelect($event,'status')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Staff\"\n                            fieldPlaceholder=\"Staff\"\n                            [fieldList]=\"staffsList\"\n                            fieldValue=\"staffName\"\n                            [fieldModel]=\"filterData.staff\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"dropDownSelect($event,'staff')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Supervisor\"\n                            fieldPlaceholder=\"Supervisor\"\n                            [fieldList]=\"staffsList\"\n                            fieldValue=\"staffName\"\n                            [fieldModel]=\"filterData.supervisor\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"dropDownSelect($event,'supervisor')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t\t\t\t<!-- Indicator -->\n\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/common-ticket-icon.svg\"><span>Common</span></li>\n\t\t\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/private-ticket-icon.svg\"><span>Private</span></li>\n\t\t\t\t\t</ul>\n\t\t\t\t\n\t\t\t\t\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span><span>High</span></li>\n\t\t\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Medium</li>\n\t\t\t\t\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-purple-900\"></span>Low</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='all-tickets'\">All Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='open-tickets'\">Open Assigned and Hold Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='closed-tickets'\">Closed Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='unassigned'\">Unassigned Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='assigned-to-me'\">My Tickets</span>\n\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" (ngModelChange)=\"onGlSearchFilter()\" >\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"createTicketNavigate()\">Add Ticket</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-3\" *ngIf=\"urlType=='all-tickets'\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid\n\t\t\t\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t[pageable]=\"true\"\n\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t[sortable]=\"true\"\n\t\t\t\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.html":
-/*!**********************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.html ***!
-  \**********************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-unassigned-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t\t<!-- Indicator -->\n\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t<ul class=\"legends list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/common-ticket-icon.svg\"><span>Common</span></li>\n\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/private-ticket-icon.svg\"><span>Private</span></li>\n\t\t\t</ul>\n\t\t\n\t\t\t<ul class=\"legends ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span><span>High</span></li>\n\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span>Medium</li>\n\t\t\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-green-900\"></span>Low</li>\n\t\t\t</ul>\n\t\t</div>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isTicketDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unassigned Tickets</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\" (ngModelChange)=\"onGlSearchFilter()\" >\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid\n\t\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t[sortable]=\"true\"\n\t\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\t\t\n\t\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.html":
-/*!****************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.html ***!
-  \****************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-create-ticket-wrapper\">\n\t\n\t<ng-container *ngFor=\"let ticket of ticketArray; let i = index\">\n\t\t<app-add-ticket [index]=\"i\" [array]=\"ticketArray\" (outputParams) = \"getTicketArray($event)\"></app-add-ticket>\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -444,7 +418,6 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
         this.sharedService = sharedService;
         this.data = data;
         this.ticketCategoryData = {};
-        this.staffsdropdownSettings = {};
         this.staffsList = [];
         this.editData = {};
     }
@@ -475,10 +448,17 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             lookupvalue: entity
         };
         this.lookupService.addLookupValue(lookupvalue).subscribe((res) => {
-            if (!isNaN(res.message))
-                this.createEsclation(res.message);
-            else
-                this.errorMessage = res.errorMessage;
+            if (res.code == 200) {
+                this.sharedService.openSnackBar('Category Created', 'success');
+                this.createEsclation(res.responseData.value.message);
+            }
+            else {
+                this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+            }
+        }, (error) => {
+            if (error.status == 0) {
+                this.sharedService.openSnackBar('Network Error', 'error');
+            }
         });
     }
     createEsclation(ticketCategoryId) {
@@ -564,7 +544,23 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             this.createEsclation(this.editData.ticketCategoryId);
         }
     }
-    patchData() {
+    ngOnInit() {
+        let staffParms = {
+            apartmentId: this.sessionService.apartmentId,
+            RoleTypeId: this.sessionService.roleTypeId
+        };
+        this.staffService.getAllStaffs(staffParms).subscribe((res) => {
+            if (res.length) {
+                res.forEach((ele) => {
+                    ele.customLabel = `${ele.staffName} ${ele.staffCategoryName}`;
+                });
+                this.staffsList = res;
+                ;
+            }
+        }, error => {
+            console.log(error);
+        });
+        //Edit Mode
         if (this.data.mode == 'edit' && this.data.categoryId) {
             let queryParamBase = {
                 apartmentId: this.sessionService.apartmentId,
@@ -588,30 +584,6 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
                 }
             });
         }
-    }
-    ngOnInit() {
-        this.staffsdropdownSettings = {
-            singleSelection: true,
-            primaryKey: 'userId',
-            labelKey: 'customLabel',
-            enableSearchFilter: true,
-            enableFilterSelectAll: false,
-            autoPosition: false,
-            maxHeight: 130
-        };
-        this.staffService.getAllStaffs().subscribe((res) => {
-            if (res.length) {
-                res.forEach((ele) => {
-                    ele.customLabel = `${ele.firstName} ${ele.lastName} ${ele.staffCategory_Label}`;
-                });
-                this.staffsList = res;
-                ;
-                //EditMode
-                this.patchData();
-            }
-        }, error => {
-            console.log(error);
-        });
     }
 };
 AddTicketCategoryComponent.ctorParameters = () => [
@@ -745,7 +717,7 @@ let CommonCategoryComponent = class CommonCategoryComponent {
             if (res.length > 0) {
                 this.totalItems = res.length;
                 let data = {
-                    localdata: res,
+                    localdata: res.reverse(),
                     datatype: "array"
                 };
                 this.commonListData = new jqx.dataAdapter(data);
@@ -772,10 +744,11 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                 text: 'Supervisor',
                 datafield: "escalationLevelId0",
                 cellsrenderer: (row, column, value) => {
-                    if (value)
-                        value = this.commonListData.loadedData[row].escalationLevelId0.userName;
+                    let field = this.commonListData.loadedData[row].escalationLevelId0;
+                    if (field && field.userName)
+                        value = field.userName;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 80,
@@ -784,10 +757,11 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                 text: 'Level-1',
                 datafield: 'escalationLevelId1',
                 cellsrenderer: (row, column, value) => {
-                    if (value)
-                        value = this.commonListData.loadedData[row].escalationLevelId1.userName;
+                    let field = this.commonListData.loadedData[row].escalationLevelId1;
+                    if (field && field.userName)
+                        value = field.userName;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 170,
@@ -795,10 +769,11 @@ let CommonCategoryComponent = class CommonCategoryComponent {
             }, {
                 text: 'L1 escdays',
                 cellsrenderer: (row, column, value) => {
-                    if (this.commonListData.loadedData[row].escalationLevelId1)
-                        value = this.commonListData.loadedData[row].escalationLevelId1.escalationDays;
+                    let field = this.commonListData.loadedData[row].escalationLevelId1;
+                    if (field && field.escalationDays)
+                        value = field.escalationDays;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 80,
@@ -807,10 +782,11 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                 text: 'Level-2',
                 datafield: 'escalationLevelId2',
                 cellsrenderer: (row, column, value) => {
-                    if (value)
-                        value = this.commonListData.loadedData[row].escalationLevelId2.userName;
+                    let field = this.commonListData.loadedData[row].escalationLevelId2;
+                    if (field && field.userName)
+                        value = field.userName;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 170,
@@ -818,10 +794,11 @@ let CommonCategoryComponent = class CommonCategoryComponent {
             }, {
                 text: 'L2 escdays',
                 cellsrenderer: (row, column, value) => {
-                    if (this.commonListData.loadedData[row].escalationLevelId2)
-                        value = this.commonListData.loadedData[row].escalationLevelId2.escalationDays;
+                    let field = this.commonListData.loadedData[row].escalationLevelId2;
+                    if (field && field.escalationDays)
+                        value = field.escalationDays;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 170,
@@ -1057,7 +1034,7 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
             if (res.length > 0) {
                 this.totalItems = res.length;
                 let data = {
-                    localdata: res,
+                    localdata: res.reverse(),
                     datatype: "array"
                 };
                 this.privateListData = new jqx.dataAdapter(data);
@@ -1084,10 +1061,11 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                 text: 'Supervisor',
                 datafield: "escalationLevelId0",
                 cellsrenderer: (row, column, value) => {
-                    if (value)
-                        value = this.privateListData.loadedData[row].escalationLevelId0.userName;
+                    let field = this.privateListData.loadedData[row].escalationLevelId0;
+                    if (field && field.userName)
+                        value = field.userName;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 80,
@@ -1096,10 +1074,11 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                 text: 'Level-1',
                 datafield: 'escalationLevelId1',
                 cellsrenderer: (row, column, value) => {
-                    if (value)
-                        value = this.privateListData.loadedData[row].escalationLevelId1.userName;
+                    let field = this.privateListData.loadedData[row].escalationLevelId1;
+                    if (field && field.userName)
+                        value = field.userName;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 170,
@@ -1107,10 +1086,11 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
             }, {
                 text: 'L1 escdays',
                 cellsrenderer: (row, column, value) => {
-                    if (this.privateListData.loadedData[row].escalationLevelId1)
-                        value = this.privateListData.loadedData[row].escalationLevelId1.escalationDays;
+                    let field = this.privateListData.loadedData[row].escalationLevelId1;
+                    if (field && field.escalationDays)
+                        value = field.escalationDays;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 80,
@@ -1119,10 +1099,11 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                 text: 'Level-2',
                 datafield: 'escalationLevelId2',
                 cellsrenderer: (row, column, value) => {
-                    if (value)
-                        value = this.privateListData.loadedData[row].escalationLevelId2.userName;
+                    let field = this.privateListData.loadedData[row].escalationLevelId2;
+                    if (field && field.userName)
+                        value = field.userName;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 170,
@@ -1130,10 +1111,11 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
             }, {
                 text: 'L2 escdays',
                 cellsrenderer: (row, column, value) => {
-                    if (this.privateListData.loadedData[row].escalationLevelId2)
-                        value = this.privateListData.loadedData[row].escalationLevelId2.escalationDays;
+                    let field = this.privateListData.loadedData[row].escalationLevelId2;
+                    if (field && field.escalationDays)
+                        value = field.escalationDays;
                     else
-                        value = "";
+                        value = '';
                     return '<div class="jqx-custom-inner-cell">' + value + '</div>';
                 },
                 minwidth: 170,
@@ -1343,6 +1325,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
         }
     }
     filterApply() {
+        this.goBack();
         this.isTicketDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
@@ -1358,7 +1341,6 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             };
             this.ticketListData = new jqx.dataAdapter(ticketInfo);
             this.isTicketDataLoaded = true;
-            this.goBack();
         });
     }
     clearFilter() {
@@ -1473,10 +1455,10 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                         label = 'On Hold';
                     }
                     return `<div class="jqx-custom-inner-cell">
-             <div class="status-badge bg-status-${status}-700">
-               <span class="font-bold text-status-${status}-900 text-uppercase">${label ? label : ''}</span>
-             </div>
-          </div>`;
+            <div class="status-badge bg-status-${status}-700">
+              <span class="font-bold text-status-${status}-900 text-uppercase">${label ? label : ''}</span>
+            </div>
+        </div>`;
                 },
                 minwidth: 170,
                 renderer: columnrenderer
@@ -1506,8 +1488,8 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                 minwidth: 80,
                 renderer: columnrenderer
             }, {
-                text: 'Description',
-                datafield: 'description',
+                text: 'Subject',
+                datafield: 'title',
                 cellsrenderer: cellsrenderer,
                 minwidth: 170,
                 renderer: columnrenderer
@@ -1546,10 +1528,9 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                     return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicket(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" title="Delete" aria-hidden="true"></i></a></div>';
                 },
                 renderer: columnrenderer
-            }
-        ];
+            }];
         // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 let dataRecord = this.datagrid.getrowdata(id);
                 let ticketId = dataRecord.ticketId;
@@ -1558,12 +1539,8 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                     deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.ticketService.deleteTicket(params).subscribe((res) => {
-                    setTimeout(() => {
-                        this.datagrid.deleterow(id);
-                        this.totalItems = this.ticketListData.length;
-                        this.sharedService.setAlertMessage("Ticket deleted");
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
+                    this.datagrid.deleterow(id);
+                    this.sharedService.setUnitListDeleteIndex(null);
                 });
             }
         });
@@ -1581,6 +1558,9 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
         this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
             this.ticketStatusList = res;
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 HelpdeskTicketFilterComponent.ctorParameters = () => [
@@ -1641,388 +1621,6 @@ function editTicket(row) {
     window.dispatchEvent(event);
 }
 window.editTicket = editTicket;
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.scss":
-/*!********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.scss ***!
-  \********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stdW5hc3NpZ25lZC9oZWxwZGVzay11bmFzc2lnbmVkLmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.ts":
-/*!******************************************************************************************************!*\
-  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.ts ***!
-  \******************************************************************************************************/
-/*! exports provided: HelpdeskUnassignedComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpdeskUnassignedComponent", function() { return HelpdeskUnassignedComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-
-
-
-
-
-
-
-
-
-
-
-
-let HelpdeskUnassignedComponent = class HelpdeskUnassignedComponent {
-    constructor(router, injector, userService, staffService, ticketService, lookupService, sharedService, sessionService) {
-        this.router = router;
-        this.injector = injector;
-        this.userService = userService;
-        this.staffService = staffService;
-        this.ticketService = ticketService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.sessionService = sessionService;
-        this.ticketData = "";
-        this.isTicketDataLoaded = false;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
-    }
-    onEditTicket(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let ticketId = dataRecord.ticketId;
-        this.router.navigateByUrl('/ams/helpdesk/edit-ticket/' + ticketId);
-    }
-    onTicketDelete(detail) {
-        this.modalService.showConfirmModal(detail.rowId);
-    }
-    getPrintParams(event) {
-        this.datagrid.exportdata(event, 'helpdeskData');
-    }
-    isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
-    }
-    onGlSearchFilter() {
-        if (this.ticketData != "") {
-            let filtergroup = new jqx.filter();
-            let filter_or_operator = 1;
-            let filtervalue = this.ticketData;
-            let filtercondition = 'contains';
-            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            filtergroup.operator = 'or';
-            filtergroup.addfilter(filter_or_operator, filterData);
-            this.datagrid.showfiltercolumnbackground(false);
-            this.columnData.forEach(item => {
-                if (item.datafield != 'Actions') {
-                    this.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-            });
-            this.datagrid.applyfilters();
-        }
-        else {
-            this.datagrid.clearfilters();
-        }
-    }
-    ngOnInit() {
-        var cellsrenderer = (row, column, value) => {
-            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-        };
-        var columnrenderer = (value) => {
-            return '<div style="padding: 14px">' + value + '</div>';
-        };
-        this.columnData = [{
-                text: 'Ticket ID',
-                datafield: 'serialNo',
-                width: 100,
-                pinned: true,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'Type',
-                datafield: 'ticketTypeId',
-                cellsrenderer: (row, column, value) => {
-                    if (value == 24) {
-                        return '<div class="jqx-custom-inner-cell"><img src="assets/images/common-ticket-icon.svg"></div>';
-                    }
-                    else {
-                        return '<div class="jqx-custom-inner-cell"><img src="assets/images/private-ticket-icon.svg"></div>';
-                    }
-                },
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'Status',
-                datafield: 'ticketStatusId_Label',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell"><span class="badge small min text-capitalize ' + getClassName(value) + '">' + value + '</span></div>';
-                },
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Category',
-                datafield: 'ticketCategoryId_Label',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Priority',
-                datafield: 'ticketPriorityId_Label',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
-                },
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'Description',
-                datafield: 'description',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Assigned to',
-                datafield: 'assignedTo_Label',
-                cellsrenderer: cellsrenderer,
-                minwidth: 150,
-                renderer: columnrenderer
-            }, {
-                text: 'Requested By',
-                datafield: 'raisedby_Label',
-                cellsrenderer: cellsrenderer,
-                minwidth: 150,
-                renderer: columnrenderer
-            }, {
-                text: 'Date Requested',
-                datafield: 'insertedOn',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).format("DD-MM-YYYY hh:mm A") + '</div>';
-                },
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Actions',
-                cellsalign: 'center',
-                align: 'center',
-                width: 120,
-                cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" title="Delete" aria-hidden="true"></i></a></div>';
-                },
-                renderer: columnrenderer
-            }];
-        if (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') {
-            let params = {
-                apartmentId: this.sessionService.apartmentId
-            };
-            this.ticketService.getAllTicketsByApartmentId(params).subscribe((res) => {
-                //filter active true items
-                var ticketListData = res.filter(data => {
-                    return (data.isActive && data.assignedTo == null);
-                });
-                // for (var i = 0; i < ticketListData.length; i++) {
-                //   if (ticketListData[i].ticketStatusId_Label == 'New') {
-                //     ticketListData[i].ticketStatusId_Label = 'inprogress';
-                //   }
-                // }
-                this.gridSourceData = {
-                    localdata: ticketListData,
-                    datatype: "array"
-                };
-                this.ticketListData = new jqx.dataAdapter(this.gridSourceData);
-                this.isTicketDataLoaded = true;
-            }, error => {
-            });
-        }
-        if (this.sessionService.roleTypeName == 'Tenant' || this.sessionService.roleTypeName == 'Owner') {
-            let params = {
-                raisedUserId: parseInt(this.sessionService.userId)
-            };
-            this.ticketService.getTicketsByRaisedUserId(params).subscribe((res) => {
-                //filter active true items
-                var ticketListData = res.filter(data => {
-                    return data.isActive;
-                });
-                this.gridSourceData = {
-                    localdata: ticketListData,
-                    datatype: "array"
-                };
-                this.ticketListData = new jqx.dataAdapter(this.gridSourceData);
-                this.isTicketDataLoaded = true;
-            }, error => {
-            });
-        }
-        // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null) {
-                let dataRecord = this.datagrid.getrowdata(id);
-                let ticketId = dataRecord.ticketId;
-                let params = {
-                    ticketId: ticketId,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.ticketService.deleteTicket(params).subscribe((res) => {
-                    /*_.each(this.ticketListData, (type)=>{
-                      if(type.ticketId == id){
-                        type.isActive = false;
-                      }
-                    })*/
-                    setTimeout(() => {
-                        /*this.ticketListData = this.ticketListData.filter((type) => type.ticketId !== id);*/
-                        this.datagrid.deleterow(id);
-                        this.totalItems = this.ticketListData.length;
-                        this.sharedService.setAlertMessage("Ticket deleted");
-                        this.sharedService.setUnitListDeleteIndex(null);
-                    }, 500);
-                }, error => {
-                    console.log(error);
-                });
-            }
-        });
-    }
-};
-HelpdeskUnassignedComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
-    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }
-];
-HelpdeskUnassignedComponent.propDecorators = {
-    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    onEditTicket: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditTicket', ['$event.detail'],] }],
-    onTicketDelete: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onTicketDelete', ['$event.detail'],] }]
-};
-HelpdeskUnassignedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-helpdesk-unassigned',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./helpdesk-unassigned.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-unassigned.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
-        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])
-], HelpdeskUnassignedComponent);
-
-function getClassName(value) {
-    var name = value.split('-');
-    return name[0].toLowerCase();
-}
-window.getClassName = getClassName;
-function showConfirmDeleteEvent(row) {
-    var event = new CustomEvent('onTicketDelete', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.showConfirmDeleteEvent = showConfirmDeleteEvent;
-function editTicketEvent(row) {
-    var event = new CustomEvent('onEditTicket', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.editTicketEvent = editTicketEvent;
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.scss":
-/*!**************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.scss ***!
-  \**************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stdXBkYXRlLXRpY2tldC9oZWxwZGVzay11cGRhdGUtdGlja2V0LmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.ts":
-/*!************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.ts ***!
-  \************************************************************************************************************/
-/*! exports provided: HelpdeskUpdateTicketComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpdeskUpdateTicketComponent", function() { return HelpdeskUpdateTicketComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-
-
-
-let HelpdeskUpdateTicketComponent = class HelpdeskUpdateTicketComponent {
-    constructor(router, route) {
-        this.router = router;
-        this.route = route;
-        this.ticketCount = 1;
-        this.isEditTicket = false;
-    }
-    addTicket() {
-        this.ticketCount++;
-        this.ticketArray = Array(this.ticketCount).fill(0).map((x, i) => i);
-    }
-    getTicketArray(event) {
-        this.ticketArray = event;
-        this.ticketCount = this.ticketArray.length;
-    }
-    isMobileView() {
-        return window.innerWidth <= 576;
-    }
-    ngOnInit() {
-        if (this.route.params['value'].id != undefined) {
-            this.isEditTicket = true;
-        }
-        this.ticketArray = Array(this.ticketCount).fill(0).map((x, i) => i);
-    }
-};
-HelpdeskUpdateTicketComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
-];
-HelpdeskUpdateTicketComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-helpdesk-update-ticket',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./helpdesk-update-ticket.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-update-ticket.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-], HelpdeskUpdateTicketComponent);
-
 
 
 /***/ }),
@@ -2152,17 +1750,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var _helpdesk_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./helpdesk.component */ "./src/app/modules/ams/helpdesk/helpdesk.component.ts");
 /* harmony import */ var _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/helpdesk-setup/helpdesk-setup.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/helpdesk-setup.component.ts");
-/* harmony import */ var _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/helpdesk-update-ticket/helpdesk-update-ticket.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-update-ticket/helpdesk-update-ticket.component.ts");
-/* harmony import */ var _components_helpdesk_unassigned_helpdesk_unassigned_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/helpdesk-unassigned/helpdesk-unassigned.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-unassigned/helpdesk-unassigned.component.ts");
-/* harmony import */ var _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/helpdesk-reports/helpdesk-reports.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.ts");
-/* harmony import */ var _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/helpdesk-reports/open-tickets-report/open-tickets-report.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.ts");
-/* harmony import */ var _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/helpdesk-setup/add-ticket-category/add-ticket-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts");
-/* harmony import */ var _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/helpdesk-setup/common-category/common-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts");
-/* harmony import */ var _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/helpdesk-setup/private-category/private-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts");
-/* harmony import */ var _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/helpdesk-ticket-filter/helpdesk-ticket-filter.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-ticket-filter/helpdesk-ticket-filter.component.ts");
-/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
-
-
+/* harmony import */ var _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/helpdesk-reports/helpdesk-reports.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.ts");
+/* harmony import */ var _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/helpdesk-reports/open-tickets-report/open-tickets-report.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.ts");
+/* harmony import */ var _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/helpdesk-setup/add-ticket-category/add-ticket-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.ts");
+/* harmony import */ var _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/helpdesk-setup/common-category/common-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts");
+/* harmony import */ var _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/helpdesk-setup/private-category/private-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts");
+/* harmony import */ var _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/helpdesk-ticket-filter/helpdesk-ticket-filter.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-ticket-filter/helpdesk-ticket-filter.component.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 
 
 
@@ -2185,21 +1779,19 @@ HelpdeskModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         declarations: [
             _helpdesk_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskComponent"],
             _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskSetupComponent"],
-            _components_helpdesk_update_ticket_helpdesk_update_ticket_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskUpdateTicketComponent"],
-            _components_helpdesk_unassigned_helpdesk_unassigned_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskUnassignedComponent"],
-            _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_10__["HelpdeskReportsComponent"],
-            _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_11__["OpenTicketsReportComponent"],
-            _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_12__["AddTicketCategoryComponent"],
-            _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_13__["CommonCategoryComponent"],
-            _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_14__["PrivateCategoryComponent"],
-            _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_15__["HelpdeskTicketFilterComponent"],
+            _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskReportsComponent"],
+            _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_9__["OpenTicketsReportComponent"],
+            _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_10__["AddTicketCategoryComponent"],
+            _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_11__["CommonCategoryComponent"],
+            _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_12__["PrivateCategoryComponent"],
+            _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_13__["HelpdeskTicketFilterComponent"],
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             _helpdesk_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskRoutingModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__["SelectModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"],
         ],
         bootstrap: [_helpdesk_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskComponent"]]
     })

@@ -319,10 +319,29 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
                 renderer: columnrenderer,
             }, {
                 text: 'Status',
-                datafield: 'status',
+                datafield: 'statusId',
                 cellsalign: 'center',
                 align: 'center',
-                cellsrenderer: cellsrenderer,
+                cellsrenderer: (row, column, value) => {
+                    let status;
+                    if (value == 354) { //Pending Approval
+                        status = 'purple';
+                    }
+                    else if (value == 356) { //inprogress
+                        status = 'orange';
+                    }
+                    else if (value == 358 || value == 355) { //completed || Approved
+                        status = 'green';
+                    }
+                    else if (value == 353 || value == 357 || value == 359) { //Cancelled || Rejected || onHold
+                        status = 'red';
+                    }
+                    return `<div class="jqx-custom-inner-cell">
+           <div class="status-badge bg-status-${status}-700">
+             <span class="font-bold text-status-${status}-900 text-uppercase">${this.workPermitListData.loadedData[row].status}</span>
+           </div>
+        </div>`;
+                },
                 minwidth: 160,
                 renderer: columnrenderer,
             }, {

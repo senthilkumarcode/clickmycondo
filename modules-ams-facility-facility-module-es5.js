@@ -570,7 +570,12 @@
 
             if (method == 'scroll') {
               this.changeDetect.detectChanges();
-              document.querySelector(".scroll-".concat(this.facility.apartmentFacilitySlot.length - 1)).scrollIntoView();
+              var content = document.querySelector(".scroll-".concat(this.facility.apartmentFacilitySlot.length - 1));
+              var scrollTo = content.getBoundingClientRect().bottom - 400;
+              window.scroll({
+                top: scrollTo,
+                behavior: 'smooth'
+              });
             }
           }
         }, {

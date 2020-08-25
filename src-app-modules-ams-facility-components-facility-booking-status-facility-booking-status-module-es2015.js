@@ -495,14 +495,31 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
                 renderer: columnrenderer
             }, {
                 text: 'Status',
-                datafield: 'facilityBookingStatusId_Label',
-                cellsrenderer: (row, column, label) => {
-                    let className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
+                datafield: 'facilityBookingStatusId',
+                cellsrenderer: (row, column, value) => {
+                    let status;
+                    if (value == 189) { //Pending
+                        status = 'purple';
+                    }
+                    else if (value == 188) { //completed
+                        status = 'green';
+                    }
+                    else if (value == 208 || value == 385) { //Cancelled || Rejected
+                        status = 'red';
+                    }
                     if (this.urlType == 'history') {
-                        return '<div class="jqx-custom-inner-cell"><span class="w-100 badge small min text-capitalize ' + className + '">' + label + '</span></div>';
+                        return `<div class="jqx-custom-inner-cell">
+            <div class="status-badge bg-status-${status}-700">
+              <span class="font-bold text-status-${status}-900 text-uppercase">${this.bookingListData.loadedData[row].facilityBookingStatusId_Label}</span>
+            </div>
+          </div>`;
                     }
                     else {
-                        return '<div class="jqx-custom-inner-cell"><span onClick="statusFacilityBooking(' + row + ')" class="w-100 badge small min text-capitalize link ' + className + '">' + label + '</span></div>';
+                        return `<div class="jqx-custom-inner-cell">
+            <div class="status-badge bg-status-${status}-700 link" onClick="statusFacilityBooking(${row})">
+              <span class="font-bold text-status-${status}-900 text-uppercase">${this.bookingListData.loadedData[row].facilityBookingStatusId_Label}</span>
+            </div>
+          </div>`;
                     }
                 },
                 cellsalign: 'center',

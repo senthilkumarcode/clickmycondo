@@ -204,7 +204,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement m-5\">\n    <div class=\"topBar\">\n      <div class=\"row pos-r\">\n        <div class=\"col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex\">\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <label>Select Tower</label>\n            <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n              <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n            </select>\n          </div>\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <label>Select Floor</label>\n            <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n              <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n            </select>\n          </div>\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\" *ngIf=\"selectedFloor\" >\n            <label>Property Type</label>\n            <select  name=\"selectedPropertyType\" class=\"form-control\" [(ngModel)]=\"selectedPropertyType\" >\n              <option value=\"\" disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of propertyTypeList\" value=\"{{item.lookupValueId}}\">\n                  {{item.lookupValueName}}</option>\n          </select>\n          </div>\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\" *ngIf=\"selectedFloor\" >\n            <label>Unit Category</label>\n            <select [(ngModel)]=\"selectedUnitFilterValue\" name=\"selectedUnitFilterValue\" class=\"form-control\" (change)=\"selectedUnitFilter()\" >\n              <option value=\"\" disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of unitFilterList\" value=\"{{item.id}}\">{{item?.name}}</option>\n          </select>\n          </div>\n        </div>\n        <div [hidden]=\"true\">\n          <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n          <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n        <input  #nodeId type=\"text\" id=\"spanNode\">\n        <input  #poiId type=\"text\" id=\"poiId\">\n        <input  #nodeKind type=\"text\" id=\"nodeKind\">\n        <input  #type type=\"text\" id=\"type\">\n        </div>\n      </div>\n    </div>\n  <div class=\"pathBuilder\">\n      <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n      <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n        <!--<div class=\"floor\" id=\"lcanvas\">-->\n        <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n        <!--</div>-->\n        <!--</div>-->\n        <ng-template #property>\n          <div>\n              <span>Unit</span>\n          </div>\n      </ng-template>\n        <div class=\"upload\" [appDragAndDrop] *ngIf=\"!isShowBuilder\"\n             id=\"setFloorImg\">    \n          <!-- <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\"> -->\n          <p  class=\"addFloor\">Floor Plan Not Configured</p>\n          <div class=\"legends\">\n            <!-- <span class=\"d-flex\" >\n             <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n              Browse File Computer</span> -->\n          </div>\n          <div class=\"borderLine\"></div>\n          <span class=\"support\" >Supported File Formats</span>\n          <div class=\"brandIcons\">\n            <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n            <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n          </div>\n          <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n        </div>\n        <!-- <input type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\"> -->\n        <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n        <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n      </div>\n      <div class=\"customPopOver\" [style.display]=\"isShowOver\" [style.top]=\"styleTop\" [style.left]=\"styleLeft\" >\n        <div class=\"customPopOverContent\">\n          Property Details...\n        </div>\n      </div>\n      <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n        <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n        <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                          [custom]=\"true\"\n                          *ngIf=\"isShowLegend\">\n          <div class=\"legendBody\">\n            <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n            <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n            <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n            <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n          </div>\n        </app-floating-btn>\n      </div> -->\n      <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n        <div class=\"mb-12\">\n          <label class=\"mr-8\"> To Add POI</label>\n          <span>Shift+Click</span>\n        </div>\n        <div>\n          <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n          <span>Shift+Delete</span>\n        </div>\n      </div> -->\n    </div>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"poiManagement m-5\">\n    <div class=\"topBar\">\n      <div class=\"row pos-r\">\n        <div class=\"col-md-12 col-lg-12 col-sm-12 col-xs-12 d-flex\">\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <label>Select Tower</label>\n            <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n              <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n            </select>\n          </div>\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <label>Select Floor</label>\n            <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n              <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n            </select>\n          </div>\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\" *ngIf=\"selectedFloor\" >\n            <label>Property Type</label>\n            <select  name=\"selectedPropertyType\" class=\"form-control\" [(ngModel)]=\"selectedPropertyType\" (change)=\"selectPropertyType()\" >\n              <option value=\"\" disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of propertyTypeList\" value=\"{{item.lookupValueId}}\">\n                  {{item.lookupValueName}}</option>\n          </select>\n          </div>\n          <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\" *ngIf=\"selectedFloor\" >\n            <label>Unit Category</label>\n            <select [(ngModel)]=\"selectedUnitFilterValue\" name=\"selectedUnitFilterValue\" class=\"form-control\" (change)=\"selectedUnitFilter()\" >\n              <option value=\"\" disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of unitFilterList\" value=\"{{item.id}}\">{{item?.name}}</option>\n          </select>\n          </div>\n        </div>\n        <div [hidden]=\"true\">\n          <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n          <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n        <input  #nodeId type=\"text\" id=\"spanNode\">\n        <input  #poiId type=\"text\" id=\"poiId\">\n        <input  #nodeKind type=\"text\" id=\"nodeKind\">\n        <input  #type type=\"text\" id=\"type\">\n        </div>\n      </div>\n    </div>\n  <div class=\"pathBuilder\">\n      <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n      <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n        <!--<div class=\"floor\" id=\"lcanvas\">-->\n        <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n        <!--</div>-->\n        <!--</div>-->\n        <ng-template #property>\n          <div>\n              <span>Unit</span>\n          </div>\n      </ng-template>\n        <div class=\"upload\" [appDragAndDrop] *ngIf=\"!isShowBuilder\"\n             id=\"setFloorImg\">    \n          <!-- <img class=\"mb-30\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\"> -->\n          <p  class=\"addFloor\">Floor Plan Not Configured</p>\n          <div class=\"legends\">\n            <!-- <span class=\"d-flex\" >\n             <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n              Browse File Computer</span> -->\n          </div>\n          <div class=\"borderLine\"></div>\n          <span class=\"support\" >Supported File Formats</span>\n          <div class=\"brandIcons\">\n            <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n            <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n          </div>\n          <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n        </div>\n        <!-- <input type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" accept=\"image/x-png,image/jpeg\"> -->\n        <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n        <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n      </div>\n      <div class=\"customPopOver\" [style.display]=\"isShowOver\" [style.top]=\"styleTop\" [style.left]=\"styleLeft\" >\n        <div class=\"customPopOverContent\">\n          Property Details...\n        </div>\n      </div>\n      <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n        <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n        <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                          [custom]=\"true\"\n                          *ngIf=\"isShowLegend\">\n          <div class=\"legendBody\">\n            <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n            <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n            <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n            <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n          </div>\n        </app-floating-btn>\n      </div> -->\n      <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n        <div class=\"mb-12\">\n          <label class=\"mr-8\"> To Add POI</label>\n          <span>Shift+Click</span>\n        </div>\n        <div>\n          <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n          <span>Shift+Delete</span>\n        </div>\n      </div> -->\n    </div>\n    </div>");
 
 /***/ }),
 
@@ -7094,6 +7094,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var src_app_modules_ams_profile_settings_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/api/controllers/PropertyManager */ "./src/app/api/controllers/PropertyManager.ts");
+
 
 
 
@@ -7109,7 +7111,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var graph;
 let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
-    constructor(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, lookupService, dialog, sessionService, fileDetailService) {
+    constructor(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, lookupService, propertyManagerService, dialog, sessionService, fileDetailService) {
         this.element = element;
         this.apartmentService = apartmentService;
         this.documentService = documentService;
@@ -7118,6 +7120,7 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
         this.fileDownloadService = fileDownloadService;
         this.sanitizer = sanitizer;
         this.lookupService = lookupService;
+        this.propertyManagerService = propertyManagerService;
         this.dialog = dialog;
         this.sessionService = sessionService;
         this.fileDetailService = fileDetailService;
@@ -7199,6 +7202,56 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 name: "2 BR"
             }
         ];
+    }
+    selectPropertyType() {
+        switch (this.selectedPropertyType) {
+            case 318:
+                this.getUnitProperty();
+                break;
+            case 319:
+                this.getAssetProperty();
+                break;
+            case 320:
+                this.getFacilityProperty();
+                break;
+            case 321:
+                this.getMaintananceProperty();
+                break;
+            default:
+                break;
+        }
+    }
+    getUnitProperty() {
+        let getParam = {
+            apartmentId: this.sessionService.apartmentId,
+            propertyPOIType: this.selectedPropertyType
+        };
+        this.propertyManagerService.getAllPropertyPoiUnitByPropertyPoiType(getParam).subscribe(resp => {
+        });
+    }
+    getAssetProperty() {
+        let getParam = {
+            apartmentId: this.sessionService.apartmentId,
+            propertyPOIType: this.selectedPropertyType
+        };
+        this.propertyManagerService.getAllPropertyPoiAssetByPropertyPoiType(getParam).subscribe(resp => {
+        });
+    }
+    getFacilityProperty() {
+        let getParam = {
+            apartmentId: this.sessionService.apartmentId,
+            propertyPOIType: this.selectedPropertyType
+        };
+        this.propertyManagerService.getAllPropertyPoiFacilityByPropertyPoiType(getParam).subscribe(resp => {
+        });
+    }
+    getMaintananceProperty() {
+        let getParam = {
+            apartmentId: this.sessionService.apartmentId,
+            propertyPOIType: this.selectedPropertyType
+        };
+        this.propertyManagerService.getAllPropertyPoiOpMaintenanceByPropertyPoiType(getParam).subscribe(resp => {
+        });
     }
     getBlockList() {
         let param = {
@@ -7501,6 +7554,7 @@ PropertyViewGraphicComponent.ctorParameters = () => [
     { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
+    { type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_13__["PropertyManagerService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"] },
     { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"] }
@@ -7528,6 +7582,7 @@ PropertyViewGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_7__["DomSanitizer"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
+        src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_13__["PropertyManagerService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"],
         src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"]])

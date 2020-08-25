@@ -477,10 +477,28 @@
               renderer: columnrenderer
             }, {
               text: 'Status',
-              datafield: 'status',
+              datafield: 'statusId',
               cellsalign: 'center',
               align: 'center',
-              cellsrenderer: cellsrenderer,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var status;
+
+                if (value == 354) {
+                  //Pending Approval
+                  status = 'purple';
+                } else if (value == 356) {
+                  //inprogress
+                  status = 'orange';
+                } else if (value == 358 || value == 355) {
+                  //completed || Approved
+                  status = 'green';
+                } else if (value == 353 || value == 357 || value == 359) {
+                  //Cancelled || Rejected || onHold
+                  status = 'red';
+                }
+
+                return "<div class=\"jqx-custom-inner-cell\">\n           <div class=\"status-badge bg-status-".concat(status, "-700\">\n             <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this5.workPermitListData.loadedData[row].status, "</span>\n           </div>\n        </div>");
+              },
               minwidth: 160,
               renderer: columnrenderer
             }, {

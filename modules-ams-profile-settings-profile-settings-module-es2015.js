@@ -1299,6 +1299,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
 /* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
 /* harmony import */ var _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+/* harmony import */ var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+
 
 
 
@@ -1332,6 +1334,7 @@ ProfileSettingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
+            _ui_card_card_module__WEBPACK_IMPORTED_MODULE_13__["CondoCardModule"],
             _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]
         ],
         bootstrap: [_profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"]]

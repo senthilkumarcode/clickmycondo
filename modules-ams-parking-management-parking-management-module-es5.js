@@ -1607,8 +1607,12 @@
                 console.log(error);
               });
             } else {
-              //community Owned staff
-              this.staffService.getAllStaffs().subscribe(function (res) {
+              var staffParms = {
+                apartmentId: this.sessionService.apartmentId,
+                RoleTypeId: this.sessionService.roleTypeId
+              }; //community Owned staff
+
+              this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
                 if (res.length) {
                   _this8.staffsList.dropdownList = res.filter(function (ele) {
                     ele.customLabel = "".concat(ele.firstName, " ").concat(ele.lastName, " ").concat(ele.staffCategory_Label);
@@ -2356,7 +2360,11 @@
                 autoPosition: false,
                 maxHeight: 130
               };
-              this.staffService.getAllStaffs().subscribe(function (res) {
+              var staffParms = {
+                apartmentId: this.sessionService.apartmentId,
+                RoleTypeId: this.sessionService.roleTypeId
+              };
+              this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
                 if (res.length) {
                   _this11.staffsList.dropdownList = res.filter(function (ele) {
                     ele.customLabel = "".concat(ele.firstName, " ").concat(ele.lastName, " ").concat(ele.staffCategory_Label);

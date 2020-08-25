@@ -21,15 +21,15 @@ function GraphCreator(svg, nodes, edges) {
     thisGraph.nodePopupShowing = false;
 
     thisGraph.d3SelectedNode = null;
-        // define arrow markers for graph links
+    // define arrow markers for graph links
     var defs = svg.append('svg:defs');
     // var style = document.createElement('style');
     svg.innerHTML = `width`;
     var perVal = '100%';
-    svg.attr('width','1200px');
-            svg.attr('height','1200px');
-            svg.attr('position','absolute');
-    svg.attr('id','svgId');
+    svg.attr('width', '1200px');
+    svg.attr('height', '1200px');
+    svg.attr('position', 'absolute');
+    svg.attr('id', 'svgId');
     // defs.append('svg:marker')
     //   .attr('id', 'end-arrow')
     //   .attr('viewBox', '0 -5 10 10')
@@ -59,9 +59,9 @@ function GraphCreator(svg, nodes, edges) {
 
     //zoom
 
-  svg.call(d3.behavior.zoom().scaleExtent([1, 3]).on("zoom", function () {
-    svgG.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
-  }));
+    svg.call(d3.behavior.zoom().scaleExtent([1, 3]).on("zoom", function () {
+        svgG.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")")
+    }));
 
 
     // displayed when dragging between nodes
@@ -74,33 +74,33 @@ function GraphCreator(svg, nodes, edges) {
     thisGraph.paths = svgG.append("g").selectAll("g");
     thisGraph.circles = svgG.append("g").selectAll("g");
     thisGraph.drag = d3.behavior.drag()
-        .origin(function(d) {
+        .origin(function (d) {
             return { x: d.x, y: d.y };
         })
-        .on("drag", function(args) {
-        //   if(localStorage.getItem('isCreatePOI') == 'true'){
+        .on("drag", function (args) {
+            //   if(localStorage.getItem('isCreatePOI') == 'true'){
             thisGraph.state.justDragged = true;
             thisGraph.dragmove.call(thisGraph, args);
             // localStorage.removeItem('onchange');
             // localStorage.setItem('onDrag',true);
-        //   }else{
+            //   }else{
 
-        //   }
+            //   }
         })
-        .on("dragend", function() {
+        .on("dragend", function () {
 
-          // todo check if edge-mode is selected
+            // todo check if edge-mode is selected
         });
 
     // listen for key events
-    d3.select(window).on("keydown", function() {
-            thisGraph.svgKeyDown.call(thisGraph);
-        })
-        .on("keyup", function() {
+    d3.select(window).on("keydown", function () {
+        thisGraph.svgKeyDown.call(thisGraph);
+    })
+        .on("keyup", function () {
             thisGraph.svgKeyUp.call(thisGraph);
         });
-    svg.on("mousedown", function(d) { thisGraph.svgMouseDown.call(thisGraph, d); });
-    svg.on("mouseup", function(d) { thisGraph.svgMouseUp.call(thisGraph, d); });
+    svg.on("mousedown", function (d) { thisGraph.svgMouseDown.call(thisGraph, d); });
+    svg.on("mouseup", function (d) { thisGraph.svgMouseUp.call(thisGraph, d); });
 
     // listen for dragging
     // var dragSvg = d3.behavior.zoom()
@@ -127,9 +127,9 @@ function GraphCreator(svg, nodes, edges) {
     // svg.call(dragSvg).on("dblclick.zoom", null);
 
     // listen for resize
-    window.onresize = function() { thisGraph.updateWindow(svg); };
+    window.onresize = function () { thisGraph.updateWindow(svg); };
 
-    d3.select("#setBtn").on("click", function() {
+    d3.select("#setBtn").on("click", function () {
         var bNo = document.getElementById("buildingNo").value;
         var fNo = document.getElementById("floorNo").value;
         thisGraph.setPrefix(bNo, fNo);
@@ -140,35 +140,35 @@ function GraphCreator(svg, nodes, edges) {
     //     document.getElementById("hidden-bg-upload").click();
     // });
 
-    d3.select("#hidden-bg-upload").on("change", function() {
+    d3.select("#hidden-bg-upload").on("change", function () {
         if (window.File && window.FileReader && window.FileList && window.Blob) {
             let uploadFile = this.files[0];
             let filereader = new window.FileReader();
-            filereader.onload = function(e) {
-              // var img = $('<img id="pinch-zoom-image-id">'); //Equivalent: $(document.createElement('img'))
-              // var perVal = '100%';
-              // img.attr('width',perVal);
-              // img.attr('height',perVal);
-              // img.attr('src', e.target.result);
-              // img.appendTo('#image-wrapper');
-              // $('#image-wrapper').css('background-image', "url(" + e.target.result + ")");
-              // d3.select(".graph").delete("image");
-              var bgwidth, bgheight;
-              var image = new Image();
-              image.src = e.target.result;
-              // let svgElem = document.getElementById('bgimage');
-              // if(svgElem){
-              //   svgElem.parentNode.removeChild(svgElem);
-              // }
-              image.onload = function () {
-                bgwidth = this.width;
-                bgheight = this.height;
-                d3.select(".graph").insert("image", '.link')
-                  .attr("xlink:href", e.target.result)
-                  .attr('id', 'bgimage')
-                  .attr("width", bgwidth)
-                  .attr("height", bgheight)
-              };
+            filereader.onload = function (e) {
+                // var img = $('<img id="pinch-zoom-image-id">'); //Equivalent: $(document.createElement('img'))
+                // var perVal = '100%';
+                // img.attr('width',perVal);
+                // img.attr('height',perVal);
+                // img.attr('src', e.target.result);
+                // img.appendTo('#image-wrapper');
+                // $('#image-wrapper').css('background-image', "url(" + e.target.result + ")");
+                // d3.select(".graph").delete("image");
+                var bgwidth, bgheight;
+                var image = new Image();
+                image.src = e.target.result;
+                // let svgElem = document.getElementById('bgimage');
+                // if(svgElem){
+                //   svgElem.parentNode.removeChild(svgElem);
+                // }
+                image.onload = function () {
+                    bgwidth = this.width;
+                    bgheight = this.height;
+                    d3.select(".graph").insert("image", '.link')
+                        .attr("xlink:href", e.target.result)
+                        .attr('id', 'bgimage')
+                        .attr("width", bgwidth)
+                        .attr("height", bgheight)
+                };
 
             };
             filereader.readAsDataURL(uploadFile);
@@ -176,32 +176,32 @@ function GraphCreator(svg, nodes, edges) {
     });
 
     // handle uploaded data
-    d3.select("#updGraph").on("click", function() {
+    d3.select("#updGraph").on("click", function () {
         document.getElementById("hidden-graph-upload").click();
     });
-    d3.select("#hidden-graph-upload").on("change", function() {
+    d3.select("#hidden-graph-upload").on("change", function () {
         if (window.File && window.FileReader && window.FileList && window.Blob) {
             var uploadFile = this.files[0];
             var filereader = new window.FileReader();
-            filereader.onload = function() {
+            filereader.onload = function () {
                 var txtRes = filereader.result;
                 // TODO better error handling
                 try {
-                  var fullObj = JSON.parse(txtRes);
+                    var fullObj = JSON.parse(txtRes);
                     var jsonObj = fullObj.maponly; //new structure
                     thisGraph.deleteGraph(true);
                     thisGraph.nodes = jsonObj.nodes;
                     //thisGraph.setIdCt(jsonObj.nodes.length + 1);
                     thisGraph.setIdCt(jsonObj.idct);
                     var newEdges = jsonObj.edges;
-                    newEdges.forEach(function(e, i) {
+                    newEdges.forEach(function (e, i) {
                         newEdges[i] = {
-                            source: thisGraph.nodes.filter(function(n) { return n.id == e.source; })[0],
-                            target: thisGraph.nodes.filter(function(n) { return n.id == e.target; })[0]
+                            source: thisGraph.nodes.filter(function (n) { return n.id == e.source; })[0],
+                            target: thisGraph.nodes.filter(function (n) { return n.id == e.target; })[0]
                         };
                     });
                     thisGraph.edges = newEdges;
-                    thisGraph.updateGraph();
+                    thisGraph.updateGraph(undefined);
                 } catch (err) {
                     window.alert("Error parsing uploaded file\nerror message: " + err.message);
                     return;
@@ -214,7 +214,7 @@ function GraphCreator(svg, nodes, edges) {
     });
 
     // handle delete graph
-    d3.select("#delete-graph").on("click", function() {
+    d3.select("#delete-graph").on("click", function () {
         thisGraph.deleteGraph(false);
     });
 
@@ -225,57 +225,57 @@ function GraphCreator(svg, nodes, edges) {
 }
 
 GraphCreator.prototype.customSetBuilding = function () {
-  var thisGraph  =this;
-  var bNo = $("#buildingNo").val();
-  var fNo = $("#floorNo").val();
-  thisGraph.setPrefix(bNo, fNo);
+    var thisGraph = this;
+    var bNo = $("#buildingNo").val();
+    var fNo = $("#floorNo").val();
+    thisGraph.setPrefix(bNo, fNo);
 }
 
 GraphCreator.prototype.customImageUpdalod = function (imageSrc) {
-  var bgwidth, bgheight;
-  var image = new Image();
-  image.src = imageSrc;
-  // let svgElem = document.getElementById('bgimage');
-  // if(svgElem){
-  //   svgElem.parentNode.removeChild(svgElem);
-  // }
-  image.onload = function () {
-    bgwidth = this.width;
-    bgheight = this.height;
-    d3.select(".graph").insert("image", '.link')
-      .attr("xlink:href",imageSrc)
-      .attr('id', 'bgimage')
-      .attr("width", bgwidth)
-      .attr("height", bgheight)
-  };
+    var bgwidth, bgheight;
+    var image = new Image();
+    image.src = imageSrc;
+    // let svgElem = document.getElementById('bgimage');
+    // if(svgElem){
+    //   svgElem.parentNode.removeChild(svgElem);
+    // }
+    image.onload = function () {
+        bgwidth = this.width;
+        bgheight = this.height;
+        d3.select(".graph").insert("image", '.link')
+            .attr("xlink:href", imageSrc)
+            .attr('id', 'bgimage')
+            .attr("width", bgwidth)
+            .attr("height", bgheight)
+    };
 }
 
-GraphCreator.prototype.customGraphUpdate = function () {
-  var thisGraph  =this;
-  if(localStorage.getItem('graphData')){
-    var fullObj = JSON.parse(localStorage.getItem('graphData'));
-    var jsonObj = fullObj.maponly; //new structure
-  }
-  thisGraph.deleteGraph(true);
-  thisGraph.nodes = jsonObj.nodes;
-  //thisGraph.setIdCt(jsonObj.nodes.length + 1);
-  thisGraph.setIdCt(jsonObj.idct);
-  var newEdges = jsonObj.edges;
-  newEdges.forEach(function(e, i) {
-    newEdges[i] = {
-      source: thisGraph.nodes.filter(function(n) { return n.id == e.source; })[0],
-      target: thisGraph.nodes.filter(function(n) { return n.id == e.target; })[0]
-    };
-  });
-  thisGraph.edges = newEdges;
-  thisGraph.updateGraph();
+GraphCreator.prototype.customGraphUpdate = function (data, selectedObj) {
+    var thisGraph = this;
+    if (data) {
+        var fullObj = JSON.parse(data);
+        var jsonObj = fullObj.maponly; //new structure
+    }
+    thisGraph.deleteGraph(true);
+    thisGraph.nodes = jsonObj.nodes;
+    //thisGraph.setIdCt(jsonObj.nodes.length + 1);
+    thisGraph.setIdCt(jsonObj.idct);
+    var newEdges = jsonObj.edges;
+    newEdges.forEach(function (e, i) {
+        newEdges[i] = {
+            source: thisGraph.nodes.filter(function (n) { return n.id == e.source; })[0],
+            target: thisGraph.nodes.filter(function (n) { return n.id == e.target; })[0]
+        };
+    });
+    thisGraph.edges = newEdges;
+    thisGraph.updateGraph(selectedObj);
 };
 
-GraphCreator.prototype.setIdCt = function(idct) {
+GraphCreator.prototype.setIdCt = function (idct) {
     this.idct = idct;
 };
 
-GraphCreator.prototype.setPrefix = function(bNo, fNo) {
+GraphCreator.prototype.setPrefix = function (bNo, fNo) {
     if (bNo == "") bNo = "0";
     if (fNo == "") fNo = "0";
     this.nodeprefix = bNo + "_" + fNo + "_";
@@ -305,19 +305,19 @@ GraphCreator.prototype.consts = {
 
 /* PROTOTYPE FUNCTIONS */
 
-GraphCreator.prototype.dragmove = function(d) {
-  console.log('loggg')
+GraphCreator.prototype.dragmove = function (d) {
+    console.log('loggg')
     var thisGraph = this;
     if (thisGraph.state.shiftNodeDrag) {
         thisGraph.dragLine.attr('d', 'M' + d.x + ',' + d.y + 'L' + d3.mouse(thisGraph.svgG.node())[0] + ',' + d3.mouse(this.svgG.node())[1]);
     } else {
         d.x += d3.event.dx;
         d.y += d3.event.dy;
-        thisGraph.updateGraph();
+        thisGraph.updateGraph(undefined);
     }
 };
 
-GraphCreator.prototype.deleteGraph = function(skipPrompt) {
+GraphCreator.prototype.deleteGraph = function (skipPrompt) {
     var thisGraph = this,
         doDelete = true;
     // if (!skipPrompt) {
@@ -326,12 +326,12 @@ GraphCreator.prototype.deleteGraph = function(skipPrompt) {
     if (doDelete) {
         thisGraph.nodes = [];
         thisGraph.edges = [];
-        thisGraph.updateGraph();
+        thisGraph.updateGraph(undefined);
     }
 };
 
 /* select all text in element: taken from http://stackoverflow.com/questions/6139107/programatically-select-text-in-a-contenteditable-html-element */
-GraphCreator.prototype.selectElementContents = function(el) {
+GraphCreator.prototype.selectElementContents = function (el) {
     var range = document.createRange();
     range.selectNodeContents(el);
     var sel = window.getSelection();
@@ -345,17 +345,17 @@ GraphCreator.prototype.selectElementContents = function(el) {
 
 
 // remove edges associated with a node
-GraphCreator.prototype.spliceLinksForNode = function(node) {
+GraphCreator.prototype.spliceLinksForNode = function (node) {
     var thisGraph = this,
-        toSplice = thisGraph.edges.filter(function(l) {
+        toSplice = thisGraph.edges.filter(function (l) {
             return (l.source === node || l.target === node);
         });
-    toSplice.map(function(l) {
+    toSplice.map(function (l) {
         thisGraph.edges.splice(thisGraph.edges.indexOf(l), 1);
     });
 };
 
-GraphCreator.prototype.replaceSelectEdge = function(d3Path, edgeData) {
+GraphCreator.prototype.replaceSelectEdge = function (d3Path, edgeData) {
     var thisGraph = this;
     d3Path.classed(thisGraph.consts.selectedClass, true);
     if (thisGraph.state.selectedEdge) {
@@ -364,7 +364,7 @@ GraphCreator.prototype.replaceSelectEdge = function(d3Path, edgeData) {
     thisGraph.state.selectedEdge = edgeData;
 };
 
-GraphCreator.prototype.replaceSelectNode = function(d3Node, nodeData) {
+GraphCreator.prototype.replaceSelectNode = function (d3Node, nodeData) {
     var thisGraph = this;
     d3Node.classed(this.consts.selectedClass, true);
     if (thisGraph.state.selectedNode) {
@@ -374,24 +374,24 @@ GraphCreator.prototype.replaceSelectNode = function(d3Node, nodeData) {
     thisGraph.d3SelectedNode = d3Node
 };
 
-GraphCreator.prototype.removeSelectFromNode = function() {
+GraphCreator.prototype.removeSelectFromNode = function () {
     var thisGraph = this;
-    thisGraph.circles.filter(function(cd) {
+    thisGraph.circles.filter(function (cd) {
         return cd.id === thisGraph.state.selectedNode.id;
     }).classed(thisGraph.consts.selectedClass, false);
     thisGraph.state.selectedNode = null;
     thisGraph.d3SelectedNode = null
 };
 
-GraphCreator.prototype.removeSelectFromEdge = function() {
+GraphCreator.prototype.removeSelectFromEdge = function () {
     var thisGraph = this;
-    thisGraph.paths.filter(function(cd) {
+    thisGraph.paths.filter(function (cd) {
         return cd === thisGraph.state.selectedEdge;
     }).classed(thisGraph.consts.selectedClass, false);
     thisGraph.state.selectedEdge = null;
 };
 
-GraphCreator.prototype.pathMouseDown = function(d3path, d) {
+GraphCreator.prototype.pathMouseDown = function (d3path, d) {
     var thisGraph = this,
         state = thisGraph.state;
     d3.event.stopPropagation();
@@ -410,7 +410,7 @@ GraphCreator.prototype.pathMouseDown = function(d3path, d) {
 };
 
 // mousedown on node
-GraphCreator.prototype.circleMouseDown = function(d3node, d) {
+GraphCreator.prototype.circleMouseDown = function (d3node, d) {
     var thisGraph = this,
         state = thisGraph.state;
     d3.event.stopPropagation();
@@ -428,7 +428,7 @@ GraphCreator.prototype.circleMouseDown = function(d3node, d) {
 
 
 // mouseup on nodes
-GraphCreator.prototype.circleMouseUp = function(d3node, d) {
+GraphCreator.prototype.circleMouseUp = function (d3node, d) {
     var thisGraph = this,
         state = thisGraph.state,
         consts = thisGraph.consts;
@@ -443,23 +443,23 @@ GraphCreator.prototype.circleMouseUp = function(d3node, d) {
     thisGraph.dragLine.classed("hidden", true);
 
     if (mouseDownNode !== d) {
-      console.log('add new edge')
+        console.log('add new edge')
         // we're in a different node: create new edge for mousedown edge and add to graph
-    //   if(localStorage.getItem('isCreatePOI') == 'true'){
+        //   if(localStorage.getItem('isCreatePOI') == 'true'){
         var newEdge = { source: mouseDownNode, target: d };
-        var filtRes = thisGraph.paths.filter(function(d) {
-          if (d.source === newEdge.target && d.target === newEdge.source) {
-            thisGraph.edges.splice(thisGraph.edges.indexOf(d), 1);
-          }
-          return d.source === newEdge.source && d.target === newEdge.target;
+        var filtRes = thisGraph.paths.filter(function (d) {
+            if (d.source === newEdge.target && d.target === newEdge.source) {
+                thisGraph.edges.splice(thisGraph.edges.indexOf(d), 1);
+            }
+            return d.source === newEdge.source && d.target === newEdge.target;
         });
         if (!filtRes[0].length) {
-          thisGraph.edges.push(newEdge);
-          thisGraph.updateGraph();
+            thisGraph.edges.push(newEdge);
+            thisGraph.updateGraph(undefined);
         }
-    //   }else{
+        //   }else{
 
-    //   }
+        //   }
 
     } else {
         // we're in the same node
@@ -494,16 +494,16 @@ GraphCreator.prototype.circleMouseUp = function(d3node, d) {
 }; // end of circles mouseup
 
 // mousedown on main svg
-GraphCreator.prototype.svgMouseDown = function() {
-//   if(localStorage.getItem('isCreatePOI') == 'true'){
+GraphCreator.prototype.svgMouseDown = function () {
+    //   if(localStorage.getItem('isCreatePOI') == 'true'){
     this.state.graphMouseDown = true;
-//   }else{
+    //   }else{
 
-//   }
+    //   }
 };
 
 // mouseup on main svg
-GraphCreator.prototype.svgMouseUp = function() {
+GraphCreator.prototype.svgMouseUp = function () {
     var thisGraph = this,
         state = thisGraph.state;
     if (state.justScaleTransGraph) {
@@ -521,9 +521,9 @@ GraphCreator.prototype.svgMouseUp = function() {
         //var nodeid = thisGraph.nodeprefix + thisGraph.idct;
 
         var xycoords = d3.mouse(thisGraph.svgG.node()),
-            d = { id: thisGraph.idct++, x: xycoords[0], y: xycoords[1], poiId: "", kind: '' };
+            d = { id: thisGraph.idct++, x: xycoords[0], y: xycoords[1], poiId: "", kind: '', type: '' };
         thisGraph.nodes.push(d);
-        thisGraph.updateGraph();
+        thisGraph.updateGraph(undefined);
 
     } else if (state.shiftNodeDrag) {
         // dragged from node
@@ -534,7 +534,7 @@ GraphCreator.prototype.svgMouseUp = function() {
 };
 
 // keydown on main svg
-GraphCreator.prototype.svgKeyDown = function() {``
+GraphCreator.prototype.svgKeyDown = function () {
     var thisGraph = this,
         state = thisGraph.state,
         consts = thisGraph.consts;
@@ -548,10 +548,10 @@ GraphCreator.prototype.svgKeyDown = function() {``
     state.lastKeyDown = d3.event.keyCode;
     var selectedNode = state.selectedNode,
         selectedEdge = state.selectedEdge;
-  switch (d3.event.keyCode) {
+    switch (d3.event.keyCode) {
         case consts.BACKSPACE_KEY:
         case consts.DELETE_KEY:
-          if (thisGraph.shiftKey) {
+            if (thisGraph.shiftKey) {
                 //d3.event.preventDefault();
                 // if (selectedNode) {
                 //     thisGraph.nodes.splice(thisGraph.nodes.indexOf(selectedNode), 1);
@@ -570,20 +570,39 @@ GraphCreator.prototype.svgKeyDown = function() {``
     }
 };
 
-GraphCreator.prototype.svgKeyUp = function() {
+GraphCreator.prototype.svgKeyUp = function () {
     this.state.lastKeyDown = -1;
     this.shiftKey = false;
 };
 
+GraphCreator.prototype.selectedUnitProperty = function (d, filteredObj) {
+    var thisGraph = this,
+        consts = thisGraph.consts;
+    let selectedRefClass;
+    if (d.poiId) {
+        selectedRefClass = consts.selectedClass;
+    } else {
+        selectedRefClass = consts.circleGClass;
+    }
+    if (d && d.kind) {
+        for (const key in d.kind) {
+            if (d.kind[filteredObj.selectedCategory]) {
+                selectedRefClass = consts[filteredObj.selectedCategory]
+            }
+        }
+    }
+    return selectedRefClass;
+}
+
 // call to propagate changes to graph
-GraphCreator.prototype.updateGraph = function() {
+GraphCreator.prototype.updateGraph = function (filteredObj) {
     var thisGraph = this,
         consts = thisGraph.consts,
         state = thisGraph.state;
 
     // update existing nodes
-    thisGraph.circles = thisGraph.circles.data(thisGraph.nodes, function(d) { return d.id; });
-    thisGraph.circles.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    thisGraph.circles = thisGraph.circles.data(thisGraph.nodes, function (d) { return d.id; });
+    thisGraph.circles.attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
     // thisGraph.circles.attr("class", function(d) {
     //         if (d.id % 2 == 0) {
     //             return consts.circlePOIClass
@@ -593,51 +612,67 @@ GraphCreator.prototype.updateGraph = function() {
     //     })
     // add new nodes
     var newGs = thisGraph.circles.enter().append("g");
-  newGs.attr('class', function(d) {
-    localStorage.setItem('poiInfo',JSON.stringify(d));
-    if (d.kind === 'P') {
-      return consts.circlePOIClass
-    } else if (d.kind === 'E') {
-      return consts.circleExitClass
-    } else if (d.kind === 'F') {
-      return consts.circleFireClass
-    } else if (d.kind === 'L') {
-      return consts.circleLiftClass
-    } else if (d.kind === 'Y') {
-      return consts.circleYRHClass
-    } else if (d.kind === 'X') {
-      return consts.circleEsxClass
-    } else if (d.kind === 'S') {
-      return consts.circleStepClass
-    } else if (d.kind === 'R') {
-      return consts.circleRampClass
-    } else {
-      return consts.circleGClass
-    }
-
-    // if (d.kind) {
-            //   return consts.baseG;
-            // }
-            //  else {
-            //   return consts.circleGClass;
-            // }
-        }).attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-        .on("mouseover", function(d) {
+    newGs.attr('class', function (d) {
+        if (filteredObj && d.propertyType == filteredObj.type) {
+            return selectedUnitProperty(d, filteredObj);
+        } else if (d.poiId) {
+            return consts.selectedClass
+        } else {
+            return consts.circleGClass
+        }
+        // localStorage.setItem('poiInfo',JSON.stringify(d));
+        // if (d.kind === 'P') {
+        //   return consts.circlePOIClass
+        // } else if (d.kind === 'E') {
+        //   return consts.circleExitClass
+        // } else if (d.kind === 'F') {
+        //   return consts.circleFireClass
+        // } else if (d.kind === 'L') {
+        //   return consts.circleLiftClass
+        // } else if (d.kind === 'Y') {
+        //   return consts.circleYRHClass
+        // } else if (d.kind === 'X') {
+        //   return consts.circleEsxClass
+        // } else if (d.kind === 'S') {
+        //   return consts.circleStepClass
+        // } else if (d.kind === 'R') {
+        //   return consts.circleRampClass
+        // } else {
+        //   return consts.circleGClass
+        // }
+        // if (d.kind) {
+        //   return consts.baseG;
+        // }
+        //  else {
+        //   return consts.circleGClass;
+        // }
+    }).attr("id",function (d) { return "#"+ d.poiId })
+        .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
+        .attr("data-content", function (d) {
+            return d.poiId;
+        })
+        .attr("data-trigger", "hover")
+        .on("mouseover", function (d) {
             if (state.shiftNodeDrag) {
                 d3.select(this).classed(consts.connectClass, true);
             }
         })
-        .on("mouseout", function(d) {
+        .on("mouseout", function (d) {
             d3.select(this).classed(consts.connectClass, false);
+            localStorage.removeItem('poiInfo');
         })
-        .on("mousedown", function(d) {
+        .on("mouseover",function(d){
+            localStorage.setItem('poiInfo',JSON.stringify(d))            
+        })
+        .on("mousedown", function (d) {
             thisGraph.circleMouseDown.call(thisGraph, d3.select(this), d);
             $("#spanNode").val(d.id);
             $("#poiId").val(d.poiId);
             $('#nodeKind').val(d.kind);
-          let poiInfo = {poiId:d.poiId,nodeId:d.id,nodeKind:d.kind}
-          localStorage.setItem('onchange',JSON.stringify(poiInfo))
-        //   localStorage.setItem('deletedNode',JSON.stringify(d))
+            console.log('d', d)
+            let poiInfo = { poiId: d.poiId, nodeId: d.id, nodeKind: d.kind, x: d.x, y: d.y }
+            localStorage.setItem('onchange', JSON.stringify(poiInfo))
+            //   localStorage.setItem('deletedNode',JSON.stringify(d))
         })
         // .on("dblclick",function (d) {
         //   console.log('dblclick js')
@@ -649,34 +684,34 @@ GraphCreator.prototype.updateGraph = function() {
         //   localStorage.setItem('onchange',JSON.stringify(poiInfo))
         //   localStorage.setItem('deletedNode',JSON.stringify(d))
         // })
-        .on("mouseup", function(d) {
+        .on("mouseup", function (d) {
             thisGraph.circleMouseUp.call(thisGraph, d3.select(this), d);
         })
         .call(thisGraph.drag);
-  newGs.append("rect")
-    .attr("width", String(consts.nodeRadius))
-    .attr("height", String(consts.nodeRadius));
+    newGs.append("rect")
+        .attr("width", String(consts.nodeRadius))
+        .attr("height", String(consts.nodeRadius));
 
-  // newGs.append("circle")
-  //   .attr({"r":String(consts.nodeRadius),"fill":function (d) {
-  //     return d.kind;
-  //   }
-  //   });
+    // newGs.append("circle")
+    //   .attr({"r":String(consts.nodeRadius),"fill":function (d) {
+    //     return d.kind;
+    //   }
+    //   });
 
     // remove old nodes
     thisGraph.circles.exit().remove();
-
-    thisGraph.paths = thisGraph.paths.data(thisGraph.edges, function(d) {
+    // $(function (d) {return "#"+d.poiId}).popover();
+    thisGraph.paths = thisGraph.paths.data(thisGraph.edges, function (d) {
         return String(d.source.id) + "+" + String(d.target.id);
         //return d.id;
     });
     var paths = thisGraph.paths;
     // update existing paths
     paths.style('marker-end', 'url(#end-arrow)')
-        .classed(consts.selectedClass, function(d) {
+        .classed(consts.selectedClass, function (d) {
             return d === state.selectedEdge;
         })
-        .attr("d", function(d) {
+        .attr("d", function (d) {
             return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
         });
 
@@ -685,13 +720,13 @@ GraphCreator.prototype.updateGraph = function() {
         .append("path")
         .style('marker-end', 'url(#end-arrow)')
         .classed("link", true)
-        .attr("d", function(d) {
+        .attr("d", function (d) {
             return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
         })
-        .on("mousedown", function(d) {
+        .on("mousedown", function (d) {
             thisGraph.pathMouseDown.call(thisGraph, d3.select(this), d);
         })
-        .on("mouseup", function(d) {
+        .on("mouseup", function (d) {
             state.mouseDownLink = null;
         });
 
@@ -704,13 +739,13 @@ GraphCreator.prototype.updateGraph = function() {
 
 
 
-GraphCreator.prototype.zoomed = function() {
+GraphCreator.prototype.zoomed = function () {
     this.state.justScaleTransGraph = true;
     d3.select("." + this.consts.graphClass)
         .attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
 };
 
-GraphCreator.prototype.updateWindow = function(svg) {
+GraphCreator.prototype.updateWindow = function (svg) {
     var docEl = document.documentElement,
         bodyEl = document.getElementsByTagName('body')[0];
     var x = window.innerWidth || docEl.clientWidth || bodyEl.clientWidth;
@@ -718,56 +753,60 @@ GraphCreator.prototype.updateWindow = function(svg) {
     svg.attr("width", x).attr("height", y);
 }
 
-GraphCreator.prototype.setPOIId = function() {
+GraphCreator.prototype.setPOIId = function () {
     let thisGraph = this;
     let _kind = $('#nodeKind').val();
+    let _type = $('#type').val();
     let _style = thisGraph.consts.circleGClass;
     let _poistr = $('#poiId').val();
-    if (!_poistr)
+    if (_poistr) {
+        _style = thisGraph.consts.selectedClass
+    } else {
         _poistr = "";
-    if (_kind === 'E') {
-        _style = thisGraph.consts.circleExitClass
-    } else if (_kind === 'E') {
-        _style = thisGraph.consts.circleExitClass
-
-    } else if (_kind === 'F') {
-        _style = thisGraph.consts.circleFireClass
-    } else if (_kind === 'L') {
-        _style = thisGraph.consts.circleLiftClass
-    } else if (_kind === 'S') {
-        _style = thisGraph.consts.circleStepClass
-    } else if (_kind === 'R') {
-        _style = thisGraph.consts.circleRampClass
-    } else if (_kind === 'Y') {
-        _style = thisGraph.consts.circleYRHClass
-    } else if (_kind === 'X') {
-        _style = thisGraph.consts.circleEsxClass
-    } else if (_kind === 'P') {
-        _style = thisGraph.consts.circlePOIClass
     }
+    // if (_kind === 'E') {
+    //     _style = thisGraph.consts.circleExitClass
+    // } else if (_kind === 'E') {
+    //     _style = thisGraph.consts.circleExitClass
+    // } else if (_kind === 'F') {
+    //     _style = thisGraph.consts.circleFireClass
+    // } else if (_kind === 'L') {
+    //     _style = thisGraph.consts.circleLiftClass
+    // } else if (_kind === 'S') {
+    //     _style = thisGraph.consts.circleStepClass
+    // } else if (_kind === 'R') {
+    //     _style = thisGraph.consts.circleRampClass
+    // } else if (_kind === 'Y') {
+    //     _style = thisGraph.consts.circleYRHClass
+    // } else if (_kind === 'X') {
+    //     _style = thisGraph.consts.circleEsxClass
+    // } else if (_kind === 'P') {
+    //     _style = thisGraph.consts.circlePOIClass
+    // }
     thisGraph.state.selectedNode.poiId = _poistr;
     thisGraph.state.selectedNode.kind = _kind;
+    thisGraph.state.selectedNode.type = _type;
     thisGraph.d3SelectedNode.attr("class", _style)
-  // thisGraph.d3SelectedNode.attr({"class":_style,"fill":_kind});
+    // thisGraph.d3SelectedNode.attr({"class":_style,"fill":_kind});
     // $("g").children().attr('fill',_kind)
-  //   // thisGraph.d3SelectedNode.children().attr('fill','red')
-  // // thisGraph.d3SelectedNode[0][0].childNodes[0].attr("fill", 'red');
+    //   // thisGraph.d3SelectedNode.children().attr('fill','red')
+    // // thisGraph.d3SelectedNode[0][0].childNodes[0].attr("fill", 'red');
 };
 
 
-GraphCreator.prototype.deleteSelected = function() {
+GraphCreator.prototype.deleteSelected = function () {
     let thisGraph = this;
     let selectedNode = thisGraph.state.selectedNode;
     let selectedEdge = thisGraph.state.selectedEdge;
-  if (selectedNode) {
+    if (selectedNode) {
         thisGraph.nodes.splice(thisGraph.nodes.indexOf(selectedNode), 1);
         thisGraph.spliceLinksForNode(selectedNode);
         thisGraph.state.selectedNode = null;
-      thisGraph.updateGraph();
+        thisGraph.updateGraph(undefined);
     } else if (selectedEdge) {
         thisGraph.edges.splice(thisGraph.edges.indexOf(selectedEdge), 1);
         thisGraph.state.selectedEdge = null;
-      thisGraph.updateGraph();
+        thisGraph.updateGraph(undefined);
     }
 }
 

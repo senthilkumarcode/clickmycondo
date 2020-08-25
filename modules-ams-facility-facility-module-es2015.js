@@ -360,7 +360,12 @@ let FacilityCreateComponent = class FacilityCreateComponent {
         this.facility.apartmentFacilitySlot.push(entity);
         if (method == 'scroll') {
             this.changeDetect.detectChanges();
-            document.querySelector(`.scroll-${this.facility.apartmentFacilitySlot.length - 1}`).scrollIntoView();
+            let content = document.querySelector(`.scroll-${this.facility.apartmentFacilitySlot.length - 1}`);
+            let scrollTo = content.getBoundingClientRect().bottom - 400;
+            window.scroll({
+                top: scrollTo,
+                behavior: 'smooth'
+            });
         }
     }
     deleteSlot(index, data) {

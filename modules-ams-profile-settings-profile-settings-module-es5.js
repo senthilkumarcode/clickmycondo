@@ -2038,6 +2038,12 @@
       var _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/add-property-dialog/add-property-dialog.component */
       "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+      /* harmony import */
+
+
+      var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ../../ui/card/card.module */
+      "./src/app/modules/ui/card/card.module.ts");
 
       var ProfileSettingsModule = function ProfileSettingsModule() {
         _classCallCheck(this, ProfileSettingsModule);
@@ -2046,7 +2052,7 @@
       ProfileSettingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__["AddUnitComponent"], _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_6__["AddBlockWrapperComponent"], _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_7__["AddUnitWrapperComponent"], _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"], _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__["AddBlockComponent"], _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__["AddFloorUnitComponent"], _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__["AddFloorUnitGraphicComponent"], _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__["AddPropertyDialogComponent"]],
         entryComponents: [_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__["AddPropertyDialogComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_13__["CondoCardModule"], _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]],
         bootstrap: [_profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"]]
       })], ProfileSettingsModule);
       /***/

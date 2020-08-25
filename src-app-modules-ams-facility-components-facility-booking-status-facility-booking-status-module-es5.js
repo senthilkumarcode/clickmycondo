@@ -719,14 +719,25 @@
               renderer: columnrenderer
             }, {
               text: 'Status',
-              datafield: 'facilityBookingStatusId_Label',
-              cellsrenderer: function cellsrenderer(row, column, label) {
-                var className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
+              datafield: 'facilityBookingStatusId',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var status;
+
+                if (value == 189) {
+                  //Pending
+                  status = 'purple';
+                } else if (value == 188) {
+                  //completed
+                  status = 'green';
+                } else if (value == 208 || value == 385) {
+                  //Cancelled || Rejected
+                  status = 'red';
+                }
 
                 if (_this5.urlType == 'history') {
-                  return '<div class="jqx-custom-inner-cell"><span class="w-100 badge small min text-capitalize ' + className + '">' + label + '</span></div>';
+                  return "<div class=\"jqx-custom-inner-cell\">\n            <div class=\"status-badge bg-status-".concat(status, "-700\">\n              <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this5.bookingListData.loadedData[row].facilityBookingStatusId_Label, "</span>\n            </div>\n          </div>");
                 } else {
-                  return '<div class="jqx-custom-inner-cell"><span onClick="statusFacilityBooking(' + row + ')" class="w-100 badge small min text-capitalize link ' + className + '">' + label + '</span></div>';
+                  return "<div class=\"jqx-custom-inner-cell\">\n            <div class=\"status-badge bg-status-".concat(status, "-700 link\" onClick=\"statusFacilityBooking(").concat(row, ")\">\n              <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this5.bookingListData.loadedData[row].facilityBookingStatusId_Label, "</span>\n            </div>\n          </div>");
                 }
               },
               cellsalign: 'center',

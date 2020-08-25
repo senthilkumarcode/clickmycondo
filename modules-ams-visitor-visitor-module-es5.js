@@ -1,4 +1,16 @@
 (function () {
+  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+  function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -6,6 +18,301 @@
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-visitor-visitor-module"], {
+    /***/
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js":
+    /*!*************************************************************************************!*\
+      !*** ./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js ***!
+      \*************************************************************************************/
+
+    /*! exports provided: CookieService */
+
+    /***/
+    function node_modulesNgxCookieService__ivy_ngcc__Fesm2015NgxCookieServiceJs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CookieService", function () {
+        return CookieService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+      var CookieService = /*#__PURE__*/function () {
+        function CookieService( // The type `Document` may not be used here. Although a fix is on its way,
+        // we will go with `any` for now to support Angular 2.4.x projects.
+        // Issue: https://github.com/angular/angular/issues/12631
+        // Fix: https://github.com/angular/angular/pull/14894
+        document, // Get the `PLATFORM_ID` so we can check if we're in a browser.
+        platformId) {
+          _classCallCheck(this, CookieService);
+
+          this.document = document;
+          this.platformId = platformId;
+          this.documentIsAccessible = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId);
+        }
+        /**
+         * @param name Cookie name
+         * @returns boolean - whether cookie with specified name exists
+         */
+
+
+        _createClass(CookieService, [{
+          key: "check",
+          value: function check(name) {
+            if (!this.documentIsAccessible) {
+              return false;
+            }
+
+            name = encodeURIComponent(name);
+            var regExp = this.getCookieRegExp(name);
+            var exists = regExp.test(this.document.cookie);
+            return exists;
+          }
+          /**
+           * @param name Cookie name
+           * @returns property value
+           */
+
+        }, {
+          key: "get",
+          value: function get(name) {
+            if (this.documentIsAccessible && this.check(name)) {
+              name = encodeURIComponent(name);
+              var regExp = this.getCookieRegExp(name);
+              var result = regExp.exec(this.document.cookie);
+              return this.safeDecodeURIComponent(result[1]);
+            } else {
+              return '';
+            }
+          }
+          /**
+           * @returns all the cookies in json
+           */
+
+        }, {
+          key: "getAll",
+          value: function getAll() {
+            var _this = this;
+
+            if (!this.documentIsAccessible) {
+              return {};
+            }
+
+            var cookies = {};
+            var document = this.document;
+
+            if (document.cookie && document.cookie !== '') {
+              document.cookie.split(';').forEach(function (currentCookie) {
+                var _currentCookie$split = currentCookie.split('='),
+                    _currentCookie$split2 = _slicedToArray(_currentCookie$split, 2),
+                    cookieName = _currentCookie$split2[0],
+                    cookieValue = _currentCookie$split2[1];
+
+                cookies[_this.safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = _this.safeDecodeURIComponent(cookieValue);
+              });
+            }
+
+            return cookies;
+          }
+          /**
+           * @param name     Cookie name
+           * @param value    Cookie value
+           * @param expires  Number of days until the cookies expires or an actual `Date`
+           * @param path     Cookie path
+           * @param domain   Cookie domain
+           * @param secure   Secure flag
+           * @param sameSite OWASP samesite token `Lax`, `None`, or `Strict`. Defaults to `Lax`
+           */
+
+        }, {
+          key: "set",
+          value: function set(name, value, expires, path, domain, secure) {
+            var sameSite = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            var cookieString = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
+
+            if (expires) {
+              if (typeof expires === 'number') {
+                var dateExpires = new Date(new Date().getTime() + expires * 1000 * 60 * 60 * 24);
+                cookieString += 'expires=' + dateExpires.toUTCString() + ';';
+              } else {
+                cookieString += 'expires=' + expires.toUTCString() + ';';
+              }
+            }
+
+            if (path) {
+              cookieString += 'path=' + path + ';';
+            }
+
+            if (domain) {
+              cookieString += 'domain=' + domain + ';';
+            }
+
+            if (secure === false && sameSite === 'None') {
+              secure = true;
+              console.warn("[ngx-cookie-service] Cookie ".concat(name, " was forced with secure flag because sameSite=None.") + "More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130");
+            }
+
+            if (secure) {
+              cookieString += 'secure;';
+            }
+
+            cookieString += 'sameSite=' + sameSite + ';';
+            this.document.cookie = cookieString;
+          }
+          /**
+           * @param name   Cookie name
+           * @param path   Cookie path
+           * @param domain Cookie domain
+           */
+
+        }, {
+          key: "delete",
+          value: function _delete(name, path, domain, secure) {
+            var sameSite = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            this.set(name, '', new Date('Thu, 01 Jan 1970 00:00:01 GMT'), path, domain, secure, sameSite);
+          }
+          /**
+           * @param path   Cookie path
+           * @param domain Cookie domain
+           */
+
+        }, {
+          key: "deleteAll",
+          value: function deleteAll(path, domain, secure) {
+            var sameSite = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            var cookies = this.getAll();
+
+            for (var cookieName in cookies) {
+              if (cookies.hasOwnProperty(cookieName)) {
+                this["delete"](cookieName, path, domain, secure, sameSite);
+              }
+            }
+          }
+          /**
+           * @param name Cookie name
+           * @returns property RegExp
+           */
+
+        }, {
+          key: "getCookieRegExp",
+          value: function getCookieRegExp(name) {
+            var escapedName = name.replace(/([\[\]\{\}\(\)\|\=\;\+\?\,\.\*\^\$])/gi, '\\$1');
+            return new RegExp('(?:^' + escapedName + '|;\\s*' + escapedName + ')=(.*?)(?:;|$)', 'g');
+          }
+        }, {
+          key: "safeDecodeURIComponent",
+          value: function safeDecodeURIComponent(encodedURIComponent) {
+            try {
+              return decodeURIComponent(encodedURIComponent);
+            } catch (_a) {
+              // probably it is not uri encoded. return as is
+              return encodedURIComponent;
+            }
+          }
+        }]);
+
+        return CookieService;
+      }();
+
+      CookieService.ɵfac = function CookieService_Factory(t) {
+        return new (t || CookieService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
+      };
+
+      CookieService.ctorParameters = function () {
+        return [{
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
+          }]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+          }]
+        }];
+      };
+
+      CookieService.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
+        factory: function CookieService_Factory() {
+          return new CookieService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
+        },
+        token: CookieService,
+        providedIn: "root"
+      });
+      CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]))], CookieService);
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CookieService, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+          args: [{
+            providedIn: 'root'
+          }]
+        }], function () {
+          return [{
+            type: undefined,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
+            }]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+            }]
+          }];
+        }, null);
+      })();
+      /*
+       * Public API Surface of ngx-cookie-service
+       */
+
+      /**
+       * Generated bundle index. Do not edit.
+       */
+      //# sourceMappingURL=ngx-cookie-service.js.map
+
+      /***/
+
+    },
+
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/checkin-visitor/checkin-visitor.component.html":
     /*!*************************************************************************************************************************************!*\
@@ -353,7 +660,7 @@
         }, {
           key: "submitAddVisitorForm",
           value: function submitAddVisitorForm(form) {
-            var _this = this;
+            var _this2 = this;
 
             if (!this.IsvalidatePhoneNo(this.visitor.expectedVisitorPhone)) return true;
             this.isVisitorSubmitted = true;
@@ -397,28 +704,28 @@
             };
             this.visitorService.addVisitor(params).subscribe(function (res) {
               if (res.message) {
-                _this.sharedService.setAlertMessage("Visitor Checked In successfully");
+                _this2.sharedService.setAlertMessage("Visitor Checked In successfully");
 
-                _this.visitor = {};
-                _this.visitTypeId = null;
-                _this.visitCategoryId = null;
-                _this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                _this.isVisitorSubmitted = false;
+                _this2.visitor = {};
+                _this2.visitTypeId = null;
+                _this2.visitCategoryId = null;
+                _this2.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                _this2.isVisitorSubmitted = false;
               } else {
-                _this.isVisitorSubmitted = false;
-                _this.isError = true;
-                _this.errorMessage = res.errorMessage;
+                _this2.isVisitorSubmitted = false;
+                _this2.isError = true;
+                _this2.errorMessage = res.errorMessage;
               }
             }, function (error) {
-              _this.isVisitorSubmitted = false;
-              _this.isError = true;
-              _this.errorMessage = error;
+              _this2.isVisitorSubmitted = false;
+              _this2.isError = true;
+              _this2.errorMessage = error;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.minoutDate = new Date();
             this.visitor = {};
@@ -428,7 +735,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this2.visitByData = res;
+              _this3.visitByData = res;
             }, function (error) {});
             var visitCategoryParams = {
               ApartmentId: this.sessionService.apartmentId,
@@ -436,7 +743,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this2.visitCategoryData = res.filter(function (item) {
+              _this3.visitCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -444,11 +751,11 @@
               userId: parseInt(this.sessionService.userId)
             };
             this.apartmentService.getApartmentBlockUnitByUserId(cateogoryParams).subscribe(function (res) {
-              _this2.apartmentUnitId = res[0].apartmentBlockUnitId;
+              _this3.apartmentUnitId = res[0].apartmentBlockUnitId;
             }, function (error) {});
             this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this2.blockUnitData = res;
+              _this3.blockUnitData = res;
             });
           }
         }, {
@@ -727,7 +1034,7 @@
         }, {
           key: "submitAddVisitorForm",
           value: function submitAddVisitorForm(form) {
-            var _this3 = this;
+            var _this4 = this;
 
             var num = this.isCheckout() ? this.visitor.visitorPhone : this.visitor.expectedVisitorPhone;
             if (!this.IsvalidatePhoneNo(num)) return true;
@@ -775,19 +1082,19 @@
               };
               this.visitorService.addVisitor(params).subscribe(function (res) {
                 if (res.message) {
-                  _this3.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
+                  _this4.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
                   // this.router.navigate(['/ams/visitor/expected-visitor'])
                 } else {
-                  _this3.isVisitorSubmitted = false;
-                  _this3.isVisitorAdded = false;
-                  _this3.isError = true;
-                  _this3.errorMessage = res.errorMessage;
+                  _this4.isVisitorSubmitted = false;
+                  _this4.isVisitorAdded = false;
+                  _this4.isError = true;
+                  _this4.errorMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this3.isVisitorSubmitted = false;
-                _this3.isVisitorAdded = false;
-                _this3.isError = true;
-                _this3.errorMessage = error;
+                _this4.isVisitorSubmitted = false;
+                _this4.isVisitorAdded = false;
+                _this4.isError = true;
+                _this4.errorMessage = error;
               });
             } else {
               var _visitorDetails = {
@@ -797,25 +1104,25 @@
               };
               this.visitorService.checkOutVisitor(_visitorDetails).subscribe(function (res) {
                 if (res.message) {
-                  _this3.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
+                  _this4.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
                 } else {
-                  _this3.isVisitorSubmitted = false;
-                  _this3.isError = true;
-                  _this3.isVisitorAdded = false;
-                  _this3.errorMessage = res.errorMessage;
+                  _this4.isVisitorSubmitted = false;
+                  _this4.isError = true;
+                  _this4.isVisitorAdded = false;
+                  _this4.errorMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this3.isVisitorSubmitted = false;
-                _this3.isError = true;
-                _this3.errorMessage = error;
-                _this3.isVisitorAdded = false;
+                _this4.isVisitorSubmitted = false;
+                _this4.isError = true;
+                _this4.errorMessage = error;
+                _this4.isVisitorAdded = false;
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.visitor = {};
 
@@ -825,23 +1132,23 @@
               if (this.visitorStatus == 'checkout') {
                 this.visitorService.getVisitorById(this.route.params['value'].id).subscribe(function (res) {
                   var visitorIdParam = {
-                    visitorId: _this4.route.params['value'].id
+                    visitorId: _this5.route.params['value'].id
                   };
 
-                  _this4.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
-                    _this4.visitor = res[0];
-                    _this4.visitTypeId = _this4.visitor.visitTypeId;
-                    _this4.visitCategoryId = _this4.visitor.visitorCategoryId;
-                    _this4.visitor.purpose = '';
-                    _this4.planned_OutTime = _this4.visitor.visitorOutTime;
-                    _this4.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                    var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this4.visitor.visitorInTime);
-                    var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this4.visitor.visitorOutTime);
+                  _this5.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
+                    _this5.visitor = res[0];
+                    _this5.visitTypeId = _this5.visitor.visitTypeId;
+                    _this5.visitCategoryId = _this5.visitor.visitorCategoryId;
+                    _this5.visitor.purpose = '';
+                    _this5.planned_OutTime = _this5.visitor.visitorOutTime;
+                    _this5.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                    var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this5.visitor.visitorInTime);
+                    var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this5.visitor.visitorOutTime);
                     var diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
                     var dayDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate, 'days'), 'days');
-                    _this4.expectedDuration = dayDuration.asDays() + " days " + _this4.isSingleDigit(diffDuration.hours()) + ":" + _this4.isSingleDigit(diffDuration.minutes()) + " hours";
-                    _this4.isVisitorSubmitted = false;
-                    _this4.minOutDate = new Date();
+                    _this5.expectedDuration = dayDuration.asDays() + " days " + _this5.isSingleDigit(diffDuration.hours()) + ":" + _this5.isSingleDigit(diffDuration.minutes()) + " hours";
+                    _this5.isVisitorSubmitted = false;
+                    _this5.minOutDate = new Date();
                   }, function (error) {});
                 });
               } else if (this.visitorStatus == 'checkin') {
@@ -849,16 +1156,16 @@
                   expectedVisitorId: this.route.params['value'].id
                 };
                 this.visitorService.getExpectedVisitorById(expectedVisitorIdParam).subscribe(function (res) {
-                  _this4.visitor = res[0];
-                  console.log('this.visitor', _this4.visitor);
-                  _this4.visitor.purpose = '';
-                  _this4.visitTypeId = _this4.visitor.visitTypeId;
-                  _this4.visitCategoryId = _this4.visitor.visitorCategoryId;
-                  _this4.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                  _this4.isVisitorSubmitted = false;
-                  _this4.minExOutTime = new Date(_this4.actualInTime);
-                  _this4.expectedDuration = _this4.getDuration(_this4.actualInTime, _this4.visitor.expectedVisitorOutTime);
-                  _this4.visitor.expectedDurationInHours = _this4.getDurationInHours(_this4.actualInTime, _this4.visitor.expectedVisitorOutTime);
+                  _this5.visitor = res[0];
+                  console.log('this.visitor', _this5.visitor);
+                  _this5.visitor.purpose = '';
+                  _this5.visitTypeId = _this5.visitor.visitTypeId;
+                  _this5.visitCategoryId = _this5.visitor.visitorCategoryId;
+                  _this5.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                  _this5.isVisitorSubmitted = false;
+                  _this5.minExOutTime = new Date(_this5.actualInTime);
+                  _this5.expectedDuration = _this5.getDuration(_this5.actualInTime, _this5.visitor.expectedVisitorOutTime);
+                  _this5.visitor.expectedDurationInHours = _this5.getDurationInHours(_this5.actualInTime, _this5.visitor.expectedVisitorOutTime);
                 }, function (error) {});
               }
             }
@@ -869,7 +1176,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this4.visitByData = res;
+              _this5.visitByData = res;
             }, function (error) {});
             var categoryParams = {
               ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -877,7 +1184,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this4.visitCategoryData = res.filter(function (item) {
+              _this5.visitCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -885,12 +1192,12 @@
               userId: parseInt(this.cookieService.get('userId'))
             };
             this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
-              _this4.apartmentUnitId = res[0].apartmentBlockUnitId;
+              _this5.apartmentUnitId = res[0].apartmentBlockUnitId;
             }, function (error) {});
             this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
             this.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this4.blockUnitData = res;
+              _this5.blockUnitData = res;
             });
           }
         }, {
@@ -1194,7 +1501,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this5 = this;
+            var _this6 = this;
 
             if (this.visitorData != "") {
               var filtergroup = new jqx.filter();
@@ -1207,7 +1514,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this6.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1219,7 +1526,7 @@
         }, {
           key: "print",
           value: function print() {
-            var _this6 = this;
+            var _this7 = this;
 
             var confirmationMessage = "Are you sure, you want to Print?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -1229,16 +1536,16 @@
               data: dialogData
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this6.result = dialogResult;
+              _this7.result = dialogResult;
 
-              if (_this6.result) {//code
+              if (_this7.result) {//code
               }
             });
           }
         }, {
           key: "navigateTo",
           value: function navigateTo(detail) {
-            var _this7 = this;
+            var _this8 = this;
 
             var message = "Are you sure, you want to Check Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
@@ -1249,11 +1556,11 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this7.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this8.datagrid.getrowdata(detail.rowId);
 
                 var visitorId = dataRecord.visitorId;
 
-                _this7.router.navigateByUrl('/ams/visitor/edit-visitor/' + visitorId + '/checkout');
+                _this8.router.navigateByUrl('/ams/visitor/edit-visitor/' + visitorId + '/checkout');
               }
             });
           }
@@ -1274,7 +1581,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this9 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1307,7 +1614,7 @@
               text: 'In-time',
               datafield: 'visitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this8.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this9.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1316,7 +1623,7 @@
               datafield: 'visitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
                 console.log('value', value);
-                return '<div class="jqx-custom-inner-cell">' + _this8.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this9.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1360,14 +1667,14 @@
             }; //get visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this8.visitTypeData = res;
+              _this9.visitTypeData = res;
             }, function (error) {});
             var apartmentParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
               //filter active true items
-              _this8.visitorListData = res.filter(function (item) {
+              _this9.visitorListData = res.filter(function (item) {
                 if (item.block_Unit && item.block_Unit != null) {
                   var block = item.block_Unit.split(' ');
                   item.blockNo = block[0];
@@ -1376,43 +1683,43 @@
 
                 return item.isActive && !item.isCheckedOut;
               });
-              var arr = _this8.visitorListData;
+              var arr = _this9.visitorListData;
               var element = arr[arr.length - 1];
               console.log('arr', element);
               var a;
 
-              var b = _this8.route.queryParams.subscribe(function (params) {
+              var b = _this9.route.queryParams.subscribe(function (params) {
                 a = params['show'];
               });
 
               console.log('a', a);
 
               if (a == 'First') {
-                _this8.visitorListData.splice(arr.length - 1, 1);
+                _this9.visitorListData.splice(arr.length - 1, 1);
               }
 
-              _this8.visitorListData = _this8.visitorListData.sort(function (val1, val2) {
+              _this9.visitorListData = _this9.visitorListData.sort(function (val1, val2) {
                 return new Date(val2.visitorOutTime) - new Date(val1.visitorOutTime);
               });
 
               if (a == 'First') {
-                _this8.visitorListData.unshift(element);
+                _this9.visitorListData.unshift(element);
               }
 
-              _this8.gridSourceData = {
-                localdata: _this8.visitorListData,
+              _this9.gridSourceData = {
+                localdata: _this9.visitorListData,
                 datatype: "array"
               };
-              _this8.listData = new jqx.dataAdapter(_this8.gridSourceData);
-              _this8.totalItems = _this8.visitorListData.length;
+              _this9.listData = new jqx.dataAdapter(_this9.gridSourceData);
+              _this9.totalItems = _this9.visitorListData.length;
 
-              if (_this8.totalItems > _this8.itemLimit) {
-                _this8.ItemEndIndex = _this8.itemLimit;
+              if (_this9.totalItems > _this9.itemLimit) {
+                _this9.ItemEndIndex = _this9.itemLimit;
               } else {
-                _this8.ItemEndIndex = _this8.totalItems;
+                _this9.ItemEndIndex = _this9.totalItems;
               }
 
-              _this8.isVisitorDataLoaded = true;
+              _this9.isVisitorDataLoaded = true;
             });
           }
         }]);
@@ -1691,7 +1998,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this10 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1724,7 +2031,7 @@
               text: 'Expected Date/Time of Visit',
               datafield: 'expectedVisitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this9.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this10.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1732,7 +2039,7 @@
               text: 'Expected Time-out',
               datafield: 'expectedVisitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this9.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this10.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1761,7 +2068,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_7__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this9.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this10.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ == date) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')" ><img src="assets/images/checkin-icon.svg" width="20" /> </a>' + '</div>';
@@ -1775,7 +2082,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_7__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this9.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this10.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ != date) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateToCheckIn(' + row + ')" >Copy Details</a>' + '</div>';
@@ -1788,37 +2095,37 @@
             };
             this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
               if (res.errorMessage) {
-                _this9.isVisitorDataLoaded = true;
-                _this9.visitorListData = [];
-                _this9.totalItems = 0;
+                _this10.isVisitorDataLoaded = true;
+                _this10.visitorListData = [];
+                _this10.totalItems = 0;
               } else {
-                _this9.visitorListData = res;
-                console.log("visitorListData", _this9.visitorListData[0].visitTypeId); //filter active true items
+                _this10.visitorListData = res;
+                console.log("visitorListData", _this10.visitorListData[0].visitTypeId); //filter active true items
 
-                _this9.visitorListData = res.filter(function (data) {
+                _this10.visitorListData = res.filter(function (data) {
                   return data.isActive;
                 });
-                _this9.visitorListData = _this9.visitorListData.sort(function (val1, val2) {
+                _this10.visitorListData = _this10.visitorListData.sort(function (val1, val2) {
                   return new Date(val1.expectedVisitorInTime) - new Date(val2.expectedVisitorInTime);
                 });
-                _this9.gridSourceData = {
-                  localdata: _this9.visitorListData,
+                _this10.gridSourceData = {
+                  localdata: _this10.visitorListData,
                   datatype: "array"
                 };
-                _this9.listData = new jqx.dataAdapter(_this9.gridSourceData);
-                _this9.totalItems = _this9.visitorListData.length;
-                _this9.isVisitorDataLoaded = true;
+                _this10.listData = new jqx.dataAdapter(_this10.gridSourceData);
+                _this10.totalItems = _this10.visitorListData.length;
+                _this10.isVisitorDataLoaded = true;
               }
 
               var visitParams = {
-                ApartmentId: _this9.sessionService.apartmentId,
+                ApartmentId: _this10.sessionService.apartmentId,
                 LookupTypeId: 15
               }; //get visit type
 
-              _this9.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-                _this9.visitTypeData = res;
+              _this10.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
+                _this10.visitTypeData = res;
 
-                _this9.checkVisitTypeData();
+                _this10.checkVisitTypeData();
               }, function (error) {});
             }, function (error) {});
           }
@@ -1830,18 +2137,18 @@
         }, {
           key: "checkVisitTypeData",
           value: function checkVisitTypeData() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.visitTypeData.forEach(function (element) {
-              if (element.lookupValueId == _this10.visitorListData[0].visitTypeId) {
-                _this10.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
+              if (element.lookupValueId == _this11.visitorListData[0].visitTypeId) {
+                _this11.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
               }
             });
           }
         }, {
           key: "navigateToCheckIn",
           value: function navigateToCheckIn(detail) {
-            var _this11 = this;
+            var _this12 = this;
 
             var message = "Are you sure, you want to copy the details and Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
@@ -1852,9 +2159,9 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this11.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this12.datagrid.getrowdata(detail.rowId);
 
-                _this11.router.navigate(['/ams/visitor/checkin'], {
+                _this12.router.navigate(['/ams/visitor/checkin'], {
                   queryParams: dataRecord,
                   skipLocationChange: true
                 });
@@ -1864,7 +2171,7 @@
         }, {
           key: "navigateTo",
           value: function navigateTo(detail) {
-            var _this12 = this;
+            var _this13 = this;
 
             var message = "Are you sure, you want to Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
@@ -1875,18 +2182,18 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this12.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this13.datagrid.getrowdata(detail.rowId);
 
                 var expectedVisitorId = dataRecord.expectedVisitorId;
 
-                _this12.router.navigateByUrl('/ams/visitor/edit-visitor/' + expectedVisitorId + '/checkin');
+                _this13.router.navigateByUrl('/ams/visitor/edit-visitor/' + expectedVisitorId + '/checkin');
               }
             });
           }
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this13 = this;
+            var _this14 = this;
 
             if (this.visitorData != "") {
               var filtergroup = new jqx.filter();
@@ -1899,7 +2206,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1911,7 +2218,7 @@
         }, {
           key: "print",
           value: function print() {
-            var _this14 = this;
+            var _this15 = this;
 
             var confirmationMessage = "Are you sure, you want to Print?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -1921,9 +2228,9 @@
               data: dialogData
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this14.result = dialogResult;
+              _this15.result = dialogResult;
 
-              if (_this14.result) {//code
+              if (_this15.result) {//code
               }
             });
           }
@@ -2167,7 +2474,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this15 = this;
+            var _this16 = this;
 
             if (this.visitorData != "") {
               var filtergroup = new jqx.filter();
@@ -2180,7 +2487,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this16.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2206,7 +2513,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this17 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2239,7 +2546,7 @@
               text: 'In-time',
               datafield: 'visitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this16.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this17.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2247,7 +2554,7 @@
               text: 'Out-time',
               datafield: 'visitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this16.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this17.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2255,7 +2562,7 @@
               text: 'Expected In-time',
               datafield: 'expectedVisitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this16.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this17.getDateTime(value) + '</div>';
               },
               minwidth: 80,
               renderer: columnrenderer
@@ -2263,7 +2570,7 @@
               text: 'Expected Out-time',
               datafield: 'expectedVisitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this16.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this17.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2286,14 +2593,14 @@
             }; //get visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe(function (res) {
-              _this16.visitTypeData = res;
+              _this17.visitTypeData = res;
             }, function (error) {});
             var visitListParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
               //filter active true items
-              _this16.visitorListData = res.filter(function (item) {
+              _this17.visitorListData = res.filter(function (item) {
                 if (item.block_Unit && item.block_Unit != null) {
                   var block = item.block_Unit.split(' ');
                   item.blockNo = block[0];
@@ -2312,22 +2619,22 @@
               //   });
               // });
 
-              _this16.gridSourceData = {
-                localdata: _this16.visitorListData,
+              _this17.gridSourceData = {
+                localdata: _this17.visitorListData,
                 datatype: "array"
               };
-              _this16.listData = new jqx.dataAdapter(_this16.gridSourceData);
-              _this16.totalItems = _this16.visitorListData.length;
-              _this16.isVisitorDataLoaded = true;
-              _this16.totalItems = _this16.visitorListData.length;
+              _this17.listData = new jqx.dataAdapter(_this17.gridSourceData);
+              _this17.totalItems = _this17.visitorListData.length;
+              _this17.isVisitorDataLoaded = true;
+              _this17.totalItems = _this17.visitorListData.length;
 
-              if (_this16.totalItems > _this16.itemLimit) {
-                _this16.ItemEndIndex = _this16.itemLimit;
+              if (_this17.totalItems > _this17.itemLimit) {
+                _this17.ItemEndIndex = _this17.itemLimit;
               } else {
-                _this16.ItemEndIndex = _this16.totalItems;
+                _this17.ItemEndIndex = _this17.totalItems;
               }
 
-              _this16.isVisitorDataLoaded = true;
+              _this17.isVisitorDataLoaded = true;
             });
           }
         }]);
@@ -2519,7 +2826,7 @@
         }, {
           key: "getDetails",
           value: function getDetails(params) {
-            var _this17 = this;
+            var _this18 = this;
 
             var serviceName;
             var id = parseInt(this.route.params['value'].id);
@@ -2534,15 +2841,15 @@
 
             serviceName.subscribe(function (res) {
               if (res.errorMessage) {
-                _this17.reportsDataList = [];
+                _this18.reportsDataList = [];
               } else {
-                _this17.reportsDataList = res;
-                _this17.gridSourceData = {
-                  localdata: _this17.reportsDataList,
+                _this18.reportsDataList = res;
+                _this18.gridSourceData = {
+                  localdata: _this18.reportsDataList,
                   datatype: "array"
                 };
-                _this17.listData = new jqx.dataAdapter(_this17.gridSourceData);
-                _this17.isReportSubmitted = true;
+                _this18.listData = new jqx.dataAdapter(_this18.gridSourceData);
+                _this18.isReportSubmitted = true;
               }
             }, function (error) {});
           }
@@ -2558,7 +2865,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this18 = this;
+            var _this19 = this;
 
             if (this.reportData != "") {
               var filtergroup = new jqx.filter();
@@ -2571,7 +2878,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this18.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this19.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2587,14 +2894,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this20 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this19.unitBlocksData = res;
+              _this20.unitBlocksData = res;
             });
             var visitParams = {
               ApartmentId: this.sessionService.apartmentId,
@@ -2602,7 +2909,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this19.visitByData = res;
+              _this20.visitByData = res;
             }, function (error) {});
             this.isDataLoaded = true;
 
@@ -2637,7 +2944,7 @@
               text: 'Date/Time of Visit',
               datafield: 'checkInDateTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this19.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this20.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2645,7 +2952,7 @@
               text: 'Time-out',
               datafield: 'checkOutDateTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this19.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this20.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2793,7 +3100,7 @@
         _createClass(VisitorReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -2802,7 +3109,7 @@
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
               //this.reportDataList = res;
-              _this20.reportDataList = [{
+              _this21.reportDataList = [{
                 lookupValueName: 'List of Checked In Visitors',
                 description: 'Provides the list of visitors checked-in for the specified duration',
                 lookupValueId: 365
@@ -2815,7 +3122,7 @@
                 description: 'Gives the list of visitors who are expected to check-in during the mentioned duration',
                 lookupValueId: 367
               }];
-              _this20.isDataLoaded = true;
+              _this21.isDataLoaded = true;
             });
           }
         }]);
@@ -3018,7 +3325,7 @@
         }, {
           key: "deleteCategoryType",
           value: function deleteCategoryType(item) {
-            var _this21 = this;
+            var _this22 = this;
 
             var confirmationMessage = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -3028,47 +3335,47 @@
               data: dialogData
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this21.result = dialogResult;
+              _this22.result = dialogResult;
 
-              if (_this21.result) {
+              if (_this22.result) {
                 var params = {
                   lookupValueId: item.lookupValueId,
-                  updateUserId: parseInt(_this21.sessionService.userId)
+                  updateUserId: parseInt(_this22.sessionService.userId)
                 };
 
-                _this21.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this22.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res.message) {
                     var errorDetails = {
                       msg: 'Visitor category deleted successfully',
                       type: "Success"
                     };
 
-                    _this21.sharedService.setCustomAlertMessage(errorDetails);
+                    _this22.sharedService.setCustomAlertMessage(errorDetails);
 
-                    _this21.isDataLoaded = false;
+                    _this22.isDataLoaded = false;
                     var categoryParams = {
-                      ApartmentId: _this21.sessionService.apartmentId,
+                      ApartmentId: _this22.sessionService.apartmentId,
                       LookupTypeId: 100
                     };
 
-                    _this21.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                      _this21.isDataLoaded = true;
-                      _this21.categoryDataList = res.filter(function (item, i) {
+                    _this22.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                      _this22.isDataLoaded = true;
+                      _this22.categoryDataList = res.filter(function (item, i) {
                         item.number = i + 1;
                         return item.isActive;
                       });
-                      _this21.totalItems = _this21.categoryDataList.length;
+                      _this22.totalItems = _this22.categoryDataList.length;
 
-                      if (_this21.totalItems > _this21.itemLimit) {
-                        _this21.ItemEndIndex = _this21.itemLimit;
+                      if (_this22.totalItems > _this22.itemLimit) {
+                        _this22.ItemEndIndex = _this22.itemLimit;
                       } else {
-                        _this21.ItemEndIndex = _this21.totalItems;
+                        _this22.ItemEndIndex = _this22.totalItems;
                       }
 
-                      _this21.isDataLoaded = true;
+                      _this22.isDataLoaded = true;
                     });
                   } else {
-                    _this21.isDataLoaded = true;
+                    _this22.isDataLoaded = true;
                   }
                 });
               }
@@ -3099,7 +3406,7 @@
         }, {
           key: "submitCategoryTypeForm",
           value: function submitCategoryTypeForm(form) {
-            var _this22 = this;
+            var _this23 = this;
 
             var confirmationMessage = "Are you sure you want to save this settings?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -3109,20 +3416,20 @@
               data: dialogData
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this22.result = dialogResult;
+              _this23.result = dialogResult;
 
-              if (_this22.result) {
+              if (_this23.result) {
                 //code
-                _this22.isCategoryTypeSubmitted = false;
+                _this23.isCategoryTypeSubmitted = false;
 
-                if (_this22.isCategoryTypeNew) {
+                if (_this23.isCategoryTypeNew) {
                   var details = {
                     "lookupTypeId": 100,
-                    "lookupValueName": _this22.categoryType,
+                    "lookupValueName": _this23.categoryType,
                     "description": 'Visitor Category',
                     "isActive": true,
-                    "insertedBy": parseInt(_this22.sessionService.userId),
-                    "insertedOn": _this22.getLocalISOTime(new Date()),
+                    "insertedBy": parseInt(_this23.sessionService.userId),
+                    "insertedOn": _this23.getLocalISOTime(new Date()),
                     "updatedBy": null,
                     "updatedOn": null
                   };
@@ -3130,129 +3437,129 @@
                     lookupvalue: details
                   };
 
-                  _this22.lookupService.addLookupValue(params).subscribe(function (res) {
+                  _this23.lookupService.addLookupValue(params).subscribe(function (res) {
                     if (res.message) {
-                      _this22.sharedService.setAlertMessage("Visitor Category added successfully");
+                      _this23.sharedService.setAlertMessage("Visitor Category added successfully");
 
-                      _this22.isCategoryTypeNew = false;
-                      _this22.isCategoryTypeSubmitted = true;
-                      _this22.categoryType = '';
-                      _this22.isDataLoaded = false;
+                      _this23.isCategoryTypeNew = false;
+                      _this23.isCategoryTypeSubmitted = true;
+                      _this23.categoryType = '';
+                      _this23.isDataLoaded = false;
                       var categoryParams = {
-                        ApartmentId: _this22.sessionService.apartmentId,
+                        ApartmentId: _this23.sessionService.apartmentId,
                         LookupTypeId: 100
                       };
 
-                      _this22.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                        _this22.isDataLoaded = true;
-                        _this22.categoryDataList = res.filter(function (item, i) {
+                      _this23.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                        _this23.isDataLoaded = true;
+                        _this23.categoryDataList = res.filter(function (item, i) {
                           item.number = i + 1;
                           return item.isActive;
                         });
-                        _this22.totalItems = _this22.categoryDataList.length;
+                        _this23.totalItems = _this23.categoryDataList.length;
 
-                        if (_this22.totalItems > _this22.itemLimit) {
-                          _this22.ItemEndIndex = _this22.itemLimit;
+                        if (_this23.totalItems > _this23.itemLimit) {
+                          _this23.ItemEndIndex = _this23.itemLimit;
                         } else {
-                          _this22.ItemEndIndex = _this22.totalItems;
+                          _this23.ItemEndIndex = _this23.totalItems;
                         }
 
-                        _this22.isDataLoaded = true;
+                        _this23.isDataLoaded = true;
                       });
                     } else {
-                      _this22.isDataLoaded = true;
-                      _this22.isCategoryTypeSubmitted = true;
-                      _this22.isError = true;
-                      _this22.alertMessage = res.errorMessage;
+                      _this23.isDataLoaded = true;
+                      _this23.isCategoryTypeSubmitted = true;
+                      _this23.isError = true;
+                      _this23.alertMessage = res.errorMessage;
                       var errorDetails = {
-                        msg: _this22.alertMessage,
+                        msg: _this23.alertMessage,
                         type: "Error"
                       };
 
-                      _this22.sharedService.setCustomAlertMessage(errorDetails);
+                      _this23.sharedService.setCustomAlertMessage(errorDetails);
                     }
                   });
                 } else {
                   var _details = {
-                    "lookupValueId": _this22.categoryUpdateId,
-                    "ApartmentId": _this22.sessionService.apartmentId,
+                    "lookupValueId": _this23.categoryUpdateId,
+                    "ApartmentId": _this23.sessionService.apartmentId,
                     "lookupTypeId": 100,
-                    "lookupValueName": _this22.categoryType,
-                    "description": _this22.categoryType,
+                    "lookupValueName": _this23.categoryType,
+                    "description": _this23.categoryType,
                     "isActive": true,
-                    "updatedBy": parseInt(_this22.sessionService.userId),
-                    "updatedOn": _this22.getLocalISOTime(new Date().toISOString())
+                    "updatedBy": parseInt(_this23.sessionService.userId),
+                    "updatedOn": _this23.getLocalISOTime(new Date().toISOString())
                   };
                   var _params = {
                     lookupvalue: _details
                   };
 
-                  _this22.lookupService.updateLookupValue(_params).subscribe(function (res) {
+                  _this23.lookupService.updateLookupValue(_params).subscribe(function (res) {
                     if (res.message) {
                       var categoryParams = {
-                        ApartmentId: _this22.sessionService.apartmentId,
+                        ApartmentId: _this23.sessionService.apartmentId,
                         LookupTypeId: 100
                       };
 
-                      _this22.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                        _this22.isCategoryTypeUpdate = false;
-                        _this22.isCategoryTypeSubmitted = true;
+                      _this23.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                        _this23.isCategoryTypeUpdate = false;
+                        _this23.isCategoryTypeSubmitted = true;
 
-                        _this22.sharedService.setAlertMessage("Visitor Category updated successfully");
+                        _this23.sharedService.setAlertMessage("Visitor Category updated successfully");
 
-                        _this22.categoryDataList = res.filter(function (item, i) {
+                        _this23.categoryDataList = res.filter(function (item, i) {
                           item.number = i + 1;
                           return item.isActive;
                         });
-                        _this22.totalItems = _this22.categoryDataList.length;
+                        _this23.totalItems = _this23.categoryDataList.length;
 
-                        if (_this22.totalItems > _this22.itemLimit) {
-                          _this22.ItemEndIndex = _this22.itemLimit;
+                        if (_this23.totalItems > _this23.itemLimit) {
+                          _this23.ItemEndIndex = _this23.itemLimit;
                         } else {
-                          _this22.ItemEndIndex = _this22.totalItems;
+                          _this23.ItemEndIndex = _this23.totalItems;
                         }
                       });
                     } else {
-                      _this22.isCategoryTypeSubmitted = true;
-                      _this22.isError = true;
-                      _this22.alertMessage = res.errorMessage;
+                      _this23.isCategoryTypeSubmitted = true;
+                      _this23.isError = true;
+                      _this23.alertMessage = res.errorMessage;
                       var errorDetails = {
-                        msg: _this22.alertMessage,
+                        msg: _this23.alertMessage,
                         type: "Error"
                       };
 
-                      _this22.sharedService.setCustomAlertMessage(errorDetails);
+                      _this23.sharedService.setCustomAlertMessage(errorDetails);
                     }
                   });
                 }
               } else {
-                _this22.isCategoryTypeSubmitted = true;
+                _this23.isCategoryTypeSubmitted = true;
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this24 = this;
 
             var categoryListParams = {
               ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryListParams).subscribe(function (res) {
-              _this23.categoryDataList = res.filter(function (item, i) {
+              _this24.categoryDataList = res.filter(function (item, i) {
                 item.number = i + 1;
                 return item.isActive;
               });
-              _this23.totalItems = _this23.categoryDataList.length;
+              _this24.totalItems = _this24.categoryDataList.length;
 
-              if (_this23.totalItems > _this23.itemLimit) {
-                _this23.ItemEndIndex = _this23.itemLimit;
+              if (_this24.totalItems > _this24.itemLimit) {
+                _this24.ItemEndIndex = _this24.itemLimit;
               } else {
-                _this23.ItemEndIndex = _this23.totalItems;
+                _this24.ItemEndIndex = _this24.totalItems;
               }
 
-              _this23.isDataLoaded = true;
+              _this24.isDataLoaded = true;
             });
           }
         }]);

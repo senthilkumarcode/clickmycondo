@@ -1,9 +1,17 @@
 (function () {
-  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
   function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+  function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12,6 +20,301 @@
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-violation-violation-module"], {
+    /***/
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js":
+    /*!*************************************************************************************!*\
+      !*** ./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js ***!
+      \*************************************************************************************/
+
+    /*! exports provided: CookieService */
+
+    /***/
+    function node_modulesNgxCookieService__ivy_ngcc__Fesm2015NgxCookieServiceJs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CookieService", function () {
+        return CookieService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+      var CookieService = /*#__PURE__*/function () {
+        function CookieService( // The type `Document` may not be used here. Although a fix is on its way,
+        // we will go with `any` for now to support Angular 2.4.x projects.
+        // Issue: https://github.com/angular/angular/issues/12631
+        // Fix: https://github.com/angular/angular/pull/14894
+        document, // Get the `PLATFORM_ID` so we can check if we're in a browser.
+        platformId) {
+          _classCallCheck(this, CookieService);
+
+          this.document = document;
+          this.platformId = platformId;
+          this.documentIsAccessible = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId);
+        }
+        /**
+         * @param name Cookie name
+         * @returns boolean - whether cookie with specified name exists
+         */
+
+
+        _createClass(CookieService, [{
+          key: "check",
+          value: function check(name) {
+            if (!this.documentIsAccessible) {
+              return false;
+            }
+
+            name = encodeURIComponent(name);
+            var regExp = this.getCookieRegExp(name);
+            var exists = regExp.test(this.document.cookie);
+            return exists;
+          }
+          /**
+           * @param name Cookie name
+           * @returns property value
+           */
+
+        }, {
+          key: "get",
+          value: function get(name) {
+            if (this.documentIsAccessible && this.check(name)) {
+              name = encodeURIComponent(name);
+              var regExp = this.getCookieRegExp(name);
+              var result = regExp.exec(this.document.cookie);
+              return this.safeDecodeURIComponent(result[1]);
+            } else {
+              return '';
+            }
+          }
+          /**
+           * @returns all the cookies in json
+           */
+
+        }, {
+          key: "getAll",
+          value: function getAll() {
+            var _this = this;
+
+            if (!this.documentIsAccessible) {
+              return {};
+            }
+
+            var cookies = {};
+            var document = this.document;
+
+            if (document.cookie && document.cookie !== '') {
+              document.cookie.split(';').forEach(function (currentCookie) {
+                var _currentCookie$split = currentCookie.split('='),
+                    _currentCookie$split2 = _slicedToArray(_currentCookie$split, 2),
+                    cookieName = _currentCookie$split2[0],
+                    cookieValue = _currentCookie$split2[1];
+
+                cookies[_this.safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = _this.safeDecodeURIComponent(cookieValue);
+              });
+            }
+
+            return cookies;
+          }
+          /**
+           * @param name     Cookie name
+           * @param value    Cookie value
+           * @param expires  Number of days until the cookies expires or an actual `Date`
+           * @param path     Cookie path
+           * @param domain   Cookie domain
+           * @param secure   Secure flag
+           * @param sameSite OWASP samesite token `Lax`, `None`, or `Strict`. Defaults to `Lax`
+           */
+
+        }, {
+          key: "set",
+          value: function set(name, value, expires, path, domain, secure) {
+            var sameSite = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            var cookieString = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
+
+            if (expires) {
+              if (typeof expires === 'number') {
+                var dateExpires = new Date(new Date().getTime() + expires * 1000 * 60 * 60 * 24);
+                cookieString += 'expires=' + dateExpires.toUTCString() + ';';
+              } else {
+                cookieString += 'expires=' + expires.toUTCString() + ';';
+              }
+            }
+
+            if (path) {
+              cookieString += 'path=' + path + ';';
+            }
+
+            if (domain) {
+              cookieString += 'domain=' + domain + ';';
+            }
+
+            if (secure === false && sameSite === 'None') {
+              secure = true;
+              console.warn("[ngx-cookie-service] Cookie ".concat(name, " was forced with secure flag because sameSite=None.") + "More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130");
+            }
+
+            if (secure) {
+              cookieString += 'secure;';
+            }
+
+            cookieString += 'sameSite=' + sameSite + ';';
+            this.document.cookie = cookieString;
+          }
+          /**
+           * @param name   Cookie name
+           * @param path   Cookie path
+           * @param domain Cookie domain
+           */
+
+        }, {
+          key: "delete",
+          value: function _delete(name, path, domain, secure) {
+            var sameSite = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            this.set(name, '', new Date('Thu, 01 Jan 1970 00:00:01 GMT'), path, domain, secure, sameSite);
+          }
+          /**
+           * @param path   Cookie path
+           * @param domain Cookie domain
+           */
+
+        }, {
+          key: "deleteAll",
+          value: function deleteAll(path, domain, secure) {
+            var sameSite = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            var cookies = this.getAll();
+
+            for (var cookieName in cookies) {
+              if (cookies.hasOwnProperty(cookieName)) {
+                this["delete"](cookieName, path, domain, secure, sameSite);
+              }
+            }
+          }
+          /**
+           * @param name Cookie name
+           * @returns property RegExp
+           */
+
+        }, {
+          key: "getCookieRegExp",
+          value: function getCookieRegExp(name) {
+            var escapedName = name.replace(/([\[\]\{\}\(\)\|\=\;\+\?\,\.\*\^\$])/gi, '\\$1');
+            return new RegExp('(?:^' + escapedName + '|;\\s*' + escapedName + ')=(.*?)(?:;|$)', 'g');
+          }
+        }, {
+          key: "safeDecodeURIComponent",
+          value: function safeDecodeURIComponent(encodedURIComponent) {
+            try {
+              return decodeURIComponent(encodedURIComponent);
+            } catch (_a) {
+              // probably it is not uri encoded. return as is
+              return encodedURIComponent;
+            }
+          }
+        }]);
+
+        return CookieService;
+      }();
+
+      CookieService.ɵfac = function CookieService_Factory(t) {
+        return new (t || CookieService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
+      };
+
+      CookieService.ctorParameters = function () {
+        return [{
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
+          }]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+          }]
+        }];
+      };
+
+      CookieService.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
+        factory: function CookieService_Factory() {
+          return new CookieService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
+        },
+        token: CookieService,
+        providedIn: "root"
+      });
+      CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]))], CookieService);
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CookieService, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+          args: [{
+            providedIn: 'root'
+          }]
+        }], function () {
+          return [{
+            type: undefined,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
+            }]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+            }]
+          }];
+        }, null);
+      })();
+      /*
+       * Public API Surface of ngx-cookie-service
+       */
+
+      /**
+       * Generated bundle index. Do not edit.
+       */
+      //# sourceMappingURL=ngx-cookie-service.js.map
+
+      /***/
+
+    },
+
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/violation/components/add-violation/add-violation.component.html":
     /*!***********************************************************************************************************************************!*\
@@ -586,7 +889,7 @@
         }, {
           key: "openSearchFacility",
           value: function openSearchFacility() {
-            var _this = this;
+            var _this2 = this;
 
             var dialogRef = this.dialog.open(_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_3__["SearchFacilityComponent"], {
               width: '900px',
@@ -595,17 +898,17 @@
               }
             });
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this.ongetSearchData(res);
+              _this2.ongetSearchData(res);
 
               console.log(res.amount);
-              _this.violationData.penaltyAmt = res.amount;
+              _this2.violationData.penaltyAmt = res.amount;
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
         }, {
           key: "openSearchWorkPermit",
           value: function openSearchWorkPermit() {
-            var _this2 = this;
+            var _this3 = this;
 
             var dialogRef = this.dialog.open(_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_8__["SearcWorkpermitsComponent"], {
               width: '900px',
@@ -614,16 +917,16 @@
               }
             });
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this2.ongetSearchData(res);
+              _this3.ongetSearchData(res);
 
-              _this2.violationData.apartmentBlockUnitId = res.apartmentBlockUnitId;
+              _this3.violationData.apartmentBlockUnitId = res.apartmentBlockUnitId;
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
         }, {
           key: "openSearchparkingSlot",
           value: function openSearchparkingSlot() {
-            var _this3 = this;
+            var _this4 = this;
 
             var dialogRef = this.dialog.open(_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_9__["SearchParkingslotsComponent"], {
               width: '900px',
@@ -632,14 +935,14 @@
               }
             });
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this3.ongetSearchData(res);
+              _this4.ongetSearchData(res);
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
         }, {
           key: "openSearchBlockUnit",
           value: function openSearchBlockUnit() {
-            var _this4 = this;
+            var _this5 = this;
 
             var dialogRef = this.dialog.open(_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_10__["SearchBlockunitComponent"], {
               width: '900px',
@@ -648,13 +951,13 @@
               }
             });
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this4.ongetSearchData(res);
+              _this5.ongetSearchData(res);
 
-              _this4.violationData.primaryContactName = res.userName;
-              _this4.violationData.unitOwnerName = res.userName;
-              _this4.violationData.UnitTower = res.apartmentBlockUnitNumber + '/' + res.apartmentBlockNumber; // this.violationData.apartmentBlockId = res.apartmentBlockID;
+              _this5.violationData.primaryContactName = res.userName;
+              _this5.violationData.unitOwnerName = res.userName;
+              _this5.violationData.UnitTower = res.apartmentBlockUnitNumber + '/' + res.apartmentBlockNumber; // this.violationData.apartmentBlockId = res.apartmentBlockID;
 
-              _this4.violationData.apartmentBlockUnitId = res.apartmentBlockUnitID;
+              _this5.violationData.apartmentBlockUnitId = res.apartmentBlockUnitID;
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
@@ -666,7 +969,7 @@
         }, {
           key: "getViolationRule",
           value: function getViolationRule(violationCateogoryId) {
-            var _this5 = this;
+            var _this6 = this;
 
             var _apartment_Id = this.sessionService.apartmentId;
             var params1 = {
@@ -674,22 +977,22 @@
               ViolationCategoryId: violationCateogoryId
             };
             this.violationService.getViolationRule(params1).subscribe(function (rule) {
-              _this5.ruleListData = rule;
+              _this6.ruleListData = rule;
             }, function (error) {
-              _this5.isError = true;
+              _this6.isError = true;
             });
           }
         }, {
           key: "getViolationCategory",
           value: function getViolationCategory() {
-            var _this6 = this;
+            var _this7 = this;
 
             var params = {
               LookupTypeId: 78,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-              _this6.allViolationCategory = res;
+              _this7.allViolationCategory = res;
             });
           }
         }, {
@@ -720,7 +1023,7 @@
         }, {
           key: "uploadImage_new",
           value: function uploadImage_new(e) {
-            var _this7 = this;
+            var _this8 = this;
 
             this.fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
             var reader = new FileReader();
@@ -744,7 +1047,7 @@
                     var target = e.target;
                     var fileResult = target.result;
                     console.log(fileResult);
-                    _this7.violationData.uploadImage = fileResult;
+                    _this8.violationData.uploadImage = fileResult;
                   };
 
                   reader.readAsDataURL(item);
@@ -761,7 +1064,7 @@
         }, {
           key: "onSubmit",
           value: function onSubmit() {
-            var _this8 = this;
+            var _this9 = this;
 
             var params = {
               model: {
@@ -834,9 +1137,9 @@
             };
             this.violationService.addViolations(params).subscribe(function (res) {
               if (res) {
-                _this8.sharedService.setAlertMessage(res.message);
+                _this9.sharedService.setAlertMessage(res.message);
 
-                _this8.violationData = {
+                _this9.violationData = {
                   primaryContactName: '',
                   UnitTower: '',
                   ParkingSlot: '',
@@ -1006,7 +1309,7 @@
         _createClass(SearcWorkpermitsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this10 = this;
 
             // this.getWorkPermit();
             this.workPermit = {};
@@ -1016,7 +1319,7 @@
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe(function (res) {
-              _this9.blockData = res;
+              _this10.blockData = res;
             });
           }
         }, {
@@ -1027,30 +1330,30 @@
         }, {
           key: "getWorkPermit",
           value: function getWorkPermit() {
-            var _this10 = this;
+            var _this11 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
             };
             this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe(function (res) {
-              _this10.allFacility = res;
-              _this10.totalItems = _this10.allFacility.length;
+              _this11.allFacility = res;
+              _this11.totalItems = _this11.allFacility.length;
 
-              if (_this10.totalItems > _this10.itemLimit) {
-                _this10.ItemEndIndex = _this10.itemLimit;
+              if (_this11.totalItems > _this11.itemLimit) {
+                _this11.ItemEndIndex = _this11.itemLimit;
               } else {
-                _this10.ItemEndIndex = _this10.totalItems;
+                _this11.ItemEndIndex = _this11.totalItems;
               }
             });
           }
         }, {
           key: "getFacilityName",
           value: function getFacilityName(id) {
-            var _this11 = this;
+            var _this12 = this;
 
             this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-              _this11.allFacility = res;
+              _this12.allFacility = res;
             });
           }
         }, {
@@ -1068,7 +1371,7 @@
         }, {
           key: "submitsearchForm",
           value: function submitsearchForm(form) {
-            var _this12 = this;
+            var _this13 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -1076,14 +1379,14 @@
               active: 1
             };
             this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe(function (res) {
-              _this12.allWorkPermit = res;
-              _this12.isDataLoaded = false;
-              _this12.totalItems = _this12.allFacility.length;
+              _this13.allWorkPermit = res;
+              _this13.isDataLoaded = false;
+              _this13.totalItems = _this13.allFacility.length;
 
-              if (_this12.totalItems > _this12.itemLimit) {
-                _this12.ItemEndIndex = _this12.itemLimit;
+              if (_this13.totalItems > _this13.itemLimit) {
+                _this13.ItemEndIndex = _this13.itemLimit;
               } else {
-                _this12.ItemEndIndex = _this12.totalItems;
+                _this13.ItemEndIndex = _this13.totalItems;
               }
             });
           }
@@ -1268,7 +1571,7 @@
         _createClass(SearchBlockunitComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.blockunit = {}; // this.blockunit.apartmentID = "";
             // this.blockunit.roleids = "";
@@ -1280,7 +1583,7 @@
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe(function (res) {
-              _this13.blockData = res;
+              _this14.blockData = res;
             });
           }
         }, {
@@ -1309,10 +1612,10 @@
         }, {
           key: "getFacilityName",
           value: function getFacilityName(id) {
-            var _this14 = this;
+            var _this15 = this;
 
             this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-              _this14.allFacility = res;
+              _this15.allFacility = res;
             });
           }
         }, {
@@ -1330,7 +1633,7 @@
         }, {
           key: "submitsearchForm",
           value: function submitsearchForm(form) {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -1340,14 +1643,14 @@
               keyword: this.blockunit.keywords
             };
             this.userService.getUsersByKeyword(params).subscribe(function (res) {
-              _this15.allBlockUnit = res;
-              _this15.isDataLoaded = false;
-              _this15.totalItems = _this15.allBlockUnit.length;
+              _this16.allBlockUnit = res;
+              _this16.isDataLoaded = false;
+              _this16.totalItems = _this16.allBlockUnit.length;
 
-              if (_this15.totalItems > _this15.itemLimit) {
-                _this15.ItemEndIndex = _this15.itemLimit;
+              if (_this16.totalItems > _this16.itemLimit) {
+                _this16.ItemEndIndex = _this16.itemLimit;
               } else {
-                _this15.ItemEndIndex = _this15.totalItems;
+                _this16.ItemEndIndex = _this16.totalItems;
               }
             });
           }
@@ -1513,10 +1816,10 @@
         }, {
           key: "getFacilityName",
           value: function getFacilityName(id) {
-            var _this16 = this;
+            var _this17 = this;
 
             this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-              _this16.allFacility = res;
+              _this17.allFacility = res;
             });
           }
         }, {
@@ -1533,7 +1836,7 @@
         }, {
           key: "submitsearchForm",
           value: function submitsearchForm(form) {
-            var _this17 = this;
+            var _this18 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -1541,14 +1844,14 @@
               active: 1
             };
             this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(params).subscribe(function (res) {
-              _this17.allFacility = res;
-              _this17.isDataLoaded = false;
-              _this17.totalItems = _this17.allFacility.length;
+              _this18.allFacility = res;
+              _this18.isDataLoaded = false;
+              _this18.totalItems = _this18.allFacility.length;
 
-              if (_this17.totalItems > _this17.itemLimit) {
-                _this17.ItemEndIndex = _this17.itemLimit;
+              if (_this18.totalItems > _this18.itemLimit) {
+                _this18.ItemEndIndex = _this18.itemLimit;
               } else {
-                _this17.ItemEndIndex = _this17.totalItems;
+                _this18.ItemEndIndex = _this18.totalItems;
               }
             });
           }
@@ -1734,14 +2037,14 @@
         }, {
           key: "getFacility",
           value: function getFacility() {
-            var _this18 = this;
+            var _this19 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
             };
             this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(params).subscribe(function (res) {
-              _this18.allFacility = res;
+              _this19.allFacility = res;
             });
           }
         }, {
@@ -1760,10 +2063,10 @@
         }, {
           key: "getFacilityName",
           value: function getFacilityName(id) {
-            var _this19 = this;
+            var _this20 = this;
 
             this.facilityService.getApartmentFacilityByFacilityId(id).subscribe(function (res) {
-              _this19.allFacility = res;
+              _this20.allFacility = res;
             });
           }
         }, {
@@ -1781,7 +2084,7 @@
         }, {
           key: "submitsearchForm",
           value: function submitsearchForm(form) {
-            var _this20 = this;
+            var _this21 = this;
 
             var params = {
               ApartmentID: parseInt(this.cookieService.get('apartmentId')),
@@ -1789,13 +2092,13 @@
               KeywordVehicleNo: this.parkingSlot.vehicleNo
             };
             this.parkingService.getParkingSlotNoByKeyword(params).subscribe(function (res) {
-              _this20.allParkingSlot = res;
-              _this20.totalItems = _this20.allParkingSlot.length;
+              _this21.allParkingSlot = res;
+              _this21.totalItems = _this21.allParkingSlot.length;
 
-              if (_this20.totalItems > _this20.itemLimit) {
-                _this20.ItemEndIndex = _this20.itemLimit;
+              if (_this21.totalItems > _this21.itemLimit) {
+                _this21.ItemEndIndex = _this21.itemLimit;
               } else {
-                _this20.ItemEndIndex = _this20.totalItems;
+                _this21.ItemEndIndex = _this21.totalItems;
               }
             });
           }
@@ -1998,28 +2301,28 @@
         }, {
           key: "getViolationCategory",
           value: function getViolationCategory() {
-            var _this21 = this;
+            var _this22 = this;
 
             var params = {
               LookupTypeId: 78,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-              _this21.allViolationCategory = res;
-              _this21.isDataLoaded = true;
-              _this21.totalItems = _this21.allViolationCategory.length;
+              _this22.allViolationCategory = res;
+              _this22.isDataLoaded = true;
+              _this22.totalItems = _this22.allViolationCategory.length;
 
-              if (_this21.totalItems > _this21.itemLimit) {
-                _this21.ItemEndIndex = _this21.itemLimit;
+              if (_this22.totalItems > _this22.itemLimit) {
+                _this22.ItemEndIndex = _this22.itemLimit;
               } else {
-                _this21.ItemEndIndex = _this21.totalItems;
+                _this22.ItemEndIndex = _this22.totalItems;
               }
             });
           }
         }, {
           key: "getAllStopPrivilege",
           value: function getAllStopPrivilege() {
-            var _this22 = this;
+            var _this23 = this;
 
             var params = {
               LookupTypeId: 78,
@@ -2027,18 +2330,18 @@
             };
             var apartment_Id = this.sessionService.apartmentId;
             this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-              _this22.allViolationCategoryList = res.filter(function (x) {
+              _this23.allViolationCategoryList = res.filter(function (x) {
                 return x.isActive === true;
               });
 
-              _this22.allViolationCategoryList.forEach(function (element1, index) {
+              _this23.allViolationCategoryList.forEach(function (element1, index) {
                 var params1 = {
                   apartmentId: apartment_Id,
                   ViolationCategoryId: element1.ViolationCategoryId
                 };
 
-                _this22.violationService.getViolationRule(params1).subscribe(function (rule) {
-                  _this22.ruleListData = rule.filter(function (x) {
+                _this23.violationService.getViolationRule(params1).subscribe(function (rule) {
+                  _this23.ruleListData = rule.filter(function (x) {
                     return x.isActive === true;
                   }); //   const control =  this.userTable.get('tableRows') as FormArray;
                   //   // control.clear();
@@ -2079,19 +2382,19 @@
                   //   });
                   // });
 
-                  _this22.isDataLoaded = true;
+                  _this23.isDataLoaded = true;
                 }, function (error) {
-                  _this22.isDataLoaded = true;
-                  _this22.isError = true;
-                  _this22.alertMessage = 'Some error occured';
+                  _this23.isDataLoaded = true;
+                  _this23.isError = true;
+                  _this23.alertMessage = 'Some error occured';
                 });
 
-                _this22.NWtotalItems = _this22.allViolationCategoryList.length;
+                _this23.NWtotalItems = _this23.allViolationCategoryList.length;
 
-                if (_this22.NWtotalItems > _this22.itemLimit) {
-                  _this22.NWItemEndIndex = _this22.itemLimit;
+                if (_this23.NWtotalItems > _this23.itemLimit) {
+                  _this23.NWItemEndIndex = _this23.itemLimit;
                 } else {
-                  _this22.NWItemEndIndex = _this22.NWtotalItems;
+                  _this23.NWItemEndIndex = _this23.NWtotalItems;
                 }
               });
             });
@@ -2137,7 +2440,7 @@
         }, {
           key: "doneRow",
           value: function doneRow(group, id) {
-            var _this23 = this;
+            var _this24 = this;
 
             group.get('isEditable').setValue(false);
             var control = group.get('violationTable');
@@ -2176,11 +2479,11 @@
             if (ruleId === 0) {
               this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this23.sharedService.setAlertMessage(res.message);
+                  _this24.sharedService.setAlertMessage(res.message);
 
-                  _this23.getViolationPrivilege();
+                  _this24.getViolationPrivilege();
 
-                  _this23.privledge = {
+                  _this24.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -2191,11 +2494,11 @@
             } else {
               this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this23.sharedService.setAlertMessage(res.message);
+                  _this24.sharedService.setAlertMessage(res.message);
 
-                  _this23.getViolationPrivilege();
+                  _this24.getViolationPrivilege();
 
-                  _this23.privledge = {
+                  _this24.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -2252,7 +2555,7 @@
         }, {
           key: "updateviolationstatus",
           value: function updateviolationstatus(id, statusid) {
-            var _this24 = this;
+            var _this25 = this;
 
             var statusparams = {
               voilationId: id,
@@ -2261,13 +2564,13 @@
             this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
               var list = res;
 
-              _this24.sharedService.setAlertMessage(res.message);
+              _this25.sharedService.setAlertMessage(res.message);
             });
           }
         }, {
           key: "AddStopPrivilege",
           value: function AddStopPrivilege(group) {
-            var _this25 = this;
+            var _this26 = this;
 
             var statusparams = {
               model: {
@@ -2301,7 +2604,7 @@
             this.violationService.addStopPrevileges(statusparams).subscribe(function (res) {
               var list = res;
 
-              _this25.sharedService.setAlertMessage(res.message);
+              _this26.sharedService.setAlertMessage(res.message);
             });
           }
         }, {
@@ -2350,7 +2653,7 @@
         }, {
           key: "getRuleByViolationCategory",
           value: function getRuleByViolationCategory() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2358,9 +2661,9 @@
               ViolationCategoryId: 1
             };
             this.violationService.getViolationRule(params).subscribe(function (res) {
-              _this26.ruleListData = res;
+              _this27.ruleListData = res;
 
-              var control = _this26.userTable.get('tableRows');
+              var control = _this27.userTable.get('tableRows');
 
               control.clear(); // tslint:disable-next-line:no-shadowed-variable
               // this.allViolationStopPrivilege.forEach((element, index) => {
@@ -2376,17 +2679,17 @@
               // });
               // this.addRow();
 
-              _this26.isDataLoaded = true;
+              _this27.isDataLoaded = true;
             }, function (error) {
-              _this26.isDataLoaded = true;
-              _this26.isError = true;
-              _this26.alertMessage = 'Some error occured';
+              _this27.isDataLoaded = true;
+              _this27.isError = true;
+              _this27.alertMessage = 'Some error occured';
             });
           }
         }, {
           key: "getViolationRule",
           value: function getViolationRule() {
-            var _this27 = this;
+            var _this28 = this;
 
             var params = {
               LookupTypeId: 78,
@@ -2394,16 +2697,16 @@
             };
             var apartment_Id = this.sessionService.apartmentId;
             this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-              _this27.allViolationCategoryList = res;
+              _this28.allViolationCategoryList = res;
 
-              _this27.allViolationCategoryList.forEach(function (element1, index) {
+              _this28.allViolationCategoryList.forEach(function (element1, index) {
                 var params1 = {
                   apartmentId: apartment_Id,
                   ViolationCategoryId: element1.ViolationCategoryId
                 };
 
-                _this27.violationService.getViolationRule(params1).subscribe(function (rule) {
-                  _this27.ruleListData = rule; //   const control =  this.userTable.get('tableRows') as FormArray;
+                _this28.violationService.getViolationRule(params1).subscribe(function (rule) {
+                  _this28.ruleListData = rule; //   const control =  this.userTable.get('tableRows') as FormArray;
                   //   // control.clear();
                   //   // tslint:disable-next-line:no-shadowed-variable
                   // this.ruleListData.forEach((element, index) => {
@@ -2433,19 +2736,19 @@
                   //   });
                   // });
 
-                  _this27.isDataLoaded = true;
+                  _this28.isDataLoaded = true;
                 }, function (error) {
-                  _this27.isDataLoaded = true;
-                  _this27.isError = true;
-                  _this27.alertMessage = 'Some error occured';
+                  _this28.isDataLoaded = true;
+                  _this28.isError = true;
+                  _this28.alertMessage = 'Some error occured';
                 });
 
-                _this27.NWtotalItems = _this27.allViolationCategoryList.length;
+                _this28.NWtotalItems = _this28.allViolationCategoryList.length;
 
-                if (_this27.NWtotalItems > _this27.itemLimit) {
-                  _this27.NWItemEndIndex = _this27.itemLimit;
+                if (_this28.NWtotalItems > _this28.itemLimit) {
+                  _this28.NWItemEndIndex = _this28.itemLimit;
                 } else {
-                  _this27.NWItemEndIndex = _this27.NWtotalItems;
+                  _this28.NWItemEndIndex = _this28.NWtotalItems;
                 }
               });
             });
@@ -2453,42 +2756,42 @@
         }, {
           key: "getViolationPrivilege",
           value: function getViolationPrivilege() {
-            var _this28 = this;
+            var _this29 = this;
 
             var privilegeparams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.violationService.getViolationPrivilege(privilegeparams).subscribe(function (res) {
-              _this28.allViolationPrivilege = res;
-              _this28.isDataLoaded = true;
-              _this28.PtotalItems = _this28.allViolationPrivilege.length;
+              _this29.allViolationPrivilege = res;
+              _this29.isDataLoaded = true;
+              _this29.PtotalItems = _this29.allViolationPrivilege.length;
 
-              if (_this28.PtotalItems > _this28.PitemLimit) {
-                _this28.PItemEndIndex = _this28.PitemLimit;
+              if (_this29.PtotalItems > _this29.PitemLimit) {
+                _this29.PItemEndIndex = _this29.PitemLimit;
               } else {
-                _this28.PItemEndIndex = _this28.PtotalItems;
+                _this29.PItemEndIndex = _this29.PtotalItems;
               }
             });
           }
         }, {
           key: "getAllViolationPrivilege",
           value: function getAllViolationPrivilege() {
-            var _this29 = this;
+            var _this30 = this;
 
             var privilegeparams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.violationService.getViolationStopPreviledges(privilegeparams).subscribe(function (res) {
-              _this29.allViolationStopPrivilege = res;
+              _this30.allViolationStopPrivilege = res;
 
-              var control = _this29.userTable.get('tableRows'); // control.clear();
+              var control = _this30.userTable.get('tableRows'); // control.clear();
               // tslint:disable-next-line:no-shadowed-variable
 
 
-              _this29.allViolationStopPrivilege.forEach(function (element, index) {
-                var formcontrol = _this29.userTable.get('tableRows');
+              _this30.allViolationStopPrivilege.forEach(function (element, index) {
+                var formcontrol = _this30.userTable.get('tableRows');
 
-                formcontrol.push(_this29.fb.group({
+                formcontrol.push(_this30.fb.group({
                   voilationId: [element.voilationId],
                   category: [element.violationCategory],
                   ruleno: [element.violationRuleName],
@@ -2500,7 +2803,7 @@
                   block: [element.apartmentBlockNumber],
                   unitId: [element.apartmentBlockUnitId],
                   violationPrivilegeId: [element.violationPrivilegeId],
-                  violationTable: _this29.fb.array([]),
+                  violationTable: _this30.fb.array([]),
                   isEditable: [false]
                 }));
               });
@@ -2651,7 +2954,7 @@
         }, {
           key: "submit",
           value: function submit() {
-            var _this30 = this;
+            var _this31 = this;
 
             var lookupparams = {
               model: {
@@ -2669,15 +2972,15 @@
             };
             this.violationService.addViolationDispute(lookupparams).subscribe(function (res) {
               if (res) {
-                _this30.sharedService.setAlertMessage(res.message);
+                _this31.sharedService.setAlertMessage(res.message);
 
-                _this30.dispute = {
+                _this31.dispute = {
                   disputeID: 0,
                   disputeComments: '',
                   disputeStatus: ''
                 };
 
-                _this30.dialogRef.close(true);
+                _this31.dialogRef.close(true);
               } else {}
             });
             this.updateviolationstatus(this.violation.id, 402);
@@ -2685,7 +2988,7 @@
         }, {
           key: "updateviolationstatus",
           value: function updateviolationstatus(id, statusid) {
-            var _this31 = this;
+            var _this32 = this;
 
             var statusparams = {
               voilationId: id,
@@ -2694,11 +2997,11 @@
             this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
               var list = res;
 
-              _this31.sharedService.setAlertMessage(res.message);
+              _this32.sharedService.setAlertMessage(res.message);
 
-              _this31.outputEvent.emit(true);
+              _this32.outputEvent.emit(true);
 
-              _this31.dialogRef.close(true);
+              _this32.dialogRef.close(true);
             });
           }
         }]);
@@ -2896,7 +3199,7 @@
         _createClass(UserViolationComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this32 = this;
+            var _this33 = this;
 
             this.category = {
               categoryId: 0,
@@ -2909,16 +3212,16 @@
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this32.blockListData = res;
+              _this33.blockListData = res;
 
-              _this32.getAllBlockData();
+              _this33.getAllBlockData();
             });
             var Lookupparams = {
               LookupTypeId: 78,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(Lookupparams).subscribe(function (res) {
-              _this32.allViolationCategory = res;
+              _this33.allViolationCategory = res;
             });
           }
         }, {
@@ -2965,7 +3268,7 @@
         }, {
           key: "getAllViolation",
           value: function getAllViolation() {
-            var _this33 = this;
+            var _this34 = this;
 
             this.isDataLoaded = true;
             var statusparams = {
@@ -2973,48 +3276,48 @@
               active: 1
             };
             this.violationService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
-              _this33.isDataLoaded = false;
+              _this34.isDataLoaded = false;
               var list = res.filter(function (x) {
-                return x.raisedby === parseInt(_this33.cookieService.get('userId'));
+                return x.raisedby === parseInt(_this34.cookieService.get('userId'));
               });
 
-              if (_this33.selectWaivedOff === true) {
+              if (_this34.selectWaivedOff === true) {
                 list = list.filter(function (x) {
                   return x.violationStatusId === 404;
                 });
-              } else if (_this33.selectDisputed === true) {
+              } else if (_this34.selectDisputed === true) {
                 list = list.filter(function (x) {
                   return x.violationStatusId === 402;
                 });
-              } else if (_this33.selectedVioaltionCategory !== "") {
+              } else if (_this34.selectedVioaltionCategory !== "") {
                 list = list.filter(function (x) {
-                  return x.violationCategoryId === _this33.selectedVioaltionCategory;
+                  return x.violationCategoryId === _this34.selectedVioaltionCategory;
                 });
-              } else if (_this33.selectedBlockNumerId !== "") {
+              } else if (_this34.selectedBlockNumerId !== "") {
                 list = list.filter(function (x) {
-                  return x.apartmentBlockId === _this33.selectedBlockNumerId;
+                  return x.apartmentBlockId === _this34.selectedBlockNumerId;
                 });
-              } else if (_this33.selectedfromDate !== null) {
+              } else if (_this34.selectedfromDate !== null) {
                 list = list.filter(function (x) {
-                  return x.insertedOn >= _this33.selectedfromDate;
+                  return x.insertedOn >= _this34.selectedfromDate;
                 });
-              } else if (_this33.selectedtoDate !== null) {
+              } else if (_this34.selectedtoDate !== null) {
                 list = list.filter(function (x) {
-                  return x.insertedOn <= _this33.selectedtoDate;
+                  return x.insertedOn <= _this34.selectedtoDate;
                 });
               }
 
-              _this33.testdata = list;
-              _this33.allViolationListData = [];
+              _this34.testdata = list;
+              _this34.allViolationListData = [];
 
-              _this33.getBindData(list);
+              _this34.getBindData(list);
 
-              _this33.totalItems = list.length;
+              _this34.totalItems = list.length;
 
-              if (_this33.totalItems > _this33.itemLimit) {
-                _this33.ItemEndIndex = _this33.itemLimit;
+              if (_this34.totalItems > _this34.itemLimit) {
+                _this34.ItemEndIndex = _this34.itemLimit;
               } else {
-                _this33.ItemEndIndex = _this33.totalItems;
+                _this34.ItemEndIndex = _this34.totalItems;
               }
             });
           }
@@ -3035,10 +3338,10 @@
         }, {
           key: "getBindData",
           value: function getBindData(list) {
-            var _this34 = this;
+            var _this35 = this;
 
             list.forEach(function (element, index) {
-              _this34.allViolationListData.push({
+              _this35.allViolationListData.push({
                 id: '#typeCollapse_' + index,
                 expand_id: 'typeCollapse_' + index,
                 data: element
@@ -3048,15 +3351,15 @@
         }, {
           key: "getAllStatus",
           value: function getAllStatus() {
-            var _this35 = this;
+            var _this36 = this;
 
             var statusparams = {
               LookupTypeId: 79,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe(function (res) {
-              _this35.violationStatusData = res;
-              console.log(_this35.violationStatusData);
+              _this36.violationStatusData = res;
+              console.log(_this36.violationStatusData);
             });
           }
         }, {
@@ -3070,7 +3373,7 @@
         }, {
           key: "openDispute",
           value: function openDispute(violation) {
-            var _this36 = this;
+            var _this37 = this;
 
             console.log(violation);
             var dialogRef = this.dialog.open(_dispute_dispute_component__WEBPACK_IMPORTED_MODULE_10__["DisputeComponent"], {
@@ -3083,7 +3386,7 @@
             dialogRef.componentInstance.violationId = violation.id;
             dialogRef.componentInstance.violation = violation;
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this36.getAllViolation();
+              _this37.getAllViolation();
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
@@ -3111,7 +3414,7 @@
         }, {
           key: "updateviolationstatus",
           value: function updateviolationstatus(id, statusid) {
-            var _this37 = this;
+            var _this38 = this;
 
             var statusparams = {
               voilationId: id,
@@ -3120,9 +3423,9 @@
             this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
               var list = res;
 
-              _this37.sharedService.setAlertMessage(res.message);
+              _this38.sharedService.setAlertMessage(res.message);
 
-              _this37.getAllViolation();
+              _this38.getAllViolation();
             });
           }
         }, {
@@ -3328,7 +3631,7 @@
         }, {
           key: "submit",
           value: function submit() {
-            var _this38 = this;
+            var _this39 = this;
 
             var lookupparams = {
               model: {
@@ -3346,15 +3649,15 @@
             };
             this.violationService.addViolationDispute(lookupparams).subscribe(function (res) {
               if (res) {
-                _this38.sharedService.setAlertMessage(res.message);
+                _this39.sharedService.setAlertMessage(res.message);
 
-                _this38.dispute = {
+                _this39.dispute = {
                   disputeID: 0,
                   disputeComments: '',
                   disputeStatus: ''
                 };
 
-                _this38.dialogRef.close(true);
+                _this39.dialogRef.close(true);
               } else {}
             });
             this.updateviolationstatus(this.violation.id, 402);
@@ -3362,7 +3665,7 @@
         }, {
           key: "updateviolationstatus",
           value: function updateviolationstatus(id, statusid) {
-            var _this39 = this;
+            var _this40 = this;
 
             var statusparams = {
               voilationId: id,
@@ -3371,9 +3674,9 @@
             this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
               var list = res;
 
-              _this39.sharedService.setAlertMessage(res.message);
+              _this40.sharedService.setAlertMessage(res.message);
 
-              _this39.outputEvent.emit(true);
+              _this40.outputEvent.emit(true);
             });
             this.dialogRef.close(true);
           }
@@ -3587,7 +3890,7 @@
         }, {
           key: "getViolationRule",
           value: function getViolationRule(violationCateogoryId) {
-            var _this40 = this;
+            var _this41 = this;
 
             var _apartment_Id = this.sessionService.apartmentId;
             var params1 = {
@@ -3595,22 +3898,22 @@
               ViolationCategoryId: violationCateogoryId
             };
             this.violationService.getViolationRule(params1).subscribe(function (rule) {
-              _this40.ruleListData = rule;
+              _this41.ruleListData = rule;
             }, function (error) {
-              _this40.isError = true;
+              _this41.isError = true;
             });
           }
         }, {
           key: "getViolationCategory",
           value: function getViolationCategory() {
-            var _this41 = this;
+            var _this42 = this;
 
             var params = {
               LookupTypeId: 78,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-              _this41.allViolationCategory = res;
+              _this42.allViolationCategory = res;
             });
           }
         }, {
@@ -3632,7 +3935,7 @@
         }, {
           key: "getviolationById",
           value: function getviolationById(id) {
-            var _this42 = this;
+            var _this43 = this;
 
             var params = {
               ViolationId: id
@@ -3641,11 +3944,11 @@
               var getViolationData = res;
 
               if (getViolationData.violationCategoryId > 0) {
-                _this42.getViolationRule(getViolationData.violationCategoryId);
+                _this43.getViolationRule(getViolationData.violationCategoryId);
               }
 
               console.log(getViolationData);
-              _this42.violationData = {
+              _this43.violationData = {
                 id: getViolationData.id,
                 apartmentBlockId: getViolationData.apartmentBlockId,
                 primaryContactName: getViolationData.primaryContact,
@@ -3674,7 +3977,7 @@
         }, {
           key: "onSubmit",
           value: function onSubmit() {
-            var _this43 = this;
+            var _this44 = this;
 
             var params = {
               model: {
@@ -3710,14 +4013,14 @@
             console.log(params);
             this.violationService.updateViolations(params).subscribe(function (res) {
               if (res) {
-                _this43.sharedService.setAlertMessage(res.message);
+                _this44.sharedService.setAlertMessage(res.message);
               } else {}
             });
           }
         }, {
           key: "uploadImage_new",
           value: function uploadImage_new(e) {
-            var _this44 = this;
+            var _this45 = this;
 
             this.fileList = e.dataTransfer ? e.dataTransfer.files : e.target.files;
             var reader = new FileReader();
@@ -3741,7 +4044,7 @@
                     var target = e.target;
                     var fileResult = target.result;
                     console.log(fileResult);
-                    _this44.violationData.uploadImage = fileResult;
+                    _this45.violationData.uploadImage = fileResult;
                   };
 
                   reader.readAsDataURL(item);
@@ -3954,7 +4257,7 @@
         _createClass(ViewViolationComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this46 = this;
 
             this.category = {
               categoryId: 0,
@@ -3967,16 +4270,16 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this45.blockListData = res;
+              _this46.blockListData = res;
 
-              _this45.getAllBlockData();
+              _this46.getAllBlockData();
             });
             var Lookupparams = {
               LookupTypeId: 78,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(Lookupparams).subscribe(function (res) {
-              _this45.allViolationCategory = res;
+              _this46.allViolationCategory = res;
             });
           }
         }, {
@@ -4023,7 +4326,7 @@
         }, {
           key: "getAllViolation",
           value: function getAllViolation() {
-            var _this46 = this;
+            var _this47 = this;
 
             this.isDataLoaded = true;
             var statusparams = {
@@ -4031,56 +4334,56 @@
               active: 1
             };
             this.violationService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
-              _this46.isDataLoaded = false;
+              _this47.isDataLoaded = false;
               var list = res;
 
-              if (_this46.selectWaivedOff === true) {
+              if (_this47.selectWaivedOff === true) {
                 list = list.filter(function (x) {
                   return x.violationStatusId === 404;
                 });
-              } else if (_this46.selectDisputed === true) {
+              } else if (_this47.selectDisputed === true) {
                 list = list.filter(function (x) {
                   return x.violationStatusId === 402;
                 });
-              } else if (_this46.selectedVioaltionCategory !== "") {
+              } else if (_this47.selectedVioaltionCategory !== "") {
                 list = list.filter(function (x) {
-                  return x.violationCategoryId === _this46.selectedVioaltionCategory;
+                  return x.violationCategoryId === _this47.selectedVioaltionCategory;
                 });
-              } else if (_this46.selectedBlockNumerId !== "") {
+              } else if (_this47.selectedBlockNumerId !== "") {
                 list = list.filter(function (x) {
-                  return x.apartmentBlockId === _this46.selectedBlockNumerId;
+                  return x.apartmentBlockId === _this47.selectedBlockNumerId;
                 });
-              } else if (_this46.selectedfromDate !== null) {
+              } else if (_this47.selectedfromDate !== null) {
                 list = list.filter(function (x) {
-                  return x.insertedOn >= _this46.selectedfromDate;
+                  return x.insertedOn >= _this47.selectedfromDate;
                 });
-              } else if (_this46.selectedtoDate !== null) {
+              } else if (_this47.selectedtoDate !== null) {
                 list = list.filter(function (x) {
-                  return x.insertedOn <= _this46.selectedtoDate;
+                  return x.insertedOn <= _this47.selectedtoDate;
                 });
               }
 
-              _this46.testdata = list;
-              _this46.allViolationListData = [];
+              _this47.testdata = list;
+              _this47.allViolationListData = [];
 
-              _this46.getBindData(list);
+              _this47.getBindData(list);
 
-              _this46.totalItems = list.length;
+              _this47.totalItems = list.length;
 
-              if (_this46.totalItems > _this46.itemLimit) {
-                _this46.ItemEndIndex = _this46.itemLimit;
+              if (_this47.totalItems > _this47.itemLimit) {
+                _this47.ItemEndIndex = _this47.itemLimit;
               } else {
-                _this46.ItemEndIndex = _this46.totalItems;
+                _this47.ItemEndIndex = _this47.totalItems;
               }
             });
           }
         }, {
           key: "getBindData",
           value: function getBindData(list) {
-            var _this47 = this;
+            var _this48 = this;
 
             list.forEach(function (element, index) {
-              _this47.allViolationListData.push({
+              _this48.allViolationListData.push({
                 id: '#typeCollapse_' + index,
                 expand_id: 'typeCollapse_' + index,
                 data: element
@@ -4090,15 +4393,15 @@
         }, {
           key: "getAllStatus",
           value: function getAllStatus() {
-            var _this48 = this;
+            var _this49 = this;
 
             var statusparams = {
               LookupTypeId: 79,
               active: 1
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe(function (res) {
-              _this48.violationStatusData = res;
-              console.log(_this48.violationStatusData);
+              _this49.violationStatusData = res;
+              console.log(_this49.violationStatusData);
             });
           }
         }, {
@@ -4112,7 +4415,7 @@
         }, {
           key: "openDispute",
           value: function openDispute(violation) {
-            var _this49 = this;
+            var _this50 = this;
 
             var dialogRef = this.dialog.open(_create_dispute_create_dispute_component__WEBPACK_IMPORTED_MODULE_11__["CreateDisputeComponent"], {
               width: '900px',
@@ -4124,7 +4427,7 @@
             dialogRef.componentInstance.violationId = violation.id;
             dialogRef.componentInstance.violation = violation;
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this49.getAllViolation();
+              _this50.getAllViolation();
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
@@ -4152,7 +4455,7 @@
         }, {
           key: "updateviolationstatus",
           value: function updateviolationstatus(id, statusid) {
-            var _this50 = this;
+            var _this51 = this;
 
             var statusparams = {
               voilationId: id,
@@ -4161,9 +4464,9 @@
             this.violationService.updateViolationStatus(statusparams).subscribe(function (res) {
               var list = res;
 
-              _this50.sharedService.setAlertMessage(res.message);
+              _this51.sharedService.setAlertMessage(res.message);
 
-              _this50.getAllViolation();
+              _this51.getAllViolation();
             });
           }
         }, {
@@ -4416,7 +4719,7 @@
         }, {
           key: "submitCreateCategoryTypeForm",
           value: function submitCreateCategoryTypeForm(form) {
-            var _this51 = this;
+            var _this52 = this;
 
             var lookupparams = {
               lookupvalue: {
@@ -4438,9 +4741,9 @@
             };
             this.lookupService.updateLookupValue(lookupparams).subscribe(function (res) {
               if (res) {
-                _this51.sharedService.setAlertMessage("Violation Category Updated Successfully");
+                _this52.sharedService.setAlertMessage("Violation Category Updated Successfully");
 
-                _this51.category = {
+                _this52.category = {
                   categoryId: 0,
                   categoryname: '',
                   Description: ''
@@ -4609,7 +4912,7 @@
         }, {
           key: "getallMenu",
           value: function getallMenu() {
-            var _this52 = this;
+            var _this53 = this;
 
             var params = {
               active: 1
@@ -4619,7 +4922,7 @@
               menuData.forEach(function (element) {
                 var data = element.screenName;
 
-                _this52.allMenus.push(data.replace("Admin_Main_", ""));
+                _this53.allMenus.push(data.replace("Admin_Main_", ""));
               });
             });
           }
@@ -4637,7 +4940,7 @@
         }, {
           key: "submitCreatesStopPrivledgeForm",
           value: function submitCreatesStopPrivledgeForm(form) {
-            var _this53 = this;
+            var _this54 = this;
 
             var lookupparams = {
               Id: this.privledge.privilegeId === 0 ? 0 : this.privledge.privilegeId,
@@ -4653,13 +4956,13 @@
             };
             this.violationService.updateViolationPrivilege(lookupparams).subscribe(function (res) {
               if (res) {
-                _this53.sharedService.setAlertMessage("updated Successfully");
+                _this54.sharedService.setAlertMessage("updated Successfully");
 
-                _this53.dialogRef.close(false);
+                _this54.dialogRef.close(false);
 
-                _this53.outputEvent.emit(true);
+                _this54.outputEvent.emit(true);
 
-                _this53.privledge = {
+                _this54.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -5117,7 +5420,7 @@
         }, {
           key: "getViolationCategory",
           value: function getViolationCategory() {
-            var _this54 = this;
+            var _this55 = this;
 
             var params = {
               LookupTypeId: 78,
@@ -5132,7 +5435,7 @@
                 localdata: rawViolationList,
                 datatype: "array"
               };
-              _this54.violationCategoryList = new jqx.dataAdapter(violationSourceData); // this.totalItems = this.allViolationCategory.length;
+              _this55.violationCategoryList = new jqx.dataAdapter(violationSourceData); // this.totalItems = this.allViolationCategory.length;
               // if(this.totalItems>this.itemLimit){
               //   this.ItemEndIndex = this.itemLimit;
               // }
@@ -5144,7 +5447,7 @@
         }, {
           key: "submitCreateCategoryTypeForm",
           value: function submitCreateCategoryTypeForm(form) {
-            var _this55 = this;
+            var _this56 = this;
 
             var lookupparams = {
               lookupvalue: {
@@ -5168,11 +5471,11 @@
             if (this.category.categoryId === 0) {
               this.lookupService.addLookupValue(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this55.sharedService.setAlertMessage(res.message);
+                  _this56.sharedService.setAlertMessage(res.message);
 
-                  _this55.getViolationCategory();
+                  _this56.getViolationCategory();
 
-                  _this55.category = {
+                  _this56.category = {
                     categoryId: 0,
                     categoryname: '',
                     Description: ''
@@ -5182,11 +5485,11 @@
             } else {
               this.lookupService.updateLookupValue(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this55.sharedService.setAlertMessage(res.message);
+                  _this56.sharedService.setAlertMessage(res.message);
 
-                  _this55.getViolationCategory();
+                  _this56.getViolationCategory();
 
-                  _this55.category = {
+                  _this56.category = {
                     categoryId: 0,
                     categoryname: '',
                     Description: ''
@@ -5198,7 +5501,7 @@
         }, {
           key: "deleteViolationCategory",
           value: function deleteViolationCategory(id) {
-            var _this56 = this;
+            var _this57 = this;
 
             var params = {
               lookupValueId: id,
@@ -5207,9 +5510,9 @@
             };
             this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
               if (res) {
-                _this56.sharedService.setAlertMessage(res.message);
+                _this57.sharedService.setAlertMessage(res.message);
 
-                _this56.getViolationCategory();
+                _this57.getViolationCategory();
               } else {}
             });
           }
@@ -5230,7 +5533,7 @@
         }, {
           key: "getallMenu",
           value: function getallMenu() {
-            var _this57 = this;
+            var _this58 = this;
 
             var params = {
               active: 1
@@ -5240,14 +5543,14 @@
               menuData.forEach(function (element) {
                 var data = element.screenName;
 
-                _this57.allMenus.push(data.replace("Admin_Main_", ""));
+                _this58.allMenus.push(data.replace("Admin_Main_", ""));
               });
             });
           }
         }, {
           key: "getViolationPrivilege",
           value: function getViolationPrivilege() {
-            var _this58 = this;
+            var _this59 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -5260,7 +5563,7 @@
                 localdata: rawViolationList,
                 datatype: "array"
               };
-              _this58.stopPrivilageList = new jqx.dataAdapter(violationPrivilageSourceData); // this.isDataLoaded = true;
+              _this59.stopPrivilageList = new jqx.dataAdapter(violationPrivilageSourceData); // this.isDataLoaded = true;
               // this.PtotalItems = this.allViolationPrivilege.length;
               // if(this.PtotalItems>this.PitemLimit){
               //   this.PItemEndIndex = this.PitemLimit;
@@ -5284,7 +5587,7 @@
         }, {
           key: "submitCreatesStopPrivledgeForm",
           value: function submitCreatesStopPrivledgeForm(form) {
-            var _this59 = this;
+            var _this60 = this;
 
             var lookupparams = {
               Id: this.privledge.privilegeId === 0 ? 0 : this.privledge.privilegeId,
@@ -5302,11 +5605,11 @@
             if (this.privledge.privilegeId === 0) {
               this.violationService.addViolationPrivilege(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this59.sharedService.setAlertMessage("Violation Privilege Added Successfully");
+                  _this60.sharedService.setAlertMessage("Violation Privilege Added Successfully");
 
-                  _this59.getViolationPrivilege();
+                  _this60.getViolationPrivilege();
 
-                  _this59.privledge = {
+                  _this60.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -5317,11 +5620,11 @@
             } else {
               this.violationService.updateViolationPrivilege(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this59.sharedService.setAlertMessage("Violation Privilege Updated Successfully");
+                  _this60.sharedService.setAlertMessage("Violation Privilege Updated Successfully");
 
-                  _this59.getViolationPrivilege();
+                  _this60.getViolationPrivilege();
 
-                  _this59.privledge = {
+                  _this60.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -5334,7 +5637,7 @@
         }, {
           key: "openEditViolationCategory",
           value: function openEditViolationCategory(violationCategory) {
-            var _this60 = this;
+            var _this61 = this;
 
             var dialogRef = this.dialog.open(_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_13__["EditCategoryComponent"], {
               width: '900px',
@@ -5345,14 +5648,14 @@
             });
             dialogRef.componentInstance.violationcategory = violationCategory;
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this60.getViolationCategory();
+              _this61.getViolationCategory();
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
         }, {
           key: "showConfirmViolationCategory",
           value: function showConfirmViolationCategory(id) {
-            var _this61 = this;
+            var _this62 = this;
 
             // this.modalService.showConfirmModal(id);
             var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
@@ -5362,14 +5665,14 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this61.deleteViolationCategory(id);
+                _this62.deleteViolationCategory(id);
               }
             });
           }
         }, {
           key: "openEditStopPrivilege",
           value: function openEditStopPrivilege(privledge) {
-            var _this62 = this;
+            var _this63 = this;
 
             var dialogRef = this.dialog.open(_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_10__["EditPrivilegeComponent"], {
               // width: '900px',
@@ -5380,14 +5683,14 @@
             });
             dialogRef.componentInstance.privilegevalue = privledge;
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
-              _this62.getViolationPrivilege();
+              _this63.getViolationPrivilege();
             });
             dialogRef.afterClosed().subscribe(function (result) {});
           }
         }, {
           key: "showConfirmModal",
           value: function showConfirmModal(id) {
-            var _this63 = this;
+            var _this64 = this;
 
             // this.modalService.showConfirmModal(id);
             var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
@@ -5397,14 +5700,14 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this63.deleteViolationPrivilege(id);
+                _this64.deleteViolationPrivilege(id);
               }
             });
           }
         }, {
           key: "deleteViolationPrivilege",
           value: function deleteViolationPrivilege(id) {
-            var _this64 = this;
+            var _this65 = this;
 
             var deleteparams = {
               ViolationPrivilegeId: id,
@@ -5412,11 +5715,11 @@
             };
             this.violationService.deleteViolationPrivilege(deleteparams).subscribe(function (res) {
               if (res) {
-                _this64.sharedService.setAlertMessage(res.message);
+                _this65.sharedService.setAlertMessage(res.message);
 
-                _this64.getViolationPrivilege();
+                _this65.getViolationPrivilege();
 
-                _this64.privledge = {
+                _this65.privledge = {
                   privilegeId: 0,
                   ViolationName: '',
                   ViolationDescription: '',
@@ -5466,7 +5769,7 @@
         }, {
           key: "doneRow",
           value: function doneRow(group, id) {
-            var _this65 = this;
+            var _this66 = this;
 
             group.get('isEditable').setValue(false);
             var control = group.get('violationTable');
@@ -5505,11 +5808,11 @@
             if (ruleId === 0) {
               this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this65.sharedService.setAlertMessage(res.message);
+                  _this66.sharedService.setAlertMessage(res.message);
 
-                  _this65.getViolationPrivilege();
+                  _this66.getViolationPrivilege();
 
-                  _this65.privledge = {
+                  _this66.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -5520,11 +5823,11 @@
             } else {
               this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this65.sharedService.setAlertMessage(res.message);
+                  _this66.sharedService.setAlertMessage(res.message);
 
-                  _this65.getViolationPrivilege();
+                  _this66.getViolationPrivilege();
 
-                  _this65.privledge = {
+                  _this66.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -5538,7 +5841,7 @@
         }, {
           key: "showConfirmViolationRule",
           value: function showConfirmViolationRule(id, index) {
-            var _this66 = this;
+            var _this67 = this;
 
             // this.modalService.showConfirmModal(id);
             var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
@@ -5548,14 +5851,14 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this66.deleteViolationRule(id, index);
+                _this67.deleteViolationRule(id, index);
               }
             });
           }
         }, {
           key: "deleteViolationRule",
           value: function deleteViolationRule(id, index) {
-            var _this67 = this;
+            var _this68 = this;
 
             var deleteparams = {
               violationRuleid: id,
@@ -5563,17 +5866,17 @@
             };
             this.violationService.deleteViolationRule(deleteparams).subscribe(function (res) {
               if (res) {
-                var control = _this67.userTable.get('tableRows');
+                var control = _this68.userTable.get('tableRows');
 
                 control.removeAt(index);
 
                 if (res.message != null) {
-                  _this67.sharedService.setAlertMessage(res.message);
+                  _this68.sharedService.setAlertMessage(res.message);
                 } else {
-                  _this67.sharedService.setAlertMessage(res.errorMessage);
+                  _this68.sharedService.setAlertMessage(res.errorMessage);
                 }
 
-                _this67.getViolationRule();
+                _this68.getViolationRule();
               } else {}
             });
           }
@@ -5681,7 +5984,7 @@
         }, {
           key: "getRuleByViolationCategory",
           value: function getRuleByViolationCategory() {
-            var _this68 = this;
+            var _this69 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -5689,16 +5992,16 @@
               ViolationCategoryId: 1
             };
             this.violationService.getViolationRule(params).subscribe(function (res) {
-              _this68.ruleListData = res;
+              _this69.ruleListData = res;
 
-              var control = _this68.userTable.get('tableRows');
+              var control = _this69.userTable.get('tableRows');
 
               control.clear(); // tslint:disable-next-line:no-shadowed-variable
 
-              _this68.ruleListData.forEach(function (element, index) {
-                var formcontrol = _this68.userTable.get('tableRows');
+              _this69.ruleListData.forEach(function (element, index) {
+                var formcontrol = _this69.userTable.get('tableRows');
 
-                formcontrol.push(_this68.fb.group({
+                formcontrol.push(_this69.fb.group({
                   directoryRecordId: [element.directoryRecordId],
                   serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                   email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
@@ -5708,19 +6011,19 @@
                 }));
               });
 
-              _this68.addRow();
+              _this69.addRow();
 
-              _this68.isDataLoaded = true;
+              _this69.isDataLoaded = true;
             }, function (error) {
-              _this68.isDataLoaded = true;
-              _this68.isError = true;
-              _this68.alertMessage = 'Some error occured';
+              _this69.isDataLoaded = true;
+              _this69.isError = true;
+              _this69.alertMessage = 'Some error occured';
             });
           }
         }, {
           key: "getViolationRule",
           value: function getViolationRule() {
-            var _this69 = this;
+            var _this70 = this;
 
             var params = {
               LookupTypeId: 78,
@@ -5728,33 +6031,33 @@
             };
             var apartment_Id = this.sessionService.apartmentId;
             this.lookupService.getLookupValueByLookupTypeIdStatus(params).subscribe(function (res) {
-              _this69.allViolationCategoryList = res.filter(function (x) {
+              _this70.allViolationCategoryList = res.filter(function (x) {
                 return x.isActive === true;
               });
 
-              _this69.allViolationCategoryList.forEach(function (element1, index) {
+              _this70.allViolationCategoryList.forEach(function (element1, index) {
                 var params1 = {
                   apartmentId: apartment_Id,
                   ViolationCategoryId: element1.ViolationCategoryId
                 };
 
-                _this69.violationService.getViolationRule(params1).subscribe(function (rule) {
-                  _this69.ruleListData = rule.filter(function (x) {
+                _this70.violationService.getViolationRule(params1).subscribe(function (rule) {
+                  _this70.ruleListData = rule.filter(function (x) {
                     return x.isActive === true;
                   });
 
-                  var control = _this69.userTable.get('tableRows'); // control.clear();
+                  var control = _this70.userTable.get('tableRows'); // control.clear();
                   // tslint:disable-next-line:no-shadowed-variable
 
 
-                  _this69.ruleListData.forEach(function (element, index) {
-                    var formcontrol = _this69.userTable.get('tableRows');
+                  _this70.ruleListData.forEach(function (element, index) {
+                    var formcontrol = _this70.userTable.get('tableRows');
 
-                    formcontrol.push(_this69.fb.group({
+                    formcontrol.push(_this70.fb.group({
                       ruleId: [element.id],
                       category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                       ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-                      violationTable: _this69.fb.array([]),
+                      violationTable: _this70.fb.array([]),
                       isEditable: [false]
                     }));
                     var violationnoArr = [];
@@ -5777,7 +6080,7 @@
                       var _fineViolation = element['fineViolationNo' + _index];
                       var _descViolation = element['descViolationNo' + _index];
                       var _violationPrivilege = element['violationPrivilegeId' + _index];
-                      violation.push(_this69.fb.group({
+                      violation.push(_this70.fb.group({
                         fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                         descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                         stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
@@ -5798,19 +6101,19 @@
                   //  this.addRow();
 
 
-                  _this69.isDataLoaded = true;
+                  _this70.isDataLoaded = true;
                 }, function (error) {
-                  _this69.isDataLoaded = true;
-                  _this69.isError = true;
-                  _this69.alertMessage = 'Some error occured';
+                  _this70.isDataLoaded = true;
+                  _this70.isError = true;
+                  _this70.alertMessage = 'Some error occured';
                 });
 
-                _this69.NWtotalItems = _this69.allViolationCategoryList.length;
+                _this70.NWtotalItems = _this70.allViolationCategoryList.length;
 
-                if (_this69.NWtotalItems > _this69.itemLimit) {
-                  _this69.NWItemEndIndex = _this69.itemLimit;
+                if (_this70.NWtotalItems > _this70.itemLimit) {
+                  _this70.NWItemEndIndex = _this70.itemLimit;
                 } else {
-                  _this69.NWItemEndIndex = _this69.NWtotalItems;
+                  _this70.NWItemEndIndex = _this70.NWtotalItems;
                 }
               });
             });
@@ -5818,7 +6121,7 @@
         }, {
           key: "submitCreatesViolationPrivledgeForm",
           value: function submitCreatesViolationPrivledgeForm(id) {
-            var _this70 = this;
+            var _this71 = this;
 
             var control = this.tableForm().at(id).get('violationTable');
             var lookupparams = {
@@ -5852,11 +6155,11 @@
             if (this.privledge.privilegeId === 0) {
               this.violationService.addViolationRule(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this70.sharedService.setAlertMessage(res.message);
+                  _this71.sharedService.setAlertMessage(res.message);
 
-                  _this70.getViolationPrivilege();
+                  _this71.getViolationPrivilege();
 
-                  _this70.privledge = {
+                  _this71.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',
@@ -5867,11 +6170,11 @@
             } else {
               this.violationService.updateViolationRule(lookupparams).subscribe(function (res) {
                 if (res) {
-                  _this70.sharedService.setAlertMessage(res.message);
+                  _this71.sharedService.setAlertMessage(res.message);
 
-                  _this70.getViolationPrivilege();
+                  _this71.getViolationPrivilege();
 
-                  _this70.privledge = {
+                  _this71.privledge = {
                     privilegeId: 0,
                     ViolationName: '',
                     ViolationDescription: '',

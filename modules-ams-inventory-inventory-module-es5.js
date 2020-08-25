@@ -1,4 +1,16 @@
 (function () {
+  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+  function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -6,6 +18,301 @@
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-inventory-inventory-module"], {
+    /***/
+    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js":
+    /*!*************************************************************************************!*\
+      !*** ./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js ***!
+      \*************************************************************************************/
+
+    /*! exports provided: CookieService */
+
+    /***/
+    function node_modulesNgxCookieService__ivy_ngcc__Fesm2015NgxCookieServiceJs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CookieService", function () {
+        return CookieService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+
+      var CookieService = /*#__PURE__*/function () {
+        function CookieService( // The type `Document` may not be used here. Although a fix is on its way,
+        // we will go with `any` for now to support Angular 2.4.x projects.
+        // Issue: https://github.com/angular/angular/issues/12631
+        // Fix: https://github.com/angular/angular/pull/14894
+        document, // Get the `PLATFORM_ID` so we can check if we're in a browser.
+        platformId) {
+          _classCallCheck(this, CookieService);
+
+          this.document = document;
+          this.platformId = platformId;
+          this.documentIsAccessible = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId);
+        }
+        /**
+         * @param name Cookie name
+         * @returns boolean - whether cookie with specified name exists
+         */
+
+
+        _createClass(CookieService, [{
+          key: "check",
+          value: function check(name) {
+            if (!this.documentIsAccessible) {
+              return false;
+            }
+
+            name = encodeURIComponent(name);
+            var regExp = this.getCookieRegExp(name);
+            var exists = regExp.test(this.document.cookie);
+            return exists;
+          }
+          /**
+           * @param name Cookie name
+           * @returns property value
+           */
+
+        }, {
+          key: "get",
+          value: function get(name) {
+            if (this.documentIsAccessible && this.check(name)) {
+              name = encodeURIComponent(name);
+              var regExp = this.getCookieRegExp(name);
+              var result = regExp.exec(this.document.cookie);
+              return this.safeDecodeURIComponent(result[1]);
+            } else {
+              return '';
+            }
+          }
+          /**
+           * @returns all the cookies in json
+           */
+
+        }, {
+          key: "getAll",
+          value: function getAll() {
+            var _this = this;
+
+            if (!this.documentIsAccessible) {
+              return {};
+            }
+
+            var cookies = {};
+            var document = this.document;
+
+            if (document.cookie && document.cookie !== '') {
+              document.cookie.split(';').forEach(function (currentCookie) {
+                var _currentCookie$split = currentCookie.split('='),
+                    _currentCookie$split2 = _slicedToArray(_currentCookie$split, 2),
+                    cookieName = _currentCookie$split2[0],
+                    cookieValue = _currentCookie$split2[1];
+
+                cookies[_this.safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = _this.safeDecodeURIComponent(cookieValue);
+              });
+            }
+
+            return cookies;
+          }
+          /**
+           * @param name     Cookie name
+           * @param value    Cookie value
+           * @param expires  Number of days until the cookies expires or an actual `Date`
+           * @param path     Cookie path
+           * @param domain   Cookie domain
+           * @param secure   Secure flag
+           * @param sameSite OWASP samesite token `Lax`, `None`, or `Strict`. Defaults to `Lax`
+           */
+
+        }, {
+          key: "set",
+          value: function set(name, value, expires, path, domain, secure) {
+            var sameSite = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            var cookieString = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
+
+            if (expires) {
+              if (typeof expires === 'number') {
+                var dateExpires = new Date(new Date().getTime() + expires * 1000 * 60 * 60 * 24);
+                cookieString += 'expires=' + dateExpires.toUTCString() + ';';
+              } else {
+                cookieString += 'expires=' + expires.toUTCString() + ';';
+              }
+            }
+
+            if (path) {
+              cookieString += 'path=' + path + ';';
+            }
+
+            if (domain) {
+              cookieString += 'domain=' + domain + ';';
+            }
+
+            if (secure === false && sameSite === 'None') {
+              secure = true;
+              console.warn("[ngx-cookie-service] Cookie ".concat(name, " was forced with secure flag because sameSite=None.") + "More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130");
+            }
+
+            if (secure) {
+              cookieString += 'secure;';
+            }
+
+            cookieString += 'sameSite=' + sameSite + ';';
+            this.document.cookie = cookieString;
+          }
+          /**
+           * @param name   Cookie name
+           * @param path   Cookie path
+           * @param domain Cookie domain
+           */
+
+        }, {
+          key: "delete",
+          value: function _delete(name, path, domain, secure) {
+            var sameSite = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            this.set(name, '', new Date('Thu, 01 Jan 1970 00:00:01 GMT'), path, domain, secure, sameSite);
+          }
+          /**
+           * @param path   Cookie path
+           * @param domain Cookie domain
+           */
+
+        }, {
+          key: "deleteAll",
+          value: function deleteAll(path, domain, secure) {
+            var sameSite = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Lax';
+
+            if (!this.documentIsAccessible) {
+              return;
+            }
+
+            var cookies = this.getAll();
+
+            for (var cookieName in cookies) {
+              if (cookies.hasOwnProperty(cookieName)) {
+                this["delete"](cookieName, path, domain, secure, sameSite);
+              }
+            }
+          }
+          /**
+           * @param name Cookie name
+           * @returns property RegExp
+           */
+
+        }, {
+          key: "getCookieRegExp",
+          value: function getCookieRegExp(name) {
+            var escapedName = name.replace(/([\[\]\{\}\(\)\|\=\;\+\?\,\.\*\^\$])/gi, '\\$1');
+            return new RegExp('(?:^' + escapedName + '|;\\s*' + escapedName + ')=(.*?)(?:;|$)', 'g');
+          }
+        }, {
+          key: "safeDecodeURIComponent",
+          value: function safeDecodeURIComponent(encodedURIComponent) {
+            try {
+              return decodeURIComponent(encodedURIComponent);
+            } catch (_a) {
+              // probably it is not uri encoded. return as is
+              return encodedURIComponent;
+            }
+          }
+        }]);
+
+        return CookieService;
+      }();
+
+      CookieService.ɵfac = function CookieService_Factory(t) {
+        return new (t || CookieService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
+      };
+
+      CookieService.ctorParameters = function () {
+        return [{
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
+          }]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+          }]
+        }];
+      };
+
+      CookieService.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
+        factory: function CookieService_Factory() {
+          return new CookieService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
+        },
+        token: CookieService,
+        providedIn: "root"
+      });
+      CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]))], CookieService);
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CookieService, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+          args: [{
+            providedIn: 'root'
+          }]
+        }], function () {
+          return [{
+            type: undefined,
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
+            }]
+          }, {
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
+            decorators: [{
+              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
+            }]
+          }];
+        }, null);
+      })();
+      /*
+       * Public API Surface of ngx-cookie-service
+       */
+
+      /**
+       * Generated bundle index. Do not edit.
+       */
+      //# sourceMappingURL=ngx-cookie-service.js.map
+
+      /***/
+
+    },
+
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-create-item/inventory-create-item.component.html":
     /*!***************************************************************************************************************************************************!*\
@@ -427,7 +734,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this = this;
+            var _this2 = this;
 
             if (this.securityDepositData != "") {
               var filtergroup = new jqx.filter();
@@ -440,7 +747,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this2.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -451,7 +758,7 @@
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this2 = this;
+            var _this3 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -460,21 +767,21 @@
             this.isLoader = true;
             this.purchaseOrderService.getMaterialsByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this2.totalItems = res.length;
-                _this2.gridSourceData = {
+                _this3.totalItems = res.length;
+                _this3.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this2.itemData = new jqx.dataAdapter(_this2.gridSourceData);
+                _this3.itemData = new jqx.dataAdapter(_this3.gridSourceData);
               }
 
-              _this2.isLoader = false;
+              _this3.isLoader = false;
             });
           }
         }, {
           key: "addSecurityDeposit",
           value: function addSecurityDeposit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.isEdit = false;
 
@@ -502,9 +809,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this3._selectPanelOverlayRef && _this3._selectPanelOverlayRef.hasAttached()) {
+              if (_this4._selectPanelOverlayRef && _this4._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this3._selectPanelOverlayRef.detach();
+                _this4._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -517,7 +824,7 @@
         }, {
           key: "onSecurityDeposit",
           value: function onSecurityDeposit(detail) {
-            var _this4 = this;
+            var _this5 = this;
 
             this.isEdit = true;
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -543,9 +850,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this4._selectPanelOverlayRef && _this4._selectPanelOverlayRef.hasAttached()) {
+              if (_this5._selectPanelOverlayRef && _this5._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this4._selectPanelOverlayRef.detach();
+                _this5._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -589,7 +896,7 @@
         }, {
           key: "addItem",
           value: function addItem(data) {
-            var _this5 = this;
+            var _this6 = this;
 
             if (this.createInventory.materialId) {
               this.updateItem(data);
@@ -630,9 +937,9 @@
                   // this.sharedService.setAlertMessage("Inventory Item added successfully");
                   // this.isAssetLoaded = false;
                   //  this.row={};
-                  _this5.getMaterials();
+                  _this6.getMaterials();
 
-                  _this5._selectPanelOverlayRef.detach();
+                  _this6._selectPanelOverlayRef.detach();
                 }
               });
             }
@@ -640,7 +947,7 @@
         }, {
           key: "updateItem",
           value: function updateItem(data) {
-            var _this6 = this;
+            var _this7 = this;
 
             data = this.createInventory;
             var reqObj = {};
@@ -675,21 +982,21 @@
               console.log(res, res);
 
               if (res) {
-                _this6.sharedService.setAlertMessage("Inventory Item updated successfully"); // this.isAssetLoaded = false;
+                _this7.sharedService.setAlertMessage("Inventory Item updated successfully"); // this.isAssetLoaded = false;
                 //    this.row={};
 
 
-                _this6.getMaterials(); // this.wareHouseIndex =-1;
+                _this7.getMaterials(); // this.wareHouseIndex =-1;
 
 
-                _this6._selectPanelOverlayRef.detach();
+                _this7._selectPanelOverlayRef.detach();
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this8 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -793,18 +1100,18 @@
               if (id != null) {
                 var param = {};
                 param = {
-                  apartmentId: _this7.sessionService.apartmentId,
+                  apartmentId: _this8.sessionService.apartmentId,
                   materialId: id,
-                  deleteBy: parseInt(_this7.sessionService.userId)
+                  deleteBy: parseInt(_this8.sessionService.userId)
                 };
 
-                _this7.purchaseOrderService.deleteMaterial(param).subscribe(function (res) {
+                _this8.purchaseOrderService.deleteMaterial(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this7.sharedService.setAlertMessage("Inventory item deleted successfully");
+                    _this8.sharedService.setAlertMessage("Inventory item deleted successfully");
 
-                    _this7.sharedService.setUnitListDeleteIndex(null);
+                    _this8.sharedService.setUnitListDeleteIndex(null);
 
-                    _this7.getMaterials();
+                    _this8.getMaterials();
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -815,7 +1122,7 @@
         }, {
           key: "getUomList",
           value: function getUomList() {
-            var _this8 = this;
+            var _this9 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -824,14 +1131,14 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this8.uomData = res ? res : [];
+                _this9.uomData = res ? res : [];
               }
             });
           }
         }, {
           key: "getVendorList",
           value: function getVendorList() {
-            var _this9 = this;
+            var _this10 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -839,14 +1146,14 @@
             };
             this.vendorService.getVendorByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this9.vendorData = res ? res : [];
+                _this10.vendorData = res ? res : [];
               }
             });
           }
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this10 = this;
+            var _this11 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -855,8 +1162,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this10.warehouseData = res && res.length > 0 ? res : [];
-                _this10.warehouseData = _this10.warehouseData.filter(function (el) {
+                _this11.warehouseData = res && res.length > 0 ? res : [];
+                _this11.warehouseData = _this11.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 }); // this.warehouseData = data;
               }
@@ -865,7 +1172,7 @@
         }, {
           key: "getAllMaterialType",
           value: function getAllMaterialType() {
-            var _this11 = this;
+            var _this12 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -874,14 +1181,14 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this11.materialTypeList = res ? res : [];
+                _this12.materialTypeList = res ? res : [];
               }
             });
           }
         }, {
           key: "getAllInventory",
           value: function getAllInventory() {
-            var _this12 = this;
+            var _this13 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -893,7 +1200,7 @@
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.isAssetLoaded = false;
-                _this12.inventoryCategoryList = res ? res : [];
+                _this13.inventoryCategoryList = res ? res : [];
               }
             });
           }
@@ -1115,7 +1422,7 @@
         }, {
           key: "submitAddInventoryForm",
           value: function submitAddInventoryForm(form) {
-            var _this13 = this;
+            var _this14 = this;
 
             this.isInventorySubmitted = false;
 
@@ -1141,20 +1448,20 @@
               };
               this.inventoryService.addInventory(params).subscribe(function (res) {
                 if (res.message) {
-                  _this13.isInventorySubmitted = true;
+                  _this14.isInventorySubmitted = true;
 
-                  _this13.sharedService.setAlertMessage("Inventory added successfully");
+                  _this14.sharedService.setAlertMessage("Inventory added successfully");
 
-                  _this13.router.navigate(['ams/inventory/view']);
+                  _this14.router.navigate(['ams/inventory/view']);
                 } else {
-                  _this13.isInventorySubmitted = true;
-                  _this13.isError = true;
-                  _this13.alertMessage = res.errorMessage;
+                  _this14.isInventorySubmitted = true;
+                  _this14.isError = true;
+                  _this14.alertMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this13.isInventorySubmitted = true;
-                _this13.isError = true;
-                _this13.alertMessage = "Some error occured";
+                _this14.isInventorySubmitted = true;
+                _this14.isError = true;
+                _this14.alertMessage = "Some error occured";
               });
             } else {
               var _details = {
@@ -1179,23 +1486,23 @@
               };
               this.inventoryService.updateInventory(_params).subscribe(function (res) {
                 if (res.message) {
-                  _this13.sharedService.setAlertMessage("Inventory updated successfully");
+                  _this14.sharedService.setAlertMessage("Inventory updated successfully");
 
-                  _this13.router.navigate(['ams/inventory/view']);
+                  _this14.router.navigate(['ams/inventory/view']);
                 } else {
-                  _this13.isError = true;
-                  _this13.alertMessage = res.errorMessage;
+                  _this14.isError = true;
+                  _this14.alertMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this13.isError = true;
-                _this13.alertMessage = "Some error occured";
+                _this14.isError = true;
+                _this14.alertMessage = "Some error occured";
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.inventory = {};
 
@@ -1203,7 +1510,7 @@
               this.isEditInventory = true;
               this.inventory.inventoryId = this.route.params['value'].id;
               this.inventoryService.getAllInventoryByInventoryId(this.inventory.inventoryId).subscribe(function (res) {
-                _this14.inventory = res[0];
+                _this15.inventory = res[0];
               });
             }
 
@@ -1211,13 +1518,13 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(vendorListparams).subscribe(function (res) {
-              _this14.vendorDataList = res;
+              _this15.vendorDataList = res;
             });
             var inventoryListparams = {
               LookupTypeId: 20
             };
             this.lookupService.getLookupValueByLookupTypeId(inventoryListparams).subscribe(function (res) {
-              _this14.inventoryCategoryDataList = res;
+              _this15.inventoryCategoryDataList = res;
             }, function (error) {});
           }
         }]);
@@ -1412,26 +1719,26 @@
         }, {
           key: "getCurrentInventory",
           value: function getCurrentInventory() {
-            var _this15 = this;
+            var _this16 = this;
 
             var params = {};
             params.ApartmentId = this.sessionService.apartmentId, this.isDataLoaded = true;
             this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this15.totalItems = res.length;
-                _this15.gridSourceData = {
+                _this16.totalItems = res.length;
+                _this16.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this15.inventoryHistoryData = new jqx.dataAdapter(_this15.gridSourceData);
-                _this15.isDataLoaded = false;
+                _this16.inventoryHistoryData = new jqx.dataAdapter(_this16.gridSourceData);
+                _this16.isDataLoaded = false;
               }
             });
           }
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this16 = this;
+            var _this17 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1440,14 +1747,14 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this16.warehouseData = res && res.length > 0 ? res : [];
+                _this17.warehouseData = res && res.length > 0 ? res : [];
               }
             });
           }
         }, {
           key: "onStatusFilter",
           value: function onStatusFilter() {
-            var _this17 = this;
+            var _this18 = this;
 
             if (this.historyStatus != "") {
               var filterGroup = new jqx.filter();
@@ -1460,7 +1767,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.inventoryHeader.forEach(function (item) {
                 if (item.datafield == 'stockStatus') {
-                  _this17.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this18.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1471,7 +1778,7 @@
         }, {
           key: "onSelectFilter",
           value: function onSelectFilter() {
-            var _this18 = this;
+            var _this19 = this;
 
             if (this.searchWareHouseId != "") {
               var filterGroup = new jqx.filter();
@@ -1484,7 +1791,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.inventoryHeader.forEach(function (item) {
                 if (item.datafield == 'warehouseName') {
-                  _this18.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this19.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1738,7 +2045,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this20 = this;
 
             // this.isExternalDataLoaded = true;
             // this.touchedRows = [];
@@ -1753,18 +2060,18 @@
               if (id != null) {
                 var param = {};
                 param = {
-                  apartmentId: _this19.sessionService.apartmentId,
+                  apartmentId: _this20.sessionService.apartmentId,
                   InitialStockId: id,
-                  deleteBy: parseInt(_this19.sessionService.userId)
+                  deleteBy: parseInt(_this20.sessionService.userId)
                 };
 
-                _this19.purchaseOrderService.deleteInitialStock(param).subscribe(function (res) {
-                  _this19.getInitalWarehouse();
+                _this20.purchaseOrderService.deleteInitialStock(param).subscribe(function (res) {
+                  _this20.getInitalWarehouse();
 
                   setTimeout(function () {
-                    _this19.sharedService.setAlertMessage("Initial Stock deleted successfully");
+                    _this20.sharedService.setAlertMessage("Initial Stock deleted successfully");
 
-                    _this19.sharedService.setUnitListDeleteIndex(null);
+                    _this20.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -1841,7 +2148,7 @@
         }, {
           key: "getInitalWarehouse",
           value: function getInitalWarehouse() {
-            var _this20 = this;
+            var _this21 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1850,16 +2157,16 @@
             this.isAssetLoaded = true;
             this.purchaseOrderService.getAllInitialStockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this20.initalStockData = [];
-                _this20.initalStockData = res && res.length > 0 ? res : [];
-                _this20.isAssetLoaded = false;
-                _this20.tempInitalStockData = _this20.initalStockData;
-                _this20.totalItems = _this20.initalStockData.length;
+                _this21.initalStockData = [];
+                _this21.initalStockData = res && res.length > 0 ? res : [];
+                _this21.isAssetLoaded = false;
+                _this21.tempInitalStockData = _this21.initalStockData;
+                _this21.totalItems = _this21.initalStockData.length;
 
-                if (_this20.totalItems > _this20.itemLimit) {
-                  _this20.ItemEndIndex = _this20.itemLimit;
+                if (_this21.totalItems > _this21.itemLimit) {
+                  _this21.ItemEndIndex = _this21.itemLimit;
                 } else {
-                  _this20.ItemEndIndex = _this20.totalItems;
+                  _this21.ItemEndIndex = _this21.totalItems;
                 } // tslint:disable-next-line:no-shadowed-variable
                 //  const formcontrol =  this.userTable.get('tableRows') as FormArray;
                 //  formcontrol.clear();
@@ -1887,7 +2194,7 @@
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this21 = this;
+            var _this22 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1895,12 +2202,12 @@
             };
             this.purchaseOrderService.getMaterialsByApartmentId(queryParamBase).subscribe(function (res) {
               if (res && res.length > 0) {
-                _this21.materialList = res;
+                _this22.materialList = res;
               }
 
-              if (_this21.materialList && _this21.materialList.length > 0) {
-                _this21.materialList.filter(function (val) {
-                  _this21.filterMaterial.push({
+              if (_this22.materialList && _this22.materialList.length > 0) {
+                _this22.materialList.filter(function (val) {
+                  _this22.filterMaterial.push({
                     'id': val.materialId,
                     'itemName': val.material1
                   });
@@ -1947,7 +2254,7 @@
         }, {
           key: "addWareHouse",
           value: function addWareHouse(data) {
-            var _this22 = this;
+            var _this23 = this;
 
             var reqObj = {};
             reqObj = {
@@ -1969,19 +2276,19 @@
               console.log(res, res);
 
               if (res) {
-                _this22.sharedService.setAlertMessage("Initial stock added successfully");
+                _this23.sharedService.setAlertMessage("Initial stock added successfully");
 
-                _this22.isAssetLoaded = false;
-                _this22.row = {};
+                _this23.isAssetLoaded = false;
+                _this23.row = {};
 
-                _this22.getInitalWarehouse();
+                _this23.getInitalWarehouse();
               }
             });
           }
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this23 = this;
+            var _this24 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1991,14 +2298,14 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this23.warehouseData = res && res.length > 0 ? res : [];
+                _this24.warehouseData = res && res.length > 0 ? res : [];
 
-                var data = _this23.warehouseData.filter(function (el) {
+                var data = _this24.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
 
-                _this23.warehouseData = data;
-                _this23.row = {};
+                _this24.warehouseData = data;
+                _this24.row = {};
               }
             });
           }
@@ -2011,7 +2318,7 @@
         }, {
           key: "updateWareHouse",
           value: function updateWareHouse(data) {
-            var _this24 = this;
+            var _this25 = this;
 
             var reqObj = {};
             reqObj = {
@@ -2031,13 +2338,13 @@
             params.initialstock = reqObj;
             this.purchaseOrderService.updateInitialStock(params).subscribe(function (res) {
               if (res) {
-                _this24.sharedService.setAlertMessage("Initial Stock Updated successfully");
+                _this25.sharedService.setAlertMessage("Initial Stock Updated successfully");
 
-                _this24.isAssetLoaded = false;
-                _this24.isEditRow = false;
-                _this24.wareHouseIndex = -1;
+                _this25.isAssetLoaded = false;
+                _this25.isEditRow = false;
+                _this25.wareHouseIndex = -1;
 
-                _this24.getInitalWarehouse();
+                _this25.getInitalWarehouse();
               }
             });
           }
@@ -2200,7 +2507,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this25 = this;
+            var _this26 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2210,8 +2517,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this25.warehouseData = res && res.length > 0 ? res : [];
-                _this25.warehouseData = _this25.warehouseData.filter(function (el) {
+                _this26.warehouseData = res && res.length > 0 ? res : [];
+                _this26.warehouseData = _this26.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
               }
@@ -2220,7 +2527,7 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this26 = this;
+            var _this27 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2231,7 +2538,7 @@
                 // this.staffList = res ? res : [];
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this26.staffList.push({
+                    _this27.staffList.push({
                       'id': val.staffId,
                       'itemName': val.firstName
                     });
@@ -2243,7 +2550,7 @@
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this27 = this;
+            var _this28 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2253,21 +2560,21 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this27.materialItemData.push({
+                    _this28.materialItemData.push({
                       'id': val.materialId,
                       'itemName': val.material1
                     });
                   });
                 }
 
-                console.log(_this27.materialItemData);
+                console.log(_this28.materialItemData);
               }
             });
           }
         }, {
           key: "addInternalTransfer",
           value: function addInternalTransfer() {
-            var _this28 = this;
+            var _this29 = this;
 
             var reqObj = {};
             reqObj = {
@@ -2292,17 +2599,17 @@
               console.log(res, res);
 
               if (res && res.message) {
-                _this28.sharedService.setAlertMessage("Transfer Item added successfully");
+                _this29.sharedService.setAlertMessage("Transfer Item added successfully");
 
-                _this28.isAssetLoaded = false;
-                _this28.transfer = {};
+                _this29.isAssetLoaded = false;
+                _this29.transfer = {};
               }
             });
           }
         }, {
           key: "getFromAvailableStock",
           value: function getFromAvailableStock() {
-            var _this29 = this;
+            var _this30 = this;
 
             if (!this.transfer.materialId || !this.transfer.fromWarehouseId) {
               return;
@@ -2316,14 +2623,14 @@
             };
             this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
               if (res && res.length > 0) {
-                _this29.transfer.fromAvailableStockQty = res[0].totalStockQty;
+                _this30.transfer.fromAvailableStockQty = res[0].totalStockQty;
               }
             });
           }
         }, {
           key: "getToAvailableStock",
           value: function getToAvailableStock() {
-            var _this30 = this;
+            var _this31 = this;
 
             console.log('to');
 
@@ -2339,7 +2646,7 @@
             };
             this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
               if (res && res.length > 0) {
-                _this30.transfer.toAvailableStockQty = res[0].totalStockQty;
+                _this31.transfer.toAvailableStockQty = res[0].totalStockQty;
               }
             });
           }
@@ -2523,7 +2830,7 @@
         _createClass(InventoryReceivingComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this32 = this;
 
             this.getAllGetAllWarehouse();
             this.getMaterials();
@@ -2536,14 +2843,14 @@
                 var param = {};
                 param = {
                   inventoryId: id,
-                  deleteBy: parseInt(_this31.sessionService.userId)
+                  deleteBy: parseInt(_this32.sessionService.userId)
                 };
 
-                _this31.inventoryService.deleteInventory(param).subscribe(function (res) {
+                _this32.inventoryService.deleteInventory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this31.sharedService.setAlertMessage("Received item deleted successfully");
+                    _this32.sharedService.setAlertMessage("Received item deleted successfully");
 
-                    _this31.sharedService.setUnitListDeleteIndex(null); // this.deleteType = '';
+                    _this32.sharedService.setUnitListDeleteIndex(null); // this.deleteType = '';
                     // this.getAllInventory();
 
                   }, 500);
@@ -2569,7 +2876,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this32 = this;
+            var _this33 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2579,8 +2886,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this32.warehouseData = res && res.length > 0 ? res : [];
-                _this32.warehouseData = _this32.warehouseData.filter(function (el) {
+                _this33.warehouseData = res && res.length > 0 ? res : [];
+                _this33.warehouseData = _this33.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
               }
@@ -2601,7 +2908,7 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this33 = this;
+            var _this34 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2610,11 +2917,11 @@
             this.isAssetLoaded = true;
             this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this33.isAssetLoaded = false; // this.staffList = res ? res : [];
+                _this34.isAssetLoaded = false; // this.staffList = res ? res : [];
 
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this33.staffList.push({
+                    _this34.staffList.push({
                       'id': val.staffId,
                       'itemName': val.firstName
                     });
@@ -2626,7 +2933,7 @@
         }, {
           key: "updateReceiving",
           value: function updateReceiving() {
-            var _this34 = this;
+            var _this35 = this;
 
             var receivingObj = {};
             receivingObj = {
@@ -2662,19 +2969,19 @@
               console.log(res, res);
 
               if (res) {
-                _this34.sharedService.setAlertMessage("Receiving Item updated successfully");
+                _this35.sharedService.setAlertMessage("Receiving Item updated successfully");
 
-                _this34.isAssetLoaded = false;
-                _this34.receiving = {};
+                _this35.isAssetLoaded = false;
+                _this35.receiving = {};
 
-                _this34.getAllReceivingItem();
+                _this35.getAllReceivingItem();
               }
             });
           }
         }, {
           key: "addReceiving",
           value: function addReceiving() {
-            var _this35 = this;
+            var _this36 = this;
 
             var receivingObj = {};
             receivingObj = {
@@ -2708,23 +3015,23 @@
             this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
               // console.log(res, res);
               if (res) {
-                _this35.sharedService.setAlertMessage("Receiving Item added successfully");
+                _this36.sharedService.setAlertMessage("Receiving Item added successfully");
 
-                _this35.isAssetLoaded = false;
-                _this35.receiving = {};
-                _this35.selectedItem = [];
-                _this35.issueToStaff = [];
+                _this36.isAssetLoaded = false;
+                _this36.receiving = {};
+                _this36.selectedItem = [];
+                _this36.issueToStaff = [];
 
-                _this35.getAllReceivingItem();
+                _this36.getAllReceivingItem();
 
-                _this35.inventoryList = []; //   this.getMaterials();
+                _this36.inventoryList = []; //   this.getMaterials();
               }
             });
           }
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this36 = this;
+            var _this37 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2734,7 +3041,7 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this36.materialItemData.push({
+                    _this37.materialItemData.push({
                       'id': val.materialId,
                       'itemName': val.material1
                     });
@@ -2746,7 +3053,7 @@
         }, {
           key: "getAvailableStock",
           value: function getAvailableStock() {
-            var _this37 = this;
+            var _this38 = this;
 
             if (!this.receiving.materialId && !this.receiving.warehouseId) {
               return;
@@ -2760,14 +3067,14 @@
             };
             this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
               if (res && res.length > 0) {
-                _this37.receiving.availableStockQty = res[0].totalStockQty;
+                _this38.receiving.availableStockQty = res[0].totalStockQty;
               }
             });
           }
         }, {
           key: "getAllReceivingItem",
           value: function getAllReceivingItem() {
-            var _this38 = this;
+            var _this39 = this;
 
             if (!this.receiving.warehouseId || !this.receiving.materialId) {
               return;
@@ -2783,14 +3090,14 @@
             this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this38.inventoryList = res && res.length > 0 ? res : [];
-                console.log(_this38.inventoryList);
-                _this38.totalItems = _this38.inventoryList.length;
+                _this39.inventoryList = res && res.length > 0 ? res : [];
+                console.log(_this39.inventoryList);
+                _this39.totalItems = _this39.inventoryList.length;
 
-                if (_this38.totalItems > _this38.itemLimit) {
-                  _this38.ItemEndIndex = _this38.itemLimit;
+                if (_this39.totalItems > _this39.itemLimit) {
+                  _this39.ItemEndIndex = _this39.itemLimit;
                 } else {
-                  _this38.ItemEndIndex = _this38.totalItems;
+                  _this39.ItemEndIndex = _this39.totalItems;
                 }
               }
             });
@@ -3104,7 +3411,7 @@
         }, {
           key: "getReportData",
           value: function getReportData() {
-            var _this39 = this;
+            var _this40 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3112,8 +3419,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this39.reportDataList = res;
-              _this39.isDataLoaded = true;
+              _this40.reportDataList = res;
+              _this40.isDataLoaded = true;
             });
           }
         }, {
@@ -3133,24 +3440,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this40.unitBlocksData = res;
+              _this41.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this40.route.params['value'].id;
+                return item.lookupValueId == _this41.route.params['value'].id;
               });
-              _this40.pageName = res[0].lookupValueName;
-              _this40.pageDesp = res[0].description;
+              _this41.pageName = res[0].lookupValueName;
+              _this41.pageDesp = res[0].description;
             }); // this.getBlockDetails();
 
             this.getReportData();
@@ -3204,17 +3511,17 @@
         }, {
           key: "getCurrentInventory",
           value: function getCurrentInventory() {
-            var _this41 = this;
+            var _this42 = this;
 
             var params = {};
             params.ApartmentId = this.sessionService.apartmentId;
             this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this41.gridSourceData = {
+                _this42.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this41.inventoryHistoryData = new jqx.dataAdapter(_this41.gridSourceData);
+                _this42.inventoryHistoryData = new jqx.dataAdapter(_this42.gridSourceData);
               }
             });
           }
@@ -3449,7 +3756,7 @@
         }, {
           key: "addSetUp",
           value: function addSetUp(name, type, value, e) {
-            var _this42 = this;
+            var _this43 = this;
 
             console.log(type, value);
             var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
@@ -3466,14 +3773,14 @@
               console.log(result);
 
               if (result) {
-                _this42.getAllInventory();
+                _this43.getAllInventory();
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this43 = this;
+            var _this44 = this;
 
             this.getAllInventory();
             this.getAllStaff();
@@ -3484,43 +3791,43 @@
             this.getAllGetAllWarehouse();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                if (_this43.deleteType == 'categoryDelete') {
+                if (_this44.deleteType == 'categoryDelete') {
                   var param = {};
                   param = {
                     categoryId: id,
-                    deletedBy: parseInt(_this43.sessionService.userId)
+                    deletedBy: parseInt(_this44.sessionService.userId)
                   };
 
-                  _this43.lookupService.deleteCategory(param).subscribe(function (res) {
+                  _this44.lookupService.deleteCategory(param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this43.sharedService.setAlertMessage("Category deleted successfully");
+                      _this44.sharedService.setAlertMessage("Category deleted successfully");
 
-                      _this43.sharedService.setUnitListDeleteIndex(null);
+                      _this44.sharedService.setUnitListDeleteIndex(null);
 
-                      _this43.deleteType = '';
+                      _this44.deleteType = '';
 
-                      _this43.getAllInventory();
+                      _this44.getAllInventory();
                     }, 500);
                   }, function (error) {
                     console.log(error);
                   });
-                } else if (_this43.deleteMaterial == true) {
+                } else if (_this44.deleteMaterial == true) {
                   var _param = {};
                   _param = {
                     lookupValueId: id,
-                    updateUserId: parseInt(_this43.sessionService.userId)
+                    updateUserId: parseInt(_this44.sessionService.userId)
                   };
 
-                  _this43.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
+                  _this44.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this43.sharedService.setAlertMessage("Material type deleted successfully");
+                      _this44.sharedService.setAlertMessage("Material type deleted successfully");
 
-                      _this43.sharedService.setUnitListDeleteIndex(null);
+                      _this44.sharedService.setUnitListDeleteIndex(null);
 
-                      _this43.deleteType = '';
-                      _this43.deleteMaterial = false;
+                      _this44.deleteType = '';
+                      _this44.deleteMaterial = false;
 
-                      _this43.getAllMaterial();
+                      _this44.getAllMaterial();
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3528,18 +3835,18 @@
                 } else {
                   var _param2 = {};
                   _param2 = {
-                    apartmentId: _this43.sessionService.apartmentId,
+                    apartmentId: _this44.sessionService.apartmentId,
                     warehouseId: id,
-                    deleteBy: parseInt(_this43.sessionService.userId)
+                    deleteBy: parseInt(_this44.sessionService.userId)
                   };
 
-                  _this43.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
-                    _this43.getAllGetAllWarehouse();
+                  _this44.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
+                    _this44.getAllGetAllWarehouse();
 
                     setTimeout(function () {
-                      _this43.sharedService.setAlertMessage("Warehouse deleted successfully");
+                      _this44.sharedService.setAlertMessage("Warehouse deleted successfully");
 
-                      _this43.sharedService.setUnitListDeleteIndex(null);
+                      _this44.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3599,7 +3906,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this44 = this;
+            var _this45 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3609,13 +3916,13 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this44.warehouseData = res && res.length > 0 ? res : [];
-                _this44.isAssetLoaded = false;
-                _this44.tempWarehouseData = _this44.warehouseData;
-                _this44.totalItems = _this44.warehouseData.length;
+                _this45.warehouseData = res && res.length > 0 ? res : [];
+                _this45.isAssetLoaded = false;
+                _this45.tempWarehouseData = _this45.warehouseData;
+                _this45.totalItems = _this45.warehouseData.length;
 
-                if (_this44.warehouseData && _this44.warehouseData.length > 0) {
-                  _this44.warehouseData.filter(function (val) {
+                if (_this45.warehouseData && _this45.warehouseData.length > 0) {
+                  _this45.warehouseData.filter(function (val) {
                     if (val.warehouseName == '') {
                       delete val.warehouseName;
                       delete val.warehouseId;
@@ -3623,10 +3930,10 @@
                   });
                 }
 
-                if (_this44.totalItems > _this44.itemLimit) {
-                  _this44.ItemEndIndex = _this44.itemLimit;
+                if (_this45.totalItems > _this45.itemLimit) {
+                  _this45.ItemEndIndex = _this45.itemLimit;
                 } else {
-                  _this44.ItemEndIndex = _this44.totalItems;
+                  _this45.ItemEndIndex = _this45.totalItems;
                 }
               }
             });
@@ -3634,7 +3941,7 @@
         }, {
           key: "addWareHouse",
           value: function addWareHouse(data) {
-            var _this45 = this;
+            var _this46 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3656,19 +3963,19 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.addWarehouse(params).subscribe(function (res) {
               if (res) {
-                _this45.sharedService.setAlertMessage("Warehouse added successfully");
+                _this46.sharedService.setAlertMessage("Warehouse added successfully");
 
-                _this45.isAssetLoaded = false;
-                _this45.row = {};
+                _this46.isAssetLoaded = false;
+                _this46.row = {};
 
-                _this45.getAllGetAllWarehouse();
+                _this46.getAllGetAllWarehouse();
               }
             });
           }
         }, {
           key: "updateWareHouse",
           value: function updateWareHouse(data) {
-            var _this46 = this;
+            var _this47 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3690,18 +3997,18 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.updateWarehouse(params).subscribe(function (res) {
               if (res) {
-                _this46.sharedService.setAlertMessage("Warehouse Updated successfully");
+                _this47.sharedService.setAlertMessage("Warehouse Updated successfully");
 
-                _this46.isAssetLoaded = false; // this.isEditRow = false;
+                _this47.isAssetLoaded = false; // this.isEditRow = false;
 
-                _this46.wareHouseIndex = -1;
+                _this47.wareHouseIndex = -1;
               }
             });
           }
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this47 = this;
+            var _this48 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3710,8 +4017,8 @@
             this.isAssetLoaded = true;
             this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this47.isAssetLoaded = false;
-                _this47.staffList = res ? res : [];
+                _this48.isAssetLoaded = false;
+                _this48.staffList = res ? res : [];
               }
             });
           }
@@ -3722,7 +4029,7 @@
         }, {
           key: "getAllInventory",
           value: function getAllInventory() {
-            var _this48 = this;
+            var _this49 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3733,9 +4040,9 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this48.isAssetLoaded = false;
-                _this48.inventoryCategoryList = res ? res : [];
-                _this48.tempCategoryList = _this48.inventoryCategoryList;
+                _this49.isAssetLoaded = false;
+                _this49.inventoryCategoryList = res ? res : [];
+                _this49.tempCategoryList = _this49.inventoryCategoryList;
               }
             });
           }
@@ -3752,7 +4059,7 @@
         }, {
           key: "editInventory",
           value: function editInventory(data) {
-            var _this49 = this;
+            var _this50 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -3768,20 +4075,20 @@
             params.subcategoryLookupTypeId = 175;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this49.sharedService.setAlertMessage("Inventory sub types updated successfully");
+                _this50.sharedService.setAlertMessage("Inventory sub types updated successfully");
 
-                _this49.isAssetLoaded = false;
+                _this50.isAssetLoaded = false;
 
-                _this49.getAllInventory();
+                _this50.getAllInventory();
 
-                _this49.inventoryCurrIndex = -1;
+                _this50.inventoryCurrIndex = -1;
               }
             });
           }
         }, {
           key: "getAllLocation",
           value: function getAllLocation() {
-            var _this50 = this;
+            var _this51 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3790,15 +4097,15 @@
             this.isAssetLoaded = true;
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this50.isAssetLoaded = false;
-                _this50.locationList = res ? res : [];
+                _this51.isAssetLoaded = false;
+                _this51.locationList = res ? res : [];
               }
             });
           }
         }, {
           key: "getAllMaterial",
           value: function getAllMaterial() {
-            var _this51 = this;
+            var _this52 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3808,15 +4115,15 @@
             this.isAssetLoaded = true;
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this51.isAssetLoaded = false;
-                _this51.materialList = res ? res : [];
-                _this51.tempMaterialList = _this51.materialList;
-                _this51.typeTotalItems = _this51.materialList.length;
+                _this52.isAssetLoaded = false;
+                _this52.materialList = res ? res : [];
+                _this52.tempMaterialList = _this52.materialList;
+                _this52.typeTotalItems = _this52.materialList.length;
 
-                if (_this51.typeTotalItems > _this51.typeItemLimit) {
-                  _this51.typeItemEndIndex = _this51.typeItemLimit;
+                if (_this52.typeTotalItems > _this52.typeItemLimit) {
+                  _this52.typeItemEndIndex = _this52.typeItemLimit;
                 } else {
-                  _this51.typeItemEndIndex = _this51.typeTotalItems;
+                  _this52.typeItemEndIndex = _this52.typeTotalItems;
                 }
               }
             });
@@ -3824,7 +4131,7 @@
         }, {
           key: "addMaterialType",
           value: function addMaterialType(data) {
-            var _this52 = this;
+            var _this53 = this;
 
             var reqObj = {};
             console.log(data);
@@ -3846,23 +4153,23 @@
             param.lookupvalue = reqObj;
             this.lookupService.addLookupValue(param).subscribe(function (res) {
               if (res) {
-                _this52.sharedService.setAlertMessage("Material type added successfully");
+                _this53.sharedService.setAlertMessage("Material type added successfully");
 
-                _this52.isAssetLoaded = false;
-                _this52.typeRow = {};
+                _this53.isAssetLoaded = false;
+                _this53.typeRow = {};
 
-                _this52.getAllMaterial();
+                _this53.getAllMaterial();
               } else if (res.body.errorMessage) {
-                _this52.isError = true;
-                _this52.errorMessage = 'Not Added it already exist';
-                _this52.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this53.isError = true;
+                _this53.errorMessage = 'Not Added it already exist';
+                _this53.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
         }, {
           key: "updateMaterial",
           value: function updateMaterial(data) {
-            var _this53 = this;
+            var _this54 = this;
 
             console.log(data);
             var reqObj = {};
@@ -3884,21 +4191,21 @@
             param.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(param).subscribe(function (res) {
               if (res) {
-                _this53.sharedService.setAlertMessage("Material type updated successfully");
+                _this54.sharedService.setAlertMessage("Material type updated successfully");
 
-                _this53.isAssetLoaded = false;
-                _this53.currMaterialIndex = -1;
+                _this54.isAssetLoaded = false;
+                _this54.currMaterialIndex = -1;
               } else if (res.body.errorMessage) {
-                _this53.isError = true;
-                _this53.errorMessage = 'Not Added it already exist';
-                _this53.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this54.isError = true;
+                _this54.errorMessage = 'Not Added it already exist';
+                _this54.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this54 = this;
+            var _this55 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -3918,16 +4225,16 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this54.sharedService.setAlertMessage("Category updated successfully");
+                _this55.sharedService.setAlertMessage("Category updated successfully");
 
-                _this54.isAssetLoaded = false;
-                _this54.currCatIndex = -1;
+                _this55.isAssetLoaded = false;
+                _this55.currCatIndex = -1;
 
-                _this54.getAllInventory();
+                _this55.getAllInventory();
               } else if (res.body.errorMessage) {
-                _this54.isError = true;
-                _this54.errorMessage = 'Not Added it already exist';
-                _this54.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this55.isError = true;
+                _this55.errorMessage = 'Not Added it already exist';
+                _this55.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
@@ -4236,7 +4543,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this55 = this;
+            var _this56 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4245,8 +4552,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this55.warehouseData = res && res.length > 0 ? res : [];
-                _this55.warehouseData = _this55.warehouseData.filter(function (el) {
+                _this56.warehouseData = res && res.length > 0 ? res : [];
+                _this56.warehouseData = _this56.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
               }
@@ -4255,7 +4562,7 @@
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this56 = this;
+            var _this57 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4265,7 +4572,7 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this56.materialItemData.push({
+                    _this57.materialItemData.push({
                       'id': val.materialId,
                       'itemName': val.material1
                     });
@@ -4277,7 +4584,7 @@
         }, {
           key: "addStock",
           value: function addStock() {
-            var _this57 = this;
+            var _this58 = this;
 
             var stockReqobj = {};
             stockReqobj = {
@@ -4306,22 +4613,22 @@
             params.inventoryTransaction = stockReqobj;
             this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
               if (res) {
-                _this57.sharedService.setAlertMessage("Stock Item added successfully");
+                _this58.sharedService.setAlertMessage("Stock Item added successfully");
 
-                _this57.stock = {};
-                _this57.isAssetLoaded = false; // this.getAllItem();	
+                _this58.stock = {};
+                _this58.isAssetLoaded = false; // this.getAllItem();	
 
-                _this57.selectedItem = [];
-                _this57.issuedStaffId = [];
-                _this57.inventoryList = [];
-                _this57.stock.inventoryList = '';
+                _this58.selectedItem = [];
+                _this58.issuedStaffId = [];
+                _this58.inventoryList = [];
+                _this58.stock.inventoryList = '';
               }
             });
           }
         }, {
           key: "getAvailableStock",
           value: function getAvailableStock() {
-            var _this58 = this;
+            var _this59 = this;
 
             if (!this.stock.materialId || !this.stock.warehouseId) {
               return;
@@ -4335,14 +4642,14 @@
             };
             this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
               if (res && res.length > 0) {
-                _this58.stock.availableStockQty = res[0].totalStockQty;
+                _this59.stock.availableStockQty = res[0].totalStockQty;
               }
             });
           }
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this59 = this;
+            var _this60 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4351,11 +4658,11 @@
             this.isAssetLoaded = true;
             this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this59.isAssetLoaded = false; // this.staffList = res ? res : [];
+                _this60.isAssetLoaded = false; // this.staffList = res ? res : [];
 
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this59.staffList.push({
+                    _this60.staffList.push({
                       'id': val.staffId,
                       'itemName': val.firstName
                     });
@@ -4367,7 +4674,7 @@
         }, {
           key: "getAllItem",
           value: function getAllItem() {
-            var _this60 = this;
+            var _this61 = this;
 
             if (!this.stock.warehouseId || !this.stock.materialId) {
               return;
@@ -4383,14 +4690,14 @@
             this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this60.inventoryList = res && res.length > 0 ? res : [];
-                console.log(_this60.inventoryList);
-                _this60.totalItems = _this60.inventoryList.length;
+                _this61.inventoryList = res && res.length > 0 ? res : [];
+                console.log(_this61.inventoryList);
+                _this61.totalItems = _this61.inventoryList.length;
 
-                if (_this60.totalItems > _this60.itemLimit) {
-                  _this60.ItemEndIndex = _this60.itemLimit;
+                if (_this61.totalItems > _this61.itemLimit) {
+                  _this61.ItemEndIndex = _this61.itemLimit;
                 } else {
-                  _this60.ItemEndIndex = _this60.totalItems;
+                  _this61.ItemEndIndex = _this61.totalItems;
                 }
               }
             });
@@ -4758,7 +5065,7 @@
 
       var InventoryViewComponent = /*#__PURE__*/function () {
         function InventoryViewComponent(injector, dialog, router, route, inventoryService, vendorService, lookupService, sharedService, sessionService) {
-          var _this61 = this;
+          var _this62 = this;
 
           _classCallCheck(this, InventoryViewComponent);
 
@@ -4786,7 +5093,7 @@
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-              _this61.getAllInventories();
+              _this62.getAllInventories();
             }
           });
         }
@@ -4867,87 +5174,87 @@
         }, {
           key: "getAllInventories",
           value: function getAllInventories() {
-            var _this62 = this;
+            var _this63 = this;
 
             this.isInventoryLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.inventoryService.getAllInventoryByApartmentId(params).subscribe(function (res) {
-              _this62.inventoryListData = res.filter(function (item) {
+              _this63.inventoryListData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              if (_this62.route.params['value'].id != undefined) {
-                _this62.inventoryListData = _this62.inventoryListData.filter(function (item) {
-                  return item.inventoryCategoryId == _this62.route.params['value'].id && item.isActive;
+              if (_this63.route.params['value'].id != undefined) {
+                _this63.inventoryListData = _this63.inventoryListData.filter(function (item) {
+                  return item.inventoryCategoryId == _this63.route.params['value'].id && item.isActive;
                 });
-                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this62.inventoryCategoryData, function (item, index) {
-                  if (item.lookupValueId == _this62.route.params['value'].id) {
-                    _this62.inventoryCategoryName = item.lookupValueName;
-                    _this62.inventoryCategory = item.lookupValueId;
+                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this63.inventoryCategoryData, function (item, index) {
+                  if (item.lookupValueId == _this63.route.params['value'].id) {
+                    _this63.inventoryCategoryName = item.lookupValueName;
+                    _this63.inventoryCategory = item.lookupValueId;
                   }
 
-                  _this62.isInventoryLoaded = true;
+                  _this63.isInventoryLoaded = true;
                 });
               }
 
-              _this62.totalItems = _this62.inventoryListData.length;
+              _this63.totalItems = _this63.inventoryListData.length;
 
-              if (_this62.totalItems > _this62.itemLimit) {
-                _this62.ItemEndIndex = _this62.itemLimit;
+              if (_this63.totalItems > _this63.itemLimit) {
+                _this63.ItemEndIndex = _this63.itemLimit;
               } else {
-                _this62.ItemEndIndex = _this62.totalItems;
+                _this63.ItemEndIndex = _this63.totalItems;
               }
 
-              _this62.isInventoryLoaded = true;
+              _this63.isInventoryLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this63 = this;
+            var _this64 = this;
 
             this.inventory = {};
             var params = {
               LookupTypeId: 20
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this63.inventoryCategoryData = res.filter(function (item) {
+              _this64.inventoryCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this63.getAllInventories();
+              _this64.getAllInventories();
             });
             var vendorParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-              _this63.vendorListData = res;
+              _this64.vendorListData = res;
             }); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   inventoryId: id,
-                  deleteBy: parseInt(_this63.sessionService.userId)
+                  deleteBy: parseInt(_this64.sessionService.userId)
                 };
 
-                _this63.inventoryService.deleteInventory(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this63.inventoryListData, function (type) {
+                _this64.inventoryService.deleteInventory(params).subscribe(function (res) {
+                  underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this64.inventoryListData, function (type) {
                     if (type.inventoryId == id) {
                       type.isActive = false;
                     }
                   });
                   setTimeout(function () {
-                    _this63.inventoryListData = _this63.inventoryListData.filter(function (type) {
+                    _this64.inventoryListData = _this64.inventoryListData.filter(function (type) {
                       return type.id !== id;
                     });
-                    _this63.totalItems = _this63.inventoryListData.length;
+                    _this64.totalItems = _this64.inventoryListData.length;
 
-                    _this63.sharedService.setAlertMessage("Inventory deleted");
+                    _this64.sharedService.setAlertMessage("Inventory deleted");
 
-                    _this63.sharedService.setUnitListDeleteIndex(null);
+                    _this64.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
