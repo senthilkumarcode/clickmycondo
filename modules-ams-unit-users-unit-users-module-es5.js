@@ -20396,32 +20396,19 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! src/app/shared/services/shared-toaster.service */
-      "./src/app/shared/services/shared-toaster.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! src/app/api/controllers/Apartment */
-      "./src/app/api/controllers/Apartment.ts");
 
       var UnapprovedComponent = /*#__PURE__*/function () {
-        function UnapprovedComponent(injector, dialog, router, userService, sharedService, sessionService, srvModal, apartmentService, SharedToaster) {
+        function UnapprovedComponent(injector, dialog, _activatedRoute, _router, userService, sharedService, sessionService, srvModal) {
           _classCallCheck(this, UnapprovedComponent);
 
           this.injector = injector;
           this.dialog = dialog;
-          this.router = router;
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
           this.userService = userService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.srvModal = srvModal;
-          this.apartmentService = apartmentService;
-          this.SharedToaster = SharedToaster;
           this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
           this.ItemUserStartIndex = 0;
           this.itemUserLimit = 15;
@@ -20437,8 +20424,6 @@
           this.isUserDataLoaded = false;
           this.isLogsDataLoaded = false;
           this.isProfile = false;
-          this.selectedInput = "";
-          this.columnField = {};
           this.isDefaultSelected = false;
           this.selectAllDefaulters = false;
           this.checkedList = [];
@@ -20464,16 +20449,6 @@
             this.itemUserLimit = event.itemLimit;
           }
         }, {
-          key: "onDateChange",
-          value: function onDateChange(event, type) {
-            if (event != null) {
-              this.selectedInput = type;
-              this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
-            } else {
-              this.columnField = {};
-            }
-          }
-        }, {
           key: "getBookedDate",
           value: function getBookedDate(itr, date) {
             underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.unitListData, function (obj, index) {
@@ -20486,11 +20461,6 @@
           value: function getLogIndexParams(event) {
             this.ItemLogStartIndex = event.ItemLogStartIndex;
             this.ItemLogEndIndex = event.ItemLogEndIndex;
-          }
-        }, {
-          key: "selectColInput",
-          value: function selectColInput(value) {
-            this.selectedInput = value;
           }
         }, {
           key: "getBlockNo",
@@ -20548,10 +20518,7 @@
             underscore__WEBPACK_IMPORTED_MODULE_9__["each"](allDataRecords, function (item) {
               item.checked = detail.checked;
             });
-            this.checkedList = allDataRecords; // this.isDefaultSelected = allDataRecords.some(item => {
-            //   return item.checked
-            // })
-
+            this.checkedList = allDataRecords;
             this.datagrid.refresh();
             this.getSelectedUnapprovedUser();
           }
@@ -20561,29 +20528,13 @@
             var allDataRecords = this.datagrid.getrows();
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             dataRecord.checked = detail.checked;
-            this.checkedList = allDataRecords; // this.isDefaultSelected = allDataRecords.some(item => {
-            //   return item.checked
-            // })
-
+            this.checkedList = allDataRecords;
             this.getSelectedUnapprovedUser();
           }
         }, {
           key: "isMobileView",
           value: function isMobileView() {
             return window.innerWidth <= 767 ? 'table-responsive' : '';
-          }
-        }, {
-          key: "sortUnitData",
-          value: function sortUnitData(type) {
-            this.unitFieldType = type;
-            this.unitOrder = !this.unitOrder;
-          }
-        }, {
-          key: "getFieldOrderBy",
-          value: function getFieldOrderBy(type) {
-            if (this.unitFieldType == type) {
-              return this.unitOrder ? 'desc' : 'asc';
-            } else return '';
           }
         }, {
           key: "getAllUnapprovedUser",
@@ -20655,91 +20606,40 @@
             this.modalService.showConfirmModal(id);
           }
         }, {
-          key: "showUserInfo",
-          value: function showUserInfo(user) {
-            var _this43 = this;
-
-            var userId = user.id;
-            var blockData = user.apartmentBlockUnit;
-            var userRole = user.userRole;
-            this.userService.getUserById(userId).subscribe(function (res) {
-              var userData = res[0];
-
-              if (blockData === undefined || blockData.length == 0) {
-                userData.blockNo = "Not Available";
-                userData.unitNo = "";
-              } else {
-                userData.blockNo = blockData[0].apartmentBlockNumber;
-                userData.unitNo = blockData[0].apartmentBlockUnitNumber;
-              }
-
-              if (userRole === undefined || userRole.length == 0) {
-                userData.roleName = "Not Available";
-              } else {
-                userData.roleName = userRole[0].roleName;
-              }
-
-              _this43.dialog.open(_this43.viewUnapprovedUserRef, {
-                panelClass: 'material',
-                disableClose: true,
-                data: userData
-              });
-            });
-          }
-        }, {
           key: "getParams",
           value: function getParams(event) {
             this.isProfile = event;
           }
         }, {
-          key: "selectedTab",
-          value: function selectedTab() {
-            setTimeout(function () {
-              var elem = document.querySelector('.user-info-card');
-              var scrollTo = elem.getBoundingClientRect().top - 100;
-              window.scroll({
-                top: scrollTo,
-                behavior: 'smooth'
-              });
-            }, 100);
-          }
-        }, {
           key: "viewUserInfo",
-          value: function viewUserInfo(id) {
-            var _this44 = this;
-
-            this.isProfile = false;
-            setTimeout(function () {
-              _this44.isProfile = true;
-            }, 10);
-            setTimeout(function () {
-              var elem = document.querySelector('.user-info-card');
-              var scrollTo = elem.getBoundingClientRect().top - 100;
-              window.scroll({
-                top: scrollTo,
-                behavior: 'smooth'
-              });
-            }, 100);
-            this.viewUserId = id;
-            this.router.navigate(['ams/unit&users/unapproved/basic', this.viewUserId]);
+          value: function viewUserInfo(details) {
+            this._router.navigate(['/ams/profile', 'basic'], {
+              queryParams: {
+                type: 'user',
+                id: details.userId,
+                blockId: details.blockId,
+                unitId: details.unitId,
+                unituserid: details.unituserId
+              }
+            });
           }
         }, {
           key: "showLogs",
           value: function showLogs() {
-            var _this45 = this;
+            var _this43 = this;
 
             this.isLogs = !this.isLogs;
             this.sharedService.getJsonData().subscribe(function (res) {
-              _this45.logsData = res.logsData;
-              _this45.totalLogItems = _this45.logsData.length;
+              _this43.logsData = res.logsData;
+              _this43.totalLogItems = _this43.logsData.length;
 
-              if (_this45.totalLogItems > _this45.itemLogLimit) {
-                _this45.ItemLogEndIndex = _this45.itemLogLimit;
+              if (_this43.totalLogItems > _this43.itemLogLimit) {
+                _this43.ItemLogEndIndex = _this43.itemLogLimit;
               } else {
-                _this45.ItemLogEndIndex = _this45.totalLogItems;
+                _this43.ItemLogEndIndex = _this43.totalLogItems;
               }
 
-              _this45.isLogsDataLoaded = true;
+              _this43.isLogsDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -20747,7 +20647,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this46 = this;
+            var _this44 = this;
 
             if (this.unitData != "") {
               var filtergroup = new jqx.filter();
@@ -20760,7 +20660,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this46.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this44.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -20779,13 +20679,19 @@
           key: "onviewUserInfo",
           value: function onviewUserInfo(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            this.viewUserInfo(dataRecord.id); // let unapprovedId = dataRecord.unit.idd
-            // this.modalService.showConfirmModal(unapprovedId);
+            var details = {
+              userId: dataRecord.userId,
+              blockId: dataRecord.apartmentBlockID,
+              unitId: dataRecord.apartmentBlockUnitID,
+              unituserid: dataRecord.apartmentBlockUnitUserID
+            };
+            this.sessionService.profileUserId = dataRecord.userId;
+            this.viewUserInfo(details);
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this47 = this;
+            var _this45 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -20869,24 +20775,24 @@
               if (id != null) {
                 var params = {
                   userId: id,
-                  updateUserId: parseInt(_this47.sessionService.userId)
+                  updateUserId: parseInt(_this45.sessionService.userId)
                 };
 
-                _this47.userService.deleteUserById(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this47.unitListData, function (type) {
+                _this45.userService.deleteUserById(params).subscribe(function (res) {
+                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this45.unitListData, function (type) {
                     if (type.id == id) {
                       type.active = false;
                     }
                   });
                   setTimeout(function () {
-                    _this47.unitListData = _this47.unitListData.filter(function (type) {
+                    _this45.unitListData = _this45.unitListData.filter(function (type) {
                       return type.id !== id;
                     });
-                    _this47.totalUserItems = _this47.unitListData.length;
+                    _this45.totalUserItems = _this45.unitListData.length;
 
-                    _this47.sharedService.setAlertMessage("User deleted");
+                    _this45.sharedService.setAlertMessage("User deleted");
 
-                    _this47.sharedService.setUnitListDeleteIndex(null);
+                    _this45.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -20897,7 +20803,7 @@
         }, {
           key: "getUnApprovedList",
           value: function getUnApprovedList() {
-            var _this48 = this;
+            var _this46 = this;
 
             var params = {
               apartmentID: this.sessionService.apartmentId
@@ -20905,26 +20811,24 @@
             this.userService.getAllUnApprovedUsersByApartmentIdNew(params).subscribe(function (res) {
               var unitListData = res; //filter active true items
 
-              _this48.unitListData = unitListData.filter(function (data) {
-                data.insertedOn = new Date(data.insertedOn).toLocaleDateString(); // data.apartmentBlockNumberJQ = data.apartmentBlockUnit[0].apartmentBlockNumber
-                // data.apartmentBlockUnitNumberJQ = data.apartmentBlockUnit[0].apartmentBlockUnitNumber
-
+              _this46.unitListData = unitListData.filter(function (data) {
+                data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
                 return data.active;
               });
-              _this48.gridSourceData = {
+              _this46.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this48.unitListData = new jqx.dataAdapter(_this48.gridSourceData);
-              _this48.totalUserItems = unitListData.length;
+              _this46.unitListData = new jqx.dataAdapter(_this46.gridSourceData);
+              _this46.totalUserItems = unitListData.length;
 
-              if (_this48.totalUserItems > _this48.itemUserLimit) {
-                _this48.ItemUserEndIndex = _this48.itemUserLimit;
+              if (_this46.totalUserItems > _this46.itemUserLimit) {
+                _this46.ItemUserEndIndex = _this46.itemUserLimit;
               } else {
-                _this48.ItemUserEndIndex = _this48.totalUserItems;
+                _this46.ItemUserEndIndex = _this46.totalUserItems;
               }
 
-              _this48.isUserDataLoaded = true;
+              _this46.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -20950,6 +20854,8 @@
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
@@ -20959,10 +20865,6 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
           type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]
-        }, {
-          type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]
         }];
       };
 
@@ -21008,7 +20910,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./unapproved.component.scss */
         "./src/app/modules/ams/unit-users/components/unapproved/unapproved.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]])], UnapprovedComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])], UnapprovedComponent);
 
       function showConfirmDeleteEvent(row) {
         var event = new CustomEvent('onUnapproveDelete', {
@@ -21281,7 +21183,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this49 = this;
+            var _this47 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -21353,10 +21255,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
@@ -21413,10 +21315,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -21461,10 +21363,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -21515,10 +21417,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
@@ -21569,10 +21471,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
@@ -21623,10 +21525,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
@@ -21668,10 +21570,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
@@ -21719,10 +21621,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
@@ -21765,10 +21667,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
@@ -21811,10 +21713,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
@@ -21857,10 +21759,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this49.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this49.isDataLoaded = true;
+                _this47.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this47.isDataLoaded = true;
 
-                _this49.showItems();
+                _this47.showItems();
               });
             }
           }
@@ -21881,24 +21783,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this50 = this;
+            var _this48 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this50.unitBlocksData = res;
+              _this48.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this50.route.params['value'].id;
+                return item.lookupValueId == _this48.route.params['value'].id;
               });
-              _this50.pageName = data[0].lookupValueName.replace('/', '');
-              _this50.pageDesp = data[0].description;
+              _this48.pageName = data[0].lookupValueName.replace('/', '');
+              _this48.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -22026,7 +21928,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this51 = this;
+            var _this49 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -22034,8 +21936,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this51.reportDataList = res;
-              _this51.isDataLoaded = true;
+              _this49.reportDataList = res;
+              _this49.isDataLoaded = true;
             });
           }
         }, {
@@ -22180,7 +22082,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | src-app-modules-profile-profile-area-module */
-            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~6b08c17b"), __webpack_require__.e("common"), __webpack_require__.e("modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~3dc33022"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/profile/profile-area.module */
             "./src/app/modules/profile/profile-area.module.ts")).then(function (m) {
               return m.ProfileAreaModule;

@@ -1326,6 +1326,10 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             delete item.isAdded;
             return item;
         });
+        //concat comments
+        this.invoiceGLAccountsArray.forEach(item => {
+            this.invoice.comments = this.invoice.comments + ' ' + item.comments;
+        });
         if (!this.isEditInvoice) {
             let details = {
                 "apartmentId": this.sessionService.apartmentId,
@@ -1483,6 +1487,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
         this.invoice.invoicefinalinputdiscount = 0;
         this.invoice.invoicefinaldiscountId = "";
         this.invoice.finalDiscountTypeName = "";
+        this.invoice.comments = "";
         this.invoice.isRecurCustInvoice = true;
         this.invoice.custInvoiceDate = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
         this.invoiceGLAccountsData = {};

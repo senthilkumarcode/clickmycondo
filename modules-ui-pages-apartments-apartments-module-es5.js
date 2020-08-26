@@ -218,7 +218,7 @@
         _createClass(ApartmentsComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleName == 'Admin' ? true : false;
+            return this.sessionService.roleTypeName == 'Admin' ? true : false;
           }
         }, {
           key: "getTowerName",

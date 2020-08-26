@@ -108,7 +108,7 @@ let ApartmentsComponent = class ApartmentsComponent {
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
     }
     isAdmin() {
-        return this.sessionService.roleName == 'Admin' ? true : false;
+        return this.sessionService.roleTypeName == 'Admin' ? true : false;
     }
     getTowerName(block) {
         return '23';

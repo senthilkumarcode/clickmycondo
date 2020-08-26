@@ -1412,11 +1412,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/meetings-list/meetings-list.component */ "./src/app/modules/ams/meetings/components/meetings-list/meetings-list.component.ts");
 /* harmony import */ var _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/meetings-scheduled-list/meetings-scheduled-list.component */ "./src/app/modules/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.ts");
 /* harmony import */ var _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ng-select/ng-select */ "./node_modules/@ng-select/ng-select/__ivy_ngcc__/fesm2015/ng-select-ng-select.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _components_meeting_add_minutes_meeting_add_minutes_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/meeting-add-minutes/meeting-add-minutes.component */ "./src/app/modules/ams/meetings/components/meeting-add-minutes/meeting-add-minutes.component.ts");
-/* harmony import */ var _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/meeting-edit-display/meeting-edit-display.component */ "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
-/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
-
+/* harmony import */ var _components_meeting_add_minutes_meeting_add_minutes_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/meeting-add-minutes/meeting-add-minutes.component */ "./src/app/modules/ams/meetings/components/meeting-add-minutes/meeting-add-minutes.component.ts");
+/* harmony import */ var _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/meeting-edit-display/meeting-edit-display.component */ "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 
 
 
@@ -1444,17 +1442,16 @@ MeetingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_9__["MeetingsCreateComponent"],
             _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_10__["MeetingsListComponent"],
             _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_11__["MeetingsScheduledListComponent"],
-            _components_meeting_add_minutes_meeting_add_minutes_component__WEBPACK_IMPORTED_MODULE_14__["MeetingAddMinutesComponent"],
-            _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_15__["MeetingEditDisplayComponent"]
+            _components_meeting_add_minutes_meeting_add_minutes_component__WEBPACK_IMPORTED_MODULE_13__["MeetingAddMinutesComponent"],
+            _components_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_14__["MeetingEditDisplayComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_12__["NgSelectModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_13__["FormsModule"],
             _meetings_routing_module__WEBPACK_IMPORTED_MODULE_3__["MeetingsRoutingModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__["SelectModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_15__["SelectModule"]
         ],
         bootstrap: [_meetings_component__WEBPACK_IMPORTED_MODULE_6__["MeetingsComponent"]]
     })

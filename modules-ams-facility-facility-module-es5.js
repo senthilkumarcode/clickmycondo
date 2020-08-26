@@ -1488,37 +1488,31 @@
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-      /* harmony import */
-
-
-      var _components_facility_reject_action_facility_reject_action_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_facility_reject_action_facility_reject_action_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/facility-reject-action/facility-reject-action.component */
       "./src/app/modules/ams/facility/components/facility-reject-action/facility-reject-action.component.ts");
       /* harmony import */
 
 
-      var _components_facility_reject_confirmation_modal_facility_reject_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_facility_reject_confirmation_modal_facility_reject_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/facility-reject-confirmation-modal/facility-reject-confirmation-modal.component */
       "./src/app/modules/ams/facility/components/facility-reject-confirmation-modal/facility-reject-confirmation-modal.component.ts");
       /* harmony import */
 
 
-      var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/facility-calender/facility-calender.component */
       "./src/app/modules/ams/facility/components/facility-calender/facility-calender.component.ts");
       /* harmony import */
 
 
-      var _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/facility-list/facility-list.component */
       "./src/app/modules/ams/facility/components/facility-list/facility-list.component.ts");
       /* harmony import */
 
 
-      var _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/facility-create/facility-create.component */
       "./src/app/modules/ams/facility/components/facility-create/facility-create.component.ts");
 
@@ -1527,8 +1521,8 @@
       };
 
       FacilityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_7__["FacilityReportsComponent"], _facility_component__WEBPACK_IMPORTED_MODULE_6__["FacilityComponent"], _components_facility_reject_action_facility_reject_action_component__WEBPACK_IMPORTED_MODULE_10__["FacilityRejectActionComponent"], _components_facility_reject_confirmation_modal_facility_reject_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_11__["FacilityRejectConfirmationModalComponent"], _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_12__["FacilityCalenderComponent"], _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_13__["FacilityListComponent"], _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_14__["FacilityCreateComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_8__["NgSelectModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _facility_routing_module__WEBPACK_IMPORTED_MODULE_3__["FacilityRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"]],
+        declarations: [_components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_7__["FacilityReportsComponent"], _facility_component__WEBPACK_IMPORTED_MODULE_6__["FacilityComponent"], _components_facility_reject_action_facility_reject_action_component__WEBPACK_IMPORTED_MODULE_9__["FacilityRejectActionComponent"], _components_facility_reject_confirmation_modal_facility_reject_confirmation_modal_component__WEBPACK_IMPORTED_MODULE_10__["FacilityRejectConfirmationModalComponent"], _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_11__["FacilityCalenderComponent"], _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_12__["FacilityListComponent"], _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_13__["FacilityCreateComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _ng_select_ng_select__WEBPACK_IMPORTED_MODULE_8__["NgSelectModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _facility_routing_module__WEBPACK_IMPORTED_MODULE_3__["FacilityRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"]],
         bootstrap: [_facility_component__WEBPACK_IMPORTED_MODULE_6__["FacilityComponent"]]
       })], FacilityModule);
       /***/

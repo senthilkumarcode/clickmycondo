@@ -10142,10 +10142,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-
-
 
 
 
@@ -10158,16 +10154,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UnapprovedComponent = class UnapprovedComponent {
-    constructor(injector, dialog, router, userService, sharedService, sessionService, srvModal, apartmentService, SharedToaster) {
+    constructor(injector, dialog, _activatedRoute, _router, userService, sharedService, sessionService, srvModal) {
         this.injector = injector;
         this.dialog = dialog;
-        this.router = router;
+        this._activatedRoute = _activatedRoute;
+        this._router = _router;
         this.userService = userService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.srvModal = srvModal;
-        this.apartmentService = apartmentService;
-        this.SharedToaster = SharedToaster;
         this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
         this.ItemUserStartIndex = 0;
         this.itemUserLimit = 15;
@@ -10183,8 +10178,6 @@ let UnapprovedComponent = class UnapprovedComponent {
         this.isUserDataLoaded = false;
         this.isLogsDataLoaded = false;
         this.isProfile = false;
-        this.selectedInput = "";
-        this.columnField = {};
         this.isDefaultSelected = false;
         this.selectAllDefaulters = false;
         this.checkedList = [];
@@ -10202,15 +10195,6 @@ let UnapprovedComponent = class UnapprovedComponent {
         this.ItemUserEndIndex = event.ItemEndIndex;
         this.itemUserLimit = event.itemLimit;
     }
-    onDateChange(event, type) {
-        if (event != null) {
-            this.selectedInput = type;
-            this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_10__(event).format("DD/MM/YYYY");
-        }
-        else {
-            this.columnField = {};
-        }
-    }
     getBookedDate(itr, date) {
         underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.unitListData, (obj, index) => {
             obj.facilityBookedForDate = moment__WEBPACK_IMPORTED_MODULE_10__(obj.bookedForDate).format("DD/MM/YYYY");
@@ -10220,9 +10204,6 @@ let UnapprovedComponent = class UnapprovedComponent {
     getLogIndexParams(event) {
         this.ItemLogStartIndex = event.ItemLogStartIndex;
         this.ItemLogEndIndex = event.ItemLogEndIndex;
-    }
-    selectColInput(value) {
-        this.selectedInput = value;
     }
     getBlockNo(item, data) {
         this.unitListData.map(obj => {
@@ -10275,9 +10256,6 @@ let UnapprovedComponent = class UnapprovedComponent {
             item.checked = detail.checked;
         });
         this.checkedList = allDataRecords;
-        // this.isDefaultSelected = allDataRecords.some(item => {
-        //   return item.checked
-        // })
         this.datagrid.refresh();
         this.getSelectedUnapprovedUser();
     }
@@ -10286,24 +10264,10 @@ let UnapprovedComponent = class UnapprovedComponent {
         var dataRecord = this.datagrid.getrowdata(detail.rowId);
         dataRecord.checked = detail.checked;
         this.checkedList = allDataRecords;
-        // this.isDefaultSelected = allDataRecords.some(item => {
-        //   return item.checked
-        // })
         this.getSelectedUnapprovedUser();
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'desc' : 'asc';
-        }
-        else
-            return '';
     }
     getAllUnapprovedUser() {
         if (this.selectAllUnapprovedUser) {
@@ -10362,61 +10326,11 @@ let UnapprovedComponent = class UnapprovedComponent {
     showConfirmModal(id) {
         this.modalService.showConfirmModal(id);
     }
-    showUserInfo(user) {
-        var userId = user.id;
-        var blockData = user.apartmentBlockUnit;
-        var userRole = user.userRole;
-        this.userService.getUserById(userId).subscribe((res) => {
-            var userData = res[0];
-            if (blockData === undefined || blockData.length == 0) {
-                userData.blockNo = "Not Available";
-                userData.unitNo = "";
-            }
-            else {
-                userData.blockNo = blockData[0].apartmentBlockNumber;
-                userData.unitNo = blockData[0].apartmentBlockUnitNumber;
-            }
-            if (userRole === undefined || userRole.length == 0) {
-                userData.roleName = "Not Available";
-            }
-            else {
-                userData.roleName = userRole[0].roleName;
-            }
-            this.dialog.open(this.viewUnapprovedUserRef, {
-                panelClass: 'material',
-                disableClose: true,
-                data: userData
-            });
-        });
-    }
     getParams(event) {
         this.isProfile = event;
     }
-    selectedTab() {
-        setTimeout(() => {
-            var elem = document.querySelector('.user-info-card');
-            var scrollTo = elem.getBoundingClientRect().top - 100;
-            window.scroll({
-                top: scrollTo,
-                behavior: 'smooth'
-            });
-        }, 100);
-    }
-    viewUserInfo(id) {
-        this.isProfile = false;
-        setTimeout(() => {
-            this.isProfile = true;
-        }, 10);
-        setTimeout(() => {
-            var elem = document.querySelector('.user-info-card');
-            var scrollTo = elem.getBoundingClientRect().top - 100;
-            window.scroll({
-                top: scrollTo,
-                behavior: 'smooth'
-            });
-        }, 100);
-        this.viewUserId = id;
-        this.router.navigate(['ams/unit&users/unapproved/basic', this.viewUserId]);
+    viewUserInfo(details) {
+        this._router.navigate(['/ams/profile', 'basic'], { queryParams: { type: 'user', id: details.userId, blockId: details.blockId, unitId: details.unitId, unituserid: details.unituserId } });
     }
     showLogs() {
         this.isLogs = !this.isLogs;
@@ -10462,9 +10376,14 @@ let UnapprovedComponent = class UnapprovedComponent {
     }
     onviewUserInfo(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        this.viewUserInfo(dataRecord.id);
-        // let unapprovedId = dataRecord.unit.idd
-        // this.modalService.showConfirmModal(unapprovedId);
+        var details = {
+            userId: dataRecord.userId,
+            blockId: dataRecord.apartmentBlockID,
+            unitId: dataRecord.apartmentBlockUnitID,
+            unituserid: dataRecord.apartmentBlockUnitUserID
+        };
+        this.sessionService.profileUserId = dataRecord.userId;
+        this.viewUserInfo(details);
     }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
@@ -10592,8 +10511,6 @@ let UnapprovedComponent = class UnapprovedComponent {
             //filter active true items
             this.unitListData = unitListData.filter(data => {
                 data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
-                // data.apartmentBlockNumberJQ = data.apartmentBlockUnit[0].apartmentBlockNumber
-                // data.apartmentBlockUnitNumberJQ = data.apartmentBlockUnit[0].apartmentBlockUnitNumber
                 return data.active;
             });
             this.gridSourceData = {
@@ -10623,13 +10540,12 @@ let UnapprovedComponent = class UnapprovedComponent {
 UnapprovedComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
-    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"] },
-    { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"] }
+    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"] }
 ];
 UnapprovedComponent.propDecorators = {
     viewUnapprovedUserRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["viewUnapprovedUserRef", { static: false },] }],
@@ -10648,13 +10564,12 @@ UnapprovedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
-        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"],
-        src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]])
+        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])
 ], UnapprovedComponent);
 
 function showConfirmDeleteEvent(row) {
@@ -11652,7 +11567,7 @@ const routes = [
                 resolve: {
                     initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_10__["ProfileResolversService"]
                 },
-                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~6b08c17b"), __webpack_require__.e("common"), __webpack_require__.e("modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
+                loadChildren: () => Promise.all(/*! import() | src-app-modules-profile-profile-area-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~3dc33022"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/profile/profile-area.module */ "./src/app/modules/profile/profile-area.module.ts")).then(m => m.ProfileAreaModule) },
         ]
     },
     { path: 'add-users', component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"] },

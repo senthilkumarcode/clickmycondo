@@ -1659,6 +1659,10 @@
               item.apartmentBlockUnitId = _this3.apartmentBlockUnitId;
               delete item.isAdded;
               return item;
+            }); //concat comments
+
+            this.invoiceGLAccountsArray.forEach(function (item) {
+              _this3.invoice.comments = _this3.invoice.comments + ' ' + item.comments;
             });
 
             if (!this.isEditInvoice) {
@@ -1833,6 +1837,7 @@
             this.invoice.invoicefinalinputdiscount = 0;
             this.invoice.invoicefinaldiscountId = "";
             this.invoice.finalDiscountTypeName = "";
+            this.invoice.comments = "";
             this.invoice.isRecurCustInvoice = true;
             this.invoice.custInvoiceDate = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
             this.invoiceGLAccountsData = {};
