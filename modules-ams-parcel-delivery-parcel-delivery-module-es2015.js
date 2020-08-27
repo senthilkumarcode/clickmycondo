@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n    <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\"\n      novalidate>\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n\n      <div class=\"bg-card shadow\">\n        <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n        <ng-container *ngIf=\"isPackageCreated\">\n\n            <div class=\"row\">\n\n              </div>\n\n          <div class=\"row clear\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\" [value]=\"item.lookupValueId\"\n                    type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n                <div class=\"select-box\">\n                  <label>Block No*</label>\n                  <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" [ngModelOptions]=\"{standalone: true}\" (ngModelChange)=\"getUnits('change')\" >\n                    <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-sm-4\">\n                <div class=\"select-box\">\n                  <label>Unit No*</label>\n                  <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"delivery.apartmentUnitId\" [ngModelOptions]=\"{standalone: true}\" (change)=\"getPrimaryName()\">\n                    <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-sm-4\">\n                <div class=\"input-box\">\n                  <label>Primary Name *</label>\n                  <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\">\n                </div>\n              </div>\n              \n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\" fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"packageTypes\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n            </div>\n            \n            <div class=\"col-sm-4\">\n                <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\" fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\"\n                  [fieldRequired]=\"'required'\" [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\"  fieldValue=\"lookupValueName\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n              </div>\n  \n          </div>\n\n          <div class=\"row\">\n           \n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\" fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\"\n                [fieldRequired]=\"'required'\" [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\" [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\"\n                [fieldList]=\"deliverySlots\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n                <div class=\"input-box upload-box\">\n                  <label *ngIf=\"isAssetImageNotAvailable()\">Upload File *</label>\n                  <label *ngIf=\"!isAssetImageNotAvailable()\">Image/Document</label>\n  \n                  <ng-container *ngIf=\"isFileDetailsAvailable\">\n  \n                    <ng-container *ngIf=\"isImageUploaded\">\n                      <div class=\"preview-wrapper\">\n                        <div class=\"icon-wrapper\">\n                          <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                        </div>\n                        <figure class=\"preview-img\">\n                          <img class=\"img-fluid\" [src]=\"fileUrl\" id=\"assetImage\">\n                        </figure>\n                      </div>\n                    </ng-container>\n  \n                    <ng-container *ngIf=\"!isImageUploaded\">\n                      <div class=\"file-desp\">\n                        <span class=\"name mr-3\">\n                          <a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n                        </span>\n                        <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                      </div>\n                    </ng-container>\n  \n                  </ng-container>\n  \n  \n                  <div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n                    <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n                    <div class=\"attachfiles-normal\">\n                      <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                      <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a>\n                      to add attachment\n                    </div>\n                  </div>\n                  <div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n                    <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\" [style.width.%]=\"uploadResponse.message\"\n                      aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n  \n  \n                </div>\n              </div>\n            \n          </div>\n\n          <div class=\"row\">\n        \n\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\" [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n        </ng-container>\n\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"list-inline float-right mt-4\">\n              <button class=\"btn blue mr-2\" [disabled]=\"createPackageForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n            </div>\n          </div>\n        </div>\n\n      </div>\n\n    </form>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n\n    <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n    <ng-container *ngIf=\"isPackageCreated\">\n\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n      <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\" novalidate>\n\n        <div class=\"bg-card shadow\">\n\n          <div class=\"row\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\" [value]=\"item.lookupValueId\"\n                    type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select \n                labelText=\"Block No\"\n                fieldPlaceholder=\"Select Block\"\n                [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockData\"\n                fieldValue=\"apartmentBlockNumber\"\n                [fieldModel]=\"package.apartmentBlockId\"\n                fieldId=\"apartmentBlockId\"\n                (fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t  ></condo-select>\n            </div>\n            <div class=\"col-sm-4\">\n              <condo-select \n                labelText=\"Unit No\"\n                fieldPlaceholder=\"Select Unit\"\n                [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockUnitData\"\n                fieldValue=\"apartmentBlockUnitNumber\"\n                [fieldModel]=\"package.apartmentBlockUnitId\"\n                fieldId=\"apartmentBlockUnitId\"\n                [isDisabled]=\"!isBlockSelected\"\n                (fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t  ></condo-select>\n               \n            </div>\n              <div class=\"col-sm-4\">\n                <div class=\"input-box\">\n                  <label>Primary Name *</label>\n                  <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"package.primaryName\">\n                </div>\n              </div>\n              \n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\" fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"packageTypes\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n            </div>\n            \n            <div class=\"col-sm-4\">\n                <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\" fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\"\n                  [fieldRequired]=\"'required'\" [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\"  fieldValue=\"lookupValueName\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n              </div>\n  \n          </div>\n\n          <div class=\"row\">\n           \n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\" fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\"\n                [fieldRequired]=\"'required'\" [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\" [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\"\n                [fieldList]=\"deliverySlots\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\"></condo-select>\n            </div>\n\n            \n            \n          </div>\n\n          <div class=\"row\">\n            \n            <div class=\"col-sm-6\">\n              <app-upload\n\t\t\t\t\t\t\t\t\t[fileId]=\"package.packageImageId\"\n\t\t\t\t\t\t\t\t\t(fileIdChanged)=\"getFileId($event)\"\n\t\t\t\t\t\t\t\t></app-upload>\n            </div>\n\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\" [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"d-flex justify-flex-end\">\n          <div class=\"ml-auto\">\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" *ngIf=\"!isEditPackage\">Submit</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" *ngIf=\"isEditPackage\">Update</button>\n          </div>\n        </div>\n\n      </form>\n\n    </ng-container>\n\n  </div>\n</div>");
 
 /***/ }),
 
@@ -136,20 +136,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
-/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
-/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
-/* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var _api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../../../../api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 
 
 
-
-
-
-
-// import { SharedService } from 'src/app/api/shared/services/shared.service';
 
 
 
@@ -159,93 +150,118 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CreatePackageComponent = class CreatePackageComponent {
-    constructor(router, route, sanitizer, staffService, packageService, lookupService, apartmentService, 
-    // private sharedService:SharedService,
-    sessionService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sharedService, accountsService) {
+    constructor(router, route, staffService, packageService, lookupService, apartmentService, sessionService, constantsService, sharedService, accountsService) {
         this.router = router;
         this.route = route;
-        this.sanitizer = sanitizer;
         this.staffService = staffService;
         this.packageService = packageService;
         this.lookupService = lookupService;
         this.apartmentService = apartmentService;
         this.sessionService = sessionService;
-        this.fileUploadService = fileUploadService;
-        this.fileDownloadService = fileDownloadService;
-        this.fileDetailsService = fileDetailsService;
         this.constantsService = constantsService;
         this.sharedService = sharedService;
         this.accountsService = accountsService;
-        this.isEdit = false;
-        this.isError = false;
-        this.isPackageCreated = true;
-        this.isFileDetailsAvailable = false;
-        this.fileUrl = '';
-        this.isImageUploaded = false;
-        this.isFileAdded = false;
-        this.fileList = [];
-        this.listOfFiles = [];
+        this.isPackageCreated = false;
         this.isEditPackage = false;
-        this.apartmentBlockId = null;
-        this.apartmentBlockUnitId = null;
+        this.isBlockSelected = false;
         this.deliveryData = {};
-        this.towerList = [];
-        this.unitList = [];
-        this.params = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.package = {};
-        this.block = {
-            blockId: null,
-            primaryName: ''
-        };
-        this.delivery = {
-            apartmentUnitId: null
-        };
     }
-    // submitPackageForm(form){
-    //     let package_data = {
-    //       "apartmentId": this.sessionService.apartmentId,
-    //       apartmentBlockUnitId:this.packageData.BlockUnitId,
-    //       "packageTypeId": this.packageData.Type,
-    //       "slot": this.packageData.Slot,
-    //       "deliveryTypeId": this.packageData.Deliverytype,
-    //       "deliveryDate": new Date().toISOString(),
-    //       assignedTo: this.packageData.Staff,
-    //       description: this.packageData.Comments,
-    //       "receivedBy": parseInt(this.sessionService.userId),
-    //       "deliveryStatusId": 986,
-    //       "isActive": true,
-    //       "insertedBy": parseInt(this.sessionService.userId),
-    //       "insertedOn": new Date().toISOString(),
-    //       "updatedBy": 0,
-    //       "updatedOn": null
-    //     }
-    //     const params:any = {
-    //       utilityTrackerElectricityPeriod: package_data
-    //     }
-    //     this.packageService.addPackage(params ).subscribe((package_res:any) =>{
-    //     })
-    // }
+    getSelectedBlock(event) {
+        this.package.apartmentBlockId = event[0].apartmentBlockId;
+        if (this.package.apartmentBlockId != null) {
+            this.getUnits();
+        }
+    }
+    getUnits() {
+        let params = {
+            apartmentBlockId: this.package.apartmentBlockId
+        };
+        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
+            this.blockUnitData = res;
+            this.isBlockSelected = true;
+        });
+    }
+    getPrimaryName() {
+        const data = this.blockUnitData.filter(unit => unit.apartmentBlockUnitId === this.sessionService.apartmentBlockUnitID);
+        if (data.length > 0)
+            this.package.primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;
+        else
+            this.package.primaryName = '';
+    }
+    getSelectedBlockUnit(event) {
+        this.package.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
+    }
+    getSelectedDeliveryType(event) {
+        this.package.deliveryTypeId = event[0].lookupValueId;
+    }
+    getSelectedType(event) {
+        this.package.packageTypeId = event[0].lookupValueId;
+    }
+    getSelectedStaff(event) {
+        this.package.assignedTo = event[0].staffId;
+    }
+    getSelectedSlot(event) {
+        this.package.slotId = event[0].lookupValueId;
+        this.package.slotName = event[0].lookupValueName;
+    }
+    getFileId(event) {
+        this.package.packageImageId = event;
+    }
+    submitAddPackageForm(form) {
+        if (!this.isEditPackage) {
+            const addPackageDetails = {
+                apartmentId: this.sessionService.apartmentId,
+                rno: 0,
+                apartmentBlockUnitId: this.package.apartmentBlockUnitId,
+                recieverTypeId: this.packageData.ReceiverType,
+                packageTypeId: this.package.packageTypeId,
+                slot: this.package.slotName,
+                deliveryTypeId: parseInt(this.package.deliveryTypeId),
+                deliveryDate: new Date().toISOString(),
+                assignedTo: this.package.assignedTo,
+                description: this.packageData.Comments,
+                receivedBy: this.sessionService.userId,
+                deliveryStatusId: 986,
+                isActive: true,
+                attachment1: this.package.packageImageId,
+                attachment2: this.package.packageImageId,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                updatedBy: null,
+                updatedOn: null
+            };
+            const addPackageParams = {
+                Package: addPackageDetails
+            };
+            this.packageService.addPackage(addPackageParams).subscribe((res) => {
+                if (res.message) {
+                    this.sharedService.setAlertMessage('package added successfully');
+                }
+                else {
+                }
+            }, error => {
+            });
+        }
+        else {
+        }
+    }
     ngOnInit() {
         this.packageData = {};
         this.packageData.Deliverytype = '';
         this.packageData.Staff = '';
         this.packageData.Slot = '';
         this.packageData.Slot = '';
+        this.package = {};
         this.package.deliveryTypeId = '';
         this.package.packageTypeId = '';
         this.package.assignedTo = '';
         this.package.slotId = '';
         this.package.slotName = '';
-        this.package.packageImageId = 0;
-        this.asset = {};
-        this.uploadResponse = { status: '', message: '', fileId: null };
-        this.asset = {};
-        this.asset.assetCategoryId = '';
-        this.asset.assetImageId = null;
+        const staffParams = {
+            apartmentId: this.sessionService.apartmentId
+        };
         // staff type
-        this.staffService.getAllStaffsByApartmentId(this.params).subscribe((res) => {
+        this.staffService.getAllStaffsByApartmentId(staffParams).subscribe((res) => {
             this.staffListData = res.filter(data => {
                 return data.isActive;
             });
@@ -257,7 +273,6 @@ let CreatePackageComponent = class CreatePackageComponent {
             this.packageTypes = res.filter(item => {
                 return item.isActive;
             });
-            console.log(this.packageTypes);
         }, error => {
         });
         const deliveryTypeParams = {
@@ -294,189 +309,28 @@ let CreatePackageComponent = class CreatePackageComponent {
             this.receiverType = res.filter(item => {
                 return item.isActive;
             });
+            this.isPackageCreated = true;
         }, error => {
         });
         const tower = {
             apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(tower).subscribe((res) => {
-            this.towerList = res;
+            this.blockData = res;
         });
-    }
-    getSelectedBlock(event) {
-        this.apartmentBlockId = event[0].apartmentBlockId;
-        // this.getUnits();
-    }
-    getUnits(type) {
-        if (type === 'change')
-            this.delivery.apartmentUnitId = null;
-        const params = {
-            apartmentBlockId: this.block.blockId
-        };
-        this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
-            this.unitList = res;
-            this.getPrimaryName();
-        });
-    }
-    getSelectedBlockUnit(event) {
-        this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
-    }
-    getPrimaryName() {
-        const data = this.unitList.filter(unit => unit.apartmentBlockUnitId === this.sessionService.apartmentBlockUnitID);
-        if (data.length > 0)
-            this.block.primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;
-        else
-            this.block.primaryName = '';
-    }
-    getSelectedDeliveryType(event) {
-        this.package.deliveryTypeId = event[0].lookupValueId;
-    }
-    getSelectedType(event) {
-        this.package.packageTypeId = event[0].lookupValueId;
-    }
-    getSelectedStaff(event) {
-        this.package.assignedTo = event[0].staffId;
-    }
-    getSelectedSlot(event) {
-        this.package.slotId = event[0].lookupValueId;
-        this.package.slotName = event[0].lookupValueName;
-    }
-    isUploadProgess() {
-        return this.uploadResponse.status === 'progress' ? true : false;
-    }
-    isUploadCompleted() {
-        return this.uploadResponse.status === 'completed' ? true : false;
-    }
-    isAssetImageNotAvailable() {
-        return this.asset.assetImageId == null ? true : false;
-    }
-    uploadFile(event) {
-        const file = event[0];
-        const userId = parseInt(this.sessionService.userId);
-        this.fileUploadService.upload(file, userId).subscribe((res) => {
-            if (res !== undefined) {
-                this.uploadResponse = res;
-            }
-            if (this.isUploadCompleted()) {
-                this.asset.assetImageId = this.uploadResponse.fileId;
-                this.package.packageImageId = this.uploadResponse.fileId;
-                const newParams = {
-                    fileDetailsId: this.uploadResponse.fileId,
-                    apartmentId: Number(this.sessionService.apartmentId)
-                };
-                this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
-                    this.filePath = res[0].filePath;
-                    this.downloadFile(this.filePath);
-                });
-            }
-        });
-    }
-    downloadFile(filePath) {
-        this.fileDownloadService.downloadFile(filePath).subscribe((res) => {
-            this.isFileDetailsAvailable = true;
-            const splitFile = filePath.split('.');
-            const ext = splitFile[1].replace(/^/, '.');
-            this.isImageUploaded = this.constantsService.imageFormats.includes(ext);
-            const blob = res.body;
-            const objectURL = URL.createObjectURL(blob);
-            const sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-            this.fileUrl = sanitizeUrl;
-        });
-    }
-    deleteFile() {
-        const details = {
-            fileDetailsId: this.asset.assetImageId,
-            fileName: this.filePath,
-            filePath: this.filePath,
-            fileSize: 0,
-            description: this.filePath,
-            isActive: true,
-            insertedBy: parseInt(this.sessionService.userId),
-            insertedOn: new Date().toISOString(),
-            updatedBy: null,
-            updatedOn: null,
-            apartmentId: this.sessionService.apartmentId
-        };
-        const params = {
-            fileDetails: details
-        };
-        this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
-            this.isFileDetailsAvailable = false;
-            this.uploadResponse = { status: '', message: '', fileId: null };
-            this.asset.assetImageId = this.uploadResponse.fileId;
-        });
-    }
-    bytesToSize(bytes) {
-        if (bytes < 1024)
-            return bytes + ' Bytes';
-        else if (bytes < 1048576)
-            return (bytes / 1024).toFixed(3) + ' KB';
-        else if (bytes < 1073741824)
-            return (bytes / 1048576).toFixed(3) + ' MB';
-        else
-            return (bytes / 1073741824).toFixed(3) + ' GB';
-    }
-    submitAddPackageForm(form) {
-        if (!this.isEditPackage) {
-            const addPackageDetails = {
-                apartmentId: this.sessionService.apartmentId,
-                rno: 0,
-                apartmentBlockUnitId: this.sessionService.apartmentBlockUnitID,
-                recieverTypeId: this.packageData.ReceiverType,
-                packageTypeId: this.package.packageTypeId,
-                slot: this.package.slotName,
-                // tslint:disable-next-line:radix
-                deliveryTypeId: parseInt(this.package.deliveryTypeId),
-                deliveryDate: new Date().toISOString(),
-                assignedTo: this.package.assignedTo,
-                description: this.packageData.Comments,
-                // tslint:disable-next-line:radix
-                receivedBy: this.sessionService.userId,
-                deliveryStatusId: 986,
-                isActive: true,
-                attachment1: this.package.packageImageId,
-                attachment2: this.package.packageImageId,
-                // tslint:disable-next-line:radix
-                insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
-                // tslint:disable-next-line:radix
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString()
-            };
-            const addPackageParams = {
-                Package: addPackageDetails
-            };
-            this.packageService.addPackage(addPackageParams).subscribe((res) => {
-                if (res.message) {
-                    this.sharedService.setAlertMessage('package added successfully');
-                    // this.router.navigate(['ams/assets/view']);
-                }
-                else {
-                    this.isError = true;
-                }
-            }, error => {
-                this.isError = true;
-            });
-        }
-        else {
-        }
     }
 };
 CreatePackageComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
     { type: src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
-    { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_11__["FileUploadService"] },
-    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"] },
-    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"] },
     { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"] },
-    { type: _api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_14__["AccountsService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__["AccountsService"] }
 ];
 CreatePackageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -486,18 +340,14 @@ CreatePackageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
         src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
-        src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_11__["FileUploadService"],
-        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"],
-        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"],
         src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"],
-        _api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_14__["AccountsService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__["AccountsService"]])
 ], CreatePackageComponent);
 
 
@@ -2228,17 +2078,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _parcel_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parcel-routing.module */ "./src/app/modules/ams/parcel-delivery/parcel-routing.module.ts");
-/* harmony import */ var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/create-package/create-package.component */ "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
-/* harmony import */ var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/delivery-history/delivery-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
-/* harmony import */ var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/delivery-setup/delivery-setup.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
-/* harmony import */ var _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/pending-delivery/pending-delivery.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery/pending-delivery.component.ts");
-/* harmony import */ var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-/* harmony import */ var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
-/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
-/* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
-/* harmony import */ var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/delivery-history/delivery-view-history/delivery-view-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-view-history/delivery-view-history.component.ts");
-/* harmony import */ var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/pending-delivery-edit/pending-delivery-edit.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.ts");
-/* harmony import */ var _parcel_delivery_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./parcel-delivery.component */ "./src/app/modules/ams/parcel-delivery/parcel-delivery.component.ts");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
+/* harmony import */ var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/upload/upload.module */ "./src/app/modules/ui/upload/upload.module.ts");
+/* harmony import */ var _parcel_delivery_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./parcel-delivery.component */ "./src/app/modules/ams/parcel-delivery/parcel-delivery.component.ts");
+/* harmony import */ var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/create-package/create-package.component */ "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
+/* harmony import */ var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/delivery-history/delivery-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
+/* harmony import */ var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/delivery-setup/delivery-setup.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
+/* harmony import */ var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
+/* harmony import */ var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/delivery-history/delivery-view-history/delivery-view-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-view-history/delivery-view-history.component.ts");
+/* harmony import */ var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/pending-delivery-edit/pending-delivery-edit.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.ts");
 
 
 
@@ -2260,23 +2110,24 @@ let ParcelDeliveryModule = class ParcelDeliveryModule {
 ParcelDeliveryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_5__["CreatePackageComponent"],
-            _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_6__["DeliveryHistoryComponent"],
-            _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_7__["DeliverySetupComponent"],
-            _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_8__["PendingDeliveryComponent"],
-            _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_10__["DeliverySetupAddCategoryComponent"],
-            _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_13__["DeliveryViewHistoryComponent"],
-            _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_14__["PendingDeliveryEditComponent"]
+            _parcel_delivery_component__WEBPACK_IMPORTED_MODULE_9__["ParcelDeliveryComponent"],
+            _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_10__["CreatePackageComponent"],
+            _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_11__["DeliveryHistoryComponent"],
+            _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_12__["DeliverySetupComponent"],
+            _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_13__["DeliverySetupAddCategoryComponent"],
+            _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_14__["DeliveryViewHistoryComponent"],
+            _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_15__["PendingDeliveryEditComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
             _parcel_routing_module__WEBPACK_IMPORTED_MODULE_4__["ParcelRoutingModule"],
-            _ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_11__["SelectModule"],
-            src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_12__["ListModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"],
+            src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_7__["ListModule"],
+            src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_8__["UploadModule"]
         ],
-        bootstrap: [_parcel_delivery_component__WEBPACK_IMPORTED_MODULE_15__["ParcelDeliveryComponent"]]
+        bootstrap: [_parcel_delivery_component__WEBPACK_IMPORTED_MODULE_9__["ParcelDeliveryComponent"]]
     })
 ], ParcelDeliveryModule);
 
@@ -2330,8 +2181,7 @@ const routes = [
             }
         ] },
     { path: 'delivery-manage', component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__["DeliveryHistoryComponent"] },
-    { path: 'delivery-pending', component: _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_6__["PendingDeliveryComponent"],
-    },
+    { path: 'delivery-pending', component: _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_6__["PendingDeliveryComponent"] },
     { path: 'delivery-setup', component: _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_5__["DeliverySetupComponent"],
         children: [
             {

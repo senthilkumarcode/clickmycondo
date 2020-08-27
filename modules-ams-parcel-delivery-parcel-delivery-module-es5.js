@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n    <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\"\n      novalidate>\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n\n      <div class=\"bg-card shadow\">\n        <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n        <ng-container *ngIf=\"isPackageCreated\">\n\n            <div class=\"row\">\n\n              </div>\n\n          <div class=\"row clear\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\" [value]=\"item.lookupValueId\"\n                    type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n                <div class=\"select-box\">\n                  <label>Block No*</label>\n                  <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" [ngModelOptions]=\"{standalone: true}\" (ngModelChange)=\"getUnits('change')\" >\n                    <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-sm-4\">\n                <div class=\"select-box\">\n                  <label>Unit No*</label>\n                  <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"delivery.apartmentUnitId\" [ngModelOptions]=\"{standalone: true}\" (change)=\"getPrimaryName()\">\n                    <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                  </select>\n                </div>\n              </div>\n              <div class=\"col-sm-4\">\n                <div class=\"input-box\">\n                  <label>Primary Name *</label>\n                  <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\">\n                </div>\n              </div>\n              \n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\" fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"packageTypes\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n            </div>\n            \n            <div class=\"col-sm-4\">\n                <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\" fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\"\n                  [fieldRequired]=\"'required'\" [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\"  fieldValue=\"lookupValueName\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n              </div>\n  \n          </div>\n\n          <div class=\"row\">\n           \n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\" fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\"\n                [fieldRequired]=\"'required'\" [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\" [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\"\n                [fieldList]=\"deliverySlots\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n                <div class=\"input-box upload-box\">\n                  <label *ngIf=\"isAssetImageNotAvailable()\">Upload File *</label>\n                  <label *ngIf=\"!isAssetImageNotAvailable()\">Image/Document</label>\n  \n                  <ng-container *ngIf=\"isFileDetailsAvailable\">\n  \n                    <ng-container *ngIf=\"isImageUploaded\">\n                      <div class=\"preview-wrapper\">\n                        <div class=\"icon-wrapper\">\n                          <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                        </div>\n                        <figure class=\"preview-img\">\n                          <img class=\"img-fluid\" [src]=\"fileUrl\" id=\"assetImage\">\n                        </figure>\n                      </div>\n                    </ng-container>\n  \n                    <ng-container *ngIf=\"!isImageUploaded\">\n                      <div class=\"file-desp\">\n                        <span class=\"name mr-3\">\n                          <a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n                        </span>\n                        <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                      </div>\n                    </ng-container>\n  \n                  </ng-container>\n  \n  \n                  <div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n                    <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n                    <div class=\"attachfiles-normal\">\n                      <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                      <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a>\n                      to add attachment\n                    </div>\n                  </div>\n                  <div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n                    <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\" [style.width.%]=\"uploadResponse.message\"\n                      aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                  </div>\n  \n  \n                </div>\n              </div>\n            \n          </div>\n\n          <div class=\"row\">\n        \n\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\" [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n        </ng-container>\n\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"list-inline float-right mt-4\">\n              <button class=\"btn blue mr-2\" [disabled]=\"createPackageForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n            </div>\n          </div>\n        </div>\n\n      </div>\n\n    </form>\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n\n    <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n    <ng-container *ngIf=\"isPackageCreated\">\n\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n      <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\" novalidate>\n\n        <div class=\"bg-card shadow\">\n\n          <div class=\"row\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\" [value]=\"item.lookupValueId\"\n                    type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select \n                labelText=\"Block No\"\n                fieldPlaceholder=\"Select Block\"\n                [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockData\"\n                fieldValue=\"apartmentBlockNumber\"\n                [fieldModel]=\"package.apartmentBlockId\"\n                fieldId=\"apartmentBlockId\"\n                (fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t  ></condo-select>\n            </div>\n            <div class=\"col-sm-4\">\n              <condo-select \n                labelText=\"Unit No\"\n                fieldPlaceholder=\"Select Unit\"\n                [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockUnitData\"\n                fieldValue=\"apartmentBlockUnitNumber\"\n                [fieldModel]=\"package.apartmentBlockUnitId\"\n                fieldId=\"apartmentBlockUnitId\"\n                [isDisabled]=\"!isBlockSelected\"\n                (fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t  ></condo-select>\n               \n            </div>\n              <div class=\"col-sm-4\">\n                <div class=\"input-box\">\n                  <label>Primary Name *</label>\n                  <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"package.primaryName\">\n                </div>\n              </div>\n              \n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\" fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"packageTypes\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n            </div>\n            \n            <div class=\"col-sm-4\">\n                <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\" fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\"\n                  [fieldRequired]=\"'required'\" [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\"  fieldValue=\"lookupValueName\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n              </div>\n  \n          </div>\n\n          <div class=\"row\">\n           \n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\" fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\"\n                [fieldRequired]=\"'required'\" [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\" [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\"\n                [fieldList]=\"deliverySlots\" fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\"></condo-select>\n            </div>\n\n            \n            \n          </div>\n\n          <div class=\"row\">\n            \n            <div class=\"col-sm-6\">\n              <app-upload\n\t\t\t\t\t\t\t\t\t[fileId]=\"package.packageImageId\"\n\t\t\t\t\t\t\t\t\t(fileIdChanged)=\"getFileId($event)\"\n\t\t\t\t\t\t\t\t></app-upload>\n            </div>\n\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\" [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"d-flex justify-flex-end\">\n          <div class=\"ml-auto\">\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" *ngIf=\"!isEditPackage\">Submit</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" *ngIf=\"isEditPackage\">Update</button>\n          </div>\n        </div>\n\n      </form>\n\n    </ng-container>\n\n  </div>\n</div>";
       /***/
     },
 
@@ -262,225 +262,72 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/api/controllers/FileDetails */
-      "./src/app/api/controllers/FileDetails.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! src/app/shared/services/file-download.service */
-      "./src/app/shared/services/file-download.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! src/app/shared/services/file-upload.service */
-      "./src/app/shared/services/file-upload.service.ts");
-      /* harmony import */
-
-
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var _api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
-      /*! ../../../../../api/controllers/Accounts */
-      "./src/app/api/controllers/Accounts.ts"); // import { SharedService } from 'src/app/api/shared/services/shared.service';
-
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/api/controllers/Accounts */
+      "./src/app/api/controllers/Accounts.ts");
 
       var CreatePackageComponent = /*#__PURE__*/function () {
-        function CreatePackageComponent(router, route, sanitizer, staffService, packageService, lookupService, apartmentService, // private sharedService:SharedService,
-        sessionService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sharedService, accountsService) {
+        function CreatePackageComponent(router, route, staffService, packageService, lookupService, apartmentService, sessionService, constantsService, sharedService, accountsService) {
           _classCallCheck(this, CreatePackageComponent);
 
           this.router = router;
           this.route = route;
-          this.sanitizer = sanitizer;
           this.staffService = staffService;
           this.packageService = packageService;
           this.lookupService = lookupService;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
-          this.fileUploadService = fileUploadService;
-          this.fileDownloadService = fileDownloadService;
-          this.fileDetailsService = fileDetailsService;
           this.constantsService = constantsService;
           this.sharedService = sharedService;
           this.accountsService = accountsService;
-          this.isEdit = false;
-          this.isError = false;
-          this.isPackageCreated = true;
-          this.isFileDetailsAvailable = false;
-          this.fileUrl = '';
-          this.isImageUploaded = false;
-          this.isFileAdded = false;
-          this.fileList = [];
-          this.listOfFiles = [];
+          this.isPackageCreated = false;
           this.isEditPackage = false;
-          this.apartmentBlockId = null;
-          this.apartmentBlockUnitId = null;
+          this.isBlockSelected = false;
           this.deliveryData = {};
-          this.towerList = [];
-          this.unitList = [];
-          this.params = {
-            apartmentId: this.sessionService.apartmentId
-          };
-          this["package"] = {};
-          this.block = {
-            blockId: null,
-            primaryName: ''
-          };
-          this.delivery = {
-            apartmentUnitId: null
-          };
-        } // submitPackageForm(form){
-        //     let package_data = {
-        //       "apartmentId": this.sessionService.apartmentId,
-        //       apartmentBlockUnitId:this.packageData.BlockUnitId,
-        //       "packageTypeId": this.packageData.Type,
-        //       "slot": this.packageData.Slot,
-        //       "deliveryTypeId": this.packageData.Deliverytype,
-        //       "deliveryDate": new Date().toISOString(),
-        //       assignedTo: this.packageData.Staff,
-        //       description: this.packageData.Comments,
-        //       "receivedBy": parseInt(this.sessionService.userId),
-        //       "deliveryStatusId": 986,
-        //       "isActive": true,
-        //       "insertedBy": parseInt(this.sessionService.userId),
-        //       "insertedOn": new Date().toISOString(),
-        //       "updatedBy": 0,
-        //       "updatedOn": null
-        //     }
-        //     const params:any = {
-        //       utilityTrackerElectricityPeriod: package_data
-        //     }
-        //     this.packageService.addPackage(params ).subscribe((package_res:any) =>{
-        //     })
-        // }
-
+        }
 
         _createClass(CreatePackageComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this = this;
-
-            this.packageData = {};
-            this.packageData.Deliverytype = '';
-            this.packageData.Staff = '';
-            this.packageData.Slot = '';
-            this.packageData.Slot = '';
-            this["package"].deliveryTypeId = '';
-            this["package"].packageTypeId = '';
-            this["package"].assignedTo = '';
-            this["package"].slotId = '';
-            this["package"].slotName = '';
-            this["package"].packageImageId = 0;
-            this.asset = {};
-            this.uploadResponse = {
-              status: '',
-              message: '',
-              fileId: null
-            };
-            this.asset = {};
-            this.asset.assetCategoryId = '';
-            this.asset.assetImageId = null; // staff type
-
-            this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              _this.staffListData = res.filter(function (data) {
-                return data.isActive;
-              });
-            });
-            var packageTypeParams = {
-              LookupTypeId: 169
-            };
-            this.lookupService.getLookupValueByLookupTypeId(packageTypeParams).subscribe(function (res) {
-              _this.packageTypes = res.filter(function (item) {
-                return item.isActive;
-              });
-              console.log(_this.packageTypes);
-            }, function (error) {});
-            var deliveryTypeParams = {
-              LookupTypeId: 170
-            };
-            this.lookupService.getLookupValueByLookupTypeId(deliveryTypeParams).subscribe(function (res) {
-              _this.deliveryTypes = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
-            var deliveryStatusParams = {
-              LookupTypeId: 171
-            };
-            this.lookupService.getLookupValueByLookupTypeId(deliveryStatusParams).subscribe(function (res) {
-              _this.deliveryStatus = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
-            var deliverySlotParams = {
-              LookupTypeId: 172
-            };
-            this.lookupService.getLookupValueByLookupTypeId(deliverySlotParams).subscribe(function (res) {
-              _this.deliverySlots = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
-            var receiverTypeParams = {
-              LookupTypeId: 182
-            };
-            this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
-              _this.receiverType = res.filter(function (item) {
-                return item.isActive;
-              });
-            }, function (error) {});
-            var tower = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.apartmentService.getApartmentBlockByApartmentId(tower).subscribe(function (res) {
-              _this.towerList = res;
-            });
-          }
-        }, {
           key: "getSelectedBlock",
           value: function getSelectedBlock(event) {
-            this.apartmentBlockId = event[0].apartmentBlockId; // this.getUnits();
+            this["package"].apartmentBlockId = event[0].apartmentBlockId;
+
+            if (this["package"].apartmentBlockId != null) {
+              this.getUnits();
+            }
           }
         }, {
           key: "getUnits",
-          value: function getUnits(type) {
-            var _this2 = this;
+          value: function getUnits() {
+            var _this = this;
 
-            if (type === 'change') this.delivery.apartmentUnitId = null;
             var params = {
-              apartmentBlockId: this.block.blockId
+              apartmentBlockId: this["package"].apartmentBlockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this2.unitList = res;
-
-              _this2.getPrimaryName();
+              _this.blockUnitData = res;
+              _this.isBlockSelected = true;
             });
-          }
-        }, {
-          key: "getSelectedBlockUnit",
-          value: function getSelectedBlockUnit(event) {
-            this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
           }
         }, {
           key: "getPrimaryName",
           value: function getPrimaryName() {
-            var _this3 = this;
+            var _this2 = this;
 
-            var data = this.unitList.filter(function (unit) {
-              return unit.apartmentBlockUnitId === _this3.sessionService.apartmentBlockUnitID;
+            var data = this.blockUnitData.filter(function (unit) {
+              return unit.apartmentBlockUnitId === _this2.sessionService.apartmentBlockUnitID;
             });
-            if (data.length > 0) this.block.primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;else this.block.primaryName = '';
+            if (data.length > 0) this["package"].primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;else this["package"].primaryName = '';
+          }
+        }, {
+          key: "getSelectedBlockUnit",
+          value: function getSelectedBlockUnit(event) {
+            this["package"].apartmentBlockUnitId = event[0].apartmentBlockUnitId;
           }
         }, {
           key: "getSelectedDeliveryType",
@@ -504,147 +351,119 @@
             this["package"].slotName = event[0].lookupValueName;
           }
         }, {
-          key: "isUploadProgess",
-          value: function isUploadProgess() {
-            return this.uploadResponse.status === 'progress' ? true : false;
-          }
-        }, {
-          key: "isUploadCompleted",
-          value: function isUploadCompleted() {
-            return this.uploadResponse.status === 'completed' ? true : false;
-          }
-        }, {
-          key: "isAssetImageNotAvailable",
-          value: function isAssetImageNotAvailable() {
-            return this.asset.assetImageId == null ? true : false;
-          }
-        }, {
-          key: "uploadFile",
-          value: function uploadFile(event) {
-            var _this4 = this;
-
-            var file = event[0];
-            var userId = parseInt(this.sessionService.userId);
-            this.fileUploadService.upload(file, userId).subscribe(function (res) {
-              if (res !== undefined) {
-                _this4.uploadResponse = res;
-              }
-
-              if (_this4.isUploadCompleted()) {
-                _this4.asset.assetImageId = _this4.uploadResponse.fileId;
-                _this4["package"].packageImageId = _this4.uploadResponse.fileId;
-                var newParams = {
-                  fileDetailsId: _this4.uploadResponse.fileId,
-                  apartmentId: Number(_this4.sessionService.apartmentId)
-                };
-
-                _this4.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this4.filePath = res[0].filePath;
-
-                  _this4.downloadFile(_this4.filePath);
-                });
-              }
-            });
-          }
-        }, {
-          key: "downloadFile",
-          value: function downloadFile(filePath) {
-            var _this5 = this;
-
-            this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this5.isFileDetailsAvailable = true;
-              var splitFile = filePath.split('.');
-              var ext = splitFile[1].replace(/^/, '.');
-              _this5.isImageUploaded = _this5.constantsService.imageFormats.includes(ext);
-              var blob = res.body;
-              var objectURL = URL.createObjectURL(blob);
-
-              var sanitizeUrl = _this5.sanitizer.bypassSecurityTrustUrl(objectURL);
-
-              _this5.fileUrl = sanitizeUrl;
-            });
-          }
-        }, {
-          key: "deleteFile",
-          value: function deleteFile() {
-            var _this6 = this;
-
-            var details = {
-              fileDetailsId: this.asset.assetImageId,
-              fileName: this.filePath,
-              filePath: this.filePath,
-              fileSize: 0,
-              description: this.filePath,
-              isActive: true,
-              insertedBy: parseInt(this.sessionService.userId),
-              insertedOn: new Date().toISOString(),
-              updatedBy: null,
-              updatedOn: null,
-              apartmentId: this.sessionService.apartmentId
-            };
-            var params = {
-              fileDetails: details
-            };
-            this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this6.isFileDetailsAvailable = false;
-              _this6.uploadResponse = {
-                status: '',
-                message: '',
-                fileId: null
-              };
-              _this6.asset.assetImageId = _this6.uploadResponse.fileId;
-            });
-          }
-        }, {
-          key: "bytesToSize",
-          value: function bytesToSize(bytes) {
-            if (bytes < 1024) return bytes + ' Bytes';else if (bytes < 1048576) return (bytes / 1024).toFixed(3) + ' KB';else if (bytes < 1073741824) return (bytes / 1048576).toFixed(3) + ' MB';else return (bytes / 1073741824).toFixed(3) + ' GB';
+          key: "getFileId",
+          value: function getFileId(event) {
+            this["package"].packageImageId = event;
           }
         }, {
           key: "submitAddPackageForm",
           value: function submitAddPackageForm(form) {
-            var _this7 = this;
+            var _this3 = this;
 
             if (!this.isEditPackage) {
               var addPackageDetails = {
                 apartmentId: this.sessionService.apartmentId,
                 rno: 0,
-                apartmentBlockUnitId: this.sessionService.apartmentBlockUnitID,
+                apartmentBlockUnitId: this["package"].apartmentBlockUnitId,
                 recieverTypeId: this.packageData.ReceiverType,
                 packageTypeId: this["package"].packageTypeId,
                 slot: this["package"].slotName,
-                // tslint:disable-next-line:radix
                 deliveryTypeId: parseInt(this["package"].deliveryTypeId),
                 deliveryDate: new Date().toISOString(),
                 assignedTo: this["package"].assignedTo,
                 description: this.packageData.Comments,
-                // tslint:disable-next-line:radix
                 receivedBy: this.sessionService.userId,
                 deliveryStatusId: 986,
                 isActive: true,
                 attachment1: this["package"].packageImageId,
                 attachment2: this["package"].packageImageId,
-                // tslint:disable-next-line:radix
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: new Date().toISOString(),
-                // tslint:disable-next-line:radix
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString()
+                updatedBy: null,
+                updatedOn: null
               };
               var addPackageParams = {
                 Package: addPackageDetails
               };
               this.packageService.addPackage(addPackageParams).subscribe(function (res) {
                 if (res.message) {
-                  _this7.sharedService.setAlertMessage('package added successfully'); // this.router.navigate(['ams/assets/view']);
-
-                } else {
-                  _this7.isError = true;
-                }
-              }, function (error) {
-                _this7.isError = true;
-              });
+                  _this3.sharedService.setAlertMessage('package added successfully');
+                } else {}
+              }, function (error) {});
             } else {}
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this4 = this;
+
+            this.packageData = {};
+            this.packageData.Deliverytype = '';
+            this.packageData.Staff = '';
+            this.packageData.Slot = '';
+            this.packageData.Slot = '';
+            this["package"] = {};
+            this["package"].deliveryTypeId = '';
+            this["package"].packageTypeId = '';
+            this["package"].assignedTo = '';
+            this["package"].slotId = '';
+            this["package"].slotName = '';
+            var staffParams = {
+              apartmentId: this.sessionService.apartmentId
+            }; // staff type
+
+            this.staffService.getAllStaffsByApartmentId(staffParams).subscribe(function (res) {
+              _this4.staffListData = res.filter(function (data) {
+                return data.isActive;
+              });
+            });
+            var packageTypeParams = {
+              LookupTypeId: 169
+            };
+            this.lookupService.getLookupValueByLookupTypeId(packageTypeParams).subscribe(function (res) {
+              _this4.packageTypes = res.filter(function (item) {
+                return item.isActive;
+              });
+            }, function (error) {});
+            var deliveryTypeParams = {
+              LookupTypeId: 170
+            };
+            this.lookupService.getLookupValueByLookupTypeId(deliveryTypeParams).subscribe(function (res) {
+              _this4.deliveryTypes = res.filter(function (item) {
+                return item.isActive;
+              });
+            }, function (error) {});
+            var deliveryStatusParams = {
+              LookupTypeId: 171
+            };
+            this.lookupService.getLookupValueByLookupTypeId(deliveryStatusParams).subscribe(function (res) {
+              _this4.deliveryStatus = res.filter(function (item) {
+                return item.isActive;
+              });
+            }, function (error) {});
+            var deliverySlotParams = {
+              LookupTypeId: 172
+            };
+            this.lookupService.getLookupValueByLookupTypeId(deliverySlotParams).subscribe(function (res) {
+              _this4.deliverySlots = res.filter(function (item) {
+                return item.isActive;
+              });
+            }, function (error) {});
+            var receiverTypeParams = {
+              LookupTypeId: 182
+            };
+            this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
+              _this4.receiverType = res.filter(function (item) {
+                return item.isActive;
+              });
+              _this4.isPackageCreated = true;
+            }, function (error) {});
+            var tower = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(tower).subscribe(function (res) {
+              _this4.blockData = res;
+            });
           }
         }]);
 
@@ -657,8 +476,6 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"]
-        }, {
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"]
         }, {
           type: src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"]
@@ -669,17 +486,11 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
-          type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_11__["FileUploadService"]
-        }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"]
-        }, {
-          type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"]
-        }, {
           type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
         }, {
-          type: _api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_14__["AccountsService"]
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__["AccountsService"]
         }];
       };
 
@@ -691,7 +502,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./create-package.component.scss */
         "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_11__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"], _api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_14__["AccountsService"]])], CreatePackageComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_5__["PackageService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__["AccountsService"]])], CreatePackageComponent);
       /***/
     },
 
@@ -868,13 +679,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this5 = this;
 
             this.ItemEndIndex = 0; // this.getAllPackage();
             // staff type
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              _this8.staffListData = res.filter(function (data) {
+              _this5.staffListData = res.filter(function (data) {
                 return data.isActive;
               });
             });
@@ -882,16 +693,16 @@
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this8.packageTypes = res.filter(function (item) {
+              _this5.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this8.packageTypes);
+              console.log(_this5.packageTypes);
             }, function (error) {});
             var deliveryTypeParams = {
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this8.deliveryTypes = res.filter(function (item) {
+              _this5.deliveryTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -899,7 +710,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this8.deliveryStatus = res.filter(function (item) {
+              _this5.deliveryStatus = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -907,7 +718,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this8.deliverySlots = res.filter(function (item) {
+              _this5.deliverySlots = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -915,7 +726,7 @@
               LookupTypeId: 182
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
-              _this8.receiverType = res.filter(function (item) {
+              _this5.receiverType = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -991,29 +802,29 @@
         }, {
           key: "getAllPackage",
           value: function getAllPackage() {
-            var _this9 = this;
+            var _this6 = this;
 
             var params = {
               // tslint:disable-next-line:radix
               ApartmentId: parseInt(this.sessionService.apartmentId)
             };
             this.packageService.getAllPackages(params).subscribe(function (res) {
-              _this9.allParcelDelivey = res;
-              console.log(_this9.allParcelDelivey);
+              _this6.allParcelDelivey = res;
+              console.log(_this6.allParcelDelivey);
 
               var _deliveryHistoryList = res.filter(function (x) {
                 return x.isActive === true;
               });
 
-              _this9.gridSourceData = {
+              _this6.gridSourceData = {
                 localdata: _deliveryHistoryList,
                 datatype: "array"
               };
-              _this9.deliveryHistoryList = new jqx.dataAdapter(_this9.gridSourceData);
-              _this9.totalItems = _deliveryHistoryList.length;
-              _this9.isDeliveryHistoryLoaded = true; // Mark for check
+              _this6.deliveryHistoryList = new jqx.dataAdapter(_this6.gridSourceData);
+              _this6.totalItems = _deliveryHistoryList.length;
+              _this6.isDeliveryHistoryLoaded = true; // Mark for check
 
-              _this9._changeDetectorRef.markForCheck();
+              _this6._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -1222,7 +1033,7 @@
         _createClass(DeliveryViewHistoryComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this7 = this;
 
             //this.getAllCollection();
             this.isdeliverySubmitted = true;
@@ -1233,12 +1044,12 @@
             this.deliveryData.slotNo = ""; //Open the drawer
 
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this10._activatedRoute.params['value'].id) {
-                _this10._deliveryHistoryComponent.matDrawer.open();
+              if (id != null && id == _this7._activatedRoute.params['value'].id) {
+                _this7._deliveryHistoryComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this10._changeDetectorRef.markForCheck();
+              _this7._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type == 'view') {
@@ -1253,11 +1064,11 @@
             };
             this.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
               var _deliveryData = res;
-              _this10.deliveryData.packageNo = _deliveryData[0].packageId;
-              _this10.deliveryData.type = _deliveryData[0].packageTypeId;
-              _this10.deliveryData.comments = _deliveryData[0].description;
-              _this10.deliveryData.image = _deliveryData[0].attachment1;
-              _this10.deliveryData.slotNo = _deliveryData[0].slot;
+              _this7.deliveryData.packageNo = _deliveryData[0].packageId;
+              _this7.deliveryData.type = _deliveryData[0].packageTypeId;
+              _this7.deliveryData.comments = _deliveryData[0].description;
+              _this7.deliveryData.image = _deliveryData[0].attachment1;
+              _this7.deliveryData.slotNo = _deliveryData[0].slot;
             });
           }
         }, {
@@ -1283,17 +1094,17 @@
         }, {
           key: "getUnits",
           value: function getUnits() {
-            var _this11 = this;
+            var _this8 = this;
 
             var params = {
               // tslint:disable-next-line:radix
               apartmentBlockId: parseInt(this.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this11.isBlockSelected = true;
-              _this11.unitData = res; //Mark for check
+              _this8.isBlockSelected = true;
+              _this8.unitData = res; //Mark for check
 
-              _this11._changeDetectorRef.markForCheck();
+              _this8._changeDetectorRef.markForCheck();
             }, function (error) {
               console.log(error);
             });
@@ -1488,7 +1299,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm(form) {
-            var _this12 = this;
+            var _this9 = this;
 
             this.isDeliveryCategorySubmitted = false;
 
@@ -1522,16 +1333,16 @@
                     LookupTypeId: 169
                   };
 
-                  _this12.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(_this12._unsubscribeAll)).subscribe(function (res) {
-                    _this12.isDeliveryCategorySubmitted = true; /// Go to the parent route
+                  _this9.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(_this9._unsubscribeAll)).subscribe(function (res) {
+                    _this9.isDeliveryCategorySubmitted = true; /// Go to the parent route
 
-                    _this12.goBack(); // Mark for check
+                    _this9.goBack(); // Mark for check
 
 
-                    _this12._changeDetectorRef.markForCheck();
+                    _this9._changeDetectorRef.markForCheck();
                   });
                 } else {
-                  _this12.isDeliveryCategorySubmitted = true;
+                  _this9.isDeliveryCategorySubmitted = true;
                 }
               });
             } else {
@@ -1562,16 +1373,16 @@
                     LookupTypeId: 169
                   };
 
-                  _this12.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    _this12.isDeliveryCategorySubmitted = true; /// Go to the parent route
+                  _this9.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    _this9.isDeliveryCategorySubmitted = true; /// Go to the parent route
 
-                    _this12.goBack(); // Mark for check
+                    _this9.goBack(); // Mark for check
 
 
-                    _this12._changeDetectorRef.markForCheck();
+                    _this9._changeDetectorRef.markForCheck();
                   });
                 } else {
-                  _this12.isDeliveryCategorySubmitted = true;
+                  _this9.isDeliveryCategorySubmitted = true;
                 }
               });
             }
@@ -1582,16 +1393,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this10 = this;
 
             // Open the drawer
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id === _this13._activatedRoute.params['value'].id) {
-                _this13.deliverySetupComponent.matDrawer.open();
+              if (id != null && id === _this10._activatedRoute.params['value'].id) {
+                _this10.deliverySetupComponent.matDrawer.open();
               } // Mark for check
 
 
-              _this13._changeDetectorRef.markForCheck();
+              _this10._changeDetectorRef.markForCheck();
             });
             this.lookupTypeId = this._activatedRoute.queryParams['value'].typeid;
             console.log(this._activatedRoute);
@@ -1604,15 +1415,15 @@
                 LookupTypeId: this.lookupTypeId
               };
               this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                _this13.isDeliveryCategorySubmitted = true;
-                var valueId = _this13._activatedRoute.params['value'].id;
-                _this13.DeliveryCategory = res.filter(function (item) {
+                _this10.isDeliveryCategorySubmitted = true;
+                var valueId = _this10._activatedRoute.params['value'].id;
+                _this10.DeliveryCategory = res.filter(function (item) {
                   return item.lookupValueId === parseInt(valueId);
                 });
-                _this13.DeliveryCategoryName = _this13.DeliveryCategory[0].lookupValueName;
-                _this13.DeliveryDescription = _this13.DeliveryCategory[0].description; // Mark for check
+                _this10.DeliveryCategoryName = _this10.DeliveryCategory[0].lookupValueName;
+                _this10.DeliveryDescription = _this10.DeliveryCategory[0].description; // Mark for check
 
-                _this13._changeDetectorRef.markForCheck();
+                _this10._changeDetectorRef.markForCheck();
               });
             } else {
               this.isDeliveryCategorySubmitted = true;
@@ -1880,7 +1691,7 @@
 
       var DeliverySetupComponent = /*#__PURE__*/function () {
         function DeliverySetupComponent(_changeDetectorRef, _activatedRoute, _router, sharedService, lookupService, sessionService) {
-          var _this14 = this;
+          var _this11 = this;
 
           _classCallCheck(this, DeliverySetupComponent);
 
@@ -1907,11 +1718,11 @@
             return event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"];
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this._unsubscribeAll)).subscribe(function () {
             // Update the category
-            _this14.getCategoryData();
+            _this11.getCategoryData();
 
-            _this14.getDeliveryTypeData();
+            _this11.getDeliveryTypeData();
 
-            _this14.getSlotData();
+            _this11.getSlotData();
           });
         }
 
@@ -1946,55 +1757,55 @@
         }, {
           key: "getCategoryData",
           value: function getCategoryData() {
-            var _this15 = this;
+            var _this12 = this;
 
             var param = {
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
-              _this15.isDeliveryCategoryLoaded = true;
-              _this15.DeliveryCategory = res.filter(function (item) {
+              _this12.isDeliveryCategoryLoaded = true;
+              _this12.DeliveryCategory = res.filter(function (item) {
                 return item.isActive;
               });
-              _this15.totalItems = _this15.DeliveryCategory.length; // Mark for check
+              _this12.totalItems = _this12.DeliveryCategory.length; // Mark for check
 
-              _this15._changeDetectorRef.markForCheck();
+              _this12._changeDetectorRef.markForCheck();
             });
           }
         }, {
           key: "getDeliveryTypeData",
           value: function getDeliveryTypeData() {
-            var _this16 = this;
+            var _this13 = this;
 
             var param = {
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
-              _this16.isDeliveryCategoryLoaded = true;
-              _this16.DeliveryType = res.filter(function (item) {
+              _this13.isDeliveryCategoryLoaded = true;
+              _this13.DeliveryType = res.filter(function (item) {
                 return item.isActive;
               });
-              _this16.totalDeliveryTypeItems = _this16.DeliveryType.length; // Mark for check
+              _this13.totalDeliveryTypeItems = _this13.DeliveryType.length; // Mark for check
 
-              _this16._changeDetectorRef.markForCheck();
+              _this13._changeDetectorRef.markForCheck();
             });
           }
         }, {
           key: "getSlotData",
           value: function getSlotData() {
-            var _this17 = this;
+            var _this14 = this;
 
             var param = {
               LookupTypeId: 172
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
-              _this17.isDeliveryCategoryLoaded = true;
-              _this17.slotData = res.filter(function (item) {
+              _this14.isDeliveryCategoryLoaded = true;
+              _this14.slotData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this17.totalSlotItems = _this17.slotData.length; // Mark for check
+              _this14.totalSlotItems = _this14.slotData.length; // Mark for check
 
-              _this17._changeDetectorRef.markForCheck();
+              _this14._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -2160,7 +1971,7 @@
         }, {
           key: "deleteCategory",
           value: function deleteCategory(item) {
-            var _this18 = this;
+            var _this15 = this;
 
             // this.securityCategoryData.filter( category => {
             //   return category.lookupValueId != item.lookupValueId
@@ -2170,11 +1981,11 @@
               updateUserId: parseInt(this.sessionService.userId)
             };
             this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-              _this18.getCategoryData();
+              _this15.getCategoryData();
 
-              _this18.getDeliveryTypeData();
+              _this15.getDeliveryTypeData();
 
-              _this18.getSlotData();
+              _this15.getSlotData();
             });
           }
         }]);
@@ -2385,7 +2196,7 @@
         _createClass(PendingDeliveryEditComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this16 = this;
 
             //this.getAllCollection();
             this.isdeliverySubmitted = true;
@@ -2407,36 +2218,36 @@
             this.asset.assetImageId = null; //Open the drawer
 
             this._activatedRoute.queryParams.subscribe(function (params) {
-              _this19.pageType = params.type;
+              _this16.pageType = params.type;
               var queryParamBase = {
                 // tslint:disable-next-line:radix
-                ApartmentId: parseInt(_this19.sessionService.apartmentId),
+                ApartmentId: parseInt(_this16.sessionService.apartmentId),
                 packageid: parseInt(params.id)
               };
 
-              _this19.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
+              _this16.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
                 if (Array.isArray(res)) {
                   var _deliveryData = res;
-                  _this19.deliveryData.packageNo = _deliveryData[0].packageId;
-                  _this19.deliveryData.type = _deliveryData[0].packageTypeId;
-                  _this19.deliveryData.comments = _deliveryData[0].description;
-                  _this19.deliveryData.image = _deliveryData[0].attachment1;
-                  _this19.deliveryData.slotNo = _deliveryData[0].slot;
-                  _this19.deliveryData.assignedTo = _deliveryData[0].assignedTo;
-                  _this19.deliveryData.receivedBy = _deliveryData[0].receivedBy;
-                  _this19.deliveryData.deliveryStatusId = _deliveryData[0].deliveryStatusId;
-                  _this19.deliveryData.updatedBy = _deliveryData[0].updatedBy;
+                  _this16.deliveryData.packageNo = _deliveryData[0].packageId;
+                  _this16.deliveryData.type = _deliveryData[0].packageTypeId;
+                  _this16.deliveryData.comments = _deliveryData[0].description;
+                  _this16.deliveryData.image = _deliveryData[0].attachment1;
+                  _this16.deliveryData.slotNo = _deliveryData[0].slot;
+                  _this16.deliveryData.assignedTo = _deliveryData[0].assignedTo;
+                  _this16.deliveryData.receivedBy = _deliveryData[0].receivedBy;
+                  _this16.deliveryData.deliveryStatusId = _deliveryData[0].deliveryStatusId;
+                  _this16.deliveryData.updatedBy = _deliveryData[0].updatedBy;
 
                   if (_deliveryData[0].attachment1 !== null) {
                     var newParams = {
                       fileDetailsId: _deliveryData[0].attachment1,
-                      apartmentId: Number(_this19.sessionService.apartmentId)
+                      apartmentId: Number(_this16.sessionService.apartmentId)
                     };
 
-                    _this19.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                      _this19.filePath = res[0].filePath;
+                    _this16.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                      _this16.filePath = res[0].filePath;
 
-                      _this19.downloadFile(_this19.filePath);
+                      _this16.downloadFile(_this16.filePath);
                     });
                   }
                 }
@@ -2447,7 +2258,7 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(tower).subscribe(function (res) {
-              _this19.towerList = res;
+              _this16.towerList = res;
             });
           } // closeDrawer(): Promise<MatDrawerToggleResult>{
           //   return this._pendingDeliveryComponent.matDrawer.close();
@@ -2469,16 +2280,16 @@
         }, {
           key: "getUnits",
           value: function getUnits(type) {
-            var _this20 = this;
+            var _this17 = this;
 
             if (type == 'change') this.delivery.apartmentUnitId = null;
             var params = {
               apartmentBlockId: this.block.blockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this20.unitList = res;
+              _this17.unitList = res;
 
-              _this20.getPrimaryName();
+              _this17.getPrimaryName();
             });
           }
         }, {
@@ -2489,7 +2300,7 @@
         }, {
           key: "submitAddPackageForm",
           value: function submitAddPackageForm(form) {
-            var _this21 = this;
+            var _this18 = this;
 
             this.isdeliverySubmitted = false;
             var addPackageDetails = {
@@ -2508,12 +2319,12 @@
             };
             this.packageService.updatePackageDelivery(addPackageParams).subscribe(function (res) {
               if (res.message) {
-                _this21.isdeliverySubmitted = true;
+                _this18.isdeliverySubmitted = true;
 
-                _this21.sharedService.setAlertMessage('package updated successfully');
+                _this18.sharedService.setAlertMessage('package updated successfully');
 
-                _this21._router.navigate(['/ams/parcel-delivery/delivery-pending'], {
-                  relativeTo: _this21._activatedRoute.parent
+                _this18._router.navigate(['/ams/parcel-delivery/delivery-pending'], {
+                  relativeTo: _this18._activatedRoute.parent
                 });
               } else {}
             }, function (error) {});
@@ -2521,10 +2332,10 @@
         }, {
           key: "getPrimaryName",
           value: function getPrimaryName() {
-            var _this22 = this;
+            var _this19 = this;
 
             var data = this.unitList.filter(function (unit) {
-              return unit.apartmentBlockUnitId === _this22.sessionService.apartmentBlockUnitID;
+              return unit.apartmentBlockUnitId === _this19.sessionService.apartmentBlockUnitID;
             });
             if (data.length > 0) this.block.primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;else this.block.primaryName = '';
           }
@@ -2546,27 +2357,27 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this23 = this;
+            var _this20 = this;
 
             var file = event[0];
             var userId = parseInt(this.sessionService.userId);
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
-                _this23.uploadResponse = res;
+                _this20.uploadResponse = res;
               }
 
-              if (_this23.isUploadCompleted()) {
-                _this23.asset.assetImageId = _this23.uploadResponse.fileId;
-                _this23["package"].packageImageId = _this23.uploadResponse.fileId;
+              if (_this20.isUploadCompleted()) {
+                _this20.asset.assetImageId = _this20.uploadResponse.fileId;
+                _this20["package"].packageImageId = _this20.uploadResponse.fileId;
                 var newParams = {
-                  fileDetailsId: _this23.uploadResponse.fileId,
-                  apartmentId: Number(_this23.sessionService.apartmentId)
+                  fileDetailsId: _this20.uploadResponse.fileId,
+                  apartmentId: Number(_this20.sessionService.apartmentId)
                 };
 
-                _this23.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this23.filePath = res[0].filePath;
+                _this20.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                  _this20.filePath = res[0].filePath;
 
-                  _this23.downloadFile(_this23.filePath);
+                  _this20.downloadFile(_this20.filePath);
                 });
               }
             });
@@ -2574,25 +2385,25 @@
         }, {
           key: "downloadFile",
           value: function downloadFile(filePath) {
-            var _this24 = this;
+            var _this21 = this;
 
             this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this24.isFileDetailsAvailable = true;
+              _this21.isFileDetailsAvailable = true;
               var splitFile = filePath.split('.');
               var ext = splitFile[1].replace(/^/, '.');
-              _this24.isImageUploaded = _this24.constantsService.imageFormats.includes(ext);
+              _this21.isImageUploaded = _this21.constantsService.imageFormats.includes(ext);
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this24.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this21.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-              _this24.fileUrl = sanitizeUrl;
+              _this21.fileUrl = sanitizeUrl;
             });
           }
         }, {
           key: "deleteFile",
           value: function deleteFile() {
-            var _this25 = this;
+            var _this22 = this;
 
             var details = {
               fileDetailsId: this.asset.assetImageId,
@@ -2611,13 +2422,13 @@
               fileDetails: details
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this25.isFileDetailsAvailable = false;
-              _this25.uploadResponse = {
+              _this22.isFileDetailsAvailable = false;
+              _this22.uploadResponse = {
                 status: '',
                 message: '',
                 fileId: null
               };
-              _this25.asset.assetImageId = _this25.uploadResponse.fileId;
+              _this22.asset.assetImageId = _this22.uploadResponse.fileId;
             });
           }
         }]);
@@ -2863,13 +2674,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this23 = this;
 
             this.ItemEndIndex = 0;
             this.getAllPackage(); // staff type
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              _this26.staffListData = res.filter(function (data) {
+              _this23.staffListData = res.filter(function (data) {
                 return data.isActive;
               });
             });
@@ -2877,16 +2688,16 @@
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this26.packageTypes = res.filter(function (item) {
+              _this23.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this26.packageTypes);
+              console.log(_this23.packageTypes);
             }, function (error) {});
             var deliveryTypeParams = {
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this26.deliveryTypes = res.filter(function (item) {
+              _this23.deliveryTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2894,7 +2705,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this26.deliveryStatus = res.filter(function (item) {
+              _this23.deliveryStatus = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2902,7 +2713,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this26.deliverySlots = res.filter(function (item) {
+              _this23.deliverySlots = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2910,7 +2721,7 @@
               LookupTypeId: 182
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
-              _this26.receiverType = res.filter(function (item) {
+              _this23.receiverType = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -3012,7 +2823,7 @@
         }, {
           key: "getAllPackage",
           value: function getAllPackage() {
-            var _this27 = this;
+            var _this24 = this;
 
             var params = {
               // tslint:disable-next-line:radix
@@ -3021,22 +2832,22 @@
               to: this.delivery.toDate === null ? null : moment__WEBPACK_IMPORTED_MODULE_9__(this.delivery.toDate).format("YYYY-MM-DD")
             };
             this.packageService.getAllPendingDeliveries(params).subscribe(function (res) {
-              _this27.allParcelDelivey = res;
-              console.log(_this27.allParcelDelivey);
+              _this24.allParcelDelivey = res;
+              console.log(_this24.allParcelDelivey);
 
               var _deliveryHistoryList = res.filter(function (x) {
                 return x.isActive === false;
               });
 
-              _this27.gridSourceData = {
+              _this24.gridSourceData = {
                 localdata: _deliveryHistoryList,
                 datatype: "array"
               };
-              _this27.deliveryHistoryList = new jqx.dataAdapter(_this27.gridSourceData);
-              _this27.totalItems = _deliveryHistoryList.length;
-              _this27.isPendingDeliveryLoaded = true; // Mark for check
+              _this24.deliveryHistoryList = new jqx.dataAdapter(_this24.gridSourceData);
+              _this24.totalItems = _deliveryHistoryList.length;
+              _this24.isPendingDeliveryLoaded = true; // Mark for check
 
-              _this27._changeDetectorRef.markForCheck();
+              _this24._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -3296,78 +3107,78 @@
       /* harmony import */
 
 
-      var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./components/create-package/create-package.component */
-      "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
-      /* harmony import */
-
-
-      var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ./components/delivery-history/delivery-history.component */
-      "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
-      /* harmony import */
-
-
-      var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ./components/delivery-setup/delivery-setup.component */
-      "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
-      /* harmony import */
-
-
-      var _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ./components/pending-delivery/pending-delivery.component */
-      "./src/app/modules/ams/parcel-delivery/components/pending-delivery/pending-delivery.component.ts");
-      /* harmony import */
-
-
-      var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ../../ui/card/card.module */
+      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/modules/ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
       /* harmony import */
 
 
-      var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */
-      "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
-      /* harmony import */
-
-
-      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/modules/ui/select/select.module */
       "./src/app/modules/ui/select/select.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/modules/ui/list/list.module */
       "./src/app/modules/ui/list/list.module.ts");
       /* harmony import */
 
 
-      var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/modules/ui/upload/upload.module */
+      "./src/app/modules/ui/upload/upload.module.ts");
+      /* harmony import */
+
+
+      var _parcel_delivery_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ./parcel-delivery.component */
+      "./src/app/modules/ams/parcel-delivery/parcel-delivery.component.ts");
+      /* harmony import */
+
+
+      var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./components/create-package/create-package.component */
+      "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
+      /* harmony import */
+
+
+      var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ./components/delivery-history/delivery-history.component */
+      "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
+      /* harmony import */
+
+
+      var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! ./components/delivery-setup/delivery-setup.component */
+      "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
+      /* harmony import */
+
+
+      var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */
+      "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
+      /* harmony import */
+
+
+      var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/delivery-history/delivery-view-history/delivery-view-history.component */
       "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-view-history/delivery-view-history.component.ts");
       /* harmony import */
 
 
-      var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./components/pending-delivery-edit/pending-delivery-edit.component */
       "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.ts");
-      /* harmony import */
-
-
-      var _parcel_delivery_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
-      /*! ./parcel-delivery.component */
-      "./src/app/modules/ams/parcel-delivery/parcel-delivery.component.ts");
 
       var ParcelDeliveryModule = function ParcelDeliveryModule() {
         _classCallCheck(this, ParcelDeliveryModule);
       };
 
       ParcelDeliveryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_5__["CreatePackageComponent"], _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_6__["DeliveryHistoryComponent"], _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_7__["DeliverySetupComponent"], _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_8__["PendingDeliveryComponent"], _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_10__["DeliverySetupAddCategoryComponent"], _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_13__["DeliveryViewHistoryComponent"], _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_14__["PendingDeliveryEditComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _parcel_routing_module__WEBPACK_IMPORTED_MODULE_4__["ParcelRoutingModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_9__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_11__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_12__["ListModule"]],
-        bootstrap: [_parcel_delivery_component__WEBPACK_IMPORTED_MODULE_15__["ParcelDeliveryComponent"]]
+        declarations: [_parcel_delivery_component__WEBPACK_IMPORTED_MODULE_9__["ParcelDeliveryComponent"], _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_10__["CreatePackageComponent"], _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_11__["DeliveryHistoryComponent"], _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_12__["DeliverySetupComponent"], _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_13__["DeliverySetupAddCategoryComponent"], _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_14__["DeliveryViewHistoryComponent"], _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_15__["PendingDeliveryEditComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _parcel_routing_module__WEBPACK_IMPORTED_MODULE_4__["ParcelRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_7__["ListModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_8__["UploadModule"]],
+        bootstrap: [_parcel_delivery_component__WEBPACK_IMPORTED_MODULE_9__["ParcelDeliveryComponent"]]
       })], ParcelDeliveryModule);
       /***/
     },
