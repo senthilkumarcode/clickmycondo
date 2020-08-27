@@ -288,7 +288,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
         this.modalService.showConfirmModal(dataRecord.apartmentFacilityBookingId);
     }
     isAdmin() {
-        this.isAdminLogin = (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        this.isAdminLogin = this.sessionService.isAdmin();
     }
     resetField() {
         for (let facKey in this.filterFacility) {

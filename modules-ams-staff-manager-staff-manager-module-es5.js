@@ -351,7 +351,7 @@
         _createClass(AddEntryComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "isShiftSelected",

@@ -1286,7 +1286,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
         this.datagrid.exportdata(event, 'helpdeskData');
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     createTicketNavigate() {
         if (this.isAdmin())

@@ -44,7 +44,7 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+      "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
       /* harmony import */
 
 
@@ -749,7 +749,7 @@
         _createClass(CreateMoveinComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "getUnits",
@@ -1164,7 +1164,7 @@
         _createClass(CreateMoveoutComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "getUnits",
@@ -2265,7 +2265,7 @@
         _createClass(MoveinMaintainComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "navigateCreatePage",
@@ -4514,7 +4514,7 @@
         _createClass(MoveoutMaintainComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "navigateCreatePage",

@@ -211,7 +211,7 @@ let AddEntryComponent = class AddEntryComponent {
         this.entryComments = "";
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     isShiftSelected() {
         return this.shiftType != "" ? true : false;

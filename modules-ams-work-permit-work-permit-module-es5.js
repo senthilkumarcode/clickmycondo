@@ -260,7 +260,7 @@
         _createClass(WorkpermitApprovalComponent, [{
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "isAdminInterface",
@@ -793,7 +793,7 @@
         }, {
           key: "isAdmin",
           value: function isAdmin() {
-            return this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            return this.sessionService.isAdmin();
           }
         }, {
           key: "getUnits",

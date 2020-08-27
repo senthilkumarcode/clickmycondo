@@ -144,7 +144,7 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
         this.isDataLoaded = false;
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     isAdminInterface() {
         return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? '/ams/work-permit/create' : '/user/work-permit/create';
@@ -522,7 +522,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     getUnits(type) {
         if (type == 'change')

@@ -10,7 +10,7 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CookieService", function() { return CookieService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -454,7 +454,7 @@ let CreateMoveinComponent = class CreateMoveinComponent {
         this.isImageUploaded = false;
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     getUnits(type) {
         if (type == 'change') {
@@ -738,7 +738,7 @@ let CreateMoveoutComponent = class CreateMoveoutComponent {
         };
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     getUnits(type) {
         if (type == 'change') {
@@ -1524,7 +1524,7 @@ let MoveinMaintainComponent = class MoveinMaintainComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     navigateCreatePage() {
         if (this.isAdmin())
@@ -3171,7 +3171,7 @@ let MoveoutMaintainComponent = class MoveoutMaintainComponent {
         this.totalItems = 0;
     }
     isAdmin() {
-        return (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') ? true : false;
+        return this.sessionService.isAdmin();
     }
     navigateCreatePage() {
         if (this.isAdmin())

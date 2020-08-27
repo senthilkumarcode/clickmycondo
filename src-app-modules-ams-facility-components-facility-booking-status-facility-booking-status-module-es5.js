@@ -485,7 +485,7 @@
         }, {
           key: "isAdmin",
           value: function isAdmin() {
-            this.isAdminLogin = this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff' ? true : false;
+            this.isAdminLogin = this.sessionService.isAdmin();
           }
         }, {
           key: "resetField",
