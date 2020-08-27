@@ -1388,13 +1388,15 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             userId: this.sessionService.userId,
         };
         this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe((res) => {
-            this.totalItems = res.length;
-            let ticketInfo = {
-                localdata: res.reverse(),
-                datatype: "array"
-            };
-            this.ticketListData = new jqx.dataAdapter(ticketInfo);
-            this.isTicketDataLoaded = true;
+            if (res) {
+                let ticketInfo = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = ticketInfo.localdata.length;
+                this.ticketListData = new jqx.dataAdapter(ticketInfo);
+                this.isTicketDataLoaded = true;
+            }
         });
     }
     ngOnInit() {
@@ -1541,6 +1543,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                 this.ticketService.deleteTicket(params).subscribe((res) => {
                     this.datagrid.deleterow(id);
                     this.sharedService.setUnitListDeleteIndex(null);
+                    this.datagrid.refresh();
                 });
             }
         });

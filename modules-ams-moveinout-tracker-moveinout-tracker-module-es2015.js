@@ -2603,13 +2603,15 @@ let MoveinSetupComponent = class MoveinSetupComponent {
             apartmentId: this.sessionService.apartmentId
         };
         this.moveInOutService.getMoveInOutConfigByApartmentId(params).subscribe((res) => {
-            this.totalItems = res.length;
-            let tableData = {
-                localdata: res.reverse(),
-                datatype: "array"
-            };
-            this.documentDataList = new jqx.dataAdapter(tableData);
-            this.isDataLoaded = true;
+            if (res) {
+                let tableData = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = tableData.localdata.length;
+                this.documentDataList = new jqx.dataAdapter(tableData);
+                this.isDataLoaded = true;
+            }
         }, error => {
             console.log(error);
         });
@@ -2710,6 +2712,7 @@ let MoveinSetupComponent = class MoveinSetupComponent {
                     if (res.message) {
                         this.sharedService.setUnitListDeleteIndex(null);
                         this.datagrid.deleterow(item.index);
+                        this.datagrid.refresh();
                     }
                 }, error => {
                     console.log(error);

@@ -1988,13 +1988,15 @@
               userId: this.sessionService.userId
             };
             this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
-              _this18.totalItems = res.length;
-              var ticketInfo = {
-                localdata: res.reverse(),
-                datatype: "array"
-              };
-              _this18.ticketListData = new jqx.dataAdapter(ticketInfo);
-              _this18.isTicketDataLoaded = true;
+              if (res) {
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this18.totalItems = ticketInfo.localdata.length;
+                _this18.ticketListData = new jqx.dataAdapter(ticketInfo);
+                _this18.isTicketDataLoaded = true;
+              }
             });
           }
         }, {
@@ -2145,6 +2147,8 @@
                   _this19.datagrid.deleterow(id);
 
                   _this19.sharedService.setUnitListDeleteIndex(null);
+
+                  _this19.datagrid.refresh();
                 });
               }
             }); //Filter Purpose => Staff

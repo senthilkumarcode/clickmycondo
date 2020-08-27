@@ -3744,13 +3744,15 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.moveInOutService.getMoveInOutConfigByApartmentId(params).subscribe(function (res) {
-              _this30.totalItems = res.length;
-              var tableData = {
-                localdata: res.reverse(),
-                datatype: "array"
-              };
-              _this30.documentDataList = new jqx.dataAdapter(tableData);
-              _this30.isDataLoaded = true;
+              if (res) {
+                var tableData = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this30.totalItems = tableData.localdata.length;
+                _this30.documentDataList = new jqx.dataAdapter(tableData);
+                _this30.isDataLoaded = true;
+              }
             }, function (error) {
               console.log(error);
             });
@@ -3849,6 +3851,8 @@
                     _this31.sharedService.setUnitListDeleteIndex(null);
 
                     _this31.datagrid.deleterow(item.index);
+
+                    _this31.datagrid.refresh();
                   }
                 }, function (error) {
                   console.log(error);
