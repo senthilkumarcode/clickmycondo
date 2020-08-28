@@ -205,7 +205,7 @@ CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([ Objec
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Create Expected Visitor</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.staffId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Create Expected Visitor</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"visitor.tomeetStaffId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -244,7 +244,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"app-visitor-checkout-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n   <div class=\"main\">\n\t<condo-card *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div CondoCardHeader>\n\t\t  <div class=\"d-flex\">\n    \t\t<div>\n\t\t\t\t<h4>All Checked-Out Visitors</h4>\n\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t</div>\n\t\t</div>\n  \t\t</div>\n  \t\t\n  \t <div CondoCardBody>\n\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\n  \t\t</div>\n\n\t</condo-card>\n</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"app-visitor-checkout-wrapper\">\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n   <div class=\"main\">\n\t\t<condo-card *ngIf=\"isVisitorDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Checked-Out Visitors</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n\t\t\t\t\t[columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -257,7 +257,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Visitor Check-In</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.staffId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.visitorPhone\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorInTime\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">CheckIn</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Visitor Check-In</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\" [disabled]=\"disableField()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"staffId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.tomeetStaffId\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.visitorPhone\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorInTime\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- checkout page -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType == 'checkout'\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Planned Out-time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"tempOutTime\" [owlDateTime]=\"tempOutTime\" [owlDateTimeTrigger]=\"tempOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"plannedOutTime\" [disabled]=\"true\" required >\n\t\t\t\t\t\t\t<owl-date-time #tempOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"tempOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorOutTime\" autocomplete=\"off\"  (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button *ngIf=\"urlType !='checkout'\" class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">CheckIn</button>\n\t\t\t\t\t<button *ngIf=\"urlType=='checkout'\" class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckOut()\">CheckOut</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -382,13 +382,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
-    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, router) {
+    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter) {
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.staffService = staffService;
         this.router = router;
+        this.activateRouter = activateRouter;
         this.modal = false;
         this.modalResult = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.visitor = {};
@@ -400,29 +401,81 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
         this.staffsList = [];
         this.block = {};
         this.isDataLoaded = true;
+        this.urlType = 'create';
+        //check in and checkout edit
+        this.activateRouter.params.subscribe((param) => {
+            if (param.id && param.type) {
+                this.isDataLoaded = false;
+                this.urlType = param.type;
+                let visitor = {
+                    expectedVisitorId: +param.id
+                };
+                this.visitorService.getExpectedVisitorById(visitor).subscribe((res) => {
+                    this.visitor = res[0];
+                    if (param.type == 'edit') {
+                        this.expectedDurationChange();
+                        this.isDataLoaded = true;
+                    }
+                    else {
+                        //copy Within
+                        this.visitor.expectedVisitorOutTime = '';
+                        this.visitor.expectedVisitorInTime = '';
+                        this.visitor.expectedDuration = '';
+                        if (this.visitor.apartmentUnitId) {
+                            this.getTowers().then((res) => {
+                                if (res.length > 0) {
+                                    this.towerList = res;
+                                    this.getUnits('edit');
+                                }
+                            });
+                        }
+                        else
+                            this.isDataLoaded = true;
+                    }
+                });
+            }
+        });
     }
     isAdmin() {
         return this.sessionService.isAdmin();
     }
+    getBlockId() {
+        let unitDetails = {
+            apartmentBlockUnitId: this.visitor.apartmentUnitId,
+        };
+        return this.apartmentService.getApartmentBlockUnitById(unitDetails);
+    }
     changeVisitorType() {
         this.visitor.apartmentUnitId = null;
+        this.visitor.tomeetStaffId = null;
         this.block = {
             blockId: null,
-            staffId: null,
             primaryName: ''
         };
     }
     getUnits(type) {
-        if (type == 'change') {
-            this.visitor.apartmentUnitId = null;
-            this.block.primaryName = '';
-        }
-        for (let data of this.towerList) {
-            if (this.block.blockId == data.block_Id) {
-                this.unitList = data.blockUnit;
-                break;
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            //Async await function integrated for checkin and checkout mode
+            if (type == 'change') {
+                this.visitor.apartmentUnitId = null;
+                this.block.primaryName = '';
             }
-        }
+            else {
+                let tower = yield this.getBlockId().toPromise();
+                if (tower.length > 0)
+                    this.block.blockId = tower[0].apartmentBlockId;
+            }
+            for (let data of this.towerList) {
+                if (this.block.blockId == data.block_Id) {
+                    this.unitList = data.blockUnit;
+                    if (type != 'change') {
+                        this.getPrimaryName();
+                        this.isDataLoaded = true;
+                    }
+                    break;
+                }
+            }
+        });
     }
     getPrimaryName() {
         for (let data of this.unitList) {
@@ -450,12 +503,10 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
     }
     resetField() {
         this.visitor = {};
-        this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
         this.visitor.visitTypeId = null;
         this.visitor.visitorCategoryId = null;
         this.block = {
             blockId: null,
-            staffId: null,
             primaryName: ''
         };
         this.expectedDurationInfo = '';
@@ -463,7 +514,7 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
     createExpectedVisitor() {
         this.isDataLoaded = false;
         let params = {
-            expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(), "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null })
+            expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.toString(), "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId })
         };
         this.visitorService.addExpectedVisitor(params).subscribe((res) => {
             this.isDataLoaded = true;
@@ -476,6 +527,12 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
             }
         });
     }
+    getTowers() {
+        let tower = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).toPromise();
+    }
     ngOnInit() {
         this.resetField();
         //visit type
@@ -486,13 +543,14 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
         this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
             this.visitTypeList = res;
         });
-        //Tower
-        let tower = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe((res) => {
-            this.towerList = res;
-        });
+        //TowerList
+        if (this.urlType == 'create') {
+            this.getTowers().then((res) => {
+                if (res.length > 0) {
+                    this.towerList = res;
+                }
+            });
+        }
         // Staffs List
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
@@ -518,7 +576,8 @@ ExpVisitorCreateChekinComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] }
 ];
 ExpVisitorCreateChekinComponent.propDecorators = {
     modal: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -535,7 +594,8 @@ ExpVisitorCreateChekinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])
 ], ExpVisitorCreateChekinComponent);
 
 
@@ -634,45 +694,22 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         dialogRef.afterClosed().subscribe(dialogResult => {
             if (dialogResult) {
                 let dataRecord = this.datagrid.getrowdata(detail.rowId);
-                let params = {
-                    visitor: {
-                        "visitTypeId": dataRecord.visitTypeId,
-                        "visitorName": dataRecord.expectedVisitorName,
-                        "visitorCount": dataRecord.expectedVisitorCount,
-                        "visitorInTime": dataRecord.expectedVisitorInTime,
-                        "visitorOutTime": dataRecord.expectedVisitorOutTime,
-                        "expectedDuration": dataRecord.expectedDuration,
-                        "visitorCategoryId": dataRecord.visitorCategoryId,
-                        "purpose": dataRecord.purpose,
-                        "apartmentUnitId": dataRecord.apartmentUnitId,
-                        "apartmentId": dataRecord.apartmentId,
-                        "visitorPhone": dataRecord.expectedVisitorPhone,
-                        "passNumber": "34",
-                        "isCheckedIn": true,
-                        "isCheckedOut": false,
-                        "isActive": true,
-                        "insertedBy": this.sessionService.userId,
-                        "insertedOn": new Date().toISOString(),
-                        "updatedBy": null,
-                        "updatedOn": null,
-                        "expectedVisitorId": null,
-                        "expectedVisitorInTime": null,
-                        "expectedVisitorOutTime": null,
-                        "expectedVisitorDuration": null,
-                        "enteredBy": parseInt(this.sessionService.userId),
-                        "visitorVehicleTypeId": null,
-                        "visitorVehicleNumber": "string",
-                        "visitingPlaceId": null,
-                        "meetingPersonId": 1,
-                        "meetingPersonName": "string",
-                        "visitorsOrg": "string",
-                        "entryGateId": null,
-                        "exitGateId": null,
-                    }
-                };
-                this.visitorService.addVisitor(params).subscribe((res) => {
-                    console.log(res);
-                });
+                this.router.navigate([`/ams/visitor/expected-visitor/checkin/${dataRecord.expectedVisitorId}`]);
+            }
+        });
+    }
+    onCopyWith(detail) {
+        const message = `Are you sure, you want to copy the details?`;
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+            panelClass: 'material',
+            disableClose: true,
+            data: dialogData
+        });
+        dialogRef.afterClosed().subscribe(dialogResult => {
+            if (dialogResult) {
+                let dataRecord = this.datagrid.getrowdata(detail.rowId);
+                this.router.navigate([`/ams/visitor/expected-visitor-detail/copy/${dataRecord.expectedVisitorId}`]);
             }
         });
     }
@@ -680,8 +717,10 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.isVisitorDataLoaded = false;
         let params = {
             apartmentId: this.sessionService.apartmentId,
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).subtract(1, 'days').utc().format(),
+            toDate: new Date().toISOString(),
         };
-        this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe((res) => {
+        this.visitorService.getAllYetToComeExpectedVisitorsByApartmentIdDate(params).subscribe((res) => {
             if (res.length > 0) {
                 let tableData = {
                     localdata: res.reverse(),
@@ -779,40 +818,12 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
                     let date = moment__WEBPACK_IMPORTED_MODULE_4__(this.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
                     if (new_ != date) {
                         return '<div class="simple-actions">'
-                            + '<a href="javascript:void(0)" onClick="navigateToCheckIn(' + row + ')" >Copy Details</a>'
+                            + '<a href="javascript:void(0)" onClick="copyWith(' + row + ')" >Copy Details</a>'
                             + '</div>';
                     }
                 },
                 renderer: columnrenderer
             }];
-    }
-    navigateToCheckIn(detail) {
-        const message = `Are you sure, you want to copy the details and Check In?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let dataRecord = this.datagrid.getrowdata(detail.rowId);
-                this.router.navigate(['/ams/visitor/checkin'], { queryParams: dataRecord, skipLocationChange: true });
-            }
-        });
-    }
-    //print button
-    print() {
-        const confirmationMessage = `Are you sure, you want to Print?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            console.log(dialogResult);
-        });
     }
 };
 ExpVisitorListComponent.ctorParameters = () => [
@@ -825,7 +836,7 @@ ExpVisitorListComponent.ctorParameters = () => [
 ExpVisitorListComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
     onCheckIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCheckIn', ['$event.detail'],] }],
-    navigateToCheckIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:navigateToCheckIn', ['$event.detail'],] }]
+    onCopyWith: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCopyWith', ['$event.detail'],] }]
 };
 ExpVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -849,15 +860,15 @@ function checkIn(row) {
     window.dispatchEvent(event);
 }
 window.checkIn = checkIn;
-function navigateToCheckIn(row) {
-    var event = new CustomEvent('navigateToCheckIn', {
+function copyWith(row) {
+    var event = new CustomEvent('onCopyWith', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
 }
-window.navigateToCheckIn = navigateToCheckIn;
+window.copyWith = copyWith;
 
 
 /***/ }),
@@ -1252,15 +1263,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -1274,56 +1283,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VisitorCheckoutComponent = class VisitorCheckoutComponent {
-    constructor(router, route, injector, apartmentService, visitorService, lookupService, cookieService, dialog, sessionService) {
+    constructor(router, route, injector, apartmentService, visitorService, lookupService, dialog, sessionService) {
         this.router = router;
         this.route = route;
         this.injector = injector;
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
-        this.cookieService = cookieService;
         this.dialog = dialog;
         this.sessionService = sessionService;
-        this.visitorData = "";
-        this.isVisitorDataLoaded = false;
-        this.unitFieldType = "unitno";
-        this.unitOrder = true;
-        this.ItemStartIndex = 0;
-        this.itemLimit = 10;
-        this.result = '';
+        this.visitorList = [];
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
-    }
-    getIndexParams(event) {
-        this.ItemStartIndex = event.ItemStartIndex;
-        this.ItemEndIndex = event.ItemEndIndex;
-        this.itemLimit = event.itemLimit;
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-        }
-        else
-            return '';
-    }
-    getBlockUnit(id) {
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     showConfirmModal(index) {
         this.modalService.showConfirmModal(index);
     }
-    getVisitorType() {
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'visitorCheckOutData');
     }
     onGlSearchFilter() {
-        if (this.visitorData != "") {
+        if (this.visitorSearch != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.visitorData;
+            let filtervalue = this.visitorSearch;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -1340,26 +1322,10 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
             this.datagrid.clearfilters();
         }
     }
-    //print button
-    print() {
-        const confirmationMessage = `Are you sure, you want to Print?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-            panelClass: 'material',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            this.result = dialogResult;
-            if (this.result) {
-                //code
-            }
-        });
-    }
-    navigateTo(detail) {
+    onCheckOut(detail) {
         const message = `Are you sure, you want to Check Out?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
             panelClass: 'material',
             disableClose: true,
             data: dialogData
@@ -1367,23 +1333,29 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
         dialogRef.afterClosed().subscribe(dialogResult => {
             if (dialogResult) {
                 let dataRecord = this.datagrid.getrowdata(detail.rowId);
-                let visitorId = dataRecord.visitorId;
-                this.router.navigateByUrl('/ams/visitor/edit-visitor/' + visitorId + '/checkout');
+                this.router.navigate([`/ams/visitor/expected-visitor/checkout/${dataRecord.visitorId}`]);
             }
         });
     }
-    getPrintParams(event) {
-        this.datagrid.exportdata(event, 'visitorCheckOutData');
-    }
-    getDateTime(val) {
-        if (val != '') {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(val).format("MM/DD/YY hh:mm");
-        }
-        else {
-            return '';
-        }
+    getCheckOutList() {
+        this.isVisitorDataLoaded = false;
+        let apartmentParams = {
+            apartmentId: this.sessionService.apartmentId,
+        };
+        this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe((res) => {
+            if (res.length > 0) {
+                let tableData = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = tableData.localdata.length;
+                this.visitorList = new jqx.dataAdapter(tableData);
+            }
+            this.isVisitorDataLoaded = true;
+        });
     }
     ngOnInit() {
+        this.getCheckOutList();
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -1393,142 +1365,83 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
         this.columnData = [{
                 text: 'Id',
                 datafield: 'serialNo',
-                width: 100,
+                width: 80,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Visitor Name',
                 datafield: 'visitorName',
-                width: 100,
+                width: 140,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Phone Number',
                 datafield: 'visitorPhone',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                minwidth: 100,
                 renderer: columnrenderer
             }, {
-                text: 'In-time',
+                text: 'IN Time',
                 datafield: 'visitorInTime',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getDateTime(value) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
                 },
-                minwidth: 170,
+                minwidth: 160,
                 renderer: columnrenderer
             }, {
-                text: 'Out-time',
+                text: 'Out Time',
                 datafield: 'visitorOutTime',
                 cellsrenderer: (row, column, value) => {
-                    console.log('value', value);
-                    return '<div class="jqx-custom-inner-cell">' + this.getDateTime(value) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
                 },
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Block No',
-                datafield: 'blockNo',
-                cellsrenderer: cellsrenderer,
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'Unit No',
-                datafield: 'blockUnitNo',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Pass No',
-                datafield: 'passNumber',
-                cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                minwidth: 160,
                 renderer: columnrenderer
             }, {
                 text: 'Visit Type',
                 datafield: 'visitTypeName',
                 cellsrenderer: cellsrenderer,
+                minwidth: 80,
+                renderer: columnrenderer
+            }, {
+                text: 'Tower Unit',
+                datafield: 'block_Unit',
+                cellsrenderer: cellsrenderer,
                 minwidth: 170,
                 renderer: columnrenderer
             }, {
-                text: 'Action',
+                text: 'Visitor category',
+                datafield: 'visitorCategoryName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 150,
+                renderer: columnrenderer
+            }, {
+                text: 'Check-Out',
                 cellsalign: 'center',
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')" ><img src="assets/images/checkout-icon.svg" width="20" /> </a>'
+                        + '<a href="javascript:void(0)" onClick="checkOut(' + row + ')" ><img src="assets/images/checkout-icon.svg" width="20" /> </a>'
                         + '</div>';
                 },
                 renderer: columnrenderer
             }];
-        let visitParams = {
-            ApartmentId: this.sessionService.apartmentId,
-            LookupTypeId: 15
-        };
-        //get visit type
-        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
-            this.visitTypeData = res;
-        }, error => {
-        });
-        let apartmentParams = {
-            apartmentId: this.sessionService.apartmentId,
-        };
-        this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe((res) => {
-            //filter active true items
-            this.visitorListData = res.filter(item => {
-                if (item.block_Unit && item.block_Unit != null) {
-                    let block = item.block_Unit.split(' ');
-                    item.blockNo = block[0];
-                    item.blockUnitNo = block[1];
-                }
-                return item.isActive && !item.isCheckedOut;
-            });
-            let arr = this.visitorListData;
-            var element = arr[arr.length - 1];
-            console.log('arr', element);
-            let a;
-            let b = this.route.queryParams.subscribe(params => { a = params['show']; });
-            console.log('a', a);
-            if (a == 'First') {
-                this.visitorListData.splice(arr.length - 1, 1);
-            }
-            this.visitorListData = this.visitorListData.sort((val1, val2) => {
-                return new Date(val2.visitorOutTime) - new Date(val1.visitorOutTime);
-            });
-            if (a == 'First') {
-                this.visitorListData.unshift(element);
-            }
-            this.gridSourceData = {
-                localdata: this.visitorListData,
-                datatype: "array"
-            };
-            this.listData = new jqx.dataAdapter(this.gridSourceData);
-            this.totalItems = this.visitorListData.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
-            this.isVisitorDataLoaded = true;
-        });
     }
 };
 VisitorCheckoutComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"] }
 ];
 VisitorCheckoutComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    navigateTo: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:navigateTo', ['$event.detail'],] }]
+    onCheckOut: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCheckOut', ['$event.detail'],] }]
 };
 VisitorCheckoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1536,26 +1449,25 @@ VisitorCheckoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./visitor-checkout.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-checkout.component.scss */ "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"]])
 ], VisitorCheckoutComponent);
 
-function navigateTo(row) {
-    var event = new CustomEvent('navigateTo', {
+function checkOut(row) {
+    var event = new CustomEvent('onCheckOut', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
 }
-window.navigateTo = navigateTo;
+window.checkOut = checkOut;
 
 
 /***/ }),
@@ -1592,6 +1504,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
 
 
 
@@ -1601,12 +1515,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
-    constructor(apartmentService, visitorService, lookupService, sessionService, staffService) {
+    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router) {
         this.apartmentService = apartmentService;
         this.visitorService = visitorService;
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.staffService = staffService;
+        this.activateRouter = activateRouter;
+        this.router = router;
         this.visitor = {};
         this.expectedDurationInfo = '';
         this.visitTypeList = [];
@@ -1616,26 +1532,123 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.staffsList = [];
         this.block = {};
         this.isDataLoaded = true;
+        this.urlType = 'create';
+        this.expVisitorResponse = {};
+        //check in and checkout edit
+        this.activateRouter.params.subscribe((param) => {
+            if (param.id && param.type) {
+                this.isDataLoaded = false;
+                this.urlType = param.type;
+                let id = parseInt(param.id);
+                if (param.type == 'checkin')
+                    this.checkInLogic(id);
+                else if (param.type == 'checkout')
+                    this.checkoutLogic(id);
+            }
+        });
+    }
+    checkInLogic(id) {
+        let visitor = {
+            expectedVisitorId: id
+        };
+        this.visitorService.getExpectedVisitorById(visitor).subscribe((res) => {
+            this.expVisitorResponse = res[0];
+            this.visitor.visitTypeId = res[0].visitTypeId;
+            this.visitor.apartmentUnitId = res[0].apartmentUnitId;
+            this.visitor.tomeetStaffId = res[0].tomeetStaffId;
+            this.visitor.visitorName = res[0].expectedVisitorName;
+            this.visitor.visitorCount = res[0].expectedVisitorCount;
+            this.visitor.visitorPhone = +(res[0].expectedVisitorPhone);
+            this.visitor.visitorInTime = res[0].expectedVisitorInTime;
+            this.visitor.visitorOutTime = res[0].expectedVisitorOutTime;
+            this.visitor.expectedDuration = res[0].expectedDuration;
+            this.visitor.passNumber = res[0].passNumber;
+            this.visitor.visitorCategoryId = res[0].visitorCategoryId;
+            this.visitor.purpose = res[0].purpose;
+            this.expectedDurationChange();
+            if (this.visitor.apartmentUnitId) {
+                this.getTowers().then((res) => {
+                    if (res.length > 0) {
+                        this.towerList = res;
+                        this.getUnits('edit');
+                    }
+                });
+            }
+            else {
+                this.isDataLoaded = true;
+            }
+        });
+    }
+    checkoutLogic(id) {
+        let visitor = {
+            visitorId: id
+        };
+        this.visitorService.getVisitorById(visitor).subscribe((res) => {
+            this.visitor = res[0];
+            this.plannedOutTime = res[0].visitorOutTime;
+            this.expectedDurationChange();
+            if (this.visitor.tomeetStaffId)
+                this.isDataLoaded = true;
+            else if (this.visitor.apartmentUnitId) {
+                this.getTowers().then((res) => {
+                    if (res.length > 0) {
+                        this.towerList = res;
+                        this.getUnits('edit');
+                    }
+                });
+            }
+        });
+    }
+    disableField() {
+        if (this.urlType == 'checkout')
+            return true;
+        else
+            return false;
     }
     changeVisitorType() {
         this.visitor.apartmentUnitId = null;
+        this.visitor.tomeetStaffId = null;
         this.block = {
             blockId: null,
-            staffId: null,
             primaryName: ''
         };
     }
+    getParticularBlockId() {
+        let unitDetails = {
+            apartmentBlockUnitId: this.visitor.apartmentUnitId,
+        };
+        return this.apartmentService.getApartmentBlockUnitById(unitDetails);
+    }
+    getTowers() {
+        let tower = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).toPromise();
+    }
     getUnits(type) {
-        if (type == 'change') {
-            this.visitor.apartmentUnitId = null;
-            this.block.primaryName = '';
-        }
-        for (let data of this.towerList) {
-            if (this.block.blockId == data.block_Id) {
-                this.unitList = data.blockUnit;
-                break;
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            //Async await function integrated for checkin and checkout mode
+            if (type == 'change') {
+                this.visitor.apartmentUnitId = null;
+                this.block.primaryName = '';
             }
-        }
+            else {
+                //checkin or checkout mode
+                let tower = yield this.getParticularBlockId().toPromise();
+                if (tower.length > 0)
+                    this.block.blockId = tower[0].apartmentBlockId;
+            }
+            for (let data of this.towerList) {
+                if (this.block.blockId == data.block_Id) {
+                    this.unitList = data.blockUnit;
+                    if (type != 'change') {
+                        this.getPrimaryName();
+                        this.isDataLoaded = true;
+                    }
+                    break;
+                }
+            }
+        });
     }
     getPrimaryName() {
         for (let data of this.unitList) {
@@ -1668,7 +1681,6 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.visitor.visitorCategoryId = null;
         this.block = {
             blockId: null,
-            staffId: null,
             primaryName: ''
         };
         this.expectedDurationInfo = '';
@@ -1681,8 +1693,22 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.visitorService.addVisitor(params).subscribe((res) => {
             this.isDataLoaded = true;
             if (res.message) {
-                this.resetField();
+                this.router.navigate(['/ams/visitor/checkout']);
             }
+        });
+    }
+    createCheckOut() {
+        this.isDataLoaded = true;
+        let visitorDetails = {
+            "visitorId": this.visitor.visitorId,
+            "checkOutTime": this.visitor.visitorOutTime,
+            "updatedBy": this.sessionService.userId,
+        };
+        this.visitorService.checkOutVisitor(visitorDetails).subscribe((res) => {
+            if (res.message) {
+                this.router.navigate(['/ams/visitor/checkout']);
+            }
+            this.isDataLoaded = false;
         });
     }
     ngOnInit() {
@@ -1695,13 +1721,14 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
             this.visitTypeList = res;
         });
-        //Tower
-        let tower = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe((res) => {
-            this.towerList = res;
-        });
+        //TowerList
+        if (this.urlType == 'create') {
+            this.getTowers().then((res) => {
+                if (res.length > 0) {
+                    this.towerList = res;
+                }
+            });
+        }
         // Staffs List
         let staffParms = {
             apartmentId: this.sessionService.apartmentId,
@@ -1726,7 +1753,9 @@ VisitorCreateCheckinComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] }
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] }
 ];
 VisitorCreateCheckinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1738,7 +1767,9 @@ VisitorCreateCheckinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]])
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])
 ], VisitorCreateCheckinComponent);
 
 
@@ -2941,12 +2972,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/visitor-setup/visitor-setup.component */ "./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.ts");
 /* harmony import */ var _components_visitor_checkin_visitor_checkin_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/visitor-checkin/visitor-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-checkin/visitor-checkin.component.ts");
 /* harmony import */ var _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/visitor-checkout/visitor-checkout.component */ "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.ts");
-/* harmony import */ var _components_visitor_expected_visitor_visitor_expected_visitor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/visitor-expected-visitor/visitor-expected-visitor.component */ "./src/app/modules/ams/visitor/components/visitor-expected-visitor/visitor-expected-visitor.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
-/* harmony import */ var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/visitor-history/visitor-history.component */ "./src/app/modules/ams/visitor/components/visitor-history/visitor-history.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
-/* harmony import */ var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/visitor-create-checkin/visitor-create-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
-/* harmony import */ var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
+/* harmony import */ var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
+/* harmony import */ var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/visitor-history/visitor-history.component */ "./src/app/modules/ams/visitor/components/visitor-history/visitor-history.component.ts");
+/* harmony import */ var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
+/* harmony import */ var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/visitor-create-checkin/visitor-create-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
+/* harmony import */ var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
+/* harmony import */ var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/exp-visitor-list/exp-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
 
 
 
@@ -2962,15 +2993,19 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
     { path: 'settings', component: _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_3__["VisitorSetupComponent"] },
-    { path: 'checkin', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_10__["VisitorCreateCheckinComponent"] },
-    { path: 'expected-visitor', component: _components_visitor_expected_visitor_visitor_expected_visitor_component__WEBPACK_IMPORTED_MODULE_6__["VisitorExpectedVisitorComponent"] },
+    { path: 'checkin', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"] },
+    { path: 'expected-visitor/:type/:id', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"] },
+    { path: 'expected-visitor', component: _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorListComponent"] },
+    { path: 'create-expected-visitor', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"] },
+    { path: 'expected-visitor-detail/:type/:id', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"] },
+    { path: 'checkout', component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"] },
+    { path: 'checkout/edit', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"] },
     { path: 'add-visitor', component: _components_visitor_checkin_visitor_checkin_component__WEBPACK_IMPORTED_MODULE_4__["VisitorCheckinComponent"] },
     { path: 'edit-visitor/:id/:type', component: _components_visitor_checkin_visitor_checkin_component__WEBPACK_IMPORTED_MODULE_4__["VisitorCheckinComponent"] },
     { path: 'checkout', component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"] },
-    { path: 'reports', component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_7__["VisitorReportsComponent"] },
-    { path: 'reports/:name/:id', component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"] },
-    { path: 'create-expected-visitor', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorCreateChekinComponent"] },
-    { path: 'history', component: _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_8__["VisitorHistoryComponent"] },
+    { path: 'reports', component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__["VisitorReportsComponent"] },
+    { path: 'reports/:name/:id', component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_8__["VisitorReportsDataComponent"] },
+    { path: 'history', component: _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_7__["VisitorHistoryComponent"] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let VisitorRoutingModule = class VisitorRoutingModule {

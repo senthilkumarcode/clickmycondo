@@ -331,7 +331,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Create Expected Visitor</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.staffId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Create Expected Visitor</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"visitor.tomeetStaffId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.expectedVisitorPhone\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -391,7 +391,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"app-visitor-checkout-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n   <div class=\"main\">\n\t<condo-card *ngIf=\"isVisitorDataLoaded\">\n\n\t\t<div CondoCardHeader>\n\t\t  <div class=\"d-flex\">\n    \t\t<div>\n\t\t\t\t<h4>All Checked-Out Visitors</h4>\n\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t</div>\n\t\t\t<div>\n\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t</div>\n\t\t</div>\n  \t\t</div>\n  \t\t\n  \t <div CondoCardBody>\n\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\n  \t\t</div>\n\n\t</condo-card>\n</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"app-visitor-checkout-wrapper\">\n\t<app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n   <div class=\"main\">\n\t\t<condo-card *ngIf=\"isVisitorDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Checked-Out Visitors</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"visitorData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n\t\t\t\t\t[columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -411,7 +411,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Visitor Check-In</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.staffId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.visitorPhone\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorInTime\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">CheckIn</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Visitor Check-In</h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<form *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Block No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\" [disabled]=\"disableField()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff*</label>\n\t\t\t\t\t\t\t<select name=\"staffId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.tomeetStaffId\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList\" [ngValue]=\"item.staffId\">{{ item.staffName}} {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.visitorName\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.visitorCount\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control\" placeholder=\"Enter Mobile Number\" name=\"phoneNo\" [(ngModel)]=\"visitor.visitorPhone\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorInTime\" [disabled]=\"true\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- checkout page -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"urlType == 'checkout'\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Planned Out-time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"tempOutTime\" [owlDateTime]=\"tempOutTime\" [owlDateTimeTrigger]=\"tempOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"plannedOutTime\" [disabled]=\"true\" required >\n\t\t\t\t\t\t\t<owl-date-time #tempOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"tempOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.visitorOutTime\" autocomplete=\"off\"  (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Pass Number<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter Number\" name=\"visitorPassNumber\" [(ngModel)]=\"visitor.passNumber\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t[disabled]=\"disableField()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button *ngIf=\"urlType !='checkout'\" class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckIn()\">CheckIn</button>\n\t\t\t\t\t<button *ngIf=\"urlType=='checkout'\" class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createCheckOut()\">CheckOut</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -634,7 +634,9 @@
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
       var ExpVisitorCreateChekinComponent = /*#__PURE__*/function () {
-        function ExpVisitorCreateChekinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router) {
+        function ExpVisitorCreateChekinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter) {
+          var _this2 = this;
+
           _classCallCheck(this, ExpVisitorCreateChekinComponent);
 
           this.apartmentService = apartmentService;
@@ -643,6 +645,7 @@
           this.sessionService = sessionService;
           this.staffService = staffService;
           this.router = router;
+          this.activateRouter = activateRouter;
           this.modal = false;
           this.modalResult = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.visitor = {};
@@ -654,6 +657,42 @@
           this.staffsList = [];
           this.block = {};
           this.isDataLoaded = true;
+          this.urlType = 'create'; //check in and checkout edit
+
+          this.activateRouter.params.subscribe(function (param) {
+            if (param.id && param.type) {
+              _this2.isDataLoaded = false;
+              _this2.urlType = param.type;
+              var visitor = {
+                expectedVisitorId: +param.id
+              };
+
+              _this2.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
+                _this2.visitor = res[0];
+
+                if (param.type == 'edit') {
+                  _this2.expectedDurationChange();
+
+                  _this2.isDataLoaded = true;
+                } else {
+                  //copy Within
+                  _this2.visitor.expectedVisitorOutTime = '';
+                  _this2.visitor.expectedVisitorInTime = '';
+                  _this2.visitor.expectedDuration = '';
+
+                  if (_this2.visitor.apartmentUnitId) {
+                    _this2.getTowers().then(function (res) {
+                      if (res.length > 0) {
+                        _this2.towerList = res;
+
+                        _this2.getUnits('edit');
+                      }
+                    });
+                  } else _this2.isDataLoaded = true;
+                }
+              });
+            }
+          });
         }
 
         _createClass(ExpVisitorCreateChekinComponent, [{
@@ -662,40 +701,107 @@
             return this.sessionService.isAdmin();
           }
         }, {
+          key: "getBlockId",
+          value: function getBlockId() {
+            var unitDetails = {
+              apartmentBlockUnitId: this.visitor.apartmentUnitId
+            };
+            return this.apartmentService.getApartmentBlockUnitById(unitDetails);
+          }
+        }, {
           key: "changeVisitorType",
           value: function changeVisitorType() {
             this.visitor.apartmentUnitId = null;
+            this.visitor.tomeetStaffId = null;
             this.block = {
               blockId: null,
-              staffId: null,
               primaryName: ''
             };
           }
         }, {
           key: "getUnits",
           value: function getUnits(type) {
-            if (type == 'change') {
-              this.visitor.apartmentUnitId = null;
-              this.block.primaryName = '';
-            }
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var tower, _iterator, _step, data;
 
-            var _iterator = _createForOfIteratorHelper(this.towerList),
-                _step;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      if (!(type == 'change')) {
+                        _context.next = 5;
+                        break;
+                      }
 
-            try {
-              for (_iterator.s(); !(_step = _iterator.n()).done;) {
-                var data = _step.value;
+                      this.visitor.apartmentUnitId = null;
+                      this.block.primaryName = '';
+                      _context.next = 9;
+                      break;
 
-                if (this.block.blockId == data.block_Id) {
-                  this.unitList = data.blockUnit;
-                  break;
+                    case 5:
+                      _context.next = 7;
+                      return this.getBlockId().toPromise();
+
+                    case 7:
+                      tower = _context.sent;
+                      if (tower.length > 0) this.block.blockId = tower[0].apartmentBlockId;
+
+                    case 9:
+                      _iterator = _createForOfIteratorHelper(this.towerList);
+                      _context.prev = 10;
+
+                      _iterator.s();
+
+                    case 12:
+                      if ((_step = _iterator.n()).done) {
+                        _context.next = 20;
+                        break;
+                      }
+
+                      data = _step.value;
+
+                      if (!(this.block.blockId == data.block_Id)) {
+                        _context.next = 18;
+                        break;
+                      }
+
+                      this.unitList = data.blockUnit;
+
+                      if (type != 'change') {
+                        this.getPrimaryName();
+                        this.isDataLoaded = true;
+                      }
+
+                      return _context.abrupt("break", 20);
+
+                    case 18:
+                      _context.next = 12;
+                      break;
+
+                    case 20:
+                      _context.next = 25;
+                      break;
+
+                    case 22:
+                      _context.prev = 22;
+                      _context.t0 = _context["catch"](10);
+
+                      _iterator.e(_context.t0);
+
+                    case 25:
+                      _context.prev = 25;
+
+                      _iterator.f();
+
+                      return _context.finish(25);
+
+                    case 28:
+                    case "end":
+                      return _context.stop();
+                  }
                 }
-              }
-            } catch (err) {
-              _iterator.e(err);
-            } finally {
-              _iterator.f();
-            }
+              }, _callee, this, [[10, 22, 25, 28]]);
+            }));
           }
         }, {
           key: "getPrimaryName",
@@ -741,12 +847,10 @@
           key: "resetField",
           value: function resetField() {
             this.visitor = {};
-            this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
             this.visitor.visitTypeId = null;
             this.visitor.visitorCategoryId = null;
             this.block = {
               blockId: null,
-              staffId: null,
               primaryName: ''
             };
             this.expectedDurationInfo = '';
@@ -754,7 +858,7 @@
         }, {
           key: "createExpectedVisitor",
           value: function createExpectedVisitor() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -771,25 +875,34 @@
                 "meetingPersonId": 1,
                 "visitorsOrg": "string",
                 "entryGateId": null,
-                "exitGateId": null
+                "exitGateId": null,
+                "tomeetStaffId": this.visitor.tomeetStaffId
               })
             };
             this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
-              _this2.isDataLoaded = true;
+              _this3.isDataLoaded = true;
 
               if (res.message) {
-                if (_this2.isAdmin) _this2.router.navigate(['/ams/visitor/expected-visitor']);
+                if (_this3.isAdmin) _this3.router.navigate(['/ams/visitor/expected-visitor']);
 
-                if (_this2.modal) {
-                  _this2.modalResult.emit(true);
+                if (_this3.modal) {
+                  _this3.modalResult.emit(true);
                 }
               }
             });
           }
         }, {
+          key: "getTowers",
+          value: function getTowers() {
+            var tower = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).toPromise();
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.resetField(); //visit type
 
@@ -798,22 +911,24 @@
               LookupTypeId: 15
             };
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this3.visitTypeList = res;
-            }); //Tower
+              _this4.visitTypeList = res;
+            }); //TowerList
 
-            var tower = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-              _this3.towerList = res;
-            }); // Staffs List
+            if (this.urlType == 'create') {
+              this.getTowers().then(function (res) {
+                if (res.length > 0) {
+                  _this4.towerList = res;
+                }
+              });
+            } // Staffs List
+
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
               RoleTypeId: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this3.staffsList = res;
+              _this4.staffsList = res;
               ;
             }); //Visit Category
 
@@ -822,7 +937,7 @@
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this3.visitCategoryList = res;
+              _this4.visitCategoryList = res;
             });
           }
         }]);
@@ -843,6 +958,8 @@
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
         }];
       };
 
@@ -862,7 +979,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./exp-visitor-create-chekin.component.scss */
         "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])], ExpVisitorCreateChekinComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])], ExpVisitorCreateChekinComponent);
       /***/
     },
 
@@ -996,7 +1113,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this4 = this;
+            var _this5 = this;
 
             if (this.visitorSearch != "") {
               var filtergroup = new jqx.filter();
@@ -1009,7 +1126,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this4.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1020,7 +1137,7 @@
         }, {
           key: "onCheckIn",
           value: function onCheckIn(detail) {
-            var _this5 = this;
+            var _this6 = this;
 
             var message = "Are you sure, you want to Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -1031,77 +1148,60 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this5.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this6.datagrid.getrowdata(detail.rowId);
 
-                var params = {
-                  visitor: {
-                    "visitTypeId": dataRecord.visitTypeId,
-                    "visitorName": dataRecord.expectedVisitorName,
-                    "visitorCount": dataRecord.expectedVisitorCount,
-                    "visitorInTime": dataRecord.expectedVisitorInTime,
-                    "visitorOutTime": dataRecord.expectedVisitorOutTime,
-                    "expectedDuration": dataRecord.expectedDuration,
-                    "visitorCategoryId": dataRecord.visitorCategoryId,
-                    "purpose": dataRecord.purpose,
-                    "apartmentUnitId": dataRecord.apartmentUnitId,
-                    "apartmentId": dataRecord.apartmentId,
-                    "visitorPhone": dataRecord.expectedVisitorPhone,
-                    "passNumber": "34",
-                    "isCheckedIn": true,
-                    "isCheckedOut": false,
-                    "isActive": true,
-                    "insertedBy": _this5.sessionService.userId,
-                    "insertedOn": new Date().toISOString(),
-                    "updatedBy": null,
-                    "updatedOn": null,
-                    "expectedVisitorId": null,
-                    "expectedVisitorInTime": null,
-                    "expectedVisitorOutTime": null,
-                    "expectedVisitorDuration": null,
-                    "enteredBy": parseInt(_this5.sessionService.userId),
-                    "visitorVehicleTypeId": null,
-                    "visitorVehicleNumber": "string",
-                    "visitingPlaceId": null,
-                    "meetingPersonId": 1,
-                    "meetingPersonName": "string",
-                    "visitorsOrg": "string",
-                    "entryGateId": null,
-                    "exitGateId": null
-                  }
-                };
+                _this6.router.navigate(["/ams/visitor/expected-visitor/checkin/".concat(dataRecord.expectedVisitorId)]);
+              }
+            });
+          }
+        }, {
+          key: "onCopyWith",
+          value: function onCopyWith(detail) {
+            var _this7 = this;
 
-                _this5.visitorService.addVisitor(params).subscribe(function (res) {
-                  console.log(res);
-                });
+            var message = "Are you sure, you want to copy the details?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+              panelClass: 'material',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                var dataRecord = _this7.datagrid.getrowdata(detail.rowId);
+
+                _this7.router.navigate(["/ams/visitor/expected-visitor-detail/copy/".concat(dataRecord.expectedVisitorId)]);
               }
             });
           }
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this6 = this;
+            var _this8 = this;
 
             this.isVisitorDataLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId
+              apartmentId: this.sessionService.apartmentId,
+              fromDate: moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).subtract(1, 'days').utc().format(),
+              toDate: new Date().toISOString()
             };
-            this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
+            this.visitorService.getAllYetToComeExpectedVisitorsByApartmentIdDate(params).subscribe(function (res) {
               if (res.length > 0) {
                 var tableData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this6.totalItems = tableData.localdata.length;
-                _this6.visitorList = new jqx.dataAdapter(tableData);
+                _this8.totalItems = tableData.localdata.length;
+                _this8.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this6.isVisitorDataLoaded = true;
+              _this8.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this9 = this;
 
             this.getVisitorList();
 
@@ -1173,7 +1273,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_4__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_4__(_this7.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_4__(_this9.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ == date) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="checkIn(' + row + ')" ><img src="assets/images/checkin-icon.svg" width="20" /> </a>' + '</div>';
@@ -1187,52 +1287,14 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_4__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_4__(_this7.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_4__(_this9.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ != date) {
-                  return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateToCheckIn(' + row + ')" >Copy Details</a>' + '</div>';
+                  return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="copyWith(' + row + ')" >Copy Details</a>' + '</div>';
                 }
               },
               renderer: columnrenderer
             }];
-          }
-        }, {
-          key: "navigateToCheckIn",
-          value: function navigateToCheckIn(detail) {
-            var _this8 = this;
-
-            var message = "Are you sure, you want to copy the details and Check In?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-              panelClass: 'material',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var dataRecord = _this8.datagrid.getrowdata(detail.rowId);
-
-                _this8.router.navigate(['/ams/visitor/checkin'], {
-                  queryParams: dataRecord,
-                  skipLocationChange: true
-                });
-              }
-            });
-          } //print button
-
-        }, {
-          key: "print",
-          value: function print() {
-            var confirmationMessage = "Are you sure, you want to Print?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-              panelClass: 'material',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              console.log(dialogResult);
-            });
           }
         }]);
 
@@ -1264,9 +1326,9 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onCheckIn', ['$event.detail']]
         }],
-        navigateToCheckIn: [{
+        onCopyWith: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:navigateToCheckIn', ['$event.detail']]
+          args: ['window:onCopyWith', ['$event.detail']]
         }]
       };
       ExpVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1290,8 +1352,8 @@
 
       window.checkIn = checkIn;
 
-      function navigateToCheckIn(row) {
-        var event = new CustomEvent('navigateToCheckIn', {
+      function copyWith(row) {
+        var event = new CustomEvent('onCopyWith', {
           detail: {
             rowId: row
           }
@@ -1299,7 +1361,7 @@
         window.dispatchEvent(event);
       }
 
-      window.navigateToCheckIn = navigateToCheckIn;
+      window.copyWith = copyWith;
       /***/
     },
 
@@ -1487,7 +1549,7 @@
         }, {
           key: "submitAddVisitorForm",
           value: function submitAddVisitorForm(form) {
-            var _this9 = this;
+            var _this10 = this;
 
             var num = this.isCheckout() ? this.visitor.visitorPhone : this.visitor.expectedVisitorPhone;
             if (!this.IsvalidatePhoneNo(num)) return true;
@@ -1535,19 +1597,19 @@
               };
               this.visitorService.addVisitor(params).subscribe(function (res) {
                 if (res.message) {
-                  _this9.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
+                  _this10.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor Checked In successfully");
                   // this.router.navigate(['/ams/visitor/expected-visitor'])
                 } else {
-                  _this9.isVisitorSubmitted = false;
-                  _this9.isVisitorAdded = false;
-                  _this9.isError = true;
-                  _this9.errorMessage = res.errorMessage;
+                  _this10.isVisitorSubmitted = false;
+                  _this10.isVisitorAdded = false;
+                  _this10.isError = true;
+                  _this10.errorMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this9.isVisitorSubmitted = false;
-                _this9.isVisitorAdded = false;
-                _this9.isError = true;
-                _this9.errorMessage = error;
+                _this10.isVisitorSubmitted = false;
+                _this10.isVisitorAdded = false;
+                _this10.isError = true;
+                _this10.errorMessage = error;
               });
             } else {
               var _visitorDetails = {
@@ -1557,25 +1619,25 @@
               };
               this.visitorService.checkOutVisitor(_visitorDetails).subscribe(function (res) {
                 if (res.message) {
-                  _this9.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
+                  _this10.isVisitorAdded = true; // this.sharedService.setAlertMessage("Visitor checked out successfully");
                 } else {
-                  _this9.isVisitorSubmitted = false;
-                  _this9.isError = true;
-                  _this9.isVisitorAdded = false;
-                  _this9.errorMessage = res.errorMessage;
+                  _this10.isVisitorSubmitted = false;
+                  _this10.isError = true;
+                  _this10.isVisitorAdded = false;
+                  _this10.errorMessage = res.errorMessage;
                 }
               }, function (error) {
-                _this9.isVisitorSubmitted = false;
-                _this9.isError = true;
-                _this9.errorMessage = error;
-                _this9.isVisitorAdded = false;
+                _this10.isVisitorSubmitted = false;
+                _this10.isError = true;
+                _this10.errorMessage = error;
+                _this10.isVisitorAdded = false;
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.visitor = {};
 
@@ -1585,23 +1647,23 @@
               if (this.visitorStatus == 'checkout') {
                 this.visitorService.getVisitorById(this.route.params['value'].id).subscribe(function (res) {
                   var visitorIdParam = {
-                    visitorId: _this10.route.params['value'].id
+                    visitorId: _this11.route.params['value'].id
                   };
 
-                  _this10.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
-                    _this10.visitor = res[0];
-                    _this10.visitTypeId = _this10.visitor.visitTypeId;
-                    _this10.visitCategoryId = _this10.visitor.visitorCategoryId;
-                    _this10.visitor.purpose = '';
-                    _this10.planned_OutTime = _this10.visitor.visitorOutTime;
-                    _this10.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                    var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this10.visitor.visitorInTime);
-                    var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this10.visitor.visitorOutTime);
+                  _this11.visitorService.getVisitorById(visitorIdParam).subscribe(function (res) {
+                    _this11.visitor = res[0];
+                    _this11.visitTypeId = _this11.visitor.visitTypeId;
+                    _this11.visitCategoryId = _this11.visitor.visitorCategoryId;
+                    _this11.visitor.purpose = '';
+                    _this11.planned_OutTime = _this11.visitor.visitorOutTime;
+                    _this11.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                    var inDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this11.visitor.visitorInTime);
+                    var outDate = moment__WEBPACK_IMPORTED_MODULE_10__(_this11.visitor.visitorOutTime);
                     var diffDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate));
                     var dayDuration = moment__WEBPACK_IMPORTED_MODULE_10__["duration"](outDate.diff(inDate, 'days'), 'days');
-                    _this10.expectedDuration = dayDuration.asDays() + " days " + _this10.isSingleDigit(diffDuration.hours()) + ":" + _this10.isSingleDigit(diffDuration.minutes()) + " hours";
-                    _this10.isVisitorSubmitted = false;
-                    _this10.minOutDate = new Date();
+                    _this11.expectedDuration = dayDuration.asDays() + " days " + _this11.isSingleDigit(diffDuration.hours()) + ":" + _this11.isSingleDigit(diffDuration.minutes()) + " hours";
+                    _this11.isVisitorSubmitted = false;
+                    _this11.minOutDate = new Date();
                   }, function (error) {});
                 });
               } else if (this.visitorStatus == 'checkin') {
@@ -1609,16 +1671,16 @@
                   expectedVisitorId: this.route.params['value'].id
                 };
                 this.visitorService.getExpectedVisitorById(expectedVisitorIdParam).subscribe(function (res) {
-                  _this10.visitor = res[0];
-                  console.log('this.visitor', _this10.visitor);
-                  _this10.visitor.purpose = '';
-                  _this10.visitTypeId = _this10.visitor.visitTypeId;
-                  _this10.visitCategoryId = _this10.visitor.visitorCategoryId;
-                  _this10.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
-                  _this10.isVisitorSubmitted = false;
-                  _this10.minExOutTime = new Date(_this10.actualInTime);
-                  _this10.expectedDuration = _this10.getDuration(_this10.actualInTime, _this10.visitor.expectedVisitorOutTime);
-                  _this10.visitor.expectedDurationInHours = _this10.getDurationInHours(_this10.actualInTime, _this10.visitor.expectedVisitorOutTime);
+                  _this11.visitor = res[0];
+                  console.log('this.visitor', _this11.visitor);
+                  _this11.visitor.purpose = '';
+                  _this11.visitTypeId = _this11.visitor.visitTypeId;
+                  _this11.visitCategoryId = _this11.visitor.visitorCategoryId;
+                  _this11.actualInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
+                  _this11.isVisitorSubmitted = false;
+                  _this11.minExOutTime = new Date(_this11.actualInTime);
+                  _this11.expectedDuration = _this11.getDuration(_this11.actualInTime, _this11.visitor.expectedVisitorOutTime);
+                  _this11.visitor.expectedDurationInHours = _this11.getDurationInHours(_this11.actualInTime, _this11.visitor.expectedVisitorOutTime);
                 }, function (error) {});
               }
             }
@@ -1629,7 +1691,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this10.visitByData = res;
+              _this11.visitByData = res;
             }, function (error) {});
             var categoryParams = {
               ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -1637,7 +1699,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this10.visitCategoryData = res.filter(function (item) {
+              _this11.visitCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -1645,12 +1707,12 @@
               userId: parseInt(this.cookieService.get('userId'))
             };
             this.apartmentService.getApartmentBlockUnitByUserId(apartmentParams).subscribe(function (res) {
-              _this10.apartmentUnitId = res[0].apartmentBlockUnitId;
+              _this11.apartmentUnitId = res[0].apartmentBlockUnitId;
             }, function (error) {});
             this.visitor.expectedVisitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
             this.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_10__(new Date());
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this10.blockUnitData = res;
+              _this11.blockUnitData = res;
             });
           }
         }, {
@@ -1848,52 +1910,46 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-      /* harmony import */
-
-
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
 
       var VisitorCheckoutComponent = /*#__PURE__*/function () {
-        function VisitorCheckoutComponent(router, route, injector, apartmentService, visitorService, lookupService, cookieService, dialog, sessionService) {
+        function VisitorCheckoutComponent(router, route, injector, apartmentService, visitorService, lookupService, dialog, sessionService) {
           _classCallCheck(this, VisitorCheckoutComponent);
 
           this.router = router;
@@ -1902,64 +1958,31 @@
           this.apartmentService = apartmentService;
           this.visitorService = visitorService;
           this.lookupService = lookupService;
-          this.cookieService = cookieService;
           this.dialog = dialog;
           this.sessionService = sessionService;
-          this.visitorData = "";
-          this.isVisitorDataLoaded = false;
-          this.unitFieldType = "unitno";
-          this.unitOrder = true;
-          this.ItemStartIndex = 0;
-          this.itemLimit = 10;
-          this.result = '';
+          this.visitorList = [];
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
         _createClass(VisitorCheckoutComponent, [{
-          key: "getIndexParams",
-          value: function getIndexParams(event) {
-            this.ItemStartIndex = event.ItemStartIndex;
-            this.ItemEndIndex = event.ItemEndIndex;
-            this.itemLimit = event.itemLimit;
-          }
-        }, {
-          key: "sortUnitData",
-          value: function sortUnitData(type) {
-            this.unitFieldType = type;
-            this.unitOrder = !this.unitOrder;
-          }
-        }, {
-          key: "getFieldOrderBy",
-          value: function getFieldOrderBy(type) {
-            if (this.unitFieldType == type) {
-              return this.unitOrder ? 'asc' : 'desc';
-            } else return '';
-          }
-        }, {
-          key: "getBlockUnit",
-          value: function getBlockUnit(id) {}
-        }, {
-          key: "isMobileView",
-          value: function isMobileView() {
-            return window.innerWidth <= 767 ? 'table-responsive' : '';
-          }
-        }, {
           key: "showConfirmModal",
           value: function showConfirmModal(index) {
             this.modalService.showConfirmModal(index);
           }
         }, {
-          key: "getVisitorType",
-          value: function getVisitorType() {}
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'visitorCheckOutData');
+          }
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this11 = this;
+            var _this12 = this;
 
-            if (this.visitorData != "") {
+            if (this.visitorSearch != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.visitorData;
+              var filtervalue = this.visitorSearch;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -1967,42 +1990,22 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
             } else {
               this.datagrid.clearfilters();
             }
-          } //print button
-
-        }, {
-          key: "print",
-          value: function print() {
-            var _this12 = this;
-
-            var confirmationMessage = "Are you sure, you want to Print?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
-              panelClass: 'material',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this12.result = dialogResult;
-
-              if (_this12.result) {//code
-              }
-            });
           }
         }, {
-          key: "navigateTo",
-          value: function navigateTo(detail) {
+          key: "onCheckOut",
+          value: function onCheckOut(detail) {
             var _this13 = this;
 
             var message = "Are you sure, you want to Check Out?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_7__["CommonConfirmModalComponent"], {
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
               panelClass: 'material',
               disableClose: true,
               data: dialogData
@@ -2011,30 +2014,36 @@
               if (dialogResult) {
                 var dataRecord = _this13.datagrid.getrowdata(detail.rowId);
 
-                var visitorId = dataRecord.visitorId;
-
-                _this13.router.navigateByUrl('/ams/visitor/edit-visitor/' + visitorId + '/checkout');
+                _this13.router.navigate(["/ams/visitor/expected-visitor/checkout/".concat(dataRecord.visitorId)]);
               }
             });
           }
         }, {
-          key: "getPrintParams",
-          value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'visitorCheckOutData');
-          }
-        }, {
-          key: "getDateTime",
-          value: function getDateTime(val) {
-            if (val != '') {
-              return moment__WEBPACK_IMPORTED_MODULE_9__(val).format("MM/DD/YY hh:mm");
-            } else {
-              return '';
-            }
+          key: "getCheckOutList",
+          value: function getCheckOutList() {
+            var _this14 = this;
+
+            this.isVisitorDataLoaded = false;
+            var apartmentParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
+              if (res.length > 0) {
+                var tableData = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this14.totalItems = tableData.localdata.length;
+                _this14.visitorList = new jqx.dataAdapter(tableData);
+              }
+
+              _this14.isVisitorDataLoaded = true;
+            });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            this.getCheckOutList();
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2047,133 +2056,66 @@
             this.columnData = [{
               text: 'Id',
               datafield: 'serialNo',
-              width: 100,
+              width: 80,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Visitor Name',
               datafield: 'visitorName',
-              width: 100,
+              width: 140,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Phone Number',
               datafield: 'visitorPhone',
               cellsrenderer: cellsrenderer,
-              minwidth: 80,
+              minwidth: 100,
               renderer: columnrenderer
             }, {
-              text: 'In-time',
+              text: 'IN Time',
               datafield: 'visitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this14.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
               },
-              minwidth: 170,
+              minwidth: 160,
               renderer: columnrenderer
             }, {
-              text: 'Out-time',
+              text: 'Out Time',
               datafield: 'visitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                console.log('value', value);
-                return '<div class="jqx-custom-inner-cell">' + _this14.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("MM/DD/YY hh:mm") + '</div>';
               },
-              minwidth: 170,
-              renderer: columnrenderer
-            }, {
-              text: 'Block No',
-              datafield: 'blockNo',
-              cellsrenderer: cellsrenderer,
-              minwidth: 80,
-              renderer: columnrenderer
-            }, {
-              text: 'Unit No',
-              datafield: 'blockUnitNo',
-              cellsrenderer: cellsrenderer,
-              minwidth: 170,
-              renderer: columnrenderer
-            }, {
-              text: 'Pass No',
-              datafield: 'passNumber',
-              cellsrenderer: cellsrenderer,
-              minwidth: 80,
+              minwidth: 160,
               renderer: columnrenderer
             }, {
               text: 'Visit Type',
               datafield: 'visitTypeName',
               cellsrenderer: cellsrenderer,
+              minwidth: 80,
+              renderer: columnrenderer
+            }, {
+              text: 'Tower Unit',
+              datafield: 'block_Unit',
+              cellsrenderer: cellsrenderer,
               minwidth: 170,
               renderer: columnrenderer
             }, {
-              text: 'Action',
+              text: 'Visitor category',
+              datafield: 'visitorCategoryName',
+              cellsrenderer: cellsrenderer,
+              minwidth: 150,
+              renderer: columnrenderer
+            }, {
+              text: 'Check-Out',
               cellsalign: 'center',
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')" ><img src="assets/images/checkout-icon.svg" width="20" /> </a>' + '</div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="checkOut(' + row + ')" ><img src="assets/images/checkout-icon.svg" width="20" /> </a>' + '</div>';
               },
               renderer: columnrenderer
             }];
-            var visitParams = {
-              ApartmentId: this.sessionService.apartmentId,
-              LookupTypeId: 15
-            }; //get visit type
-
-            this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this14.visitTypeData = res;
-            }, function (error) {});
-            var apartmentParams = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
-              //filter active true items
-              _this14.visitorListData = res.filter(function (item) {
-                if (item.block_Unit && item.block_Unit != null) {
-                  var block = item.block_Unit.split(' ');
-                  item.blockNo = block[0];
-                  item.blockUnitNo = block[1];
-                }
-
-                return item.isActive && !item.isCheckedOut;
-              });
-              var arr = _this14.visitorListData;
-              var element = arr[arr.length - 1];
-              console.log('arr', element);
-              var a;
-
-              var b = _this14.route.queryParams.subscribe(function (params) {
-                a = params['show'];
-              });
-
-              console.log('a', a);
-
-              if (a == 'First') {
-                _this14.visitorListData.splice(arr.length - 1, 1);
-              }
-
-              _this14.visitorListData = _this14.visitorListData.sort(function (val1, val2) {
-                return new Date(val2.visitorOutTime) - new Date(val1.visitorOutTime);
-              });
-
-              if (a == 'First') {
-                _this14.visitorListData.unshift(element);
-              }
-
-              _this14.gridSourceData = {
-                localdata: _this14.visitorListData,
-                datatype: "array"
-              };
-              _this14.listData = new jqx.dataAdapter(_this14.gridSourceData);
-              _this14.totalItems = _this14.visitorListData.length;
-
-              if (_this14.totalItems > _this14.itemLimit) {
-                _this14.ItemEndIndex = _this14.itemLimit;
-              } else {
-                _this14.ItemEndIndex = _this14.totalItems;
-              }
-
-              _this14.isVisitorDataLoaded = true;
-            });
           }
         }]);
 
@@ -2182,9 +2124,9 @@
 
       VisitorCheckoutComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
@@ -2194,11 +2136,9 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"]
         }];
       };
 
@@ -2209,9 +2149,9 @@
             "static": false
           }]
         }],
-        navigateTo: [{
+        onCheckOut: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:navigateTo', ['$event.detail']]
+          args: ['window:onCheckOut', ['$event.detail']]
         }]
       };
       VisitorCheckoutComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2222,10 +2162,10 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-checkout.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_11__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_11__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]])], VisitorCheckoutComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_10__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"]])], VisitorCheckoutComponent);
 
-      function navigateTo(row) {
-        var event = new CustomEvent('navigateTo', {
+      function checkOut(row) {
+        var event = new CustomEvent('onCheckOut', {
           detail: {
             rowId: row
           }
@@ -2233,7 +2173,7 @@
         window.dispatchEvent(event);
       }
 
-      window.navigateTo = navigateTo;
+      window.checkOut = checkOut;
       /***/
     },
 
@@ -2328,9 +2268,17 @@
       var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
       var VisitorCreateCheckinComponent = /*#__PURE__*/function () {
-        function VisitorCreateCheckinComponent(apartmentService, visitorService, lookupService, sessionService, staffService) {
+        function VisitorCreateCheckinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router) {
+          var _this15 = this;
+
           _classCallCheck(this, VisitorCreateCheckinComponent);
 
           this.apartmentService = apartmentService;
@@ -2338,6 +2286,8 @@
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.staffService = staffService;
+          this.activateRouter = activateRouter;
+          this.router = router;
           this.visitor = {};
           this.expectedDurationInfo = '';
           this.visitTypeList = [];
@@ -2347,43 +2297,197 @@
           this.staffsList = [];
           this.block = {};
           this.isDataLoaded = true;
+          this.urlType = 'create';
+          this.expVisitorResponse = {}; //check in and checkout edit
+
+          this.activateRouter.params.subscribe(function (param) {
+            if (param.id && param.type) {
+              _this15.isDataLoaded = false;
+              _this15.urlType = param.type;
+              var id = parseInt(param.id);
+              if (param.type == 'checkin') _this15.checkInLogic(id);else if (param.type == 'checkout') _this15.checkoutLogic(id);
+            }
+          });
         }
 
         _createClass(VisitorCreateCheckinComponent, [{
+          key: "checkInLogic",
+          value: function checkInLogic(id) {
+            var _this16 = this;
+
+            var visitor = {
+              expectedVisitorId: id
+            };
+            this.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
+              _this16.expVisitorResponse = res[0];
+              _this16.visitor.visitTypeId = res[0].visitTypeId;
+              _this16.visitor.apartmentUnitId = res[0].apartmentUnitId;
+              _this16.visitor.tomeetStaffId = res[0].tomeetStaffId;
+              _this16.visitor.visitorName = res[0].expectedVisitorName;
+              _this16.visitor.visitorCount = res[0].expectedVisitorCount;
+              _this16.visitor.visitorPhone = +res[0].expectedVisitorPhone;
+              _this16.visitor.visitorInTime = res[0].expectedVisitorInTime;
+              _this16.visitor.visitorOutTime = res[0].expectedVisitorOutTime;
+              _this16.visitor.expectedDuration = res[0].expectedDuration;
+              _this16.visitor.passNumber = res[0].passNumber;
+              _this16.visitor.visitorCategoryId = res[0].visitorCategoryId;
+              _this16.visitor.purpose = res[0].purpose;
+
+              _this16.expectedDurationChange();
+
+              if (_this16.visitor.apartmentUnitId) {
+                _this16.getTowers().then(function (res) {
+                  if (res.length > 0) {
+                    _this16.towerList = res;
+
+                    _this16.getUnits('edit');
+                  }
+                });
+              } else {
+                _this16.isDataLoaded = true;
+              }
+            });
+          }
+        }, {
+          key: "checkoutLogic",
+          value: function checkoutLogic(id) {
+            var _this17 = this;
+
+            var visitor = {
+              visitorId: id
+            };
+            this.visitorService.getVisitorById(visitor).subscribe(function (res) {
+              _this17.visitor = res[0];
+              _this17.plannedOutTime = res[0].visitorOutTime;
+
+              _this17.expectedDurationChange();
+
+              if (_this17.visitor.tomeetStaffId) _this17.isDataLoaded = true;else if (_this17.visitor.apartmentUnitId) {
+                _this17.getTowers().then(function (res) {
+                  if (res.length > 0) {
+                    _this17.towerList = res;
+
+                    _this17.getUnits('edit');
+                  }
+                });
+              }
+            });
+          }
+        }, {
+          key: "disableField",
+          value: function disableField() {
+            if (this.urlType == 'checkout') return true;else return false;
+          }
+        }, {
           key: "changeVisitorType",
           value: function changeVisitorType() {
             this.visitor.apartmentUnitId = null;
+            this.visitor.tomeetStaffId = null;
             this.block = {
               blockId: null,
-              staffId: null,
               primaryName: ''
             };
           }
         }, {
+          key: "getParticularBlockId",
+          value: function getParticularBlockId() {
+            var unitDetails = {
+              apartmentBlockUnitId: this.visitor.apartmentUnitId
+            };
+            return this.apartmentService.getApartmentBlockUnitById(unitDetails);
+          }
+        }, {
+          key: "getTowers",
+          value: function getTowers() {
+            var tower = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            return this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).toPromise();
+          }
+        }, {
           key: "getUnits",
           value: function getUnits(type) {
-            if (type == 'change') {
-              this.visitor.apartmentUnitId = null;
-              this.block.primaryName = '';
-            }
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              var tower, _iterator3, _step3, data;
 
-            var _iterator3 = _createForOfIteratorHelper(this.towerList),
-                _step3;
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      if (!(type == 'change')) {
+                        _context2.next = 5;
+                        break;
+                      }
 
-            try {
-              for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-                var data = _step3.value;
+                      this.visitor.apartmentUnitId = null;
+                      this.block.primaryName = '';
+                      _context2.next = 9;
+                      break;
 
-                if (this.block.blockId == data.block_Id) {
-                  this.unitList = data.blockUnit;
-                  break;
+                    case 5:
+                      _context2.next = 7;
+                      return this.getParticularBlockId().toPromise();
+
+                    case 7:
+                      tower = _context2.sent;
+                      if (tower.length > 0) this.block.blockId = tower[0].apartmentBlockId;
+
+                    case 9:
+                      _iterator3 = _createForOfIteratorHelper(this.towerList);
+                      _context2.prev = 10;
+
+                      _iterator3.s();
+
+                    case 12:
+                      if ((_step3 = _iterator3.n()).done) {
+                        _context2.next = 20;
+                        break;
+                      }
+
+                      data = _step3.value;
+
+                      if (!(this.block.blockId == data.block_Id)) {
+                        _context2.next = 18;
+                        break;
+                      }
+
+                      this.unitList = data.blockUnit;
+
+                      if (type != 'change') {
+                        this.getPrimaryName();
+                        this.isDataLoaded = true;
+                      }
+
+                      return _context2.abrupt("break", 20);
+
+                    case 18:
+                      _context2.next = 12;
+                      break;
+
+                    case 20:
+                      _context2.next = 25;
+                      break;
+
+                    case 22:
+                      _context2.prev = 22;
+                      _context2.t0 = _context2["catch"](10);
+
+                      _iterator3.e(_context2.t0);
+
+                    case 25:
+                      _context2.prev = 25;
+
+                      _iterator3.f();
+
+                      return _context2.finish(25);
+
+                    case 28:
+                    case "end":
+                      return _context2.stop();
+                  }
                 }
-              }
-            } catch (err) {
-              _iterator3.e(err);
-            } finally {
-              _iterator3.f();
-            }
+              }, _callee2, this, [[10, 22, 25, 28]]);
+            }));
           }
         }, {
           key: "getPrimaryName",
@@ -2434,7 +2538,6 @@
             this.visitor.visitorCategoryId = null;
             this.block = {
               blockId: null,
-              staffId: null,
               primaryName: ''
             };
             this.expectedDurationInfo = '';
@@ -2442,7 +2545,7 @@
         }, {
           key: "createCheckIn",
           value: function createCheckIn() {
-            var _this15 = this;
+            var _this18 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2473,17 +2576,36 @@
               })
             };
             this.visitorService.addVisitor(params).subscribe(function (res) {
-              _this15.isDataLoaded = true;
+              _this18.isDataLoaded = true;
 
               if (res.message) {
-                _this15.resetField();
+                _this18.router.navigate(['/ams/visitor/checkout']);
               }
+            });
+          }
+        }, {
+          key: "createCheckOut",
+          value: function createCheckOut() {
+            var _this19 = this;
+
+            this.isDataLoaded = true;
+            var visitorDetails = {
+              "visitorId": this.visitor.visitorId,
+              "checkOutTime": this.visitor.visitorOutTime,
+              "updatedBy": this.sessionService.userId
+            };
+            this.visitorService.checkOutVisitor(visitorDetails).subscribe(function (res) {
+              if (res.message) {
+                _this19.router.navigate(['/ams/visitor/checkout']);
+              }
+
+              _this19.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this20 = this;
 
             this.resetField(); //visit type
 
@@ -2492,22 +2614,24 @@
               LookupTypeId: 15
             };
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this16.visitTypeList = res;
-            }); //Tower
+              _this20.visitTypeList = res;
+            }); //TowerList
 
-            var tower = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-              _this16.towerList = res;
-            }); // Staffs List
+            if (this.urlType == 'create') {
+              this.getTowers().then(function (res) {
+                if (res.length > 0) {
+                  _this20.towerList = res;
+                }
+              });
+            } // Staffs List
+
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
               RoleTypeId: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this16.staffsList = res;
+              _this20.staffsList = res;
               ;
             }); //Visit Category
 
@@ -2516,7 +2640,7 @@
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this16.visitCategoryList = res;
+              _this20.visitCategoryList = res;
             });
           }
         }]);
@@ -2535,6 +2659,10 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
         }];
       };
 
@@ -2546,7 +2674,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-create-checkin.component.scss */
         "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"]])], VisitorCreateCheckinComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])], VisitorCreateCheckinComponent);
       /***/
     },
 
@@ -2764,7 +2892,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this21 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2797,7 +2925,7 @@
               text: 'Expected Date/Time of Visit',
               datafield: 'expectedVisitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this17.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this21.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2805,7 +2933,7 @@
               text: 'Expected Time-out',
               datafield: 'expectedVisitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this17.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this21.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2834,7 +2962,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_7__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this17.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this21.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ == date) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateTo(' + row + ')" ><img src="assets/images/checkin-icon.svg" width="20" /> </a>' + '</div>';
@@ -2848,7 +2976,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_7__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this17.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_7__(_this21.visitorListData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ != date) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="navigateToCheckIn(' + row + ')" >Copy Details</a>' + '</div>';
@@ -2861,37 +2989,37 @@
             };
             this.visitorService.getExpectedVisitorsByApartmentId(params).subscribe(function (res) {
               if (res.errorMessage) {
-                _this17.isVisitorDataLoaded = true;
-                _this17.visitorListData = [];
-                _this17.totalItems = 0;
+                _this21.isVisitorDataLoaded = true;
+                _this21.visitorListData = [];
+                _this21.totalItems = 0;
               } else {
-                _this17.visitorListData = res;
-                console.log("visitorListData", _this17.visitorListData[0].visitTypeId); //filter active true items
+                _this21.visitorListData = res;
+                console.log("visitorListData", _this21.visitorListData[0].visitTypeId); //filter active true items
 
-                _this17.visitorListData = res.filter(function (data) {
+                _this21.visitorListData = res.filter(function (data) {
                   return data.isActive;
                 });
-                _this17.visitorListData = _this17.visitorListData.sort(function (val1, val2) {
+                _this21.visitorListData = _this21.visitorListData.sort(function (val1, val2) {
                   return new Date(val1.expectedVisitorInTime) - new Date(val2.expectedVisitorInTime);
                 });
-                _this17.gridSourceData = {
-                  localdata: _this17.visitorListData,
+                _this21.gridSourceData = {
+                  localdata: _this21.visitorListData,
                   datatype: "array"
                 };
-                _this17.listData = new jqx.dataAdapter(_this17.gridSourceData);
-                _this17.totalItems = _this17.visitorListData.length;
-                _this17.isVisitorDataLoaded = true;
+                _this21.listData = new jqx.dataAdapter(_this21.gridSourceData);
+                _this21.totalItems = _this21.visitorListData.length;
+                _this21.isVisitorDataLoaded = true;
               }
 
               var visitParams = {
-                ApartmentId: _this17.sessionService.apartmentId,
+                ApartmentId: _this21.sessionService.apartmentId,
                 LookupTypeId: 15
               }; //get visit type
 
-              _this17.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-                _this17.visitTypeData = res;
+              _this21.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
+                _this21.visitTypeData = res;
 
-                _this17.checkVisitTypeData();
+                _this21.checkVisitTypeData();
               }, function (error) {});
             }, function (error) {});
           }
@@ -2903,18 +3031,18 @@
         }, {
           key: "checkVisitTypeData",
           value: function checkVisitTypeData() {
-            var _this18 = this;
+            var _this22 = this;
 
             this.visitTypeData.forEach(function (element) {
-              if (element.lookupValueId == _this18.visitorListData[0].visitTypeId) {
-                _this18.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
+              if (element.lookupValueId == _this22.visitorListData[0].visitTypeId) {
+                _this22.visitorListData[0].visitTypeName = element.lookupValueName.toLowerCase();
               }
             });
           }
         }, {
           key: "navigateToCheckIn",
           value: function navigateToCheckIn(detail) {
-            var _this19 = this;
+            var _this23 = this;
 
             var message = "Are you sure, you want to copy the details and Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
@@ -2925,9 +3053,9 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this19.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this23.datagrid.getrowdata(detail.rowId);
 
-                _this19.router.navigate(['/ams/visitor/checkin'], {
+                _this23.router.navigate(['/ams/visitor/checkin'], {
                   queryParams: dataRecord,
                   skipLocationChange: true
                 });
@@ -2937,7 +3065,7 @@
         }, {
           key: "navigateTo",
           value: function navigateTo(detail) {
-            var _this20 = this;
+            var _this24 = this;
 
             var message = "Are you sure, you want to Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
@@ -2948,18 +3076,18 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this20.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this24.datagrid.getrowdata(detail.rowId);
 
                 var expectedVisitorId = dataRecord.expectedVisitorId;
 
-                _this20.router.navigateByUrl('/ams/visitor/edit-visitor/' + expectedVisitorId + '/checkin');
+                _this24.router.navigateByUrl('/ams/visitor/edit-visitor/' + expectedVisitorId + '/checkin');
               }
             });
           }
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this21 = this;
+            var _this25 = this;
 
             if (this.visitorData != "") {
               var filtergroup = new jqx.filter();
@@ -2972,7 +3100,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this21.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this25.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2984,7 +3112,7 @@
         }, {
           key: "print",
           value: function print() {
-            var _this22 = this;
+            var _this26 = this;
 
             var confirmationMessage = "Are you sure, you want to Print?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", confirmationMessage);
@@ -2994,9 +3122,9 @@
               data: dialogData
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this22.result = dialogResult;
+              _this26.result = dialogResult;
 
-              if (_this22.result) {//code
+              if (_this26.result) {//code
               }
             });
           }
@@ -3240,7 +3368,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this23 = this;
+            var _this27 = this;
 
             if (this.visitorData != "") {
               var filtergroup = new jqx.filter();
@@ -3253,7 +3381,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this23.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3279,7 +3407,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this28 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3312,7 +3440,7 @@
               text: 'In-time',
               datafield: 'visitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this24.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this28.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3320,7 +3448,7 @@
               text: 'Out-time',
               datafield: 'visitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this24.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this28.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3328,7 +3456,7 @@
               text: 'Expected In-time',
               datafield: 'expectedVisitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this24.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this28.getDateTime(value) + '</div>';
               },
               minwidth: 80,
               renderer: columnrenderer
@@ -3336,7 +3464,7 @@
               text: 'Expected Out-time',
               datafield: 'expectedVisitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this24.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this28.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3359,14 +3487,14 @@
             }; //get visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitTypeParams).subscribe(function (res) {
-              _this24.visitTypeData = res;
+              _this28.visitTypeData = res;
             }, function (error) {});
             var visitListParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.visitorService.getVisitorsByApartmentId(visitListParams).subscribe(function (res) {
               //filter active true items
-              _this24.visitorListData = res.filter(function (item) {
+              _this28.visitorListData = res.filter(function (item) {
                 if (item.block_Unit && item.block_Unit != null) {
                   var block = item.block_Unit.split(' ');
                   item.blockNo = block[0];
@@ -3385,22 +3513,22 @@
               //   });
               // });
 
-              _this24.gridSourceData = {
-                localdata: _this24.visitorListData,
+              _this28.gridSourceData = {
+                localdata: _this28.visitorListData,
                 datatype: "array"
               };
-              _this24.listData = new jqx.dataAdapter(_this24.gridSourceData);
-              _this24.totalItems = _this24.visitorListData.length;
-              _this24.isVisitorDataLoaded = true;
-              _this24.totalItems = _this24.visitorListData.length;
+              _this28.listData = new jqx.dataAdapter(_this28.gridSourceData);
+              _this28.totalItems = _this28.visitorListData.length;
+              _this28.isVisitorDataLoaded = true;
+              _this28.totalItems = _this28.visitorListData.length;
 
-              if (_this24.totalItems > _this24.itemLimit) {
-                _this24.ItemEndIndex = _this24.itemLimit;
+              if (_this28.totalItems > _this28.itemLimit) {
+                _this28.ItemEndIndex = _this28.itemLimit;
               } else {
-                _this24.ItemEndIndex = _this24.totalItems;
+                _this28.ItemEndIndex = _this28.totalItems;
               }
 
-              _this24.isVisitorDataLoaded = true;
+              _this28.isVisitorDataLoaded = true;
             });
           }
         }]);
@@ -3592,7 +3720,7 @@
         }, {
           key: "getDetails",
           value: function getDetails(params) {
-            var _this25 = this;
+            var _this29 = this;
 
             var serviceName;
             var id = parseInt(this.route.params['value'].id);
@@ -3607,15 +3735,15 @@
 
             serviceName.subscribe(function (res) {
               if (res.errorMessage) {
-                _this25.reportsDataList = [];
+                _this29.reportsDataList = [];
               } else {
-                _this25.reportsDataList = res;
-                _this25.gridSourceData = {
-                  localdata: _this25.reportsDataList,
+                _this29.reportsDataList = res;
+                _this29.gridSourceData = {
+                  localdata: _this29.reportsDataList,
                   datatype: "array"
                 };
-                _this25.listData = new jqx.dataAdapter(_this25.gridSourceData);
-                _this25.isReportSubmitted = true;
+                _this29.listData = new jqx.dataAdapter(_this29.gridSourceData);
+                _this29.isReportSubmitted = true;
               }
             }, function (error) {});
           }
@@ -3631,7 +3759,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this26 = this;
+            var _this30 = this;
 
             if (this.reportData != "") {
               var filtergroup = new jqx.filter();
@@ -3644,7 +3772,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this30.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3660,14 +3788,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this31 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this27.unitBlocksData = res;
+              _this31.unitBlocksData = res;
             });
             var visitParams = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3675,7 +3803,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this27.visitByData = res;
+              _this31.visitByData = res;
             }, function (error) {});
             this.isDataLoaded = true;
 
@@ -3710,7 +3838,7 @@
               text: 'Date/Time of Visit',
               datafield: 'checkInDateTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this27.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this31.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3718,7 +3846,7 @@
               text: 'Time-out',
               datafield: 'checkOutDateTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this27.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this31.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3866,7 +3994,7 @@
         _createClass(VisitorReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this32 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3875,7 +4003,7 @@
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
               //this.reportDataList = res;
-              _this28.reportDataList = [{
+              _this32.reportDataList = [{
                 lookupValueName: 'List of Checked In Visitors',
                 description: 'Provides the list of visitors checked-in for the specified duration',
                 lookupValueId: 365
@@ -3888,7 +4016,7 @@
                 description: 'Gives the list of visitors who are expected to check-in during the mentioned duration',
                 lookupValueId: 367
               }];
-              _this28.isDataLoaded = true;
+              _this32.isDataLoaded = true;
             });
           }
         }]);
@@ -4053,7 +4181,7 @@
         }, {
           key: "submitVisitorCategoryForm",
           value: function submitVisitorCategoryForm() {
-            var _this29 = this;
+            var _this33 = this;
 
             this.isDrawerLoader = false;
 
@@ -4072,21 +4200,21 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this29.isDrawerLoader = true;
+                _this33.isDrawerLoader = true;
 
                 if (res.code == 200) {
-                  _this29.closeDrawer();
+                  _this33.closeDrawer();
 
-                  _this29.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
+                  _this33.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
 
-                  _this29.getVisitorList();
+                  _this33.getVisitorList();
                 } else {
-                  _this29.sharedService.openSnackBar(res.message, 'error');
+                  _this33.sharedService.openSnackBar(res.message, 'error');
                 }
               }, function (error) {
-                _this29.isDrawerLoader = true;
+                _this33.isDrawerLoader = true;
 
-                _this29.sharedService.openSnackBar('Network Error', 'error');
+                _this33.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               var _params = {
@@ -4104,66 +4232,66 @@
                 }
               };
               this.lookupService.updateLookupValue(_params).subscribe(function (res) {
-                _this29.isDrawerLoader = true;
+                _this33.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this29.closeDrawer();
+                  _this33.closeDrawer();
 
-                  _this29.getVisitorList();
+                  _this33.getVisitorList();
 
-                  _this29.sharedService.openSnackBar(res.message, 'success');
+                  _this33.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this29.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this33.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this29.isDrawerLoader = true;
+                _this33.isDrawerLoader = true;
 
-                _this29.sharedService.openSnackBar('Network Error', 'error');
+                _this33.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this30 = this;
+            var _this34 = this;
 
             this.isDataLoaded = false;
             var params = {
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this30.isDataLoaded = true;
-              _this30.visitorCategoryList = res;
-              _this30.totalItems = res.length;
+              _this34.isDataLoaded = true;
+              _this34.visitorCategoryList = res;
+              _this34.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this35 = this;
 
             this.getVisitorList(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this31.isDataLoaded = false;
+                _this35.isDataLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this31.sessionService.userId)
+                  updateUserId: parseInt(_this35.sessionService.userId)
                 };
 
-                _this31.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this35.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res.message) {
-                    _this31.visitorCategoryList.splice(item.index, 1);
+                    _this35.visitorCategoryList.splice(item.index, 1);
 
-                    _this31.sharedService.setUnitListDeleteIndex(null);
+                    _this35.sharedService.setUnitListDeleteIndex(null);
 
-                    _this31.totalItems -= 1;
-                    _this31.clickMode = ''; //close input box
+                    _this35.totalItems -= 1;
+                    _this35.clickMode = ''; //close input box
 
-                    _this31.isDataLoaded = true;
+                    _this35.isDataLoaded = true;
 
-                    _this31.sharedService.openSnackBar(res.message, 'success');
+                    _this35.sharedService.openSnackBar(res.message, 'success');
                   }
                 });
               }
@@ -4270,39 +4398,39 @@
       /* harmony import */
 
 
-      var _components_visitor_expected_visitor_visitor_expected_visitor_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ./components/visitor-expected-visitor/visitor-expected-visitor.component */
-      "./src/app/modules/ams/visitor/components/visitor-expected-visitor/visitor-expected-visitor.component.ts");
-      /* harmony import */
-
-
-      var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/visitor-reports/visitor-reports.component */
       "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/visitor-history/visitor-history.component */
       "./src/app/modules/ams/visitor/components/visitor-history/visitor-history.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */
       "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/visitor-create-checkin/visitor-create-checkin.component */
       "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
       /* harmony import */
 
 
-      var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */
       "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
+      /* harmony import */
+
+
+      var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ./components/exp-visitor-list/exp-visitor-list.component */
+      "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
 
       var routes = [{
         path: '',
@@ -4313,10 +4441,25 @@
         component: _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_3__["VisitorSetupComponent"]
       }, {
         path: 'checkin',
-        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_10__["VisitorCreateCheckinComponent"]
+        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"]
+      }, {
+        path: 'expected-visitor/:type/:id',
+        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"]
       }, {
         path: 'expected-visitor',
-        component: _components_visitor_expected_visitor_visitor_expected_visitor_component__WEBPACK_IMPORTED_MODULE_6__["VisitorExpectedVisitorComponent"]
+        component: _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorListComponent"]
+      }, {
+        path: 'create-expected-visitor',
+        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"]
+      }, {
+        path: 'expected-visitor-detail/:type/:id',
+        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"]
+      }, {
+        path: 'checkout',
+        component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"]
+      }, {
+        path: 'checkout/edit',
+        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"]
       }, {
         path: 'add-visitor',
         component: _components_visitor_checkin_visitor_checkin_component__WEBPACK_IMPORTED_MODULE_4__["VisitorCheckinComponent"]
@@ -4328,16 +4471,13 @@
         component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"]
       }, {
         path: 'reports',
-        component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_7__["VisitorReportsComponent"]
+        component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__["VisitorReportsComponent"]
       }, {
         path: 'reports/:name/:id',
-        component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"]
-      }, {
-        path: 'create-expected-visitor',
-        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorCreateChekinComponent"]
+        component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_8__["VisitorReportsDataComponent"]
       }, {
         path: 'history',
-        component: _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_8__["VisitorHistoryComponent"]
+        component: _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_7__["VisitorHistoryComponent"]
       }, {
         path: '**',
         redirectTo: 'settings',
