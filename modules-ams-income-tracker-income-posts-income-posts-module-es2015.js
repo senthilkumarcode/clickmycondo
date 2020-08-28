@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n            \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n        <ng-container *ngIf=\"isCreditSubmitted\">\n\n            <form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n                <div class=\"bg-card shadow\">\n            \n                        <div class=\"row\">\n            \n                            <div class=\"col-lg-6 ol-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Block No\"\n                                    fieldPlaceholder=\"Select Block\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"blockData\"\n                                    fieldValue=\"apartmentBlockNumber\"\n                                    [fieldModel]=\"apartmentBlockId\"\n                                    fieldId=\"apartmentBlockId\"\n                                    (fieldParams)=\"getBlockNo($event)\" \n                                ></condo-select>   \n                            </div>\n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Unit No\"\n                                    fieldPlaceholder=\"Select Unit\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"blockUnitData\"\n                                    fieldValue=\"apartmentBlockUnitNumber\"\n                                    [fieldModel]=\"apartmentBlockUnitId\"\n                                    fieldId=\"apartmentBlockUnitId\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBlockUnitNo($event)\" \n                                ></condo-select>\n                            </div>\n                        \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Bill No\"\n                                    fieldPlaceholder=\"Select Bill\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"billData\"\n                                    fieldValue=\"collectionId\"\n                                    [fieldModel]=\"collectionId\"\n                                    fieldId=\"collectionId\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBillNo($event)\" \n                                ></condo-select>\n                            </div> \n            \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Amount*</label>\n                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n                                </div>\n                            </div>\n            \n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Comments</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n                                </div>\n                            </div>\n            \n                        </div>\n            \n                </div>\n\n                <button class=\"mt-4 float-right\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\n            </form>\n\n        </ng-container>\n\n\n    </div>\n\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n            \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n        <ng-container *ngIf=\"isCreditSubmitted\">\n\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n                [appearance]=\"message.appearance\"\n                [showIcon]=\"message.showIcon\"\n                [type]=\"message.type\"\n                [@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n            <form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n                <div class=\"bg-card shadow\">\n            \n                        <div class=\"row\">\n            \n                            <div class=\"col-lg-6 ol-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Block No\"\n                                    fieldPlaceholder=\"Select Block\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"blocksData\"\n                                    fieldValue=\"apartmentBlockNumber\"\n                                    [fieldModel]=\"apartmentBlockId\"\n                                    fieldId=\"apartmentBlockId\"\n                                    (fieldParams)=\"getBlockNo($event)\" \n                                ></condo-select>   \n                            </div>\n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Unit No\"\n                                    fieldPlaceholder=\"Select Unit\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"unitData\"\n                                    fieldValue=\"apartmentBlockUnitNumber\"\n                                    [fieldModel]=\"apartmentBlockUnitId\"\n                                    fieldId=\"apartmentBlockUnitId\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBlockUnitNo($event)\" \n                                ></condo-select>\n                            </div>\n                        \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Bill No\"\n                                    fieldPlaceholder=\"Select Bill\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"billData\"\n                                    fieldValue=\"collectionId\"\n                                    [fieldModel]=\"credit.collectionId\"\n                                    fieldId=\"collectionId\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBillNo($event)\" \n                                ></condo-select>\n                            </div> \n            \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Amount*</label>\n                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n                                </div>\n                            </div>\n            \n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Comments</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n                                </div>\n                            </div>\n            \n                        </div>\n            \n                </div>\n\n                <button class=\"mt-4 float-right\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\n            </form>\n\n        </ng-container>\n\n\n    </div>\n\t\n</div>");
 
 /***/ }),
 
@@ -51,10 +51,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeCreateCreditComponent", function() { return IncomeCreateCreditComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
@@ -73,6 +75,7 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
         this.isUnitSelected = false;
         this.apartmentBlockId = "";
         this.apartmentBlockUnitId = "";
+        this.message = null;
     }
     getBlockNo(event) {
         this.apartmentBlockId = event[0].apartmentBlockId;
@@ -127,7 +130,21 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
         });
     }
     submitAddCreditNoteForm(form) {
-        if (form.valid) {
+        if (!form.valid) {
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the required fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
+        }
+        else {
+            // Hide the message
+            this.message = null;
             let details = {
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
@@ -180,10 +197,10 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
 };
 IncomeCreateCreditComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 IncomeCreateCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -191,13 +208,14 @@ IncomeCreateCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-create-credit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_2__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-create-credit.component.scss */ "./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], IncomeCreateCreditComponent);
 
 
@@ -335,8 +353,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 /* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
-/* harmony import */ var _income_posts_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./income-posts.component */ "./src/app/modules/ams/income-tracker/income-posts/income-posts.component.ts");
-/* harmony import */ var _income_create_credit_income_create_credit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./income-create-credit/income-create-credit.component */ "./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var _income_posts_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./income-posts.component */ "./src/app/modules/ams/income-tracker/income-posts/income-posts.component.ts");
+/* harmony import */ var _income_create_credit_income_create_credit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./income-create-credit/income-create-credit.component */ "./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.ts");
+
 
 
 
@@ -353,7 +373,7 @@ let IncomePostsModule = class IncomePostsModule {
 };
 IncomePostsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_income_posts_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostsComponent"], _income_create_credit_income_create_credit_component__WEBPACK_IMPORTED_MODULE_10__["IncomeCreateCreditComponent"]],
+        declarations: [_income_posts_component__WEBPACK_IMPORTED_MODULE_10__["IncomePostsComponent"], _income_create_credit_income_create_credit_component__WEBPACK_IMPORTED_MODULE_11__["IncomeCreateCreditComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
@@ -361,10 +381,11 @@ IncomePostsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__["SelectModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__["ListModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_9__["CondoMessageModule"],
             _income_posts_routing_module__WEBPACK_IMPORTED_MODULE_5__["IncomePostsRoutingModule"]
         ],
         bootstrap: [
-            _income_posts_component__WEBPACK_IMPORTED_MODULE_9__["IncomePostsComponent"]
+            _income_posts_component__WEBPACK_IMPORTED_MODULE_10__["IncomePostsComponent"]
         ]
     })
 ], IncomePostsModule);
