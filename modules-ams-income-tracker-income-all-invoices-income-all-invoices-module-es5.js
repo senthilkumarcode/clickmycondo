@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded\"></app-loader>\n\n\t\t<div class=\"legends\" *ngIf=\"isInvoiceDataLoaded\">\n\t\t\t<div>\n\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isInvoiceDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Invoices</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\n\t\n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t</div>\n\n\n\t<ng-template #viewInvoiceDetailsRef let-invoice>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\t\t\t\n\t\t\t<div class=\"d-flex p-4\">\n\t\t\t\t<h4>Invoice Info</h4>\n\t\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\n\t\t\t\t<div id=\"InvoiceElement\">\n\n\t\t\t\t\t<div class=\"text-center bg-cool-gray-100 p-4\">\n\t\n\t\t\t\t\t\t<h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n\t\t\t\t\t\t<h6>{{apartmentDetails.address1}}</h6>\n\t\t\t\t\t\t<div class=\"mt-2\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t\t<div class=\"bg-card p-0 border-bottom\">\n\t\n\t\t\t\t\t\t<div class=\"d-flex pt-4 pb-4 border-bottom\">\n\t\t\t\t\t\t\t<div class=\"pl-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{invoice.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> </p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto pr-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th>Income Accounts</th>\n\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t<th>Comments</th>\n\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t<td>{{item.glaccountName}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal + item.vatamount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr class=\"total font-medium\">\n\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<div class=\"p-4 border-top\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"text-center m-5\">\n\t\t\t\t\t<button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n\t\t\t\t\t\tPrint\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</ng-template>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-invoice-reverse [invoice]=\"invoice\" (outputParams)=\"isReversed($event)\"></app-income-invoice-reverse>\n\t</ng-template>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-view-invoice-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<div class=\"income-view-filter-wrapper mb-5\" *ngIf=\"isInvoiceSubmitted\">\n\n\t\t\t<form #incomeInvoicesFilterForm = \"ngForm\" name=\"incomeInvoicesFilterForm\" (ngSubmit)=\"submitIncomeInvoicesFilterForm()\"  novalidate>\n\n\t\t\t\t<mat-accordion>\n\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t\t<div class=\"filter-box\">\n\t\t\t\t\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\n\t\t\t\t\t\t<mat-panel-description>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Invoice Date From</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"invoiceDateForm\" [owlDateTime]=\"invoiceDateForm\" [owlDateTimeTrigger]=\"invoiceDateForm\" placeholder=\"Date\" [(ngModel)]=\"fromDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #invoiceDateForm [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDateForm\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Invoice Date To</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"invoiceDateTo\" [owlDateTime]=\"invoiceDateTo\" [owlDateTimeTrigger]=\"invoiceDateTo\" placeholder=\"Date\" [(ngModel)]=\"toDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #invoiceDateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"invoiceDateTo\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div> \n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"incomeInvoicesFilterForm.invalid\">Apply Filter</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</mat-panel-description>\n\n\t\t\t\t\t</mat-expansion-panel>\n\n\t\t\t\t</mat-accordion>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\t\t<app-loader *ngIf=\"!isInvoiceDataLoaded && !isInvoiceSubmitted\"></app-loader>\n\n\t\t<div class=\"legends\" *ngIf=\"isInvoiceDataLoaded && isInvoiceSubmitted\">\n\t\t\t<div>\n\t\t\t\t<span class=\"squares text-purple-100 bg-purple-500 mr-2\">R</span>Reversed\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isInvoiceDataLoaded && isInvoiceSubmitted\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Invoices</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"invoiceDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\n\t\n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t</div>\n\n\n\t<ng-template #viewInvoiceDetailsRef>\n\n\t\t<div class=\"invoice-info info-modal-box rel\">\n\n\t\t\t\n\t\t\t<div class=\"d-flex p-4\">\n\t\t\t\t<h4>Invoice Info</h4>\n\t\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t\t</div>\n\n\t\t\t<app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n\n\t\t\t<ng-container *ngIf=\"isInvoicePrintLoaded\">\n\n\t\t\t\t<div id=\"InvoiceElement\">\n\n\t\t\t\t\t<div class=\"text-center bg-cool-gray-100 p-4\">\n\t\n\t\t\t\t\t\t<h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n\t\t\t\t\t\t<h6>{{apartmentDetails.address1}}</h6>\n\t\t\t\t\t\t<div class=\"mt-2\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t\t<div class=\"bg-card p-0 border-bottom\">\n\t\n\t\t\t\t\t\t<div class=\"d-flex pt-4 pb-4 border-bottom\">\n\t\t\t\t\t\t\t<div class=\"pl-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{invoice.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> </p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto pr-4\">\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"\">{{invoice.length}}</div>\n\n\t\t\t\t\t\t<table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<th>Income Accounts</th>\n\t\t\t\t\t\t\t\t\t<th>Rate</th>\n\t\t\t\t\t\t\t\t\t<th>Comments</th>\n\t\t\t\t\t\t\t\t\t<th>Discount</th>\n\t\t\t\t\t\t\t\t\t<th>Tax</th>\n\t\t\t\t\t\t\t\t\t<th>Amount</th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<tr *ngFor=\"let item of invoice.invoiceGLAccounts; let i = index\">\n\t\t\t\t\t\t\t\t\t<td>{{item.glaccountName}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.amount}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.comments}}</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n\t\t\t\t\t\t\t\t\t<td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n\t\t\t\t\t\t\t\t\t<td>{{item.lineItemTotal + item.vatamount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Final Discount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t<tr class=\"total font-medium\">\n\t\t\t\t\t\t\t\t\t<td colspan=\"5\">Total Amount:</td>\n\t\t\t\t\t\t\t\t\t<td>{{invoice.custInvoiceAmount}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<div class=\"p-4 border-top\">\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{apartmentTerms[0].termsTemplate}}</p>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"text-center m-5\">\n\t\t\t\t\t<button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n\t\t\t\t\t\tPrint\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t</div>\n\n\t</ng-template>\n\n\t<ng-template #reversePanel>\n\t\t<app-income-invoice-reverse [invoice]=\"invoice\" (outputParams)=\"isReversed($event)\"></app-income-invoice-reverse>\n\t</ng-template>\n\n</div>";
       /***/
     },
 
@@ -280,8 +280,9 @@
           this.sharedService = sharedService;
           this.constantsService = constantsService;
           this.sessionService = sessionService;
-          this.isInvoiceDataLoaded = false;
+          this.isInvoiceDataLoaded = true;
           this.isInvoicePrintLoaded = false;
+          this.isInvoiceSubmitted = false;
           this.invoiceData = "";
           this.ItemStartIndex = 0;
           this.itemLimit = 10;
@@ -357,19 +358,28 @@
           value: function onDownloadInvoice(detail) {
             var _this2 = this;
 
-            var invoice = this.datagrid.getrowdata(detail.rowId);
+            var row = this.datagrid.getrowdata(detail.rowId);
+            this.invoice = {};
             this.isInvoicePrintLoaded = false;
-            this.dialog.open(this.viewInvoiceDetailsRef, {
-              panelClass: 'material-dialog-big',
-              data: invoice
-            });
-            var params = {
+            var invoiceParams = {
               apartmentId: this.sessionService.apartmentId,
-              invoiceId: invoice.custInvoiceId
+              invoiceId: row.custInvoiceId
             };
-            this.accountsService.getCustInvoiceById(params).subscribe(function (res) {
-              _this2.custTaxDetails = res[0].custinvoiceTax;
-              _this2.isInvoicePrintLoaded = true;
+            this.accountsService.getCustInvoicesByApartmentId(invoiceParams).subscribe(function (res) {
+              console.log(res);
+              _this2.invoice = res[0];
+              var params = {
+                apartmentId: _this2.sessionService.apartmentId,
+                invoiceId: _this2.invoice.custInvoiceId
+              };
+
+              _this2.accountsService.getCustInvoiceById(params).subscribe(function (res) {
+                _this2.custTaxDetails = res[0].custinvoiceTax;
+                _this2.isInvoicePrintLoaded = true;
+              });
+            });
+            this.dialog.open(this.viewInvoiceDetailsRef, {
+              panelClass: 'material-dialog-big'
             });
           }
         }, {
@@ -435,7 +445,7 @@
           key: "isReversed",
           value: function isReversed(event) {
             if (event) {
-              this.getAllInvoicesData();
+              this.getAllInvoicesData(this.fromDate, this.toDate);
             }
           }
         }, {
@@ -525,6 +535,8 @@
           value: function ngOnInit() {
             var _this5 = this;
 
+            //this.fromDate =  moment().subtract(3,'months').endOf('month').format('YYYY-MM-DD');
+            //this.toDate = moment().format('YYYY-MM-DD');
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -540,14 +552,6 @@
               pinned: true,
               cellsrenderer: function cellsrenderer(row, column, value) {
                 return '<div class="jqx-custom-inner-cell"><a href="javascript:void(0)" class="mr-2 t-decor" onClick="downloadInvoiceEvent(' + row + ')">' + value + '</a></div>';
-              },
-              renderer: columnrenderer
-            }, {
-              text: 'Invoice Date',
-              datafield: 'postedOn',
-              minwidth: 120,
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).format(_this5.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -594,9 +598,7 @@
               text: 'Due Date',
               datafield: 'dueDate',
               minwidth: 120,
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).format(_this5.constantsService.dateFormat) + '</div>';
-              },
+              cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Actions',
@@ -610,7 +612,7 @@
               },
               renderer: columnrenderer
             }];
-            this.getAllInvoicesData();
+            this.getAllInvoicesData(this.fromDate, this.toDate);
             var apartmentParams = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
@@ -644,16 +646,26 @@
             });
           }
         }, {
+          key: "submitIncomeInvoicesFilterForm",
+          value: function submitIncomeInvoicesFilterForm() {
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format('YYYY-MM-DD');
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format('YYYY-MM-DD');
+            this.getAllInvoicesData(fromDate, toDate);
+          }
+        }, {
           key: "getAllInvoicesData",
-          value: function getAllInvoicesData() {
+          value: function getAllInvoicesData(fromDate, toDate) {
             var _this6 = this;
 
             this.isInvoiceDataLoaded = false;
+            this.isInvoiceSubmitted = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId
+              apartmentId: this.sessionService.apartmentId,
+              InvoiceFromDate: fromDate,
+              InvoiceToDate: toDate
             };
-            this.accountsService.getCustInvoicesByApartmentId(params).subscribe(function (res) {
-              var invoiceDataList = res;
+            this.accountsService.getCustInvoicesByApartmentIdNew(params).subscribe(function (res) {
+              var invoiceDataList = res.responseData.value;
               underscore__WEBPACK_IMPORTED_MODULE_13__["each"](invoiceDataList, function (item) {
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
               });
@@ -669,6 +681,7 @@
               }*/
 
               _this6.isInvoiceDataLoaded = true;
+              _this6.isInvoiceSubmitted = true;
             });
           }
         }]);
