@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-configuration-wrapper\" >\n\t\n\t<div class=\"main\">\n  \n\t\t<h4 class=\"mb-4\">Property Configuration</h4>\n\t\n\t\t<div class=\"bg-card shadow p-0\">\n\t\n\t\t  <nav mat-tab-nav-bar>\n\t\n\t\t\t<a mat-tab-link \n\t\t\t*ngFor=\"let link of menuList\" \n\t\t\t[routerLink]=\"link.url\" \n\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t{{link.name}}\n\t\t\t</a>\n\t  \n\t\t  </nav>\n\n\t\t</div>\n\n\t\t<router-outlet></router-outlet>\n\t\t\n\t</div>\n\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-configuration-wrapper\">\n\t\n\t<div class=\"main\">\n  \n\t\t<h4 class=\"mb-4\">Property Configuration</h4>\n\t\n\t\t<div class=\"bg-card shadow p-0\">\n\t\n\t\t  <nav mat-tab-nav-bar>\n\t\n\t\t\t<a mat-tab-link \n\t\t\t*ngFor=\"let link of menuList\" \n\t\t\t[routerLink]=\"link.url\" \n\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t{{link.name}}\n\t\t\t</a>\n\t  \n\t\t  </nav>\n\n\t\t</div>\n\n\t\t<router-outlet></router-outlet>\n\t\t\n\t</div>\n\t\n</div>");
 
 /***/ }),
 
@@ -95,7 +95,7 @@ const routes = [
         children: [
             { path: '', redirectTo: 'profile', pathMatch: 'full' },
             { path: 'profile', component: _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_4__["PropertyProfileComponent"] },
-            { path: 'details', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-my-property-property-configuration-property-details-property-details-module */ "src-app-modules-ams-my-property-property-configuration-property-details-property-details-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/my-property/property-configuration/property-details/property-details.module */ "./src/app/modules/ams/my-property/property-configuration/property-details/property-details.module.ts")).then(m => m.PropertyDetailsModule) },
+            { path: 'units', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-my-property-property-all-units-property-all-units-module */ "src-app-modules-ams-my-property-property-all-units-property-all-units-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/my-property/property-all-units/property-all-units.module */ "./src/app/modules/ams/my-property/property-all-units/property-all-units.module.ts")).then(m => m.PropertyAllUnitsModule) },
             { path: 'facility', component: _property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_5__["PropertyFacilityComponent"] },
             { path: 'parking', component: _property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_6__["PropertyParkingDetailsComponent"] },
             { path: 'asset', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-my-property-asset-configuration-asset-configuration-module */[__webpack_require__.e("default~modules-ams-broadcast-broadcast-module~modules-ams-inventory-inventory-module~modules-ams-mo~34a32f6f"), __webpack_require__.e("src-app-modules-ams-my-property-asset-configuration-asset-configuration-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/my-property/asset-configuration/asset-configuration.module */ "./src/app/modules/ams/my-property/asset-configuration/asset-configuration.module.ts")).then(m => m.AssetConfigurationModule) },
@@ -212,8 +212,8 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
                 isActive: true
             },
             {
-                name: 'Property Details',
-                url: 'details',
+                name: 'Property Units',
+                url: 'units',
                 bg: 'rgb(0, 150, 136)',
                 isActive: false
             },
@@ -291,18 +291,26 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
             LookupTypeId: 19
         };
         //get all asset categories
-        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-            this.isDataLoaded = true;
-            this.assetCategoriesData = res.filter(item => {
-                return item.isActive;
-            });
-            setTimeout(() => {
-                this.tab = document.getElementById('property-tabs');
-                this.tabItems = this.tab.getElementsByTagName("li");
-                this.totalTabItems = this.tabItems.length;
-                this.widthOfList();
-            }, 1000);
-        });
+        /* this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res:any) => {
+    
+          this.isDataLoaded = true;
+    
+          this.assetCategoriesData = res.filter(item => {
+            return item.isActive;
+          });
+          
+          setTimeout(() => {
+    
+            this.tab = document.getElementById('property-tabs');
+            this.tabItems = this.tab.getElementsByTagName("li");
+            this.totalTabItems = this.tabItems.length;
+    
+            this.widthOfList();
+    
+          }, 1000);
+    
+    
+        }); */
     }
 };
 PropertyConfigurationComponent.ctorParameters = () => [

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-configuration-wrapper\" >\n\t\n\t<div class=\"main\">\n  \n\t\t<h4 class=\"mb-4\">Property Configuration</h4>\n\t\n\t\t<div class=\"bg-card shadow p-0\">\n\t\n\t\t  <nav mat-tab-nav-bar>\n\t\n\t\t\t<a mat-tab-link \n\t\t\t*ngFor=\"let link of menuList\" \n\t\t\t[routerLink]=\"link.url\" \n\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t{{link.name}}\n\t\t\t</a>\n\t  \n\t\t  </nav>\n\n\t\t</div>\n\n\t\t<router-outlet></router-outlet>\n\t\t\n\t</div>\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"property-configuration-wrapper\">\n\t\n\t<div class=\"main\">\n  \n\t\t<h4 class=\"mb-4\">Property Configuration</h4>\n\t\n\t\t<div class=\"bg-card shadow p-0\">\n\t\n\t\t  <nav mat-tab-nav-bar>\n\t\n\t\t\t<a mat-tab-link \n\t\t\t*ngFor=\"let link of menuList\" \n\t\t\t[routerLink]=\"link.url\" \n\t\t\trouterLinkActive #rla=\"routerLinkActive\" [active]=\"rla.isActive\">\n\t\t\t{{link.name}}\n\t\t\t</a>\n\t  \n\t\t  </nav>\n\n\t\t</div>\n\n\t\t<router-outlet></router-outlet>\n\t\t\n\t</div>\n\t\n</div>";
       /***/
     },
 
@@ -185,14 +185,14 @@
           path: 'profile',
           component: _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_4__["PropertyProfileComponent"]
         }, {
-          path: 'details',
+          path: 'units',
           loadChildren: function loadChildren() {
             return __webpack_require__.e(
-            /*! import() | src-app-modules-ams-my-property-property-configuration-property-details-property-details-module */
-            "src-app-modules-ams-my-property-property-configuration-property-details-property-details-module").then(__webpack_require__.bind(null,
-            /*! src/app/modules/ams/my-property/property-configuration/property-details/property-details.module */
-            "./src/app/modules/ams/my-property/property-configuration/property-details/property-details.module.ts")).then(function (m) {
-              return m.PropertyDetailsModule;
+            /*! import() | src-app-modules-ams-my-property-property-all-units-property-all-units-module */
+            "src-app-modules-ams-my-property-property-all-units-property-all-units-module").then(__webpack_require__.bind(null,
+            /*! src/app/modules/ams/my-property/property-all-units/property-all-units.module */
+            "./src/app/modules/ams/my-property/property-all-units/property-all-units.module.ts")).then(function (m) {
+              return m.PropertyAllUnitsModule;
             });
           }
         }, {
@@ -385,8 +385,8 @@
               bg: 'rgb(63, 81, 181)',
               isActive: true
             }, {
-              name: 'Property Details',
-              url: 'details',
+              name: 'Property Units',
+              url: 'units',
               bg: 'rgb(0, 150, 136)',
               isActive: false
             }, {
@@ -473,25 +473,24 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this4 = this;
-
             var params = {
               LookupTypeId: 19
             }; //get all asset categories
 
-            this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this4.isDataLoaded = true;
-              _this4.assetCategoriesData = res.filter(function (item) {
+            /* this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res:any) => {
+                   this.isDataLoaded = true;
+                   this.assetCategoriesData = res.filter(item => {
                 return item.isActive;
               });
-              setTimeout(function () {
-                _this4.tab = document.getElementById('property-tabs');
-                _this4.tabItems = _this4.tab.getElementsByTagName("li");
-                _this4.totalTabItems = _this4.tabItems.length;
-
-                _this4.widthOfList();
-              }, 1000);
-            });
+              
+              setTimeout(() => {
+                     this.tab = document.getElementById('property-tabs');
+                this.tabItems = this.tab.getElementsByTagName("li");
+                this.totalTabItems = this.tabItems.length;
+                     this.widthOfList();
+                   }, 1000);
+             
+            }); */
           }
         }]);
 
@@ -737,23 +736,23 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this4 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this5.propertyTowerData = res;
+              _this4.propertyTowerData = res;
               var params = {
-                ApartmentID: _this5.sessionService.apartmentId
+                ApartmentID: _this4.sessionService.apartmentId
               };
 
-              _this5.facilityService.getPcApartmentFacility(params).subscribe(function (res) {
-                _this5.facilityData = res;
-                underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this5.facilityData, function (item, index) {
-                  _this5.facilityData[index]["class"] = _this5.dotItems[Math.floor(Math.random() * _this5.dotItems.length)];
+              _this4.facilityService.getPcApartmentFacility(params).subscribe(function (res) {
+                _this4.facilityData = res;
+                underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this4.facilityData, function (item, index) {
+                  _this4.facilityData[index]["class"] = _this4.dotItems[Math.floor(Math.random() * _this4.dotItems.length)];
                 });
-                _this5.isDataLoaded = true;
+                _this4.isDataLoaded = true;
               });
             });
           }
@@ -893,7 +892,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this5 = this;
 
             var params = {
               LookupTypeId: 71
@@ -901,7 +900,7 @@
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               //this.isDataLoaded = true;
-              _this6.slotDataList = res.filter(function (item) {
+              _this5.slotDataList = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -1005,14 +1004,14 @@
         _createClass(PropertyParkingDetailsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this6 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this7.propertyTowerData = res;
-              _this7.isDataLoaded = true;
+              _this6.propertyTowerData = res;
+              _this6.isDataLoaded = true;
             });
           }
         }]);
@@ -1160,17 +1159,17 @@
         }, {
           key: "getProperty",
           value: function getProperty(event) {
-            var _this8 = this;
+            var _this7 = this;
 
             this.property = event;
             this.updateApartment(function (res) {
               var params = {
-                apartmentId: _this8.sessionService.apartmentId,
+                apartmentId: _this7.sessionService.apartmentId,
                 active: 2
               };
 
-              _this8.apartmentService.getApartmentByApartmentId(params).subscribe(function (res) {
-                _this8.property = res[0];
+              _this7.apartmentService.getApartmentByApartmentId(params).subscribe(function (res) {
+                _this7.property = res[0];
               });
             });
           }
@@ -1229,7 +1228,7 @@
         }, {
           key: "updateApartment",
           value: function updateApartment(callback) {
-            var _this9 = this;
+            var _this8 = this;
 
             var details = {
               "apartmentId": this.sessionService.apartmentId,
@@ -1273,13 +1272,13 @@
             };
             this.apartmentService.updateApartment(apartmentParams).subscribe(function (res) {
               if (res.message) {
-                _this9.isDataLoaded = true;
-                _this9.isEdit = false;
+                _this8.isDataLoaded = true;
+                _this8.isEdit = false;
 
-                _this9.sharedService.setAlertMessage("Property updated successfully");
+                _this8.sharedService.setAlertMessage("Property updated successfully");
               } else {
-                _this9.isDataLoaded = true;
-                _this9.isEdit = false;
+                _this8.isDataLoaded = true;
+                _this8.isEdit = false;
               }
 
               callback();
@@ -1288,7 +1287,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this9 = this;
 
             this.property = {};
             this.property.propertyTypeId = "";
@@ -1298,37 +1297,37 @@
               active: 2
             };
             this.apartmentService.getApartmentByApartmentId(params).subscribe(function (res) {
-              _this10.property = res[0];
+              _this9.property = res[0];
               var params = {
-                apartmentId: _this10.sessionService.apartmentId
+                apartmentId: _this9.sessionService.apartmentId
               };
 
-              _this10.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-                _this10.towersLength = res.length;
+              _this9.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
+                _this9.towersLength = res.length;
                 var params = {
-                  apartmentId: _this10.sessionService.apartmentId
+                  apartmentId: _this9.sessionService.apartmentId
                 };
 
-                _this10.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-                  _this10.unitsLength = res.length;
+                _this9.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
+                  _this9.unitsLength = res.length;
                 });
               });
 
-              _this10.isDataLoaded = true;
+              _this9.isDataLoaded = true;
             });
             var propertyParams = {
               LookupTypeId: 65
             }; //get property type
 
             this.lookupService.getLookupValueByLookupTypeId(propertyParams).subscribe(function (res) {
-              _this10.propertyTypeData = res;
+              _this9.propertyTypeData = res;
             }, function (error) {});
             var propertyCategoryParams = {
               LookupTypeId: 66
             }; //get property category
 
             this.lookupService.getLookupValueByLookupTypeId(propertyCategoryParams).subscribe(function (res) {
-              _this10.propertyCategoryData = res;
+              _this9.propertyCategoryData = res;
             }, function (error) {});
           }
         }]);

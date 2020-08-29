@@ -270,7 +270,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
                 renderer: columnrenderer
             }, {
                 text: '',
-                width: 180,
+                width: 240,
                 sortable: false,
                 menu: false,
                 cellclassname: 'action-cell',
