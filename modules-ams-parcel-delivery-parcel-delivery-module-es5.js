@@ -2226,7 +2226,7 @@
               };
 
               _this16.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
-                if (Array.isArray(res)) {
+                if (res.length > 0) {
                   var _deliveryData = res;
                   _this16.deliveryData.packageNo = _deliveryData[0].packageId;
                   _this16.deliveryData.type = _deliveryData[0].packageTypeId;
@@ -2773,9 +2773,9 @@
               text: 'Actions',
               cellsalign: 'center',
               align: 'center',
-              width: 180,
+              width: 280,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"> <a href="javascript:void(0)" mat-flat-button  class="btn btn-primary ml-2 text-white" onClick="onSetDeliveredEvent(' + row + ')" >set delivered</a><a href="javascript:void(0)" mat-flat-button  class=" ml-2" onClick="editEvent(' + row + ')" ><i class="fa fa-edit" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2" onClick="onSendNotificationEvent(' + row + ')">' + '<i class="fa fa-bell-o text-purple-500" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" class="mr-2" onClick="onSetDeliveredEvent(' + row + ')">' + '<i class="fa fa-check text-green-900" aria-hidden="true"></i>' + '</a>' + '<a href="javascript:void(0)" onClick="editEvent(' + row + ')">' + '<i class="fa fa-edit" aria-hidden="true"></i>' + '</a>' + '</div>';
               },
               renderer: columnrenderer
             }];
@@ -2825,12 +2825,22 @@
           value: function getAllPackage() {
             var _this24 = this;
 
-            var params = {
-              // tslint:disable-next-line:radix
-              Apartmentid: parseInt(this.sessionService.apartmentId),
-              from: this.delivery.fromDate === null ? null : moment__WEBPACK_IMPORTED_MODULE_9__(this.delivery.fromDate).format("YYYY-MM-DD"),
-              to: this.delivery.toDate === null ? null : moment__WEBPACK_IMPORTED_MODULE_9__(this.delivery.toDate).format("YYYY-MM-DD")
-            };
+            var params = {};
+
+            if (this.delivery.fromDate === null && this.delivery.toDate === null) {
+              params = {
+                // tslint:disable-next-line:radix
+                Apartmentid: parseInt(this.sessionService.apartmentId)
+              };
+            } else {
+              params = {
+                // tslint:disable-next-line:radix
+                Apartmentid: parseInt(this.sessionService.apartmentId),
+                from: this.delivery.fromDate === null ? '' : moment__WEBPACK_IMPORTED_MODULE_9__(this.delivery.fromDate).format("YYYY-MM-DD"),
+                to: this.delivery.toDate === null ? '' : moment__WEBPACK_IMPORTED_MODULE_9__(this.delivery.toDate).format("YYYY-MM-DD")
+              };
+            }
+
             this.packageService.getAllPendingDeliveries(params).subscribe(function (res) {
               _this24.allParcelDelivey = res;
               console.log(_this24.allParcelDelivey);
@@ -2891,6 +2901,11 @@
             var permitId = dataRecord.workPermitId;
             console.log('progress');
           }
+        }, {
+          key: "onSendNotification",
+          value: function onSendNotification(detail) {
+            console.log('progress2');
+          }
         }]);
 
         return PendingDeliveryComponent;
@@ -2936,6 +2951,10 @@
         onEditTicket: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onSetDelivered', ['$event.detail']]
+        }],
+        onSendNotification: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:onSendNotification', ['$event.detail']]
         }]
       };
       PendingDeliveryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2971,6 +2990,17 @@
       };
 
       window.onSetDeliveredEvent = onSetDeliveredEvent;
+
+      var onSendNotificationEvent = function onSendNotificationEvent(row) {
+        var event = new CustomEvent('onSendNotification', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      };
+
+      window.onSendNotificationEvent = onSendNotificationEvent;
       /***/
     },
 

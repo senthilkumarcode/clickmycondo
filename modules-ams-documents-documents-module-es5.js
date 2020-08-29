@@ -87,6 +87,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.html":
+    /*!***********************************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.html ***!
+      \***********************************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsDocumentsComponentsDocumentsReportsDocumentsReportsDataDocumentsReportsDataComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n        <condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n    \n        <!-- De Activated Users -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n    \n    \n        <!-- vehicle info -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n    \n        <!-- Rental info -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n    \n        <!-- Pets info -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n        <!-- List of Units -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n        <!-- List of Blocks -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n        <!-- List of Tenant -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n        <!-- List of Owners -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n        <!-- List of Admins -->\n        <condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{pageName}}</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n                        (ngModelChange)=\"getBlockDetails()\" required>\n                        <option value=\"\">All Blocks</option>\n                        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n                            {{ item.apartmentBlockNumber }}</option>\n                    </select>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                    [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    \n    </div>\n    </div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.html":
     /*!*******************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.html ***!
@@ -102,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<p>documents-reports works!</p>\n";
+      __webpack_exports__["default"] = "<div class=\"reports-wrapper\">\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    \n        <ng-container *ngIf=\"isDataLoaded\">\n    \n            <h5 class=\"mb-4\">Reports</h5>\n    \n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n                        <div class=\"bg-card shadow\">\n                            <a class=\"t-no-decor\" href=\"javascript:void(0)\"\n                                routerLink = \"{{getReportRedirectPath(report.lookupValueName)}}/{{report.lookupValueID}}\" \n                                routerLinkActive=\"active\"\n                                [routerLinkActiveOptions] = \"{exact:true}\">\n                                <div>\n                                    <h6>{{report.lookupValueName}}</h6>\n                                    <p>{{report.description}}</p>\n                                </div>\n                            </a>\n                            \n                        </div>\n                </div>\n            </div>\n    \n        </ng-container>\n    \n    \n    \n       \n    </div>\n    </div>";
       /***/
     },
 
@@ -822,6 +842,893 @@
     },
 
     /***/
+    "./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.scss":
+    /*!*********************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.scss ***!
+      \*********************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsDocumentsComponentsDocumentsReportsDocumentsReportsDataDocumentsReportsDataComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RvY3VtZW50cy9jb21wb25lbnRzL2RvY3VtZW50cy1yZXBvcnRzL2RvY3VtZW50cy1yZXBvcnRzLWRhdGEvZG9jdW1lbnRzLXJlcG9ydHMtZGF0YS5jb21wb25lbnQuc2NzcyJ9 */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.ts":
+    /*!*******************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.ts ***!
+      \*******************************************************************************************************************************/
+
+    /*! exports provided: DocumentsReportsDataComponent */
+
+    /***/
+    function srcAppModulesAmsDocumentsComponentsDocumentsReportsDocumentsReportsDataDocumentsReportsDataComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DocumentsReportsDataComponent", function () {
+        return DocumentsReportsDataComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+
+      var DocumentsReportsDataComponent = /*#__PURE__*/function () {
+        function DocumentsReportsDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService) {
+          _classCallCheck(this, DocumentsReportsDataComponent);
+
+          this.router = router;
+          this.route = route;
+          this.userService = userService;
+          this.apartmentService = apartmentService;
+          this.lookupService = lookupService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.pageName = "";
+          this.pageDesp = "";
+          this.ItemStartIndex = 0;
+          this.itemLimit = 10;
+          this.unitFieldType = "unitno";
+          this.unitOrder = true;
+          this.isDataLoaded = false;
+          this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
+          this.blockNo = "All Blocks";
+        }
+
+        _createClass(DocumentsReportsDataComponent, [{
+          key: "getIndexParams",
+          value: function getIndexParams(event) {
+            this.ItemStartIndex = event.ItemStartIndex;
+            this.ItemEndIndex = event.ItemEndIndex; // this.itemLimit = event.itemLimit;
+          }
+        }, {
+          key: "sortUnitData",
+          value: function sortUnitData(type) {
+            this.unitFieldType = type;
+            this.unitOrder = !this.unitOrder;
+          }
+        }, {
+          key: "getFieldOrderBy",
+          value: function getFieldOrderBy(type) {
+            if (this.unitFieldType == type) {
+              return this.unitOrder ? 'asc' : 'desc';
+            } else return '';
+          }
+        }, {
+          key: "isMobileView",
+          value: function isMobileView() {
+            return window.innerWidth <= 767 ? 'table-responsive' : '';
+          }
+        }, {
+          key: "isItemsAvailable",
+          value: function isItemsAvailable() {
+            return this.totalItems > 0 ? true : false;
+          }
+        }, {
+          key: "isNoItemsAvailable",
+          value: function isNoItemsAvailable() {
+            return this.totalItems == 0 ? true : false;
+          }
+        }, {
+          key: "isListOfResidents",
+          value: function isListOfResidents() {
+            return this.pageName == "List of Residents";
+          }
+        }, {
+          key: "isListOfApprovedUsers",
+          value: function isListOfApprovedUsers() {
+            return this.pageName == "List of Approved Users";
+          }
+        }, {
+          key: "isListOfDeactivatedUsers",
+          value: function isListOfDeactivatedUsers() {
+            return this.pageName == "List of De-activated Users";
+          }
+        }, {
+          key: "isListOfResidentsVehicleInfo",
+          value: function isListOfResidentsVehicleInfo() {
+            return this.pageName == "List of Residents Vehicle Info";
+          }
+        }, {
+          key: "isListOfExpiringRental",
+          value: function isListOfExpiringRental() {
+            return this.pageName == "List of Expiring Rental  Lease Agreements";
+          }
+        }, {
+          key: "isListOfUsersWithPets",
+          value: function isListOfUsersWithPets() {
+            return this.pageName == "List of Users with Pets";
+          }
+        }, {
+          key: "isListOfUnits",
+          value: function isListOfUnits() {
+            return this.pageName == "List of Units";
+          }
+        }, {
+          key: "isListOfBlocks",
+          value: function isListOfBlocks() {
+            return this.pageName == "List of Blocks";
+          }
+        }, {
+          key: "isListOfOwners",
+          value: function isListOfOwners() {
+            return this.pageName == "List of Owners";
+          }
+        }, {
+          key: "isListOfTenants",
+          value: function isListOfTenants() {
+            return this.pageName == "List of Tenants";
+          }
+        }, {
+          key: "isListOfAdmins",
+          value: function isListOfAdmins() {
+            return this.pageName == "List of Admins";
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+          }
+        }, {
+          key: "getBlockDetails",
+          value: function getBlockDetails() {
+            var _this6 = this;
+
+            //jqx column generating
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.isDataLoaded = false;
+            var details = {
+              ApartmentID: this.sessionService.apartmentId,
+              ApartmentBlockID: this.blockId
+            };
+
+            if (this.isListOfResidents()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Model',
+                datafield: 'vehicleModel',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Number',
+                datafiled: 'vehicleNumber',
+                width: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportUnitUserResidentsbyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfApprovedUsers()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Model',
+                datafield: 'vehicleModel',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Number',
+                datafiled: 'vehicleNumber',
+                width: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfDeactivatedUsers()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfResidentsVehicleInfo()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Number',
+                datafield: 'vehicleNumber',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Model',
+                datafield: 'vehicleModel',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfExpiringRental()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Start Date',
+                datafield: 'agreementStartDate',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'End Date',
+                datafield: 'agreementEndDate',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Rental Lease',
+                datafield: 'rentalorLease',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfUsersWithPets()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Pet Name',
+                datafield: 'petName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Last Vaccination Date',
+                datafield: 'lastVaccinationDate',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportUnitUserPetInfobyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfUnits()) {
+              this.columnData = [{
+                text: 'User Type',
+                datafield: 'unitType',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'apartmentBlockNumber',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'apartmentBlockUnitNumber',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'intercom',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Available Date Date',
+                datafield: 'availableDate',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var params = {
+                apartmentId: this.sessionService.apartmentId
+              };
+              this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfBlocks()) {
+              this.columnData = [{
+                text: 'Block Number',
+                datafield: 'apartmentBlockNumber',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Common Area',
+                datafield: 'blockCommonArea',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Constructed Area',
+                datafield: 'blockConstructedArea',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Description',
+                datafield: 'description',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'No Of Units',
+                datafield: 'totalNounits',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'No Of Floors',
+                datafield: 'totalnofloors',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var _params3 = {
+                apartmentId: this.sessionService.apartmentId
+              };
+              this.apartmentService.getApartmentBlockByApartmentId(_params3).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfTenants()) {
+              this.columnData = [{
+                text: 'Name',
+                datafield: 'firstName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Phone Number',
+                datafield: 'phoneNumber',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Gender',
+                datafield: 'genderId',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailId',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Date of Birth',
+                datafield: 'dob',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var _params4 = {
+                apartmentId: this.sessionService.apartmentId,
+                roleId: 2
+              };
+              this.userService.getApartmentUsersByRoleId(_params4).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfOwners()) {
+              this.columnData = [{
+                text: 'Name',
+                datafield: 'firstName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Phone Number',
+                datafield: 'phoneNumber',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Gender',
+                datafield: 'genderId',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailId',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Date of Birth',
+                datafield: 'dob',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var _params5 = {
+                apartmentId: this.sessionService.apartmentId,
+                roleId: 4
+              };
+              this.userService.getApartmentUsersByRoleId(_params5).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            } else if (this.isListOfAdmins()) {
+              this.columnData = [{
+                text: 'Name',
+                datafield: 'firstName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Phone Number',
+                datafield: 'phoneNumber',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Gender',
+                datafield: 'genderId',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailId',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Date of Birth',
+                datafield: 'dob',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              var _params6 = {
+                apartmentId: this.sessionService.apartmentId,
+                roleId: 1
+              };
+              this.userService.getApartmentUsersByRoleId(_params6).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this6.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this6.isDataLoaded = true;
+
+                _this6.showItems();
+              });
+            }
+          }
+        }, {
+          key: "showItems",
+          value: function showItems() {
+            this.totalItems = this.userReportDataList.length;
+            console.log("total items ", this.totalItems);
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+              console.log("Itemendindex if", this.ItemEndIndex);
+            } else {
+              this.ItemEndIndex = this.totalItems;
+              console.log("Itemendindex ", this.ItemEndIndex);
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this7 = this;
+
+            this.pageName = this.route.params['value'].name;
+            var unitBlockParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
+              _this7.unitBlocksData = res;
+            });
+            var params = {
+              LookupTypeId: 87
+            };
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+              var data = res.filter(function (item) {
+                return item.lookupValueId == _this7.route.params['value'].id;
+              });
+              _this7.pageName = data[0].lookupValueName.replace('/', '');
+              _this7.pageDesp = data[0].description;
+            });
+            this.getBlockDetails();
+          }
+        }]);
+
+        return DocumentsReportsDataComponent;
+      }();
+
+      DocumentsReportsDataComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }];
+      };
+
+      DocumentsReportsDataComponent.propDecorators = {
+        gridResident: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['gridResident', {
+            "static": false
+          }]
+        }]
+      };
+      DocumentsReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-documents-reports-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./documents-reports-data.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./documents-reports-data.component.scss */
+        "./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], DocumentsReportsDataComponent);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.scss":
     /*!*****************************************************************************************************!*\
       !*** ./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.scss ***!
@@ -872,22 +1779,64 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var DocumentsReportsComponent = /*#__PURE__*/function () {
-        function DocumentsReportsComponent() {
+        function DocumentsReportsComponent(lookupService, sessionService) {
           _classCallCheck(this, DocumentsReportsComponent);
+
+          this.lookupService = lookupService;
+          this.sessionService = sessionService;
+          this.isDataLoaded = false;
         }
 
         _createClass(DocumentsReportsComponent, [{
+          key: "formatName",
+          value: function formatName(name) {
+            return name.replace(/^\s+|\s+$/g, "");
+          }
+        }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            var _this8 = this;
+
+            var details = {
+              ApartmentId: this.sessionService.apartmentId,
+              LookupTypeId: 87,
+              MenuName: 'UnitUser'
+            };
+            this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
+              _this8.reportDataList = res;
+              _this8.isDataLoaded = true;
+            });
+          }
+        }, {
+          key: "getReportRedirectPath",
+          value: function getReportRedirectPath(path) {
+            return path.replace('/', '');
+          }
         }]);
 
         return DocumentsReportsComponent;
       }();
 
       DocumentsReportsComponent.ctorParameters = function () {
-        return [];
+        return [{
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+        }];
       };
 
       DocumentsReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -898,7 +1847,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./documents-reports.component.scss */
         "./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], DocumentsReportsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], DocumentsReportsComponent);
       /***/
     },
 
@@ -1064,7 +2013,7 @@
         }, {
           key: "submitUploadAdmindoc",
           value: function submitUploadAdmindoc() {
-            var _this6 = this;
+            var _this9 = this;
 
             var uploadDetails = {
               "ApartmentId": this.sessionService.apartmentId,
@@ -1084,7 +2033,7 @@
             this.confirmDialogRef.close();
             this.sharedService.setAlertMessage("Document uploaded successfully");
             this.documentService.addUserDocument(uploadDetails).subscribe(function (res) {
-              _this6.getCategoryData(_this6.uploadcategoryId);
+              _this9.getCategoryData(_this9.uploadcategoryId);
             }, function (error) {
               console.log(error);
             });
@@ -1148,7 +2097,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this10 = this;
 
             if (this.route.params['value'].id != undefined) {
               this.isUserPage = true;
@@ -1163,31 +2112,31 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.UserService.getAllRoles(accessibleListParams).subscribe(function (res) {
-              _this7.accessibleList = res;
+              _this10.accessibleList = res;
             }, function (error) {});
             var categoryParams = {
               LookupTypeId: 62
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this7.folderByCategory = res;
-              _this7.totalUserItems = res.length;
+              _this10.folderByCategory = res;
+              _this10.totalUserItems = res.length;
 
-              _this7.documentService.getAllDocCountByCategory(adminCategory).subscribe(function (res) {
-                _this7.folderList = res;
+              _this10.documentService.getAllDocCountByCategory(adminCategory).subscribe(function (res) {
+                _this10.folderList = res;
 
-                _this7.setFileCount();
+                _this10.setFileCount();
 
-                if (_this7.isUserPage) {
+                if (_this10.isUserPage) {
                   var documentListParams = {
-                    ApartmentId: _this7.sessionService.apartmentId
+                    ApartmentId: _this10.sessionService.apartmentId
                   };
 
-                  _this7.documentService.getAllDocCountByApartmentId(documentListParams).subscribe(function (res) {
-                    _this7.isCommmonDataLoaded = true;
-                    _this7.getalldocument = res;
+                  _this10.documentService.getAllDocCountByApartmentId(documentListParams).subscribe(function (res) {
+                    _this10.isCommmonDataLoaded = true;
+                    _this10.getalldocument = res;
                   }, function (error) {});
                 } else {
-                  _this7.isCommmonDataLoaded = true;
+                  _this10.isCommmonDataLoaded = true;
                 }
               }, function (error) {});
             }, function (error) {});
@@ -1540,13 +2489,19 @@
       var _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/document-setup/document-setup-accessible/document-setup-accessible.component */
       "./src/app/modules/ams/documents/components/document-setup/document-setup-accessible/document-setup-accessible.component.ts");
+      /* harmony import */
+
+
+      var _components_documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./components/documents-reports/documents-reports-data/documents-reports-data.component */
+      "./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.ts");
 
       var DocumentsModule = function DocumentsModule() {
         _classCallCheck(this, DocumentsModule);
       };
 
       DocumentsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_document_component__WEBPACK_IMPORTED_MODULE_6__["DocumentComponent"], _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_7__["DocumentSetupComponent"], _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupCategoryComponent"], _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_9__["FolderListsComponent"], _components_shared_document_common_download_document_common_download_component__WEBPACK_IMPORTED_MODULE_10__["DocumentCommonDownloadComponent"], _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_11__["DocumentsReportsComponent"], _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_12__["DocumentSetupAccessibleComponent"]],
+        declarations: [_document_component__WEBPACK_IMPORTED_MODULE_6__["DocumentComponent"], _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_7__["DocumentSetupComponent"], _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupCategoryComponent"], _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_9__["FolderListsComponent"], _components_shared_document_common_download_document_common_download_component__WEBPACK_IMPORTED_MODULE_10__["DocumentCommonDownloadComponent"], _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_11__["DocumentsReportsComponent"], _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_12__["DocumentSetupAccessibleComponent"], _components_documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_13__["DocumentsReportsDataComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], _documents_routing_module__WEBPACK_IMPORTED_MODULE_3__["DocumentsRoutingModule"]],
         bootstrap: [_document_component__WEBPACK_IMPORTED_MODULE_6__["DocumentComponent"]]
       })], DocumentsModule);

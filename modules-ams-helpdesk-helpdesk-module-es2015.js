@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-helpdesk-helpdesk-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.html":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.html ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper\">\n\t\t<div class=\"main\">\n\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isDataLoaded && (isListOfTickets())\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\t  <div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t\t  </div>\n\t\t\t\t\t  \n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\t<condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t  </div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- De Activated Users -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofAgedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t[fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\n\t\t<!-- vehicle info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofUnassignedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t[fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- Rental info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- Pets info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Units -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Blocks -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Tenant -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Owners -->\n\t\n\t\n\t\t<!-- List of Admins -->\n\t\n\t\n\t</div>\n\t</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.html":
 /*!****************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.html ***!
@@ -9,7 +22,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<h5 class=\"mb-4\">Helpdesk Reports</h5>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n\n\t\t\t\t\t<div class=\"card report-card\">\n\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink = \"/ams/helpdesk/open-tickets\"\n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<div class=\"card-body\">\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-container>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h5 class=\"mb-4\">Helpdesk Reports</h5>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList; let i = index\">\n\n\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"{{getReportRedirectPath(report.lookupValueName)}}/{{report.lookupValueID}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div> \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</ng-container>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -22,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-reports-customer-reports\">\n\n\t<h4 class=\"main-title-mini\">Open Tickets</h4>\n\n\t<div class=\"card clear\">\n\n\t\t<div class=\"card-body\">\n\n\t\t\t<form #openTicketReportForm = \"ngForm\" name=\"openTicketReportForm\" (ngSubmit)=\"submitOpenTicketForm(openTicketReportForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Block No</label>\n\t\t                    <select\n\t\t\t\t\t\t        name=\"blockNo\"\n\t\t\t\t\t\t        id=\"blockNo\"\n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.apartmentBlockId\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label> Date From</label>\n\t\t                    <input class=\"form-control\" name=\"reportDateFrom\" [owlDateTime]=\"reportDateFrom\" [owlDateTimeTrigger]=\"reportDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.fromDate\">\n\t\t\t\t\t\t\t<owl-date-time #reportDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"reportDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label> Date To</label>\n\t\t                    <input class=\"form-control\" name=\"reportDateTo\" [owlDateTime]=\"reportDateTo\" [owlDateTimeTrigger]=\"reportDateTo\" placeholder=\"Date\" [(ngModel)]=\"report.toDate\">\n\t\t\t\t\t\t\t<owl-date-time #reportDateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"reportDateTo\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Ticket Status</label>\n\t\t                    <select\n\t\t\t\t\t\t        name=\"tktStatus\"\n\t\t\t\t\t\t        id=\"tktStatus\"\n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.status\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of ticketStatusList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }} </option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n                        <label>Ticket Type</label>\n                        <select\n                    name=\"tktType\"\n                    id=\"tktType\"\n                    class=\"form-control\"\n                    [(ngModel)]=\"report.type\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of ticketTypeList\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }} </option>\n              </select>\n                  </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n                        <label>Assigned Staff</label>\n                        <select\n                    name=\"tktPriority\"\n                    id=\"tktPriority\"\n                    class=\"form-control\"\n                    [(ngModel)]=\"report.assignedStaff\">\n                    <option value=\"\" disabled selected hidden>Select</option>\n                    <option *ngFor=\"let item of staffDataList\" [value]=\"item.staffId\">{{ item.firstName }} </option>\n              </select>\n                  </div>\n          </div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</div>\n\n\t</div>\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<div class=\"card clear mt-30\" *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"list-inline float-left\">\n    \t\t\t<h5>Reports <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t\t<p *ngIf=\"!isReportSubmitted && report.fromDate && report.toDate\">Transactions From <span class=\"tc-blue m-bold\">{{getDate(report.fromDate)}}</span> To <span class=\"tc-blue m-bold\">{{getDate(report.toDate)}}</span> </p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline float-right\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" >\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n\t\t<div class=\"card-body p-0\">\n\n\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t<thead>\n\t\t\t\t    <tr>\n              <th scope=\"col\" (click)=\"sortUnitData('Block')\">Block<span [ngClass]=\"getFieldOrderBy('Block')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('Date')\">Created Date<span [ngClass]=\"getFieldOrderBy('Date')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('Type')\">Type<span [ngClass]=\"getFieldOrderBy('Type')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('Status')\">Status<span [ngClass]=\"getFieldOrderBy('Status')\"></span></th>\n\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('Category')\">Category<span [ngClass]=\"getFieldOrderBy('Category')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('User')\">User<span [ngClass]=\"getFieldOrderBy('User')\"></span></th>\n              <th scope=\"col\" (click)=\"sortUnitData('Assigned')\">Assigned To<span [ngClass]=\"getFieldOrderBy('Assigned')\"></span></th>\n\t\t\t\t    </tr>\n\t\t\t    </thead>\n\t\t\t    <tbody>\n\t\t\t\t    <tr *ngFor=\"let report of openTicketReport | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n              <td class=\"name\">{{report.blockNo}}</td>\n\t\t\t\t      <td class=\"grey\">{{getDate(report.createdOn)}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.ticketType}}</td>\n              <td class=\"grey\">{{report.ticketStatus}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.subject}}</td>\n              <td class=\"grey\">{{report.userName}}</td>\n\t\t\t\t      <td class=\"grey\">{{report.staffName}}</td>\n\t\t\t\t    </tr>\n\t\t\t    </tbody>\n\t\t\t</table>\n\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t</div>\n\t\t\t<app-pagination\n\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper\">\n\t\t<div class=\"main\">\n\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- De Activated Users -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\n\t\t<!-- vehicle info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- Rental info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- Pets info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Units -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Blocks -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Tenant -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Owners -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Admins -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t</div>\n\t</div>");
 
 /***/ }),
 
@@ -104,6 +117,558 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.scss":
+/*!*****************************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.scss ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2hlbHBkZXNrL2NvbXBvbmVudHMvaGVscGRlc2stcmVwb3J0cy9oZWxwZGVzay1yZXBvcnRzLWRhdGEvaGVscGRlc2stcmVwb3J0cy1kYXRhLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.ts":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.ts ***!
+  \***************************************************************************************************************************/
+/*! exports provided: HelpdeskReportsDataComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HelpdeskReportsDataComponent", function() { return HelpdeskReportsDataComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+
+
+
+
+
+
+
+
+
+
+
+let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
+    constructor(router, route, userService, apartmentService, lookupService, sharedService, sessionService, ticketService) {
+        this.router = router;
+        this.route = route;
+        this.userService = userService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.sessionService = sessionService;
+        this.ticketService = ticketService;
+        this.pageName = "";
+        this.pageDesp = "";
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.unitFieldType = "unitno";
+        this.unitOrder = true;
+        this.isDataLoaded = false;
+        this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
+        this.blockNo = "All Blocks";
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isItemsAvailable() {
+        return this.totalItems > 0 ? true : false;
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    isListOfResidents() {
+        return this.pageName == "List of Residents";
+    }
+    isListOfTickets() {
+        return this.pageName == "List of tickets";
+    }
+    isListofAgedtickets() {
+        return this.pageName == "List of Aged tickets";
+    }
+    isListofUnassignedtickets() {
+        return this.pageName == "List of Unassigned tickets";
+    }
+    isListOfApprovedUsers() {
+        return this.pageName == "List of Approved Users";
+    }
+    isListOfDeactivatedUsers() {
+        return this.pageName == "List of De-activated Users";
+    }
+    isListOfResidentsVehicleInfo() {
+        return this.pageName == "List of Residents Vehicle Info";
+    }
+    isListOfExpiringRental() {
+        return this.pageName == "List of Expiring Rental  Lease Agreements";
+    }
+    isListOfUsersWithPets() {
+        return this.pageName == "List of Users with Pets";
+    }
+    isListOfUnits() {
+        return this.pageName == "List of Units";
+    }
+    isListOfBlocks() {
+        return this.pageName == "List of Blocks";
+    }
+    isListOfOwners() {
+        return this.pageName == "List of Owners";
+    }
+    isListOfTenants() {
+        return this.pageName == "List of Tenants";
+    }
+    isListOfAdmins() {
+        return this.pageName == "List of Admins";
+    }
+    getDate(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+    }
+    getSelectedType(event) {
+        this.blockId = event[0].apartmentBlockId;
+        this.blockNo = event[0].apartmentBlockId;
+        if (this.blockId != "" && this.blockId != null) {
+            let filterGroup = new jqx.filter();
+            let filterOperator = 1;
+            let filterValue = event[0].apartmentBlockNumber;
+            let filterCondition = 'contains';
+            let filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+            filterGroup.operator = 'or';
+            filterGroup.addfilter(filterOperator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield === 'blockNo') {
+                    this.datagrid.addfilter(item.datafield, filterGroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    onSearchFilter() {
+        if (this.userReportData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.userReportData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getBlockDetails() {
+        //jqx column generating
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.isDataLoaded = false;
+        var details = {
+            ApartmentID: this.sessionService.apartmentId,
+            ApartmentBlockID: this.blockId === "" ? 5 : this.blockId,
+            StartDate: this.StartDate,
+            EndDate: this.EndDate,
+            TicketStatus: this.TicketStatus,
+            TicketType: this.TicketType,
+            TicketRaisedBy: this.TicketRaisedBy,
+            AssignedToStaffId: this.AssignedToStaffId,
+            StaffCategoryType: this.StaffCategoryType,
+            StaffSubCategoryType: this.StaffSubCategoryType,
+        };
+        if (this.isListOfTickets()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'userName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Ticket Type',
+                    datafield: 'ticketType',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Subject',
+                    datafield: 'subject',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Ticket Priority',
+                    datafield: 'ticketPriority',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.ticketService.getReportsForListofOpenCloseTicketsMultiFilter(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.totalItems = this.userReportDataList.length;
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListofAgedtickets()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'userName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Ticket Type',
+                    datafield: 'ticketType',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Subject',
+                    datafield: 'subject',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Ticket Priority',
+                    datafield: 'ticketPriority',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.ticketService.getReportsForListofAgedTicketsMultiFilter(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListofUnassignedtickets()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'userName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Ticket Type',
+                    datafield: 'ticketType',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Subject',
+                    datafield: 'subject',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Ticket Priority',
+                    datafield: 'ticketPriority',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfDeactivatedUsers()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfResidentsVehicleInfo()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Number',
+                    datafield: 'vehicleNumber',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Model',
+                    datafield: 'vehicleModel',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+    }
+    showItems() {
+        this.totalItems = this.userReportDataList["_source"].localdata.length;
+        console.log("total items ", this.totalItems);
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+            console.log("Itemendindex if", this.ItemEndIndex);
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+            console.log("Itemendindex ", this.ItemEndIndex);
+        }
+    }
+    ngOnInit() {
+        this.pageName = this.route.params['value'].name;
+        let unitBlockParams = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe((res) => {
+            this.unitBlocksData = res;
+        });
+        let params = {
+            LookupTypeId: 87
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+            var data = res.filter(item => {
+                return item.lookupValueId == this.route.params['value'].id;
+            });
+            this.pageName = data[0].lookupValueName.replace('/', '');
+            this.pageDesp = data[0].description;
+        });
+        this.getBlockDetails();
+    }
+};
+HelpdeskReportsDataComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"] }
+];
+HelpdeskReportsDataComponent.propDecorators = {
+    gridResident: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['gridResident', { static: false },] }],
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+};
+HelpdeskReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-helpdesk-reports-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./helpdesk-reports-data.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-reports-data.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]])
+], HelpdeskReportsDataComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.scss":
 /*!**************************************************************************************************!*\
   !*** ./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports.component.scss ***!
@@ -147,17 +712,17 @@ let HelpdeskReportsComponent = class HelpdeskReportsComponent {
             LookupTypeId: 87,
             MenuName: 'HelpdeskTracker'
         };
-        this.reportDataList = [
-            { lookupValueName: 'List of Open tickets', description: 'Gives the list of open tickets in the condo', type: 'customer' },
-        ];
-        this.isDataLoaded = true;
-        // this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res:any) => {
-        //
-        //   this.reportDataList = res;
-        //
-        //   this.isDataLoaded = true;
-        //
-        // })
+        // this.reportDataList = [
+        //   {lookupValueName: 'List of Open tickets', description:'Gives the list of open tickets in the condo',type:'customer'},
+        // ]
+        //  this.isDataLoaded = true;
+        this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res) => {
+            this.reportDataList = res;
+            this.isDataLoaded = true;
+        });
+    }
+    getReportRedirectPath(path) {
+        return path.replace('/', '');
     }
 };
 HelpdeskReportsComponent.ctorParameters = () => [
@@ -203,14 +768,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OpenTicketsReportComponent", function() { return OpenTicketsReportComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+
 
 
 
@@ -221,38 +788,28 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let OpenTicketsReportComponent = class OpenTicketsReportComponent {
-    constructor(apartmentService, sharedService, staffService, ticketService, lookupService, sessionService) {
+    constructor(router, route, userService, apartmentService, lookupService, sharedService, sessionService) {
+        this.router = router;
+        this.route = route;
+        this.userService = userService;
         this.apartmentService = apartmentService;
-        this.sharedService = sharedService;
-        this.staffService = staffService;
-        this.ticketService = ticketService;
         this.lookupService = lookupService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
-        this.isBlockSelected = false;
-        this.isUnitSelected = false;
+        this.pageName = "";
+        this.pageDesp = "";
         this.ItemStartIndex = 0;
-        this.itemLimit = 8;
+        this.itemLimit = 10;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
-        this.isReportSubmitted = true;
-        this.isDataLoaded = true;
-        this.ticketTypeParams = {
-            LookupTypeId: 7
-        };
-        this.priortyParams = {
-            LookupTypeId: 9
-        };
-        this.statusParams = {
-            LookupTypeId: 14
-        };
-        this.apartmentParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
+        this.isDataLoaded = false;
+        this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
+        this.blockNo = "All Blocks";
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
         this.ItemEndIndex = event.ItemEndIndex;
-        this.itemLimit = event.itemLimit;
+        // this.itemLimit = event.itemLimit;
     }
     sortUnitData(type) {
         this.unitFieldType = type;
@@ -274,95 +831,747 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
     isNoItemsAvailable() {
         return this.totalItems == 0 ? true : false;
     }
+    isListOfResidents() {
+        return this.pageName == "List of Residents";
+    }
+    isListOfApprovedUsers() {
+        return this.pageName == "List of Approved Users";
+    }
+    isListOfDeactivatedUsers() {
+        return this.pageName == "List of De-activated Users";
+    }
+    isListOfResidentsVehicleInfo() {
+        return this.pageName == "List of Residents Vehicle Info";
+    }
+    isListOfExpiringRental() {
+        return this.pageName == "List of Expiring Rental  Lease Agreements";
+    }
+    isListOfUsersWithPets() {
+        return this.pageName == "List of Users with Pets";
+    }
+    isListOfUnits() {
+        return this.pageName == "List of Units";
+    }
+    isListOfBlocks() {
+        return this.pageName == "List of Blocks";
+    }
+    isListOfOwners() {
+        return this.pageName == "List of Owners";
+    }
+    isListOfTenants() {
+        return this.pageName == "List of Tenants";
+    }
+    isListOfAdmins() {
+        return this.pageName == "List of Admins";
+    }
     getDate(date) {
-        if (date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
-        }
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
     }
-    getType(type_id) {
-        let type = this.ticketTypeList.find(x => x.lookupValueId === type_id);
-        if (type) {
-            return type.lookupValueName;
-        }
-    }
-    getDateFormat(date) {
-        if (date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("YYYY-MM-DD");
-        }
-    }
-    getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
-    }
-    submitOpenTicketForm(form) {
-        this.isReportSubmitted = true;
-        this.isDataLoaded = false;
-        this.ItemStartIndex = 0;
-        let details = {
-            ApartmentID: this.sessionService.apartmentId,
-            ApartmentBlockID: parseInt(this.report.apartmentBlockId),
-            StartDate: this.getDateFormat(this.report.fromDate),
-            EndDate: this.getDateFormat(this.report.toDate),
-            TicketStatus: parseInt(this.report.status),
-            TicketType: parseInt(this.report.type),
-            AssignedToStaffId: parseInt(this.report.assignedStaff),
+    getBlockDetails() {
+        //jqx column generating
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
-        this.ticketService.getReportsForListofOpenCloseTicketsMultiFilter(details).subscribe((res) => {
-            this.openTicketReport = res;
-            this.totalItems = this.openTicketReport.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
-            this.isDataLoaded = true;
-            this.isReportSubmitted = false;
-        }, error => {
-        });
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.isDataLoaded = false;
+        var details = {
+            ApartmentID: this.sessionService.apartmentId,
+            ApartmentBlockID: this.blockId
+        };
+        if (this.isListOfResidents()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Model',
+                    datafield: 'vehicleModel',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Number',
+                    datafiled: 'vehicleNumber',
+                    width: 120,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportUnitUserResidentsbyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfApprovedUsers()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Model',
+                    datafield: 'vehicleModel',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Number',
+                    datafiled: 'vehicleNumber',
+                    width: 120,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfDeactivatedUsers()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'User Type',
+                    datafield: 'userTypeName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfResidentsVehicleInfo()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Number',
+                    datafield: 'vehicleNumber',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Vehicle Model',
+                    datafield: 'vehicleModel',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfExpiringRental()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Start Date',
+                    datafield: 'agreementStartDate',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'End Date',
+                    datafield: 'agreementEndDate',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Rental Lease',
+                    datafield: 'rentalorLease',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfUsersWithPets()) {
+            this.columnData = [{
+                    text: 'User Name',
+                    datafield: 'unitUserName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'blockNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'unitNo',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Pet Name',
+                    datafield: 'petName',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Last Vaccination Date',
+                    datafield: 'lastVaccinationDate',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailID',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'mobile',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            this.userService.getReportUnitUserPetInfobyApartmentIdBlockId(details).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfUnits()) {
+            this.columnData = [{
+                    text: 'User Type',
+                    datafield: 'unitType',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Number',
+                    datafield: 'apartmentBlockNumber',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Unit Number',
+                    datafield: 'apartmentBlockUnitNumber',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Mobile',
+                    datafield: 'intercom',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Available Date Date',
+                    datafield: 'availableDate',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            let params = {
+                apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfBlocks()) {
+            this.columnData = [{
+                    text: 'Block Number',
+                    datafield: 'apartmentBlockNumber',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Common Area',
+                    datafield: 'blockCommonArea',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Block Constructed Area',
+                    datafield: 'blockConstructedArea',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Description',
+                    datafield: 'description',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'No Of Units',
+                    datafield: 'totalNounits',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'No Of Floors',
+                    datafield: 'totalnofloors',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            let params = {
+                apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfTenants()) {
+            this.columnData = [{
+                    text: 'Name',
+                    datafield: 'firstName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Phone Number',
+                    datafield: 'phoneNumber',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Gender',
+                    datafield: 'genderId',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailId',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Date of Birth',
+                    datafield: 'dob',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            let params = {
+                apartmentId: this.sessionService.apartmentId,
+                roleId: 2
+            };
+            this.userService.getApartmentUsersByRoleId(params).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfOwners()) {
+            this.columnData = [{
+                    text: 'Name',
+                    datafield: 'firstName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Phone Number',
+                    datafield: 'phoneNumber',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Gender',
+                    datafield: 'genderId',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailId',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Date of Birth',
+                    datafield: 'dob',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            let params = {
+                apartmentId: this.sessionService.apartmentId,
+                roleId: 4
+            };
+            this.userService.getApartmentUsersByRoleId(params).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+        else if (this.isListOfAdmins()) {
+            this.columnData = [{
+                    text: 'Name',
+                    datafield: 'firstName',
+                    width: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Phone Number',
+                    datafield: 'phoneNumber',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Gender',
+                    datafield: 'genderId',
+                    minwidth: 100,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Email Id',
+                    datafield: 'emailId',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                },
+                {
+                    text: 'Date of Birth',
+                    datafield: 'dob',
+                    width: 200,
+                    cellsrenderer: cellsrenderer,
+                    renderer: columnrenderer
+                }
+            ];
+            let params = {
+                apartmentId: this.sessionService.apartmentId,
+                roleId: 1
+            };
+            this.userService.getApartmentUsersByRoleId(params).subscribe((res) => {
+                let gridSourceData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                this.isDataLoaded = true;
+                this.showItems();
+            });
+        }
+    }
+    showItems() {
+        this.totalItems = this.userReportDataList.length;
+        console.log("total items ", this.totalItems);
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+            console.log("Itemendindex if", this.ItemEndIndex);
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+            console.log("Itemendindex ", this.ItemEndIndex);
+        }
     }
     ngOnInit() {
-        this.report = {};
-        this.report.apartmentBlockId = "";
-        this.report.apartmentBlockUnitId = "";
-        this.apartmentService.getApartmentBlockByApartmentId(this.apartmentParams).subscribe((res) => {
-            this.blockData = res;
+        this.pageName = this.route.params['value'].name;
+        let unitBlockParams = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe((res) => {
+            this.unitBlocksData = res;
         });
-        this.lookupService.getLookupValueByLookupTypeId(this.ticketTypeParams).subscribe((res) => {
-            this.ticketTypeList = res;
+        let params = {
+            LookupTypeId: 87
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+            var data = res.filter(item => {
+                return item.lookupValueId == this.route.params['value'].id;
+            });
+            this.pageName = data[0].lookupValueName.replace('/', '');
+            this.pageDesp = data[0].description;
         });
-        this.lookupService.getLookupValueByLookupTypeId(this.statusParams).subscribe((res) => {
-            this.ticketStatusList = res;
-        });
-        this.staffService.getAllStaffsByApartmentId(this.apartmentParams).subscribe((res) => {
-            this.staffDataList = res;
-            this.staffDataList.sort((a, b) => a.firstName.localeCompare(b.firstName));
-        });
-        this.lookupService.getLookupValueByLookupTypeId(this.priortyParams).subscribe((res) => {
-            this.ticketPriortyList = res;
-        }, error => {
-        });
+        this.getBlockDetails();
     }
 };
 OpenTicketsReportComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"] },
-    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
+OpenTicketsReportComponent.propDecorators = {
+    gridResident: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['gridResident', { static: false },] }]
+};
 OpenTicketsReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-open-tickets-report',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./open-tickets-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./open-tickets-report.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/open-tickets-report/open-tickets-report.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"],
-        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_7__["TicketService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
 ], OpenTicketsReportComponent);
 
 
@@ -1654,6 +2863,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/helpdesk-setup/common-category/common-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/common-category/common-category.component.ts");
 /* harmony import */ var src_app_shared_components_help_desk_create_ticket_help_desk_create_ticket_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/components/help-desk-create-ticket/help-desk-create-ticket.component */ "./src/app/shared/components/help-desk-create-ticket/help-desk-create-ticket.component.ts");
 /* harmony import */ var _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/helpdesk-ticket-filter/helpdesk-ticket-filter.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-ticket-filter/helpdesk-ticket-filter.component.ts");
+/* harmony import */ var _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.ts");
+
 
 
 
@@ -1681,6 +2892,7 @@ const routes = [
     { path: 'assigned-to-me', component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskTicketFilterComponent"] },
     { path: 'all-tickets', component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskTicketFilterComponent"] },
     { path: 'reports', component: _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskReportsComponent"] },
+    { path: 'reports/:name/:id', component: _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskReportsDataComponent"] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let HelpdeskRoutingModule = class HelpdeskRoutingModule {
@@ -1767,6 +2979,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/helpdesk-setup/private-category/private-category.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/private-category/private-category.component.ts");
 /* harmony import */ var _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/helpdesk-ticket-filter/helpdesk-ticket-filter.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-ticket-filter/helpdesk-ticket-filter.component.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.ts");
+
 
 
 
@@ -1795,6 +3009,7 @@ HelpdeskModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_11__["CommonCategoryComponent"],
             _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_12__["PrivateCategoryComponent"],
             _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_13__["HelpdeskTicketFilterComponent"],
+            _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_15__["HelpdeskReportsDataComponent"],
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

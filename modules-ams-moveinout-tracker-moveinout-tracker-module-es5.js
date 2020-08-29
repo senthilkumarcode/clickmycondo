@@ -44,7 +44,7 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+      "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
       /* harmony import */
 
 
@@ -3843,7 +3843,7 @@
               if (item != null && item.id) {
                 var params = {
                   Id: parseInt(item.id),
-                  deleteBy: parseInt(_this31.sessionService.userId)
+                  deleteBy: _this31.sessionService.userId
                 };
 
                 _this31.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {

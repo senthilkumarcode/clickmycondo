@@ -42,7 +42,7 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/ngx-cookie-service/node_modules/tslib/tslib.es6.js");
+      "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
       /* harmony import */
 
 
@@ -3182,6 +3182,75 @@
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_modules_ams_security_security_setup_security_setup_module__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"], _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"]],
         bootstrap: [_security_component__WEBPACK_IMPORTED_MODULE_6__["SecurityComponent"]]
       })], SecurityModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/shared/services/shared-toaster.service.ts":
+    /*!***********************************************************!*\
+      !*** ./src/app/shared/services/shared-toaster.service.ts ***!
+      \***********************************************************/
+
+    /*! exports provided: SharedToasterService */
+
+    /***/
+    function srcAppSharedServicesSharedToasterServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "SharedToasterService", function () {
+        return SharedToasterService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/snack-bar */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
+
+      var SharedToasterService = /*#__PURE__*/function () {
+        function SharedToasterService(snackBar) {
+          _classCallCheck(this, SharedToasterService);
+
+          this.snackBar = snackBar;
+        }
+
+        _createClass(SharedToasterService, [{
+          key: "openSnackBar",
+          value: function openSnackBar(message, action) {
+            this.snackBar.open(message, action, {
+              duration: 2000
+            });
+          }
+        }]);
+
+        return SharedToasterService;
+      }();
+
+      SharedToasterService.ctorParameters = function () {
+        return [{
+          type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]
+        }];
+      };
+
+      SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])], SharedToasterService);
       /***/
     }
   }]);
