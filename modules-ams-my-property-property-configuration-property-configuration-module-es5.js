@@ -185,6 +185,17 @@
           path: 'profile',
           component: _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_4__["PropertyProfileComponent"]
         }, {
+          path: 'towers',
+          loadChildren: function loadChildren() {
+            return __webpack_require__.e(
+            /*! import() | src-app-modules-ams-my-property-property-configuration-property-towers-property-towers-module */
+            "src-app-modules-ams-my-property-property-configuration-property-towers-property-towers-module").then(__webpack_require__.bind(null,
+            /*! src/app/modules/ams/my-property/property-configuration/property-towers/property-towers.module */
+            "./src/app/modules/ams/my-property/property-configuration/property-towers/property-towers.module.ts")).then(function (m) {
+              return m.PropertyTowersModule;
+            });
+          }
+        }, {
           path: 'units',
           loadChildren: function loadChildren() {
             return __webpack_require__.e(
@@ -384,6 +395,11 @@
               url: 'profile',
               bg: 'rgb(63, 81, 181)',
               isActive: true
+            }, {
+              name: 'Property Towers',
+              url: 'towers',
+              bg: 'rgb(0, 150, 136)',
+              isActive: false
             }, {
               name: 'Property Units',
               url: 'units',

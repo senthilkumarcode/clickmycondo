@@ -95,6 +95,7 @@ const routes = [
         children: [
             { path: '', redirectTo: 'profile', pathMatch: 'full' },
             { path: 'profile', component: _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_4__["PropertyProfileComponent"] },
+            { path: 'towers', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-my-property-property-configuration-property-towers-property-towers-module */ "src-app-modules-ams-my-property-property-configuration-property-towers-property-towers-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/my-property/property-configuration/property-towers/property-towers.module */ "./src/app/modules/ams/my-property/property-configuration/property-towers/property-towers.module.ts")).then(m => m.PropertyTowersModule) },
             { path: 'units', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-my-property-property-all-units-property-all-units-module */ "src-app-modules-ams-my-property-property-all-units-property-all-units-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/my-property/property-all-units/property-all-units.module */ "./src/app/modules/ams/my-property/property-all-units/property-all-units.module.ts")).then(m => m.PropertyAllUnitsModule) },
             { path: 'facility', component: _property_facility_property_facility_component__WEBPACK_IMPORTED_MODULE_5__["PropertyFacilityComponent"] },
             { path: 'parking', component: _property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_6__["PropertyParkingDetailsComponent"] },
@@ -210,6 +211,12 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
                 url: 'profile',
                 bg: 'rgb(63, 81, 181)',
                 isActive: true
+            },
+            {
+                name: 'Property Towers',
+                url: 'towers',
+                bg: 'rgb(0, 150, 136)',
+                isActive: false
             },
             {
                 name: 'Property Units',

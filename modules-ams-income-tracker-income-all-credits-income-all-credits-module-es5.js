@@ -168,8 +168,6 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isCreditSubmitted = false;
-          this.isError = false;
-          this.alertMessage = "";
           this.isBlockSelected = false;
           this.isUnitSelected = false;
           this.apartmentBlockId = null;
