@@ -123,7 +123,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
     }
     getAllBlockData() {
         this.filterSelected = 'all';
-        this.singleBlock = "Select Block";
+        this.singleBlock = "Select Tower";
         var params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -303,7 +303,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
             this.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe((res) => {
                 this.isSubLedgerDataLoaded = true;
                 this.filterSelected = 'all';
-                this.singleBlock = "Select Block";
+                this.singleBlock = "Select Tower";
                 var subLedgerDataList = res;
                 this.gridSourceData = {
                     localdata: subLedgerDataList,

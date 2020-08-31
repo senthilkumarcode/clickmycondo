@@ -232,26 +232,33 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Accounts */
       "./src/app/api/controllers/Accounts.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
 
       var IncomeViewDefaultersComponent = /*#__PURE__*/function () {
-        function IncomeViewDefaultersComponent(accountsService, sessionService) {
+        function IncomeViewDefaultersComponent(userService, accountsService, sessionService) {
           _classCallCheck(this, IncomeViewDefaultersComponent);
 
+          this.userService = userService;
           this.accountsService = accountsService;
           this.sessionService = sessionService;
           this.isDefaultersDataLoaded = false;
@@ -294,12 +301,16 @@
           key: "onCheckDefaulterHeader",
           value: function onCheckDefaulterHeader(detail) {
             var allDataRecords = this.datagrid.getrows();
-            underscore__WEBPACK_IMPORTED_MODULE_5__["each"](allDataRecords, function (item) {
+            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](allDataRecords, function (item) {
               item.checked = detail.checked;
             });
             this.isDefaultSelected = allDataRecords.some(function (item) {
               return item.checked;
             });
+            this.selectedRows = allDataRecords.filter(function (item) {
+              return item.checked;
+            });
+            console.log(this.selectedRows);
             this.datagrid.refresh();
           }
         }, {
@@ -311,10 +322,44 @@
             this.isDefaultSelected = allDataRecords.some(function (item) {
               return item.checked;
             });
+            this.selectedRows = allDataRecords.filter(function (item) {
+              return item.checked;
+            });
+            console.log(this.selectedRows);
           }
         }, {
           key: "sendEmail",
-          value: function sendEmail() {}
+          value: function sendEmail() {
+            var _this2 = this;
+
+            this.isDefaultersDataLoaded = false;
+            this.selectedRows.forEach(function (item, index, array) {
+              var details = {
+                "apartmentId": _this2.sessionService.apartmentId,
+                "emailTemplateTypeId": 2,
+                "_invoiceDetailsForEmail": [{
+                  "serialInvoiceId": item.invoiceNumber,
+                  "emailId": item.emailSetting,
+                  "invoiceAmt": item.due,
+                  "dueDate": "2020-08-31T06:49:18.597Z",
+                  "serialNo": item.serialNo,
+                  "userName": item.primaryContact,
+                  "towerUnit": item.unit
+                }]
+              };
+              var params = {
+                invoiceemailTemplate: details
+              };
+
+              _this2.userService.notifyDefaulters(params).subscribe(function (res) {
+                if (index === array.length - 1) {
+                  _this2.isDefaultersDataLoaded = true;
+                }
+              }, function (error) {
+                _this2.isDefaultersDataLoaded = true;
+              });
+            });
+          }
         }, {
           key: "sendSMS",
           value: function sendSMS() {}
@@ -361,8 +406,8 @@
                 return '<div style="padding: 10px">' + '<div class="form-group mb-0 w-100">' + '<div class="form-check check-header text-center">' + '<input type="checkbox" id="selectAllDefaulters" name="selectAllDefaulters" onClick="checkDefaulterHeaderEvent(event, this.checked)" >' + '<label class="form-check-label" for="selectAllDefaulters"></label>' + '</div>' + '</div>' + '</div>';
               }
             }, {
-              text: 'Type',
-              datafield: 'type',
+              text: 'Invoice ID',
+              datafield: 'serialNo',
               width: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
@@ -402,24 +447,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe(function (res) {
               var gridDefaultDataList = res;
-              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](gridDefaultDataList, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](gridDefaultDataList, function (item) {
                 item.checked = false;
               });
-              _this2.totalItems = gridDefaultDataList.length;
-              _this2.gridSourceData = {
+              _this3.totalItems = gridDefaultDataList.length;
+              _this3.gridSourceData = {
                 localdata: gridDefaultDataList,
                 datatype: "array"
               };
-              _this2.defaultDataList = new jqx.dataAdapter(_this2.gridSourceData);
+              _this3.defaultDataList = new jqx.dataAdapter(_this3.gridSourceData);
 
-              _this2.renderColumns();
+              _this3.renderColumns();
             }, function (error) {
               console.log(error);
             });
@@ -431,9 +476,11 @@
 
       IncomeViewDefaultersComponent.ctorParameters = function () {
         return [{
-          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -461,7 +508,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-view-defaulters.component.scss */
         "./src/app/modules/ams/income-tracker/income-defaulters/income-view-defaulters.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], IncomeViewDefaultersComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], IncomeViewDefaultersComponent);
 
       function checkDefaulterHeaderEvent(event, isChecked) {
         event.stopPropagation();

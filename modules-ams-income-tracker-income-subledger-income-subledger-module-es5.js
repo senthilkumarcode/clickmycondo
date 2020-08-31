@@ -239,7 +239,7 @@
             var _this = this;
 
             this.filterSelected = 'all';
-            this.singleBlock = "Select Block";
+            this.singleBlock = "Select Tower";
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -438,7 +438,7 @@
               _this5.accountsService.getIncomeTrackerSubLedgersByApartmentId(params).subscribe(function (res) {
                 _this5.isSubLedgerDataLoaded = true;
                 _this5.filterSelected = 'all';
-                _this5.singleBlock = "Select Block";
+                _this5.singleBlock = "Select Tower";
                 var subLedgerDataList = res;
                 _this5.gridSourceData = {
                   localdata: subLedgerDataList,

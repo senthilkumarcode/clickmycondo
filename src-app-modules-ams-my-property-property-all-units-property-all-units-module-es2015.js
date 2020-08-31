@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-add-unit-wrapper\">\n\n    <app-loader *ngIf=\"!isUnitSubmitted\"></app-loader>\n\n    <ng-container *ngIf=\"isUnitSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>Edit Unit</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\n\t\t<form #editUnitForm = \"ngForm\" name=\"editUnitForm\" (ngSubmit)=\"submitEditUnitForm(editUnitForm)\"  novalidate>\n\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Bulit Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"builtupArea\" [(ngModel)]=\"unit.builtupArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Unit Construction Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitConstructionArea\" [(ngModel)]=\"unit.carpetArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit Type\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t[fieldList]=\"unitTypeData\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"unit.unitTypeId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedUnitTypeId($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitSold class=\"form-check-input\" id=\"unitSlod\" name=\"unitSold\" [(ngModel)]=\"unit.isSold\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitSlod\">Is Sold</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitVacant class=\"form-check-input\" id=\"unitVacant\" name=\"unitVacant\" [(ngModel)]=\"unit.isVacant\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitVacant\">Is Vacant</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #petsAllowed class=\"form-check-input\" id=\"petsAllowed\" name=\"petsAllowed\" [(ngModel)]=\"unit.isPetsAllowed\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"petsAllowed\">Is Pets Allowed</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #furnished class=\"form-check-input\" id=\"furnished\" name=\"furnished\" [(ngModel)]=\"unit.isFurnished\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"furnished\">Is Furnished</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</form> \n\n\t</ng-container>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-add-unit-wrapper\">\n\n    <app-loader *ngIf=\"!isUnitSubmitted\"></app-loader>\n\n    <ng-container *ngIf=\"isUnitSubmitted\">\n\n\t\t<div class=\"title\">\n\t\t\t<h4>Edit Unit</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button mat-icon-button\n\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow accent mb-5\" *ngIf=\"isUnitSubmitted\">\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Tower: </span>{{unit.apartmentBlockNumber}}</p>\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Unit: </span>{{unit.apartmentBlockUnitNumber}}</p>\n\t\t</div>\n\n\t\t<form #editUnitForm = \"ngForm\" name=\"editUnitForm\" (ngSubmit)=\"submitEditUnitForm(editUnitForm)\"  novalidate>\n\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Bulit Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"builtupArea\" [(ngModel)]=\"unit.builtupArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Unit Construction Area SQ.M</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitConstructionArea\" [(ngModel)]=\"unit.carpetArea\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Unit Type\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t[fieldList]=\"unitTypeData\"\n\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t[fieldModel]=\"unit.unitTypeId\"\n\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t(fieldParams)=\"getSelectedUnitTypeId($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitSold class=\"form-check-input\" id=\"unitSlod\" name=\"unitSold\" [(ngModel)]=\"unit.isSold\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitSlod\">Is Sold</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #unitVacant class=\"form-check-input\" id=\"unitVacant\" name=\"unitVacant\" [(ngModel)]=\"unit.isVacant\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"unitVacant\">Is Vacant</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #petsAllowed class=\"form-check-input\" id=\"petsAllowed\" name=\"petsAllowed\" [(ngModel)]=\"unit.isPetsAllowed\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"petsAllowed\">Is Pets Allowed</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" #furnished class=\"form-check-input\" id=\"furnished\" name=\"furnished\" [(ngModel)]=\"unit.isFurnished\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"furnished\">Is Furnished</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t</form> \n\n\t</ng-container>\n</div>\n");
 
 /***/ }),
 
@@ -527,7 +527,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
     }
     getAllBlockData() {
         this.filterSelected = 'all';
-        this.singleBlock = "Select Block";
+        this.singleBlock = "Select Tower";
         var params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -601,10 +601,9 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
         this.isDataLoaded = false;
         this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
             this.filterSelected = 'all';
-            this.singleBlock = "Select Block";
+            this.singleBlock = "Select Tower";
             var unitDataList = res;
             this.isDataLoaded = true;
-            console.log(res);
             this.totalItems = unitDataList.length;
             this.gridSourceData = {
                 localdata: unitDataList,
@@ -622,22 +621,22 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
-                text: 'Unit No',
-                datafield: 'apartmentBlockUnitNumber',
+                text: 'Tower No',
+                datafield: 'apartmentBlockNumber',
                 width: 180,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
-                text: 'Block No',
-                datafield: 'apartmentBlockNumber',
+                text: 'Unit No',
+                datafield: 'apartmentBlockUnitNumber',
                 width: 180,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
-                text: 'Bulit Area SQ.M',
+                text: 'Built Area SQ.M',
                 datafield: 'builtupArea',
                 width: 120,
                 cellsrenderer: cellsrenderer,
@@ -687,7 +686,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
                 text: 'Actions',
                 cellsalign: 'center',
                 align: 'center',
-                minwidth: 120,
+                width: 120,
                 datafield: 'isReversed',
                 cellsrenderer: (row, coloumn, value) => {
                     let elemId = 'invoiceReverse' + row;

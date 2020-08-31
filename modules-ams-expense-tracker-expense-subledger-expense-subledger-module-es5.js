@@ -233,7 +233,7 @@
           this.totalDueAmount = 0;
           this.netDueAmount = 0;
           this.filterSelected = "all";
-          this.singleBlock = "Select Block";
+          this.singleBlock = "Select Tower";
           this.selectedInput = "";
           this.columnField = {};
           this.params = {

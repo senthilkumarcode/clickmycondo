@@ -3106,7 +3106,7 @@
           key: "clearFilter",
           value: function clearFilter() {
             this.filterSelected = 'all';
-            this.singleBlock = "Select Block";
+            this.singleBlock = "Select Tower";
           }
         }, {
           key: "updateviolationstatus",
@@ -3129,7 +3129,7 @@
           key: "getAllBlockData",
           value: function getAllBlockData() {
             this.filterSelected = 'all';
-            this.singleBlock = "Select Block"; // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+            this.singleBlock = "Select Tower"; // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
             // this.subLedgerDataList = new jqx.dataAdapter({
             //   localData: res,
             //   datatype: "array"
@@ -4147,7 +4147,7 @@
           key: "clearFilter",
           value: function clearFilter() {
             this.filterSelected = 'all';
-            this.singleBlock = "Select Block";
+            this.singleBlock = "Select Tower";
           }
         }, {
           key: "updateviolationstatus",
@@ -4170,7 +4170,7 @@
           key: "getAllBlockData",
           value: function getAllBlockData() {
             this.filterSelected = 'all';
-            this.singleBlock = "Select Block"; // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(this.sessionService.apartmentId).subscribe((res:any) => {
+            this.singleBlock = "Select Tower"; // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(this.sessionService.apartmentId).subscribe((res:any) => {
             // this.subLedgerDataList = new jqx.dataAdapter({
             //   localData: res,
             //   datatype: "array"

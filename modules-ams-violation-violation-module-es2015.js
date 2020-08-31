@@ -2113,7 +2113,7 @@ let UserViolationComponent = class UserViolationComponent {
     }
     clearFilter() {
         this.filterSelected = 'all';
-        this.singleBlock = "Select Block";
+        this.singleBlock = "Select Tower";
     }
     updateviolationstatus(id, statusid) {
         let statusparams = {
@@ -2128,7 +2128,7 @@ let UserViolationComponent = class UserViolationComponent {
     }
     getAllBlockData() {
         this.filterSelected = 'all';
-        this.singleBlock = "Select Block";
+        this.singleBlock = "Select Tower";
         // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
         // this.subLedgerDataList = new jqx.dataAdapter({
         //   localData: res,
@@ -2819,7 +2819,7 @@ let ViewViolationComponent = class ViewViolationComponent {
     }
     clearFilter() {
         this.filterSelected = 'all';
-        this.singleBlock = "Select Block";
+        this.singleBlock = "Select Tower";
     }
     updateviolationstatus(id, statusid) {
         let statusparams = {
@@ -2834,7 +2834,7 @@ let ViewViolationComponent = class ViewViolationComponent {
     }
     getAllBlockData() {
         this.filterSelected = 'all';
-        this.singleBlock = "Select Block";
+        this.singleBlock = "Select Tower";
         // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(this.sessionService.apartmentId).subscribe((res:any) => {
         // this.subLedgerDataList = new jqx.dataAdapter({
         //   localData: res,
