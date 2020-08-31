@@ -310,14 +310,14 @@
               id: 'constructionInProgress',
               name: "Construction In Progress"
             }, {
-              id: '2 BR',
+              id: 'twoBR',
               name: "2 BR"
             }];
           }
         }, {
           key: "selectPropertyType",
           value: function selectPropertyType() {
-            switch (this.selectedPropertyType) {
+            switch (Number(this.selectedPropertyType)) {
               case 318:
                 this.getUnitProperty();
                 break;
@@ -524,11 +524,9 @@
                   svgElem.parentNode.removeChild(svgElem);
                 }
 
-                _this8.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                _this8.getFileDetails(data.floorPictureFileDetailsId);
 
-
-                graph.deleteGraph(); // localStorage.setItem('graphData', data.mapJsonFile);
-
+                graph.deleteGraph();
                 graph.customGraphUpdate(data.mapJsonFile, undefined);
               }, 1);
             } else if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0) {
@@ -742,6 +740,17 @@
           value: function browseFile() {
             var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
             fileUpload.trigger("click");
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            var svgElem = document.getElementById('bgimage');
+
+            if (svgElem) {
+              svgElem.parentNode.removeChild(svgElem);
+            }
+
+            graph.deleteGraph();
           }
         }]);
 

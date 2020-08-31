@@ -1,16 +1,4 @@
 (function () {
-  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-  function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -18,301 +6,6 @@
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-security-security-module"], {
-    /***/
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js":
-    /*!*************************************************************************************!*\
-      !*** ./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js ***!
-      \*************************************************************************************/
-
-    /*! exports provided: CookieService */
-
-    /***/
-    function node_modulesNgxCookieService__ivy_ngcc__Fesm2015NgxCookieServiceJs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CookieService", function () {
-        return CookieService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-
-      var CookieService = /*#__PURE__*/function () {
-        function CookieService( // The type `Document` may not be used here. Although a fix is on its way,
-        // we will go with `any` for now to support Angular 2.4.x projects.
-        // Issue: https://github.com/angular/angular/issues/12631
-        // Fix: https://github.com/angular/angular/pull/14894
-        document, // Get the `PLATFORM_ID` so we can check if we're in a browser.
-        platformId) {
-          _classCallCheck(this, CookieService);
-
-          this.document = document;
-          this.platformId = platformId;
-          this.documentIsAccessible = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId);
-        }
-        /**
-         * @param name Cookie name
-         * @returns boolean - whether cookie with specified name exists
-         */
-
-
-        _createClass(CookieService, [{
-          key: "check",
-          value: function check(name) {
-            if (!this.documentIsAccessible) {
-              return false;
-            }
-
-            name = encodeURIComponent(name);
-            var regExp = this.getCookieRegExp(name);
-            var exists = regExp.test(this.document.cookie);
-            return exists;
-          }
-          /**
-           * @param name Cookie name
-           * @returns property value
-           */
-
-        }, {
-          key: "get",
-          value: function get(name) {
-            if (this.documentIsAccessible && this.check(name)) {
-              name = encodeURIComponent(name);
-              var regExp = this.getCookieRegExp(name);
-              var result = regExp.exec(this.document.cookie);
-              return this.safeDecodeURIComponent(result[1]);
-            } else {
-              return '';
-            }
-          }
-          /**
-           * @returns all the cookies in json
-           */
-
-        }, {
-          key: "getAll",
-          value: function getAll() {
-            var _this = this;
-
-            if (!this.documentIsAccessible) {
-              return {};
-            }
-
-            var cookies = {};
-            var document = this.document;
-
-            if (document.cookie && document.cookie !== '') {
-              document.cookie.split(';').forEach(function (currentCookie) {
-                var _currentCookie$split = currentCookie.split('='),
-                    _currentCookie$split2 = _slicedToArray(_currentCookie$split, 2),
-                    cookieName = _currentCookie$split2[0],
-                    cookieValue = _currentCookie$split2[1];
-
-                cookies[_this.safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = _this.safeDecodeURIComponent(cookieValue);
-              });
-            }
-
-            return cookies;
-          }
-          /**
-           * @param name     Cookie name
-           * @param value    Cookie value
-           * @param expires  Number of days until the cookies expires or an actual `Date`
-           * @param path     Cookie path
-           * @param domain   Cookie domain
-           * @param secure   Secure flag
-           * @param sameSite OWASP samesite token `Lax`, `None`, or `Strict`. Defaults to `Lax`
-           */
-
-        }, {
-          key: "set",
-          value: function set(name, value, expires, path, domain, secure) {
-            var sameSite = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            var cookieString = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
-
-            if (expires) {
-              if (typeof expires === 'number') {
-                var dateExpires = new Date(new Date().getTime() + expires * 1000 * 60 * 60 * 24);
-                cookieString += 'expires=' + dateExpires.toUTCString() + ';';
-              } else {
-                cookieString += 'expires=' + expires.toUTCString() + ';';
-              }
-            }
-
-            if (path) {
-              cookieString += 'path=' + path + ';';
-            }
-
-            if (domain) {
-              cookieString += 'domain=' + domain + ';';
-            }
-
-            if (secure === false && sameSite === 'None') {
-              secure = true;
-              console.warn("[ngx-cookie-service] Cookie ".concat(name, " was forced with secure flag because sameSite=None.") + "More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130");
-            }
-
-            if (secure) {
-              cookieString += 'secure;';
-            }
-
-            cookieString += 'sameSite=' + sameSite + ';';
-            this.document.cookie = cookieString;
-          }
-          /**
-           * @param name   Cookie name
-           * @param path   Cookie path
-           * @param domain Cookie domain
-           */
-
-        }, {
-          key: "delete",
-          value: function _delete(name, path, domain, secure) {
-            var sameSite = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            this.set(name, '', new Date('Thu, 01 Jan 1970 00:00:01 GMT'), path, domain, secure, sameSite);
-          }
-          /**
-           * @param path   Cookie path
-           * @param domain Cookie domain
-           */
-
-        }, {
-          key: "deleteAll",
-          value: function deleteAll(path, domain, secure) {
-            var sameSite = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            var cookies = this.getAll();
-
-            for (var cookieName in cookies) {
-              if (cookies.hasOwnProperty(cookieName)) {
-                this["delete"](cookieName, path, domain, secure, sameSite);
-              }
-            }
-          }
-          /**
-           * @param name Cookie name
-           * @returns property RegExp
-           */
-
-        }, {
-          key: "getCookieRegExp",
-          value: function getCookieRegExp(name) {
-            var escapedName = name.replace(/([\[\]\{\}\(\)\|\=\;\+\?\,\.\*\^\$])/gi, '\\$1');
-            return new RegExp('(?:^' + escapedName + '|;\\s*' + escapedName + ')=(.*?)(?:;|$)', 'g');
-          }
-        }, {
-          key: "safeDecodeURIComponent",
-          value: function safeDecodeURIComponent(encodedURIComponent) {
-            try {
-              return decodeURIComponent(encodedURIComponent);
-            } catch (_a) {
-              // probably it is not uri encoded. return as is
-              return encodedURIComponent;
-            }
-          }
-        }]);
-
-        return CookieService;
-      }();
-
-      CookieService.ɵfac = function CookieService_Factory(t) {
-        return new (t || CookieService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
-      };
-
-      CookieService.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
-          }]
-        }];
-      };
-
-      CookieService.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function CookieService_Factory() {
-          return new CookieService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
-        },
-        token: CookieService,
-        providedIn: "root"
-      });
-      CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]))], CookieService);
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CookieService, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
-            }]
-          }];
-        }, null);
-      })();
-      /*
-       * Public API Surface of ngx-cookie-service
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=ngx-cookie-service.js.map
-
-      /***/
-
-    },
-
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/security/components/security-active-alerts/security-active-alerts.component.html":
     /*!****************************************************************************************************************************************************!*\
@@ -757,7 +450,7 @@
         }, {
           key: "approveAlert",
           value: function approveAlert(alert, type) {
-            var _this2 = this;
+            var _this = this;
 
             this.isAlertUpdated = true;
             var details = {};
@@ -781,9 +474,9 @@
               data: dialogData
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
-              _this2.result = dialogResult;
+              _this.result = dialogResult;
 
-              if (_this2.result) {
+              if (_this.result) {
                 if (type == 'approve') {
                   details = {
                     "apartmentBlockUnitAlertId": alert.apartmentBlockUnitAlertId,
@@ -792,13 +485,13 @@
                     "alertTypeId": alert.alertTypeId,
                     "location": "string",
                     "gpslocation": alert.gpslocation,
-                    "assignedTo": parseInt(_this2.sessionService.userId),
+                    "assignedTo": parseInt(_this.sessionService.userId),
                     "alertStatusId": 136,
                     "notes": alert.notes,
                     "isActive": alert.isActive,
-                    "insertedBy": parseInt(_this2.sessionService.userId),
+                    "insertedBy": parseInt(_this.sessionService.userId),
                     "insertedOn": "2019-12-06T13:45:09.296Z",
-                    "updatedBy": parseInt(_this2.sessionService.userId),
+                    "updatedBy": parseInt(_this.sessionService.userId),
                     "updatedOn": "2019-12-06T13:45:09.296Z"
                   };
                 } else {
@@ -809,13 +502,13 @@
                     "alertTypeId": alert.alertTypeId,
                     "location": "string",
                     "gpslocation": alert.gpslocation,
-                    "assignedTo": parseInt(_this2.sessionService.userId),
+                    "assignedTo": parseInt(_this.sessionService.userId),
                     "alertStatusId": 137,
                     "notes": alert.notes,
                     "isActive": true,
-                    "insertedBy": parseInt(_this2.sessionService.userId),
+                    "insertedBy": parseInt(_this.sessionService.userId),
                     "insertedOn": "2019-12-06T13:45:09.296Z",
-                    "updatedBy": parseInt(_this2.sessionService.userId),
+                    "updatedBy": parseInt(_this.sessionService.userId),
                     "updatedOn": "2019-12-06T13:45:09.296Z"
                   };
                 }
@@ -824,17 +517,17 @@
                   apartmentBlockUnitAlert: details
                 };
 
-                _this2.alertService.updateApartmentBlockUnitAlert(alertParams).subscribe(function (res) {
+                _this.alertService.updateApartmentBlockUnitAlert(alertParams).subscribe(function (res) {
                   if (res.message) {
                     var apartmentIdParams = {
-                      apartmentId: _this2.sessionService.apartmentId
+                      apartmentId: _this.sessionService.apartmentId
                     };
 
-                    _this2.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe(function (alert) {
-                      _this2.alertList = alert.filter(function (item) {
+                    _this.alertService.getAllApartmentBlockUnitAlertByApartmentId(apartmentIdParams).subscribe(function (alert) {
+                      _this.alertList = alert.filter(function (item) {
                         return item.alertStatusId == 135 || item.alertStatusId == 136;
                       });
-                      _this2.isAlertUpdated = false;
+                      _this.isAlertUpdated = false;
                     }, function (error) {
                       console.log(error);
                     });
@@ -844,9 +537,9 @@
                       type: "Success"
                     };
 
-                    _this2.sharedService.setCustomAlertMessage(success);
+                    _this.sharedService.setCustomAlertMessage(success);
                   } else {
-                    _this2.isAlertUpdated = false;
+                    _this.isAlertUpdated = false;
                     var errorMessage = res.errorMessage;
 
                     if (errorMessage == 'ApartmentBlockUnitAlert Not Updated as its not exist.') {
@@ -858,13 +551,13 @@
                       type: "Error"
                     };
 
-                    _this2.sharedService.setCustomAlertMessage(errorDetails);
+                    _this.sharedService.setCustomAlertMessage(errorDetails);
                   }
                 }, function (error) {
                   console.log(error);
                 });
               } else {
-                _this2.isAlertUpdated = false;
+                _this.isAlertUpdated = false;
               }
             });
           }
@@ -889,7 +582,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this2 = this;
 
             this.alert = {};
             this.alert.gpsLocation = " ";
@@ -898,17 +591,17 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe(function (alert) {
-              _this3.alertList = alert.filter(function (item) {
+              _this2.alertList = alert.filter(function (item) {
                 return item.alertStatusId == 135 || item.alertStatusId == 136;
               });
-              _this3.isAlertsLoaded = true;
-              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this3.alertList, function (item) {
+              _this2.isAlertsLoaded = true;
+              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this2.alertList, function (item) {
                 var params = {
                   userid: parseInt(item.insertedBy)
                 };
 
-                _this3.userService.getUserById(params).subscribe(function (user) {
-                  _this3.userDetails.push(user[0]); //console.log(this.userDetails);
+                _this2.userService.getUserById(params).subscribe(function (user) {
+                  _this2.userDetails.push(user[0]); //console.log(this.userDetails);
 
                 }, function (error) {
                   console.log(error);
@@ -918,8 +611,8 @@
                   apartmentBlockUnitId: item.apartmentBlockUnitId
                 };
 
-                _this3.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (user) {
-                  _this3.blockDetails.push(user[0]);
+                _this2.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (user) {
+                  _this2.blockDetails.push(user[0]);
                 }, function (error) {
                   console.log(error);
                 });
@@ -928,7 +621,7 @@
                   item.gpslocation = "47.4925,19.0513";
                 }
 
-                _this3.locationDetails.push({
+                _this2.locationDetails.push({
                   userId: item.insertedBy,
                   coords: item.gpslocation
                 }); // console.log(this.locationDetails);
@@ -942,14 +635,14 @@
             }; //get emergency types
 
             this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe(function (res) {
-              _this3.emergencyTypeList = res;
+              _this2.emergencyTypeList = res;
             });
             var alertParams = {
               LookupTypeId: 30
             }; //get alert status types
 
             this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe(function (res) {
-              _this3.alertTypeList = res;
+              _this2.alertTypeList = res;
             });
           }
         }]);
@@ -1275,7 +968,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this3 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1348,17 +1041,17 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.alertService.getAllApartmentBlockUnitAlertByApartmentId(params).subscribe(function (alert) {
-              _this4.alertList = alert.filter(function (item) {
+              _this3.alertList = alert.filter(function (item) {
                 return item.alertStatusId == 137;
               });
-              _this4.isAlertsLoaded = true;
-              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this4.alertList, function (item) {
+              _this3.isAlertsLoaded = true;
+              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this3.alertList, function (item) {
                 var params = {
                   userid: parseInt(item.insertedBy)
                 };
 
-                _this4.userService.getUserById(params).subscribe(function (user) {
-                  _this4.userDetails.push(user[0]); //console.log(this.userDetails);
+                _this3.userService.getUserById(params).subscribe(function (user) {
+                  _this3.userDetails.push(user[0]); //console.log(this.userDetails);
 
                 }, function (error) {
                   console.log(error);
@@ -1368,8 +1061,8 @@
                   apartmentBlockUnitId: item.apartmentBlockUnitId
                 };
 
-                _this4.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (user) {
-                  _this4.blockDetails.push(user[0]);
+                _this3.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitIdParam).subscribe(function (user) {
+                  _this3.blockDetails.push(user[0]);
                 }, function (error) {
                   console.log(error);
                 });
@@ -1378,19 +1071,19 @@
                   item.gpslocation = "47.4925,19.0513";
                 }
 
-                _this4.locationDetails.push({
+                _this3.locationDetails.push({
                   userId: item.insertedBy,
                   coords: item.gpslocation
                 }); // console.log(this.locationDetails);
 
               });
-              _this4.tableData.alertlist = _this4.alertList;
-              console.log("Table data  == ", _this4.tableData);
-              _this4.gridSourceData = {
-                localdata: _this4.tableData,
+              _this3.tableData.alertlist = _this3.alertList;
+              console.log("Table data  == ", _this3.tableData);
+              _this3.gridSourceData = {
+                localdata: _this3.tableData,
                 datatype: "array"
               };
-              _this4.historyData = new jqx.dataAdapter(_this4.gridSourceData);
+              _this3.historyData = new jqx.dataAdapter(_this3.gridSourceData);
             }, function (error) {
               console.log(error);
             });
@@ -1399,7 +1092,7 @@
             }; //get emergency types
 
             this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe(function (res) {
-              _this4.emergencyTypeList = res; // this.gridSourceData = {
+              _this3.emergencyTypeList = res; // this.gridSourceData = {
               //   localdata: this.emergencyTypeList,
               //   datatype: "array"
               // }
@@ -1410,7 +1103,7 @@
             }; //get alert status types
 
             this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe(function (res) {
-              _this4.alertTypeList = res;
+              _this3.alertTypeList = res;
             });
           }
         }]);
@@ -1605,7 +1298,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this5 = this;
+            var _this4 = this;
 
             if (this.reportData != "") {
               var filtergroup = new jqx.filter();
@@ -1618,7 +1311,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this4.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1676,7 +1369,7 @@
         }, {
           key: "submitSecurityAlertReports",
           value: function submitSecurityAlertReports(form) {
-            var _this6 = this;
+            var _this5 = this;
 
             this.isReportSubmitted = true;
             this.isDataLoaded = false;
@@ -1689,33 +1382,33 @@
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
             };
             this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe(function (res) {
-              _this6.alertReportsDataList = res;
+              _this5.alertReportsDataList = res;
 
-              _this6.alertReportsDataList.forEach(function (item, i) {
+              _this5.alertReportsDataList.forEach(function (item, i) {
                 item.sNo = i + 1;
               });
 
-              _this6.gridSourceData = {
-                localdata: _this6.alertReportsDataList,
+              _this5.gridSourceData = {
+                localdata: _this5.alertReportsDataList,
                 datatype: "array"
               };
-              _this6.listData = new jqx.dataAdapter(_this6.gridSourceData);
-              _this6.totalItems = _this6.alertReportsDataList.length;
+              _this5.listData = new jqx.dataAdapter(_this5.gridSourceData);
+              _this5.totalItems = _this5.alertReportsDataList.length;
 
-              if (_this6.totalItems > _this6.itemLimit) {
-                _this6.ItemEndIndex = _this6.itemLimit;
+              if (_this5.totalItems > _this5.itemLimit) {
+                _this5.ItemEndIndex = _this5.itemLimit;
               } else {
-                _this6.ItemEndIndex = _this6.totalItems;
+                _this5.ItemEndIndex = _this5.totalItems;
               }
 
-              _this6.isDataLoaded = true;
-              _this6.isReportSubmitted = false;
+              _this5.isDataLoaded = true;
+              _this5.isReportSubmitted = false;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this6 = this;
 
             this.pageName = this.route.params['value'].name;
             this.report = {};
@@ -1729,13 +1422,13 @@
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe(function (res) {
-              _this7.blockData = res;
+              _this6.blockData = res;
             });
             var sec_params = {
               LookupTypeId: 29
             };
             this.lookupService.getLookupValueByLookupTypeId(sec_params).subscribe(function (res) {
-              _this7.securityCategoryData = res.filter(function (item) {
+              _this6.securityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -1743,7 +1436,7 @@
               LookupTypeId: 30
             };
             this.lookupService.getLookupValueByLookupTypeId(alert_params).subscribe(function (res) {
-              _this7.alertTypeStatus = res.filter(function (item) {
+              _this6.alertTypeStatus = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -1768,7 +1461,7 @@
               datafield: 'creationDate',
               width: 100,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this7.getDateFormat(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this6.getDateFormat(value) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1781,7 +1474,7 @@
               text: 'Block No',
               datafield: 'blockNo',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this7.getDateFormat(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this6.getDateFormat(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1927,7 +1620,7 @@
         _createClass(SecurityReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this7 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1936,11 +1629,11 @@
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
               //this.reportDataList = res;
-              _this8.reportDataList = [{
+              _this7.reportDataList = [{
                 lookupValueName: 'List of Panic Alerts',
                 description: 'Provides the list of panic alerts for the specified duration'
               }];
-              _this8.isDataLoaded = true;
+              _this7.isDataLoaded = true;
             });
           }
         }]);
@@ -2202,7 +1895,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm(form) {
-            var _this9 = this;
+            var _this8 = this;
 
             this.isSecurityCategorySubmitted = false;
 
@@ -2229,16 +1922,16 @@
                     LookupTypeId: 29
                   };
 
-                  _this9.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(_this9._unsubscribeAll)).subscribe(function (res) {
-                    _this9.isSecurityCategorySubmitted = true; /// Go to the parent route
+                  _this8.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(_this8._unsubscribeAll)).subscribe(function (res) {
+                    _this8.isSecurityCategorySubmitted = true; /// Go to the parent route
 
-                    _this9.goBack(); //Mark for check
+                    _this8.goBack(); //Mark for check
 
 
-                    _this9._changeDetectorRef.markForCheck();
+                    _this8._changeDetectorRef.markForCheck();
                   });
                 } else {
-                  _this9.isSecurityCategorySubmitted = true;
+                  _this8.isSecurityCategorySubmitted = true;
                 }
               });
             } else {
@@ -2263,16 +1956,16 @@
                     LookupTypeId: 29
                   };
 
-                  _this9.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    _this9.isSecurityCategorySubmitted = true; /// Go to the parent route
+                  _this8.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    _this8.isSecurityCategorySubmitted = true; /// Go to the parent route
 
-                    _this9.goBack(); //Mark for check
+                    _this8.goBack(); //Mark for check
 
 
-                    _this9._changeDetectorRef.markForCheck();
+                    _this8._changeDetectorRef.markForCheck();
                   });
                 } else {
-                  _this9.isSecurityCategorySubmitted = true;
+                  _this8.isSecurityCategorySubmitted = true;
                 }
               });
             }
@@ -2283,16 +1976,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this9 = this;
 
             //Open the drawer
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this10._activatedRoute.params['value'].id) {
-                _this10._securitySetupListComponent.matDrawer.open();
+              if (id != null && id == _this9._activatedRoute.params['value'].id) {
+                _this9._securitySetupListComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this10._changeDetectorRef.markForCheck();
+              _this9._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type != 'new') {
@@ -2302,13 +1995,13 @@
                 LookupTypeId: 29
               };
               this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                _this10.isSecurityCategorySubmitted = true;
-                _this10.securityCategory = res.filter(function (item) {
-                  return item.lookupValueId == _this10._activatedRoute.params['value'].id;
+                _this9.isSecurityCategorySubmitted = true;
+                _this9.securityCategory = res.filter(function (item) {
+                  return item.lookupValueId == _this9._activatedRoute.params['value'].id;
                 });
-                _this10.securityCategoryName = _this10.securityCategory[0].lookupValueName; //Mark for check
+                _this9.securityCategoryName = _this9.securityCategory[0].lookupValueName; //Mark for check
 
-                _this10._changeDetectorRef.markForCheck();
+                _this9._changeDetectorRef.markForCheck();
               });
             } else {
               this.isSecurityCategorySubmitted = true;
@@ -2459,7 +2152,7 @@
 
       var SecuritySetupListComponent = /*#__PURE__*/function () {
         function SecuritySetupListComponent(_changeDetectorRef, _activatedRoute, _router, sharedService, lookupService, sessionService) {
-          var _this11 = this;
+          var _this10 = this;
 
           _classCallCheck(this, SecuritySetupListComponent);
 
@@ -2485,7 +2178,7 @@
             return event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"];
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function () {
             // Update the category
-            _this11.getCategoryData();
+            _this10.getCategoryData();
           });
         }
 
@@ -2562,19 +2255,19 @@
         }, {
           key: "getCategoryData",
           value: function getCategoryData() {
-            var _this12 = this;
+            var _this11 = this;
 
             var param = {
               LookupTypeId: 29
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
-              _this12.isSecurityCategoryLoaded = true;
-              _this12.securityCategoryData = res.filter(function (item) {
+              _this11.isSecurityCategoryLoaded = true;
+              _this11.securityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this12.totalItems = _this12.securityCategoryData.length; // Mark for check
+              _this11.totalItems = _this11.securityCategoryData.length; // Mark for check
 
-              _this12._changeDetectorRef.markForCheck();
+              _this11._changeDetectorRef.markForCheck();
             });
           }
         }, {

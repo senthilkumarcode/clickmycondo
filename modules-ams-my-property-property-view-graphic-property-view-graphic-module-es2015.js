@@ -188,13 +188,13 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 name: "Construction In Progress"
             },
             {
-                id: '2 BR',
+                id: 'twoBR',
                 name: "2 BR"
             }
         ];
     }
     selectPropertyType() {
-        switch (this.selectedPropertyType) {
+        switch (Number(this.selectedPropertyType)) {
             case 318:
                 this.getUnitProperty();
                 break;
@@ -354,9 +354,7 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                     svgElem.parentNode.removeChild(svgElem);
                 }
                 this.getFileDetails(data.floorPictureFileDetailsId);
-                // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
                 graph.deleteGraph();
-                // localStorage.setItem('graphData', data.mapJsonFile);
                 graph.customGraphUpdate(data.mapJsonFile, undefined);
             }, 1);
         }
@@ -533,6 +531,13 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
     browseFile() {
         var fileUpload = $(this.element.nativeElement).find("input[id='hidden-bg-upload']");
         fileUpload.trigger("click");
+    }
+    ngOnDestroy() {
+        let svgElem = document.getElementById('bgimage');
+        if (svgElem) {
+            svgElem.parentNode.removeChild(svgElem);
+        }
+        graph.deleteGraph();
     }
 };
 PropertyViewGraphicComponent.ctorParameters = () => [

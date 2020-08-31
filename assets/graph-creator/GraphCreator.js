@@ -294,6 +294,13 @@ GraphCreator.prototype.consts = {
     circleEsxClass: "conceptX",
     circleRampClass: "conceptR",
     circleYRHClass: "conceptY",
+    isPetsAllowed: "unitPet",
+    isVacant: "unitVacant",
+    isAvailableForRent: "unitAvailRent",
+    isFurnished: "unitFurnished",
+    isSold: "unitSold",
+    constructionInProgress: "unitConstruction",
+    twoBR: "unit2BR",
     baseG: "baseG",
     graphClass: "graph",
     activeEditId: "active-editing",
@@ -579,18 +586,24 @@ GraphCreator.prototype.selectedUnitProperty = function (d, filteredObj) {
     var thisGraph = this,
         consts = thisGraph.consts;
     let selectedRefClass;
-    if (d.poiId) {
-        selectedRefClass = consts.selectedClass;
-    } else {
-        selectedRefClass = consts.circleGClass;
-    }
+    // if (d.poiId) {
+    //     selectedRefClass = consts.selectedClass;
+    // } else {
+    //     selectedRefClass = consts.circleGClass;
+    // }
     if (d && d.kind) {
-        for (const key in d.kind) {
-            if (d.kind[filteredObj.selectedCategory]) {
+        let kindArr = d.kind.split(",");
+        kindArr.filter(key =>{
+            if(key == filteredObj.selectedCategory){
                 selectedRefClass = consts[filteredObj.selectedCategory]
             }
-        }
+        })
+        // for (const key in d.kind) {
+        //     if (d.kind[filteredObj.selectedCategory]) {
+        //     }
+        // }
     }
+    console.log('....',selectedRefClass)
     return selectedRefClass;
 }
 
@@ -613,8 +626,8 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
     // add new nodes
     var newGs = thisGraph.circles.enter().append("g");
     newGs.attr('class', function (d) {
-        if (filteredObj && d.propertyType == filteredObj.type) {
-            return selectedUnitProperty(d, filteredObj);
+        if (filteredObj && d.type == filteredObj.type) {
+            return thisGraph.selectedUnitProperty(d, filteredObj);
         } else if (d.poiId) {
             return consts.selectedClass
         } else {

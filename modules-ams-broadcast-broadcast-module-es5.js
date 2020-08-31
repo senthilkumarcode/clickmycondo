@@ -3,324 +3,21 @@
 
   function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
   function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
   function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
-  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-  function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-broadcast-broadcast-module"], {
-    /***/
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js":
-    /*!*************************************************************************************!*\
-      !*** ./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js ***!
-      \*************************************************************************************/
-
-    /*! exports provided: CookieService */
-
-    /***/
-    function node_modulesNgxCookieService__ivy_ngcc__Fesm2015NgxCookieServiceJs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CookieService", function () {
-        return CookieService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-
-      var CookieService = /*#__PURE__*/function () {
-        function CookieService( // The type `Document` may not be used here. Although a fix is on its way,
-        // we will go with `any` for now to support Angular 2.4.x projects.
-        // Issue: https://github.com/angular/angular/issues/12631
-        // Fix: https://github.com/angular/angular/pull/14894
-        document, // Get the `PLATFORM_ID` so we can check if we're in a browser.
-        platformId) {
-          _classCallCheck(this, CookieService);
-
-          this.document = document;
-          this.platformId = platformId;
-          this.documentIsAccessible = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId);
-        }
-        /**
-         * @param name Cookie name
-         * @returns boolean - whether cookie with specified name exists
-         */
-
-
-        _createClass(CookieService, [{
-          key: "check",
-          value: function check(name) {
-            if (!this.documentIsAccessible) {
-              return false;
-            }
-
-            name = encodeURIComponent(name);
-            var regExp = this.getCookieRegExp(name);
-            var exists = regExp.test(this.document.cookie);
-            return exists;
-          }
-          /**
-           * @param name Cookie name
-           * @returns property value
-           */
-
-        }, {
-          key: "get",
-          value: function get(name) {
-            if (this.documentIsAccessible && this.check(name)) {
-              name = encodeURIComponent(name);
-              var regExp = this.getCookieRegExp(name);
-              var result = regExp.exec(this.document.cookie);
-              return this.safeDecodeURIComponent(result[1]);
-            } else {
-              return '';
-            }
-          }
-          /**
-           * @returns all the cookies in json
-           */
-
-        }, {
-          key: "getAll",
-          value: function getAll() {
-            var _this = this;
-
-            if (!this.documentIsAccessible) {
-              return {};
-            }
-
-            var cookies = {};
-            var document = this.document;
-
-            if (document.cookie && document.cookie !== '') {
-              document.cookie.split(';').forEach(function (currentCookie) {
-                var _currentCookie$split = currentCookie.split('='),
-                    _currentCookie$split2 = _slicedToArray(_currentCookie$split, 2),
-                    cookieName = _currentCookie$split2[0],
-                    cookieValue = _currentCookie$split2[1];
-
-                cookies[_this.safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = _this.safeDecodeURIComponent(cookieValue);
-              });
-            }
-
-            return cookies;
-          }
-          /**
-           * @param name     Cookie name
-           * @param value    Cookie value
-           * @param expires  Number of days until the cookies expires or an actual `Date`
-           * @param path     Cookie path
-           * @param domain   Cookie domain
-           * @param secure   Secure flag
-           * @param sameSite OWASP samesite token `Lax`, `None`, or `Strict`. Defaults to `Lax`
-           */
-
-        }, {
-          key: "set",
-          value: function set(name, value, expires, path, domain, secure) {
-            var sameSite = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            var cookieString = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
-
-            if (expires) {
-              if (typeof expires === 'number') {
-                var dateExpires = new Date(new Date().getTime() + expires * 1000 * 60 * 60 * 24);
-                cookieString += 'expires=' + dateExpires.toUTCString() + ';';
-              } else {
-                cookieString += 'expires=' + expires.toUTCString() + ';';
-              }
-            }
-
-            if (path) {
-              cookieString += 'path=' + path + ';';
-            }
-
-            if (domain) {
-              cookieString += 'domain=' + domain + ';';
-            }
-
-            if (secure === false && sameSite === 'None') {
-              secure = true;
-              console.warn("[ngx-cookie-service] Cookie ".concat(name, " was forced with secure flag because sameSite=None.") + "More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130");
-            }
-
-            if (secure) {
-              cookieString += 'secure;';
-            }
-
-            cookieString += 'sameSite=' + sameSite + ';';
-            this.document.cookie = cookieString;
-          }
-          /**
-           * @param name   Cookie name
-           * @param path   Cookie path
-           * @param domain Cookie domain
-           */
-
-        }, {
-          key: "delete",
-          value: function _delete(name, path, domain, secure) {
-            var sameSite = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            this.set(name, '', new Date('Thu, 01 Jan 1970 00:00:01 GMT'), path, domain, secure, sameSite);
-          }
-          /**
-           * @param path   Cookie path
-           * @param domain Cookie domain
-           */
-
-        }, {
-          key: "deleteAll",
-          value: function deleteAll(path, domain, secure) {
-            var sameSite = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            var cookies = this.getAll();
-
-            for (var cookieName in cookies) {
-              if (cookies.hasOwnProperty(cookieName)) {
-                this["delete"](cookieName, path, domain, secure, sameSite);
-              }
-            }
-          }
-          /**
-           * @param name Cookie name
-           * @returns property RegExp
-           */
-
-        }, {
-          key: "getCookieRegExp",
-          value: function getCookieRegExp(name) {
-            var escapedName = name.replace(/([\[\]\{\}\(\)\|\=\;\+\?\,\.\*\^\$])/gi, '\\$1');
-            return new RegExp('(?:^' + escapedName + '|;\\s*' + escapedName + ')=(.*?)(?:;|$)', 'g');
-          }
-        }, {
-          key: "safeDecodeURIComponent",
-          value: function safeDecodeURIComponent(encodedURIComponent) {
-            try {
-              return decodeURIComponent(encodedURIComponent);
-            } catch (_a) {
-              // probably it is not uri encoded. return as is
-              return encodedURIComponent;
-            }
-          }
-        }]);
-
-        return CookieService;
-      }();
-
-      CookieService.ɵfac = function CookieService_Factory(t) {
-        return new (t || CookieService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
-      };
-
-      CookieService.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
-          }]
-        }];
-      };
-
-      CookieService.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function CookieService_Factory() {
-          return new CookieService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
-        },
-        token: CookieService,
-        providedIn: "root"
-      });
-      CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]))], CookieService);
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CookieService, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
-            }]
-          }];
-        }, null);
-      })();
-      /*
-       * Public API Surface of ngx-cookie-service
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=ngx-cookie-service.js.map
-
-      /***/
-
-    },
-
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/broadcast/components/announcement-details/announcement-details.component.html":
     /*!*************************************************************************************************************************************************!*\
@@ -1014,31 +711,31 @@
         }, {
           key: "getMessageDetails",
           value: function getMessageDetails(id) {
-            var _this2 = this;
+            var _this = this;
 
             var param = {
               apartmentId: this.sessionService.apartmentId,
               broadcastmessageID: id
             };
             this.broadcastService.getBroadcastsMessagesByMessageId(param).subscribe(function (resp) {
-              _this2.messageDetails = resp[0]; //Mark for check
+              _this.messageDetails = resp[0]; //Mark for check
 
-              _this2._changeDetectorRef.markForCheck();
+              _this._changeDetectorRef.markForCheck();
 
-              if (_this2.messageDetails && _this2.messageDetails.fileDetailId1) {
+              if (_this.messageDetails && _this.messageDetails.fileDetailId1) {
                 var newParams = {
-                  fileDetailsId: _this2.messageDetails.fileDetailId1,
-                  apartmentId: _this2.sessionService.apartmentId
+                  fileDetailsId: _this.messageDetails.fileDetailId1,
+                  apartmentId: _this.sessionService.apartmentId
                 };
 
-                _this2.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this2.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
+                _this.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                  _this.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
                     var blob = res.body;
                     var objectURL = URL.createObjectURL(blob);
 
-                    var sanitizeUrl = _this2.sanitizer.bypassSecurityTrustUrl(objectURL);
+                    var sanitizeUrl = _this.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-                    _this2.filePath = sanitizeUrl;
+                    _this.filePath = sanitizeUrl;
                   });
                 });
               }
@@ -1072,15 +769,15 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this3 = this;
+            var _this2 = this;
 
             this.groupBasedAnnouncement.matDrawer.openedChange.subscribe(function () {
               if (localStorage.getItem('messageIds')) {
-                _this3.messageIds = JSON.parse(localStorage.getItem('messageIds'));
+                _this2.messageIds = JSON.parse(localStorage.getItem('messageIds'));
               }
 
-              if (_this3.detailId != undefined) {
-                _this3.getMessageDetails(_this3.detailId);
+              if (_this2.detailId != undefined) {
+                _this2.getMessageDetails(_this2.detailId);
               }
             });
           }
@@ -1454,32 +1151,32 @@
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this4 = this;
+            var _this3 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this4.apartmentBlock.dropdownList = res;
+              _this3.apartmentBlock.dropdownList = res;
             });
           } //Get Category Type
 
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this5 = this;
+            var _this4 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this5.broadCastGroupCategory.dropdownList = res;
+              _this4.broadCastGroupCategory.dropdownList = res;
             });
           }
         }, {
           key: "getInterestGroupUsers",
           value: function getInterestGroupUsers() {
-            var _this6 = this;
+            var _this5 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID,
@@ -1490,15 +1187,15 @@
               }).join(",")
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this6.interestGroupUsers = res;
+              _this5.interestGroupUsers = res;
 
-              _this6.mapSelectedAssignUsers();
+              _this5.mapSelectedAssignUsers();
             });
           }
         }, {
           key: "getUsers",
           value: function getUsers() {
-            var _this7 = this;
+            var _this6 = this;
 
             this.filterOptions.ApartmentId = this.apartmentID;
             var roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) {
@@ -1513,13 +1210,13 @@
               res.forEach(function (element) {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
-              _this7.allUsers = res;
+              _this6.allUsers = res;
 
-              _this7.allUsers.filter(function (key) {
+              _this6.allUsers.filter(function (key) {
                 key['isChecked'] = false;
               });
 
-              _this7.mapSelectedAssignUsers(); // this.allCategoryUsers = [...this.allUsers];
+              _this6.mapSelectedAssignUsers(); // this.allCategoryUsers = [...this.allUsers];
               // this.users.dropdownList = res;
               // if (this.broadCastGroupCategory.selectedItems && this.broadCastGroupCategory.selectedItems.length > 0) {
               //   this.IsCategoryChanged = false;
@@ -1554,18 +1251,18 @@
         }, {
           key: "addSelectedUsers",
           value: function addSelectedUsers() {
-            var _this8 = this;
+            var _this7 = this;
 
             this.addTempUsers.filter(function (key) {
-              if (_this8.selectedUsers && _this8.selectedUsers.length == 0) {
-                _this8.selectedUsers.push(key);
+              if (_this7.selectedUsers && _this7.selectedUsers.length == 0) {
+                _this7.selectedUsers.push(key);
 
-                _this8.allUsers.splice(_this8.allUsers.indexOf(key), 1);
+                _this7.allUsers.splice(_this7.allUsers.indexOf(key), 1);
               } else {
-                if (_this8.selectedUsers.indexOf(key) < 0) {
-                  _this8.selectedUsers.push(key);
+                if (_this7.selectedUsers.indexOf(key) < 0) {
+                  _this7.selectedUsers.push(key);
 
-                  _this8.allUsers.splice(_this8.allUsers.indexOf(key), 1);
+                  _this7.allUsers.splice(_this7.allUsers.indexOf(key), 1);
                 }
               }
             });
@@ -1574,18 +1271,18 @@
         }, {
           key: "removeSelectedUsers",
           value: function removeSelectedUsers() {
-            var _this9 = this;
+            var _this8 = this;
 
             this.removingTempUsers.filter(function (key) {
-              if (_this9.allUsers && _this9.allUsers.length == 0) {
-                _this9.allUsers.push(key);
+              if (_this8.allUsers && _this8.allUsers.length == 0) {
+                _this8.allUsers.push(key);
 
-                _this9.selectedUsers.splice(_this9.selectedUsers.indexOf(key), 1);
+                _this8.selectedUsers.splice(_this8.selectedUsers.indexOf(key), 1);
               } else {
-                if (_this9.allUsers.indexOf(key) < 0) {
-                  _this9.allUsers.push(key);
+                if (_this8.allUsers.indexOf(key) < 0) {
+                  _this8.allUsers.push(key);
 
-                  _this9.selectedUsers.splice(_this9.selectedUsers.indexOf(key), 1);
+                  _this8.selectedUsers.splice(_this8.selectedUsers.indexOf(key), 1);
                 }
               }
             });
@@ -1594,11 +1291,11 @@
         }, {
           key: "mapSelectedAssignUsers",
           value: function mapSelectedAssignUsers() {
-            var _this10 = this;
+            var _this9 = this;
 
             if (this.interestGroupUsers.length && this.allUsers.length) {
               this.interestGroupUsers.filter(function (key) {
-                _this10.allUsers.filter(function (item) {
+                _this9.allUsers.filter(function (item) {
                   if (item.userId == key.userId) {
                     item['isChecked'] = true;
                   }
@@ -1640,7 +1337,7 @@
         }, {
           key: "insertGroupUser",
           value: function insertGroupUser(selectedObj) {
-            var _this11 = this;
+            var _this10 = this;
 
             var broadCastGroupCategoryID = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) {
               return item.broadCastGroupCategoryId;
@@ -1665,10 +1362,10 @@
             };
             this.broadcastService.upsertBroadCastGroupCategoryUser(upsertBroadCastGroupCategoryUserParams).subscribe(function (res) {
               if (res.message) {
-                if (_this11.isLast) {
-                  _this11.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
+                if (_this10.isLast) {
+                  _this10.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
 
-                  _this11.isLast = false;
+                  _this10.isLast = false;
                 }
               }
             });
@@ -1868,7 +1565,7 @@
         _createClass(BroadcastGroupBasedAnnouncementComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this12 = this;
+            var _this11 = this;
 
             this.apartmentID = this.sessionService.apartmentId;
             this.getAllCategory();
@@ -1901,16 +1598,16 @@
             }];
 
             this._activatedRoute.params.subscribe(function (routeParams) {
-              _this12.category = routeParams.category;
+              _this11.category = routeParams.category;
 
-              if (_this12.category == 'group') {
-                _this12.resetAll();
+              if (_this11.category == 'group') {
+                _this11.resetAll();
 
-                _this12.getAllBroadcastMessage();
-              } else if (_this12.category == 'interest') {
-                _this12.resetAll();
+                _this11.getAllBroadcastMessage();
+              } else if (_this11.category == 'interest') {
+                _this11.resetAll();
 
-                _this12.getInterestGroup();
+                _this11.getInterestGroup();
               }
             });
           }
@@ -1927,25 +1624,25 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this13 = this;
+            var _this12 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
-              _this13.allCategory = res;
+              _this12.allCategory = res;
             });
           }
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this14 = this;
+            var _this13 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
-              _this14.broadCastGroupCategory = res;
+              _this13.broadCastGroupCategory = res;
             });
           }
         }, {
@@ -2003,7 +1700,7 @@
         }, {
           key: "getAllBroadcastMessage",
           value: function getAllBroadcastMessage() {
-            var _this15 = this;
+            var _this14 = this;
 
             var queryParamBase = {
               apartmentId: Number(this.sessionService.apartmentId),
@@ -2016,16 +1713,16 @@
               recordsNo: 10
             };
             this.broadcastService.getAllBroadcastMessagesByUserAndRole(queryParamBase).subscribe(function (resp) {
-              _this15.broadCastMessages = resp;
-              _this15.pagination.totalResult = 46;
-              _this15.pagination.lastPage = Math.max(Math.ceil(_this15.pagination.totalResult / 10), 1);
+              _this14.broadCastMessages = resp;
+              _this14.pagination.totalResult = 46;
+              _this14.pagination.lastPage = Math.max(Math.ceil(_this14.pagination.totalResult / 10), 1);
 
-              if (_this15.broadCastMessages.length) {
-                _this15.broadCastMessages.filter(function (key) {
-                  _this15.messageIds.push(key.broadCastMessageId);
+              if (_this14.broadCastMessages.length) {
+                _this14.broadCastMessages.filter(function (key) {
+                  _this14.messageIds.push(key.broadCastMessageId);
                 });
 
-                _this15.filterMessages({
+                _this14.filterMessages({
                   name: "today",
                   value: 0
                 });
@@ -2035,7 +1732,7 @@
         }, {
           key: "getInterestGroup",
           value: function getInterestGroup() {
-            var _this16 = this;
+            var _this15 = this;
 
             var queryParamBase = {
               apartmentId: Number(this.sessionService.apartmentId),
@@ -2048,14 +1745,14 @@
               recordsNo: 10
             };
             this.broadcastService.getAllInterestGroupBroadcastMessagesByUserAndRole(queryParamBase).subscribe(function (resp) {
-              _this16.broadCastMessages = resp;
+              _this15.broadCastMessages = resp;
 
-              if (_this16.broadCastMessages.length) {
-                _this16.broadCastMessages.filter(function (key) {
-                  _this16.messageIds.push(key.broadCastMessageId);
+              if (_this15.broadCastMessages.length) {
+                _this15.broadCastMessages.filter(function (key) {
+                  _this15.messageIds.push(key.broadCastMessageId);
                 });
 
-                _this16.filterMessages({
+                _this15.filterMessages({
                   name: "today",
                   value: 0
                 });
@@ -2384,7 +2081,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this17 = this;
+            var _this16 = this;
 
             if (this.searchHistory != "") {
               var filtergroup = new jqx.filter();
@@ -2397,7 +2094,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.broadcastHistoryHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this16.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2408,7 +2105,7 @@
         }, {
           key: "getHistoryList",
           value: function getHistoryList() {
-            var _this18 = this;
+            var _this17 = this;
 
             var getParam = {
               apartmentId: parseInt(this.sessionService.apartmentId),
@@ -2425,43 +2122,43 @@
                 localdata: localData,
                 datatype: "array"
               };
-              _this18.broadcastHistoryList = new jqx.dataAdapter(gridSourceData);
+              _this17.broadcastHistoryList = new jqx.dataAdapter(gridSourceData);
             }, function (error) {});
           } //Get All Group
 
         }, {
           key: "getAllGroup",
           value: function getAllGroup() {
-            var _this19 = this;
+            var _this18 = this;
 
             this.broadcastService.getAllBroadcastGroups().subscribe(function (res) {
-              _this19.allgroup = res;
+              _this18.allgroup = res;
             });
           } //Get All Category
 
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this20 = this;
+            var _this19 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId
             };
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
-              _this20.allCategory = res;
+              _this19.allCategory = res;
             });
           } //Get All Type
 
         }, {
           key: "getAllType",
           value: function getAllType() {
-            var _this21 = this;
+            var _this20 = this;
 
             var queryParamBase = {
               LookupTypeId: 11
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
-              _this21.allType = res;
+              _this20.allType = res;
             });
           } // getGroupName(name){
           //   var data = _.filter( this.allgroup, function( item ) {
@@ -2543,37 +2240,37 @@
         }, {
           key: "getAllBroadcastMessage",
           value: function getAllBroadcastMessage() {
-            var _this22 = this;
+            var _this21 = this;
 
             var users$ = this.userService.getAllUsers();
             var allBroadCastmessages$ = users$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["concatMap"])(function (users) {
-              _this22.allUser = users;
+              _this21.allUser = users;
               var queryParamBase = {
-                apartmentId: _this22.sessionService.apartmentId
+                apartmentId: _this21.sessionService.apartmentId
               };
-              return _this22.broadcastService.getAllBroadcastMessages(queryParamBase);
+              return _this21.broadcastService.getAllBroadcastMessages(queryParamBase);
             }));
             allBroadCastmessages$.subscribe(function (res) {
-              _this22.broadCastMessages = [];
+              _this21.broadCastMessages = [];
               res.forEach(function (element) {
-                _this22.broadCastMessages.push({
+                _this21.broadCastMessages.push({
                   'broadcastOn': element.broadcastOn,
                   'subject': element.subject,
-                  'CategoryName': _this22.getCategoryName(element.broadcastMessageCategoryId),
-                  'BroadCastMode': _this22.getBroadCastMode(element.broadcastModeIds),
-                  'UserName': _this22.getUserName(element.broadcastBy)
+                  'CategoryName': _this21.getCategoryName(element.broadcastMessageCategoryId),
+                  'BroadCastMode': _this21.getBroadCastMode(element.broadcastModeIds),
+                  'UserName': _this21.getUserName(element.broadcastBy)
                 }); // element.CategoryName=this.getCategoryName(element.broadcastMessageCategoryId);
                 // element.BroadCastMode=this.getBroadCastMode(element.broadcastModeIds);
                 // element.UserName=this.getUserName(element.broadcastBy);
 
               });
-              _this22.isDataLoaded = true;
-              _this22.totalItems = _this22.broadCastMessages.length;
+              _this21.isDataLoaded = true;
+              _this21.totalItems = _this21.broadCastMessages.length;
 
-              if (_this22.totalItems > _this22.itemLimit) {
-                _this22.ItemEndIndex = _this22.itemLimit;
+              if (_this21.totalItems > _this21.itemLimit) {
+                _this21.ItemEndIndex = _this21.itemLimit;
               } else {
-                _this22.ItemEndIndex = _this22.totalItems;
+                _this21.ItemEndIndex = _this21.totalItems;
               }
             });
           }
@@ -2761,13 +2458,13 @@
         }, {
           key: "getUnits",
           value: function getUnits() {
-            var _this23 = this;
+            var _this22 = this;
 
             var params = {
               apartmentBlockId: parseInt(this.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this23.unitData = res;
+              _this22.unitData = res;
             }, function (error) {
               console.log(error);
             });
@@ -2775,7 +2472,7 @@
         }, {
           key: "removeMappedUser",
           value: function removeMappedUser(index) {
-            var _this24 = this;
+            var _this23 = this;
 
             if (index != null) {
               var params = {
@@ -2783,12 +2480,12 @@
                 deleteBy: this.loginUserId
               };
               this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
-                _this24.sharedService.setAlertMessage("User has been removed from interest group successfully");
+                _this23.sharedService.setAlertMessage("User has been removed from interest group successfully");
 
-                _this24.allGroupUser = _this24.allGroupUser.filter(function (obj) {
+                _this23.allGroupUser = _this23.allGroupUser.filter(function (obj) {
                   return obj.broadCastGroupCategoryUserId !== index;
                 });
-                _this24.interestGroupUsers = _this24.interestGroupUsers.filter(function (obj) {
+                _this23.interestGroupUsers = _this23.interestGroupUsers.filter(function (obj) {
                   return obj.broadCastGroupCategoryUserId !== index;
                 });
               });
@@ -2826,7 +2523,7 @@
         }, {
           key: "getAllGoupUsers",
           value: function getAllGoupUsers() {
-            var _this25 = this;
+            var _this24 = this;
 
             this.isDataLoaded = false;
             var queryParamBase = {
@@ -2836,10 +2533,10 @@
               GroupCategoryID: parseInt(this.categoryId)
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this25.interestGroupUsers = res;
+              _this24.interestGroupUsers = res;
 
-              _this25.interestGroupUsers.forEach(function (element) {
-                var currentUser = _this25.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
+              _this24.interestGroupUsers.forEach(function (element) {
+                var currentUser = _this24.getUser(element.userId, element.roleId, element.apartmentBlockId, element.unitId);
 
                 if (currentUser != undefined) {
                   element.role = currentUser.roleName;
@@ -2853,17 +2550,17 @@
                   element.user = element.userId;
                 }
 
-                element.groupCategory = _this25.getGroupCategory(element.broadCastGroupCategoryId);
+                element.groupCategory = _this24.getGroupCategory(element.broadCastGroupCategoryId);
               });
 
-              _this25.allGroupUser = _toConsumableArray(_this25.interestGroupUsers);
-              _this25.isDataLoaded = true;
-              _this25.totalItems = _this25.allGroupUser.length;
+              _this24.allGroupUser = _toConsumableArray(_this24.interestGroupUsers);
+              _this24.isDataLoaded = true;
+              _this24.totalItems = _this24.allGroupUser.length;
 
-              if (_this25.totalItems > _this25.itemLimit) {
-                _this25.ItemEndIndex = _this25.itemLimit;
+              if (_this24.totalItems > _this24.itemLimit) {
+                _this24.ItemEndIndex = _this24.itemLimit;
               } else {
-                _this25.ItemEndIndex = _this25.totalItems;
+                _this24.ItemEndIndex = _this24.totalItems;
               }
             });
           }
@@ -2904,13 +2601,13 @@
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this26 = this;
+            var _this25 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this26.apartmentBlockList = res;
+              _this25.apartmentBlockList = res;
             });
           }
         }, {
@@ -2930,13 +2627,13 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this27 = this;
+            var _this26 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this27.broadCastGroupCategory.dropdownList = res;
+              _this26.broadCastGroupCategory.dropdownList = res;
             });
           }
         }, {
@@ -3277,39 +2974,39 @@
         }, {
           key: "getInterestGroupUsers",
           value: function getInterestGroupUsers() {
-            var _this28 = this;
+            var _this27 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this28.interestGroupUsers = res;
+              _this27.interestGroupUsers = res;
             });
           } //Get Group Category
 
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this29 = this;
+            var _this28 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this29.broadCastGroupCategory.dropdownList = res;
+              _this28.broadCastGroupCategory.dropdownList = res;
             });
           }
         }, {
           key: "getAllInterestGroupUser",
           value: function getAllInterestGroupUser() {
-            var _this30 = this;
+            var _this29 = this;
 
             this.filterOptions.ApartmentId = this.apartmentID;
             this.userService.getUsersByKeyword(this.filterOptions).subscribe(function (res) {
               res.forEach(function (element) {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
-              _this30.allnterestGroupUsers = res;
+              _this29.allnterestGroupUsers = res;
             }, function (error) {
               return console.log(error);
             });
@@ -3372,26 +3069,26 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this31 = this;
+            var _this30 = this;
 
             var file = event[0];
             var userId = parseInt(this.loginedUser);
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
-                _this31.uploadResponse = res;
+                _this30.uploadResponse = res;
               }
 
-              if (_this31.isUploadCompleted()) {
-                _this31.fileDetailId = _this31.uploadResponse.fileId;
+              if (_this30.isUploadCompleted()) {
+                _this30.fileDetailId = _this30.uploadResponse.fileId;
                 var newParams = {
-                  fileDetailsId: _this31.uploadResponse.fileId,
-                  apartmentId: Number(_this31.apartmentID)
+                  fileDetailsId: _this30.uploadResponse.fileId,
+                  apartmentId: Number(_this30.apartmentID)
                 };
 
-                _this31.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this31.filePath = res[0].filePath;
+                _this30.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                  _this30.filePath = res[0].filePath;
 
-                  _this31.downloadFile(_this31.filePath);
+                  _this30.downloadFile(_this30.filePath);
                 });
               }
             });
@@ -3399,25 +3096,25 @@
         }, {
           key: "downloadFile",
           value: function downloadFile(filePath) {
-            var _this32 = this;
+            var _this31 = this;
 
             this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this32.isFileDetailsAvailable = true;
+              _this31.isFileDetailsAvailable = true;
               var splitFile = filePath.split('.');
               var ext = splitFile[1].replace(/^/, '.');
-              _this32.isImageUploaded = _this32.constantsService.imageFormats.includes(ext);
+              _this31.isImageUploaded = _this31.constantsService.imageFormats.includes(ext);
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this32.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this31.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-              _this32.fileUrl = sanitizeUrl;
+              _this31.fileUrl = sanitizeUrl;
             });
           }
         }, {
           key: "deleteFile",
           value: function deleteFile() {
-            var _this33 = this;
+            var _this32 = this;
 
             var details = {
               "fileDetailsId": this.fileDetailId,
@@ -3436,27 +3133,27 @@
               fileDetails: details
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this33.isFileDetailsAvailable = false;
-              _this33.uploadResponse = {
+              _this32.isFileDetailsAvailable = false;
+              _this32.uploadResponse = {
                 status: '',
                 message: '',
                 fileId: null
               };
-              _this33.fileDetailId = _this33.uploadResponse.fileId;
+              _this32.fileDetailId = _this32.uploadResponse.fileId;
             });
           }
         }, {
           key: "updateUsers",
           value: function updateUsers() {
-            var _this34 = this;
+            var _this33 = this;
 
             this.getUserIds$().subscribe(function (res) {
               if (res.length > 0) {
-                _this34.users = _this34.allUsers.filter(function (obj) {
+                _this33.users = _this33.allUsers.filter(function (obj) {
                   return res.includes(obj.userId);
                 });
               } else {
-                _this34.users = [];
+                _this33.users = [];
               }
             });
           }
@@ -3492,7 +3189,7 @@
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this35 = this;
+            var _this34 = this;
 
             var broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) {
               return item.broadCastGroupCategoryId;
@@ -3539,9 +3236,9 @@
               };
               this.broadcastService.addBroadCastMessage(params).subscribe(function (res) {
                 if (res.message) {
-                  _this35.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                  _this34.sharedService.setAlertMessage("Broadcast Message sent successfully");
 
-                  _this35.clearData();
+                  _this34.clearData();
                 }
               });
             }
@@ -3996,7 +3693,7 @@
         }, {
           key: "getAllUsers",
           value: function getAllUsers() {
-            var _this36 = this;
+            var _this35 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -4005,7 +3702,7 @@
               res.forEach(function (element) {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
-              _this36.allUsers = res; // this.users = [];
+              _this35.allUsers = res; // this.users = [];
               //this.updateUsers();
             });
           } //Get All Broadcast Category
@@ -4013,7 +3710,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this37 = this;
+            var _this36 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -4022,54 +3719,54 @@
               var allBroadCastCategory = res.filter(function (obj) {
                 return obj.isActive;
               });
-              _this37.allcategory = allBroadCastCategory; // this.broadCastCategory.dropdownList = allBroadCastCategory;
+              _this36.allcategory = allBroadCastCategory; // this.broadCastCategory.dropdownList = allBroadCastCategory;
             });
           } //Get User Role
 
         }, {
           key: "getAllRoleTypesList",
           value: function getAllRoleTypesList() {
-            var _this38 = this;
+            var _this37 = this;
 
             this.userService.getAllRoleTypes().subscribe(function (res) {
               // this.roleTypeArr.dropdownList = res;
-              _this38.roleList = res;
+              _this37.roleList = res;
             });
           } //Get All Apartment Block(Tower)
 
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this39 = this;
+            var _this38 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this39.apartmentBlock.dropdownList = res;
-              _this39.ownerApartmentBlock.dropdownList = res;
-              _this39.adminApartmentBlock.dropdownList = res;
-              _this39.staffApartmentBlock.dropdownList = res;
+              _this38.apartmentBlock.dropdownList = res;
+              _this38.ownerApartmentBlock.dropdownList = res;
+              _this38.adminApartmentBlock.dropdownList = res;
+              _this38.staffApartmentBlock.dropdownList = res;
             });
           } //Get Group Category
 
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this40 = this;
+            var _this39 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this40.broadCastGroupCategory.dropdownList = res;
+              _this39.broadCastGroupCategory.dropdownList = res;
             });
           } //Get User Role Type
 
         }, {
           key: "getApartmentRole",
           value: function getApartmentRole(item, selectedType) {
-            var _this41 = this;
+            var _this40 = this;
 
             if (selectedType == 'admin') {
               this.roleCategory.selectedItems = [];
@@ -4085,9 +3782,9 @@
             this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
               // this.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
               if (selectedType == 'admin') {
-                _this41.roleCategory.dropdownList = res;
+                _this40.roleCategory.dropdownList = res;
               } else if (selectedType == 'staff') {
-                _this41.staffRoleCategory.dropdownList = res;
+                _this40.staffRoleCategory.dropdownList = res;
               } // if (this.apartmentBlock.selectedItems.length > 0) {
               //   this.updateUsers();
               // }
@@ -4150,28 +3847,28 @@
         }, {
           key: "updateUsers",
           value: function updateUsers(category) {
-            var _this42 = this;
+            var _this41 = this;
 
             this.getUsersByCategories(category).subscribe(function (res) {
               if (res.length > 0) {
                 if (category == 'tenant') {
-                  _this42.users = res;
+                  _this41.users = res;
                 } else if (category == 'owner') {
-                  _this42.usersOwner = res;
+                  _this41.usersOwner = res;
                 } else if (category == 'admin') {
-                  _this42.usersAdmin = res;
+                  _this41.usersAdmin = res;
                 } else if (category == 'staff') {
-                  _this42.usersStaff = res;
+                  _this41.usersStaff = res;
                 }
               } else {
                 if (category == 'tenant') {
-                  _this42.users = [];
+                  _this41.users = [];
                 } else if (category == 'owner') {
-                  _this42.usersOwner = [];
+                  _this41.usersOwner = [];
                 } else if (category == 'admin') {
-                  _this42.usersAdmin = [];
+                  _this41.usersAdmin = [];
                 } else if (category == 'staff') {
-                  _this42.usersStaff = [];
+                  _this41.usersStaff = [];
                 }
               }
             });
@@ -4179,7 +3876,7 @@
         }, {
           key: "getstaffCategories",
           value: function getstaffCategories(item) {
-            var _this43 = this;
+            var _this42 = this;
 
             // if (this.staffCategoryMap.get(item.value) == undefined) {
             var params = {
@@ -4187,16 +3884,16 @@
               'apartmentId': this.apartmentID
             };
             this.staffService.getStaffCategoryByRole(params).subscribe(function (res) {
-              var temp = _toConsumableArray(_this43.staffCategory.dropdownList);
+              var temp = _toConsumableArray(_this42.staffCategory.dropdownList);
 
               res.forEach(function (element) {
                 element.category = item.name;
                 temp.push(element);
               }); // this.staffCategoryMap.set(item.value, res);
 
-              _this43.staffCategory.dropdownList = temp;
+              _this42.staffCategory.dropdownList = temp;
 
-              _this43.updateUsers('staff');
+              _this42.updateUsers('staff');
             }); // } else {
             //   let temp = [...this.staffCategory.dropdownList];
             //   let addStaffCategory = this.staffCategoryMap.get(item.value);
@@ -4224,26 +3921,26 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this44 = this;
+            var _this43 = this;
 
             var file = event[0];
             var userId = parseInt(this.loginedUser);
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
-                _this44.uploadResponse = res;
+                _this43.uploadResponse = res;
               }
 
-              if (_this44.isUploadCompleted()) {
-                _this44.fileDetailId = _this44.uploadResponse.fileId;
+              if (_this43.isUploadCompleted()) {
+                _this43.fileDetailId = _this43.uploadResponse.fileId;
                 var newParams = {
-                  fileDetailsId: _this44.uploadResponse.fileId,
-                  apartmentId: Number(_this44.apartmentID)
+                  fileDetailsId: _this43.uploadResponse.fileId,
+                  apartmentId: Number(_this43.apartmentID)
                 };
 
-                _this44.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this44.filePath = res[0].filePath;
+                _this43.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                  _this43.filePath = res[0].filePath;
 
-                  _this44.downloadFile(_this44.filePath);
+                  _this43.downloadFile(_this43.filePath);
                 });
               }
             });
@@ -4251,25 +3948,25 @@
         }, {
           key: "downloadFile",
           value: function downloadFile(filePath) {
-            var _this45 = this;
+            var _this44 = this;
 
             this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this45.isFileDetailsAvailable = true;
+              _this44.isFileDetailsAvailable = true;
               var splitFile = filePath.split('.');
               var ext = splitFile[1].replace(/^/, '.');
-              _this45.isImageUploaded = _this45.constantsService.imageFormats.includes(ext);
+              _this44.isImageUploaded = _this44.constantsService.imageFormats.includes(ext);
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this45.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this44.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-              _this45.fileUrl = sanitizeUrl;
+              _this44.fileUrl = sanitizeUrl;
             });
           }
         }, {
           key: "deleteFile",
           value: function deleteFile() {
-            var _this46 = this;
+            var _this45 = this;
 
             var details = {
               "fileDetailsId": this.fileDetailId,
@@ -4288,32 +3985,32 @@
               fileDetails: details
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this46.isFileDetailsAvailable = false;
-              _this46.uploadResponse = {
+              _this45.isFileDetailsAvailable = false;
+              _this45.uploadResponse = {
                 status: '',
                 message: '',
                 fileId: null
               };
-              _this46.fileDetailId = _this46.uploadResponse.fileId;
+              _this45.fileDetailId = _this45.uploadResponse.fileId;
             });
           }
         }, {
           key: "getAllStaffCategories",
           value: function getAllStaffCategories(items) {
-            var _this47 = this;
+            var _this46 = this;
 
             items.forEach(function (element) {
-              _this47.getstaffCategories(element);
+              _this46.getstaffCategories(element);
             });
           }
         }, {
           key: "removeStaffCategories",
           value: function removeStaffCategories(item) {
-            var _this48 = this;
+            var _this47 = this;
 
             var removeStaffCategory = this.staffCategoryMap.get(item.value);
             removeStaffCategory.forEach(function (element) {
-              _this48.staffCategory.dropdownList = _this48.staffCategory.dropdownList.filter(function (obj) {
+              _this47.staffCategory.dropdownList = _this47.staffCategory.dropdownList.filter(function (obj) {
                 return obj.value !== element.value;
               });
             }); // this.updateUsers();
@@ -4376,7 +4073,7 @@
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this49 = this;
+            var _this48 = this;
 
             // let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId }).join(",");
             var broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) {
@@ -4447,17 +4144,17 @@
                 broadcastMessage.filterId = parseInt(res.message);
 
                 if (broadcastMessage.userIds.length == 0) {
-                  _this49.modalService.showErrorModal("No such Users exists to broadcast message.");
+                  _this48.modalService.showErrorModal("No such Users exists to broadcast message.");
                 } else {
                   var _params = {
                     "sourceBroadCastMessage_model": broadcastMessage
                   };
 
-                  _this49.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
+                  _this48.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
                     if (res.message) {
-                      _this49.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                      _this48.sharedService.setAlertMessage("Broadcast Message sent successfully");
 
-                      _this49.removeAll('', 'clear');
+                      _this48.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4506,17 +4203,17 @@
                 broadcastMessage.filterId = parseInt(res.message);
 
                 if (broadcastMessage.userIds.length == 0) {
-                  _this49.modalService.showErrorModal("No such Users exists to broadcast message.");
+                  _this48.modalService.showErrorModal("No such Users exists to broadcast message.");
                 } else {
                   var _params4 = {
                     "sourceBroadCastMessage_model": broadcastMessage
                   };
 
-                  _this49.broadcastService.addBroadCastMessage(_params4).subscribe(function (res) {
+                  _this48.broadcastService.addBroadCastMessage(_params4).subscribe(function (res) {
                     if (res.message) {
-                      _this49.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                      _this48.sharedService.setAlertMessage("Broadcast Message sent successfully");
 
-                      _this49.removeAll('', 'clear');
+                      _this48.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4565,17 +4262,17 @@
                 broadcastMessage.filterId = parseInt(res.message);
 
                 if (broadcastMessage.userIds.length == 0) {
-                  _this49.modalService.showErrorModal("No such Users exists to broadcast message.");
+                  _this48.modalService.showErrorModal("No such Users exists to broadcast message.");
                 } else {
                   var _params7 = {
                     "sourceBroadCastMessage_model": broadcastMessage
                   };
 
-                  _this49.broadcastService.addBroadCastMessage(_params7).subscribe(function (res) {
+                  _this48.broadcastService.addBroadCastMessage(_params7).subscribe(function (res) {
                     if (res.message) {
-                      _this49.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                      _this48.sharedService.setAlertMessage("Broadcast Message sent successfully");
 
-                      _this49.removeAll('', 'clear');
+                      _this48.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4628,17 +4325,17 @@
                 broadcastMessage.filterId = parseInt(res.message);
 
                 if (broadcastMessage.userIds.length == 0) {
-                  _this49.modalService.showErrorModal("No such Users exists to broadcast message.");
+                  _this48.modalService.showErrorModal("No such Users exists to broadcast message.");
                 } else {
                   var _params10 = {
                     "sourceBroadCastMessage_model": broadcastMessage
                   };
 
-                  _this49.broadcastService.addBroadCastMessage(_params10).subscribe(function (res) {
+                  _this48.broadcastService.addBroadCastMessage(_params10).subscribe(function (res) {
                     if (res.message) {
-                      _this49.sharedService.setAlertMessage("Broadcast Message sent successfully");
+                      _this48.sharedService.setAlertMessage("Broadcast Message sent successfully");
 
-                      _this49.removeAll('', 'clear');
+                      _this48.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4700,7 +4397,7 @@
         }, {
           key: "removeAll",
           value: function removeAll(category, flag) {
-            var _this50 = this;
+            var _this49 = this;
 
             this.apartmentBlock.selectedItems = [];
             this.ownerApartmentBlock.selectedItems = [];
@@ -4730,7 +4427,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this50.roleCategory.dropdownList = res;
+                _this49.roleCategory.dropdownList = res;
               });
             }
 
@@ -4742,7 +4439,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this50.staffRoleCategory.dropdownList = res;
+                _this49.staffRoleCategory.dropdownList = res;
               });
             }
           }
@@ -5076,7 +4773,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this51 = this;
+            var _this50 = this;
 
             this.loginUserId = parseInt(this.sessionService.userId);
             this.apartmentId = this.sessionService.apartmentId;
@@ -5124,12 +4821,12 @@
               if (index != null) {
                 var params = {
                   broadcastId: index,
-                  deleteBy: _this51.loginUserId
+                  deleteBy: _this50.loginUserId
                 };
-                _this51.isDataLoaded = false;
+                _this50.isDataLoaded = false;
 
-                _this51.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
-                  _this51.getAllCategory();
+                _this50.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
+                  _this50.getAllCategory();
                 }, function (error) {
                   console.log(error);
                 });
@@ -5139,7 +4836,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this52 = this;
+            var _this51 = this;
 
             if (this.searchCategory != "") {
               var filtergroup = new jqx.filter();
@@ -5152,7 +4849,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.broadcastCategoryHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this52.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this51.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -5176,7 +4873,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this53 = this;
+            var _this52 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentId
@@ -5184,15 +4881,15 @@
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
               var allBroadcastCategory = res; //filter active true items
 
-              _this53.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
+              _this52.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
                 data.template = data.template.replace(/<[^>]*>/g, '');
                 return data.isActive;
               });
               var categorySourceData = {
-                localdata: _this53.allBroadcastCategory,
+                localdata: _this52.allBroadcastCategory,
                 datatype: "array"
               };
-              _this53.broadcastCategoryList = new jqx.dataAdapter(categorySourceData); // this.isDataLoaded = true;
+              _this52.broadcastCategoryList = new jqx.dataAdapter(categorySourceData); // this.isDataLoaded = true;
               // this.totalItems = this.allBroadcastCategory.length;
               // if(this.totalItems>this.itemLimit){
               //   this.ItemEndIndex = this.itemLimit;
@@ -5213,7 +4910,7 @@
         }, {
           key: "UpsertBroadcastMessageCategory",
           value: function UpsertBroadcastMessageCategory(form) {
-            var _this54 = this;
+            var _this53 = this;
 
             var broadcastCategory = {
               "broadCastMessageCategoryId": 0,
@@ -5243,16 +4940,16 @@
             };
             this.broadcastService.upsertBroadCastMessageCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this54.isEdit) {
-                  _this54.sharedService.setAlertMessage("Broadcast category updated successfully");
+                if (_this53.isEdit) {
+                  _this53.sharedService.setAlertMessage("Broadcast category updated successfully");
                 } else {
-                  _this54.sharedService.setAlertMessage("Broadcast category added successfully");
+                  _this53.sharedService.setAlertMessage("Broadcast category added successfully");
                 }
 
-                _this54.getAllCategory();
+                _this53.getAllCategory();
 
-                _this54.category = {};
-                _this54.isEdit = false;
+                _this53.category = {};
+                _this53.isEdit = false;
               }
             });
           }
@@ -5480,7 +5177,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this55 = this;
+            var _this54 = this;
 
             this.groupCategory = {};
             this.apartmentID = this.sessionService.apartmentId;
@@ -5502,12 +5199,12 @@
               if (index != null) {
                 var params = {
                   broadCastGroupCategoryId: index,
-                  deleteBy: _this55.userId
+                  deleteBy: _this54.userId
                 };
-                _this55.isDataLoaded = false;
+                _this54.isDataLoaded = false;
 
-                _this55.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
-                  _this55.getAllGroupCategory();
+                _this54.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
+                  _this54.getAllGroupCategory();
                 }, function (error) {
                   console.log(error);
                 });
@@ -5524,35 +5221,35 @@
         }, {
           key: "getAllRoleTypesList",
           value: function getAllRoleTypesList() {
-            var _this56 = this;
+            var _this55 = this;
 
             this.userService.getAllRoleTypes().subscribe(function (res) {
-              _this56.allRoleTypesList = res;
+              _this55.allRoleTypesList = res;
             });
           }
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this57 = this;
+            var _this56 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this57.allApartmentBlockList = res;
+              _this56.allApartmentBlockList = res;
             });
           }
         }, {
           key: "getAppartmentRole",
           value: function getAppartmentRole() {
-            var _this58 = this;
+            var _this57 = this;
 
             var params = {
               'RoleTypeId': this.roleType,
               'ApartmentId': this.apartmentID
             };
             this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-              _this58.allApartmentRolesList = res;
+              _this57.allApartmentRolesList = res;
             });
           }
         }, {
@@ -5578,7 +5275,7 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this59 = this;
+            var _this58 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -5586,16 +5283,16 @@
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
               var allBroadcastGroupCategory = res; //filter active true items
 
-              _this59.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              _this58.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
                 return data.isActive;
               });
-              _this59.isDataLoaded = true;
-              _this59.totalItems = _this59.allBroadcastGroupCategory.length;
+              _this58.isDataLoaded = true;
+              _this58.totalItems = _this58.allBroadcastGroupCategory.length;
 
-              if (_this59.totalItems > _this59.itemLimit) {
-                _this59.ItemEndIndex = _this59.itemLimit;
+              if (_this58.totalItems > _this58.itemLimit) {
+                _this58.ItemEndIndex = _this58.itemLimit;
               } else {
-                _this59.ItemEndIndex = _this59.totalItems;
+                _this58.ItemEndIndex = _this58.totalItems;
               }
             });
           } //Submit Category
@@ -5603,7 +5300,7 @@
         }, {
           key: "submitcreateBroadcastGroupCategoryForm",
           value: function submitcreateBroadcastGroupCategoryForm(form) {
-            var _this60 = this;
+            var _this59 = this;
 
             var privileges = Array.prototype.map.call(this.privilageCategory.selectedItems, function (item) {
               return item.name;
@@ -5636,16 +5333,16 @@
             };
             this.broadcastService.addBroadCastGroupCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this60.isEdit) {
-                  _this60.sharedService.setAlertMessage("Broadcast category updated successfully");
+                if (_this59.isEdit) {
+                  _this59.sharedService.setAlertMessage("Broadcast category updated successfully");
                 } else {
-                  _this60.sharedService.setAlertMessage("Broadcast Group category added successfully");
+                  _this59.sharedService.setAlertMessage("Broadcast Group category added successfully");
                 }
 
-                _this60.getAllGroupCategory();
+                _this59.getAllGroupCategory();
 
-                _this60.groupCategory = {};
-                _this60.privilageCategory.selectedItems = [];
+                _this59.groupCategory = {};
+                _this59.privilageCategory.selectedItems = [];
               }
             });
           } //Cancel

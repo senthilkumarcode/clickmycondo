@@ -1,17 +1,9 @@
 (function () {
-  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-
-  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
 
   function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
   function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-  function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20,301 +12,6 @@
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-moveinout-tracker-moveinout-tracker-module"], {
-    /***/
-    "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js":
-    /*!*************************************************************************************!*\
-      !*** ./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js ***!
-      \*************************************************************************************/
-
-    /*! exports provided: CookieService */
-
-    /***/
-    function node_modulesNgxCookieService__ivy_ngcc__Fesm2015NgxCookieServiceJs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CookieService", function () {
-        return CookieService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/ngx-intl-tel-input/node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-
-      var CookieService = /*#__PURE__*/function () {
-        function CookieService( // The type `Document` may not be used here. Although a fix is on its way,
-        // we will go with `any` for now to support Angular 2.4.x projects.
-        // Issue: https://github.com/angular/angular/issues/12631
-        // Fix: https://github.com/angular/angular/pull/14894
-        document, // Get the `PLATFORM_ID` so we can check if we're in a browser.
-        platformId) {
-          _classCallCheck(this, CookieService);
-
-          this.document = document;
-          this.platformId = platformId;
-          this.documentIsAccessible = Object(_angular_common__WEBPACK_IMPORTED_MODULE_2__["isPlatformBrowser"])(this.platformId);
-        }
-        /**
-         * @param name Cookie name
-         * @returns boolean - whether cookie with specified name exists
-         */
-
-
-        _createClass(CookieService, [{
-          key: "check",
-          value: function check(name) {
-            if (!this.documentIsAccessible) {
-              return false;
-            }
-
-            name = encodeURIComponent(name);
-            var regExp = this.getCookieRegExp(name);
-            var exists = regExp.test(this.document.cookie);
-            return exists;
-          }
-          /**
-           * @param name Cookie name
-           * @returns property value
-           */
-
-        }, {
-          key: "get",
-          value: function get(name) {
-            if (this.documentIsAccessible && this.check(name)) {
-              name = encodeURIComponent(name);
-              var regExp = this.getCookieRegExp(name);
-              var result = regExp.exec(this.document.cookie);
-              return this.safeDecodeURIComponent(result[1]);
-            } else {
-              return '';
-            }
-          }
-          /**
-           * @returns all the cookies in json
-           */
-
-        }, {
-          key: "getAll",
-          value: function getAll() {
-            var _this = this;
-
-            if (!this.documentIsAccessible) {
-              return {};
-            }
-
-            var cookies = {};
-            var document = this.document;
-
-            if (document.cookie && document.cookie !== '') {
-              document.cookie.split(';').forEach(function (currentCookie) {
-                var _currentCookie$split = currentCookie.split('='),
-                    _currentCookie$split2 = _slicedToArray(_currentCookie$split, 2),
-                    cookieName = _currentCookie$split2[0],
-                    cookieValue = _currentCookie$split2[1];
-
-                cookies[_this.safeDecodeURIComponent(cookieName.replace(/^ /, ''))] = _this.safeDecodeURIComponent(cookieValue);
-              });
-            }
-
-            return cookies;
-          }
-          /**
-           * @param name     Cookie name
-           * @param value    Cookie value
-           * @param expires  Number of days until the cookies expires or an actual `Date`
-           * @param path     Cookie path
-           * @param domain   Cookie domain
-           * @param secure   Secure flag
-           * @param sameSite OWASP samesite token `Lax`, `None`, or `Strict`. Defaults to `Lax`
-           */
-
-        }, {
-          key: "set",
-          value: function set(name, value, expires, path, domain, secure) {
-            var sameSite = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            var cookieString = encodeURIComponent(name) + '=' + encodeURIComponent(value) + ';';
-
-            if (expires) {
-              if (typeof expires === 'number') {
-                var dateExpires = new Date(new Date().getTime() + expires * 1000 * 60 * 60 * 24);
-                cookieString += 'expires=' + dateExpires.toUTCString() + ';';
-              } else {
-                cookieString += 'expires=' + expires.toUTCString() + ';';
-              }
-            }
-
-            if (path) {
-              cookieString += 'path=' + path + ';';
-            }
-
-            if (domain) {
-              cookieString += 'domain=' + domain + ';';
-            }
-
-            if (secure === false && sameSite === 'None') {
-              secure = true;
-              console.warn("[ngx-cookie-service] Cookie ".concat(name, " was forced with secure flag because sameSite=None.") + "More details : https://github.com/stevermeister/ngx-cookie-service/issues/86#issuecomment-597720130");
-            }
-
-            if (secure) {
-              cookieString += 'secure;';
-            }
-
-            cookieString += 'sameSite=' + sameSite + ';';
-            this.document.cookie = cookieString;
-          }
-          /**
-           * @param name   Cookie name
-           * @param path   Cookie path
-           * @param domain Cookie domain
-           */
-
-        }, {
-          key: "delete",
-          value: function _delete(name, path, domain, secure) {
-            var sameSite = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            this.set(name, '', new Date('Thu, 01 Jan 1970 00:00:01 GMT'), path, domain, secure, sameSite);
-          }
-          /**
-           * @param path   Cookie path
-           * @param domain Cookie domain
-           */
-
-        }, {
-          key: "deleteAll",
-          value: function deleteAll(path, domain, secure) {
-            var sameSite = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Lax';
-
-            if (!this.documentIsAccessible) {
-              return;
-            }
-
-            var cookies = this.getAll();
-
-            for (var cookieName in cookies) {
-              if (cookies.hasOwnProperty(cookieName)) {
-                this["delete"](cookieName, path, domain, secure, sameSite);
-              }
-            }
-          }
-          /**
-           * @param name Cookie name
-           * @returns property RegExp
-           */
-
-        }, {
-          key: "getCookieRegExp",
-          value: function getCookieRegExp(name) {
-            var escapedName = name.replace(/([\[\]\{\}\(\)\|\=\;\+\?\,\.\*\^\$])/gi, '\\$1');
-            return new RegExp('(?:^' + escapedName + '|;\\s*' + escapedName + ')=(.*?)(?:;|$)', 'g');
-          }
-        }, {
-          key: "safeDecodeURIComponent",
-          value: function safeDecodeURIComponent(encodedURIComponent) {
-            try {
-              return decodeURIComponent(encodedURIComponent);
-            } catch (_a) {
-              // probably it is not uri encoded. return as is
-              return encodedURIComponent;
-            }
-          }
-        }]);
-
-        return CookieService;
-      }();
-
-      CookieService.ɵfac = function CookieService_Factory(t) {
-        return new (t || CookieService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
-      };
-
-      CookieService.ctorParameters = function () {
-        return [{
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-          }]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
-          }]
-        }];
-      };
-
-      CookieService.ɵprov = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({
-        factory: function CookieService_Factory() {
-          return new CookieService(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]), Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]));
-        },
-        token: CookieService,
-        providedIn: "root"
-      });
-      CookieService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"])), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]))], CookieService);
-      /*@__PURE__*/
-
-      (function () {
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](CookieService, [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
-          args: [{
-            providedIn: 'root'
-          }]
-        }], function () {
-          return [{
-            type: undefined,
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
-            }]
-          }, {
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"],
-            decorators: [{
-              type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-              args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"]]
-            }]
-          }];
-        }, null);
-      })();
-      /*
-       * Public API Surface of ngx-cookie-service
-       */
-
-      /**
-       * Generated bundle index. Do not edit.
-       */
-      //# sourceMappingURL=ngx-cookie-service.js.map
-
-      /***/
-
-    },
-
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.html":
     /*!*******************************************************************************************************************************************!*\
@@ -804,7 +501,7 @@
         }, {
           key: "getBanner",
           value: function getBanner() {
-            var _this2 = this;
+            var _this = this;
 
             if (this.movein.apartmentBlockUnitId && typeof this.block.isForeignNational == 'boolean') {
               var params = {
@@ -813,7 +510,7 @@
                 IsForeignNational: this.block.isForeignNational
               };
               this.moveInOutService.getDocsforMoveInByApartmentBlockUnitUserId(params).subscribe(function (res) {
-                _this2.bannerList = res;
+                _this.bannerList = res;
               });
             }
           } // Image Upload
@@ -836,26 +533,26 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this3 = this;
+            var _this2 = this;
 
             var file = event[0];
             var userId = parseInt(this.sessionService.userId);
             this.fileUploadService.upload(file, userId).subscribe(function (res) {
               if (res != undefined) {
-                _this3.uploadResponse = res;
+                _this2.uploadResponse = res;
               }
 
-              if (_this3.isUploadCompleted()) {
-                _this3.movein.fileAttachmentId = _this3.uploadResponse.fileId;
+              if (_this2.isUploadCompleted()) {
+                _this2.movein.fileAttachmentId = _this2.uploadResponse.fileId;
                 var newParams = {
-                  fileDetailsId: _this3.uploadResponse.fileId,
-                  apartmentId: Number(_this3.sessionService.apartmentId)
+                  fileDetailsId: _this2.uploadResponse.fileId,
+                  apartmentId: Number(_this2.sessionService.apartmentId)
                 };
 
-                _this3.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this3.filePath = res[0].filePath;
+                _this2.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                  _this2.filePath = res[0].filePath;
 
-                  _this3.downloadFile(_this3.filePath);
+                  _this2.downloadFile(_this2.filePath);
                 });
               }
             });
@@ -863,25 +560,25 @@
         }, {
           key: "downloadFile",
           value: function downloadFile(filePath) {
-            var _this4 = this;
+            var _this3 = this;
 
             this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this4.isFileDetailsAvailable = true;
+              _this3.isFileDetailsAvailable = true;
               var splitFile = filePath.split('.');
               var ext = splitFile[1].replace(/^/, '.');
-              _this4.isImageUploaded = _this4.constantsService.imageFormats.includes(ext);
+              _this3.isImageUploaded = _this3.constantsService.imageFormats.includes(ext);
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this4.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this3.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-              _this4.fileUrl = sanitizeUrl;
+              _this3.fileUrl = sanitizeUrl;
             });
           }
         }, {
           key: "deleteFile",
           value: function deleteFile() {
-            var _this5 = this;
+            var _this4 = this;
 
             var details = {
               "fileDetailsId": this.movein.fileAttachmentId,
@@ -900,19 +597,19 @@
               fileDetails: details
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this5.isFileDetailsAvailable = false;
-              _this5.uploadResponse = {
+              _this4.isFileDetailsAvailable = false;
+              _this4.uploadResponse = {
                 status: '',
                 message: '',
                 fileId: null
               };
-              _this5.movein.fileAttachmentId = _this5.uploadResponse.fileId;
+              _this4.movein.fileAttachmentId = _this4.uploadResponse.fileId;
             });
           }
         }, {
           key: "moveinCreate",
           value: function moveinCreate() {
-            var _this6 = this;
+            var _this5 = this;
 
             var params = {
               moveIn: {
@@ -946,32 +643,32 @@
                 var fileParams = {
                   moveIn: {
                     "moveInId": parseInt(res.message),
-                    "moveInOutConfigId": _this6.movein.documentConfig,
-                    "fileDetailsId": _this6.movein.fileAttachmentId,
+                    "moveInOutConfigId": _this5.movein.documentConfig,
+                    "fileDetailsId": _this5.movein.fileAttachmentId,
                     "comments": '',
                     "isActive": true,
-                    "insertedBy": _this6.sessionService.userId,
+                    "insertedBy": _this5.sessionService.userId,
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null
                   },
                   file: null,
-                  apartmentId: _this6.sessionService.apartmentId
+                  apartmentId: _this5.sessionService.apartmentId
                 };
 
-                _this6.moveInOutService.addMoveInDetails(fileParams).subscribe(function (res) {
+                _this5.moveInOutService.addMoveInDetails(fileParams).subscribe(function (res) {
                   if (res.message) {
-                    _this6.isMoveinSubmitted = true;
+                    _this5.isMoveinSubmitted = true;
 
-                    _this6.sharedService.setAlertMessage("Movein added successfully");
+                    _this5.sharedService.setAlertMessage("Movein added successfully");
 
-                    if (_this6.isAdmin()) {
-                      _this6.router.navigate(['ams/moveinout-tracker/movein']);
+                    if (_this5.isAdmin()) {
+                      _this5.router.navigate(['ams/moveinout-tracker/movein']);
                     } else {
-                      _this6.router.navigate(['user/moveinout-tracker/movein']);
+                      _this5.router.navigate(['user/moveinout-tracker/movein']);
                     }
                   } else {
-                    _this6.isMoveinSubmitted = true;
+                    _this5.isMoveinSubmitted = true;
                   }
                 });
               }
@@ -980,7 +677,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this6 = this;
 
             if (!this.isAdmin()) {
               this.movein.reqUserId = this.sessionService.apartmentBlockUnitUserId;
@@ -992,14 +689,14 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.moveInOutService.getMoveInOutConfigByApartmentId(docParams).subscribe(function (res) {
-              _this7.documentDataList = res;
+              _this6.documentDataList = res;
             }); //Tower
 
             var tower = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-              _this7.towerList = res;
+              _this6.towerList = res;
             });
           }
         }]);
@@ -1217,7 +914,7 @@
         }, {
           key: "moveoutCreate",
           value: function moveoutCreate() {
-            var _this8 = this;
+            var _this7 = this;
 
             this.isMoveOutSubmitted = false;
             var details = {
@@ -1249,12 +946,12 @@
             };
             this.moveInOutService.addMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                _this8.isMoveOutSubmitted = true;
+                _this7.isMoveOutSubmitted = true;
 
-                if (_this8.isAdmin()) {
-                  _this8.router.navigate(['ams/moveinout-tracker/moveout']);
+                if (_this7.isAdmin()) {
+                  _this7.router.navigate(['ams/moveinout-tracker/moveout']);
                 } else {
-                  _this8.router.navigate(['user/moveinout-tracker/moveout']);
+                  _this7.router.navigate(['user/moveinout-tracker/moveout']);
                 }
               }
             });
@@ -1262,7 +959,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this8 = this;
 
             if (!this.isAdmin()) {
               this.moveout.reqUserId = this.sessionService.apartmentBlockUnitUserId;
@@ -1274,7 +971,7 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-              _this9.towerList = res;
+              _this8.towerList = res;
             });
           }
         }]);
@@ -1541,7 +1238,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this10 = this;
+            var _this9 = this;
 
             if (this.moveInOutHitoryData != "") {
               var filtergroup = new jqx.filter();
@@ -1554,7 +1251,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this10.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1570,7 +1267,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this10 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1629,7 +1326,7 @@
               text: 'Time',
               datafield: 'time',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this11.getTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this10.getTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1668,11 +1365,11 @@
                 return item.isActive;
               });
               var params = {
-                apartmentId: _this11.sessionService.apartmentId,
+                apartmentId: _this10.sessionService.apartmentId,
                 statusIds: "374,376,380"
               };
 
-              _this11.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
+              _this10.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
                 var data2 = res.filter(function (item) {
                   item.time = item.outTime;
                   item.date = item.outDate;
@@ -1680,38 +1377,38 @@
                   item.inTime = '';
                   return item.isActive;
                 });
-                _this11.moveInDataList = data1.concat(data2);
-                console.log('this.moveInDataList', _this11.moveInDataList);
-                _this11.gridSourceData = {
-                  localdata: _this11.moveInDataList,
+                _this10.moveInDataList = data1.concat(data2);
+                console.log('this.moveInDataList', _this10.moveInDataList);
+                _this10.gridSourceData = {
+                  localdata: _this10.moveInDataList,
                   datatype: "array"
                 };
-                _this11.listData = new jqx.dataAdapter(_this11.gridSourceData);
-                _this11.totalItems = _this11.moveInDataList.length;
-                _this11.isDataLoaded = true;
+                _this10.listData = new jqx.dataAdapter(_this10.gridSourceData);
+                _this10.totalItems = _this10.moveInDataList.length;
+                _this10.isDataLoaded = true;
               });
             });
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this11.blockUnitData = res;
+              _this10.blockUnitData = res;
             });
             this.getStatusName();
           }
         }, {
           key: "getStatusName",
           value: function getStatusName() {
-            var _this12 = this;
+            var _this11 = this;
 
             var params = {
               ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 92
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this12.statusNames = res.filter(function (item) {
+              _this11.statusNames = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this12.statusNames.forEach(function (element) {
-                _this12.statusType[element.lookupValueId] = element;
+              _this11.statusNames.forEach(function (element) {
+                _this11.statusType[element.lookupValueId] = element;
               });
             });
           }
@@ -1951,7 +1648,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this13 = this;
+            var _this12 = this;
 
             if (this.moveInData != "") {
               var filtergroup = new jqx.filter();
@@ -1964,7 +1661,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1985,7 +1682,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this13 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2038,7 +1735,7 @@
               text: 'Expected Time',
               datafield: 'inTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this14.getTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this13.getTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -2061,26 +1758,26 @@
             }; // tslint:disable-next-line:radix
 
             this.moveInOutService.getMoveInByStatusIds(params).subscribe(function (res) {
-              _this14.moveInDataList = res.filter(function (item) {
+              _this13.moveInDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this14.gridSourceData = {
-                localdata: _this14.moveInDataList,
+              _this13.gridSourceData = {
+                localdata: _this13.moveInDataList,
                 datatype: "array"
               };
-              _this14.listData = new jqx.dataAdapter(_this14.gridSourceData);
-              _this14.totalItems = _this14.moveInDataList.length;
+              _this13.listData = new jqx.dataAdapter(_this13.gridSourceData);
+              _this13.totalItems = _this13.moveInDataList.length;
 
-              if (_this14.totalItems > _this14.itemLimit) {
-                _this14.ItemEndIndex = _this14.itemLimit;
+              if (_this13.totalItems > _this13.itemLimit) {
+                _this13.ItemEndIndex = _this13.itemLimit;
               } else {
-                _this14.ItemEndIndex = _this14.totalItems;
+                _this13.ItemEndIndex = _this13.totalItems;
               }
 
-              _this14.isDataLoaded = true;
+              _this13.isDataLoaded = true;
             });
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this14.blockUnitData = res;
+              _this13.blockUnitData = res;
             });
           }
         }]);
@@ -2280,7 +1977,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this15 = this;
+            var _this14 = this;
 
             if (this.moveinSearch != "") {
               var filtergroup = new jqx.filter();
@@ -2293,7 +1990,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2304,7 +2001,7 @@
         }, {
           key: "approveMoveIn",
           value: function approveMoveIn(detail) {
-            var _this16 = this;
+            var _this15 = this;
 
             var data = this.datagrid.getrowdata(detail.rowId);
             var type = detail.column;
@@ -2340,14 +2037,14 @@
               if (res.message) {
                 //let msg = type == 'approve' ? 'Movein approved successfully' : 'Movein Request Rejected'
                 //this.sharedService.setAlertMessage(msg);
-                _this16.userBasedList();
+                _this15.userBasedList();
               }
             });
           }
         }, {
           key: "showMoveInDetails",
           value: function showMoveInDetails(detail) {
-            var _this17 = this;
+            var _this16 = this;
 
             var details = this.datagrid.getrowdata(detail.rowId);
             var dialogRef = this.dialog.open(_movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_13__["MoveinMoveoutEditViewComponent"], {
@@ -2360,14 +2057,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this17.userBasedList();
+                _this16.userBasedList();
               }
             });
           }
         }, {
           key: "chekInUser",
           value: function chekInUser(detail) {
-            var _this18 = this;
+            var _this17 = this;
 
             var data = this.datagrid.getrowdata(detail.rowId);
             var message = "Do you want to check In?";
@@ -2393,7 +2090,7 @@
                   "approvedDate": data.approvedDate,
                   "insertedBy": data.insertedBy,
                   "insertedOn": data.insertedOn,
-                  "updatedBy": parseInt(_this18.sessionService.userId),
+                  "updatedBy": parseInt(_this17.sessionService.userId),
                   "updatedOn": new Date().toISOString(),
                   "apartmentId": data.apartmentId,
                   "userName": data.userName,
@@ -2408,11 +2105,11 @@
                   moveIn: details
                 };
 
-                _this18.moveInOutService.updateMoveIn(params).subscribe(function (res) {
+                _this17.moveInOutService.updateMoveIn(params).subscribe(function (res) {
                   if (res.message) {
-                    _this18.sharedService.setAlertMessage("Checked In successfully");
+                    _this17.sharedService.setAlertMessage("Checked In successfully");
 
-                    _this18.userBasedList();
+                    _this17.userBasedList();
                   }
                 });
               }
@@ -2421,7 +2118,7 @@
         }, {
           key: "getMoveinListByAdmin",
           value: function getMoveinListByAdmin() {
-            var _this19 = this;
+            var _this18 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2430,21 +2127,21 @@
             };
             this.moveInOutService.getMoveInByStatusIds(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this19.totalItems = res.length;
+                _this18.totalItems = res.length;
                 var tableData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this19.moveInDataList = new jqx.dataAdapter(tableData);
+                _this18.moveInDataList = new jqx.dataAdapter(tableData);
               }
 
-              _this19.isDataLoaded = true;
+              _this18.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveinListByUser",
           value: function getMoveinListByUser() {
-            var _this20 = this;
+            var _this19 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2454,16 +2151,16 @@
             this.moveInOutService.getMoveInByBlockUnitId(params).subscribe(function (res) {
               if (res.code == 200) {
                 if (res.responseData.value.length > 0) {
-                  _this20.totalItems = res.responseData.value.length;
+                  _this19.totalItems = res.responseData.value.length;
                   var tableData = {
                     localdata: res.responseData.value.reverse(),
                     datatype: "array"
                   };
-                  _this20.moveInDataList = new jqx.dataAdapter(tableData);
+                  _this19.moveInDataList = new jqx.dataAdapter(tableData);
                 }
               }
 
-              _this20.isDataLoaded = true;
+              _this19.isDataLoaded = true;
             });
           }
         }, {
@@ -2478,7 +2175,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this20 = this;
 
             this.userBasedList();
 
@@ -2558,7 +2255,7 @@
               minwidth: 120,
               cellclassname: 'action-cell',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this21.moveInDataList.loadedData[row].statusId;
+                var id_ = _this20.moveInDataList.loadedData[row].statusId;
 
                 if (id_ == 372) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveInDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu table-action-menu dropdown-menu-right" aria-labelledby="moveInDropDown">' + '<a href="javascript:void(0)" onClick="approveMoveIn(' + row + ', \'approve\')" >Approve</a>' + ' <a href="javascript:void(0)" onClick="approveMoveIn(' + row + ', \'reject\')" >Reject</a>' + '<a href="javascript:void(0)" onClick="showMoveInDetails(' + row + ', \'edit\')">Edit</a>' + '</div>' + '</div>';
@@ -2575,7 +2272,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this21.moveInDataList.loadedData[row].statusId;
+                var id_ = _this20.moveInDataList.loadedData[row].statusId;
 
                 if (id_ == 373) {
                   return '<div class="icon-wrapper simple-actions link"  onClick="chekInUser(' + row + ')">' + '<img src="assets/images/checkin-icon.svg" class="svg" width="17" height="17" alt="Check In">' + '</div>';
@@ -2862,7 +2559,7 @@
         }, {
           key: "updateMoveinForm",
           value: function updateMoveinForm() {
-            var _this22 = this;
+            var _this21 = this;
 
             var details = {
               "id": this.formField.id,
@@ -2894,14 +2591,14 @@
             };
             this.moveInOutService.updateMoveIn(params).subscribe(function (res) {
               if (res.message) {
-                _this22.dialogRef.close(true);
+                _this21.dialogRef.close(true);
               }
             });
           }
         }, {
           key: "updateMoveOutForm",
           value: function updateMoveOutForm() {
-            var _this23 = this;
+            var _this22 = this;
 
             var details = {
               "id": this.formField.id,
@@ -2934,7 +2631,7 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                _this23.dialogRef.close(true);
+                _this22.dialogRef.close(true);
               }
             });
           }
@@ -3131,7 +2828,7 @@
         }, {
           key: "getDetails",
           value: function getDetails(params) {
-            var _this24 = this;
+            var _this23 = this;
 
             var serviceName;
             var id = parseInt(this.route.params['value'].id);
@@ -3151,17 +2848,17 @@
 
             serviceName.subscribe(function (res) {
               if (res.errorMessage) {
-                _this24.reportsDataList = [];
-                _this24.totalItems = _this24.reportsDataList.length;
+                _this23.reportsDataList = [];
+                _this23.totalItems = _this23.reportsDataList.length;
               } else {
-                _this24.reportsDataList = res;
-                _this24.totalItems = _this24.reportsDataList.length;
-                _this24.gridSourceData = {
-                  localdata: _this24.reportsDataList,
+                _this23.reportsDataList = res;
+                _this23.totalItems = _this23.reportsDataList.length;
+                _this23.gridSourceData = {
+                  localdata: _this23.reportsDataList,
                   datatype: "array"
                 };
-                _this24.listData = new jqx.dataAdapter(_this24.gridSourceData);
-                _this24.isReportSubmitted = true;
+                _this23.listData = new jqx.dataAdapter(_this23.gridSourceData);
+                _this23.isReportSubmitted = true;
               }
             }, function (error) {});
           }
@@ -3177,7 +2874,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this25 = this;
+            var _this24 = this;
 
             if (this.reportData != "") {
               var filtergroup = new jqx.filter();
@@ -3190,7 +2887,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this25.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this24.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3206,14 +2903,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this25 = this;
 
             this.pageName = this.route.params['value'].title;
             var unitBlockParams = {
               apartmentId: parseInt(this.cookieService.get('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this26.unitBlocksData = res;
+              _this25.unitBlocksData = res;
             });
             var visitParams = {
               ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -3279,7 +2976,7 @@
               text: 'Expected Date',
               datafield: 'expectedDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this26.getExpectedDate(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this25.getExpectedDate(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3609,7 +3306,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this27 = this;
+            var _this26 = this;
 
             if (this.search != "") {
               var filtergroup = new jqx.filter();
@@ -3622,7 +3319,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3669,7 +3366,7 @@
         }, {
           key: "documentCreate",
           value: function documentCreate() {
-            var _this28 = this;
+            var _this27 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3683,21 +3380,21 @@
               })
             };
             this.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
-              _this28.isDataLoaded = true;
+              _this27.isDataLoaded = true;
 
               if (res.message) {
-                _this28.goBack();
+                _this27.goBack();
 
-                _this28.sharedService.setAlertMessage("Document Criteria Added successfully");
+                _this27.sharedService.setAlertMessage("Document Criteria Added successfully");
 
-                _this28.getMoveInMoveOutConfigList();
+                _this27.getMoveInMoveOutConfigList();
               }
             });
           }
         }, {
           key: "documentUpdate",
           value: function documentUpdate(document) {
-            var _this29 = this;
+            var _this28 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3720,24 +3417,24 @@
             };
             this.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
               if (res.message) {
-                _this29.isDataLoaded = true;
+                _this28.isDataLoaded = true;
 
-                _this29.goBack();
+                _this28.goBack();
 
-                _this29.getMoveInMoveOutConfigList();
+                _this28.getMoveInMoveOutConfigList();
 
-                _this29.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
+                _this28.sharedService.setAlertMessage("MoveIn Configuration updated successfully");
               } else {
-                _this29.isDataLoaded = true;
+                _this28.isDataLoaded = true;
               }
             }, function (error) {
-              _this29.isDataLoaded = true;
+              _this28.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveInMoveOutConfigList",
           value: function getMoveInMoveOutConfigList() {
-            var _this30 = this;
+            var _this29 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3749,9 +3446,9 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this30.totalItems = tableData.localdata.length;
-                _this30.documentDataList = new jqx.dataAdapter(tableData);
-                _this30.isDataLoaded = true;
+                _this29.totalItems = tableData.localdata.length;
+                _this29.documentDataList = new jqx.dataAdapter(tableData);
+                _this29.isDataLoaded = true;
               }
             }, function (error) {
               console.log(error);
@@ -3760,7 +3457,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this30 = this;
 
             this.getMoveInMoveOutConfigList();
 
@@ -3843,16 +3540,16 @@
               if (item != null && item.id) {
                 var params = {
                   Id: parseInt(item.id),
-                  deleteBy: _this31.sessionService.userId
+                  deleteBy: _this30.sessionService.userId
                 };
 
-                _this31.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
+                _this30.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
                   if (res.message) {
-                    _this31.sharedService.setUnitListDeleteIndex(null);
+                    _this30.sharedService.setUnitListDeleteIndex(null);
 
-                    _this31.datagrid.deleterow(item.index);
+                    _this30.datagrid.deleterow(item.index);
 
-                    _this31.datagrid.refresh();
+                    _this30.datagrid.refresh();
                   }
                 }, function (error) {
                   console.log(error);
@@ -3864,7 +3561,7 @@
               LookupTypeId: 72
             };
             this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
-              _this31.documentTypeDataList = res;
+              _this30.documentTypeDataList = res;
             });
           }
         }, {
@@ -4123,7 +3820,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this32 = this;
+            var _this31 = this;
 
             if (this.moveOutData != "") {
               var filtergroup = new jqx.filter();
@@ -4136,7 +3833,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this32.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this31.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4224,7 +3921,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(data) {
-            var _this33 = this;
+            var _this32 = this;
 
             var moveOutData = data;
             moveOutData.approvedBy = parseInt(this.sessionService.userId);
@@ -4232,22 +3929,22 @@
             this.isMoveOutSubmitted = false;
             this.moveInOutService.updateMoveOut(moveOutData).subscribe(function (res) {
               if (res.message) {
-                _this33.isMoveOutSubmitted = true;
+                _this32.isMoveOutSubmitted = true;
 
-                _this33.sharedService.setAlertMessage("Moveout approved successfully");
+                _this32.sharedService.setAlertMessage("Moveout approved successfully");
               } else {
-                _this33.isMoveOutSubmitted = true;
-                _this33.isError = true;
-                _this33.alertMessage = res.errorMessage;
+                _this32.isMoveOutSubmitted = true;
+                _this32.isError = true;
+                _this32.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this33.isMoveOutSubmitted = true;
+              _this32.isMoveOutSubmitted = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this33 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -4300,7 +3997,7 @@
               text: 'Expected Time',
               datafield: 'outTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this34.getTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this33.getTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -4322,27 +4019,27 @@
               statusIds: "380"
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
-              _this34.moveOutDataList = res.filter(function (item) {
+              _this33.moveOutDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this34.moveOutDataList);
-              _this34.gridSourceData = {
-                localdata: _this34.moveOutDataList,
+              console.log(_this33.moveOutDataList);
+              _this33.gridSourceData = {
+                localdata: _this33.moveOutDataList,
                 datatype: "array"
               };
-              _this34.listData = new jqx.dataAdapter(_this34.gridSourceData);
-              _this34.totalItems = _this34.moveOutDataList.length;
+              _this33.listData = new jqx.dataAdapter(_this33.gridSourceData);
+              _this33.totalItems = _this33.moveOutDataList.length;
 
-              if (_this34.totalItems > _this34.itemLimit) {
-                _this34.ItemEndIndex = _this34.itemLimit;
+              if (_this33.totalItems > _this33.itemLimit) {
+                _this33.ItemEndIndex = _this33.itemLimit;
               } else {
-                _this34.ItemEndIndex = _this34.totalItems;
+                _this33.ItemEndIndex = _this33.totalItems;
               }
 
-              _this34.isDataLoaded = true;
+              _this33.isDataLoaded = true;
             });
             this.apartmentService.getAllApartmentBlockUnits().subscribe(function (res) {
-              _this34.blockUnitData = res;
+              _this33.blockUnitData = res;
             });
           }
         }]);
@@ -4529,7 +4226,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this35 = this;
+            var _this34 = this;
 
             if (this.moveOutSearch != "") {
               var filtergroup = new jqx.filter();
@@ -4542,7 +4239,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this35.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this34.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4553,7 +4250,7 @@
         }, {
           key: "showMoveOutDetails",
           value: function showMoveOutDetails(detail) {
-            var _this36 = this;
+            var _this35 = this;
 
             var details = this.datagrid.getrowdata(detail.rowId);
             var dialogRef = this.dialog.open(_movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_11__["MoveinMoveoutEditViewComponent"], {
@@ -4566,14 +4263,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this36.getMoveOutListByAdmin();
+                _this35.getMoveOutListByAdmin();
               }
             });
           }
         }, {
           key: "checkOutUser",
           value: function checkOutUser(detail) {
-            var _this37 = this;
+            var _this36 = this;
 
             var message = "Do you want to check Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
@@ -4584,7 +4281,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var data = _this37.datagrid.getrowdata(detail.rowId);
+                var data = _this36.datagrid.getrowdata(detail.rowId);
 
                 var moveOutData = data;
                 var details = {
@@ -4598,11 +4295,11 @@
                   "reqUserId": moveOutData.reqUserId,
                   "statusId": 376,
                   "noDue": moveOutData.noDue,
-                  "approvedBy": parseInt(_this37.sessionService.userId),
+                  "approvedBy": parseInt(_this36.sessionService.userId),
                   "approvedDate": new Date().toISOString(),
                   "insertedBy": moveOutData.insertedBy,
                   "insertedOn": moveOutData.insertedOn,
-                  "updatedBy": parseInt(_this37.sessionService.userId),
+                  "updatedBy": parseInt(_this36.sessionService.userId),
                   "updatedOn": new Date().toISOString(),
                   "apartmentId": moveOutData.apartmentId,
                   "userName": moveOutData.userName,
@@ -4617,11 +4314,11 @@
                   moveOut: details
                 };
 
-                _this37.moveInOutService.updateMoveOut(params).subscribe(function (res) {
+                _this36.moveInOutService.updateMoveOut(params).subscribe(function (res) {
                   if (res.message) {
-                    _this37.sharedService.setAlertMessage("Moved Out successfully");
+                    _this36.sharedService.setAlertMessage("Moved Out successfully");
 
-                    _this37.getMoveOutListByAdmin();
+                    _this36.getMoveOutListByAdmin();
                   }
                 });
               }
@@ -4630,7 +4327,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(detail) {
-            var _this38 = this;
+            var _this37 = this;
 
             var data = this.datagrid.getrowdata(detail.rowId);
             var type = detail.column;
@@ -4669,7 +4366,7 @@
               if (res.message) {
                 //let msg = type == 'approve' ? 'MoveOut approved successfully' : 'MoveOut Request Rejected'
                 //this.sharedService.setAlertMessage(msg);
-                _this38.getMoveOutListByAdmin();
+                _this37.getMoveOutListByAdmin();
               }
             });
           }
@@ -4683,7 +4380,7 @@
         }, {
           key: "getMoveOutListByAdmin",
           value: function getMoveOutListByAdmin() {
-            var _this39 = this;
+            var _this38 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4692,21 +4389,21 @@
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this39.totalItems = res.length;
+                _this38.totalItems = res.length;
                 var tableData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this39.moveOutDataList = new jqx.dataAdapter(tableData);
+                _this38.moveOutDataList = new jqx.dataAdapter(tableData);
               }
 
-              _this39.isDataLoaded = true;
+              _this38.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveOutListByUser",
           value: function getMoveOutListByUser() {
-            var _this40 = this;
+            var _this39 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4716,16 +4413,16 @@
             this.moveInOutService.getMoveOutByBlockUnitId(params).subscribe(function (res) {
               if (res.code == 200) {
                 if (res.responseData.value.length > 0) {
-                  _this40.totalItems = res.responseData.value.length;
+                  _this39.totalItems = res.responseData.value.length;
                   var tableData = {
                     localdata: res.responseData.value.reverse(),
                     datatype: "array"
                   };
-                  _this40.moveOutDataList = new jqx.dataAdapter(tableData);
+                  _this39.moveOutDataList = new jqx.dataAdapter(tableData);
                 }
               }
 
-              _this40.isDataLoaded = true;
+              _this39.isDataLoaded = true;
             });
           }
         }, {
@@ -4740,7 +4437,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this41 = this;
+            var _this40 = this;
 
             this.userBasedList();
 
@@ -4820,7 +4517,7 @@
               minwidth: 120,
               cellclassname: 'action-cell',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this41.moveOutDataList.loadedData[row].statusId;
+                var id_ = _this40.moveOutDataList.loadedData[row].statusId;
 
                 if (id_ == 372) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="moveOutDropDown" aria-haspopup="true" aria-expanded="false">' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '<span class="action-dot"></span>' + '</a>' + '<div class="dropdown-menu table-action-menu dropdown-menu-right" aria-labelledby="moveOutDropDown">' + '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'approve\')">Approve</a>' + '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'reject\')" >Reject</a>' + '<a href="javascript:void(0)" onClick="showMoveOutDetails(' + row + ', \'edit\')">Edit</a>' + '</div>' + '</div>';
@@ -4837,7 +4534,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this41.moveOutDataList.loadedData[row].statusId;
+                var id_ = _this40.moveOutDataList.loadedData[row].statusId;
 
                 if (id_ == 373) {
                   return '<div class="icon-wrapper simple-actions link"  onClick="checkOutUser(' + row + ')">' + '<img src="assets/images/checkout-icon.svg" class="svg" width="17" height="17" alt="Check Out">' + '</div>';
