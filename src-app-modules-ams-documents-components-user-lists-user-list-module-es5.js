@@ -609,7 +609,7 @@
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Block No',
+              text: 'Tower No',
               datafield: 'apartmentBlockNumber',
               cellsrenderer: cellsrenderer,
               width: 300,
