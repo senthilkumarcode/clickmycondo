@@ -126,7 +126,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+
+
 
 
 
@@ -135,10 +140,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
-    constructor(userService, accountsService, sessionService) {
+    constructor(userService, accountsService, sessionService, constantsService) {
         this.userService = userService;
         this.accountsService = accountsService;
         this.sessionService = sessionService;
+        this.constantsService = constantsService;
         this.isDefaultersDataLoaded = false;
         this.defaultData = "";
         this.isDefaultSelected = false;
@@ -171,7 +177,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
     }
     onCheckDefaulterHeader(detail) {
         let allDataRecords = this.datagrid.getrows();
-        underscore__WEBPACK_IMPORTED_MODULE_6__["each"](allDataRecords, item => {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](allDataRecords, item => {
             item.checked = detail.checked;
         });
         this.isDefaultSelected = allDataRecords.some(item => {
@@ -288,8 +294,15 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-            },
-            {
+            }, {
+                text: 'Due Date',
+                datafield: 'dueDate',
+                minwidth: 100,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(this.constantsService.dateFormat) + '</div>';
+                },
+                renderer: columnrenderer
+            }, {
                 text: 'Primary Contact',
                 datafield: 'primaryContact',
                 minwidth: 150,
@@ -325,7 +338,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
         };
         this.accountsService.getIncomeTrackerDefaulterByApartmentId(params).subscribe((res) => {
             var gridDefaultDataList = res;
-            underscore__WEBPACK_IMPORTED_MODULE_6__["each"](gridDefaultDataList, item => {
+            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](gridDefaultDataList, item => {
                 item.checked = false;
             });
             this.totalItems = gridDefaultDataList.length;
@@ -343,7 +356,8 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
 IncomeViewDefaultersComponent.ctorParameters = () => [
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__["ConstantsService"] }
 ];
 IncomeViewDefaultersComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -358,7 +372,8 @@ IncomeViewDefaultersComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__["ConstantsService"]])
 ], IncomeViewDefaultersComponent);
 
 function checkDefaulterHeaderEvent(event, isChecked) {

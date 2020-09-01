@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"content-layout fullwidth-basic-normal-scroll\">\n\n    <!-- Loading bar -->\n    \n    <div class=\"bg-card p-0 shadow\">\n\n        <mat-progress-bar class=\"loading-progress-bar\"\n            *ngIf=\"isRouting\"\n            [mode]=\"'indeterminate'\">\n        </mat-progress-bar>\n\n        <!-- Form container -->\n        <div class=\"form-container p-5\">\n\n            <div class=\"form\">\n\n                <!-- Logo -->\n                <div class=\"logo\">\n                    <img class=\"img-fluid\" src=\"assets/images/logo-cmc-brand.svg\">\n                </div>\n\n                <!-- Title -->\n                <h3 class=\"title font-bold\">Select the Condo</h3>\n\n                <app-loader class=\"mt-4\" *ngIf=\"!isDataLoaded\"></app-loader>\n               \n                <div class=\"condo-list mt-4 border\" *ngIf=\"isDataLoaded && isAdmin()\">\n\n                    <ng-container *ngFor=\"let condo of condos\">\n\n                        <a class=\"condo\" (click)=\"selectCondo(condo)\">\n                            <div>\n                                <h5 class=\"mb-2\">{{condo.apartmentName}}</h5>\n                                <p class=\"text-secondary\">{{condo.city}}</p>\n                            </div>\n                        </a>\n        \n                    </ng-container>        \n                </div>\n\n                <div class=\"condo-list mt-4 border\" *ngIf=\"isDataLoaded && !isAdmin()\">\n\n                    <ng-container *ngFor=\"let condo of condos\">\n\n                        <div class=\"condo multi\">\n                            <h5 class=\"mb-2\">{{condo.apartmentName}}</h5>\n                            <p class=\"text-secondary\">{{condo.location}}</p>\n                            <div class=\"unit-list d-flex mt-3\">\n                                <div class=\"unit d-flex\" *ngFor=\"let block of condo.apartmentBlockUnitIds\" (click)=\"selectCondoUnit(condo, block)\">\n                                    <p class=\"mr-2\"><span class=\"font-medium\">Tower: </span>{{block.apartmentBlockId}}</p>\n                                    <p><span class=\"font-medium\">Unit: </span>{{block.apartmentBlockUnitId}}</p>\n                                </div>\n                            </div>\n                        </div>\n        \n                    </ng-container>        \n                </div>\n\n                <!-- Form footer -->\n                <div class=\"form-footer font-medium\">\n                    <a class=\"link ml-2\" (click)=\"logout()\">Logout</a>\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"content-layout fullwidth-basic-normal-scroll\">\n\n    <!-- Loading bar -->\n\n    <condo-message *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n            {{message.content}}\n\t</condo-message>\n    \n    <div class=\"bg-card p-0 shadow\">\n\n        <mat-progress-bar class=\"loading-progress-bar\"\n            *ngIf=\"isRouting\"\n            [mode]=\"'indeterminate'\">\n        </mat-progress-bar>\n\n        <!-- Form container -->\n        <div class=\"form-container p-5\">\n\n            <div class=\"form\">\n\n                <!-- Logo -->\n                <div class=\"logo\">\n                    <img class=\"img-fluid\" src=\"assets/images/logo-cmc-brand.svg\">\n                </div>\n\n                <!-- Title -->\n                <h3 class=\"title font-bold\">Select the Condo</h3>\n\n                <app-loader class=\"mt-4\" *ngIf=\"!isDataLoaded\"></app-loader>\n               \n                <div class=\"condo-list mt-4 border\" *ngIf=\"isDataLoaded && isAdmin()\">\n\n                    <ng-container *ngFor=\"let condo of condos\">\n\n                        <a class=\"condo\" (click)=\"selectCondo(condo)\">\n                            <div>\n                                <h5 class=\"mb-2\">{{condo.apartmentName}}</h5>\n                                <p class=\"text-secondary\">{{condo.city}}</p>\n                            </div>\n                        </a>\n        \n                    </ng-container>        \n                </div>\n\n                <div class=\"condo-list mt-4 border\" *ngIf=\"isDataLoaded && !isAdmin()\">\n\n                    <ng-container *ngFor=\"let condo of condos\">\n\n                        <div class=\"condo multi\">\n                            <h5 class=\"mb-2\">{{condo.apartmentName}}</h5>\n                            <p class=\"text-secondary\">{{condo.location}}</p>\n                            <div class=\"unit-list d-flex mt-3\">\n                                <div class=\"unit d-flex\" *ngFor=\"let block of condo.apartmentBlockUnitIds\" (click)=\"selectCondoUnit(condo, block)\">\n                                    <p class=\"mr-2\"><span class=\"font-medium\">Tower: </span>{{block.apartmentBlockId}}</p>\n                                    <p><span class=\"font-medium\">Unit: </span>{{block.apartmentBlockUnitId}}</p>\n                                </div>\n                            </div>\n                        </div>\n        \n                    </ng-container>        \n                </div>\n\n                <!-- Form footer -->\n                <div class=\"form-footer font-medium\">\n                    <a class=\"link ml-2\" (click)=\"logout()\">Logout</a>\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</div>";
       /***/
     },
 
@@ -212,7 +212,9 @@
           this.isDataLoaded = false;
           this.isRouting = false; // Set the private default
 
-          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
+          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"](); // Set the defaults
+
+          this.message = null;
         }
 
         _createClass(ApartmentsComponent, [{
@@ -244,7 +246,9 @@
           value: function selectCondo(condo) {
             var _this2 = this;
 
-            this.sessionService.apartmentId = condo.apartmentId;
+            this.sessionService.apartmentId = condo.apartmentId; // Hide the message
+
+            this.message = null;
             this.isRouting = true;
 
             var states = this._router.url.split('/');
@@ -261,7 +265,9 @@
             this.sessionService.apartmentId = condo.apartmentId;
             this.sessionService.apartmentBlockID = block.apartmentBlockId;
             this.sessionService.apartmentBlockUnitID = block.apartmentBlockUnitId;
-            this.sessionService.apartmentBlockUnitUserId = block.apartmentBlockUnitUserId;
+            this.sessionService.apartmentBlockUnitUserId = block.apartmentBlockUnitUserId; // Hide the message
+
+            this.message = null;
             this.isRouting = true;
 
             var states = this._router.url.split('/');
@@ -295,10 +301,22 @@
               userId: parseInt(this.sessionService.userId)
             };
             this.apartmentService.getAllApartmentsByUserId(params).subscribe(function (res) {
-              _this4.condos = res;
+              if (res.code == 200) {
+                _this4.condos = res.responseData.value;
+                _this4.isDataLoaded = true;
+              } else {
+                _this4.isDataLoaded = true; // Show the error message
+
+                _this4.message = {
+                  appearance: 'outline',
+                  content: res.responseData.value.errorMessage,
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              }
+            }, function (err) {
               _this4.isDataLoaded = true;
-            }, function (error) {
-              console.log(error);
             });
           }
         }]);
