@@ -27,26 +27,6 @@
     },
 
     /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.html":
-    /*!***************************************************************************************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.html ***!
-      \***************************************************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsMyPropertyPropertyConfigurationPropertyTowersPropertyTowerUnitInfoPropertyTowerUnitInfoComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<div class=\"property-tower-unit-wrapper\">\n\t\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"!isEdit\">\n\t\t<i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<div class=\"icon-wrapper float-right mb-2\" *ngIf=\"isEdit\">\n\t\t<i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n\t</div>\n\n\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t<form #propertyUnitDetailsForm = \"ngForm\" name=\"propertyUnitDetailsForm\" novalidate>\n\t\t\t\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Bulit Area SQ.M</label>\n\t\t                    <p>{{unit.builtupArea | notAvail}}</p>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Unit Construction Area SQ.M</label>\n\t\t                    <p>{{unit.unitConstructionArea | notAvail}}</p>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Unit Type</label>\n\t\t                    <p>{{unit.unitType | notAvail}}</p>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Units Sold</label>\n\t\t\t                <p>{{getBooleanStatus(unit.isSold)}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Units Vacant</label>\n\t\t\t                <p>{{getBooleanStatus(unit.isVacant)}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Pets Allowed</label>\n\t\t\t                <p>{{getBooleanStatus(unit.isPetsAllowed)}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                <label>Furnished</label>\n\t\t\t                <p>{{getBooleanStatus(unit.isFurnished)}}</p>\n\t\t\t    \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isEdit\">\n\t\t\n\t\t<form #propertyUnitDetailsForm = \"ngForm\" name=\"propertyUnitDetailsForm\" novalidate (ngSubmit)=\"submitPropertyUnitDetailsForm(propertyDetailsForm)\">\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Bulit Area SQ.M</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"builtupArea\" [(ngModel)]=\"unit.builtupArea\">\n\t        \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t                    <label>Unit Construction Area SQ.M</label>\n\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitConstructionArea\" [(ngModel)]=\"unit.unitConstructionArea\">\n\t        \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"select-box\">\n\t                    <label>Unit Type*</label>\n\t                    <select \n\t\t\t\t\t        name=\"unitType\" \n\t\t\t\t\t        id=\"unitType\" \n\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t        [(ngModel)]=\"unitTypeId\" required>\n\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t        <option *ngFor=\"let item of unitTypeData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t    </select>\n\t        \t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" #unitSold class=\"form-check-input\" id=\"unitSlod\" name=\"unitSold\" [(ngModel)]=\"unit.isSold\">\n\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"unitSlod\">Is Sold</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" #unitVacant class=\"form-check-input\" id=\"unitVacant\" name=\"unitVacant\" [(ngModel)]=\"unit.isVacant\">\n\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"unitVacant\">Is Vacant</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" #petsAllowed class=\"form-check-input\" id=\"petsAllowed\" name=\"petsAllowed\" [(ngModel)]=\"unit.isPetsAllowed\">\n\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"petsAllowed\">Is Pets Allowed</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-3\">\n\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t    <input type=\"checkbox\" #furnished class=\"form-check-input\" id=\"petsAllowed\" name=\"furnished\" [(ngModel)]=\"unit.isFurnished\">\n\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"furnished\">Is Furnished</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"propertyUnitDetailsForm.invalid\">Submit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n</div>";
-      /***/
-    },
-
-    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-towers/property-towers.component.html":
     /*!*****************************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-towers/property-towers.component.html ***!
@@ -62,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-details-wrapper mt-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"d-flex flex-column mb-4\">\n\t\t\t<h6 class=\"text-secondary\" *ngIf=\"isBlockAvailable\">{{blockListData.length}} Records found</h6>\n\t\t</div>\n\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && !isBlockAvailable\">\n\t\t<h6>No Blocks Available</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded && isBlockAvailable\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel [expanded]=\"i == 0\" *ngFor=\"let tower of blockListData; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-property-tower-info [tower]=\"tower\"></app-property-tower-info>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"property-details-wrapper mt-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"d-flex flex-column mb-4\">\n\t\t\t<h6 class=\"text-secondary\" *ngIf=\"isBlockAvailable\">{{blockListData.length}} Records found</h6>\n\t\t</div>\n\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && !isBlockAvailable\">\n\t\t<h6>No Towers Available</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded && isBlockAvailable\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel [expanded]=\"i == 0\" *ngFor=\"let tower of blockListData; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-property-tower-info [tower]=\"tower\"></app-property-tower-info>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -232,220 +212,6 @@
     },
 
     /***/
-    "./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.scss":
-    /*!*************************************************************************************************************************************************!*\
-      !*** ./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.scss ***!
-      \*************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesAmsMyPropertyPropertyConfigurationPropertyTowersPropertyTowerUnitInfoPropertyTowerUnitInfoComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL215LXByb3BlcnR5L3Byb3BlcnR5LWNvbmZpZ3VyYXRpb24vcHJvcGVydHktdG93ZXJzL3Byb3BlcnR5LXRvd2VyLXVuaXQtaW5mby9wcm9wZXJ0eS10b3dlci11bml0LWluZm8uY29tcG9uZW50LnNjc3MifQ== */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.ts":
-    /*!***********************************************************************************************************************************************!*\
-      !*** ./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.ts ***!
-      \***********************************************************************************************************************************************/
-
-    /*! exports provided: PropertyTowerUnitInfoComponent */
-
-    /***/
-    function srcAppModulesAmsMyPropertyPropertyConfigurationPropertyTowersPropertyTowerUnitInfoPropertyTowerUnitInfoComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "PropertyTowerUnitInfoComponent", function () {
-        return PropertyTowerUnitInfoComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! src/app/api/controllers/Apartment */
-      "./src/app/api/controllers/Apartment.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-
-      var PropertyTowerUnitInfoComponent = /*#__PURE__*/function () {
-        function PropertyTowerUnitInfoComponent(apartmentService, lookupService, sharedService, sessionService) {
-          _classCallCheck(this, PropertyTowerUnitInfoComponent);
-
-          this.apartmentService = apartmentService;
-          this.lookupService = lookupService;
-          this.sharedService = sharedService;
-          this.sessionService = sessionService;
-          this.isEdit = false;
-        }
-
-        _createClass(PropertyTowerUnitInfoComponent, [{
-          key: "showEditForm",
-          value: function showEditForm() {
-            this.isEdit = !this.isEdit;
-          }
-        }, {
-          key: "getBooleanStatus",
-          value: function getBooleanStatus(status) {
-            return status ? 'Yes' : 'No';
-          }
-        }, {
-          key: "getUnitType",
-          value: function getUnitType(name) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.unitTypeData, function (item) {
-              if (item.lookupValueName === name) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              this.unitTypeId = "";
-            } else {
-              this.unitTypeId = data[0].lookupValueId;
-            }
-          }
-        }, {
-          key: "submitPropertyUnitDetailsForm",
-          value: function submitPropertyUnitDetailsForm(form) {
-            var _this3 = this;
-
-            var details = {
-              "apartmentBlockUnitId": parseInt(this.unit.apartmentBlockUnitId),
-              "apartmentBlockUnitNumber": this.unit.apartmentBlockUnitNumber,
-              "apartmentBlockId": parseInt(this.tower.apartmentBlockId),
-              "unitTypeId": parseInt(this.unitTypeId),
-              "builtupArea": parseInt(this.unit.builtupArea),
-              "carpetArea": parseInt(this.unit.carpetArea),
-              "intercom": this.unit.intercom,
-              "cars": parseInt(this.unit.cars),
-              "isAvailableForRent": this.unit.isAvailableForRent,
-              "availableDate": "2020-02-08T06:52:31.682Z",
-              "rentAmount": parseInt(this.unit.rentAmount),
-              "advanceAmount": parseInt(this.unit.advanceAmount),
-              "isPetsAllowed": this.unit.isPetsAllowed,
-              "isFurnished": this.unit.isFurnished,
-              "isVacant": this.unit.isVacant,
-              "isSold": this.unit.isSold,
-              "constructionInProgress": this.unit.constructionInProgress || false,
-              "unitConstructionArea": this.unit.unitConstructionArea,
-              "propertyManagerId": 1,
-              "isActive": this.unit.isActive,
-              "insertedBy": parseInt(this.unit.insertedBy),
-              "insertedOn": this.unit.insertedOn,
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date().toISOString()
-            };
-            var params = {
-              apartmentBlockUnit: details
-            };
-            this.apartmentService.updateApartmentBlockUnit(params).subscribe(function (res) {
-              if (res.message) {
-                _this3.isEdit = false;
-
-                _this3.sharedService.setAlertMessage(_this3.tower.apartmentBlockNumber + " " + _this3.unit.apartmentBlockUnitNumber + " updated successfully");
-              } else {
-                _this3.isEdit = false;
-              }
-            });
-          }
-        }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this4 = this;
-
-            this.unitTypeId = "";
-            var unitParams = {
-              LookupTypeId: 1
-            }; //get unit type
-
-            this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
-              _this4.unitTypeData = res;
-              setTimeout(function () {
-                _this4.getUnitType(_this4.unit.unitType);
-              }, 1000);
-            }, function (error) {});
-          }
-        }]);
-
-        return PropertyTowerUnitInfoComponent;
-      }();
-
-      PropertyTowerUnitInfoComponent.ctorParameters = function () {
-        return [{
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
-        }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
-        }];
-      };
-
-      PropertyTowerUnitInfoComponent.propDecorators = {
-        tower: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        unit: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
-      PropertyTowerUnitInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-property-tower-unit-info',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./property-tower-unit-info.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./property-tower-unit-info.component.scss */
-        "./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], PropertyTowerUnitInfoComponent);
-      /***/
-    },
-
-    /***/
     "./src/app/modules/ams/my-property/property-configuration/property-towers/property-towers-routing.module.ts":
     /*!******************************************************************************************************************!*\
       !*** ./src/app/modules/ams/my-property/property-configuration/property-towers/property-towers-routing.module.ts ***!
@@ -610,7 +376,7 @@
         _createClass(PropertyTowersComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this5 = this;
+            var _this3 = this;
 
             if (this.towerData != "") {
               var filtergroup = new jqx.filter();
@@ -623,7 +389,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this3.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -645,20 +411,20 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this4 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this6.blockListData = res;
-              _this6.isDataLoaded = true;
-              console.log(_this6.blockListData);
+              _this4.blockListData = res;
+              _this4.isDataLoaded = true;
+              console.log(_this4.blockListData);
 
-              if (_this6.blockListData.length > 0) {
-                _this6.isBlockAvailable = true;
+              if (_this4.blockListData.length > 0) {
+                _this4.isBlockAvailable = true;
               } else {
-                _this6.isBlockAvailable = false;
+                _this4.isBlockAvailable = false;
               }
             });
           }
@@ -778,19 +544,13 @@
       var _property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./property-tower-info/property-tower-info.component */
       "./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-info/property-tower-info.component.ts");
-      /* harmony import */
-
-
-      var _property_tower_unit_info_property_tower_unit_info_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ./property-tower-unit-info/property-tower-unit-info.component */
-      "./src/app/modules/ams/my-property/property-configuration/property-towers/property-tower-unit-info/property-tower-unit-info.component.ts");
 
       var PropertyTowersModule = function PropertyTowersModule() {
         _classCallCheck(this, PropertyTowersModule);
       };
 
       PropertyTowersModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_property_towers_component__WEBPACK_IMPORTED_MODULE_8__["PropertyTowersComponent"], _property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_9__["PropertyTowerInfoComponent"], _property_tower_unit_info_property_tower_unit_info_component__WEBPACK_IMPORTED_MODULE_10__["PropertyTowerUnitInfoComponent"]],
+        declarations: [_property_towers_component__WEBPACK_IMPORTED_MODULE_8__["PropertyTowersComponent"], _property_tower_info_property_tower_info_component__WEBPACK_IMPORTED_MODULE_9__["PropertyTowerInfoComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__["SelectModule"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(_property_towers_routing_module__WEBPACK_IMPORTED_MODULE_4__["routes"]), _property_towers_routing_module__WEBPACK_IMPORTED_MODULE_4__["PropertyTowersRoutingModule"]],
         bootstrap: [_property_towers_component__WEBPACK_IMPORTED_MODULE_8__["PropertyTowersComponent"]]
       })], PropertyTowersModule);
