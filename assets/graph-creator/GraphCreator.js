@@ -307,7 +307,7 @@ GraphCreator.prototype.consts = {
     BACKSPACE_KEY: 8, //8
     DELETE_KEY: 46, //46
     ENTER_KEY: 13,
-    nodeRadius: 10
+    nodeRadius: 15
 };
 
 /* PROTOTYPE FUNCTIONS */
@@ -586,15 +586,15 @@ GraphCreator.prototype.selectedUnitProperty = function (d, filteredObj) {
     var thisGraph = this,
         consts = thisGraph.consts;
     let selectedRefClass;
-    // if (d.poiId) {
-    //     selectedRefClass = consts.selectedClass;
-    // } else {
-    //     selectedRefClass = consts.circleGClass;
-    // }
+    if (d.poiId) {
+        selectedRefClass = consts.selectedClass;
+    } else {
+        selectedRefClass = consts.circleGClass;
+    }
     if (d && d.kind) {
         let kindArr = d.kind.split(",");
-        kindArr.filter(key =>{
-            if(key == filteredObj.selectedCategory){
+        kindArr.filter(key => {
+            if (key == filteredObj.selectedCategory) {
                 selectedRefClass = consts[filteredObj.selectedCategory]
             }
         })
@@ -603,7 +603,7 @@ GraphCreator.prototype.selectedUnitProperty = function (d, filteredObj) {
         //     }
         // }
     }
-    console.log('....',selectedRefClass)
+    console.log('....', selectedRefClass)
     return selectedRefClass;
 }
 
@@ -628,10 +628,12 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
     newGs.attr('class', function (d) {
         if (filteredObj && d.type == filteredObj.type) {
             return thisGraph.selectedUnitProperty(d, filteredObj);
-        } else if (d.poiId) {
-            return consts.selectedClass
         } else {
-            return consts.circleGClass
+            if (d.poiId) {
+                return consts.selectedClass
+            } else {
+                return consts.circleGClass
+            }
         }
         // localStorage.setItem('poiInfo',JSON.stringify(d));
         // if (d.kind === 'P') {
@@ -659,7 +661,7 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
         //  else {
         //   return consts.circleGClass;
         // }
-    }).attr("id",function (d) { return "#"+ d.poiId })
+    }).attr("id", function (d) { return "#" + d.poiId })
         .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
         .attr("data-content", function (d) {
             return d.poiId;
@@ -674,8 +676,8 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
             d3.select(this).classed(consts.connectClass, false);
             localStorage.removeItem('poiInfo');
         })
-        .on("mouseover",function(d){
-            localStorage.setItem('poiInfo',JSON.stringify(d))            
+        .on("mouseover", function (d) {
+            localStorage.setItem('poiInfo', JSON.stringify(d))
         })
         .on("mousedown", function (d) {
             thisGraph.circleMouseDown.call(thisGraph, d3.select(this), d);

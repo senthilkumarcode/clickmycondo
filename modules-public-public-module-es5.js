@@ -5683,21 +5683,15 @@
         }, {
           key: "onSelectionChanged",
           value: function onSelectionChanged(evt) {
-            var _this16 = this;
-
             this.isApartmentSelected = false;
             this.unitName = this.BlockName = this.userType = "";
             this.user = {};
             this.apartmentDetails = {};
-            this.apartmentservice.getAllApartmentsPublic().subscribe(function (res) {
-              _this16.apartmentDetails = res.filter(function (itm) {
-                return itm.apartmentName.toLowerCase() === evt.option.value.toLowerCase();
-              })[0];
-              _this16.isApartmentSelected = true;
-              _this16.searchApartmentText = "";
-            }, function (error) {
-              console.log(error);
-            });
+            this.apartmentDetails = this.lstApartments.filter(function (itm) {
+              return itm.apartmentName.toLowerCase() === evt.option.value.toLowerCase();
+            })[0];
+            this.isApartmentSelected = true;
+            this.searchApartmentText = "";
           }
         }, {
           key: "cancelSignup",
@@ -5707,7 +5701,7 @@
         }, {
           key: "submitAddResidentForm",
           value: function submitAddResidentForm(form) {
-            var _this17 = this;
+            var _this16 = this;
 
             var notesStrVal = "{\"UserType\":\"".concat(this.userType, "\",\"BlockName\":\"").concat(this.BlockName, "\",\"UnitName\":\"").concat(this.unitName, "\"}");
             this.isUserSubmitted = true; //add user
@@ -5739,15 +5733,15 @@
             this.userService.addSignupUserRequest(params).subscribe(function (res) {
               if (res.message) {
                 setTimeout(function () {
-                  _this17.sharedService.setAlertMessage("Signup has been created successfull.");
+                  _this16.sharedService.setAlertMessage("Signup has been created successfull.");
                 }, 200);
-                _this17.isApartmentSelected = false;
-                _this17.unitName = _this17.BlockName = _this17.userType = "";
-                _this17.user = {};
-                _this17.successImage = true;
-                _this17.searchApartmentText = "";
+                _this16.isApartmentSelected = false;
+                _this16.unitName = _this16.BlockName = _this16.userType = "";
+                _this16.user = {};
+                _this16.successImage = true;
+                _this16.searchApartmentText = "";
               } else {
-                _this17.isUserSubmitted = false;
+                _this16.isUserSubmitted = false;
               }
             }, function (error) {
               console.log(error);
@@ -5763,10 +5757,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this17 = this;
 
             this.filteredOptions = this.myControl.valueChanges.pipe(Object(rxjs_internal_operators_startWith__WEBPACK_IMPORTED_MODULE_4__["startWith"])(''), Object(rxjs_internal_operators_map__WEBPACK_IMPORTED_MODULE_5__["map"])(function (val) {
-              return _this18.filter(val);
+              return _this17.filter(val);
             }));
           }
         }]);
@@ -5888,7 +5882,7 @@
         _createClass(LoginComponent, [{
           key: "login",
           value: function login() {
-            var _this19 = this;
+            var _this18 = this;
 
             // Disable the form
             this.loginForm.disable(); // Hide the message
@@ -5900,13 +5894,13 @@
             };
             this.authService.login(params).subscribe(function (res) {
               if (!res.errorMessage) {
-                _this19.sessionService.user(res);
+                _this18.sessionService.user(res);
               } else {
                 // Re-enable the form 
-                _this19.loginForm.enable(); // Show the error message
+                _this18.loginForm.enable(); // Show the error message
 
 
-                _this19.message = {
+                _this18.message = {
                   appearance: 'outline',
                   content: res.errorMessage,
                   shake: true,
@@ -6286,7 +6280,7 @@
 
       var PublicHeaderComponent = /*#__PURE__*/function () {
         function PublicHeaderComponent(router, document, sharedService) {
-          var _this20 = this;
+          var _this19 = this;
 
           _classCallCheck(this, PublicHeaderComponent);
 
@@ -6300,13 +6294,13 @@
           this.isHome = false;
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_3__["NavigationEnd"]) {
-              var path = _this20.router.url;
+              var path = _this19.router.url;
               var name = path.split('/');
 
               if (name[1] == 'home') {
-                _this20.isHome = true;
+                _this19.isHome = true;
               } else {
-                _this20.isHome = false;
+                _this19.isHome = false;
               }
 
               setTimeout(function () {
@@ -6329,13 +6323,13 @@
         _createClass(PublicHeaderComponent, [{
           key: "onWindowScroll",
           value: function onWindowScroll($event) {
-            var _this21 = this;
+            var _this20 = this;
 
             if (!this.isMobile && this.isHome) {
               if (window.scrollY > 150) {
                 this.isHeaderFixed = true;
                 setTimeout(function () {
-                  _this21.isHeaderAwake = true;
+                  _this20.isHeaderAwake = true;
                 }, 100);
               } else {
                 this.isHeaderFixed = false;
@@ -6355,21 +6349,21 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this21 = this;
 
             this.sharedService.publicmenucast.subscribe(function (isNavActive) {
-              return _this22.isNavActive = isNavActive;
+              return _this21.isNavActive = isNavActive;
             });
 
             window.onresize = function () {
-              _this22.isMobile = window.innerWidth <= 991;
+              _this21.isMobile = window.innerWidth <= 991;
 
-              if (!_this22.isMobile && _this22.isHome) {
-                _this22.isNavActive = false;
+              if (!_this21.isMobile && _this21.isHome) {
+                _this21.isNavActive = false;
                 $('.header-wrapper .navbar-collapse').removeClass('show');
               } else {
-                _this22.isHeaderFixed = false;
-                _this22.isHeaderAwake = false;
+                _this21.isHeaderFixed = false;
+                _this21.isHeaderAwake = false;
               }
             };
 
@@ -6900,16 +6894,16 @@
         _createClass(PublicComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this22 = this;
 
             // Subscribe to the resolved route data
             this._activatedRoute.data.subscribe(function (data) {
-              _this23.data = data.initialData;
+              _this22.data = data.initialData;
               document.querySelector('body').className = '';
 
-              _this23.renderer.addClass(document.body, _this23.data.module);
+              _this22.renderer.addClass(document.body, _this22.data.module);
 
-              _this23.renderer.addClass(document.body, _this23.data.page);
+              _this22.renderer.addClass(document.body, _this22.data.page);
 
               window.scrollTo(0, 0);
             });

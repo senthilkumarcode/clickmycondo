@@ -588,9 +588,71 @@
             this.dataGrid.exportdata(event, 'Nature Of Work');
           }
         }, {
+          key: "onCancelAlert",
+          value: function onCancelAlert(detail) {
+            var _this3 = this;
+
+            var data = this.dataGrid.getrowdata(detail.rowId);
+            var params = {
+              apartmentBlockUnitAlert: {
+                "apartmentBlockUnitAlertId": data.apartmentBlockUnitAlertId,
+                "apartmentBlockUnitId": data.apartmentBlockUnitId,
+                "receivedDate": data.receivedDate,
+                "alertTypeId": data.alertTypeId,
+                "location": data.location,
+                "gpslocation": data.gpslocation,
+                "assignedTo": parseInt(this.sessionService.userId),
+                "alertStatusId": 221,
+                "notes": data.notes,
+                "isActive": true,
+                "insertedBy": data.insertedBy,
+                "insertedOn": data.insertedOn,
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": new Date().toISOString()
+              }
+            };
+            this.alertService.updateApartmentBlockUnitAlert(params).subscribe(function (res) {
+              if (res.message) {
+                _this3.getSecurityHistoryList();
+
+                _this3.sharedService.openSnackBar(res.message, 'success');
+              } else {
+                _this3.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            });
+          }
+        }, {
+          key: "getSecurityHistoryList",
+          value: function getSecurityHistoryList() {
+            var _this4 = this;
+
+            this.isAlertsLoaded = false;
+            var params = {
+              'apartmentBlockUnitId': this.sessionService.apartmentBlockUnitID
+            };
+            this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe(function (res) {
+              if (res.length > 0) {
+                var alertInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this4.totalItems = alertInfo.localdata.length;
+                _this4.historyList = new jqx.dataAdapter(alertInfo);
+              }
+
+              _this4.isAlertsLoaded = true;
+
+              (function (error) {
+                console.log(error);
+              });
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this5 = this;
+
+            this.getSecurityHistoryList();
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -614,29 +676,45 @@
               renderer: columnrenderer
             }, {
               text: 'Status',
-              datafield: 'alertStatusId_label',
-              cellsrenderer: cellsrenderer,
+              datafield: 'alertStatusId',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var status, label;
+                label = _this5.historyList.loadedData[row].alertStatusId_label;
+
+                if (value == 136) {
+                  //inprogress
+                  status = 'orange';
+                } else if (value == 137) {
+                  //closed
+                  status = 'green';
+                } else if (value == 135) {
+                  //open
+                  status = 'purple';
+                } else if (value == 221) {
+                  //cancel
+                  status = 'red';
+                } else {
+                  return '<div class="jqx-custom-inner-cell"></div>';
+                }
+
+                return "<div class=\"jqx-custom-inner-cell\">\n            <div class=\"status-badge bg-status-".concat(status, "-700\">\n              <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(label, "</span>\n            </div>\n        </div>");
+              },
+              width: 180,
+              renderer: columnrenderer
+            }, {
+              text: 'Action',
+              cellsalign: 'center',
+              align: 'center',
+              width: 120,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var id_ = _this5.historyList.loadedData[row].alertStatusId;
+
+                if (id_ != 137) {
+                  return '<div class="simple-actions link"  onClick="cancelAlert(' + row + ')">' + '<img src="assets/images/checkin-icon.svg" class="svg" width="17" height="17" alt="Cancel">' + '</div>';
+                } else return '<div class="jqx-custom-inner-cell"></div>';
+              },
               renderer: columnrenderer
             }];
-            var params = {
-              'apartmentBlockUnitId': this.sessionService.apartmentBlockUnitID
-            };
-            this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe(function (res) {
-              if (res.length > 0) {
-                _this3.totalItems = res.length;
-                var alertInfo = {
-                  localdata: res.reverse(),
-                  datatype: "array"
-                };
-                _this3.historyList = new jqx.dataAdapter(alertInfo);
-              }
-
-              _this3.isAlertsLoaded = true;
-
-              (function (error) {
-                console.log(error);
-              });
-            });
           }
         }]);
 
@@ -663,6 +741,10 @@
           args: ['dataGrid', {
             "static": false
           }]
+        }],
+        onCancelAlert: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:onCancelAlert', ['$event.detail']]
         }]
       };
       SecurityMyHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -674,6 +756,17 @@
         /*! ./security-my-history.component.scss */
         "./src/app/modules/user/alert-security/components/security-my-history/security-my-history.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], SecurityMyHistoryComponent);
+
+      function cancelAlert(row) {
+        var event = new CustomEvent('onCancelAlert', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      }
+
+      window.cancelAlert = cancelAlert;
       /***/
     },
 
@@ -826,7 +919,7 @@
         }, {
           key: "getRangeValue",
           value: function getRangeValue(alert) {
-            var _this4 = this;
+            var _this6 = this;
 
             if (this.rangeValue == '100') {
               this.isRangeDone = true;
@@ -850,9 +943,9 @@
               };
               this.alertService.addApartmentBlockUnitAlert(params).subscribe(function (res) {
                 if (res.message) {
-                  _this4.isRangeDone = false;
-                  _this4.isRequestSuccess = true;
-                  _this4.alertId = res.message;
+                  _this6.isRangeDone = false;
+                  _this6.isRequestSuccess = true;
+                  _this6.alertId = res.message;
                 }
               }, function (error) {
                 console.log(error);
@@ -862,17 +955,17 @@
         }, {
           key: "closeAlertModal",
           value: function closeAlertModal() {
-            var _this5 = this;
+            var _this7 = this;
 
             this.confirmDialogRef.close();
             this.confirmDialogRef.afterClosed().subscribe(function (data) {
-              _this5.router.navigateByUrl('user/alert-security/my-history');
+              _this7.router.navigateByUrl('user/alert-security/my-history');
             });
           }
         }, {
           key: "showConfirmEmergency",
           value: function showConfirmEmergency(item, type) {
-            var _this6 = this;
+            var _this8 = this;
 
             var alert = item;
             alert.type = type;
@@ -882,13 +975,13 @@
               data: alert
             });
             this.confirmDialogRef.afterClosed().subscribe(function (data) {
-              _this6.isRangeDone = false;
+              _this8.isRangeDone = false;
             });
           }
         }, {
           key: "cancelEmergency",
           value: function cancelEmergency() {
-            var _this7 = this;
+            var _this9 = this;
 
             this.isRangeDone = true;
             var params = {
@@ -897,8 +990,8 @@
             };
             this.alertService.deleteApartmentBlockUnitAlert(params).subscribe(function (res) {
               if (res.message) {
-                _this7.isRangeDone = false;
-                _this7.isRequestDeleted = true;
+                _this9.isRangeDone = false;
+                _this9.isRequestDeleted = true;
               }
             }, function (error) {
               console.log(error);
@@ -907,38 +1000,38 @@
         }, {
           key: "setCurrentLocation",
           value: function setCurrentLocation() {
-            var _this8 = this;
+            var _this10 = this;
 
             if ('geolocation' in navigator) {
               navigator.geolocation.getCurrentPosition(function (position) {
-                _this8.gpsLocation = position.coords.latitude + ',' + position.coords.longitude;
+                _this10.gpsLocation = position.coords.latitude + ',' + position.coords.longitude;
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this11 = this;
 
             var emergencyListParams = {
               LookupTypeId: 29
             }; //get emergency services
 
             this.lookupService.getLookupValueByLookupTypeId(emergencyListParams).subscribe(function (res) {
-              _this9.isEmergenciesLoaded = true;
-              _this9.emergencyList = res;
+              _this11.isEmergenciesLoaded = true;
+              _this11.emergencyList = res;
             });
             var userParams = {
               userid: parseInt(this.sessionService.userId)
             };
             this.userService.getUserById(userParams).subscribe(function (res) {
-              _this9.userName = res[0].firstName;
+              _this11.userName = res[0].firstName;
               var apartmentBlockUnitParams = {
-                userId: parseInt(_this9.sessionService.userId)
+                userId: parseInt(_this11.sessionService.userId)
               };
 
-              _this9.apartmentService.getApartmentBlockUnitByUserId(apartmentBlockUnitParams).subscribe(function (res) {
-                _this9.apartmentBlockUnitId = res[0].apartmentBlockUnitId;
+              _this11.apartmentService.getApartmentBlockUnitByUserId(apartmentBlockUnitParams).subscribe(function (res) {
+                _this11.apartmentBlockUnitId = res[0].apartmentBlockUnitId;
               }, function (error) {
                 console.log(error);
               });

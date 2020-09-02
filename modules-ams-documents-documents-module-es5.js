@@ -2367,9 +2367,9 @@
       }, {
         path: 'user',
         loadChildren: function loadChildren() {
-          return __webpack_require__.e(
+          return Promise.all(
           /*! import() | src-app-modules-ams-documents-components-user-lists-user-list-module */
-          "src-app-modules-ams-documents-components-user-lists-user-list-module").then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~b22e7d86"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-moveinout-tracker-moveinout-tracker-module~modu~b8746bf7"), __webpack_require__.e("src-app-modules-ams-documents-components-user-lists-user-list-module")]).then(__webpack_require__.bind(null,
           /*! src/app/modules/ams/documents/components/user-lists/user-list.module */
           "./src/app/modules/ams/documents/components/user-lists/user-list.module.ts")).then(function (m) {
             return m.UserListModule;

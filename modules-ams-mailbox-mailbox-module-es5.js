@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"header primary\">\n    <div class=\"title\">New Message</div>\n    <button class=\"close-button\" mat-icon-button (click)=\"saveAndClose()\" [tabIndex]=\"-1\">\n        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    </button>\n</div>\n\n<form [formGroup]=\"composeForm\">\n    <!-- To -->\n    <mat-form-field>\n        <mat-label>To</mat-label>\n        <mat-chip-list #receiptList>\n            <mat-chip *ngFor=\"let user of selectedUsers\" [selectable]=\"true\" [removable]=\"true\"\n                (removed)=\"remove(user)\">  \n                {{user?.userName}}\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n            </mat-chip>\n            <input class=\"bg-none\" [formControlName]=\"'to'\" (change)=\"filterUser()\" [matAutocomplete]=\"receipt\"\n                [matChipInputFor]=\"receiptList\">\n        </mat-chip-list>\n        <mat-autocomplete #receipt=\"matAutocomplete\"  (optionSelected)=\"selected($event)\">\n            <mat-option *ngFor=\"let user of allUsers\" [value]=\"user\">\n                {{user.userName+\"\"+user.roleName+\"\"+user.apartmentBlockNumber+\"\"+user.apartmentBlockUnitNumber}}\n            </mat-option>\n        </mat-autocomplete>\n        <!-- <input matInput [formControl]=\"myControl\" [matAutocomplete]=\"receipt\" [formControlName]=\"'to'\"> -->\n        <!-- <div class=\"copy-fields-toggles\"\n             matSuffix>\n            <span class=\"cc-toggle\"\n                  *ngIf=\"!copyFields.cc\"\n                  (click)=\"showCopyField('cc')\">\n                Cc\n            </span>\n            <span class=\"bcc-toggle\"\n                  *ngIf=\"!copyFields.bcc\"\n                  (click)=\"showCopyField('bcc')\">\n                Bcc\n            </span>\n        </div> -->\n    </mat-form-field>\n\n    <!-- Cc -->\n    <!-- <mat-form-field class=\"cc\"\n                    *ngIf=\"copyFields.cc\">\n        <mat-label>Cc</mat-label>\n        <input matInput\n               [formControlName]=\"'cc'\">\n    </mat-form-field> -->\n\n    <!-- Bcc -->\n    <!-- <mat-form-field class=\"bcc\"\n                    *ngIf=\"copyFields.bcc\">\n        <mat-label>Bcc</mat-label>\n        <input matInput\n               [formControlName]=\"'bcc'\">\n    </mat-form-field> -->\n\n    <!-- Subject -->\n    <mat-form-field class=\"subject\">\n        <mat-label>Subject</mat-label>\n        <input matInput [formControlName]=\"'subject'\"  required >\n    </mat-form-field>\n\n    <!-- Body -->\n    <quill-editor [modules]=\"quillModules\" [formControlName]=\"'body'\" required></quill-editor>\n\n    <div class=\"actions\">\n\n        <div class=\"formatting\">\n\n            <!-- Attach file -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'attach_file'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert link -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'link'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert emoji -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'insert_emoticon'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert image -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'image'\"></mat-icon>\n            </button> -->\n\n        </div>\n\n        <div class=\"buttons\">\n\n            <!-- Discard -->\n            <button class=\"discard-button\" mat-button (click)=\"discard()\">\n                <mat-icon [svgIcon]=\"'delete'\"></mat-icon>\n                <span>Discard</span>\n            </button>\n\n            <!-- Save as draft -->\n            <!-- <button class=\"save-button\"\n                    mat-button\n                    (click)=\"saveAsDraft()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span>Save as draft</span>\n            </button> -->\n\n            <!-- Send -->\n            <button class=\"send-button\" mat-flat-button [color]=\"'primary'\" (click)=\"send()\" [disabled]=\"composeMail.invalid\">\n                <span>Send</span>\n            </button>\n\n        </div>\n\n    </div>\n\n</form>";
+      __webpack_exports__["default"] = "<div class=\"header primary\">\n    <div class=\"title\">New Message</div>\n    <button class=\"close-button\" mat-icon-button (click)=\"saveAndClose()\" [tabIndex]=\"-1\">\n        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    </button>\n</div>\n\n<form [formGroup]=\"composeForm\">\n    <!-- To -->\n    <mat-form-field>\n        <mat-label>To</mat-label>\n        <mat-chip-list #receiptList>\n            <mat-chip *ngFor=\"let user of selectedUsers\" [selectable]=\"true\" [removable]=\"true\"\n                (removed)=\"remove(user)\">  \n                {{user.userName+\" (\"+user.roleName+\",\"+user.apartmentBlockNumber+\"\"+user.apartmentBlockUnitNumber+\")\"}}\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n            </mat-chip>\n            <input class=\"bg-none\" [formControlName]=\"'to'\"  placeholder=\"Enter First 3 Characters of User Name or Unit Number\" [matAutocomplete]=\"receipt\"\n                [matChipInputFor]=\"receiptList\">\n        </mat-chip-list>\n        <mat-autocomplete #receipt=\"matAutocomplete\"  (optionSelected)=\"selected($event)\">\n            <mat-option *ngFor=\"let user of allUsers\" [value]=\"user\">\n                {{user.userName+\" (\"+user.roleName+\",\"+user.apartmentBlockNumber+\"\"+user.apartmentBlockUnitNumber+\")\"}}\n            </mat-option>\n        </mat-autocomplete>\n        <!-- <input matInput [formControl]=\"myControl\" [matAutocomplete]=\"receipt\" [formControlName]=\"'to'\"> -->\n        <!-- <div class=\"copy-fields-toggles\"\n             matSuffix>\n            <span class=\"cc-toggle\"\n                  *ngIf=\"!copyFields.cc\"\n                  (click)=\"showCopyField('cc')\">\n                Cc\n            </span>\n            <span class=\"bcc-toggle\"\n                  *ngIf=\"!copyFields.bcc\"\n                  (click)=\"showCopyField('bcc')\">\n                Bcc\n            </span>\n        </div> -->\n    </mat-form-field>\n\n    <!-- Cc -->\n    <!-- <mat-form-field class=\"cc\"\n                    *ngIf=\"copyFields.cc\">\n        <mat-label>Cc</mat-label>\n        <input matInput\n               [formControlName]=\"'cc'\">\n    </mat-form-field> -->\n\n    <!-- Bcc -->\n    <!-- <mat-form-field class=\"bcc\"\n                    *ngIf=\"copyFields.bcc\">\n        <mat-label>Bcc</mat-label>\n        <input matInput\n               [formControlName]=\"'bcc'\">\n    </mat-form-field> -->\n\n    <!-- Subject -->\n    <mat-form-field class=\"subject\">\n        <mat-label>Subject</mat-label>\n        <input matInput [formControlName]=\"'subject'\"  required >\n    </mat-form-field>\n\n    <!-- Body -->\n    <quill-editor [modules]=\"quillModules\" [formControlName]=\"'body'\" required></quill-editor>\n\n    <div class=\"actions\">\n\n        <div class=\"formatting\">\n\n            <!-- Attach file -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'attach_file'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert link -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'link'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert emoji -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'insert_emoticon'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert image -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'image'\"></mat-icon>\n            </button> -->\n\n        </div>\n\n        <div class=\"buttons\">\n\n            <!-- Discard -->\n            <button class=\"discard-button\" mat-button (click)=\"discard()\">\n                <mat-icon [svgIcon]=\"'delete'\"></mat-icon>\n                <span>Discard</span>\n            </button>\n\n            <!-- Save as draft -->\n            <!-- <button class=\"save-button\"\n                    mat-button\n                    (click)=\"saveAsDraft()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span>Save as draft</span>\n            </button> -->\n\n            <!-- Send -->\n            <button class=\"send-button\" mat-flat-button [color]=\"'primary'\" (click)=\"send()\" [disabled]=\"composeMail.invalid\">\n                <span>Send</span>\n            </button>\n\n        </div>\n\n    </div>\n\n</form>";
       /***/
     },
 
@@ -756,6 +756,8 @@
         _createClass(MailboxComposeComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this = this;
+
             // Create the form
             this.composeForm = this._formBuilder.group({
               to: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
@@ -776,23 +778,20 @@
               "attachment3": null,
               "recipients": []
             };
-          }
-        }, {
-          key: "filterUser",
-          value: function filterUser() {
-            var _this = this;
+            this.composeForm.valueChanges.subscribe(function (val) {
+              if (_this.composeForm.value.to != "") {
+                var queryParamBase = {
+                  ApartmentId: _this.sessionService.apartmentId,
+                  roleids: "",
+                  blockids: "",
+                  keyword: _this.composeForm.value.to
+                };
 
-            if (this.composeForm.value.to != "") {
-              var queryParamBase = {
-                ApartmentId: this.sessionService.apartmentId,
-                roleids: "",
-                blockids: "",
-                keyword: this.composeForm.value.to
-              };
-              this.userService.getUsersByKeyword(queryParamBase).subscribe(function (resp) {
-                _this.allUsers = resp;
-              });
-            }
+                _this.userService.getUsersByKeyword(queryParamBase).subscribe(function (resp) {
+                  _this.allUsers = resp;
+                });
+              }
+            });
           }
         }, {
           key: "selected",
@@ -804,21 +803,24 @@
                 var obj = {
                   userName: key.userName,
                   userId: key.userId,
+                  roleName: key.roleName,
+                  apartmentBlockNumber: key.apartmentBlockNumber,
+                  apartmentBlockUnitNumber: key.apartmentBlockUnitNumber,
                   roleId: key.roleID
                 };
 
                 if (_this2.selectedUsers.length == 0) {
                   _this2.selectedUsers.push(obj);
                 } else {
-                  console.log(underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](_this2.selectedUsers, obj));
-
                   if (!underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](_this2.selectedUsers, obj)) {
                     _this2.selectedUsers.push(obj);
                   }
                 }
               }
             });
-            this.composeForm.value.to = "";
+            this.composeForm.reset({
+              to: ''
+            });
           } // -----------------------------------------------------------------------------------------------------
           // @ Public methods
           // -----------------------------------------------------------------------------------------------------

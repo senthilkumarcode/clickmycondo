@@ -330,7 +330,58 @@ let SecurityMyHistoryComponent = class SecurityMyHistoryComponent {
     getPrintParams(event) {
         this.dataGrid.exportdata(event, 'Nature Of Work');
     }
+    onCancelAlert(detail) {
+        let data = this.dataGrid.getrowdata(detail.rowId);
+        let params = {
+            apartmentBlockUnitAlert: {
+                "apartmentBlockUnitAlertId": data.apartmentBlockUnitAlertId,
+                "apartmentBlockUnitId": data.apartmentBlockUnitId,
+                "receivedDate": data.receivedDate,
+                "alertTypeId": data.alertTypeId,
+                "location": data.location,
+                "gpslocation": data.gpslocation,
+                "assignedTo": parseInt(this.sessionService.userId),
+                "alertStatusId": 221,
+                "notes": data.notes,
+                "isActive": true,
+                "insertedBy": data.insertedBy,
+                "insertedOn": data.insertedOn,
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": new Date().toISOString(),
+            }
+        };
+        this.alertService.updateApartmentBlockUnitAlert(params).subscribe((res) => {
+            if (res.message) {
+                this.getSecurityHistoryList();
+                this.sharedService.openSnackBar(res.message, 'success');
+            }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        });
+    }
+    getSecurityHistoryList() {
+        this.isAlertsLoaded = false;
+        let params = {
+            'apartmentBlockUnitId': this.sessionService.apartmentBlockUnitID
+        };
+        this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe((res) => {
+            if (res.length > 0) {
+                let alertInfo = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = alertInfo.localdata.length;
+                this.historyList = new jqx.dataAdapter(alertInfo);
+            }
+            this.isAlertsLoaded = true;
+            error => {
+                console.log(error);
+            };
+        });
+    }
     ngOnInit() {
+        this.getSecurityHistoryList();
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -350,30 +401,54 @@ let SecurityMyHistoryComponent = class SecurityMyHistoryComponent {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY hh:mm A") + '</div>';
                 },
                 renderer: columnrenderer
-            }, {
+            },
+            {
                 text: 'Status',
-                datafield: 'alertStatusId_label',
-                cellsrenderer: cellsrenderer,
+                datafield: 'alertStatusId',
+                cellsrenderer: (row, column, value) => {
+                    let status, label;
+                    label = this.historyList.loadedData[row].alertStatusId_label;
+                    if (value == 136) { //inprogress
+                        status = 'orange';
+                    }
+                    else if (value == 137) { //closed
+                        status = 'green';
+                    }
+                    else if (value == 135) { //open
+                        status = 'purple';
+                    }
+                    else if (value == 221) { //cancel
+                        status = 'red';
+                    }
+                    else {
+                        return '<div class="jqx-custom-inner-cell"></div>';
+                    }
+                    return `<div class="jqx-custom-inner-cell">
+            <div class="status-badge bg-status-${status}-700">
+              <span class="font-bold text-status-${status}-900 text-uppercase">${label}</span>
+            </div>
+        </div>`;
+                },
+                width: 180,
                 renderer: columnrenderer
+            }, {
+                text: 'Action',
+                cellsalign: 'center',
+                align: 'center',
+                width: 120,
+                cellsrenderer: (row, column, value) => {
+                    let id_ = this.historyList.loadedData[row].alertStatusId;
+                    if (id_ != 137) {
+                        return '<div class="simple-actions link"  onClick="cancelAlert(' + row + ')">'
+                            + '<img src="assets/images/checkin-icon.svg" class="svg" width="17" height="17" alt="Cancel">'
+                            + '</div>';
+                    }
+                    else
+                        return '<div class="jqx-custom-inner-cell"></div>';
+                },
+                renderer: columnrenderer,
             }
         ];
-        let params = {
-            'apartmentBlockUnitId': this.sessionService.apartmentBlockUnitID
-        };
-        this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe((res) => {
-            if (res.length > 0) {
-                this.totalItems = res.length;
-                let alertInfo = {
-                    localdata: res.reverse(),
-                    datatype: "array"
-                };
-                this.historyList = new jqx.dataAdapter(alertInfo);
-            }
-            this.isAlertsLoaded = true;
-            error => {
-                console.log(error);
-            };
-        });
     }
 };
 SecurityMyHistoryComponent.ctorParameters = () => [
@@ -384,7 +459,8 @@ SecurityMyHistoryComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 SecurityMyHistoryComponent.propDecorators = {
-    dataGrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['dataGrid', { static: false },] }]
+    dataGrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['dataGrid', { static: false },] }],
+    onCancelAlert: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onCancelAlert', ['$event.detail'],] }]
 };
 SecurityMyHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -399,6 +475,15 @@ SecurityMyHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], SecurityMyHistoryComponent);
 
+function cancelAlert(row) {
+    var event = new CustomEvent('onCancelAlert', {
+        detail: {
+            rowId: row,
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.cancelAlert = cancelAlert;
 
 
 /***/ }),

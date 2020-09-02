@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-upload-drawer-wrapper\">\n    <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n    <ng-container>\n        <div class=\"title\">\n            <h4> Upload </h4>\n            <div class=\"ml-auto\">\n                <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button>\n            </div>\n        </div>\n        <p>Drawer Opened</p>\n    </ng-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-upload-drawer-wrapper\">\n    <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n    <!-- addUserDocument -->\n    <ng-container>\n        <div class=\"title\">\n            <h4>\n                <span *ngIf=\"urlType == 'add'\">Create Document</span>\n                <span *ngIf=\"urlType == 'view'\">View Document</span>\n            </h4>\n            <div class=\"ml-auto\">\n                <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button>\n            </div>\n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Document Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.UserDocumentName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-12\">\n                    <condo-select \n                        labelText=\"Document Category\"\n                        fieldPlaceholder=\"Document Category\"\n                        [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                        fieldValue=\"lookupValueName\"\n                        [fieldModel]=\"document.UserDocumentCategoryId\"\n                        fieldId=\"lookupValueId\"\n                        (fieldParams)=\"setDocCategory($event)\" \n                    ></condo-select>  \n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.Description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"text-right mb-4\">\n                        <button mat-button [color]=\"'primary'\" (click)=\"addFileUpload()\">Add FileUpload</button>\n                    </div>\n                    <div class=\"mb-3\" *ngFor=\"let data of fileUploadList;let i=index\">\n                        <mat-icon [color]=\"'warn'\" class=\"close link float-right\" [svgIcon]=\"'close'\" (click)=\"deleteFileUpload(i)\"></mat-icon>\n                        <app-upload [fileId]=\"data.FileDetailsId\" (fileIdChanged)=\"getFileId($event,data)\"></app-upload>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button class=\"float-right\" mat-flat-button  [color]=\"'primary'\" (click)=\"createDocument()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </ng-container>\n</div>");
 
 /***/ }),
 
@@ -165,6 +165,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_upload_drawer_user_upload_drawer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-upload-drawer/user-upload-drawer.component */ "./src/app/modules/ams/documents/components/user-lists/user-upload-drawer/user-upload-drawer.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/modules/ui/upload/upload.module */ "./src/app/modules/ui/upload/upload.module.ts");
+
+
 
 
 
@@ -187,7 +191,9 @@ UserListModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_7__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"],
-            _user_list_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserListRoutingModule"]
+            _user_list_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserListRoutingModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"],
+            src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_10__["UploadModule"]
         ]
     })
 ], UserListModule);
@@ -310,7 +316,7 @@ let UserTableListComponent = class UserTableListComponent {
             route = route.firstChild;
         }
         this.sharedService.setMatDrawerId(dataRecord.userID);
-        this.router.navigate([this.router.url + '/', 'edit', dataRecord.userID], { relativeTo: route });
+        this.router.navigate([this.router.url + '/', detail.type, dataRecord.userID], { relativeTo: route });
         this.changeDetectorRef.markForCheck();
     }
     searchData() {
@@ -387,7 +393,8 @@ let UserTableListComponent = class UserTableListComponent {
                 align: 'center',
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" onClick="uploadDocDrawer(' + row + ')"><i class="fa fa-eye icon edit" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" class="mr-2" onClick="uploadDocDrawer(' + row + ', \'add\')" title="Add Document"><i class="fa fa-edit icon edit" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" onClick="uploadDocDrawer(' + row + ', \'view\')" title="View Document"><i class="fa fa-eye icon edit" aria-hidden="true"></i></a>'
                         + '</div>';
                 },
                 width: 100,
@@ -423,10 +430,11 @@ UserTableListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])
 ], UserTableListComponent);
 
-function uploadDocDrawer(row) {
+function uploadDocDrawer(row, method) {
     var event = new CustomEvent('onUploadDocDrawer', {
         detail: {
-            rowId: row
+            rowId: row,
+            type: method
         }
     });
     window.dispatchEvent(event);
@@ -445,7 +453,7 @@ window.uploadDocDrawer = uploadDocDrawer;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".user-upload-drawer-wrapper {\n  padding: 30px 25px 30px 25px;\n}\n.user-upload-drawer-wrapper .title {\n  display: flex;\n  margin: 0 0 30px 0;\n}\n.user-upload-drawer-wrapper .title h4 {\n  padding: 10px 0 0 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZG9jdW1lbnRzL2NvbXBvbmVudHMvdXNlci1saXN0cy91c2VyLXVwbG9hZC1kcmF3ZXIvdXNlci11cGxvYWQtZHJhd2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksNEJBQUE7QUFDSjtBQUFJO0VBQ0ksYUFBQTtFQUNBLGtCQUFBO0FBRVI7QUFEUTtFQUNJLDhCQUFBO0FBR1oiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2Ftcy9kb2N1bWVudHMvY29tcG9uZW50cy91c2VyLWxpc3RzL3VzZXItdXBsb2FkLWRyYXdlci91c2VyLXVwbG9hZC1kcmF3ZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXNlci11cGxvYWQtZHJhd2VyLXdyYXBwZXIge1xuICAgIHBhZGRpbmc6IDMwcHggMjVweCAzMHB4IDI1cHg7XG4gICAgLnRpdGxlIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgbWFyZ2luOiAwIDAgMzBweCAwO1xuICAgICAgICBoNCB7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDAgMCAwICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".user-upload-drawer-wrapper {\n  padding: 30px 25px 30px 25px;\n}\n.user-upload-drawer-wrapper .title {\n  display: flex;\n  margin: 0 0 10px 0;\n}\n.user-upload-drawer-wrapper .title h4 {\n  padding: 10px 0 0 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvZG9jdW1lbnRzL2NvbXBvbmVudHMvdXNlci1saXN0cy91c2VyLXVwbG9hZC1kcmF3ZXIvdXNlci11cGxvYWQtZHJhd2VyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksNEJBQUE7QUFDSjtBQUFJO0VBQ0ksYUFBQTtFQUNBLGtCQUFBO0FBRVI7QUFEUTtFQUNJLDhCQUFBO0FBR1oiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2Ftcy9kb2N1bWVudHMvY29tcG9uZW50cy91c2VyLWxpc3RzL3VzZXItdXBsb2FkLWRyYXdlci91c2VyLXVwbG9hZC1kcmF3ZXIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXNlci11cGxvYWQtZHJhd2VyLXdyYXBwZXIge1xuICAgIHBhZGRpbmc6IDMwcHggMjVweCAzMHB4IDI1cHg7XG4gICAgLnRpdGxlIHtcbiAgICAgICAgZGlzcGxheTogZmxleDtcbiAgICAgICAgbWFyZ2luOiAwIDAgMTBweCAwO1xuICAgICAgICBoNCB7XG4gICAgICAgICAgICBwYWRkaW5nOiAxMHB4IDAgMCAwICFpbXBvcnRhbnQ7XG4gICAgICAgIH1cbiAgICB9XG59Il19 */");
 
 /***/ }),
 
@@ -465,6 +473,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+
+
 
 
 
@@ -472,23 +484,81 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UserUploadDrawerComponent = class UserUploadDrawerComponent {
-    constructor(sharedService, activeRouter, sessionService, changeDetectorRef, router, userTableListComponent) {
+    constructor(sharedService, activeRouter, sessionService, changeDetectorRef, router, lookupService, userTableListComponent, documentService) {
         this.sharedService = sharedService;
         this.activeRouter = activeRouter;
         this.sessionService = sessionService;
         this.changeDetectorRef = changeDetectorRef;
         this.router = router;
+        this.lookupService = lookupService;
         this.userTableListComponent = userTableListComponent;
+        this.documentService = documentService;
+        this.document = {
+            UserDocumentName: ''
+        };
+        this.documentCategoryList = [];
+        this.fileUploadList = [{ FileDetailsId: null }];
     }
     goBack() {
         this.userTableListComponent.matDrawer.close();
         this.router.navigate(['.'], { relativeTo: this.activeRouter.parent });
     }
+    setDocCategory(event) {
+        this.document.UserDocumentCategoryId = event[0].lookupValueId;
+    }
+    getDocumentCategoryList() {
+        let params = {
+            LookupTypeId: 62
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+            this.documentCategoryList = res;
+        });
+    }
+    getFileId(event, data) {
+        data.FileDetailsId = event;
+    }
+    addFileUpload() {
+        this.fileUploadList.push({ FileDetailsId: null });
+    }
+    deleteFileUpload(index) {
+        this.fileUploadList.splice(index, 1);
+    }
+    createDocument() {
+        this.fileUploadList.forEach((data) => {
+            if (data.FileDetailsId) {
+                let uploadDetails = {
+                    "ApartmentId": this.sessionService.apartmentId,
+                    "ApartmentBlockUnitId": 102,
+                    "UserDocumentCategoryId": this.document.UserDocumentCategoryId,
+                    "UserDocumentTypeId": 1,
+                    "UserDocumentAccessibleToId": 1,
+                    "UserId": this.document.UserId,
+                    "UserDocumentName": this.document.UserDocumentName,
+                    "Description": this.document.Description,
+                    "IsActive": true,
+                    "InsertedBy": this.sessionService.userId,
+                    "InsertedOn": new Date().toISOString(),
+                    "UpdatedBy": null,
+                    "UpdatedOn": null,
+                    "FileDetailsId": data.FileDetailsId,
+                    "IsPublic": true,
+                    "files": null,
+                };
+                this.documentService.addUserDocument(uploadDetails).subscribe((res) => {
+                }, error => {
+                    console.log(error);
+                });
+            }
+        });
+    }
     ngOnInit() {
         //Open the drawer
         this.apiUnsubcribe = this.sharedService.matdraweridcast.subscribe(id => {
             if (id != null && id == this.activeRouter.params['value'].id) {
+                this.urlType = this.activeRouter.params['value'].type;
+                this.document.UserId = id;
                 this.userTableListComponent.matDrawer.open();
+                this.getDocumentCategoryList();
             }
             //Mark for check
             this.changeDetectorRef.markForCheck();
@@ -504,7 +574,9 @@ UserUploadDrawerComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__["UserTableListComponent"] }
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__["UserTableListComponent"] },
+    { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_7__["DocumentService"] }
 ];
 UserUploadDrawerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -517,7 +589,9 @@ UserUploadDrawerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
-        _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__["UserTableListComponent"]])
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__["UserTableListComponent"],
+        src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_7__["DocumentService"]])
 ], UserUploadDrawerComponent);
 
 

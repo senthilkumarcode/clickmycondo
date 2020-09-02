@@ -1779,7 +1779,7 @@ const routes = [
     { path: 'common', component: _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_5__["FolderListsComponent"] },
     //{ path: 'user/:id', component: FolderListsComponent},
     { path: 'reports', component: _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_6__["DocumentsReportsComponent"] },
-    { path: 'user', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-documents-components-user-lists-user-list-module */ "src-app-modules-ams-documents-components-user-lists-user-list-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/documents/components/user-lists/user-list.module */ "./src/app/modules/ams/documents/components/user-lists/user-list.module.ts")).then(m => m.UserListModule) },
+    { path: 'user', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-documents-components-user-lists-user-list-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-actions-expense-actions~b22e7d86"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-moveinout-tracker-moveinout-tracker-module~modu~b8746bf7"), __webpack_require__.e("src-app-modules-ams-documents-components-user-lists-user-list-module")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/documents/components/user-lists/user-list.module */ "./src/app/modules/ams/documents/components/user-lists/user-list.module.ts")).then(m => m.UserListModule) },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let DocumentsRoutingModule = class DocumentsRoutingModule {

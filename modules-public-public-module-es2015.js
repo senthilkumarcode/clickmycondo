@@ -3686,13 +3686,9 @@ let joinComponent = class joinComponent {
         this.unitName = this.BlockName = this.userType = "";
         this.user = {};
         this.apartmentDetails = {};
-        this.apartmentservice.getAllApartmentsPublic().subscribe((res) => {
-            this.apartmentDetails = res.filter(itm => itm.apartmentName.toLowerCase() === evt.option.value.toLowerCase())[0];
-            this.isApartmentSelected = true;
-            this.searchApartmentText = "";
-        }, error => {
-            console.log(error);
-        });
+        this.apartmentDetails = this.lstApartments.filter(itm => itm.apartmentName.toLowerCase() === evt.option.value.toLowerCase())[0];
+        this.isApartmentSelected = true;
+        this.searchApartmentText = "";
     }
     cancelSignup() {
         this.isApartmentSelected = false;
