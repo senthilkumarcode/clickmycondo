@@ -569,7 +569,7 @@ let UserUploadDrawerComponent = class UserUploadDrawerComponent {
                 this.unitDetails = this.userTableListComponent.unitInfo; //unit information,
                 if (this.urlType == 'view') {
                     let params = {
-                        ApartmentBlockUnitId: 102
+                        ApartmentBlockUnitId: id
                     };
                     this.documentService.getAllDocByApartmentBlockUnitId(params).subscribe((res) => {
                         this.documentViewList = res;

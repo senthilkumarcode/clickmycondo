@@ -88,7 +88,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"slot-confirm-wrapper\">\n  <h5 class=\"font-medium mb-4\">{{allocateSlotData.slotMainTypeName | uppercase}}</h5>\n  <form #slotConfirmation = \"ngForm\">\n    <div class=\"row mb-4\">\n      <div class=\"col-sm-7\">\n        <p class=\"allocate-heading\">Allocate Parking Slot: {{allocateSlotData.slotName}}</p>\n      </div>\n      <div class=\"col-sm-5\">\n        <p class=\"allocate-heading\">Located In : {{allocateSlotData.parkingSlotBlockNumber_Label}}</p>\n      </div>\n    </div>\n    <!-- Unit Owned -->\n    <div class=\"row mb-4\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n      <div class=\"col-sm-6\">\n        <p class=\"allocate-heading\">Contact Name{{allocateSlotData.isPrimaryContactName}}</p>\n      </div>\n    </div>\n    <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n      <div class=\"col-sm-6\">\n        <label>Tower</label>\n          <select name=\"slotBlockno\" id=\"slotBlockno\" [(ngModel)]=\"towerId\" (ngModelChange)=\"getUnits('change')\" class=\"form-control\">\n            <option disabled selected hidden>Select</option>\n            <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n          </select>\n      </div>\n      <div class=\"col-sm-6\">\n        <div class=\"select-box\">\n          <label>Unit No</label>\n          <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"allocateSlotData.apartmentBlockUnitId\" required>\n            <option value=\"\" disabled selected hidden>Select</option>\n            <option *ngFor=\"let item of blockUnit\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n          </select>\n        </div>\n      </div>\n    </div>\n     <!-- Communuity Owned -->\n    <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 300\">\n      <div class=\"col-sm-12\">\n        <div class=\"select-box\">\n            <label>Staff</label>\n            <angular2-multiselect [data]=\"staffsList.dropdownList\" name=\"staffsdropdown\" [(ngModel)]=\"staffsList.selectedItems\" \n            [settings]=\"staffsdropdownSettings\" required>\n            </angular2-multiselect>\n        </div> \n      </div>\n    </div>\n    <div class=\"row mb-2\">\n      <div class=\"col-sm-12\">\n        <div class=\"input-box\">\n          <label>Comments</label>\n          <textarea class=\"comment-box\" placeholder=\"some text here\" [(ngModel)]=\"allocateSlotData.comment\" rows=\"2\" name=\"comment\"></textarea>\n        </div>\n      </div>\n    </div>\n    <div class=\"row btn-wrapper\">\n      <div class=\"col-sm-12 text-right\">\n        <button class=\"btn blue mr-3\" [disabled]=\"slotConfirmation.invalid\" (click)=\"slotAllocation()\">Submit</button>\n        <a href=\"javascript:void(0)\" class=\"btn trans-white\" (click)=\"onDismiss()\">Cancel</a>\n      </div>\n    </div>\n  </form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"slot-confirm-wrapper\">\n  <div class=\"bg-card shadow mb-0\">\n    <div class=\"d-flex mb-4\">\n      <h4>{{allocateSlotData.slotMainTypeName | uppercase}}</h4>\n      <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n    </div>\n    <form #slotConfirmation = \"ngForm\">\n      <div class=\"row\">\n        <div class=\"col-sm-7\">\n          <div class=\"input-box\">\n            <label>Allocate Parking Slot</label>\n            <p>{{allocateSlotData.slotName}}</p>\n          </div>\n        </div>\n        <div class=\"col-sm-5\">\n          <label>Located In</label>\n          <p>{{allocateSlotData.parkingSlotBlockNumber_Label}}</p>\n        </div>\n      </div>\n      <!-- Unit Owned -->\n      <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n        <div class=\"col-sm-6\">\n          <div class=\"input-box\">\n            <label>Contact Name</label>\n            <p>{{allocateSlotData.isPrimaryContactName}}</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 299\">\n        <div class=\"col-sm-6\">\n          <div class=\"select-box\">\n            <label>Tower</label>\n            <select name=\"slotBlockno\" id=\"slotBlockno\" [(ngModel)]=\"towerId\" (ngModelChange)=\"getUnits('change')\" class=\"form-control\">\n              <option disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{item.apartmentBlockNumber}}</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"select-box\">\n            <label>Unit No</label>\n            <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"allocateSlotData.apartmentBlockUnitId\" required>\n              <option value=\"\" disabled selected hidden>Select</option>\n              <option *ngFor=\"let item of blockUnit\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n            </select>\n          </div>\n        </div>\n      </div>\n       <!-- Communuity Owned -->\n      <div class=\"row\" *ngIf=\"allocateSlotData.slotMainTypeId == 300\">\n        <div class=\"col-sm-12\">\n          <condo-select \n          labelText=\"Select Staff\"\n          fieldPlaceholder=\"Select Staff\"\n          [fieldList]=\"staffsList | orderBy : 'staffName'\"\n          fieldValue=\"customLabel\"\n          [fieldModel]=\"allocateSlotData.staffId\"\n          fieldId=\"staffId\"\n          (fieldParams)=\"setStaff($event)\" \n          ></condo-select> \n        </div>\n      </div>\n      <div class=\"row mb-2\">\n        <div class=\"col-sm-12\">\n          <div class=\"input-box\">\n            <label>Comments</label>\n            <textarea class=\"comment-box\" placeholder=\"some text here\" [(ngModel)]=\"allocateSlotData.comment\" rows=\"2\" name=\"comment\"></textarea>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-12\">\n          <button class=\"float-right\" [disabled]=\"slotConfirmation.invalid\"  mat-flat-button  [color]=\"'primary'\" (click)=\"slotAllocation()\">Submit</button>\n        </div>\n      </div>\n    </form>\n  </div>\n</div>";
       /***/
     },
 
@@ -1509,19 +1509,10 @@
           this.allocateSlotData = {};
           this.blockUnit = [];
           this.towerList = [];
-          this.staffsList = {
-            "dropdownList": [],
-            "selectedItems": []
-          };
-          this.staffsdropdownSettings = {};
+          this.staffsList = [];
         }
 
         _createClass(AllocatedSlotConfirmationComponent, [{
-          key: "onDismiss",
-          value: function onDismiss() {
-            this.dialogRef.close(false);
-          }
-        }, {
           key: "getUnits",
           value: function getUnits(type) {
             var _this6 = this;
@@ -1538,6 +1529,11 @@
             }, function (error) {
               console.log(error);
             });
+          }
+        }, {
+          key: "setStaff",
+          value: function setStaff(event) {
+            this.allocateSlotData.staffId = event[0].staffId;
           }
         }, {
           key: "slotAllocation",
@@ -1561,7 +1557,7 @@
               insertedBy: this.allocateSlotData.insertedBy,
               insertedOn: this.allocateSlotData.insertedOn,
               tempApartmentBlockUnitUserId: null,
-              staffId: this.allocateSlotData.slotMainTypeId == 300 ? this.staffsList.selectedItems[0].staffId : null,
+              staffId: this.allocateSlotData.slotMainTypeId == 300 ? this.allocateSlotData.staffId : null,
               updatedBy: parseInt(this.sessionService.userId),
               updatedOn: new Date().toISOString()
             };
@@ -1579,15 +1575,6 @@
           value: function ngOnInit() {
             var _this8 = this;
 
-            this.staffsdropdownSettings = {
-              singleSelection: true,
-              primaryKey: 'staffId',
-              labelKey: 'customLabel',
-              enableSearchFilter: true,
-              enableFilterSelectAll: false,
-              autoPosition: false,
-              maxHeight: 130
-            };
             this.allocateSlotData = this.data;
             this.towerId = this.allocateSlotData.apartmentBlockId;
 
@@ -1607,23 +1594,17 @@
                 console.log(error);
               });
             } else {
+              //community Owned staff
               var staffParms = {
                 apartmentId: this.sessionService.apartmentId,
                 RoleTypeId: this.sessionService.roleTypeId
-              }; //community Owned staff
-
+              };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
                 if (res.length) {
-                  _this8.staffsList.dropdownList = res.filter(function (ele) {
-                    ele.customLabel = "".concat(ele.firstName, " ").concat(ele.lastName, " ").concat(ele.staffCategory_Label);
-                    return ele.isActive;
+                  res.forEach(function (ele) {
+                    ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-
-                  if (_this8.allocateSlotData.staffId) {
-                    _this8.staffsList.selectedItems = _this8.staffsList.dropdownList.filter(function (data) {
-                      return data.staffId == parseInt(_this8.allocateSlotData.staffId);
-                    });
-                  }
+                  _this8.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -3576,8 +3557,8 @@
         }
 
         _createClass(ParkingManageAllocatedSlotsComponent, [{
-          key: "ondeleteSlot",
-          value: function ondeleteSlot(detail) {
+          key: "onDeleteManageAllocate",
+          value: function onDeleteManageAllocate(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var parkingSlotId = dataRecord.parkingSlotId;
             this.modalService.showConfirmModal(parkingSlotId);
@@ -3722,7 +3703,7 @@
               cellsalign: 'center',
               align: 'center',
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editAllocateSlot(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDelete(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editAllocateSlot(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="deleteManageAllocate(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
               },
               minwidth: 100,
               renderer: columnrenderer
@@ -3774,9 +3755,9 @@
             "static": false
           }]
         }],
-        ondeleteSlot: [{
+        onDeleteManageAllocate: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:ondeleteSlot', ['$event.detail']]
+          args: ['window:onDeleteManageAllocate', ['$event.detail']]
         }],
         oneditSlot: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
@@ -3793,8 +3774,8 @@
         "./src/app/modules/ams/parking-management/components/parking-manage-allocated-slots/parking-manage-allocated-slots.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_7__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ParkingManageAllocatedSlotsComponent);
 
-      function showConfirmDelete(row) {
-        var event = new CustomEvent('ondeleteSlot', {
+      function deleteManageAllocate(row) {
+        var event = new CustomEvent('onDeleteManageAllocate', {
           detail: {
             rowId: row
           }
@@ -3802,7 +3783,7 @@
         window.dispatchEvent(event);
       }
 
-      window.showConfirmDelete = showConfirmDelete;
+      window.deleteManageAllocate = deleteManageAllocate;
 
       function editAllocateSlot(row) {
         var event = new CustomEvent('oneditSlot', {
@@ -4393,15 +4374,15 @@
         }
 
         _createClass(ParkingManageParkingSlotsComponent, [{
-          key: "onEditTicket",
-          value: function onEditTicket(detail) {
+          key: "onEditParkingSlot",
+          value: function onEditParkingSlot(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var parkingSlotId = dataRecord.parkingSlotId;
             this.router.navigateByUrl('/ams/parking-management/edit-parking-slot/' + parkingSlotId);
           }
         }, {
-          key: "onTicketDelete",
-          value: function onTicketDelete(detail) {
+          key: "onDeleteParkingSlot",
+          value: function onDeleteParkingSlot(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var parkingSlotId = dataRecord.parkingSlotId;
             this.modalService.showConfirmModal(parkingSlotId);
@@ -4513,7 +4494,7 @@
               cellsalign: 'center',
               align: 'center',
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editParkingSlot(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="deleteParkingSlot(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
               },
               minwidth: 120,
               renderer: columnrenderer
@@ -4567,13 +4548,13 @@
             "static": false
           }]
         }],
-        onEditTicket: [{
+        onEditParkingSlot: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onEditTicket', ['$event.detail']]
+          args: ['window:onEditParkingSlot', ['$event.detail']]
         }],
-        onTicketDelete: [{
+        onDeleteParkingSlot: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onTicketDelete', ['$event.detail']]
+          args: ['window:onDeleteParkingSlot', ['$event.detail']]
         }]
       };
       ParkingManageParkingSlotsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -4586,8 +4567,8 @@
         "./src/app/modules/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]])], ParkingManageParkingSlotsComponent);
 
-      function showConfirmDeleteEvent(row) {
-        var event = new CustomEvent('onTicketDelete', {
+      function deleteParkingSlot(row) {
+        var event = new CustomEvent('onDeleteParkingSlot', {
           detail: {
             rowId: row
           }
@@ -4595,10 +4576,10 @@
         window.dispatchEvent(event);
       }
 
-      window.showConfirmDeleteEvent = showConfirmDeleteEvent;
+      window.deleteParkingSlot = deleteParkingSlot;
 
-      function editTicketEvent(row) {
-        var event = new CustomEvent('onEditTicket', {
+      function editParkingSlot(row) {
+        var event = new CustomEvent('onEditParkingSlot', {
           detail: {
             rowId: row
           }
@@ -4606,7 +4587,7 @@
         window.dispatchEvent(event);
       }
 
-      window.editTicketEvent = editTicketEvent;
+      window.editParkingSlot = editParkingSlot;
       /***/
     },
 
@@ -6395,8 +6376,8 @@
             }
           }
         }, {
-          key: "onTicketDelete",
-          value: function onTicketDelete(detail) {
+          key: "onDeleteSlot",
+          value: function onDeleteSlot(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var slotId = dataRecord.id;
             this.modalService.showConfirmModal(slotId);
@@ -6462,7 +6443,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicketEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editSlot(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="deleteSlot(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a></div>';
               },
               renderer: columnrenderer
             }];
@@ -6576,11 +6557,11 @@
         }],
         onEditTicket: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onEditTicket', ['$event.detail']]
+          args: ['window:onEditSlot', ['$event.detail']]
         }],
-        onTicketDelete: [{
+        onDeleteSlot: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onTicketDelete', ['$event.detail']]
+          args: ['window:onDeleteSlot', ['$event.detail']]
         }]
       };
       ParkingSlotRateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -6593,8 +6574,8 @@
         "./src/app/modules/ams/parking-management/components/parking-slot-rate/parking-slot-rate.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_6__["ParkingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], ParkingSlotRateComponent);
 
-      function showConfirmDeleteEvent(row) {
-        var event = new CustomEvent('onTicketDelete', {
+      function deleteSlot(row) {
+        var event = new CustomEvent('onDeleteSlot', {
           detail: {
             rowId: row
           }
@@ -6602,10 +6583,10 @@
         window.dispatchEvent(event);
       }
 
-      window.showConfirmDeleteEvent = showConfirmDeleteEvent;
+      window.deleteSlot = deleteSlot;
 
-      function editTicketEvent(row) {
-        var event = new CustomEvent('onEditTicket', {
+      function editSlot(row) {
+        var event = new CustomEvent('onEditSlot', {
           detail: {
             rowId: row
           }
@@ -6613,7 +6594,7 @@
         window.dispatchEvent(event);
       }
 
-      window.editTicketEvent = editTicketEvent;
+      window.editSlot = editSlot;
       /***/
     },
 
@@ -7987,217 +7968,223 @@
       /* harmony import */
 
 
-      var _parking_management_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/modules/ui/select/select.module */
+      "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var _parking_management_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./parking-management.component */
       "./src/app/modules/ams/parking-management/parking-management.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_settings_parking_management_settings_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_parking_management_settings_parking_management_settings_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/parking-management-settings/parking-management-settings.component */
       "./src/app/modules/ams/parking-management/components/parking-management-settings/parking-management-settings.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_allotted_parking_management_allotted_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_parking_management_allotted_parking_management_allotted_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/parking-management-allotted/parking-management-allotted.component */
       "./src/app/modules/ams/parking-management/components/parking-management-allotted/parking-management-allotted.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_unallotted_parking_management_unallotted_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_parking_management_unallotted_parking_management_unallotted_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/parking-management-unallotted/parking-management-unallotted.component */
       "./src/app/modules/ams/parking-management/components/parking-management-unallotted/parking-management-unallotted.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_reports_parking_management_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_parking_management_reports_parking_management_reports_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/parking-management-reports/parking-management-reports.component */
       "./src/app/modules/ams/parking-management/components/parking-management-reports/parking-management-reports.component.ts");
       /* harmony import */
 
 
-      var _components_add_slot_add_slot_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_add_slot_add_slot_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/add-slot/add-slot.component */
       "./src/app/modules/ams/parking-management/components/add-slot/add-slot.component.ts");
       /* harmony import */
 
 
-      var _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/add-slot-container/add-slot-container.component */
       "./src/app/modules/ams/parking-management/components/add-slot-container/add-slot-container.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_parking_slots_parking_manage_parking_slots_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_parking_manage_parking_slots_parking_manage_parking_slots_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/parking-manage-parking-slots/parking-manage-parking-slots.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-parking-slots/parking-manage-parking-slots.component.ts");
       /* harmony import */
 
 
-      var _components_parking_create_parking_slot_parking_create_parking_slot_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_parking_create_parking_slot_parking_create_parking_slot_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./components/parking-create-parking-slot/parking-create-parking-slot.component */
       "./src/app/modules/ams/parking-management/components/parking-create-parking-slot/parking-create-parking-slot.component.ts");
       /* harmony import */
 
 
-      var _components_parking_allocate_slots_parking_allocate_slots_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _components_parking_allocate_slots_parking_allocate_slots_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./components/parking-allocate-slots/parking-allocate-slots.component */
       "./src/app/modules/ams/parking-management/components/parking-allocate-slots/parking-allocate-slots.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_allocated_slots_parking_manage_allocated_slots_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _components_parking_manage_allocated_slots_parking_manage_allocated_slots_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./components/parking-manage-allocated-slots/parking-manage-allocated-slots.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-allocated-slots/parking-manage-allocated-slots.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_allocate_availability_list_parking_manage_allocate_availability_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _components_parking_manage_allocate_availability_list_parking_manage_allocate_availability_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ./components/parking-manage-allocate-availability-list/parking-manage-allocate-availability-list.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-allocate-availability-list/parking-manage-allocate-availability-list.component.ts");
       /* harmony import */
 
 
-      var _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ./components/parking-create-parking-booking/parking-create-parking-booking.component */
       "./src/app/modules/ams/parking-management/components/parking-create-parking-booking/parking-create-parking-booking.component.ts");
       /* harmony import */
 
 
-      var _components_parking_view_available_slots_parking_view_available_slots_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _components_parking_view_available_slots_parking_view_available_slots_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! ./components/parking-view-available-slots/parking-view-available-slots.component */
       "./src/app/modules/ams/parking-management/components/parking-view-available-slots/parking-view-available-slots.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_allocate_availability_list_parking_aa_unit_to_unit_allocation_parking_aa_unit_to_unit_allocation_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _components_parking_manage_allocate_availability_list_parking_aa_unit_to_unit_allocation_parking_aa_unit_to_unit_allocation_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ./components/parking-manage-allocate-availability-list/parking-aa-unit-to-unit-allocation/parking-aa-unit-to-unit-allocation.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-allocate-availability-list/parking-aa-unit-to-unit-allocation/parking-aa-unit-to-unit-allocation.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_allocate_availability_list_parking_aa_unit_to_community_parking_aa_unit_to_community_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      var _components_parking_manage_allocate_availability_list_parking_aa_unit_to_community_parking_aa_unit_to_community_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
       /*! ./components/parking-manage-allocate-availability-list/parking-aa-unit-to-community/parking-aa-unit-to-community.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-allocate-availability-list/parking-aa-unit-to-community/parking-aa-unit-to-community.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_allocate_availability_list_parking_aa_community_to_others_parking_aa_community_to_others_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      var _components_parking_manage_allocate_availability_list_parking_aa_community_to_others_parking_aa_community_to_others_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! ./components/parking-manage-allocate-availability-list/parking-aa-community-to-others/parking-aa-community-to-others.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-allocate-availability-list/parking-aa-community-to-others/parking-aa-community-to-others.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_booking_parking_manage_booking_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
+      var _components_parking_manage_booking_parking_manage_booking_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! ./components/parking-manage-booking/parking-manage-booking.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-booking/parking-manage-booking.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_booking_parking_manage_booking_community_to_other_parking_manage_booking_community_to_other_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      var _components_parking_manage_booking_parking_manage_booking_community_to_other_parking_manage_booking_community_to_other_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
       /*! ./components/parking-manage-booking/parking-manage-booking-community-to-other/parking-manage-booking-community-to-other.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-booking/parking-manage-booking-community-to-other/parking-manage-booking-community-to-other.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_booking_parking_manage_booking_unit_to_community_parking_manage_booking_unit_to_community_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      var _components_parking_manage_booking_parking_manage_booking_unit_to_community_parking_manage_booking_unit_to_community_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
       /*! ./components/parking-manage-booking/parking-manage-booking-unit-to-community/parking-manage-booking-unit-to-community.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-booking/parking-manage-booking-unit-to-community/parking-manage-booking-unit-to-community.component.ts");
       /* harmony import */
 
 
-      var _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
+      var _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
       /*! ./components/parking-admin-view-booking/parking-admin-view-booking.component */
       "./src/app/modules/ams/parking-management/components/parking-admin-view-booking/parking-admin-view-booking.component.ts");
       /* harmony import */
 
 
-      var _components_parking_admin_view_booking_parking_booking_view_community_owned_to_unit_parking_booking_view_community_owned_to_unit_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+      var _components_parking_admin_view_booking_parking_booking_view_community_owned_to_unit_parking_booking_view_community_owned_to_unit_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
       /*! ./components/parking-admin-view-booking/parking-booking-view-community-owned-to-unit/parking-booking-view-community-owned-to-unit.component */
       "./src/app/modules/ams/parking-management/components/parking-admin-view-booking/parking-booking-view-community-owned-to-unit/parking-booking-view-community-owned-to-unit.component.ts");
       /* harmony import */
 
 
-      var _components_parking_admin_view_booking_parking_booking_view_community_owned_to_vistor_parking_booking_view_community_owned_to_vistor_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(
+      var _components_parking_admin_view_booking_parking_booking_view_community_owned_to_vistor_parking_booking_view_community_owned_to_vistor_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
       /*! ./components/parking-admin-view-booking/parking-booking-view-community-owned-to-vistor/parking-booking-view-community-owned-to-vistor.component */
       "./src/app/modules/ams/parking-management/components/parking-admin-view-booking/parking-booking-view-community-owned-to-vistor/parking-booking-view-community-owned-to-vistor.component.ts");
       /* harmony import */
 
 
-      var _components_parking_setup_parking_setup_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(
+      var _components_parking_setup_parking_setup_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
       /*! ./components/parking-setup/parking-setup.component */
       "./src/app/modules/ams/parking-management/components/parking-setup/parking-setup.component.ts");
       /* harmony import */
 
 
-      var _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(
+      var _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
       /*! ./components/add-vehicle/add-vehicle.component */
       "./src/app/modules/ams/parking-management/components/add-vehicle/add-vehicle.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_settings_parking_add_setup_vehicle_type_parking_add_setup_vehicle_type_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(
+      var _components_parking_management_settings_parking_add_setup_vehicle_type_parking_add_setup_vehicle_type_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
       /*! ./components/parking-management-settings/parking-add-setup-vehicle-type/parking-add-setup-vehicle-type.component */
       "./src/app/modules/ams/parking-management/components/parking-management-settings/parking-add-setup-vehicle-type/parking-add-setup-vehicle-type.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_vehicle_types_parking_management_vehicle_types_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
+      var _components_parking_management_vehicle_types_parking_management_vehicle_types_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
       /*! ./components/parking-management-vehicle-types/parking-management-vehicle-types.component */
       "./src/app/modules/ams/parking-management/components/parking-management-vehicle-types/parking-management-vehicle-types.component.ts");
       /* harmony import */
 
 
-      var _components_parking_management_slot_types_parking_management_slot_types_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+      var _components_parking_management_slot_types_parking_management_slot_types_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
       /*! ./components/parking-management-slot-types/parking-management-slot-types.component */
       "./src/app/modules/ams/parking-management/components/parking-management-slot-types/parking-management-slot-types.component.ts");
       /* harmony import */
 
 
-      var _components_parking_slot_rate_parking_slot_rate_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+      var _components_parking_slot_rate_parking_slot_rate_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
       /*! ./components/parking-slot-rate/parking-slot-rate.component */
       "./src/app/modules/ams/parking-management/components/parking-slot-rate/parking-slot-rate.component.ts");
       /* harmony import */
 
 
-      var _components_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(
+      var _components_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
       /*! ./components/allocated-slot-confirmation/allocated-slot-confirmation.component */
       "./src/app/modules/ams/parking-management/components/allocated-slot-confirmation/allocated-slot-confirmation.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_booking_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(
+      var _components_parking_manage_booking_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
       /*! ./components/parking-manage-booking/booking-confirmation/booking-confirmation.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-booking/booking-confirmation/booking-confirmation.component.ts");
       /* harmony import */
 
 
-      var _components_set_parking_availablity_set_parking_availablity_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(
+      var _components_set_parking_availablity_set_parking_availablity_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
       /*! ./components/set-parking-availablity/set-parking-availablity.component */
       "./src/app/modules/ams/parking-management/components/set-parking-availablity/set-parking-availablity.component.ts");
       /* harmony import */
 
 
-      var _components_set_parking_availablity_unit_parking_availablity_unit_parking_availablity_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(
+      var _components_set_parking_availablity_unit_parking_availablity_unit_parking_availablity_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
       /*! ./components/set-parking-availablity/unit-parking-availablity/unit-parking-availablity.component */
       "./src/app/modules/ams/parking-management/components/set-parking-availablity/unit-parking-availablity/unit-parking-availablity.component.ts");
       /* harmony import */
 
 
-      var _components_set_parking_availablity_community_parking_availablity_community_parking_availablity_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(
+      var _components_set_parking_availablity_community_parking_availablity_community_parking_availablity_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
       /*! ./components/set-parking-availablity/community-parking-availablity/community-parking-availablity.component */
       "./src/app/modules/ams/parking-management/components/set-parking-availablity/community-parking-availablity/community-parking-availablity.component.ts");
       /* harmony import */
 
 
-      var _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(
+      var _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
       /*! ./components/set-parking-availablity/create-availablity/create-availablity.component */
       "./src/app/modules/ams/parking-management/components/set-parking-availablity/create-availablity/create-availablity.component.ts");
       /* harmony import */
 
 
-      var _components_parking_manage_filter_parking_manage_filter_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(
+      var _components_parking_manage_filter_parking_manage_filter_component__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(
       /*! ./components/parking-manage-filter/parking-manage-filter.component */
       "./src/app/modules/ams/parking-management/components/parking-manage-filter/parking-manage-filter.component.ts");
 
@@ -8206,9 +8193,9 @@
       };
 
       ParkingManagementModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_components_parking_management_settings_parking_management_settings_component__WEBPACK_IMPORTED_MODULE_7__["ParkingManagementSettingsComponent"], _components_parking_management_allotted_parking_management_allotted_component__WEBPACK_IMPORTED_MODULE_8__["ParkingManagementAllottedComponent"], _components_parking_management_unallotted_parking_management_unallotted_component__WEBPACK_IMPORTED_MODULE_9__["ParkingManagementUnallottedComponent"], _components_parking_management_reports_parking_management_reports_component__WEBPACK_IMPORTED_MODULE_10__["ParkingManagementReportsComponent"], _parking_management_component__WEBPACK_IMPORTED_MODULE_6__["ParkingManagementComponent"], _components_parking_manage_parking_slots_parking_manage_parking_slots_component__WEBPACK_IMPORTED_MODULE_13__["ParkingManageParkingSlotsComponent"], _components_parking_create_parking_slot_parking_create_parking_slot_component__WEBPACK_IMPORTED_MODULE_14__["ParkingCreateParkingSlotComponent"], _components_parking_allocate_slots_parking_allocate_slots_component__WEBPACK_IMPORTED_MODULE_15__["ParkingAllocateSlotsComponent"], _components_parking_manage_allocated_slots_parking_manage_allocated_slots_component__WEBPACK_IMPORTED_MODULE_16__["ParkingManageAllocatedSlotsComponent"], _components_parking_manage_allocate_availability_list_parking_manage_allocate_availability_list_component__WEBPACK_IMPORTED_MODULE_17__["ParkingManageAllocateAvailabilityListComponent"], _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_18__["ParkingCreateParkingBookingComponent"], _components_parking_view_available_slots_parking_view_available_slots_component__WEBPACK_IMPORTED_MODULE_19__["ParkingViewAvailableSlotsComponent"], _components_parking_manage_booking_parking_manage_booking_component__WEBPACK_IMPORTED_MODULE_23__["ParkingManageBookingComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_unit_allocation_parking_aa_unit_to_unit_allocation_component__WEBPACK_IMPORTED_MODULE_20__["ParkingAaUnitToUnitAllocationComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_community_parking_aa_unit_to_community_component__WEBPACK_IMPORTED_MODULE_21__["ParkingAaUnitToCommunityComponent"], _components_parking_manage_allocate_availability_list_parking_aa_community_to_others_parking_aa_community_to_others_component__WEBPACK_IMPORTED_MODULE_22__["ParkingAaCommunityToOthersComponent"], _components_parking_manage_booking_parking_manage_booking_community_to_other_parking_manage_booking_community_to_other_component__WEBPACK_IMPORTED_MODULE_24__["ParkingManageBookingCommunityToOtherComponent"], _components_parking_manage_booking_parking_manage_booking_unit_to_community_parking_manage_booking_unit_to_community_component__WEBPACK_IMPORTED_MODULE_25__["ParkingManageBookingUnitToCommunityComponent"], _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_26__["ParkingAdminViewBookingComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_unit_parking_booking_view_community_owned_to_unit_component__WEBPACK_IMPORTED_MODULE_27__["ParkingBookingViewCommunityOwnedToUnitComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_vistor_parking_booking_view_community_owned_to_vistor_component__WEBPACK_IMPORTED_MODULE_28__["ParkingBookingViewCommunityOwnedToVistorComponent"], _components_parking_setup_parking_setup_component__WEBPACK_IMPORTED_MODULE_29__["ParkingSetupComponent"], _components_add_slot_add_slot_component__WEBPACK_IMPORTED_MODULE_11__["AddSlotComponent"], _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_12__["AddSlotContainerComponent"], _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_30__["AddVehicleComponent"], _components_parking_management_settings_parking_add_setup_vehicle_type_parking_add_setup_vehicle_type_component__WEBPACK_IMPORTED_MODULE_31__["ParkingAddSetupVehicleTypeComponent"], _components_parking_management_vehicle_types_parking_management_vehicle_types_component__WEBPACK_IMPORTED_MODULE_32__["ParkingManagementVehicleTypesComponent"], _components_parking_management_slot_types_parking_management_slot_types_component__WEBPACK_IMPORTED_MODULE_33__["ParkingManagementSlotTypesComponent"], _components_parking_slot_rate_parking_slot_rate_component__WEBPACK_IMPORTED_MODULE_34__["ParkingSlotRateComponent"], _components_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_35__["AllocatedSlotConfirmationComponent"], _components_parking_manage_booking_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_36__["BookingConfirmationComponent"], _components_set_parking_availablity_set_parking_availablity_component__WEBPACK_IMPORTED_MODULE_37__["SetParkingAvailablityComponent"], _components_set_parking_availablity_unit_parking_availablity_unit_parking_availablity_component__WEBPACK_IMPORTED_MODULE_38__["UnitParkingAvailablityComponent"], _components_set_parking_availablity_community_parking_availablity_community_parking_availablity_component__WEBPACK_IMPORTED_MODULE_39__["CommunityParkingAvailablityComponent"], _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_40__["CreateAvailablityComponent"], _components_parking_manage_filter_parking_manage_filter_component__WEBPACK_IMPORTED_MODULE_41__["ParkingManageFilterComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _parking_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ParkingManagementRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"]],
-        bootstrap: [_parking_management_component__WEBPACK_IMPORTED_MODULE_6__["ParkingManagementComponent"]]
+        declarations: [_components_parking_management_settings_parking_management_settings_component__WEBPACK_IMPORTED_MODULE_8__["ParkingManagementSettingsComponent"], _components_parking_management_allotted_parking_management_allotted_component__WEBPACK_IMPORTED_MODULE_9__["ParkingManagementAllottedComponent"], _components_parking_management_unallotted_parking_management_unallotted_component__WEBPACK_IMPORTED_MODULE_10__["ParkingManagementUnallottedComponent"], _components_parking_management_reports_parking_management_reports_component__WEBPACK_IMPORTED_MODULE_11__["ParkingManagementReportsComponent"], _parking_management_component__WEBPACK_IMPORTED_MODULE_7__["ParkingManagementComponent"], _components_parking_manage_parking_slots_parking_manage_parking_slots_component__WEBPACK_IMPORTED_MODULE_14__["ParkingManageParkingSlotsComponent"], _components_parking_create_parking_slot_parking_create_parking_slot_component__WEBPACK_IMPORTED_MODULE_15__["ParkingCreateParkingSlotComponent"], _components_parking_allocate_slots_parking_allocate_slots_component__WEBPACK_IMPORTED_MODULE_16__["ParkingAllocateSlotsComponent"], _components_parking_manage_allocated_slots_parking_manage_allocated_slots_component__WEBPACK_IMPORTED_MODULE_17__["ParkingManageAllocatedSlotsComponent"], _components_parking_manage_allocate_availability_list_parking_manage_allocate_availability_list_component__WEBPACK_IMPORTED_MODULE_18__["ParkingManageAllocateAvailabilityListComponent"], _components_parking_create_parking_booking_parking_create_parking_booking_component__WEBPACK_IMPORTED_MODULE_19__["ParkingCreateParkingBookingComponent"], _components_parking_view_available_slots_parking_view_available_slots_component__WEBPACK_IMPORTED_MODULE_20__["ParkingViewAvailableSlotsComponent"], _components_parking_manage_booking_parking_manage_booking_component__WEBPACK_IMPORTED_MODULE_24__["ParkingManageBookingComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_unit_allocation_parking_aa_unit_to_unit_allocation_component__WEBPACK_IMPORTED_MODULE_21__["ParkingAaUnitToUnitAllocationComponent"], _components_parking_manage_allocate_availability_list_parking_aa_unit_to_community_parking_aa_unit_to_community_component__WEBPACK_IMPORTED_MODULE_22__["ParkingAaUnitToCommunityComponent"], _components_parking_manage_allocate_availability_list_parking_aa_community_to_others_parking_aa_community_to_others_component__WEBPACK_IMPORTED_MODULE_23__["ParkingAaCommunityToOthersComponent"], _components_parking_manage_booking_parking_manage_booking_community_to_other_parking_manage_booking_community_to_other_component__WEBPACK_IMPORTED_MODULE_25__["ParkingManageBookingCommunityToOtherComponent"], _components_parking_manage_booking_parking_manage_booking_unit_to_community_parking_manage_booking_unit_to_community_component__WEBPACK_IMPORTED_MODULE_26__["ParkingManageBookingUnitToCommunityComponent"], _components_parking_admin_view_booking_parking_admin_view_booking_component__WEBPACK_IMPORTED_MODULE_27__["ParkingAdminViewBookingComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_unit_parking_booking_view_community_owned_to_unit_component__WEBPACK_IMPORTED_MODULE_28__["ParkingBookingViewCommunityOwnedToUnitComponent"], _components_parking_admin_view_booking_parking_booking_view_community_owned_to_vistor_parking_booking_view_community_owned_to_vistor_component__WEBPACK_IMPORTED_MODULE_29__["ParkingBookingViewCommunityOwnedToVistorComponent"], _components_parking_setup_parking_setup_component__WEBPACK_IMPORTED_MODULE_30__["ParkingSetupComponent"], _components_add_slot_add_slot_component__WEBPACK_IMPORTED_MODULE_12__["AddSlotComponent"], _components_add_slot_container_add_slot_container_component__WEBPACK_IMPORTED_MODULE_13__["AddSlotContainerComponent"], _components_add_vehicle_add_vehicle_component__WEBPACK_IMPORTED_MODULE_31__["AddVehicleComponent"], _components_parking_management_settings_parking_add_setup_vehicle_type_parking_add_setup_vehicle_type_component__WEBPACK_IMPORTED_MODULE_32__["ParkingAddSetupVehicleTypeComponent"], _components_parking_management_vehicle_types_parking_management_vehicle_types_component__WEBPACK_IMPORTED_MODULE_33__["ParkingManagementVehicleTypesComponent"], _components_parking_management_slot_types_parking_management_slot_types_component__WEBPACK_IMPORTED_MODULE_34__["ParkingManagementSlotTypesComponent"], _components_parking_slot_rate_parking_slot_rate_component__WEBPACK_IMPORTED_MODULE_35__["ParkingSlotRateComponent"], _components_allocated_slot_confirmation_allocated_slot_confirmation_component__WEBPACK_IMPORTED_MODULE_36__["AllocatedSlotConfirmationComponent"], _components_parking_manage_booking_booking_confirmation_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_37__["BookingConfirmationComponent"], _components_set_parking_availablity_set_parking_availablity_component__WEBPACK_IMPORTED_MODULE_38__["SetParkingAvailablityComponent"], _components_set_parking_availablity_unit_parking_availablity_unit_parking_availablity_component__WEBPACK_IMPORTED_MODULE_39__["UnitParkingAvailablityComponent"], _components_set_parking_availablity_community_parking_availablity_community_parking_availablity_component__WEBPACK_IMPORTED_MODULE_40__["CommunityParkingAvailablityComponent"], _components_set_parking_availablity_create_availablity_create_availablity_component__WEBPACK_IMPORTED_MODULE_41__["CreateAvailablityComponent"], _components_parking_manage_filter_parking_manage_filter_component__WEBPACK_IMPORTED_MODULE_42__["ParkingManageFilterComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _parking_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ParkingManagementRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"]],
+        bootstrap: [_parking_management_component__WEBPACK_IMPORTED_MODULE_7__["ParkingManagementComponent"]]
       })], ParkingManagementModule);
       /***/
     }

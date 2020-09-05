@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"income-sub-ledger-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t\t<div class=\"bg-card shadow filter-box\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t<div>\n\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t<button mat-flat-button\n\t\t\t\t\t\tclass=\"mr-3\" \n\t\t\t\t\t\t[ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t(click)=\"getAllBlockData('all')\">All Towers</button>\n\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t[ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\"\n\t\t\t\t\t\t[matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\"\n\t\t\t\t\t\t\t\t[xPosition]=\"'before'\"\n\t\t\t\t\t\t\t\t#singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of blockListData\">\n\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Sub Ledgers</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t<div class=\"p-4 border-top\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Amount Due : <span class=\"ml-1 text-hint\">{{totalDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Excess Payments & Incentives Due : <span class=\"ml-1 text-hint\">{{totalDueAmount - netDueAmount  | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Net Amount : <span class=\"ml-1 text-hint\">{{netDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\n\t\t</condo-card>\n\n\t</div>\n\n</div>\n\n<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n\t<div class=\"menu-info rel\">\n\t  <div class=\"close-icon\" mat-dialog-close>\n\t\t  <i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t  </div>\n\t  <div class=\"title\">\n\t\t  <h5>Select Invoice Types</h5>\n\t  </div>\n\t  <div class=\"card\">\n\t\t  <div class=\"card-body p-0 lists other\">\n\t\t\t  <ul class=\"list-group\">\n\t\t\t\t  <li class=\"list-inline-item\">\n\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t\t  routerLinkActive=\"active\"\n\t\t\t\t\t  [routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Single Line</a>\n\t\t\t\t  </li>\n\t\t\t\t  <li class=\"list-inline-item\">\n\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"tc-d-grey\" routerLink=\"/ams/income/post-multi-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t\t  routerLinkActive=\"active\"\n\t\t\t\t\t  [routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Invoice - Multi Line</a>\n\t\t\t\t  </li>\n\t\t\t\t  <li class=\"list-inline-item\">\n\t\t\t\t\t  <a href=\"javascript:void(0)\" class=\"tc-d-grey\" \n\t\t\t\t\t  [ngClass]=\"ledger.isInvoiceAvailable ? '' : 'disabled'\"\n\t\t\t\t\t  routerLink=\"/ams/income/add-credit/{{ledger.apartmentBlockUnitId}}/new\" \n\t\t\t\t\t  routerLinkActive=\"active\"\n\t\t\t\t\t  [routerLinkActiveOptions] = \"{exact:true}\" (click)=\"dialogClose()\">Credit Note</a>\n\t\t\t\t  </li>\n\t\t\t  </ul>\n\t\t  </div>\n\t  </div>\n  </div>\n\n</ng-template>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"income-sub-ledger-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t\t<div class=\"bg-card shadow filter-box\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t<div>\n\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t<button mat-flat-button\n\t\t\t\t\t\tclass=\"mr-3 mb-md-3\" \n\t\t\t\t\t\t[ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t(click)=\"getAllBlockData('all')\">All Towers</button>\n\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t[ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\"\n\t\t\t\t\t\t[matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\"\n\t\t\t\t\t\t\t\t[xPosition]=\"'before'\"\n\t\t\t\t\t\t\t\t#singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of blockListData\">\n\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Sub Ledgers</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t<div class=\"p-4 border-top\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Amount Due : <span class=\"ml-1 text-hint\">{{totalDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Excess Payments & Incentives Due : <span class=\"ml-1 text-hint\">{{totalDueAmount - netDueAmount  | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Net Amount : <span class=\"ml-1 text-hint\">{{netDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\n\t\t</condo-card>\n\n\t</div>\n\n</div>\n\n<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n\t<div class=\"info-modal-box rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<div>\n\t\t\t<mat-list>\n\t\t\t\t<mat-list-item class=\"border-bottom\" routerLink=\"/ams/income/post-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Single Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t\t<mat-list-item routerLink=\"/ams/income/post-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Multi Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t</mat-list>\n\t\t</div>\n  \t</div>\n\n</ng-template>\n");
 
 /***/ }),
 
@@ -165,29 +165,25 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
         let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
         this.router.navigateByUrl('/ams/income/view-invoice-history/' + apartmentBlockUnitId);
     }
-    onShowSingleInvoice(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
-        this.router.navigateByUrl('/ams/income/post-invoice/' + apartmentBlockUnitId + '/single');
-    }
-    onShowMultiInvoice(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
-        this.router.navigateByUrl('/ams/income/post-invoice/' + apartmentBlockUnitId + '/multi');
-    }
     onActions(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.sharedService.setActionIncomeTrackerIndex(dataRecord.apartmentBlockUnitId);
         this.router.navigateByUrl('/ams/income/actions/pay-invoice/' + dataRecord.apartmentBlockUnitId);
     }
     onInvoiceDropDown(detail) {
-        var datainfo = this.datagrid.getdatainformation();
+        let ledger = this.datagrid.getrowdata(detail.rowId);
+        /*var datainfo:any = this.datagrid.getdatainformation();
         let paginginfo = datainfo.paginginformation;
-        let rowIndex = Math.min(datainfo.rowscount, (paginginfo.pagenum + 1) * paginginfo.pagesize) - (paginginfo.pagenum * paginginfo.pagesize);
-        if ((rowIndex * (paginginfo.pagenum + 1)) == detail.rowId + 1) {
-            var elem = document.querySelector('.simple-action-index' + detail.rowId);
-            elem.classList.add('dropup');
-        }
+        let rowIndex = Math.min(datainfo.rowscount, (paginginfo.pagenum + 1) * paginginfo.pagesize) - (paginginfo.pagenum * paginginfo.pagesize)
+    
+        if((rowIndex*(paginginfo.pagenum+1)) == detail.rowId+1){
+          var elem = document.querySelector('.simple-action-index' + detail.rowId)
+          elem.classList.add('dropup')
+        }*/
+        this.dialog.open(this.viewInvoiceTypeRef, {
+            panelClass: 'material-dialog-small',
+            data: ledger
+        });
     }
     onGlSearchFilter() {
         if (this.subLedgerData != "") {
@@ -279,10 +275,6 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
                         + '<a href="javascript:void(0)" class="mat-flat-button mat-accent button-md n-text mr-2" onClick="invoiceDropDownEvent(' + row + ')" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">'
                         + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>'
                         + '</a>'
-                        + '<div class="dropdown-menu table-action-menu dropdown-menu-right invoice-dropdown-menu' + row + '" aria-labelledby="invoiceDropDown">'
-                        + '<a href="javascript:void(0)" onClick="showSingleInvoiceEvent(' + row + ')">Post Single Invoice</a>'
-                        + '<a href="javascript:void(0)" onClick="showMultiInvoiceEvent(' + row + ')">Post Multi Invoice</a>'
-                        + '</div>'
                         + '<a href="javascript:void(0)" class="mat-flat-button button-md text-smr bg-gray-500 text-gray-100 n-text" onClick="actionEvent(' + row + ')">'
                         + 'Action'
                         + '</a>'
@@ -328,8 +320,6 @@ IncomeSubledgerComponent.propDecorators = {
     viewInvoiceTypeRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["viewInvoiceTypeRef", { static: false },] }],
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
     onViewHistory: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onViewHistory', ['$event.detail'],] }],
-    onShowSingleInvoice: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onShowSingleInvoice', ['$event.detail'],] }],
-    onShowMultiInvoice: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onShowMultiInvoice', ['$event.detail'],] }],
     onActions: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onActions', ['$event.detail'],] }],
     onInvoiceDropDown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onInvoiceDropDown', ['$event.detail'],] }]
 };

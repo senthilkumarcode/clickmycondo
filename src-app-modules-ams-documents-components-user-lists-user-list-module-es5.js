@@ -926,7 +926,7 @@
 
                 if (_this4.urlType == 'view') {
                   var params = {
-                    ApartmentBlockUnitId: 102
+                    ApartmentBlockUnitId: id
                   };
 
                   _this4.documentService.getAllDocByApartmentBlockUnitId(params).subscribe(function (res) {

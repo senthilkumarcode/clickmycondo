@@ -561,8 +561,9 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
             }
         };
         this.apartmentService.addPropertyMapFile(addPropertyMap).subscribe((resp) => {
-            this.floorPropertyData = resp;
-            this.assignData(this.floorPropertyData);
+            // this.floorPropertyData = resp;
+            this.getPropertyMap(resp);
+            // this.assignData(this.floorPropertyData)
         }, error => {
         });
     }
@@ -588,7 +589,8 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
             }
         };
         this.apartmentService.updatePropertyMapFile(updatePropertyMap).subscribe((resp) => {
-            this.floorPropertyData = resp;
+            this.getPropertyMap(resp);
+            // this.floorPropertyData = resp;
             // this.assignData(this.floorPropertyData)
         }, error => {
         });

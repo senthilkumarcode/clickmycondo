@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"expense-sub-ledger-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t\t<div class=\"legends\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\t<div class=\"mr-3\"><span class=\"dots bg-red-900\"></span>Pending</div>\n\t\t\t<div><span class=\"dots bg-green-900\"></span>Nill</div>\n\t\t</div>\n\n\n\t\t<condo-card *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Sub Ledgers</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t<div class=\"p-4 border-top\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Amount Due : <span class=\"ml-1 text-hint\">{{totalDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Excess Payments & Incentives Due : <span class=\"ml-1 text-hint\">{{totalDueAmount - netDueAmount  | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Net Amount : <span class=\"ml-1 text-hint\">{{netDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\n\t\t</condo-card>\n\n\n\t</div>\n\n\n\n  \t\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"expense-sub-ledger-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t\t<div class=\"legends\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\t<div class=\"mr-3\"><span class=\"dots bg-red-900\"></span>Pending</div>\n\t\t\t<div><span class=\"dots bg-green-900\"></span>Nill</div>\n\t\t</div>\n\n\n\t\t<condo-card *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Sub Ledgers</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t<div class=\"p-4 border-top\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Amount Due : <span class=\"ml-1 text-hint\">{{totalDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Excess Payments & Incentives Due : <span class=\"ml-1 text-hint\">{{totalDueAmount - netDueAmount  | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Net Amount : <span class=\"ml-1 text-hint\">{{netDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\n\t\t</condo-card>\n\n\n\t</div>\n\n</div>\n\n<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n\t<div class=\"info-modal-box rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<div>\n\t\t\t<mat-list>\n\t\t\t\t<mat-list-item class=\"border-bottom\" routerLink=\"/ams/expense/post-invoice/{{ledger.vendorId}}/single\" \n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Single Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t\t<mat-list-item routerLink=\"/ams/expense/post-invoice/{{ledger.vendorId}}/multi\" \n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Multi Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t</mat-list>\n\t\t</div>\n  \t</div>\n\n</ng-template>";
       /***/
     },
 
@@ -314,18 +314,6 @@
             }
           }
         }, {
-          key: "onShowSingleInvoice",
-          value: function onShowSingleInvoice(detail) {
-            var ledger = this.datagrid.getrowdata(detail.rowId);
-            this.router.navigateByUrl('/ams/expense/post-invoice/' + ledger.vendorId + '/single');
-          }
-        }, {
-          key: "onShowMultiInvoice",
-          value: function onShowMultiInvoice(detail) {
-            var ledger = this.datagrid.getrowdata(detail.rowId);
-            this.router.navigateByUrl('/ams/expense/post-invoice/' + ledger.vendorId + '/multi');
-          }
-        }, {
           key: "onActions",
           value: function onActions(detail) {
             var ledger = this.datagrid.getrowdata(detail.rowId);
@@ -335,14 +323,11 @@
         }, {
           key: "onInvoiceDropDown",
           value: function onInvoiceDropDown(detail) {
-            var datainfo = this.datagrid.getdatainformation();
-            var paginginfo = datainfo.paginginformation;
-            var rowIndex = Math.min(datainfo.rowscount, (paginginfo.pagenum + 1) * paginginfo.pagesize) - paginginfo.pagenum * paginginfo.pagesize;
-
-            if (rowIndex * (paginginfo.pagenum + 1) == detail.rowId + 1) {
-              var elem = document.querySelector('.simple-action-index' + detail.rowId);
-              elem.classList.add('dropup');
-            }
+            var ledger = this.datagrid.getrowdata(detail.rowId);
+            this.dialog.open(this.viewInvoiceTypeRef, {
+              panelClass: 'material-dialog-small',
+              data: ledger
+            });
           }
         }, {
           key: "onviewHistory",
@@ -409,7 +394,7 @@
               cellclassname: 'action-cell',
               minwidth: 170,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions simple-action-index' + row + '">' + '<a href="javascript:void(0)" class="mat-flat-button mat-accent button-md n-text mr-2" onClick="invoiceDropDownEvent(' + row + ')" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">' + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>' + '</a>' + '<div class="dropdown-menu table-action-menu dropdown-menu-right invoice-dropdown-menu' + row + '" aria-labelledby="invoiceDropDown">' + '<a href="javascript:void(0)" onClick="showSingleInvoiceEvent(' + row + ')">Post Single Invoice</a>' + '<a href="javascript:void(0)" onClick="showMultiInvoiceEvent(' + row + ')">Post Multi Invoice</a>' + '</div>' + '<a href="javascript:void(0)" class="mat-flat-button button-md text-smr bg-gray-500 text-gray-100 n-text" onClick="actionEvent(' + row + ')">' + 'Action' + '</a>' + '</div>';
+                return '<div class="simple-actions simple-action-index' + row + '">' + '<a href="javascript:void(0)" class="mat-flat-button mat-accent button-md n-text mr-2" onClick="invoiceDropDownEvent(' + row + ')" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">' + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>' + '</a>' + '<a href="javascript:void(0)" class="mat-flat-button button-md text-smr bg-gray-500 text-gray-100 n-text" onClick="actionEvent(' + row + ')">' + 'Action' + '</a>' + '</div>';
               },
 
               /*cellsrenderer: (row: number,column,value): string => {
@@ -481,19 +466,17 @@
       };
 
       ExpenseSubledgerComponent.propDecorators = {
+        viewInvoiceTypeRef: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ["viewInvoiceTypeRef", {
+            "static": false
+          }]
+        }],
         datagrid: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['datagrid', {
             "static": false
           }]
-        }],
-        onShowSingleInvoice: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onShowSingleInvoice', ['$event.detail']]
-        }],
-        onShowMultiInvoice: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onShowMultiInvoice', ['$event.detail']]
         }],
         onActions: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],

@@ -512,10 +512,8 @@
                 edit = '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>';
                 status = '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a>';
 
-                if (_this5.urlType == 'pending') {
+                if (_this5.urlType == 'pending' || _this5.urlType == 'history') {
                   return '<div class="simple-actions">' + edit + view + status + '</div>';
-                } else if (_this5.urlType == 'history') {
-                  return '<div class="simple-actions">' + edit + view + '</div>';
                 } else if (_this5.urlType == 'approved') {
                   return '<div class="simple-actions">' + view + '</div>';
                 }

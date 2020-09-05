@@ -354,11 +354,8 @@ let WorkpermitApprovalComponent = class WorkpermitApprovalComponent {
                     view = '<a href="javascript:void(0)" class="mr-3" onClick="viewPermitEvent(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>';
                     edit = '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>';
                     status = '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a>';
-                    if (this.urlType == 'pending') {
+                    if (this.urlType == 'pending' || this.urlType == 'history') {
                         return '<div class="simple-actions">' + edit + view + status + '</div>';
-                    }
-                    else if (this.urlType == 'history') {
-                        return '<div class="simple-actions">' + edit + view + '</div>';
                     }
                     else if (this.urlType == 'approved') {
                         return '<div class="simple-actions">' + view + '</div>';
