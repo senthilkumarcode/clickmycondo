@@ -542,7 +542,7 @@
                   "dob": "2019-11-10T09:58:08.934Z",
                   "joinedOn": "2019-11-10T09:58:08.934Z",
                   "bloodGroup": "",
-                  "phoneNumber": this.phoneForm.value.phone.e164Number,
+                  "phoneNumber": this.phoneForm.value.phone.number,
                   "emergencyContactNumber": "",
                   "emergencyContactPerson": "",
                   "emergencyContactNumberSecondary": "",
@@ -557,15 +557,17 @@
                   "insertedBy": parseInt(this.sessionService.userId),
                   "updatedBy": 0,
                   "isDocSubmitted": false,
-                  "readyForApproval": false
+                  "readyForApproval": false,
+                  "timeZone": "",
+                  "phonecountrycode": this.phoneForm.value.phone.dialCode
                 };
                 var params = {
                   user: _userDetails
                 }; //add user 
 
                 this.userService.addUser(params).subscribe(function (res) {
-                  if (res.message) {
-                    var userId = res.message;
+                  if (res && res.responseData) {
+                    var userId = res.responseData.value.message;
 
                     _this2.submitUserConfig(userId);
                   } else {
@@ -1982,6 +1984,12 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      /* harmony import */
+
+
+      var _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ../signup-edit-modal/signup-edit-modal.component */
+      "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
 
       var SignuprequestComponent = /*#__PURE__*/function () {
         function SignuprequestComponent(injector, dialog, router, userService, constantsService, sharedService, sessionService) {
@@ -2094,24 +2102,38 @@
           value: function onViewUser(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             dataRecord.mode = false;
-            this.modalService.showSignUpdetailsModal(dataRecord);
+            this.openEditDialog(dataRecord); // this.modalService.showSignUpdetailsModal(dataRecord);
           }
         }, {
-          key: "EditUserInfo",
-          value: function EditUserInfo(data) {
-            data.mode = true;
-            this.modalService.showSignUpdetailsModal(data);
-          }
-        }, {
-          key: "viewSignup",
-          value: function viewSignup(data) {
-            data.mode = false;
-            this.modalService.showSignUpdetailsModal(data);
-          }
+          key: "openEditDialog",
+          value: function openEditDialog(signupData) {
+            var _this15 = this;
+
+            var dialogRef = this.dialog.open(_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["SignupEditModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: false,
+              minWidth: '60vw',
+              data: signupData
+            });
+            dialogRef.afterClosed().subscribe(function (result) {
+              if (result) {
+                _this15.getSignUpUserList(); // this.sharedService.refreshSignUpList(true)
+
+              }
+            });
+          } // EditUserInfo(data) {
+          //   data.mode = true;
+          //   this.modalService.showSignUpdetailsModal(data);
+          // }
+          // viewSignup(data) {
+          //   data.mode = false;
+          //   this.modalService.showSignUpdetailsModal(data);
+          // }
+
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2157,7 +2179,7 @@
               datafield: 'insertedOn',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this15.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this16.constantsService.dateFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2174,37 +2196,36 @@
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this15.datagrid.getrowdata(id);
+                var dataRecord = _this16.datagrid.getrowdata(id);
 
                 var signupUserId = dataRecord.signupUserRequestId;
                 var params = {
                   signupUserId: signupUserId,
-                  apartmentId: _this15.sessionService.apartmentId
+                  apartmentId: _this16.sessionService.apartmentId
                 };
 
-                _this15.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
+                _this16.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
                   setTimeout(function () {
-                    _this15.datagrid.deleterow(id);
+                    _this16.datagrid.deleterow(id);
 
-                    _this15.totalItems = _this15.unitListData.length;
+                    _this16.totalItems = _this16.unitListData.length;
 
-                    _this15.sharedService.setAlertMessage("Signup deleted successfully.");
+                    _this16.sharedService.setAlertMessage("Signup deleted successfully.");
 
-                    _this15.sharedService.setUnitListDeleteIndex(null);
+                    _this16.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
                 });
               }
-            });
-            this.sharedService.refreshSignUpUser.subscribe(function (resp) {
-              _this15.getSignUpUserList();
-            });
+            }); // this.sharedService.refreshSignUpUser.subscribe(resp =>{
+            //   this.getSignUpUserList();
+            // })
           }
         }, {
           key: "getSignUpUserList",
           value: function getSignUpUserList() {
-            var _this16 = this;
+            var _this17 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -2218,13 +2239,13 @@
                 key['tower_unit'] = key.signupSubNotes[0].blockUnit + ' & ' + key.signupSubNotes[0].unit;
                 key['fullName'] = key.firstName + '  ' + key.lastName;
               });
-              _this16.gridSourceData = {
+              _this17.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this16.unitListData = new jqx.dataAdapter(_this16.gridSourceData);
-              _this16.totalItems = unitListData.length;
-              _this16.isUserDataLoaded = true;
+              _this17.unitListData = new jqx.dataAdapter(_this17.gridSourceData);
+              _this17.totalItems = unitListData.length;
+              _this17.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2686,7 +2707,7 @@
         }, {
           key: "approveUsers",
           value: function approveUsers() {
-            var _this17 = this;
+            var _this18 = this;
 
             this.isUserDataLoaded = false;
             underscore__WEBPACK_IMPORTED_MODULE_9__["each"](this.checkedList, function (item, index) {
@@ -2699,11 +2720,11 @@
                   approveuser: approveuser
                 };
 
-                _this17.userService.updateApproveuser(updateParam).subscribe(function (res) {});
+                _this18.userService.updateApproveuser(updateParam).subscribe(function (res) {});
               }
 
-              if (_this17.checkedList.length == index + 1) {
-                _this17.getUnApprovedList();
+              if (_this18.checkedList.length == index + 1) {
+                _this18.getUnApprovedList();
               }
             });
             this.isUserSelected = !this.isUserSelected;
@@ -2735,20 +2756,20 @@
         }, {
           key: "showLogs",
           value: function showLogs() {
-            var _this18 = this;
+            var _this19 = this;
 
             this.isLogs = !this.isLogs;
             this.sharedService.getJsonData().subscribe(function (res) {
-              _this18.logsData = res.logsData;
-              _this18.totalLogItems = _this18.logsData.length;
+              _this19.logsData = res.logsData;
+              _this19.totalLogItems = _this19.logsData.length;
 
-              if (_this18.totalLogItems > _this18.itemLogLimit) {
-                _this18.ItemLogEndIndex = _this18.itemLogLimit;
+              if (_this19.totalLogItems > _this19.itemLogLimit) {
+                _this19.ItemLogEndIndex = _this19.itemLogLimit;
               } else {
-                _this18.ItemLogEndIndex = _this18.totalLogItems;
+                _this19.ItemLogEndIndex = _this19.totalLogItems;
               }
 
-              _this18.isLogsDataLoaded = true;
+              _this19.isLogsDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2756,7 +2777,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this19 = this;
+            var _this20 = this;
 
             if (this.unitData != "") {
               var filtergroup = new jqx.filter();
@@ -2769,7 +2790,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this19.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2794,7 +2815,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2878,24 +2899,24 @@
               if (id != null) {
                 var params = {
                   userId: id,
-                  updateUserId: parseInt(_this20.sessionService.userId)
+                  updateUserId: parseInt(_this21.sessionService.userId)
                 };
 
-                _this20.userService.deleteUserById(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this20.unitListData, function (type) {
+                _this21.userService.deleteUserById(params).subscribe(function (res) {
+                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this21.unitListData, function (type) {
                     if (type.id == id) {
                       type.active = false;
                     }
                   });
                   setTimeout(function () {
-                    _this20.unitListData = _this20.unitListData.filter(function (type) {
+                    _this21.unitListData = _this21.unitListData.filter(function (type) {
                       return type.id !== id;
                     });
-                    _this20.totalUserItems = _this20.unitListData.length;
+                    _this21.totalUserItems = _this21.unitListData.length;
 
-                    _this20.sharedService.setAlertMessage("User deleted");
+                    _this21.sharedService.setAlertMessage("User deleted");
 
-                    _this20.sharedService.setUnitListDeleteIndex(null);
+                    _this21.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -2906,7 +2927,7 @@
         }, {
           key: "getUnApprovedList",
           value: function getUnApprovedList() {
-            var _this21 = this;
+            var _this22 = this;
 
             var params = {
               apartmentID: this.sessionService.apartmentId
@@ -2914,24 +2935,24 @@
             this.userService.getAllUnApprovedUsersByApartmentIdNew(params).subscribe(function (res) {
               var unitListData = res; //filter active true items
 
-              _this21.unitListData = unitListData.filter(function (data) {
+              _this22.unitListData = unitListData.filter(function (data) {
                 data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
                 return data.active;
               });
-              _this21.gridSourceData = {
+              _this22.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this21.unitListData = new jqx.dataAdapter(_this21.gridSourceData);
-              _this21.totalUserItems = unitListData.length;
+              _this22.unitListData = new jqx.dataAdapter(_this22.gridSourceData);
+              _this22.totalUserItems = unitListData.length;
 
-              if (_this21.totalUserItems > _this21.itemUserLimit) {
-                _this21.ItemUserEndIndex = _this21.itemUserLimit;
+              if (_this22.totalUserItems > _this22.itemUserLimit) {
+                _this22.ItemUserEndIndex = _this22.itemUserLimit;
               } else {
-                _this21.ItemUserEndIndex = _this21.totalUserItems;
+                _this22.ItemUserEndIndex = _this22.totalUserItems;
               }
 
-              _this21.isUserDataLoaded = true;
+              _this22.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -3192,7 +3213,7 @@
         _createClass(UserReportDataComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this22 = this;
+            var _this23 = this;
 
             if (this.userReportData != "") {
               var filtergroup = new jqx.filter();
@@ -3205,7 +3226,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this23.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3310,7 +3331,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this23 = this;
+            var _this24 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -3382,10 +3403,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
@@ -3442,10 +3463,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -3490,10 +3511,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -3544,10 +3565,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
@@ -3598,10 +3619,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
@@ -3652,10 +3673,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
@@ -3697,10 +3718,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
@@ -3748,10 +3769,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
@@ -3794,10 +3815,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
@@ -3840,10 +3861,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
@@ -3886,10 +3907,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.isDataLoaded = true;
+                _this24.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this24.isDataLoaded = true;
 
-                _this23.showItems();
+                _this24.showItems();
               });
             }
           }
@@ -3910,24 +3931,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this25 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: parseInt(localStorage.getItem('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this24.unitBlocksData = res;
+              _this25.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this24.route.params['value'].id;
+                return item.lookupValueId == _this25.route.params['value'].id;
               });
-              _this24.pageName = data[0].lookupValueName.replace('/', '');
-              _this24.pageDesp = data[0].description;
+              _this25.pageName = data[0].lookupValueName.replace('/', '');
+              _this25.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -4055,7 +4076,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -4063,8 +4084,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this25.reportDataList = res;
-              _this25.isDataLoaded = true;
+              _this26.reportDataList = res;
+              _this26.isDataLoaded = true;
             });
           }
         }, {
@@ -4488,12 +4509,6 @@
       var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-      /* harmony import */
-
-
-      var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
-      /*! ngx-bootstrap/dropdown */
-      "./node_modules/ngx-bootstrap/__ivy_ngcc__/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
 
       var UnitUsersModule = function UnitUsersModule() {
         _classCallCheck(this, UnitUsersModule);
@@ -4501,7 +4516,7 @@
 
       UnitUsersModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_8__["AddUsersComponent"], _unit_users_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersComponent"], _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__["UnapprovedComponent"], _components_approved_approved_component__WEBPACK_IMPORTED_MODULE_10__["ApprovedComponent"], _components_access_control_access_control_component__WEBPACK_IMPORTED_MODULE_11__["AccessControlComponent"], _components_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastComponent"], _components_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_13__["StatisticsComponent"], _components_de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_14__["DeActivatedComponent"], _components_user_reports_user_reports_component__WEBPACK_IMPORTED_MODULE_15__["UserReportsComponent"], _components_add_users_add_resident_add_resident_component__WEBPACK_IMPORTED_MODULE_16__["AddResidentComponent"], _components_user_reports_user_report_data_user_report_data_component__WEBPACK_IMPORTED_MODULE_17__["UserReportDataComponent"], _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_18__["SignuprequestComponent"], _components_unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_19__["UnapprovedEditModalComponent"], _components_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_20__["SignupEditModalComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _unit_users_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_22__["BsDropdownModule"].forRoot(), ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__["NgxIntlTelInputModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _unit_users_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__["NgxIntlTelInputModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"]],
         bootstrap: [_unit_users_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersComponent"]]
       })], UnitUsersModule);
       /***/

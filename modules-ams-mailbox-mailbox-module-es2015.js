@@ -509,7 +509,7 @@ let MailboxComposeComponent = class MailboxComposeComponent {
                     this.selectedUsers.push(obj);
                 }
                 else {
-                    if (!underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](this.selectedUsers, obj)) {
+                    if (underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](this.selectedUsers, obj) == undefined) {
                         this.selectedUsers.push(obj);
                     }
                 }
@@ -1660,6 +1660,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ams_mailbox_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ams/mailbox/sidebar/sidebar.component */ "./src/app/modules/ams/mailbox/sidebar/sidebar.component.ts");
 /* harmony import */ var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/api/controllers/MessageInbox */ "./src/app/api/controllers/MessageInbox.ts");
 /* harmony import */ var _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @angular/material/chips */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/chips.js");
+/* harmony import */ var ngx_quill__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-quill */ "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
+
 
 
 
@@ -1696,7 +1698,8 @@ MailboxModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"],
             src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"],
             _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"],
-            src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"]
+            src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"],
+            ngx_quill__WEBPACK_IMPORTED_MODULE_17__["QuillModule"]
         ],
         bootstrap: [
             _mailbox_component__WEBPACK_IMPORTED_MODULE_9__["MailboxComponent"]

@@ -248,6 +248,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-group/broadcast-group.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-group/broadcast-group.component.ts");
 /* harmony import */ var _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/broadcast-group-based-announcement/broadcast-group-based-announcement.component */ "./src/app/modules/ams/broadcast/components/broadcast-group-based-announcement/broadcast-group-based-announcement.component.ts");
 /* harmony import */ var _components_announcement_details_announcement_details_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/announcement-details/announcement-details.component */ "./src/app/modules/ams/broadcast/components/announcement-details/announcement-details.component.ts");
+/* harmony import */ var ngx_quill__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ngx-quill */ "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
+
 
 
 
@@ -286,7 +288,8 @@ BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"],
             _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"],
             _ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"],
-            _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"]
+            _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"],
+            ngx_quill__WEBPACK_IMPORTED_MODULE_25__["QuillModule"]
         ],
         providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
     })

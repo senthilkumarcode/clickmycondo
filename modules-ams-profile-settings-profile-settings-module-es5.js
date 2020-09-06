@@ -874,7 +874,9 @@
             };
             this.apartmentService.addPropertyMapFile(addPropertyMap).subscribe(function (resp) {
               // this.floorPropertyData = resp;
-              _this11.getPropertyMap(resp); // this.assignData(this.floorPropertyData)
+              if (resp) {
+                _this11.getPropertyMap(resp.propertyMapFileId);
+              } // this.assignData(this.floorPropertyData)
 
             }, function (error) {});
           }
@@ -904,7 +906,9 @@
               }
             };
             this.apartmentService.updatePropertyMapFile(updatePropertyMap).subscribe(function (resp) {
-              _this12.getPropertyMap(resp); // this.floorPropertyData = resp;
+              if (resp) {
+                _this12.getPropertyMap(resp.propertyMapFileId);
+              } // this.floorPropertyData = resp;
               // this.assignData(this.floorPropertyData)
 
             }, function (error) {});

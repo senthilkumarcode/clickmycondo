@@ -812,7 +812,7 @@
                 if (_this2.selectedUsers.length == 0) {
                   _this2.selectedUsers.push(obj);
                 } else {
-                  if (!underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](_this2.selectedUsers, obj)) {
+                  if (underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](_this2.selectedUsers, obj) == undefined) {
                     _this2.selectedUsers.push(obj);
                   }
                 }
@@ -2466,6 +2466,12 @@
       var _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! @angular/material/chips */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/chips.js");
+      /* harmony import */
+
+
+      var ngx_quill__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! ngx-quill */
+      "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
 
       var MailboxModule = function MailboxModule() {
         _classCallCheck(this, MailboxModule);
@@ -2473,7 +2479,7 @@
 
       MailboxModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_mailbox_component__WEBPACK_IMPORTED_MODULE_9__["MailboxComponent"], src_app_modules_ams_mailbox_compose_compose_component__WEBPACK_IMPORTED_MODULE_10__["MailboxComposeComponent"], src_app_modules_ams_mailbox_details_details_component__WEBPACK_IMPORTED_MODULE_11__["MailboxDetailsComponent"], src_app_modules_ams_mailbox_list_list_component__WEBPACK_IMPORTED_MODULE_12__["MailboxListComponent"], src_app_modules_ams_mailbox_settings_settings_component__WEBPACK_IMPORTED_MODULE_13__["MailboxSettingsComponent"], src_app_modules_ams_mailbox_sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["MailboxSidebarComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(src_app_modules_ams_mailbox_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__["mailboxRoutes"]), src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(src_app_modules_ams_mailbox_mailbox_routing_module__WEBPACK_IMPORTED_MODULE_5__["mailboxRoutes"]), src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_16__["MatChipsModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_8__["CondoScrollbarModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_17__["QuillModule"]],
         bootstrap: [_mailbox_component__WEBPACK_IMPORTED_MODULE_9__["MailboxComponent"]],
         providers: [src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_15__["MessageInboxService"]]
       })], MailboxModule);

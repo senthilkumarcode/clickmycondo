@@ -335,7 +335,7 @@ let AddResidentComponent = class AddResidentComponent {
                     "dob": "2019-11-10T09:58:08.934Z",
                     "joinedOn": "2019-11-10T09:58:08.934Z",
                     "bloodGroup": "",
-                    "phoneNumber": this.phoneForm.value.phone.e164Number,
+                    "phoneNumber": this.phoneForm.value.phone.number,
                     "emergencyContactNumber": "",
                     "emergencyContactPerson": "",
                     "emergencyContactNumberSecondary": "",
@@ -350,15 +350,17 @@ let AddResidentComponent = class AddResidentComponent {
                     "insertedBy": parseInt(this.sessionService.userId),
                     "updatedBy": 0,
                     "isDocSubmitted": false,
-                    "readyForApproval": false
+                    "readyForApproval": false,
+                    "timeZone": "",
+                    "phonecountrycode": this.phoneForm.value.phone.dialCode
                 };
                 let params = {
                     user: userDetails
                 };
                 //add user 
                 this.userService.addUser(params).subscribe((res) => {
-                    if (res.message) {
-                        var userId = res.message;
+                    if (res && res.responseData) {
+                        var userId = res.responseData.value.message;
                         this.submitUserConfig(userId);
                     }
                     else {
@@ -1362,6 +1364,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../signup-edit-modal/signup-edit-modal.component */ "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
+
 
 
 
@@ -1459,16 +1463,31 @@ let SignuprequestComponent = class SignuprequestComponent {
     onViewUser(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         dataRecord.mode = false;
-        this.modalService.showSignUpdetailsModal(dataRecord);
+        this.openEditDialog(dataRecord);
+        // this.modalService.showSignUpdetailsModal(dataRecord);
     }
-    EditUserInfo(data) {
-        data.mode = true;
-        this.modalService.showSignUpdetailsModal(data);
+    openEditDialog(signupData) {
+        const dialogRef = this.dialog.open(_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["SignupEditModalComponent"], {
+            panelClass: 'material-dialog-medium',
+            disableClose: false,
+            minWidth: '60vw',
+            data: signupData
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getSignUpUserList();
+                // this.sharedService.refreshSignUpList(true)
+            }
+        });
     }
-    viewSignup(data) {
-        data.mode = false;
-        this.modalService.showSignUpdetailsModal(data);
-    }
+    // EditUserInfo(data) {
+    //   data.mode = true;
+    //   this.modalService.showSignUpdetailsModal(data);
+    // }
+    // viewSignup(data) {
+    //   data.mode = false;
+    //   this.modalService.showSignUpdetailsModal(data);
+    // }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1553,9 +1572,9 @@ let SignuprequestComponent = class SignuprequestComponent {
                 });
             }
         });
-        this.sharedService.refreshSignUpUser.subscribe(resp => {
-            this.getSignUpUserList();
-        });
+        // this.sharedService.refreshSignUpUser.subscribe(resp =>{
+        //   this.getSignUpUserList();
+        // })
     }
     getSignUpUserList() {
         let params = {
@@ -3277,8 +3296,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/unapproved-edit-modal/unapproved-edit-modal.component */ "./src/app/modules/ams/unit-users/components/unapproved-edit-modal/unapproved-edit-modal.component.ts");
 /* harmony import */ var _components_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/signup-edit-modal/signup-edit-modal.component */ "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ngx-bootstrap/dropdown */ "./node_modules/ngx-bootstrap/__ivy_ngcc__/dropdown/fesm2015/ngx-bootstrap-dropdown.js");
-
 
 
 
@@ -3325,7 +3342,6 @@ UnitUsersModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _unit_users_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersRoutingModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
-            ngx_bootstrap_dropdown__WEBPACK_IMPORTED_MODULE_22__["BsDropdownModule"].forRoot(),
             ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__["NgxIntlTelInputModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"]

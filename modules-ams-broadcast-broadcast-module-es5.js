@@ -567,6 +567,12 @@
       var _components_announcement_details_announcement_details_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
       /*! ./components/announcement-details/announcement-details.component */
       "./src/app/modules/ams/broadcast/components/announcement-details/announcement-details.component.ts");
+      /* harmony import */
+
+
+      var ngx_quill__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(
+      /*! ngx-quill */
+      "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
 
       var BroadcastModule = function BroadcastModule() {
         _classCallCheck(this, BroadcastModule);
@@ -574,7 +580,7 @@
 
       BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastSetupComponent"], _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastHistoryComponent"], _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastSendmessageComponent"], _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_23__["BroadcastGroupBasedAnnouncementComponent"], _components_announcement_details_announcement_details_component__WEBPACK_IMPORTED_MODULE_24__["AnnouncementDetailsComponent"], _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastgroupSetupComponent"], _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastGroupAssignmentComponent"], _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastRemoveuserComponent"], _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastAnnouncementsComponent"], _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_21__["BroadcastRoleComponent"], _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_22__["BroadcastGroupComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_25__["QuillModule"]],
         providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
       })], BroadcastModule);
       /***/
