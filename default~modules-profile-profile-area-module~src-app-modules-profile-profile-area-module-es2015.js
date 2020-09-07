@@ -752,7 +752,7 @@ let ProfileAreaComponent = class ProfileAreaComponent {
     }
     goBack() {
         this.sessionService.profileUserId = this.sessionService.userId;
-        if (this._activatedRoute.params['value'].subtype == 'una')
+        if (this._activatedRoute.queryParams['value'].subtype == 'una')
             this._router.navigate(['/ams/unit&users/unapproved']);
         else
             this._router.navigate(['/ams/unit&users/approved']);

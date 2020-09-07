@@ -77,11 +77,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/auth/auth.service */ "./src/app/core/auth/auth.service.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/@condo/services/config/config.service */ "./src/@condo/services/config/config.service.ts");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/services/config/config.service */ "./src/@condo/services/config/config.service.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -94,10 +96,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ApartmentsComponent = class ApartmentsComponent {
-    constructor(_router, authService, apartmentService, sessionService, _document, _condoConfigService) {
+    constructor(_router, authService, apartmentService, staffService, sessionService, _document, _condoConfigService) {
         this._router = _router;
         this.authService = authService;
         this.apartmentService = apartmentService;
+        this.staffService = staffService;
         this.sessionService = sessionService;
         this._document = _document;
         this._condoConfigService = _condoConfigService;
@@ -105,7 +108,7 @@ let ApartmentsComponent = class ApartmentsComponent {
         this.isDataLoaded = false;
         this.isRouting = false;
         // Set the private default
-        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
+        this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_10__["Subject"]();
         // Set the defaults
         this.message = null;
     }
@@ -125,12 +128,19 @@ let ApartmentsComponent = class ApartmentsComponent {
     }
     selectCondo(condo) {
         this.sessionService.apartmentId = condo.apartmentId;
-        // Hide the message
-        this.message = null;
-        this.isRouting = true;
-        var states = this._router.url.split('/');
-        this._router.navigate(['/' + states[1]]).then(() => {
-            this.isRouting = false;
+        let params = {
+            apartmentId: this.sessionService.apartmentId,
+            userId: this.sessionService.userId
+        };
+        this.staffService.getStaffByUserId(params).subscribe((res) => {
+            this.sessionService.secondLevelId = res[0].staffId;
+            // Hide the message
+            this.message = null;
+            this.isRouting = true;
+            var states = this._router.url.split('/');
+            this._router.navigate(['/' + states[1]]).then(() => {
+                this.isRouting = false;
+            });
         });
     }
     selectCondoUnit(condo, block) {
@@ -149,7 +159,7 @@ let ApartmentsComponent = class ApartmentsComponent {
     ngOnInit() {
         // Subscribe to config changes
         this._condoConfigService.config$
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this._unsubscribeAll))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["takeUntil"])(this._unsubscribeAll))
             .subscribe((config) => {
             // Store the config
             this.config = config;
@@ -189,22 +199,24 @@ ApartmentsComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
     { type: src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"],] }] },
-    { type: src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_7__["CondoConfigService"] }
+    { type: src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_8__["CondoConfigService"] }
 ];
 ApartmentsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-condo',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./apartments.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/pages/apartments/apartments.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./apartments.component.scss */ "./src/app/modules/ui/pages/apartments/apartments.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
         src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], Object, src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_7__["CondoConfigService"]])
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], Object, src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_8__["CondoConfigService"]])
 ], ApartmentsComponent);
 
 

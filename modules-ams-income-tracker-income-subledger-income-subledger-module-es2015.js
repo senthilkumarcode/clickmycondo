@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"income-sub-ledger-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t\t<div class=\"bg-card shadow filter-box\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t<div>\n\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t<button mat-flat-button\n\t\t\t\t\t\tclass=\"mr-3 mb-md-3\" \n\t\t\t\t\t\t[ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t(click)=\"getAllBlockData('all')\">All Towers</button>\n\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t[ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\"\n\t\t\t\t\t\t[matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\"\n\t\t\t\t\t\t\t\t[xPosition]=\"'before'\"\n\t\t\t\t\t\t\t\t#singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of blockListData\">\n\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Sub Ledgers</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"subLedgerData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t<div class=\"p-4 border-top\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Amount Due : <span class=\"ml-1 text-hint\">{{totalDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Excess Payments & Incentives Due : <span class=\"ml-1 text-hint\">{{totalDueAmount - netDueAmount  | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Net Amount : <span class=\"ml-1 text-hint\">{{netDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\n\t\t</condo-card>\n\n\t</div>\n\n</div>\n\n<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n\t<div class=\"info-modal-box rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<div>\n\t\t\t<mat-list>\n\t\t\t\t<mat-list-item class=\"border-bottom\" routerLink=\"/ams/income/post-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Single Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t\t<mat-list-item routerLink=\"/ams/income/post-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Multi Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t</mat-list>\n\t\t</div>\n  \t</div>\n\n</ng-template>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n<div class=\"income-sub-ledger-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isSubLedgerDataLoaded\"></app-loader>\n\n\t\t<div class=\"bg-card shadow filter-box\" *ngIf=\"isSubLedgerDataLoaded\">\n\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t<div>\n\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t<button mat-flat-button\n\t\t\t\t\t\tclass=\"mr-3 mb-md-3\" \n\t\t\t\t\t\t[ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t(click)=\"getAllBlockData('all')\">All Towers</button>\n\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t[ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\"\n\t\t\t\t\t\t[matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\"\n\t\t\t\t\t\t\t\t[xPosition]=\"'before'\"\n\t\t\t\t\t\t\t\t#singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of blockListData\">\n\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isSubLedgerDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Sub Ledgers</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"subLedgerData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"subLedgerDataList\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\n\t\t\t\t<div class=\"p-4 border-top\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Amount Due : <span class=\"ml-1 text-hint\">{{totalDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Total Excess Payments & Incentives Due : <span class=\"ml-1 text-hint\">{{totalDueAmount - netDueAmount  | number: '1.2-2'}}</span></p>\n\t\t\t\t\t<p class=\"text-sm text-default font-normal pt-1 pb-1\">Net Amount : <span class=\"ml-1 text-hint\">{{netDueAmount | number: '1.2-2'}}</span></p>\n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\n\t\t</condo-card>\n\n\t</div>\n\n</div>\n\n<ng-template #viewInvoiceTypeRef let-ledger>\n  \t\t\n\t<div class=\"info-modal-box rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<div>\n\t\t\t<mat-list>\n\t\t\t\t<mat-list-item class=\"border-bottom\" routerLink=\"/ams/income/post-invoice/{{ledger.apartmentBlockUnitId}}/single\" \n\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Single Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t\t<mat-list-item routerLink=\"/ams/income/post-invoice/{{ledger.apartmentBlockUnitId}}/multi\" \n\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions] = \"{exact:true}\" mat-dialog-close>\n\t\t\t\t\tPost Multi Invoice\n\t\t\t\t</mat-list-item>\n\t\t\t</mat-list>\n\t\t</div>\n  \t</div>\n\n</ng-template>\n");
 
 /***/ }),
 
@@ -185,11 +185,11 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
             data: ledger
         });
     }
-    onGlSearchFilter() {
-        if (this.subLedgerData != "") {
+    onGlSearchFilter(event) {
+        if (event != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.subLedgerData;
+            let filtervalue = event;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -272,7 +272,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
                 cellclassname: 'action-cell',
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions simple-action-index' + row + '">'
-                        + '<a href="javascript:void(0)" class="mat-flat-button mat-accent button-md n-text mr-2" onClick="invoiceDropDownEvent(' + row + ')" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">'
+                        + '<a href="javascript:void(0)" class="mat-flat-button mat-accent button-md n-text mr-2" onClick="invoiceDropDownEvent(' + row + ')" id="invoiceDropDown">'
                         + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>'
                         + '</a>'
                         + '<a href="javascript:void(0)" class="mat-flat-button button-md text-smr bg-gray-500 text-gray-100 n-text" onClick="actionEvent(' + row + ')">'
@@ -342,33 +342,6 @@ let getClassName = value => {
     return value != 'Due' ? 'bg-red-900' : 'bg-green-900';
 };
 window.getClassName = getClassName;
-let viewHistoryEvent = row => {
-    var event = new CustomEvent('onViewHistory', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-};
-window.viewHistoryEvent = viewHistoryEvent;
-let showSingleInvoiceEvent = row => {
-    var event = new CustomEvent('onShowSingleInvoice', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-};
-window.showSingleInvoiceEvent = showSingleInvoiceEvent;
-let showMultiInvoiceEvent = row => {
-    var event = new CustomEvent('onShowMultiInvoice', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-};
-window.showMultiInvoiceEvent = showMultiInvoiceEvent;
 let actionEvent = row => {
     var event = new CustomEvent('onActions', {
         detail: {
