@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"header primary\">\n    <div class=\"title\">New Message</div>\n    <button class=\"close-button\" mat-icon-button (click)=\"saveAndClose()\" [tabIndex]=\"-1\">\n        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    </button>\n</div>\n\n<form [formGroup]=\"composeForm\">\n    <!-- To -->\n    <mat-form-field>\n        <mat-label>To</mat-label>\n        <mat-chip-list #receiptList>\n            <mat-chip *ngFor=\"let user of selectedUsers\" [selectable]=\"true\" [removable]=\"true\"\n                (removed)=\"remove(user)\">  \n                {{user.userName+\" (\"+user.roleName+\",\"+user.apartmentBlockNumber+\"\"+user.apartmentBlockUnitNumber+\")\"}}\n                <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n            </mat-chip>\n            <input class=\"bg-none\" [formControlName]=\"'to'\"  placeholder=\"Enter First 3 Characters of User Name or Unit Number\" [matAutocomplete]=\"receipt\"\n                [matChipInputFor]=\"receiptList\">\n        </mat-chip-list>\n        <mat-autocomplete #receipt=\"matAutocomplete\"  (optionSelected)=\"selected($event)\">\n            <mat-option *ngFor=\"let user of allUsers\" [value]=\"user\">\n                {{user.userName+\" (\"+user.roleName+\",\"+user.apartmentBlockNumber+\"\"+user.apartmentBlockUnitNumber+\")\"}}\n            </mat-option>\n        </mat-autocomplete>\n        <!-- <input matInput [formControl]=\"myControl\" [matAutocomplete]=\"receipt\" [formControlName]=\"'to'\"> -->\n        <!-- <div class=\"copy-fields-toggles\"\n             matSuffix>\n            <span class=\"cc-toggle\"\n                  *ngIf=\"!copyFields.cc\"\n                  (click)=\"showCopyField('cc')\">\n                Cc\n            </span>\n            <span class=\"bcc-toggle\"\n                  *ngIf=\"!copyFields.bcc\"\n                  (click)=\"showCopyField('bcc')\">\n                Bcc\n            </span>\n        </div> -->\n    </mat-form-field>\n\n    <!-- Cc -->\n    <!-- <mat-form-field class=\"cc\"\n                    *ngIf=\"copyFields.cc\">\n        <mat-label>Cc</mat-label>\n        <input matInput\n               [formControlName]=\"'cc'\">\n    </mat-form-field> -->\n\n    <!-- Bcc -->\n    <!-- <mat-form-field class=\"bcc\"\n                    *ngIf=\"copyFields.bcc\">\n        <mat-label>Bcc</mat-label>\n        <input matInput\n               [formControlName]=\"'bcc'\">\n    </mat-form-field> -->\n\n    <!-- Subject -->\n    <mat-form-field class=\"subject\">\n        <mat-label>Subject</mat-label>\n        <input matInput [formControlName]=\"'subject'\"  required >\n    </mat-form-field>\n\n    <!-- Body -->\n    <quill-editor [modules]=\"quillModules\" [formControlName]=\"'body'\" required></quill-editor>\n\n    <div class=\"actions\">\n\n        <div class=\"formatting\">\n\n            <!-- Attach file -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'attach_file'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert link -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'link'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert emoji -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'insert_emoticon'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert image -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'image'\"></mat-icon>\n            </button> -->\n\n        </div>\n\n        <div class=\"buttons\">\n\n            <!-- Discard -->\n            <button class=\"discard-button\" mat-button (click)=\"discard()\">\n                <mat-icon [svgIcon]=\"'delete'\"></mat-icon>\n                <span>Discard</span>\n            </button>\n\n            <!-- Save as draft -->\n            <!-- <button class=\"save-button\"\n                    mat-button\n                    (click)=\"saveAsDraft()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span>Save as draft</span>\n            </button> -->\n\n            <!-- Send -->\n            <button class=\"send-button\" mat-flat-button [color]=\"'primary'\" (click)=\"send()\" [disabled]=\"composeMail.invalid\">\n                <span>Send</span>\n            </button>\n\n        </div>\n\n    </div>\n\n</form>";
+      __webpack_exports__["default"] = "<div class=\"header primary\">\n    <div class=\"title\">New Message</div>\n    <button class=\"close-button\" mat-icon-button (click)=\"saveAndClose()\" [tabIndex]=\"-1\">\n        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n    </button>\n</div>\n\n<form [formGroup]=\"composeForm\">\n    <!-- To -->\n    <mat-form-field>\n        <mat-label>To</mat-label>\n        <mat-chip-list #receiptList>\n            <mat-chip [color]=\"'primary'\"  *ngFor=\"let user of selectedUsers\" [selectable]=\"selectable\" [removable]=\"removable\"\n                (removed)=\"remove(user)\">  \n                {{ user.userName}} ( {{ user.roleName }}, {{ user.apartmentBlockNumber }} - {{ user.apartmentBlockUnitNumber  }} )\n                <mat-icon [color]=\"'warn'\" matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n            </mat-chip>\n            <input class=\"bg-none\" [formControlName]=\"'to'\"  placeholder=\"Enter First 3 Characters of User Name or Unit Number\" [matAutocomplete]=\"receipt\"\n                [matChipInputFor]=\"receiptList\">\n        </mat-chip-list>\n        <mat-autocomplete #receipt=\"matAutocomplete\"  (optionSelected)=\"selected($event)\">\n            <mat-option *ngFor=\"let user of allUsers\" [value]=\"user\">\n                {{ user.userName}} ( {{ user.roleName }}, {{ user.apartmentBlockNumber }} - {{ user.apartmentBlockUnitNumber  }} )\n            </mat-option>\n        </mat-autocomplete>\n        <!-- <input matInput [formControl]=\"myControl\" [matAutocomplete]=\"receipt\" [formControlName]=\"'to'\"> -->\n        <!-- <div class=\"copy-fields-toggles\"\n             matSuffix>\n            <span class=\"cc-toggle\"\n                  *ngIf=\"!copyFields.cc\"\n                  (click)=\"showCopyField('cc')\">\n                Cc\n            </span>\n            <span class=\"bcc-toggle\"\n                  *ngIf=\"!copyFields.bcc\"\n                  (click)=\"showCopyField('bcc')\">\n                Bcc\n            </span>\n        </div> -->\n    </mat-form-field>\n\n    <!-- Cc -->\n    <!-- <mat-form-field class=\"cc\"\n                    *ngIf=\"copyFields.cc\">\n        <mat-label>Cc</mat-label>\n        <input matInput\n               [formControlName]=\"'cc'\">\n    </mat-form-field> -->\n\n    <!-- Bcc -->\n    <!-- <mat-form-field class=\"bcc\"\n                    *ngIf=\"copyFields.bcc\">\n        <mat-label>Bcc</mat-label>\n        <input matInput\n               [formControlName]=\"'bcc'\">\n    </mat-form-field> -->\n\n    <!-- Subject -->\n    <mat-form-field class=\"subject\">\n        <mat-label>Subject</mat-label>\n        <input matInput [formControlName]=\"'subject'\"  required >\n    </mat-form-field>\n\n    <!-- Body -->\n    <quill-editor [modules]=\"quillModules\" [formControlName]=\"'body'\" required></quill-editor>\n\n    <div class=\"actions\">\n\n        <div class=\"formatting\">\n\n            <!-- Attach file -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'attach_file'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert link -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'link'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert emoji -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'insert_emoticon'\"></mat-icon>\n            </button> -->\n\n            <!-- Insert image -->\n            <!-- <button mat-icon-button>\n                <mat-icon [svgIcon]=\"'image'\"></mat-icon>\n            </button> -->\n\n        </div>\n\n        <div class=\"buttons\">\n\n            <!-- Discard -->\n            <button class=\"discard-button\" mat-button (click)=\"discard()\">\n                <mat-icon [svgIcon]=\"'delete'\"></mat-icon>\n                <span>Discard</span>\n            </button>\n\n            <!-- Save as draft -->\n            <!-- <button class=\"save-button\"\n                    mat-button\n                    (click)=\"saveAsDraft()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span>Save as draft</span>\n            </button> -->\n\n            <!-- Send -->\n            <button class=\"send-button\" mat-flat-button [color]=\"'primary'\" (click)=\"send()\" [disabled]=\"composeMail.invalid\">\n                <span>Send</span>\n            </button>\n\n        </div>\n\n    </div>\n\n</form>";
       /***/
     },
 
@@ -694,12 +694,6 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
 
       var MailboxComposeComponent = /*#__PURE__*/function () {
         /**
@@ -717,7 +711,10 @@
           this.messageInbox = messageInbox;
           this.sessionService = sessionService;
           this.selectedUsers = [];
-          this.allUsers = []; // Set the default
+          this.allUsers = [];
+          this.visible = true;
+          this.selectable = true;
+          this.removable = true; // Set the default
 
           this.copyFields = {
             cc: false,
@@ -796,31 +793,16 @@
         }, {
           key: "selected",
           value: function selected(event) {
-            var _this2 = this;
+            console.log(event.option.value);
+            var item = event.option.value;
 
-            this.allUsers.filter(function (key) {
-              if (key.userId == event.option.value.userId) {
-                var obj = {
-                  userName: key.userName,
-                  userId: key.userId,
-                  roleName: key.roleName,
-                  apartmentBlockNumber: key.apartmentBlockNumber,
-                  apartmentBlockUnitNumber: key.apartmentBlockUnitNumber,
-                  roleId: key.roleID
-                };
+            var checkItem = function checkItem(obj) {
+              return obj.apartmentBlockUnitID === item.apartmentBlockUnitID;
+            };
 
-                if (_this2.selectedUsers.length == 0) {
-                  _this2.selectedUsers.push(obj);
-                } else {
-                  if (underscore__WEBPACK_IMPORTED_MODULE_8__["findWhere"](_this2.selectedUsers, obj) == undefined) {
-                    _this2.selectedUsers.push(obj);
-                  }
-                }
-              }
-            });
-            this.composeForm.reset({
-              to: ''
-            });
+            if (!this.selectedUsers.some(checkItem)) {
+              this.selectedUsers.push(event.option.value);
+            }
           } // -----------------------------------------------------------------------------------------------------
           // @ Public methods
           // -----------------------------------------------------------------------------------------------------
@@ -875,7 +857,7 @@
         }, {
           key: "remove",
           value: function remove(user) {
-            this.selectedUsers.splice(this.selectedUsers.indexOf(user), 1);
+            this.selectedUsers.splice(user, 1);
           }
           /**
            * Send the message
@@ -884,23 +866,23 @@
         }, {
           key: "send",
           value: function send() {
-            var _this3 = this;
+            var _this2 = this;
 
-            this.selectedUsers.filter(function (key) {
-              var obj = {
-                "userId": key.userId,
-                "roleid": key.roleId
-              };
-
-              _this3.composeMail.recipients.push(obj);
-            });
             this.composeMail.subject = this.composeForm.value.subject;
             this.composeMail.message = this.composeForm.value.body;
+            this.selectedUsers.forEach(function (item) {
+              var obj = {
+                "userId": item.userId,
+                "roleid": item.roleID
+              };
+
+              _this2.composeMail.recipients.push(obj);
+            });
             var param = {
               InboxCollection: this.composeMail
             };
             this.messageInbox.addMessageInbox(param).subscribe(function (resp) {
-              _this3.matDialogRef.close();
+              _this2.matDialogRef.close();
             });
           }
         }]);
@@ -1124,32 +1106,32 @@
         _createClass(MailboxDetailsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this3 = this;
 
             // Folders
             this._mailboxService.folders$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._unsubscribeAll)).subscribe(function (folders) {
-              _this4.folders = folders;
+              _this3.folders = folders;
             }); // Labels
 
 
             this._mailboxService.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._unsubscribeAll)).subscribe(function (labels) {
-              _this4.labels = labels;
+              _this3.labels = labels;
             }); // Mail
 
 
             this._mailboxService.mail$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mail) {
-              _this4.mail = mail;
+              _this3.mail = mail;
             }); // Selected mail changed
 
 
             this._mailboxService.selectedMailChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_7__["takeUntil"])(this._unsubscribeAll)).subscribe(function () {
               // De-activate the reply form
-              _this4.replyFormActive = false;
+              _this3.replyFormActive = false;
             });
 
             this._activatedRoute.params.subscribe(function (routeParams) {
-              if (_this4._activatedRoute.snapshot.params['id']) {
-                _this4.getSelectedMail(_this4._activatedRoute.snapshot.params['id']);
+              if (_this3._activatedRoute.snapshot.params['id']) {
+                _this3.getSelectedMail(_this3._activatedRoute.snapshot.params['id']);
               }
             });
 
@@ -1170,14 +1152,14 @@
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var queryParamBase = {
-                  apartmentId: _this4.sessionService.apartmentId,
+                  apartmentId: _this3.sessionService.apartmentId,
                   messageId: id,
-                  deletedBy: _this4.sessionService.userId
+                  deletedBy: _this3.sessionService.userId
                 };
 
-                _this4.messageInbox.deleteMessageInboxbyMessageId(queryParamBase).subscribe(function (resp) {
-                  _this4._router.navigate(['./'], {
-                    relativeTo: _this4._activatedRoute.parent
+                _this3.messageInbox.deleteMessageInboxbyMessageId(queryParamBase).subscribe(function (resp) {
+                  _this3._router.navigate(['./'], {
+                    relativeTo: _this3._activatedRoute.parent
                   });
                 });
               }
@@ -1186,16 +1168,16 @@
         }, {
           key: "getSelectedMail",
           value: function getSelectedMail(id) {
-            var _this5 = this;
+            var _this4 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId,
               messageId: id
             };
             this.messageInbox.getMessageInboxbyMessageId(queryParamBase).subscribe(function (resp) {
-              _this5.mail = resp[0];
-              _this5.composeMail.subject = _this5.mail.subject;
-              _this5.composeMail.parentId = _this5.mail.parentId;
+              _this4.mail = resp[0];
+              _this4.composeMail.subject = _this4.mail.subject;
+              _this4.composeMail.parentId = _this4.mail.parentId;
             });
           }
           /**
@@ -1357,6 +1339,22 @@
         }, {
           key: "reply",
           value: function reply() {
+            var _this5 = this;
+
+            // Activate the reply form
+            this.replyFormActive = true; // Scroll to the bottom of the details pane
+
+            setTimeout(function () {
+              _this5._elementRef.nativeElement.scrollTop = _this5._elementRef.nativeElement.scrollHeight;
+            });
+          }
+          /**
+           * Reply all
+           */
+
+        }, {
+          key: "replyAll",
+          value: function replyAll() {
             var _this6 = this;
 
             // Activate the reply form
@@ -1367,12 +1365,12 @@
             });
           }
           /**
-           * Reply all
+           * Forward
            */
 
         }, {
-          key: "replyAll",
-          value: function replyAll() {
+          key: "forward",
+          value: function forward() {
             var _this7 = this;
 
             // Activate the reply form
@@ -1380,22 +1378,6 @@
 
             setTimeout(function () {
               _this7._elementRef.nativeElement.scrollTop = _this7._elementRef.nativeElement.scrollHeight;
-            });
-          }
-          /**
-           * Forward
-           */
-
-        }, {
-          key: "forward",
-          value: function forward() {
-            var _this8 = this;
-
-            // Activate the reply form
-            this.replyFormActive = true; // Scroll to the bottom of the details pane
-
-            setTimeout(function () {
-              _this8._elementRef.nativeElement.scrollTop = _this8._elementRef.nativeElement.scrollHeight;
             });
           }
           /**
@@ -1415,7 +1397,7 @@
         }, {
           key: "send",
           value: function send() {
-            var _this9 = this;
+            var _this8 = this;
 
             var obj = {
               "userId": this.mail.insertedBy,
@@ -1427,7 +1409,7 @@
               InboxCollection: this.composeMail
             };
             this.messageInbox.addMessageInbox(param).subscribe(function (resp) {
-              _this9.replyFormActive = false;
+              _this8.replyFormActive = false;
             }); // Deactivate the reply form
           }
           /**
@@ -1437,7 +1419,7 @@
         }, {
           key: "openInfoDetailsPanel",
           value: function openInfoDetailsPanel() {
-            var _this10 = this;
+            var _this9 = this;
 
             // Create the overlay
             this._overlayRef = this._overlay.create({
@@ -1474,9 +1456,9 @@
 
             this._overlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this10._overlayRef && _this10._overlayRef.hasAttached()) {
+              if (_this9._overlayRef && _this9._overlayRef.hasAttached()) {
                 // Detach it
-                _this10._overlayRef.detach();
+                _this9._overlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -1687,14 +1669,14 @@
         _createClass(MailboxListComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this10 = this;
 
             // Category
             this._mailboxService.category$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (category) {
-              _this11.category = category;
+              _this10.category = category;
 
-              if (_this11.category.name === 'inbox') {
-                _this11.pagination = {
+              if (_this10.category.name === 'inbox') {
+                _this10.pagination = {
                   totalResults: 0,
                   resultsPerPage: 10,
                   currentPage: 1,
@@ -1703,9 +1685,9 @@
                   endIndex: 0
                 };
 
-                _this11.getMailList();
-              } else if (_this11.category.name === 'sent') {
-                _this11.pagination = {
+                _this10.getMailList();
+              } else if (_this10.category.name === 'sent') {
+                _this10.pagination = {
                   totalResults: 0,
                   resultsPerPage: 10,
                   currentPage: 1,
@@ -1714,9 +1696,9 @@
                   endIndex: 0
                 };
 
-                _this11.getSentList();
-              } else if (_this11.category.name === 'trash') {
-                _this11.pagination = {
+                _this10.getSentList();
+              } else if (_this10.category.name === 'trash') {
+                _this10.pagination = {
                   totalResults: 0,
                   resultsPerPage: 10,
                   currentPage: 1,
@@ -1725,7 +1707,7 @@
                   endIndex: 0
                 };
 
-                _this11.getTrashList();
+                _this10.getTrashList();
               }
             }); // Mails
             // this._mailboxService.mails$
@@ -1755,13 +1737,13 @@
 
 
             this._mailboxService.mail$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mail) {
-              _this11.selectedMail = mail;
+              _this10.selectedMail = mail;
             });
           }
         }, {
           key: "getMailList",
           value: function getMailList() {
-            var _this12 = this;
+            var _this11 = this;
 
             this.mailsLoading = true;
             var queryParamBase = {
@@ -1774,18 +1756,18 @@
               recordsNo: 10
             };
             this.messageInbox.getMessageInboxReceivedByUserIdAndRole(queryParamBase).subscribe(function (resp) {
-              _this12.mails = resp[0].inboxResult;
-              _this12.pagination.totalResults = resp[0].totalRecords;
+              _this11.mails = resp[0].inboxResult;
+              _this11.pagination.totalResults = resp[0].totalRecords;
 
-              _this12.calculatePagination('refresh');
+              _this11.calculatePagination('refresh');
 
-              _this12.mailsLoading = false;
+              _this11.mailsLoading = false;
             });
           }
         }, {
           key: "getTrashList",
           value: function getTrashList() {
-            var _this13 = this;
+            var _this12 = this;
 
             this.mailsLoading = true;
             var queryParamBase = {
@@ -1798,18 +1780,18 @@
               recordsNo: 10
             };
             this.messageInbox.getMessageInboxTrashedByUserIdAndRole(queryParamBase).subscribe(function (resp) {
-              _this13.mails = resp[0].inboxResult;
-              _this13.pagination.totalResults = resp[0].totalRecords;
+              _this12.mails = resp[0].inboxResult;
+              _this12.pagination.totalResults = resp[0].totalRecords;
 
-              _this13.calculatePagination('refresh');
+              _this12.calculatePagination('refresh');
 
-              _this13.mailsLoading = false;
+              _this12.mailsLoading = false;
             });
           }
         }, {
           key: "getSentList",
           value: function getSentList() {
-            var _this14 = this;
+            var _this13 = this;
 
             this.mailsLoading = true;
             var queryParamBase = {
@@ -1822,12 +1804,12 @@
               recordsNo: 10
             };
             this.messageInbox.getMessageInboxSendByUserId(queryParamBase).subscribe(function (resp) {
-              _this14.mails = resp[0].inboxResult;
-              _this14.pagination.totalResults = resp[0].totalRecords;
+              _this13.mails = resp[0].inboxResult;
+              _this13.pagination.totalResults = resp[0].totalRecords;
 
-              _this14.calculatePagination('refresh');
+              _this13.calculatePagination('refresh');
 
-              _this14.mailsLoading = false;
+              _this13.mailsLoading = false;
             });
           }
         }, {
@@ -2719,7 +2701,7 @@
         _createClass(MailboxMailsResolver, [{
           key: "resolve",
           value: function resolve(route, state) {
-            var _this15 = this;
+            var _this14 = this;
 
             // Don't allow page param to go below 1
             if (route.paramMap.get('page') && parseInt(route.paramMap.get('page'), 10) <= 0) {
@@ -2766,7 +2748,7 @@
 
               if (!currentRoute.paramMap.get('id')) {
                 // Reset the mail
-                _this15._mailboxService.resetMail().subscribe();
+                _this14._mailboxService.resetMail().subscribe();
               }
             }), // Error here means the requested page is not available
             Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
@@ -2775,7 +2757,7 @@
 
               var url = state.url.split('/').slice(0, -1).join('/') + '/' + error.pagination.lastPage; // Navigate to there
 
-              _this15._router.navigateByUrl(url); // Throw an error
+              _this14._router.navigateByUrl(url); // Throw an error
 
 
               return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
@@ -2937,10 +2919,10 @@
            * Get filters
            */
           value: function getFilters() {
-            var _this16 = this;
+            var _this15 = this;
 
             return this._httpClient.get('api/ams/mailbox/filters').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this16._filters.next(response);
+              _this15._filters.next(response);
             }));
           }
           /**
@@ -2950,10 +2932,10 @@
         }, {
           key: "getFolders",
           value: function getFolders() {
-            var _this17 = this;
+            var _this16 = this;
 
             return this._httpClient.get('api/ams/mailbox/folders').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this17._folders.next(response);
+              _this16._folders.next(response);
             }));
           }
           /**
@@ -2963,10 +2945,10 @@
         }, {
           key: "getLabels",
           value: function getLabels() {
-            var _this18 = this;
+            var _this17 = this;
 
             return this._httpClient.get('api/ams/mailbox/labels').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this18._labels.next(response);
+              _this17._labels.next(response);
             }));
           }
           /**
@@ -2976,7 +2958,7 @@
         }, {
           key: "getMailsByFilter",
           value: function getMailsByFilter(filter) {
-            var _this19 = this;
+            var _this18 = this;
 
             var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
 
@@ -2989,9 +2971,50 @@
                 page: page
               }
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this19._category.next({
+              _this18._category.next({
                 type: 'filter',
                 name: filter
+              });
+
+              _this18._mails.next(response.mails);
+
+              _this18._pagination.next(response.pagination);
+
+              _this18._mailsLoading.next(false);
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
+              if (response.mails === null) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])({
+                  message: 'Requested page is not available!',
+                  pagination: response.pagination
+                });
+              }
+
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(response);
+            }));
+          }
+          /**
+           * Get mails by folder
+           */
+
+        }, {
+          key: "getMailsByFolder",
+          value: function getMailsByFolder(folder) {
+            var _this19 = this;
+
+            var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
+
+            // Execute the mails loading with true
+            this._mailsLoading.next(true);
+
+            return this._httpClient.get('api/ams/mailbox/mails', {
+              params: {
+                folder: folder,
+                page: page
+              }
+            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
+              _this19._category.next({
+                type: 'folder',
+                name: folder
               });
 
               _this19._mails.next(response.mails);
@@ -3011,12 +3034,12 @@
             }));
           }
           /**
-           * Get mails by folder
+           * Get mails by label
            */
 
         }, {
-          key: "getMailsByFolder",
-          value: function getMailsByFolder(folder) {
+          key: "getMailsByLabel",
+          value: function getMailsByLabel(label) {
             var _this20 = this;
 
             var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
@@ -3026,13 +3049,13 @@
 
             return this._httpClient.get('api/ams/mailbox/mails', {
               params: {
-                folder: folder,
+                label: label,
                 page: page
               }
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
               _this20._category.next({
-                type: 'folder',
-                name: folder
+                type: 'label',
+                name: label
               });
 
               _this20._mails.next(response.mails);
@@ -3052,54 +3075,13 @@
             }));
           }
           /**
-           * Get mails by label
-           */
-
-        }, {
-          key: "getMailsByLabel",
-          value: function getMailsByLabel(label) {
-            var _this21 = this;
-
-            var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
-
-            // Execute the mails loading with true
-            this._mailsLoading.next(true);
-
-            return this._httpClient.get('api/ams/mailbox/mails', {
-              params: {
-                label: label,
-                page: page
-              }
-            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this21._category.next({
-                type: 'label',
-                name: label
-              });
-
-              _this21._mails.next(response.mails);
-
-              _this21._pagination.next(response.pagination);
-
-              _this21._mailsLoading.next(false);
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-              if (response.mails === null) {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])({
-                  message: 'Requested page is not available!',
-                  pagination: response.pagination
-                });
-              }
-
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(response);
-            }));
-          }
-          /**
            * Get mail by id
            */
 
         }, {
           key: "getMailById",
           value: function getMailById(id) {
-            var _this22 = this;
+            var _this21 = this;
 
             return this._mails.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (mails) {
               // Find the mail
@@ -3107,7 +3089,7 @@
                 return item.id === id;
               }) || null; // Update the mail
 
-              _this22._mail.next(mail); // Return the mail
+              _this21._mail.next(mail); // Return the mail
 
 
               return mail;
@@ -3129,7 +3111,7 @@
         }, {
           key: "updateMail",
           value: function updateMail(id, mail) {
-            var _this23 = this;
+            var _this22 = this;
 
             return this._httpClient.patch('api/ams/mailbox/mail', {
               id: id,
@@ -3137,7 +3119,7 @@
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
               // Re-fetch the folders on mail update
               // to get the updated counts on the sidebar
-              _this23.getFolders().subscribe();
+              _this22.getFolders().subscribe();
             }));
           }
           /**
@@ -3147,10 +3129,10 @@
         }, {
           key: "resetMail",
           value: function resetMail() {
-            var _this24 = this;
+            var _this23 = this;
 
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
-              _this24._mail.next(null);
+              _this23._mail.next(null);
             }));
           }
           /**
@@ -3162,14 +3144,14 @@
         }, {
           key: "addLabel",
           value: function addLabel(label) {
-            var _this25 = this;
+            var _this24 = this;
 
             return this.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (labels) {
-              return _this25._httpClient.put('api/ams/mailbox/label', {
+              return _this24._httpClient.put('api/ams/mailbox/label', {
                 label: label
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (newLabel) {
                 // Update the labels with the new label
-                _this25._labels.next([].concat(_toConsumableArray(labels), [newLabel])); // Return the new label
+                _this24._labels.next([].concat(_toConsumableArray(labels), [newLabel])); // Return the new label
 
 
                 return newLabel;
@@ -3186,10 +3168,10 @@
         }, {
           key: "updateLabel",
           value: function updateLabel(id, label) {
-            var _this26 = this;
+            var _this25 = this;
 
             return this.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (labels) {
-              return _this26._httpClient.patch('api/ams/mailbox/label', {
+              return _this25._httpClient.patch('api/ams/mailbox/label', {
                 id: id,
                 label: label
               }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedLabel) {
@@ -3200,7 +3182,7 @@
 
                 labels[index] = updatedLabel; // Update the labels
 
-                _this26._labels.next(labels); // Return the updated label
+                _this25._labels.next(labels); // Return the updated label
 
 
                 return updatedLabel;
@@ -3216,10 +3198,10 @@
         }, {
           key: "deleteLabel",
           value: function deleteLabel(id) {
-            var _this27 = this;
+            var _this26 = this;
 
             return this.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (labels) {
-              return _this27._httpClient["delete"]('api/ams/mailbox/label', {
+              return _this26._httpClient["delete"]('api/ams/mailbox/label', {
                 params: {
                   id: id
                 }
@@ -3231,7 +3213,7 @@
 
                 labels.splice(index, 1); // Update the labels
 
-                _this27._labels.next(labels); // Return the deleted status
+                _this26._labels.next(labels); // Return the deleted status
 
 
                 return isDeleted;
@@ -3449,7 +3431,7 @@
         _createClass(MailboxSettingsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this27 = this;
 
             // Create the labels form
             this.labelsForm = this._formBuilder.group({
@@ -3462,11 +3444,11 @@
 
             this._mailboxService.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(function (labels) {
               // Get the labels
-              _this28.labels = labels; // Iterate through the labels
+              _this27.labels = labels; // Iterate through the labels
 
               labels.forEach(function (label) {
                 // Create a label form group
-                var labelFormGroup = _this28._formBuilder.group({
+                var labelFormGroup = _this27._formBuilder.group({
                   id: [label.id],
                   title: [label.title, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                   slug: [label.slug],
@@ -3474,13 +3456,13 @@
                 }); // Add the label form group to the labels form array
 
 
-                _this28.labelsForm.get('labels').push(labelFormGroup);
+                _this27.labelsForm.get('labels').push(labelFormGroup);
               });
             }); // Update labels when there is a value change
 
 
             this.labelsForm.get('labels').valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(500)).subscribe(function () {
-              _this28.updateLabels();
+              _this27.updateLabels();
             });
           } // -----------------------------------------------------------------------------------------------------
           // @ Public methods
@@ -3493,12 +3475,12 @@
         }, {
           key: "addLabel",
           value: function addLabel() {
-            var _this29 = this;
+            var _this28 = this;
 
             // Add label to the server
             this._mailboxService.addLabel(this.labelsForm.get('newLabel').value).subscribe(function (addedLabel) {
               // Push the new label to the labels form array
-              _this29.labelsForm.get('labels').push(_this29._formBuilder.group({
+              _this28.labelsForm.get('labels').push(_this28._formBuilder.group({
                 id: [addedLabel.id],
                 title: [addedLabel.title, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                 slug: [addedLabel.slug],
@@ -3506,15 +3488,15 @@
               })); // Reset the new label form
 
 
-              _this29.labelsForm.get('newLabel').markAsPristine();
+              _this28.labelsForm.get('newLabel').markAsPristine();
 
-              _this29.labelsForm.get('newLabel').markAsUntouched();
+              _this28.labelsForm.get('newLabel').markAsUntouched();
 
-              _this29.labelsForm.get('newLabel.title').reset();
+              _this28.labelsForm.get('newLabel.title').reset();
 
-              _this29.labelsForm.get('newLabel.title').clearValidators();
+              _this28.labelsForm.get('newLabel.title').clearValidators();
 
-              _this29.labelsForm.get('newLabel.title').updateValueAndValidity();
+              _this28.labelsForm.get('newLabel.title').updateValueAndValidity();
             });
           }
           /**
@@ -3540,14 +3522,14 @@
         }, {
           key: "updateLabels",
           value: function updateLabels() {
-            var _this30 = this;
+            var _this29 = this;
 
             // Iterate through the labels form array controls
             this.labelsForm.get('labels').controls.forEach(function (labelFormGroup) {
               // If the label has been edited...
               if (labelFormGroup.dirty) {
                 // Update the label on the server
-                _this30._mailboxService.updateLabel(labelFormGroup.value.id, labelFormGroup.value).subscribe();
+                _this29._mailboxService.updateLabel(labelFormGroup.value.id, labelFormGroup.value).subscribe();
               }
             }); // Reset the labels form array
 
@@ -3771,7 +3753,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this31 = this;
+            var _this30 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = [];
@@ -3804,7 +3786,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this31._foldersMenuData.push(menuItem);
+              _this30._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
