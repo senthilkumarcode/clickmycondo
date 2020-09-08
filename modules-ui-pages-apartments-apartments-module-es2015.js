@@ -133,7 +133,7 @@ let ApartmentsComponent = class ApartmentsComponent {
             userId: this.sessionService.userId
         };
         this.staffService.getStaffByUserId(params).subscribe((res) => {
-            this.sessionService.secondLevelId = res[0].staffId;
+            this.sessionService.staffId = res[0].staffId;
             // Hide the message
             this.message = null;
             this.isRouting = true;

@@ -259,7 +259,7 @@
               userId: this.sessionService.userId
             };
             this.staffService.getStaffByUserId(params).subscribe(function (res) {
-              _this2.sessionService.secondLevelId = res[0].staffId; // Hide the message
+              _this2.sessionService.staffId = res[0].staffId; // Hide the message
 
               _this2.message = null;
               _this2.isRouting = true;
