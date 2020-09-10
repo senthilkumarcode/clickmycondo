@@ -102,7 +102,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\">\n\t\n\t<form novalidate>\n\t\t<h4 class=\"mb-4\">\n\t\t\tInternal Transfer\n\t\t</h4>\n\t\t<div class=\"bg-card shadow clear mb-5\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8 filter-list pb-4\">                                  \n\t\t\t\t\t\t\t\t  <condo-select\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t  labelText=\"Inventory Item\"\n\t\t\t\t\t\t\t\t  fieldPlaceholder=\"Select Inventory Item\"\n\t\t\t\t\t\t\t\t  [fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t  [fieldList]=\"materialItemData\"\n\t\t\t\t\t\t\t\t  fieldValue=\"itemName\"\n\t\t\t\t\t\t\t\t  fieldId=\"id\"\n\t\t\t\t\t\t\t\t  [fieldModel]=\"transfer.materialId\"\n\t\t\t\t\t\t\t\t  (fieldParams)=\"setWareInventoryId($event)\" \n\t\t\t\t\t\t\t\t   ></condo-select>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t<div class=\"col-md-4\"></div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<span class=\"from-stock text-blue-900\"> Stock: ({{transfer?.fromAvailableStockQty?transfer.fromAvailableStockQty:0}})</span>\n\t\t\t\t\t\t\t\t<condo-select \t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t  labelText=\"From Warehouse\"\n\t\t\t\t\t\t\t\t  fieldPlaceholder=\"Select Warehouse\"\n\t\t\t\t\t\t\t\t  [fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t  [fieldList]=\"warehouseData\"\n\t\t\t\t\t\t\t\t  fieldValue=\"warehouseName\"\n\t\t\t\t\t\t\t\t  fieldId=\"warehouseId\"\n\t\t\t\t\t\t\t\t  [fieldModel]=\"transfer.fromWarehouseId\"\n\t\t\t\t\t\t\t\t  (fieldParams)=\"setFromWarehouseId($event)\" \n\t\t\t\t\t\t\t\t   ></condo-select>                                   \n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">  \n\t\t\t\t\t\t\t\t\t<span class=\"to-stock text-blue-900\"> Stock: ({{transfer?.toAvailableStockQty?ransfer.toAvailableStockQty:0}})</span>                                 \n\t\t\t\t\t\t\t\t\t<condo-select \t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tlabelText=\"To Warehouse\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Warehouse\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"warehouseData\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"warehouseName\"\n\t\t\t\t\t\t\t\t\tfieldId=\"warehouseId\"\n\t\t\t\t\t\t\t\t    [fieldModel]=\"transfer.toWarehouseId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setToWarehouseId($event)\" \n\t\t\t\t\t\t\t\t\t ></condo-select>\n                                </div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Qty *</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Total Qty\" name=\"totalStockQty\" [(ngModel)]=\"transfer.totalStockQty\"  OnlyNumber=\"true\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 filter-list\">                                   \n\t\t\t\t\t\t\t\t\t\t\t<condo-select\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Issue By Staff \"\n\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select By Staff\"\n\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"staffList\"\n\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"itemName\"\n\t\t\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"transfer.iN_GoodsincomingReceivedbyStaffID\"\n\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setByStaff($event)\" \n\t\t\t\t\t\t\t\t\t\t\t ></condo-select>\n                                </div>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4 filter-list\">\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\t\tfieldName=\"itemName\"\n\t\t\t\t\t\t\t\t\t\t\tlabelText=\"Issue to Staff\"\n\t\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select to Staff\"\n\t\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t\t[fieldList]=\"staffList\"\n\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"itemName\"\n\t\t\t\t\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t\t            [fieldModel]=\"transfer.ouT_TowhomissuedStaffID\"\n\t\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setToStaff($event)\" \n\t\t\t\t\t\t\t\t\t\t\t ></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Reason</label>\n\t\t\t\t\t                    <textarea placeholder=\"Enter Reason\" name=\"comments\" [(ngModel)]=\"transfer.comments\"></textarea>\n\t\t\t\t\t                </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"addInternalTransfer()\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\">\n\t\n\t<form novalidate>\n\t\t<h4 class=\"mb-4\">\n\t\t\tInternal Transfer\n\t\t</h4>\n\t\t<div class=\"bg-card shadow clear mb-5\" id=\"accordion\">\n\t\t\t<div class=\"card-body p-0\">\n\t\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t\t\t<div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-8 filter-list pb-4\">                                  \n\t\t\t\t\t\t\t\t  <condo-select\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t  labelText=\"Inventory Item\"\n\t\t\t\t\t\t\t\t  fieldPlaceholder=\"Select Inventory Item\"\n\t\t\t\t\t\t\t\t  [fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t  [fieldList]=\"materialItemData\"\n\t\t\t\t\t\t\t\t  fieldValue=\"itemName\"\n\t\t\t\t\t\t\t\t  fieldId=\"id\"\n\t\t\t\t\t\t\t\t  [fieldModel]=\"transfer.materialId\"\n\t\t\t\t\t\t\t\t  (fieldParams)=\"setWareInventoryId($event)\" \n\t\t\t\t\t\t\t\t   ></condo-select>\n\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t<div class=\"col-md-4\"></div>\n                                <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<span class=\"from-stock text-blue-900\"> Stock: ({{transfer.fromAvailableStockQty}})</span>\n\t\t\t\t\t\t\t\t<condo-select \t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t  labelText=\"From Warehouse\"\n\t\t\t\t\t\t\t\t  fieldPlaceholder=\"Select Warehouse\"\n\t\t\t\t\t\t\t\t  [fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t  [fieldList]=\"warehouseData\"\n\t\t\t\t\t\t\t\t  fieldValue=\"warehouseName\"\n\t\t\t\t\t\t\t\t  fieldId=\"warehouseId\"\n\t\t\t\t\t\t\t\t  [fieldModel]=\"transfer.fromWarehouseId\"\n\t\t\t\t\t\t\t\t  (fieldParams)=\"setFromWarehouseId($event)\" \n\t\t\t\t\t\t\t\t   ></condo-select>                                   \n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<span class=\"to-stock text-blue-900\"> Stock: ({{transfer.toAvailableStockQty}})</span>                                 \n\t\t\t\t\t\t\t\t\t<condo-select \t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tlabelText=\"To Warehouse\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Warehouse\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"warehouseData\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"warehouseName\"\n\t\t\t\t\t\t\t\t\tfieldId=\"warehouseId\"\n\t\t\t\t\t\t\t\t    [fieldModel]=\"transfer.toWarehouseId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setToWarehouseId($event)\" \n\t\t\t\t\t\t\t\t\t ></condo-select>\n                                </div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Total Qty *</label>\n\t\t\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter Total Qty\" name=\"totalStockQty\" [(ngModel)]=\"transfer.totalStockQty\"  OnlyNumber=\"true\" required>\n\t\t\t                \t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">   \n                                    <condo-select \n                                        labelText=\"Issue By Staff\"\n                                        fieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"staffList | orderBy : 'staffName'\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n                                        fieldValue=\"customLabel\"\n                                        [fieldModel]=\"transfer.iN_GoodsincomingReceivedbyStaffID\"\n                                        fieldId=\"staffId\"\n                                        (fieldParams)=\"setByStaff($event)\"\n                                    ></condo-select> \n                                </div>\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Issue to Staff\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"staffList | orderBy : 'staffName'\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"transfer.ouT_TowhomissuedStaffID\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setToStaff($event)\"\n\t\t\t\t\t\t\t\t\t></condo-select> \t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t                    <label>Reason</label>\n\t\t\t\t\t                    <textarea placeholder=\"Enter Reason\" name=\"comments\" [(ngModel)]=\"transfer.comments\"></textarea>\n\t\t\t\t\t                </div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<ul class=\"list-inline float-right\">\n\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t<button class=\"btn blue mr-2\" (click)=\"addInternalTransfer()\">Submit</button>\n\t\t\t\t\t</li>\n\t\t\t\t</ul>\n\t\t\t</div>\n\t\t</div>\n\n\t</form>\n\n</div>\n</div>\n</div>";
       /***/
     },
 
@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\" id=\"outertop\">\n    <form #addReceivingForm=\"ngForm\" name=\"receivingForm\"  novalidate>   \n        <h4 class=\"mb-4\">\t\n          Receiving\n        </h4>\n        <div class=\"bg-card shadow \">\n            <div class=\"\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">                                \n                                <div class=\"col-sm-4\">                                                                      \n                                    <condo-select\n                                    labelText=\"Warehouse ID\"                                     \n                                    [fieldRequired]=\"'required'\"\n                                     fieldPlaceholder=\"Select Warehouse\"\n                                     [fieldList]=\"warehouseData\"                                     \n                                     fieldValue=\"warehouseName\"\n                                     fieldId=\"warehouseId\"\n                                     [fieldModel]=\"receiving.warehouseId\"\n                                     (fieldParams)=\"setWareHouseId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">                                   \n                              <condo-select \t\t\t\t\t\t\t \n\t\t\t\t\t\t      labelText=\"Inventory Item\"\n\t\t\t\t\t\t\t  fieldPlaceholder=\"Select Inventory Item\"\n\t\t\t\t\t\t\t  [fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t  [fieldList]=\"materialItemData\"\n                              fieldValue=\"itemName\"\n                              fieldId=\"id\"\n                              [fieldModel]=\"receiving.materialId\"\n\t\t\t\t\t\t\t  (fieldParams)=\"setWareInventoryId($event)\" \n\t\t\t\t\t\t       ></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Available Stock\"\n                                            name=\"availableStockQty\" readonly [(ngModel)]=\"receiving.availableStockQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <div class=\"input-box\">\n                                        <label>PO Number * </label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter PO No\" name=\"inPonumber\"\n                                            [(ngModel)]=\"receiving.inPonumber\" required>\n                                    </div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>SKU / BarCode *</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter SKU /BarCode\" name=\"depreciation\"\n                                            [(ngModel)]=\"receiving.sku\" required >\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <div class=\"input-box\">  \n                                    <condo-select                                    \n                                    labelText=\"Verified by Staff\"\n                                    fieldPlaceholder=\"Select Staff\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"staffList\"\n                                    fieldValue=\"itemName\"\n                                    fieldId=\"id\"\n                                    [fieldModel]=\"receiving.inGoodsincomingReceivedbyStaffId\"\n                                    (fieldParams)=\"setStaffId($event)\" \n                                    ></condo-select>                                   \n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Count/ Quality Verified *</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                        [(ngModel)]=\"receiving.inCountQualityVerified\" required placeholder=\"Enter Count\" name=\"depreciation\" OnlyNumber=\"true\">\n                                      \n                                    </div>\n                                </div>                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receive Goods Date*</label>\n                                        <input class=\"form-control\" name=\"inStockReceivedDate\" [owlDateTime]=\"inStockReceivedDate\"\n                                            [owlDateTimeTrigger]=\"inStockReceivedDate\"\n                                            placeholder=\"Received Goods Date\" [(ngModel)]=\"receiving.inStockReceivedDate\"\n                                            required>\n                                        <owl-date-time #inStockReceivedDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"inStockReceivedDate\">\n                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                          \n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Received Goods QTY *</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Received Goods QTY\" name=\"inReceivedStockQty\"\n                                            [(ngModel)]=\"receiving.inReceivedStockQty\"\n                                            (change)=\"!receiving.inActualStockMovedIn && (receiving.inActualStockMovedIn =receiving.inReceivedStockQty)\" required >\n                                    </div>\n                                </div> \n                              \n                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Damage / Returned * </label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Damage/Returned\" name=\"inDamageReturnedQty\"\n                                            [(ngModel)]=\"receiving.inDamageReturnedQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Actualy Stock Moved in*</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Stock\" name=\"inActualStockMovedIn\"\n                                            [(ngModel)]=\"receiving.inActualStockMovedIn\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Cost*</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Total Cost\" name=\"inTotalCost\"\n                                            [(ngModel)]=\"receiving.inTotalCost\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receving Reason </label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"inReceivingReason\" [(ngModel)]=\"receiving.inReceivingReason\"></textarea>\n                                        </div>\n                                </div>  \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"wd-50\">\n                <h6 class=\"main-title-mini float-left mt-3\">\n                    <span> Available Stock :{{receiving?.availableStockQty}}</span>\n                </h6>\n                </div>\n            <div class=\"d-flex wd-50 justify-content-end\" >                \n            <button class=\"mr-2\" [color]=\"'primary'\" mat-flat-button *ngIf=\"!isEdit\" [disabled]=\"addReceivingForm.invalid\" (click)=\"addReceiving()\" >Submit</button>\n        </div>\n        </div>        \n        <div class=\"bg-card shadow mt-4 p-0\">\n            <div class=\" mobile-display\">\n                <table class=\"table\"  #data>\n                    <thead>\n                      <tr>                        \n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">In Qty <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Out Qty <span\n                            ></span></th>\n                        <!-- <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Final Qty <span\n                            ></span></th> -->\n                            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Transaction Date <span\n                                ></span></th>\n                                <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Status <span\n                                    ></span></th>\n                        <th scope=\"col\">Action</th>\n                      </tr>\n                    </thead>\n                    <tbody>                  \n                      <ng-container>\n                        <tr *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex  | sort : 'desc'; \">\n                          <td>{{list.material1?list.material1:'--'}}</td>\n                          <td>{{list.inActualStockMovedIn?list.inActualStockMovedIn:'--'}}</td>\n                          <td>{{list.outTotalQtyConsumedBy?list.outTotalQtyConsumedBy:'--'}}</td>\n                          <!-- <td>--</td> -->\n                          <td>{{list.inStockReceivedDate?list.inStockReceivedDate:'--'}}</td>\n                          <td>{{list.lookupValueName?list.lookupValueName:'--'}}</td>\n                          <td>  \n                            <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" [ngClass]=\"!edit?'custom-icon-disabled':''\" title=\"edit\"                  \n                            ></mat-icon>                              \n                            <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 text-red-900\" [ngClass]=\"!edit?'custom-icon-disabled':''\" ></mat-icon>\n                    </td>\n                    </tr>\n                      </ng-container>\n                      \n                    </tbody>\n            \n                </table>                \n                <app-pagination   *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </div>\n  </form>\n</div>\n</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\" id=\"outertop\">\n    <form #addReceivingForm=\"ngForm\" name=\"receivingForm\"  novalidate>   \n        <h4 class=\"mb-4\">\t\n          Receiving\n        </h4>\n        <div class=\"bg-card shadow \">\n            <div class=\"\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">                                \n                                <div class=\"col-sm-4\">                                                                      \n                                    <condo-select\n                                    labelText=\"Warehouse ID\"                                     \n                                    [fieldRequired]=\"'required'\"\n                                     fieldPlaceholder=\"Select Warehouse\"\n                                     [fieldList]=\"warehouseData\"                                     \n                                     fieldValue=\"warehouseName\"\n                                     fieldId=\"warehouseId\"\n                                     [fieldModel]=\"receiving.warehouseId\"\n                                     (fieldParams)=\"setWareHouseId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">                                   \n                              <condo-select \t\t\t\t\t\t\t \n\t\t\t\t\t\t      labelText=\"Inventory Item\"\n\t\t\t\t\t\t\t  fieldPlaceholder=\"Select Inventory Item\"\n\t\t\t\t\t\t\t  [fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t  [fieldList]=\"materialItemData\"\n                              fieldValue=\"itemName\"\n                              fieldId=\"id\"\n                              [fieldModel]=\"receiving.materialId\"\n\t\t\t\t\t\t\t  (fieldParams)=\"setWareInventoryId($event)\" \n\t\t\t\t\t\t       ></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Available Stock\"\n                                            name=\"availableStockQty\" readonly [(ngModel)]=\"receiving.availableStockQty\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">\n                                    <div class=\"input-box\">\n                                        <label>PO Number * </label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter PO No\" name=\"inPonumber\"\n                                            [(ngModel)]=\"receiving.inPonumber\" required>\n                                    </div>\n                                </div>                                \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>SKU / BarCode *</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter SKU /BarCode\" name=\"depreciation\"\n                                            [(ngModel)]=\"receiving.sku\" required >\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <condo-select \n                                        labelText=\"Verified by Staff\"\n                                        fieldPlaceholder=\"Verified by Staff\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"staffList | orderBy : 'staffName'\"\n                                        fieldValue=\"customLabel\"\n                                        [fieldModel]=\"receiving.inGoodsincomingReceivedbyStaffId\"\n                                        fieldId=\"staffId\"\n                                        (fieldParams)=\"setStaffId($event)\">\n                                    </condo-select>\n                                </div>                           \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receive Goods Date*</label>\n                                        <input class=\"form-control\" name=\"inStockReceivedDate\" [owlDateTime]=\"inStockReceivedDate\"\n                                            [owlDateTimeTrigger]=\"inStockReceivedDate\"\n                                            placeholder=\"Received Goods Date\" [(ngModel)]=\"receiving.inStockReceivedDate\"\n                                            required>\n                                        <owl-date-time #inStockReceivedDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"inStockReceivedDate\">\n                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                          \n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Received Goods QTY *</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Received Goods QTY\" name=\"inReceivedStockQty\"\n                                            [(ngModel)]=\"receiving.inReceivedStockQty\" (input)=\"calculateActualStock()\" required >\n                                    </div>\n                                </div> \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Damage / Returned * </label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Damage/Returned\" name=\"inDamageReturnedQty\"\n                                            [(ngModel)]=\"receiving.inDamageReturnedQty\" (input)=\"calculateActualStock()\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Actualy Stock Moved in*</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Stock\" name=\"inActualStockMovedIn\"\n                                            [(ngModel)]=\"receiving.inActualStockMovedIn\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Cost*</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Total Cost\" name=\"inTotalCost\"\n                                            [(ngModel)]=\"receiving.inTotalCost\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Receving Reason </label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"inReceivingReason\" [(ngModel)]=\"receiving.inReceivingReason\"></textarea>\n                                        </div>\n                                </div>  \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"wd-50\">\n                <h6 class=\"main-title-mini float-left mt-3\">\n                    <span> Available Stock :{{receiving?.availableStockQty}}</span>\n                </h6>\n                </div>\n            <div class=\"d-flex wd-50 justify-content-end\" >                \n            <button class=\"mr-2\" [color]=\"'primary'\" mat-flat-button *ngIf=\"!isEdit\" [disabled]=\"addReceivingForm.invalid\" (click)=\"addReceiving()\" >Submit</button>\n        </div>\n        </div>        \n        <div class=\"bg-card shadow mt-4 p-0\">\n            <div class=\" mobile-display\">\n                <table class=\"table\"  #data>\n                    <thead>\n                      <tr>                        \n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">In Qty <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Out Qty <span\n                            ></span></th>\n                        <!-- <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Final Qty <span\n                            ></span></th> -->\n                            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Transaction Date <span\n                                ></span></th>\n                                <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Status <span\n                                    ></span></th>\n                        <th scope=\"col\">Action</th>\n                      </tr>\n                    </thead>\n                    <tbody>                  \n                      <ng-container>\n                        <tr *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex  | sort : 'desc'; \">\n                          <td>{{list.material1?list.material1:'--'}}</td>\n                          <td>{{list.inActualStockMovedIn?list.inActualStockMovedIn:'--'}}</td>\n                          <td>{{list.outTotalQtyConsumedBy?list.outTotalQtyConsumedBy:'--'}}</td>\n                          <!-- <td>--</td> -->\n                          <td>{{list.inStockReceivedDate?list.inStockReceivedDate:'--'}}</td>\n                          <td>{{list.lookupValueName?list.lookupValueName:'--'}}</td>\n                          <td>  \n                            <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" [ngClass]=\"!edit?'custom-icon-disabled':''\" title=\"edit\"                  \n                            ></mat-icon>                              \n                            <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 text-red-900\" [ngClass]=\"!edit?'custom-icon-disabled':''\" ></mat-icon>\n                    </td>\n                    </tr>\n                      </ng-container>\n                      \n                    </tbody>\n            \n                </table>                \n                <app-pagination   *ngIf=\"totalItems\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </div>\n  </form>\n</div>\n</div>\n</div>";
       /***/
     },
 
@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Settings</h4>\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<mat-tab-group>\n\t\t\t\t<mat-tab label=\"Ware Houses Setup\">\n\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<h5>All Warehouse</h5>\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"searchWarehouse\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<form>\n\t\t\t\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('warehouseName')\">Warehouse Name\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('warehouseName')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('towerLocation')\">Tower Location\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('towerLocation')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('descripition')\">Descripition\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('descripition')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('owner')\">Owner\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('owner')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('supervisor')\">Supervisor\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('supervisor')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<ng-container>\n\t\t\t\t\t\t\t\t\t\t\t<tr class=\"shadow\">\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"warName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.warehouseName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"warLocation\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.towerLocation\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of  locationList  | orderBy : 'description'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockId\">{{ item.description }}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"descrip\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.descripition\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select name=\"warOwner\" id=\"warOwner\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.owner\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"warSupervisor\" [(ngModel)]=\"row.supervisor\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!row.warehouseName ?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"addWareHouse(row)\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t<ng-container\n\t\t\t\t\t\t\t\t\t\t\t*ngFor=\"let list of warehouseData  | simpleSearch: searchWarehouse | sort : list?.warehouseId: unitOrder;let inventoryIndex=index\">\n\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{list.warehouseName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"warehouseName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"list.warehouseName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span *ngFor=\" let loc of locationList\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"list.towerLocation == loc.apartmentBlockId\">{{loc.description}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"location\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"list.towerLocation\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of  locationList\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockId\">{{ item.description }}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{list.descripition}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"descripition\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"list.descripition\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span> {{list.ownerLabel}} </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"owner\" [(ngModel)]=\"list.owner\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span> {{list.supervisorLabel}} </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"supervisor\" [(ngModel)]=\"list.supervisor\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center \">\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"wareHouseIndex = inventoryIndex\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"pt-3 d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!list.warehouseId || !list.warehouseId || !list.towerLocation || !list.descripition || !list.owner || !list.supervisor?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"wareHouseIndex == inventoryIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"updateWareHouse(list)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t    \t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" title=\"cancel\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"wareHouseIndex == inventoryIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"wareHouseIndex = -1\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash-2'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"pt-2 text-red-900\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"deleteRow(index,list)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t</table>\n\n\t\t\t\t\t\t\t</form>\n\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n\t\t\t\t</mat-tab>\n\t\t\t\t<mat-tab label=\"Categories / Sub Category\">\n\t\t\t\t\t<div class=\" category-header\">\n\t\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<h4 class=\"mb-4\">Inventory Categories</h4>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\">\n\t\t\t\t\t\t\t\t\t<li class=\" d-flex search mt-2 \">\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control \" placeholder=\"Search...\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"searchCategory\" (input)=\"filterCategoryItem(searchCategory)\">\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t<li class=\"list-inline-item ml-3 mt-2\" (click)=\"addSetUp('inventory','add',null)\">\n\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Add Inventory Category</button>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t\t\t\t\t\t<mat-accordion class=\"pt-5\" class=\"setup-accordion\">\n\t\t\t\t\t\t\t<mat-expansion-panel\n\t\t\t\t\t\t\t\t*ngFor=\" let cat of inventoryCategoryList;let catIndex = index;let i = index\">\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex wd-100 showhim\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"\" [ngClass]=\"currCatIndex == i ?'d-none':''\"> {{cat.name}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" *ngIf=\"i == currCatIndex\" class=\"cus-input\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter Category\" name=\"category\" [(ngModel)]=\"cat.name\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"wd-50 d-flex justify-content-start align-items-center\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"showme pl-2\"\t*ngIf=\"currCatIndex != i\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2 \"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"currCatIndex = i \"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1 pl-2\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"i == currCatIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!cat.name? 'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"editCategory(cat)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"i == currCatIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"getAllInventory();currCatIndex = -1\"></mat-icon>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50 justify-content-end align-items-center\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"addSetUp('inventory','edit',cat)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash-2'\" class=\"pt-2 text-red-900\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"deleteCategory(cat.id)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<div class=\"subCategory text-red-500\" *ngIf=\"cat?.subCategory.length == 0\">Sub\n\t\t\t\t\t\t\t\t\tCategory not found</div>\n\t\t\t\t\t\t\t\t<div class=\" subCategory \" *ngFor=\"let sub  of cat?.subCategory;let catIndex = index\">\n\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"mr-2\" [ngClass]=\"inventoryCurrIndex == catIndex ?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"sub-arrow-icon mt-2\" svgIcon=\"heroicons_solid:arrow-circle-right\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"wd-50\"> <span\n\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"inventoryCurrIndex == catIndex ?'d-none':''\">{{sub.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" *ngIf=\"catIndex == inventoryCurrIndex\" class=\"cus-input\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter sub category\" name=\"subCategory\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"sub.name\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"wd-50 d-flex justify-content-end mr-4 pr-3\">\n\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"inventoryCurrIndex == catIndex ?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"inventoryCurrIndex = catIndex \"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"catIndex == inventoryCurrIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!sub.name? 'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"editInventory(cat)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\"\n\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"catIndex == inventoryCurrIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"getAllInventory();inventoryCurrIndex = -1\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t</mat-accordion>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-tab>\n\t\t\t\t<mat-tab label=\"Material Type\">\n\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<h4>All Material Type</h4>\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{materialList?.length}} Items</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control  \" placeholder=\"Search...\" name=\"searchType\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"searchType\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<form>\n\t\t\t\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Material Type Name\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('description')\">Descripition\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<ng-container>\n\t\t\t\t\t\t\t\t\t\t\t<tr class=\"create-box-shadow\">\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"typeName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeRow.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"descrip\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeRow.description\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mt-4 p-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!typeRow.lookupValueName || !typeRow.description ?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"addMaterialType(typeRow)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t<ng-container\n\t\t\t\t\t\t\t\t\t\t\t*ngFor=\"let typeList of materialList | simpleSearch: searchType | sort : unitFieldType: unitOrder;let materialIndex=index\">\n\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">{{typeList.lookupValueName}}</span>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"currMaterialIndex == materialIndex\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeList.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{typeList.description}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"currMaterialIndex == materialIndex\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"description\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeList.description\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex  align-items-center\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"currMaterialIndex = materialIndex\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"pt-3 d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!typeList.lookupValueName || !typeList.description ?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"currMaterialIndex == materialIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"updateMaterial(typeList)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" title=\"cancel\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"currMaterialIndex == materialIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"currMaterialIndex = -1\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash-2'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"pt-2 text-red-900\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"deleteMaterialType(index,typeList)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\n\t\t\t\t\t\t\t</form>\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n\t\t\t\t</mat-tab>\t\t\t\t\n\t\t\t</mat-tab-group>\n\t\t</div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">Settings</h4>\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t<mat-tab-group>\n\t\t\t\t<mat-tab label=\"Ware Houses Setup\">\n\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<h5>All Warehouse</h5>\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control  \" placeholder=\"Search...\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"searchWarehouse\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<form>\n\t\t\t\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('warehouseName')\">Warehouse Name\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('warehouseName')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('towerLocation')\">Tower Location\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('towerLocation')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('descripition')\">Descripition\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('descripition')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('owner')\">Owner\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('owner')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('supervisor')\">Supervisor\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('supervisor')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<ng-container>\n\t\t\t\t\t\t\t\t\t\t\t<tr class=\"shadow\">\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"warName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.warehouseName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"warLocation\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.towerLocation\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of  locationList  | orderBy : 'description'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockId\">{{ item.description }}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"descrip\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.descripition\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select name=\"warOwner\" id=\"warOwner\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"row.owner\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"warSupervisor\" [(ngModel)]=\"row.supervisor\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mt-4 pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!row.warehouseName ?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"addWareHouse(row)\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t<ng-container\n\t\t\t\t\t\t\t\t\t\t\t*ngFor=\"let list of warehouseData  | simpleSearch: searchWarehouse;let inventoryIndex=index\">\n\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{list.warehouseName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"warehouseName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"list.warehouseName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span *ngFor=\" let loc of locationList\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"list.towerLocation == loc.apartmentBlockId\">{{loc.description}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"location\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"list.towerLocation\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of  locationList\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockId\">{{ item.description }}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{list.descripition}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"descripition\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"list.descripition\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span> {{list.ownerLabel}} </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"owner\" [(ngModel)]=\"list.owner\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span> {{list.supervisorLabel}} </span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"wareHouseIndex == inventoryIndex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<select class=\"form-control\" name=\"supervisor\" [(ngModel)]=\"list.supervisor\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffList  | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center \">\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"wareHouseIndex = inventoryIndex;setCurrentData(list)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"pt-3 d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!list.warehouseId || !list.warehouseId || !list.towerLocation || !list.descripition || !list.owner || !list.supervisor?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"wareHouseIndex == inventoryIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"updateWareHouse(list)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t    \t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" title=\"cancel\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"wareHouseIndex == inventoryIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"wareHouseIndex = -1;cancelWarHouse('warhouse')\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"wareHouseIndex == inventoryIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash-2'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"pt-2 text-red-900\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"deleteRow(index,list)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t</table>\n\n\t\t\t\t\t\t\t</form>\n\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n\t\t\t\t</mat-tab>\n\t\t\t\t<mat-tab label=\"Categories / Sub Category\">\n\t\t\t\t\t<div class=\" category-header\">\n\t\t\t\t\t\t<div class=\"mb-4\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<h4 class=\"mb-4\">Inventory Categories</h4>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\">\n\t\t\t\t\t\t\t\t\t<li class=\" d-flex search mt-2 \">\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control \" placeholder=\"Search...\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"searchCategory\" (input)=\"filterCategoryItem(searchCategory)\">\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t<li class=\"list-inline-item ml-3 mt-2\" (click)=\"addSetUp('inventory','add',null)\">\n\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Add Inventory Category</button>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t<app-loader *ngIf=\"isAssetLoaded\"></app-loader>\n\t\t\t\t\t\t<mat-accordion class=\"pt-5\" class=\"setup-accordion\">\n\t\t\t\t\t\t\t<mat-expansion-panel\n\t\t\t\t\t\t\t\t*ngFor=\" let cat of inventoryCategoryList;let catIndex = index;let i = index\">\n\t\t\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex wd-100 showhim\" (keydown)=\"handleSpacebar($event)\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"\" [ngClass]=\"currCatIndex == i ?'d-none':''\"> {{cat.name}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" *ngIf=\"i == currCatIndex\" class=\"cus-input\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter Category\" name=\"category\" [(ngModel)]=\"cat.name\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"wd-50 d-flex justify-content-start align-items-center\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"showme pl-2\"\t*ngIf=\"currCatIndex != i\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2 \"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"currCatIndex = i \"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1 pl-2\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"i == currCatIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!cat.name? 'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"editCategory(cat)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" *ngIf=\"i == currCatIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\taria-hidden=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"getAllInventory();currCatIndex = -1\"></mat-icon>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex wd-50 justify-content-end align-items-center\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"addSetUp('inventory','edit',cat)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash-2'\" class=\"pt-2 text-red-900\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"deleteCategory(cat.id)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</mat-panel-title>\n\t\t\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t\t\t<div class=\"subCategory text-red-500\" *ngIf=\"cat?.subCategory.length == 0\">Sub\n\t\t\t\t\t\t\t\t\tCategory not found</div>\n\t\t\t\t\t\t\t\t<div class=\" subCategory \" *ngFor=\"let sub  of cat?.subCategory;let catIndex = index\">\n\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"mr-2\" [ngClass]=\"inventoryCurrIndex == catIndex ?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"sub-arrow-icon mt-2\" svgIcon=\"heroicons_solid:arrow-circle-right\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"wd-50\"> <span\n\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"inventoryCurrIndex == catIndex ?'d-none':''\">{{sub.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" *ngIf=\"catIndex == inventoryCurrIndex\" class=\"cus-input\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter sub category\" name=\"subCategory\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"sub.name\">\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"wd-50 d-flex justify-content-end mr-4 pr-3\">\n\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"inventoryCurrIndex == catIndex ?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"inventoryCurrIndex = catIndex \"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"catIndex == inventoryCurrIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!sub.name? 'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"editInventory(cat)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\"\n\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"catIndex == inventoryCurrIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"getAllInventory();inventoryCurrIndex = -1\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t\t</mat-accordion>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-tab>\n\t\t\t\t<mat-tab label=\"Material Type\">\n\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t<h4>All Material Type</h4>\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{materialList?.length}} Items</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control  \" placeholder=\"Search...\" name=\"searchType\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"searchType\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<form>\n\t\t\t\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('lookupValueName')\">Material Type Name\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('lookupValueName')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('description')\">Descripition\n\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n\t\t\t\t\t\t\t\t\t\t\t<th scope=\"col\">Action</th>\n\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t\t\t<ng-container>\n\t\t\t\t\t\t\t\t\t\t\t<tr class=\"create-box-shadow\">\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"typeName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeRow.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"descrip\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeRow.description\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mt-4 p-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!typeRow.lookupValueName || !typeRow.description ?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"addMaterialType(typeRow)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t<ng-container\n\t\t\t\t\t\t\t\t\t\t\t*ngFor=\"let typeList of materialList | simpleSearch: searchType;let materialIndex=index\">\n\t\t\t\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">{{typeList.lookupValueName}}</span>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"currMaterialIndex == materialIndex\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeList.lookupValueName\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<span [ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{typeList.description}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" *ngIf=\"currMaterialIndex == materialIndex\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"description\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"typeList.description\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex  align-items-center\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:edit'\" class=\"pt-2\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"currMaterialIndex = materialIndex;setCurrentData(typeList)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"pt-3 d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"pt-1\" svgIcon=\"mat_outline:save\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"!typeList.lookupValueName || !typeList.description ?'custom-icon-disabled':''\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"currMaterialIndex == materialIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"updateMaterial(typeList)\"></mat-icon>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" title=\"cancel\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"currMaterialIndex == materialIndex\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"currMaterialIndex = -1;cancelWarHouse('material')\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t[ngClass]=\"currMaterialIndex == materialIndex?'d-none':''\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'feather:trash-2'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tclass=\"pt-2 text-red-900\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t(click)=\"deleteMaterialType(index,typeList)\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\n\t\t\t\t\t\t\t</form>\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n\t\t\t\t</mat-tab>\t\t\t\t\n\t\t\t</mat-tab-group>\n\t\t</div>\n\t</div>\n</div>";
       /***/
     },
 
@@ -182,7 +182,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\">\n    <form  name=\"inventoryStock\" #inventory=\"ngForm\" novalidate>\n        <h4 class=\"mb-4\">\n           Stock Consumptions\n        </h4>     \n        <div class=\"bg-card shadow\">\n            <div class=\"\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">                                   \n                                    <condo-select\n                                    labelText=\"Warehouse\"  \n                                    fieldName=\"warehouseName\"\n                                    [fieldRequired]=\"'required'\"\n                                     fieldPlaceholder=\"Select Warehouse\"\n                                     [fieldList]=\"warehouseData\"   \n                                     fieldValue=\"warehouseName\"                                  \n                                     fieldId=\"warehouseId\"\n                                     [fieldModel]=\"stock.warehouseId\"\n                                     (fieldParams)=\"setWareHouseId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4 filter-list\">                                   \n                                  <condo-select\n                                  labelText=\"Inventory Item\"\n                                   [fieldRequired]=\"'required'\"\n                                   fieldPlaceholder=\"Select Inventory Item\"\n                                   [fieldList]=\"materialItemData\"                                     \n                                   fieldValue=\"itemName\"\n                                   fieldId=\"id\"\n                                   [fieldModel]=\"stock.materialId\"\n                                   (fieldParams)=\"setWareInventoryId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Available Stock\"\n                                            name=\"availableStockQty\" readonly [(ngModel)]=\"stock.availableStockQty\" required>\n                                    </div>\n                                </div>\n                               \n                                <div class=\"col-sm-4 filter-list\">                                   \n                                  <condo-select \n                                  labelText=\"Verified by Staff\"\n                                  fieldPlaceholder=\"Select Staff\"\n                                  [fieldRequired]=\"'required'\"\n                                  [fieldList]=\"staffList\"\n                                  fieldValue=\"itemName\"\n                                  fieldId=\"id\"\n                                  [fieldModel]=\"stock.outTowhomissuedStaffId\"\n                                  (fieldParams)=\"setStaffId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Date of Consumption</label>\n                                        <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"outDateofconsumption\"\n                                            [owlDateTimeTrigger]=\"outDateofconsumption\"\n                                            placeholder=\"Date of Consumption\" [(ngModel)]=\"stock.outDateofconsumption\"\n                                            required>\n                                        <owl-date-time #outDateofconsumption [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"outDateofconsumption\">\n                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                        </div>\n                                    </div>\n                                </div>  \n                               \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Person who received</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Person who received\" name=\"depreciation\"\n                                            [(ngModel)]=\"stock.depreciationPercentage\" required>\n                                    </div>\n                                </div>  \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Reason for Consuming</label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"outOutgoingReason\" \n                                        [(ngModel)]=\"stock.outOutgoingReason\" ></textarea>\n                                        </div>\n                                </div>                                                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Qty Consumed</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Total Qty\"\n                                            name=\"outTotalQtyConsumedBy\" OnlyNumber=\"true\" [(ngModel)]=\"stock.outTotalQtyConsumedBy\" required>\n                                    </div>\n                                </div>                                                   \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"wd-50\">\n                <h6 class=\"main-title-mini float-left mt-3\">\n                    <span> Available Stock :{{stock?.availableStockQty}}</span>\n                </h6>\n                </div>\n            <div class=\"d-flex wd-50 justify-content-end\" >\n                <button class=\"mr-2\" [color]=\"'primary'\" mat-flat-button [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n        </div>\n        </div>\n        <!-- <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n                    </li>\n                </ul>\n            </div>\n        </div> -->\n        <div class=\"bg-card shadow mt-4 p-0\">\n            <div class=\"card\" class=\"mobile-display\">                \n                <table class=\"table\"  #data>\n                    <thead>\n                      <tr>                        \n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">In Qty <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Out Qty <span\n                            ></span></th>                        \n                            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Transaction Date <span\n                                ></span></th>\n                                <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Status <span\n                                    ></span></th>\n                        <th scope=\"col\">Action</th>\n                      </tr>\n                    </thead>\n                    <tbody>                  \n                      <ng-container>\n                        <tr *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex  | sort : 'desc'; \">\n                          <td>{{list.material1?list.material1:'--'}}</td>\n                          <td>{{list.inActualStockMovedIn?list.inActualStockMovedIn:'--'}}</td>\n                          <td>{{list.outTotalQtyConsumedBy?list.outTotalQtyConsumedBy:'--'}}</td>\n                          <!-- <td>--</td> -->\n                          <td>{{list.inStockReceivedDate?list.inStockReceivedDate:'--'}}</td>\n                          <td>{{list.lookupValueName?list.lookupValueName:'--'}}</td>\n                          <td>  \n                                <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" [ngClass]=\"!edit?'custom-icon-disabled':''\" title=\"edit\" ></mat-icon>\n                                     <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 text-red-900\" [ngClass]=\"!edit?'custom-icon-disabled':''\"></mat-icon>\n                   \n                    </td>\n                        </tr>\n                      </ng-container>                      \n                    </tbody>            \n                </table>               \n                <app-pagination  *ngIf=\"totalItems > 0\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </div>\n    </form>\n</div>\n</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\">\n    <form  name=\"inventoryStock\" #inventory=\"ngForm\" novalidate>\n        <h4 class=\"mb-4\">\n           Stock Consumptions\n        </h4>     \n        <div class=\"bg-card shadow\">\n            <div class=\"\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">                                   \n                                    <condo-select\n                                    labelText=\"Warehouse\"  \n                                    fieldName=\"warehouseName\"\n                                    [fieldRequired]=\"'required'\"\n                                     fieldPlaceholder=\"Select Warehouse\"\n                                     [fieldList]=\"warehouseData\"   \n                                     fieldValue=\"warehouseName\"                                  \n                                     fieldId=\"warehouseId\"\n                                     [fieldModel]=\"stock.warehouseId\"\n                                     (fieldParams)=\"setWareHouseId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">                                   \n                                  <condo-select\n                                  labelText=\"Inventory Item\"\n                                   [fieldRequired]=\"'required'\"\n                                   fieldPlaceholder=\"Select Inventory Item\"\n                                   [fieldList]=\"materialItemData\"                                     \n                                   fieldValue=\"itemName\"\n                                   fieldId=\"id\"\n                                   [fieldModel]=\"stock.materialId\"\n                                   (fieldParams)=\"setWareInventoryId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Available Stock\"\n                                            name=\"availableStockQty\" readonly [(ngModel)]=\"stock.availableStockQty\" required>\n                                    </div>\n                                </div>\n                               \n                                <div class=\"col-sm-4\">   \n                                    <condo-select \n                                        labelText=\"Verified by Staff\"\n                                        fieldPlaceholder=\"Verified by Staff\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"staffList | orderBy : 'staffName'\"\n                                        fieldValue=\"customLabel\"\n                                        [fieldModel]=\"stock.outTowhomissuedStaffId\"\n                                        fieldId=\"staffId\"\n                                        (fieldParams)=\"setStaffId($event)\"\n                                    ></condo-select> \n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Date of Consumption*</label>\n                                        <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"outDateofconsumption\"\n                                            [owlDateTimeTrigger]=\"outDateofconsumption\"\n                                            placeholder=\"Date of Consumption\" [(ngModel)]=\"stock.outDateofconsumption\"\n                                            required>\n                                        <owl-date-time #outDateofconsumption [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"outDateofconsumption\">\n                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                        </div>\n                                    </div>\n                                </div>  \n                               \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Person who received*</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Person who received\" name=\"depreciation\"\n                                            [(ngModel)]=\"stock.depreciationPercentage\" required>\n                                    </div>\n                                </div>  \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Reason for Consuming*</label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"outOutgoingReason\" \n                                        [(ngModel)]=\"stock.outOutgoingReason\" ></textarea>\n                                        </div>\n                                </div>                                                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Qty Consumed*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Total Qty\"\n                                            name=\"outTotalQtyConsumedBy\" OnlyNumber=\"true\" [(ngModel)]=\"stock.outTotalQtyConsumedBy\" required>\n                                    </div>\n                                </div>                                                   \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"wd-50\">\n                <h6 class=\"main-title-mini float-left mt-3\">\n                    <span> Available Stock :{{stock?.availableStockQty}}</span>\n                </h6>\n                </div>\n            <div class=\"d-flex wd-50 justify-content-end\" >\n                <button class=\"mr-2\" [color]=\"'primary'\" mat-flat-button [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n        </div>\n        </div>\n        <!-- <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n                    </li>\n                </ul>\n            </div>\n        </div> -->\n        <div class=\"bg-card shadow mt-4 p-0\">\n            <div class=\"card\" class=\"mobile-display\">                \n                <table class=\"table\"  #data>\n                    <thead>\n                      <tr>                        \n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">In Qty <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Out Qty <span\n                            ></span></th>                        \n                            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Transaction Date <span\n                                ></span></th>\n                                <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Status <span\n                                    ></span></th>\n                        <th scope=\"col\">Action</th>\n                      </tr>\n                    </thead>\n                    <tbody>                  \n                      <ng-container>\n                        <tr *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex  | sort : 'desc'; \">\n                          <td>{{list.material1?list.material1:'--'}}</td>\n                          <td>{{list.inActualStockMovedIn?list.inActualStockMovedIn:'--'}}</td>\n                          <td>{{list.outTotalQtyConsumedBy?list.outTotalQtyConsumedBy:'--'}}</td>\n                          <!-- <td>--</td> -->\n                          <td>{{list.inStockReceivedDate?list.inStockReceivedDate:'--'}}</td>\n                          <td>{{list.lookupValueName?list.lookupValueName:'--'}}</td>\n                          <td>  \n                                <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" [ngClass]=\"!edit?'custom-icon-disabled':''\" title=\"edit\" ></mat-icon>\n                                     <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 text-red-900\" [ngClass]=\"!edit?'custom-icon-disabled':''\"></mat-icon>\n                   \n                    </td>\n                        </tr>\n                      </ng-container>                      \n                    </tbody>            \n                </table>               \n                <app-pagination  *ngIf=\"totalItems > 0\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </div>\n    </form>\n</div>\n</div>\n</div>";
       /***/
     },
 
@@ -1856,13 +1856,13 @@
             this.purchaseOrderService.getAllInitialStockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 _this20.initalStockData = [];
-                _this20.initalStockData = res && res.length > 0 ? res : [];
+                _this20.initalStockData = res && res.length > 0 ? res.reverse() : [];
                 _this20.isAssetLoaded = false;
                 _this20.tempInitalStockData = _this20.initalStockData;
                 _this20.totalItems = _this20.initalStockData.length;
 
                 if (_this20.totalItems > _this20.itemLimit) {
-                  _this20.ItemEndIndex = _this20.itemLimit;
+                  _this20.ItemEndIndex = _this20.ItemEndIndex ? _this20.ItemEndIndex : _this20.itemLimit;
                 } else {
                   _this20.ItemEndIndex = _this20.totalItems;
                 } // tslint:disable-next-line:no-shadowed-variable
@@ -2180,7 +2180,10 @@
           this.staffService = staffService;
           this.sharedService = sharedService;
           this.inventoryService = inventoryService;
-          this.transfer = {};
+          this.transfer = {
+            fromAvailableStockQty: 0,
+            toAvailableStockQty: 0
+          };
           this.warehouseData = [];
           this.staffList = [];
           this.selectedItem = [];
@@ -2227,22 +2230,19 @@
           value: function getAllStaff() {
             var _this26 = this;
 
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId
+            var staffParms = {
+              apartmentId: this.sessionService.apartmentId,
+              RoleTypeId: this.sessionService.roleTypeId
             };
-            this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
-              if (res) {
-                // this.staffList = res ? res : [];
-                if (res && res.length > 0) {
-                  res.filter(function (val) {
-                    _this26.staffList.push({
-                      'id': val.staffId,
-                      'itemName': val.firstName
-                    });
-                  });
-                }
+            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+              if (res.length) {
+                res.forEach(function (ele) {
+                  ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
+                });
+                _this26.staffList = res;
               }
+            }, function (error) {
+              console.log(error);
             });
           }
         }, {
@@ -2274,108 +2274,80 @@
           value: function addInternalTransfer() {
             var _this28 = this;
 
-            var reqObj = {};
-            reqObj = {
-              "fromWarehouseId": Number(this.transfer.fromWarehouseId),
-              "toWarehouseId": Number(this.transfer.toWarehouseId),
-              "materialId": this.transfer.materialId,
-              "inventoryTransactionTypeId": 14,
-              "totalStockQty": Number(this.transfer.totalStockQty),
-              "comments": this.transfer.comments,
-              "apartmentId": this.sessionService.apartmentId,
-              "iN_GoodsincomingReceivedbyStaffID": Number(this.transfer.iN_GoodsincomingReceivedbyStaffID),
-              "ouT_TowhomissuedStaffID": Number(this.transfer.ouT_TowhomissuedStaffID),
-              "isActive": true,
-              "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date(),
-              "updatedBy": null,
-              "updatedOn": new Date()
+            var params = {
+              inventoryTransaction: {
+                "fromWarehouseId": Number(this.transfer.fromWarehouseId),
+                "toWarehouseId": Number(this.transfer.toWarehouseId),
+                "materialId": this.transfer.materialId,
+                "inventoryTransactionTypeId": 14,
+                "totalStockQty": Number(this.transfer.totalStockQty),
+                "comments": this.transfer.comments,
+                "apartmentId": this.sessionService.apartmentId,
+                "iN_GoodsincomingReceivedbyStaffID": Number(this.transfer.iN_GoodsincomingReceivedbyStaffID),
+                "ouT_TowhomissuedStaffID": Number(this.transfer.ouT_TowhomissuedStaffID),
+                "isActive": true,
+                "insertedBy": parseInt(this.sessionService.userId),
+                "insertedOn": new Date(),
+                "updatedBy": null,
+                "updatedOn": new Date()
+              }
             };
-            var params = {};
-            params.inventoryTransaction = reqObj;
             this.inventoryService.addInventoryInternalTransferTransaction(params).subscribe(function (res) {
-              console.log(res, res);
-
               if (res && res.message) {
-                _this28.sharedService.setAlertMessage("Transfer Item added successfully");
+                _this28.sharedService.openSnackBar('Transfer Item added successfully', 'success');
 
                 _this28.isAssetLoaded = false;
-                _this28.transfer = {};
-              }
+              } else _this28.sharedService.openSnackBar(res.errorMessage, 'error');
             });
           }
         }, {
-          key: "getFromAvailableStock",
-          value: function getFromAvailableStock() {
+          key: "getAvailableStock",
+          value: function getAvailableStock(type) {
             var _this29 = this;
 
-            if (!this.transfer.materialId || !this.transfer.fromWarehouseId) {
-              return;
+            if (this.transfer.materialId && (this.transfer.fromWarehouseId || this.transfer.toWarehouseId)) {
+              var queryParamBase = {
+                apartmentId: this.sessionService.apartmentId,
+                warehouseId: type == 'from' ? this.transfer.fromWarehouseId : this.transfer.toWarehouseId,
+                materialId: this.transfer.materialId
+              };
+              this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
+                if (res && res.length > 0) {
+                  if (type == 'from') _this29.transfer.fromAvailableStockQty = res[0].totalStockQty;else _this29.transfer.toAvailableStockQty = res[0].totalStockQty;
+                } else {
+                  if (type == 'from') _this29.transfer.fromAvailableStockQty = 0;else _this29.transfer.toAvailableStockQty = 0;
+                }
+              });
             }
-
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              warehouseId: this.transfer.fromWarehouseId,
-              materialId: this.transfer.materialId
-            };
-            this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
-              if (res && res.length > 0) {
-                _this29.transfer.fromAvailableStockQty = res[0].totalStockQty;
-              }
-            });
-          }
-        }, {
-          key: "getToAvailableStock",
-          value: function getToAvailableStock() {
-            var _this30 = this;
-
-            console.log('to');
-
-            if (!this.transfer.materialId || !this.transfer.toWarehouseId) {
-              return;
-            }
-
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              warehouseId: this.transfer.toWarehouseId,
-              materialId: this.transfer.materialId
-            };
-            this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
-              if (res && res.length > 0) {
-                _this30.transfer.toAvailableStockQty = res[0].totalStockQty;
-              }
-            });
           }
         }, {
           key: "setWareInventoryId",
           value: function setWareInventoryId(event) {
             this.transfer.materialId = event[0].id;
-            this.getFromAvailableStock();
-            this.getToAvailableStock();
+            this.getAvailableStock('from');
+            this.getAvailableStock('to');
           }
         }, {
           key: "setFromWarehouseId",
           value: function setFromWarehouseId(event) {
             this.transfer.fromWarehouseId = event[0].warehouseId;
-            this.getFromAvailableStock();
+            this.getAvailableStock('from');
           }
         }, {
           key: "setToWarehouseId",
           value: function setToWarehouseId(event) {
             this.transfer.toWarehouseId = event[0].warehouseId;
-            this.getToAvailableStock();
+            this.getAvailableStock('to');
           }
         }, {
           key: "setByStaff",
           value: function setByStaff(event) {
-            this.transfer.iN_GoodsincomingReceivedbyStaffID = event[0].id;
+            this.transfer.iN_GoodsincomingReceivedbyStaffID = event[0].staffId;
           }
         }, {
           key: "setToStaff",
           value: function setToStaff(event) {
-            this.transfer.ouT_TowhomissuedStaffID = event[0].id;
+            this.transfer.ouT_TowhomissuedStaffID = event[0].staffId;
           }
         }]);
 
@@ -2528,7 +2500,7 @@
         _createClass(InventoryReceivingComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this30 = this;
 
             this.getAllGetAllWarehouse();
             this.getMaterials();
@@ -2541,14 +2513,14 @@
                 var param = {};
                 param = {
                   inventoryId: id,
-                  deleteBy: parseInt(_this31.sessionService.userId)
+                  deleteBy: parseInt(_this30.sessionService.userId)
                 };
 
-                _this31.inventoryService.deleteInventory(param).subscribe(function (res) {
+                _this30.inventoryService.deleteInventory(param).subscribe(function (res) {
                   setTimeout(function () {
-                    _this31.sharedService.setAlertMessage("Received item deleted successfully");
+                    _this30.sharedService.setAlertMessage("Received item deleted successfully");
 
-                    _this31.sharedService.setUnitListDeleteIndex(null); // this.deleteType = '';
+                    _this30.sharedService.setUnitListDeleteIndex(null); // this.deleteType = '';
                     // this.getAllInventory();
 
                   }, 500);
@@ -2574,7 +2546,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this32 = this;
+            var _this31 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2584,8 +2556,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this32.warehouseData = res && res.length > 0 ? res : [];
-                _this32.warehouseData = _this32.warehouseData.filter(function (el) {
+                _this31.warehouseData = res && res.length > 0 ? res : [];
+                _this31.warehouseData = _this31.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
               }
@@ -2606,32 +2578,27 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this33 = this;
+            var _this32 = this;
 
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId
+            var staffParms = {
+              apartmentId: this.sessionService.apartmentId,
+              RoleTypeId: this.sessionService.roleTypeId
             };
-            this.isAssetLoaded = true;
-            this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
-              if (res) {
-                _this33.isAssetLoaded = false; // this.staffList = res ? res : [];
-
-                if (res && res.length > 0) {
-                  res.filter(function (val) {
-                    _this33.staffList.push({
-                      'id': val.staffId,
-                      'itemName': val.firstName
-                    });
-                  });
-                }
+            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+              if (res.length) {
+                res.forEach(function (ele) {
+                  ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
+                });
+                _this32.staffList = res;
               }
+            }, function (error) {
+              console.log(error);
             });
           }
         }, {
           key: "updateReceiving",
           value: function updateReceiving() {
-            var _this34 = this;
+            var _this33 = this;
 
             var receivingObj = {};
             receivingObj = {
@@ -2667,19 +2634,19 @@
               console.log(res, res);
 
               if (res) {
-                _this34.sharedService.setAlertMessage("Receiving Item updated successfully");
+                _this33.sharedService.setAlertMessage("Receiving Item updated successfully");
 
-                _this34.isAssetLoaded = false;
-                _this34.receiving = {};
+                _this33.isAssetLoaded = false;
+                _this33.receiving = {};
 
-                _this34.getAllReceivingItem();
+                _this33.getAllReceivingItem();
               }
             });
           }
         }, {
           key: "addReceiving",
           value: function addReceiving() {
-            var _this35 = this;
+            var _this34 = this;
 
             var receivingObj = {};
             receivingObj = {
@@ -2713,23 +2680,23 @@
             this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
               // console.log(res, res);
               if (res) {
-                _this35.sharedService.setAlertMessage("Receiving Item added successfully");
+                _this34.sharedService.setAlertMessage("Receiving Item added successfully");
 
-                _this35.isAssetLoaded = false;
-                _this35.receiving = {};
-                _this35.selectedItem = [];
-                _this35.issueToStaff = [];
+                _this34.isAssetLoaded = false;
+                _this34.receiving = {};
+                _this34.selectedItem = [];
+                _this34.issueToStaff = [];
 
-                _this35.getAllReceivingItem();
+                _this34.getAllReceivingItem();
 
-                _this35.inventoryList = []; //   this.getMaterials();
+                _this34.inventoryList = []; //   this.getMaterials();
               }
             });
           }
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this36 = this;
+            var _this35 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2739,7 +2706,7 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this36.materialItemData.push({
+                    _this35.materialItemData.push({
                       'id': val.materialId,
                       'itemName': val.material1
                     });
@@ -2751,54 +2718,48 @@
         }, {
           key: "getAvailableStock",
           value: function getAvailableStock() {
-            var _this37 = this;
+            var _this36 = this;
 
-            if (!this.receiving.materialId && !this.receiving.warehouseId) {
-              return;
+            if (this.receiving.materialId || this.receiving.warehouseId) {
+              var queryParamBase = {
+                apartmentId: this.sessionService.apartmentId,
+                warehouseId: this.receiving.warehouseId,
+                materialId: this.receiving.materialId
+              };
+              this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
+                if (res && res.length > 0) {
+                  _this36.receiving.availableStockQty = res[0].totalStockQty;
+                } else {
+                  _this36.receiving.availableStockQty = 0;
+                }
+              });
             }
-
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              warehouseId: this.receiving.warehouseId,
-              materialId: this.receiving.materialId
-            };
-            this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
-              if (res && res.length > 0) {
-                _this37.receiving.availableStockQty = res[0].totalStockQty;
-              }
-            });
           }
         }, {
           key: "getAllReceivingItem",
           value: function getAllReceivingItem() {
-            var _this38 = this;
+            var _this37 = this;
 
-            if (!this.receiving.warehouseId || !this.receiving.materialId) {
-              return;
-            }
+            if (this.receiving.materialId || this.receiving.warehouseId) {
+              var queryParamBase = {
+                apartmentId: this.sessionService.apartmentId,
+                warehouseId: this.receiving.warehouseId,
+                materialId: this.receiving.materialId
+              };
+              this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
+                if (res) {
+                  // this.warehouseData = [];
+                  _this37.inventoryList = res && res.length > 0 ? res : [];
+                  _this37.totalItems = _this37.inventoryList.length;
 
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              warehouseId: this.receiving.warehouseId,
-              materialId: this.receiving.materialId
-            }; // this.isAssetLoaded = true;
-
-            this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
-              if (res) {
-                // this.warehouseData = [];
-                _this38.inventoryList = res && res.length > 0 ? res : [];
-                console.log(_this38.inventoryList);
-                _this38.totalItems = _this38.inventoryList.length;
-
-                if (_this38.totalItems > _this38.itemLimit) {
-                  _this38.ItemEndIndex = _this38.itemLimit;
-                } else {
-                  _this38.ItemEndIndex = _this38.totalItems;
+                  if (_this37.totalItems > _this37.itemLimit) {
+                    _this37.ItemEndIndex = _this37.itemLimit;
+                  } else {
+                    _this37.ItemEndIndex = _this37.totalItems;
+                  }
                 }
-              }
-            });
+              });
+            }
           }
         }, {
           key: "setWareHouseId",
@@ -2817,7 +2778,14 @@
         }, {
           key: "setStaffId",
           value: function setStaffId(event) {
-            this.receiving.inGoodsincomingReceivedbyStaffId = event[0].id;
+            this.receiving.inGoodsincomingReceivedbyStaffId = event[0].staffId;
+          }
+        }, {
+          key: "calculateActualStock",
+          value: function calculateActualStock() {
+            if (this.receiving.inReceivedStockQty) {
+              if (this.receiving.inDamageReturnedQty) this.receiving.inActualStockMovedIn = this.receiving.inReceivedStockQty - this.receiving.inDamageReturnedQty;else this.receiving.inActualStockMovedIn = this.receiving.inReceivedStockQty;
+            } else this.receiving.inActualStockMovedIn = 0;
           }
         }]);
 
@@ -3109,7 +3077,7 @@
         }, {
           key: "getReportData",
           value: function getReportData() {
-            var _this39 = this;
+            var _this38 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3117,8 +3085,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this39.reportDataList = res;
-              _this39.isDataLoaded = true;
+              _this38.reportDataList = res;
+              _this38.isDataLoaded = true;
             });
           }
         }, {
@@ -3138,24 +3106,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this39 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this40.unitBlocksData = res;
+              _this39.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this40.route.params['value'].id;
+                return item.lookupValueId == _this39.route.params['value'].id;
               });
-              _this40.pageName = res[0].lookupValueName;
-              _this40.pageDesp = res[0].description;
+              _this39.pageName = res[0].lookupValueName;
+              _this39.pageDesp = res[0].description;
             }); // this.getBlockDetails();
 
             this.getReportData();
@@ -3209,17 +3177,17 @@
         }, {
           key: "getCurrentInventory",
           value: function getCurrentInventory() {
-            var _this41 = this;
+            var _this40 = this;
 
             var params = {};
             params.ApartmentId = this.sessionService.apartmentId;
             this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this41.gridSourceData = {
+                _this40.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this41.inventoryHistoryData = new jqx.dataAdapter(_this41.gridSourceData);
+                _this40.inventoryHistoryData = new jqx.dataAdapter(_this40.gridSourceData);
               }
             });
           }
@@ -3413,6 +3381,7 @@
           this.row = {};
           this.materialList = [];
           this.tempMaterialList = [];
+          this.backupWarhouse = {};
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -3454,7 +3423,7 @@
         }, {
           key: "addSetUp",
           value: function addSetUp(name, type, value, e) {
-            var _this42 = this;
+            var _this41 = this;
 
             console.log(type, value);
             var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
@@ -3471,14 +3440,14 @@
               console.log(result);
 
               if (result) {
-                _this42.getAllInventory();
+                _this41.getAllInventory();
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this43 = this;
+            var _this42 = this;
 
             this.getAllInventory();
             this.getAllStaff();
@@ -3489,43 +3458,43 @@
             this.getAllGetAllWarehouse();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                if (_this43.deleteType == 'categoryDelete') {
+                if (_this42.deleteType == 'categoryDelete') {
                   var param = {};
                   param = {
                     categoryId: id,
-                    deletedBy: parseInt(_this43.sessionService.userId)
+                    deletedBy: parseInt(_this42.sessionService.userId)
                   };
 
-                  _this43.lookupService.deleteCategory(param).subscribe(function (res) {
+                  _this42.lookupService.deleteCategory(param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this43.sharedService.setAlertMessage("Category deleted successfully");
+                      _this42.sharedService.setAlertMessage("Category deleted successfully");
 
-                      _this43.sharedService.setUnitListDeleteIndex(null);
+                      _this42.sharedService.setUnitListDeleteIndex(null);
 
-                      _this43.deleteType = '';
+                      _this42.deleteType = '';
 
-                      _this43.getAllInventory();
+                      _this42.getAllInventory();
                     }, 500);
                   }, function (error) {
                     console.log(error);
                   });
-                } else if (_this43.deleteMaterial == true) {
+                } else if (_this42.deleteMaterial == true) {
                   var _param = {};
                   _param = {
                     lookupValueId: id,
-                    updateUserId: parseInt(_this43.sessionService.userId)
+                    updateUserId: parseInt(_this42.sessionService.userId)
                   };
 
-                  _this43.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
+                  _this42.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this43.sharedService.setAlertMessage("Material type deleted successfully");
+                      _this42.sharedService.setAlertMessage("Material type deleted successfully");
 
-                      _this43.sharedService.setUnitListDeleteIndex(null);
+                      _this42.sharedService.setUnitListDeleteIndex(null);
 
-                      _this43.deleteType = '';
-                      _this43.deleteMaterial = false;
+                      _this42.deleteType = '';
+                      _this42.deleteMaterial = false;
 
-                      _this43.getAllMaterial();
+                      _this42.getAllMaterial();
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3533,18 +3502,18 @@
                 } else {
                   var _param2 = {};
                   _param2 = {
-                    apartmentId: _this43.sessionService.apartmentId,
+                    apartmentId: _this42.sessionService.apartmentId,
                     warehouseId: id,
-                    deleteBy: parseInt(_this43.sessionService.userId)
+                    deleteBy: parseInt(_this42.sessionService.userId)
                   };
 
-                  _this43.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
-                    _this43.getAllGetAllWarehouse();
+                  _this42.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
+                    _this42.getAllGetAllWarehouse();
 
                     setTimeout(function () {
-                      _this43.sharedService.setAlertMessage("Warehouse deleted successfully");
+                      _this42.sharedService.setAlertMessage("Warehouse deleted successfully");
 
-                      _this43.sharedService.setUnitListDeleteIndex(null);
+                      _this42.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3604,7 +3573,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this44 = this;
+            var _this43 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3614,13 +3583,13 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this44.warehouseData = res && res.length > 0 ? res : [];
-                _this44.isAssetLoaded = false;
-                _this44.tempWarehouseData = _this44.warehouseData;
-                _this44.totalItems = _this44.warehouseData.length;
+                _this43.warehouseData = res && res.length > 0 ? res.reverse() : [];
+                _this43.isAssetLoaded = false;
+                _this43.tempWarehouseData = _this43.warehouseData;
+                _this43.totalItems = _this43.warehouseData.length;
 
-                if (_this44.warehouseData && _this44.warehouseData.length > 0) {
-                  _this44.warehouseData.filter(function (val) {
+                if (_this43.warehouseData && _this43.warehouseData.length > 0) {
+                  _this43.warehouseData.filter(function (val) {
                     if (val.warehouseName == '') {
                       delete val.warehouseName;
                       delete val.warehouseId;
@@ -3628,10 +3597,10 @@
                   });
                 }
 
-                if (_this44.totalItems > _this44.itemLimit) {
-                  _this44.ItemEndIndex = _this44.itemLimit;
+                if (_this43.totalItems > _this43.itemLimit) {
+                  _this43.ItemEndIndex = _this43.itemLimit;
                 } else {
-                  _this44.ItemEndIndex = _this44.totalItems;
+                  _this43.ItemEndIndex = _this43.totalItems;
                 }
               }
             });
@@ -3639,7 +3608,7 @@
         }, {
           key: "addWareHouse",
           value: function addWareHouse(data) {
-            var _this45 = this;
+            var _this44 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3661,19 +3630,19 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.addWarehouse(params).subscribe(function (res) {
               if (res.message) {
-                _this45.sharedService.openSnackBar('Warehouse added Successfully', 'success');
+                _this44.sharedService.openSnackBar('Warehouse added Successfully', 'success');
 
-                _this45.isAssetLoaded = false;
-                _this45.row = {};
+                _this44.isAssetLoaded = false;
+                _this44.row = {};
 
-                _this45.getAllGetAllWarehouse();
+                _this44.getAllGetAllWarehouse();
               }
             });
           }
         }, {
           key: "updateWareHouse",
           value: function updateWareHouse(data) {
-            var _this46 = this;
+            var _this45 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3695,18 +3664,18 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.updateWarehouse(params).subscribe(function (res) {
               if (res) {
-                _this46.sharedService.setAlertMessage("Warehouse Updated successfully");
+                _this45.sharedService.setAlertMessage("Warehouse Updated successfully");
 
-                _this46.isAssetLoaded = false; // this.isEditRow = false;
+                _this45.isAssetLoaded = false; // this.isEditRow = false;
 
-                _this46.wareHouseIndex = -1;
+                _this45.wareHouseIndex = -1;
               }
             });
           }
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this47 = this;
+            var _this46 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -3714,7 +3683,7 @@
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
-                _this47.staffList = res;
+                _this46.staffList = res;
               }
             }, function (error) {
               console.log(error);
@@ -3727,7 +3696,7 @@
         }, {
           key: "getAllInventory",
           value: function getAllInventory() {
-            var _this48 = this;
+            var _this47 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3738,9 +3707,9 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this48.isAssetLoaded = false;
-                _this48.inventoryCategoryList = res ? res : [];
-                _this48.tempCategoryList = _this48.inventoryCategoryList;
+                _this47.isAssetLoaded = false;
+                _this47.inventoryCategoryList = res ? res : [];
+                _this47.tempCategoryList = _this47.inventoryCategoryList;
               }
             });
           }
@@ -3757,7 +3726,7 @@
         }, {
           key: "editInventory",
           value: function editInventory(data) {
-            var _this49 = this;
+            var _this48 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -3773,20 +3742,20 @@
             params.subcategoryLookupTypeId = 175;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this49.sharedService.setAlertMessage("Inventory sub types updated successfully");
+                _this48.sharedService.setAlertMessage("Inventory sub types updated successfully");
 
-                _this49.isAssetLoaded = false;
+                _this48.isAssetLoaded = false;
 
-                _this49.getAllInventory();
+                _this48.getAllInventory();
 
-                _this49.inventoryCurrIndex = -1;
+                _this48.inventoryCurrIndex = -1;
               }
             });
           }
         }, {
           key: "getAllLocation",
           value: function getAllLocation() {
-            var _this50 = this;
+            var _this49 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3795,15 +3764,15 @@
             this.isAssetLoaded = true;
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this50.isAssetLoaded = false;
-                _this50.locationList = res ? res : [];
+                _this49.isAssetLoaded = false;
+                _this49.locationList = res ? res : [];
               }
             });
           }
         }, {
           key: "getAllMaterial",
           value: function getAllMaterial() {
-            var _this51 = this;
+            var _this50 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3813,15 +3782,15 @@
             this.isAssetLoaded = true;
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this51.isAssetLoaded = false;
-                _this51.materialList = res ? res : [];
-                _this51.tempMaterialList = _this51.materialList;
-                _this51.typeTotalItems = _this51.materialList.length;
+                _this50.isAssetLoaded = false;
+                _this50.materialList = res ? res.reverse() : [];
+                _this50.tempMaterialList = _this50.materialList;
+                _this50.typeTotalItems = _this50.materialList.length;
 
-                if (_this51.typeTotalItems > _this51.typeItemLimit) {
-                  _this51.typeItemEndIndex = _this51.typeItemLimit;
+                if (_this50.typeTotalItems > _this50.typeItemLimit) {
+                  _this50.typeItemEndIndex = _this50.typeItemLimit;
                 } else {
-                  _this51.typeItemEndIndex = _this51.typeTotalItems;
+                  _this50.typeItemEndIndex = _this50.typeTotalItems;
                 }
               }
             });
@@ -3829,7 +3798,7 @@
         }, {
           key: "addMaterialType",
           value: function addMaterialType(data) {
-            var _this52 = this;
+            var _this51 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3850,25 +3819,25 @@
             param.lookupvalue = reqObj;
             this.lookupService.addLookupValue(param).subscribe(function (res) {
               if (res.code == 200) {
-                _this52.isAssetLoaded = false;
-                _this52.typeRow = {};
+                _this51.isAssetLoaded = false;
+                _this51.typeRow = {};
 
-                _this52.getAllMaterial();
+                _this51.getAllMaterial();
 
-                _this52.sharedService.openSnackBar('Created SuccessFully', 'success');
+                _this51.sharedService.openSnackBar('Created SuccessFully', 'success');
               } else {
-                _this52.isAssetLoaded = false;
+                _this51.isAssetLoaded = false;
 
-                _this52.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                _this51.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
               }
             }, function (error) {
-              _this52.sharedService.openSnackBar('Server Error', 'error');
+              _this51.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateMaterial",
           value: function updateMaterial(data) {
-            var _this53 = this;
+            var _this52 = this;
 
             console.log(data);
             var reqObj = {};
@@ -3890,23 +3859,23 @@
             param.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(param).subscribe(function (res) {
               if (res.message) {
-                _this53.isAssetLoaded = false;
-                _this53.currMaterialIndex = -1;
+                _this52.isAssetLoaded = false;
+                _this52.currMaterialIndex = -1;
 
-                _this53.sharedService.openSnackBar('Material type updated successfully', 'success');
+                _this52.sharedService.openSnackBar('Material type updated successfully', 'success');
               } else {
-                _this53.isAssetLoaded = false;
+                _this52.isAssetLoaded = false;
 
-                _this53.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this52.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this53.sharedService.openSnackBar('Server Error', 'error');
+              _this52.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this54 = this;
+            var _this53 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -3926,18 +3895,48 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this54.sharedService.setAlertMessage("Category updated successfully");
+                _this53.sharedService.setAlertMessage("Category updated successfully");
 
-                _this54.isAssetLoaded = false;
-                _this54.currCatIndex = -1;
+                _this53.isAssetLoaded = false;
+                _this53.currCatIndex = -1;
 
-                _this54.getAllInventory();
+                _this53.getAllInventory();
               } else if (res.body.errorMessage) {
-                _this54.isError = true;
-                _this54.errorMessage = 'Not Added it already exist';
-                _this54.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this53.isError = true;
+                _this53.errorMessage = 'Not Added it already exist';
+                _this53.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
+          }
+        }, {
+          key: "setCurrentData",
+          value: function setCurrentData(data) {
+            this.backupWarhouse = Object.assign({}, data);
+          }
+        }, {
+          key: "cancelWarHouse",
+          value: function cancelWarHouse(type) {
+            var _this54 = this;
+
+            if (type == 'warhouse') {
+              var index = this.warehouseData.findIndex(function (data) {
+                return data.warehouseId == _this54.backupWarhouse.warehouseId;
+              });
+              this.warehouseData.splice(index, 1, this.backupWarhouse);
+            } else {
+              var _index = this.materialList.findIndex(function (data) {
+                return data.lookupValueId == _this54.backupWarhouse.lookupValueId;
+              });
+
+              this.materialList.splice(_index, 1, this.backupWarhouse);
+            }
+          }
+        }, {
+          key: "handleSpacebar",
+          value: function handleSpacebar(ev) {
+            if (ev.keyCode === 32) {
+              ev.stopPropagation();
+            }
           }
         }]);
 
@@ -4331,45 +4330,39 @@
           value: function getAvailableStock() {
             var _this58 = this;
 
-            if (!this.stock.materialId || !this.stock.warehouseId) {
-              return;
+            if (this.stock.materialId || this.stock.warehouseId) {
+              var queryParamBase = {
+                apartmentId: this.sessionService.apartmentId,
+                warehouseId: this.stock.warehouseId,
+                materialId: this.stock.materialId
+              };
+              this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
+                if (res && res.length > 0) {
+                  _this58.stock.availableStockQty = res[0].totalStockQty;
+                } else {
+                  _this58.stock.availableStockQty = 0;
+                }
+              });
             }
-
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              warehouseId: this.stock.warehouseId,
-              materialId: this.stock.materialId
-            };
-            this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
-              if (res && res.length > 0) {
-                _this58.stock.availableStockQty = res[0].totalStockQty;
-              }
-            });
           }
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
             var _this59 = this;
 
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId
+            var staffParms = {
+              apartmentId: this.sessionService.apartmentId,
+              RoleTypeId: this.sessionService.roleTypeId
             };
-            this.isAssetLoaded = true;
-            this.staffService.getAllStaffsByApartmentId(queryParamBase).subscribe(function (res) {
-              if (res) {
-                _this59.isAssetLoaded = false; // this.staffList = res ? res : [];
-
-                if (res && res.length > 0) {
-                  res.filter(function (val) {
-                    _this59.staffList.push({
-                      'id': val.staffId,
-                      'itemName': val.firstName
-                    });
-                  });
-                }
+            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+              if (res.length) {
+                res.forEach(function (ele) {
+                  ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
+                });
+                _this59.staffList = res;
               }
+            }, function (error) {
+              console.log(error);
             });
           }
         }, {
@@ -4377,31 +4370,25 @@
           value: function getAllItem() {
             var _this60 = this;
 
-            if (!this.stock.warehouseId || !this.stock.materialId) {
-              return;
-            }
+            if (this.stock.warehouseId || this.stock.materialId) {
+              var queryParamBase = {
+                apartmentId: this.sessionService.apartmentId,
+                warehouseId: this.stock.warehouseId,
+                materialId: this.stock.materialId
+              };
+              this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
+                if (res) {
+                  _this60.inventoryList = res && res.length > 0 ? res : [];
+                  _this60.totalItems = _this60.inventoryList.length;
 
-            var queryParamBase = {};
-            queryParamBase = {
-              apartmentId: this.sessionService.apartmentId,
-              warehouseId: this.stock.warehouseId,
-              materialId: this.stock.materialId
-            }; // this.isAssetLoaded = true;
-
-            this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
-              if (res) {
-                // this.warehouseData = [];
-                _this60.inventoryList = res && res.length > 0 ? res : [];
-                console.log(_this60.inventoryList);
-                _this60.totalItems = _this60.inventoryList.length;
-
-                if (_this60.totalItems > _this60.itemLimit) {
-                  _this60.ItemEndIndex = _this60.itemLimit;
-                } else {
-                  _this60.ItemEndIndex = _this60.totalItems;
+                  if (_this60.totalItems > _this60.itemLimit) {
+                    _this60.ItemEndIndex = _this60.itemLimit;
+                  } else {
+                    _this60.ItemEndIndex = _this60.totalItems;
+                  }
                 }
-              }
-            });
+              });
+            }
           }
         }, {
           key: "getIndexParams",
@@ -4423,12 +4410,11 @@
             this.stock.materialId = event[0].id;
             this.getAvailableStock();
             this.getAllItem();
-            this.stock.availableStockQty = 2;
           }
         }, {
           key: "setStaffId",
           value: function setStaffId(event) {
-            this.stock.outTowhomissuedStaffId = event[0].id;
+            this.stock.outTowhomissuedStaffId = event[0].staffId;
           }
         }]);
 

@@ -123,40 +123,7 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
         this.propertyTypeList = [];
         this.unitFilterList = [];
         this.isShowOver = 'none';
-    }
-    onKeyDown(event) {
-        let e = event;
-        if (e.shiftKey && e.keyCode === 46) {
-            graph.deleteSelected();
-            // this.updateGraph();
-        }
-    }
-    onKeyHover(event) {
-        if (localStorage.getItem('poiInfo')) {
-            let poiInfo = JSON.parse(localStorage.getItem('poiInfo'));
-            if (poiInfo && poiInfo.poiId) {
-                this.styleTop = poiInfo.y + 'px';
-                this.styleLeft = poiInfo.x + 'px';
-                this.isShowOver = 'block';
-            }
-        }
-        else {
-            this.isShowOver = 'none';
-        }
-    }
-    closePopup(event) {
-        if (localStorage.getItem('onchange')) {
-            this.onChangeVal = JSON.parse(localStorage.getItem('onchange'));
-            if (this.onChangeVal.nodeId >= 0 && this.onChangeVal.poiId) {
-                localStorage.removeItem('onchange');
-                this.currentPOIId = this.onChangeVal.poiId;
-                this.addProperty('edit');
-            }
-            else if (this.onChangeVal.nodeId >= 0) {
-                localStorage.removeItem('onchange');
-                this.addProperty('add');
-            }
-        }
+        localStorage.setItem('preventGraph', 'true');
     }
     ngOnInit() {
         this.bootMe();
@@ -538,6 +505,7 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
             svgElem.parentNode.removeChild(svgElem);
         }
         graph.deleteGraph();
+        localStorage.removeItem('preventGraph');
     }
 };
 PropertyViewGraphicComponent.ctorParameters = () => [
@@ -558,10 +526,7 @@ PropertyViewGraphicComponent.propDecorators = {
     poiId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['poiId',] }],
     nodeId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['nodeId',] }],
     nodeKind: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['nodeKind',] }],
-    Nodetype: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['type',] }],
-    onKeyDown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['document:keydown', ['$event'],] }],
-    onKeyHover: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['document:mouseover', ['$event'],] }],
-    closePopup: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['document:click', ['$event'],] }]
+    Nodetype: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['type',] }]
 };
 PropertyViewGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

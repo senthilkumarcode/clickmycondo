@@ -735,6 +735,7 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./helpdesk-create-ticket.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-create-ticket/helpdesk-create-ticket.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./helpdesk-create-ticket.component.scss */
         "./src/app/modules/ams/helpdesk/components/helpdesk-create-ticket/helpdesk-create-ticket.component.scss"))["default"]]

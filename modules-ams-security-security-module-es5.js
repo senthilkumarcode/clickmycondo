@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"security-reports-data-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"filter-box\">\n\t\t\t\t\t<h6>\n\t\t\t\t\t\t<i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By\n\t\t\t\t\t</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"relative-card ml-auto mr-4\">\n\t\t\t\t\t<div class=\"relative-icon\">\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<span class=\"d-inline-block\">View All Report Types</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Tower No</label>\n\t\t\t\t\t\t\t\t\t<select name=\"blockNo\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"report.apartmentBlockID\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Emergency Category</label>\n\t\t\t\t\t\t\t\t\t<select name=\"emergencyType\" id=\"emergencyType\" class=\"form-control\" [(ngModel)]=\"report.emergencyCategoryTypeID\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of securityCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Alert Type</label>\n\t\t\t\t\t\t\t\t\t<select name=\"alertType\" id=\"alertType\" class=\"form-control\" [(ngModel)]=\"report.alertTypeStatusID\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of alertTypeStatus\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }} </option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"alertReportsCustomerForm.invalid\">Generate</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t\t<condo-card *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportData\"\n\t\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</div>\n\n";
+      __webpack_exports__["default"] = "<div class=\"security-reports-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"blockData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"report.apartmentBlockID\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Emergency Category\" fieldPlaceholder=\"Emergency Category\" [fieldRequired]=\"'required'\" [fieldList]=\"securityCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.emergencyCategoryTypeID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedEmergency($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Alert Type\" fieldPlaceholder=\"Alert Type\" [fieldRequired]=\"'required'\" [fieldList]=\"alertTypeStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.alertTypeStatusID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedAlert($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\"> \n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\" \n\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>View All Report Types\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\n\t\t\n\n\t\t\t<condo-card *ngIf=\"!isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div class=\"ml-auto d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportData\"\n\t\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t\t<div class=\"d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n\n";
       /***/
     },
 
@@ -1269,9 +1269,21 @@
       var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ../../../../../../core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var SecurityReportsDataComponent = /*#__PURE__*/function () {
-        function SecurityReportsDataComponent(apartmentService, route, alertService, lookupService, cookieService) {
+        function SecurityReportsDataComponent(apartmentService, route, alertService, lookupService, cookieService, sessionService) {
           _classCallCheck(this, SecurityReportsDataComponent);
 
           this.apartmentService = apartmentService;
@@ -1279,6 +1291,7 @@
           this.alertService = alertService;
           this.lookupService = lookupService;
           this.cookieService = cookieService;
+          this.sessionService = sessionService;
           this.pageName = "";
           this.ItemStartIndex = 0;
           this.itemLimit = 8;
@@ -1355,11 +1368,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            if (date) {
-              return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
-            } else {
-              return undefined;
-            }
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
           }
         }, {
           key: "getTimeFormat",
@@ -1406,9 +1415,118 @@
             }, function (error) {});
           }
         }, {
+          key: "getSelectedBlock",
+          value: function getSelectedBlock(event) {
+            this.report.apartmentBlockID = event[0].apartmentBlockId;
+          }
+        }, {
+          key: "getSelectedEmergency",
+          value: function getSelectedEmergency(event) {
+            this.report.emergencyCategoryTypeID = event[0].lookupValueId;
+          }
+        }, {
+          key: "getSelectedAlert",
+          value: function getSelectedAlert(event) {
+            this.report.alertTypeStatusID = event[0].lookupValueId;
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            var _this6 = this;
+
+            this.goBack();
+            this.isDataLoaded = false;
+            var details = {
+              ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+              StartDate: this.getDateFormat(this.report.startDate),
+              EndDate: this.getDateFormat(this.report.endDate),
+              ApartmentID: parseInt(this.sessionService.apartmentId),
+              EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+              AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+            };
+            this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe(function (res) {
+              _this6.alertReportsDataList = res;
+
+              _this6.alertReportsDataList.forEach(function (item, i) {
+                item.sNo = i + 1;
+              });
+
+              _this6.gridSourceData = {
+                localdata: _this6.alertReportsDataList,
+                datatype: "array"
+              };
+              _this6.listData = new jqx.dataAdapter(_this6.gridSourceData);
+              _this6.totalItems = _this6.alertReportsDataList.length;
+
+              if (_this6.totalItems > _this6.itemLimit) {
+                _this6.ItemEndIndex = _this6.itemLimit;
+              } else {
+                _this6.ItemEndIndex = _this6.totalItems;
+              }
+
+              _this6.isDataLoaded = true;
+              _this6.isReportSubmitted = false;
+            }, function (error) {
+              _this6.isDataLoaded = true;
+              _this6.isReportSubmitted = false;
+            });
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            var _this7 = this;
+
+            this.report.apartmentBlockID = null;
+            this.report.emergencyCategoryTypeID = null;
+            this.report.alertTypeStatusID = null;
+            this.report.startDate = null;
+            this.report.endDate = null; // =this.getTicketByAdmin();
+
+            var details = {
+              ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+              StartDate: this.getDateFormat(this.report.startDate),
+              EndDate: this.getDateFormat(this.report.endDate),
+              ApartmentID: parseInt(this.sessionService.apartmentId),
+              EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+              AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+            };
+            this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe(function (res) {
+              _this7.alertReportsDataList = res;
+
+              _this7.alertReportsDataList.forEach(function (item, i) {
+                item.sNo = i + 1;
+              });
+
+              _this7.gridSourceData = {
+                localdata: _this7.alertReportsDataList,
+                datatype: "array"
+              };
+              _this7.listData = new jqx.dataAdapter(_this7.gridSourceData);
+              _this7.totalItems = _this7.alertReportsDataList.length;
+
+              if (_this7.totalItems > _this7.itemLimit) {
+                _this7.ItemEndIndex = _this7.itemLimit;
+              } else {
+                _this7.ItemEndIndex = _this7.totalItems;
+              }
+
+              _this7.isDataLoaded = true;
+              _this7.isReportSubmitted = false;
+            }, function (error) {
+              _this7.isDataLoaded = true;
+              _this7.isReportSubmitted = false;
+            });
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this8 = this;
 
             this.pageName = this.route.params['value'].name;
             this.report = {};
@@ -1419,16 +1537,16 @@
             this.report.startDate = undefined;
             this.report.endDate = undefined;
             var apartment_params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: parseInt(this.sessionService.apartmentId)
             };
             this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe(function (res) {
-              _this6.blockData = res;
+              _this8.blockData = res;
             });
             var sec_params = {
               LookupTypeId: 29
             };
             this.lookupService.getLookupValueByLookupTypeId(sec_params).subscribe(function (res) {
-              _this6.securityCategoryData = res.filter(function (item) {
+              _this8.securityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -1436,7 +1554,7 @@
               LookupTypeId: 30
             };
             this.lookupService.getLookupValueByLookupTypeId(alert_params).subscribe(function (res) {
-              _this6.alertTypeStatus = res.filter(function (item) {
+              _this8.alertTypeStatus = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -1461,7 +1579,7 @@
               datafield: 'creationDate',
               width: 100,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this6.getDateFormat(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this8.getDateFormat(value) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1474,7 +1592,7 @@
               text: 'Tower No',
               datafield: 'blockNo',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this6.getDateFormat(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this8.getDateFormat(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1497,6 +1615,40 @@
               minwidth: 170,
               renderer: columnrenderer
             }];
+            var details = {
+              ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+              StartDate: this.getDateFormat(this.report.startDate),
+              EndDate: this.getDateFormat(this.report.endDate),
+              ApartmentID: parseInt(this.sessionService.apartmentId),
+              EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+              AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+            };
+            this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe(function (res) {
+              _this8.alertReportsDataList = res;
+
+              _this8.alertReportsDataList.forEach(function (item, i) {
+                item.sNo = i + 1;
+              });
+
+              _this8.gridSourceData = {
+                localdata: _this8.alertReportsDataList,
+                datatype: "array"
+              };
+              _this8.listData = new jqx.dataAdapter(_this8.gridSourceData);
+              _this8.totalItems = _this8.alertReportsDataList.length;
+
+              if (_this8.totalItems > _this8.itemLimit) {
+                _this8.ItemEndIndex = _this8.itemLimit;
+              } else {
+                _this8.ItemEndIndex = _this8.totalItems;
+              }
+
+              _this8.isDataLoaded = true;
+              _this8.isReportSubmitted = false;
+            }, function (error) {
+              _this8.isDataLoaded = true;
+              _this8.isReportSubmitted = false;
+            });
           }
         }]);
 
@@ -1514,6 +1666,8 @@
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
           type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+        }, {
+          type: _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }];
       };
 
@@ -1522,6 +1676,12 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['datagrid', {
             "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
           }]
         }]
       };
@@ -1533,7 +1693,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./security-reports-data.component.scss */
         "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])], SecurityReportsDataComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], SecurityReportsDataComponent);
       /***/
     },
 
@@ -1620,7 +1780,7 @@
         _createClass(SecurityReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this9 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1629,11 +1789,11 @@
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
               //this.reportDataList = res;
-              _this7.reportDataList = [{
+              _this9.reportDataList = [{
                 lookupValueName: 'List of Panic Alerts',
                 description: 'Provides the list of panic alerts for the specified duration'
               }];
-              _this7.isDataLoaded = true;
+              _this9.isDataLoaded = true;
             });
           }
         }]);
@@ -1895,7 +2055,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm(form) {
-            var _this8 = this;
+            var _this10 = this;
 
             this.isSecurityCategorySubmitted = false;
 
@@ -1922,16 +2082,16 @@
                     LookupTypeId: 29
                   };
 
-                  _this8.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(_this8._unsubscribeAll)).subscribe(function (res) {
-                    _this8.isSecurityCategorySubmitted = true; /// Go to the parent route
+                  _this10.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(_this10._unsubscribeAll)).subscribe(function (res) {
+                    _this10.isSecurityCategorySubmitted = true; /// Go to the parent route
 
-                    _this8.goBack(); //Mark for check
+                    _this10.goBack(); //Mark for check
 
 
-                    _this8._changeDetectorRef.markForCheck();
+                    _this10._changeDetectorRef.markForCheck();
                   });
                 } else {
-                  _this8.isSecurityCategorySubmitted = true;
+                  _this10.isSecurityCategorySubmitted = true;
                 }
               });
             } else {
@@ -1956,16 +2116,16 @@
                     LookupTypeId: 29
                   };
 
-                  _this8.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    _this8.isSecurityCategorySubmitted = true; /// Go to the parent route
+                  _this10.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    _this10.isSecurityCategorySubmitted = true; /// Go to the parent route
 
-                    _this8.goBack(); //Mark for check
+                    _this10.goBack(); //Mark for check
 
 
-                    _this8._changeDetectorRef.markForCheck();
+                    _this10._changeDetectorRef.markForCheck();
                   });
                 } else {
-                  _this8.isSecurityCategorySubmitted = true;
+                  _this10.isSecurityCategorySubmitted = true;
                 }
               });
             }
@@ -1976,16 +2136,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this11 = this;
 
             //Open the drawer
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this9._activatedRoute.params['value'].id) {
-                _this9._securitySetupListComponent.matDrawer.open();
+              if (id != null && id == _this11._activatedRoute.params['value'].id) {
+                _this11._securitySetupListComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this9._changeDetectorRef.markForCheck();
+              _this11._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type != 'new') {
@@ -1995,13 +2155,13 @@
                 LookupTypeId: 29
               };
               this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                _this9.isSecurityCategorySubmitted = true;
-                _this9.securityCategory = res.filter(function (item) {
-                  return item.lookupValueId == _this9._activatedRoute.params['value'].id;
+                _this11.isSecurityCategorySubmitted = true;
+                _this11.securityCategory = res.filter(function (item) {
+                  return item.lookupValueId == _this11._activatedRoute.params['value'].id;
                 });
-                _this9.securityCategoryName = _this9.securityCategory[0].lookupValueName; //Mark for check
+                _this11.securityCategoryName = _this11.securityCategory[0].lookupValueName; //Mark for check
 
-                _this9._changeDetectorRef.markForCheck();
+                _this11._changeDetectorRef.markForCheck();
               });
             } else {
               this.isSecurityCategorySubmitted = true;
@@ -2152,7 +2312,7 @@
 
       var SecuritySetupListComponent = /*#__PURE__*/function () {
         function SecuritySetupListComponent(_changeDetectorRef, _activatedRoute, _router, sharedService, lookupService, sessionService) {
-          var _this10 = this;
+          var _this12 = this;
 
           _classCallCheck(this, SecuritySetupListComponent);
 
@@ -2178,7 +2338,7 @@
             return event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"];
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function () {
             // Update the category
-            _this10.getCategoryData();
+            _this12.getCategoryData();
           });
         }
 
@@ -2255,19 +2415,19 @@
         }, {
           key: "getCategoryData",
           value: function getCategoryData() {
-            var _this11 = this;
+            var _this13 = this;
 
             var param = {
               LookupTypeId: 29
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
-              _this11.isSecurityCategoryLoaded = true;
-              _this11.securityCategoryData = res.filter(function (item) {
+              _this13.isSecurityCategoryLoaded = true;
+              _this13.securityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this11.totalItems = _this11.securityCategoryData.length; // Mark for check
+              _this13.totalItems = _this13.securityCategoryData.length; // Mark for check
 
-              _this11._changeDetectorRef.markForCheck();
+              _this13._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -2865,6 +3025,18 @@
       var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/modules/ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! src/app/modules/ui/select/select.module */
+      "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! src/app/modules/ui/list/list.module */
+      "./src/app/modules/ui/list/list.module.ts");
 
       var SecurityModule = function SecurityModule() {
         _classCallCheck(this, SecurityModule);
@@ -2872,7 +3044,7 @@
 
       SecurityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_security_component__WEBPACK_IMPORTED_MODULE_6__["SecurityComponent"], _components_security_active_alerts_security_active_alerts_component__WEBPACK_IMPORTED_MODULE_7__["SecurityActiveAlertsComponent"], _components_security_history_security_history_component__WEBPACK_IMPORTED_MODULE_8__["SecurityHistoryComponent"], _components_security_reports_security_reports_component__WEBPACK_IMPORTED_MODULE_9__["SecurityReportsComponent"], _components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_10__["SecurityReportsDataComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_modules_ams_security_security_setup_security_setup_module__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"], _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_modules_ams_security_security_setup_security_setup_module__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"], _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_12__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__["ListModule"]],
         bootstrap: [_security_component__WEBPACK_IMPORTED_MODULE_6__["SecurityComponent"]]
       })], SecurityModule);
       /***/

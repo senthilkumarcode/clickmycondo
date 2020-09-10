@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"security-reports-data-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"filter-box\">\n\t\t\t\t\t<h6>\n\t\t\t\t\t\t<i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By\n\t\t\t\t\t</h6>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"relative-card ml-auto mr-4\">\n\t\t\t\t\t<div class=\"relative-icon\">\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<span class=\"d-inline-block\">View All Report Types</span>\n\t\t\t\t\t\t</a>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Tower No</label>\n\t\t\t\t\t\t\t\t\t<select name=\"blockNo\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"report.apartmentBlockID\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Emergency Category</label>\n\t\t\t\t\t\t\t\t\t<select name=\"emergencyType\" id=\"emergencyType\" class=\"form-control\" [(ngModel)]=\"report.emergencyCategoryTypeID\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of securityCategoryData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Alert Type</label>\n\t\t\t\t\t\t\t\t\t<select name=\"alertType\" id=\"alertType\" class=\"form-control\" [(ngModel)]=\"report.alertTypeStatusID\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of alertTypeStatus\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }} </option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\"></i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<button class=\"btn blue\" [disabled]=\"alertReportsCustomerForm.invalid\">Generate</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t\t<condo-card *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportData\"\n\t\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"security-reports-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"blockData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"report.apartmentBlockID\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Emergency Category\" fieldPlaceholder=\"Emergency Category\" [fieldRequired]=\"'required'\" [fieldList]=\"securityCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.emergencyCategoryTypeID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedEmergency($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Alert Type\" fieldPlaceholder=\"Alert Type\" [fieldRequired]=\"'required'\" [fieldList]=\"alertTypeStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.alertTypeStatusID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedAlert($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\"> \n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\" \n\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>View All Report Types\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\n\t\t\n\n\t\t\t<condo-card *ngIf=\"!isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div class=\"ml-auto d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportData\"\n\t\t\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t\t<div class=\"d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n\n");
 
 /***/ }),
 
@@ -910,6 +910,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+
+
 
 
 
@@ -920,12 +924,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SecurityReportsDataComponent = class SecurityReportsDataComponent {
-    constructor(apartmentService, route, alertService, lookupService, cookieService) {
+    constructor(apartmentService, route, alertService, lookupService, cookieService, sessionService) {
         this.apartmentService = apartmentService;
         this.route = route;
         this.alertService = alertService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
+        this.sessionService = sessionService;
         this.pageName = "";
         this.ItemStartIndex = 0;
         this.itemLimit = 8;
@@ -984,12 +989,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
     }
     getDateFormat(date) {
-        if (date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
-        }
-        else {
-            return undefined;
-        }
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
     }
     getTimeFormat(dateTime) {
         return moment__WEBPACK_IMPORTED_MODULE_7__(dateTime).format("YYYY-MM-DD HH:mm");
@@ -1027,6 +1027,93 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         }, error => {
         });
     }
+    getSelectedBlock(event) {
+        this.report.apartmentBlockID = event[0].apartmentBlockId;
+    }
+    getSelectedEmergency(event) {
+        this.report.emergencyCategoryTypeID = event[0].lookupValueId;
+    }
+    getSelectedAlert(event) {
+        this.report.alertTypeStatusID = event[0].lookupValueId;
+    }
+    filterApply() {
+        this.goBack();
+        this.isDataLoaded = false;
+        let details = {
+            ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+            StartDate: this.getDateFormat(this.report.startDate),
+            EndDate: this.getDateFormat(this.report.endDate),
+            ApartmentID: parseInt(this.sessionService.apartmentId),
+            EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+            AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+        };
+        this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe((res) => {
+            this.alertReportsDataList = res;
+            this.alertReportsDataList.forEach((item, i) => {
+                item.sNo = i + 1;
+            });
+            this.gridSourceData = {
+                localdata: this.alertReportsDataList,
+                datatype: "array"
+            };
+            this.listData = new jqx.dataAdapter(this.gridSourceData);
+            this.totalItems = this.alertReportsDataList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        }, error => {
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        });
+    }
+    clearFilter() {
+        this.report.apartmentBlockID = null;
+        this.report.emergencyCategoryTypeID = null;
+        this.report.alertTypeStatusID = null;
+        this.report.startDate = null;
+        this.report.endDate = null;
+        // =this.getTicketByAdmin();
+        let details = {
+            ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+            StartDate: this.getDateFormat(this.report.startDate),
+            EndDate: this.getDateFormat(this.report.endDate),
+            ApartmentID: parseInt(this.sessionService.apartmentId),
+            EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+            AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+        };
+        this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe((res) => {
+            this.alertReportsDataList = res;
+            this.alertReportsDataList.forEach((item, i) => {
+                item.sNo = i + 1;
+            });
+            this.gridSourceData = {
+                localdata: this.alertReportsDataList,
+                datatype: "array"
+            };
+            this.listData = new jqx.dataAdapter(this.gridSourceData);
+            this.totalItems = this.alertReportsDataList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        }, error => {
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        });
+        this.goBack();
+    }
+    goBack() {
+        this.matDrawer.close();
+    }
     ngOnInit() {
         this.pageName = this.route.params['value'].name;
         this.report = {};
@@ -1037,7 +1124,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.report.startDate = undefined;
         this.report.endDate = undefined;
         let apartment_params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: parseInt(this.sessionService.apartmentId)
         };
         this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe((res) => {
             this.blockData = res;
@@ -1112,6 +1199,37 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
                 minwidth: 170,
                 renderer: columnrenderer
             }];
+        let details = {
+            ApartmentBlockID: parseInt(this.report.apartmentBlockID),
+            StartDate: this.getDateFormat(this.report.startDate),
+            EndDate: this.getDateFormat(this.report.endDate),
+            ApartmentID: parseInt(this.sessionService.apartmentId),
+            EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
+            AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
+        };
+        this.alertService.getReportsForSecurityPanicAlertMultiFilter(details).subscribe((res) => {
+            this.alertReportsDataList = res;
+            this.alertReportsDataList.forEach((item, i) => {
+                item.sNo = i + 1;
+            });
+            this.gridSourceData = {
+                localdata: this.alertReportsDataList,
+                datatype: "array"
+            };
+            this.listData = new jqx.dataAdapter(this.gridSourceData);
+            this.totalItems = this.alertReportsDataList.length;
+            if (this.totalItems > this.itemLimit) {
+                this.ItemEndIndex = this.itemLimit;
+            }
+            else {
+                this.ItemEndIndex = this.totalItems;
+            }
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        }, error => {
+            this.isDataLoaded = true;
+            this.isReportSubmitted = false;
+        });
     }
 };
 SecurityReportsDataComponent.ctorParameters = () => [
@@ -1119,10 +1237,12 @@ SecurityReportsDataComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
     { type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
 ];
 SecurityReportsDataComponent.propDecorators = {
-    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
 };
 SecurityReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1134,7 +1254,8 @@ SecurityReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
         src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
 ], SecurityReportsDataComponent);
 
 
@@ -1922,6 +2043,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_security_reports_security_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/security-reports/security-reports.component */ "./src/app/modules/ams/security/components/security-reports/security-reports.component.ts");
 /* harmony import */ var _components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/security-reports/security-reports-data/security-reports-data.component */ "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
+
+
 
 
 
@@ -1950,7 +2075,9 @@ SecurityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ams_security_security_setup_security_setup_module__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"],
-            _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"]
+            _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_12__["SelectModule"],
+            src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__["ListModule"]
         ],
         bootstrap: [_security_component__WEBPACK_IMPORTED_MODULE_6__["SecurityComponent"]]
     })

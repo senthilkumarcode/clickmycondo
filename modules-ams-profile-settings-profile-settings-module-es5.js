@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"poiManagement m-5\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-5\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input #nodeId type=\"text\" id=\"spanNode\">\n      <input #poiId type=\"text\" id=\"poiId\">\n      <input #nodeKind type=\"text\" id=\"nodeKind\">\n      <input #type type=\"text\" id=\"type\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button class=\"btn blue\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" [appDragAndDrop] (click)=\"fileInput.click()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-5\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" [accept]=\"imageFormats\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <!-- <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-12\">\n        <label class=\"mr-8\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-8 ml-12\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div> -->\n  </div>\n  </div>";
+      __webpack_exports__["default"] = "<div class=\"poiManagement m-5\">\n  <div class=\"topBar\">\n    <div class=\"row pos-r\">\n      <div class=\"col-md-6 d-flex\">\n        <div class=\"w-75 mr-5\">\n          <label>Select Tower</label>\n          <select class=\"form-control\" name=\"tower\" [(ngModel)]=\"selectedTower\" (change)=\"getFloorList()\" >\n            <option *ngFor=\"let tower of towerList\"  [(value)]=\"tower.apartmentBlockId\">{{tower.description}}</option>\n          </select>\n        </div>\n        <div class=\"w-75\">\n          <label>Select Floor</label>\n          <select class=\"form-control\" name=\"floor\" [(ngModel)]=\"selectedFloor\" (change)=\"selectFloor()\">\n            <option *ngFor=\"let floor of floorList\"  [(value)]=\"floor.apartmentBlockFloorId\">{{floor.floorLabel}}</option>\n          </select>\n        </div>\n      </div>\n      <div [hidden]=\"true\">\n        <input type=\"text\" id=\"buildingNo\" value=\"\" placeholder=\"Building No\" [(ngModel)]=\"bNo\">\n        <input type=\"text\" id=\"floorNo\" value=\"\" placeholder=\"Floor No\" [(ngModel)]=\"fNo\">\n      <input #nodeId type=\"text\" id=\"spanNode\">\n      <input #poiId type=\"text\" id=\"poiId\">\n      <input #nodeKind type=\"text\" id=\"nodeKind\">\n      <input #type type=\"text\" id=\"type\">\n      <input #radius type=\"text\" id=\"radius\">\n      </div>\n      <div class=\"col-md-6 d-flex justify-content-end align-items-center\">\n        <button mat-flat-button class=\"mr-3\" *ngIf=\"isShowBuilder\" (click)=\"resetFloorPlan();isEdit=true;\" >\n          Reset\n        </button>\n        <button mat-flat-button [color]=\"'primary'\" *ngIf=\"isShowBuilder\" (click)=\"updateProperty()\" >\n          Publish\n        </button>\n      </div>\n    </div>\n  </div>\n<div class=\"pathBuilder\">\n    <!--<md-progress-bar mode=\"indeterminate\"></md-progress-bar>-->\n    <div class=\"dragContainer\" id=\"lcanvas\" [ngStyle]=\"isShowBuilder ? {'display':'flex','justify-content':'center'} : ''\">\n      <!--<div class=\"floor\" id=\"lcanvas\">-->\n      <!--<div id=\"image-wrapper\" *ngIf=\"isShowBuilder\">-->\n      <!--</div>-->\n      <!--</div>-->\n      <div class=\"upload\" [appDragAndDrop] (click)=\"fileInput.click()\" *ngIf=\"!isShowBuilder\"\n           id=\"setFloorImg\">    \n        <img class=\"mb-5\" src=\"../../../../../assets/images/plus-circle-icon.png\" alt=\"\">\n        <p  class=\"addFloor\">Add New Floor Plan</p>\n        <div class=\"legends\">\n          <span class=\"d-flex\" >\n           <img class=\"mr-20\" src=\"../../../../../assets/images/folder-icon.png\" alt=\"\">\n            Browse File Computer</span>\n        </div>\n        <div class=\"borderLine\"></div>\n        <span class=\"support\" >Supported File Formats</span>\n        <div class=\"brandIcons\">\n          <img src=\"../../../../../assets/images/jpg-icon.png\" alt=\"\">\n          <img src=\"../../../../../assets/images/png-icon.png\" alt=\"\">\n        </div>\n        <span class=\"smallText\">Supported File Formats<span [style.direction]=\"'LTR'\">1000*1200 px</span></span>\n      </div>\n      <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\" id=\"hidden-bg-upload\" [accept]=\"imageFormats\">\n      <!--<input type=\"file\" id=\"hidden-graph-upload\">-->\n      <!--<img *ngIf=\"false\" id=\"pinch-zoom-image-id\" class=\"pinch-zoom-image\" src=\"../assets/images/floor_plan.jpg\">-->\n    </div>\n    <!-- <div class=\"floorLegendLeft\" *ngIf=\"isShowBuilder\">\n      <img src=\"../../assets/icons/legend.png\" alt=\"\" (click)=\"isShowLegend = !isShowLegend\">\n      <app-floating-btn class=\"applgout\"   [position]=\"{ top: '-6px', left: '40px'}\"\n                        [custom]=\"true\"\n                        *ngIf=\"isShowLegend\">\n        <div class=\"legendBody\">\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.poi}}<span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#0fce21'\">{{rawPOIList?.poiCount ? rawPOIList?.poiCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.facility}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#440084'\">{{rawPOIList?.facilityCount ? rawPOIList?.facilityCount : 0}}</span></span>\n          <span class=\"legendData\" [style.direction]=\"langDirection\">{{langObj?.active}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#12991f'\">{{rawPOIList?.activeCount ? rawPOIList?.activeCount : 0}}</span></span>\n          <span class=\"dataLastChild\" [style.direction]=\"langDirection\">{{langObj?.inactive}} <span class=\"ml-2\">:</span> <span class=\"ml-2\" [style.color]=\"'#fd001a'\">{{rawPOIList?.inActiveCount ? rawPOIList?.inActiveCount : 0}}</span></span>\n        </div>\n      </app-floating-btn>\n    </div> -->\n    <div class=\"floorLegend\" *ngIf=\"isShowBuilder\">\n      <div class=\"mb-4\">\n        <label class=\"mr-3\"> To Add POI</label>\n        <span>Shift+Click</span>\n      </div>\n      <div>\n        <label  class=\"mr-3 ml-5\">To Delete POI/Path</label>\n        <span>Shift+Delete</span>\n      </div>\n    </div>\n  </div>\n  </div>";
       /***/
     },
 
@@ -577,6 +577,7 @@
           this.fNo = 0;
           this.towerList = [];
           this.floorList = [];
+          this.isEdit = false;
         }
 
         _createClass(AddFloorUnitGraphicComponent, [{
@@ -594,14 +595,18 @@
             if (localStorage.getItem('onchange')) {
               this.onChangeVal = JSON.parse(localStorage.getItem('onchange'));
 
-              if (this.onChangeVal.nodeId >= 0 && this.onChangeVal.poiId) {
+              if (this.onChangeVal.nodeId >= 0 && this.onChangeVal.poiId && !localStorage.getItem('onDrag')) {
                 localStorage.removeItem('onchange');
                 this.currentPOIId = this.onChangeVal.poiId;
                 this.addProperty('edit');
-              } else if (this.onChangeVal.nodeId >= 0) {
+              } else if (this.onChangeVal.nodeId >= 0 && !localStorage.getItem('onDrag')) {
                 localStorage.removeItem('onchange');
                 this.addProperty('add');
               }
+            }
+
+            if (localStorage.getItem('onDrag')) {
+              localStorage.removeItem('onDrag');
             }
           }
         }, {
@@ -665,6 +670,8 @@
                   if (key.propertyMapFileId != 0) {
                     _this4.getPropertyMap(key.propertyMapFileId);
                   } else {
+                    _this4.isEdit = false;
+
                     _this4.resetFloorPlan();
                   }
                 }
@@ -713,6 +720,7 @@
                 $('#spanNode').val(_this5.onChangeVal.nodeId);
                 $('#poiId').val(result.poiId);
                 $('#type').val(result.type);
+                $('#radius').val(result.radius);
 
                 _this5.updatePOI();
               }
@@ -736,7 +744,13 @@
               }
 
               if (_this6.isUploadCompleted()) {
-                _this6.addPropertyMap(_this6.uploadResponse.fileId);
+                if (_this6.isEdit) {
+                  _this6.floorPropertyData.floorPictureFileDetailsId = _this6.uploadResponse.fileId;
+
+                  _this6.updateProperty();
+                } else {
+                  _this6.addPropertyMap(_this6.uploadResponse.fileId);
+                }
               }
             });
           }
@@ -770,11 +784,9 @@
                   svgElem.parentNode.removeChild(svgElem);
                 }
 
-                _this8.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
+                _this8.getFileDetails(data.floorPictureFileDetailsId);
 
-
-                graph.deleteGraph(); // localStorage.setItem('graphData', data.mapJsonFile);
-
+                graph.deleteGraph();
                 graph.customGraphUpdate(data.mapJsonFile, undefined);
               }, 1);
             } else if (data && data.floorPictureFileDetailsId && data.floorPictureFileDetailsId != 0) {
@@ -786,8 +798,7 @@
                   svgElem.parentNode.removeChild(svgElem);
                 }
 
-                _this8.getFileDetails(data.floorPictureFileDetailsId); // graph.customImageUpdalod(this.getImage(data.floorPictureFileDetailsId));
-
+                _this8.getFileDetails(data.floorPictureFileDetailsId);
               }, 1);
             } else {
               this.isShowBuilder = false;
@@ -844,6 +855,7 @@
             /** MAIN SVG **/
 
             var svg = d3.select("#lcanvas").append("svg").attr("width", width).attr("height", height);
+            console.log('svg', svg);
             graph = new GraphCreator(svg, nodes, edges);
             graph.setIdCt(0); // this.graph.updateGraph();
           }
@@ -907,7 +919,7 @@
             };
             this.apartmentService.updatePropertyMapFile(updatePropertyMap).subscribe(function (resp) {
               if (resp) {
-                _this12.getPropertyMap(resp.propertyMapFileId);
+                _this12.getPropertyMap(_this12.floorPropertyData.propertyMapFileId);
               } // this.floorPropertyData = resp;
               // this.assignData(this.floorPropertyData)
 
@@ -975,13 +987,7 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            var svgElem = document.getElementById('bgimage');
-
-            if (svgElem) {
-              svgElem.parentNode.removeChild(svgElem);
-            }
-
-            graph.deleteGraph();
+            this.resetFloorPlan();
           }
         }, {
           key: "updatePOI",
@@ -1036,6 +1042,10 @@
         Nodetype: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['type']
+        }],
+        radius: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['radius']
         }],
         onKeyDown: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],

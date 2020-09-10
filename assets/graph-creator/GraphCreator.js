@@ -78,14 +78,13 @@ function GraphCreator(svg, nodes, edges) {
             return { x: d.x, y: d.y };
         })
         .on("drag", function (args) {
-            //   if(localStorage.getItem('isCreatePOI') == 'true'){
-            thisGraph.state.justDragged = true;
-            thisGraph.dragmove.call(thisGraph, args);
-            // localStorage.removeItem('onchange');
-            // localStorage.setItem('onDrag',true);
-            //   }else{
-
-            //   }
+            let preventDrag = localStorage.getItem('preventGraph');
+            if (preventDrag == null) {
+                thisGraph.state.justDragged = true;
+                thisGraph.dragmove.call(thisGraph, args);
+                localStorage.removeItem('onchange');
+                localStorage.setItem('onDrag', true);
+            }
         })
         .on("dragend", function () {
 
@@ -307,7 +306,7 @@ GraphCreator.prototype.consts = {
     BACKSPACE_KEY: 8, //8
     DELETE_KEY: 46, //46
     ENTER_KEY: 13,
-    nodeRadius: 15
+    nodeRadius: 6
 };
 
 /* PROTOTYPE FUNCTIONS */
@@ -528,7 +527,7 @@ GraphCreator.prototype.svgMouseUp = function () {
         //var nodeid = thisGraph.nodeprefix + thisGraph.idct;
 
         var xycoords = d3.mouse(thisGraph.svgG.node()),
-            d = { id: thisGraph.idct++, x: xycoords[0], y: xycoords[1], poiId: "", kind: '', type: '' };
+            d = { id: thisGraph.idct++, x: xycoords[0], y: xycoords[1], poiId: "", kind: '', type: '',radius:0 };
         thisGraph.nodes.push(d);
         thisGraph.updateGraph(undefined);
 
@@ -684,8 +683,7 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
             $("#spanNode").val(d.id);
             $("#poiId").val(d.poiId);
             $('#nodeKind').val(d.kind);
-            console.log('d', d)
-            let poiInfo = { poiId: d.poiId, nodeId: d.id, nodeKind: d.kind, x: d.x, y: d.y }
+            let poiInfo = { poiId: d.poiId, nodeId: d.id, nodeKind: d.kind, x: d.x, y: d.y,radius:d.radius }
             localStorage.setItem('onchange', JSON.stringify(poiInfo))
             //   localStorage.setItem('deletedNode',JSON.stringify(d))
         })
@@ -703,15 +701,22 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
             thisGraph.circleMouseUp.call(thisGraph, d3.select(this), d);
         })
         .call(thisGraph.drag);
-    newGs.append("rect")
-        .attr("width", String(consts.nodeRadius))
-        .attr("height", String(consts.nodeRadius));
-
-    // newGs.append("circle")
-    //   .attr({"r":String(consts.nodeRadius),"fill":function (d) {
-    //     return d.kind;
-    //   }
-    //   });
+    // newGs.append("rect")
+    //     .attr("width", String(consts.nodeRadius))
+    //     .attr("height", String(consts.nodeRadius));
+    let nodeRadius = consts.nodeRadius;
+    
+    newGs.append("circle")  
+        .attr({"r":function (d) {
+                if(d.radius && d.radius != 0){
+                    nodeRadius = Number(d.radius);
+                }else{
+                    nodeRadius = consts.nodeRadius; 
+                }
+                console.log('noderadius',nodeRadius)
+                return String(nodeRadius);
+            } 
+        });
 
     // remove old nodes
     thisGraph.circles.exit().remove();
@@ -772,6 +777,7 @@ GraphCreator.prototype.setPOIId = function () {
     let thisGraph = this;
     let _kind = $('#nodeKind').val();
     let _type = $('#type').val();
+    let _radius = $('#radius').val();
     let _style = thisGraph.consts.circleGClass;
     let _poistr = $('#poiId').val();
     if (_poistr) {
@@ -801,11 +807,12 @@ GraphCreator.prototype.setPOIId = function () {
     thisGraph.state.selectedNode.poiId = _poistr;
     thisGraph.state.selectedNode.kind = _kind;
     thisGraph.state.selectedNode.type = _type;
-    thisGraph.d3SelectedNode.attr("class", _style)
-    // thisGraph.d3SelectedNode.attr({"class":_style,"fill":_kind});
-    // $("g").children().attr('fill',_kind)
-    //   // thisGraph.d3SelectedNode.children().attr('fill','red')
-    // // thisGraph.d3SelectedNode[0][0].childNodes[0].attr("fill", 'red');
+    thisGraph.state.selectedNode.radius = _radius;
+    // thisGraph.d3SelectedNode.attr("r", String(_radius))
+    thisGraph.d3SelectedNode.attr({"r":String(_radius)});
+    // $("g").children().attr("r", String(_radius))
+    //   thisGraph.d3SelectedNode.children().attr("r", String(_radius))
+    // thisGraph.d3SelectedNode[0][0].childNodes[0].attr("r", String(_radius));
 };
 
 

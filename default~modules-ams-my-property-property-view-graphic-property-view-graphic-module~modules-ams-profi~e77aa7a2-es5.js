@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<condo-card>\n    <div CondoCardHeader>\n        <div class=\"d-flex\">\n            <h4>Add Property</h4>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <div class=\"p-5\">\n            <div class=\"row\">\n                <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"input-box\">\n                        <label>Node Id</label>\n                        <input type=\"text\" class=\"form-control\" disabled [ngModel]=\"addPropertyParam.nodeId\"\n                            name=\"nodeId\">\n                    </div>\n                </div>\n                <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"input-box\">\n                        <label>POI Id</label>\n                        <input type=\"text\" class=\"form-control\" disabled [ngModel]=\"addPropertyParam.propertyPoiid\"\n                            name=\"propertyPoiid\">\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 \">\n                    <div class=\"select-box\">\n                        <label>Property Type</label>\n                        <select [(ngModel)]=\"addPropertyParam.propertyPoitype\" (change)=\"selectPropertyType()\"\n                            name=\"propertyPoitype\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of propertyTypeList\" value=\"{{item.lookupValueId}}\">\n                                {{item.lookupValueName}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 318\">\n                    <div class=\"select-box\">\n                        <label>Units</label>\n                        <select [(ngModel)]=\"addPropertyParam.blockUnitId\" name=\"blockUnitId\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of unitList\" value=\"{{item.apartmentBlockUnitId}}\">\n                                {{item.apartmentBlockUnitNumber}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 320\">\n                    <div class=\"select-box\">\n                        <label>Facility Type</label>\n                        <select [(ngModel)]=\"addPropertyParam.facilityId\" name=\"facilityId\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of facilityList\" value=\"{{item.apartmentFacilityId}}\">\n                                {{item.facilityName}}\n                            </option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 319\">\n                    <div class=\"select-box\">\n                        <label>Asset Category</label>\n                        <select [(ngModel)]=\"assetCategory\" name=\"assetCategory\" (change)=\"getAssetSubCategory()\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of assetCategoryList\" value=\"{{item.id}}\">{{item.name}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 319 && assetCategory\">\n                    <div class=\"select-box\">\n                        <label>Asset Sub Category</label>\n                        <select [(ngModel)]=\"assetSubCategory\" name=\"assetSubCategory\" (change)=\"selectAsset()\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of assetSubCategoryList\" value=\"{{item.id}}\">{{item.name}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 319 && assetCategory && assetSubCategory\">\n                    <div class=\"select-box\">\n                        <label>Asset</label>\n                        <select [(ngModel)]=\"addPropertyParam.assetId\" name=\"assetId\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of assetList\" value=\"{{item.assetId}}\">{{item.assetName}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\" *ngIf=\"false\" >\n                    <div class=\"select-box\">\n                        <label>Infrastrcuture</label>\n                        <select [(ngModel)]=\"addPropertyParam.infrastructureId\" name=\"infrastructureId\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\" *ngIf=\"false\">\n                    <div class=\"select-box\">\n                        <label>Operational Maintanance</label>\n                        <select [(ngModel)]=\"addPropertyParam.opMaintenanceId\" name=\"opMaintenanceId\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                        </select>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md-12 d-flex justify-content-end mt-3\">\n                    <button mat-flat-button mat-dialog-close>Cancel</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addProperty()\">Submit</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</condo-card>";
+      __webpack_exports__["default"] = "<condo-card>\n    <div CondoCardHeader>\n        <div class=\"d-flex\">\n            <h4>{{isEdit ? 'Edit Property' : 'Add Property'}}</h4>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <div class=\"p-5\">\n            <div class=\"row\">\n                <!-- <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"input-box\">\n                        <label>Node Id</label>\n                        <input type=\"text\" class=\"form-control\" disabled [ngModel]=\"addPropertyParam.nodeId\"\n                            name=\"nodeId\">\n                    </div>\n                </div>     -->\n                 <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"input-box\">\n                        <label>Radius</label>\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"addPropertyParam.id\"\n                            name=\"radius\">\n                    </div>\n                </div>\n                <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                    <div class=\"input-box\">\n                        <label>POI Id</label>\n                        <input type=\"text\" class=\"form-control\" disabled [ngModel]=\"addPropertyParam.propertyPoiid\"\n                            name=\"propertyPoiid\">\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 \">\n                    <div class=\"select-box\">\n                        <label>Property Type</label>\n                        <select [(ngModel)]=\"addPropertyParam.propertyPoitype\" (change)=\"selectPropertyType()\"\n                            name=\"propertyPoitype\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of propertyTypeList\" value=\"{{item.lookupValueId}}\">\n                                {{item.lookupValueName}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 318\">\n                    <div class=\"select-box\">\n                        <label>Units</label>\n                        <select [(ngModel)]=\"addPropertyParam.blockUnitId\" name=\"blockUnitId\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of unitList\" value=\"{{item.apartmentBlockUnitId}}\">\n                                {{item.apartmentBlockUnitNumber}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 320\">\n                    <div class=\"select-box\">\n                        <label>Facility Type</label>\n                        <select [(ngModel)]=\"addPropertyParam.facilityId\" name=\"facilityId\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of facilityList\" value=\"{{item.apartmentFacilityId}}\">\n                                {{item.facilityName}}\n                            </option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 319\">\n                    <div class=\"select-box\">\n                        <label>Asset Category</label>\n                        <select [(ngModel)]=\"assetCategory\" name=\"assetCategory\" (change)=\"getAssetSubCategory()\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of assetCategoryList\" value=\"{{item.id}}\">{{item.name}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 319 && assetCategory\">\n                    <div class=\"select-box\">\n                        <label>Asset Sub Category</label>\n                        <select [(ngModel)]=\"assetSubCategory\" name=\"assetSubCategory\" (change)=\"selectAsset()\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of assetSubCategoryList\" value=\"{{item.id}}\">{{item.name}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\"\n                    *ngIf=\"addPropertyParam.propertyPoitype == 319 && assetCategory && assetSubCategory\">\n                    <div class=\"select-box\">\n                        <label>Asset</label>\n                        <select [(ngModel)]=\"addPropertyParam.assetId\" name=\"assetId\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of assetList\" value=\"{{item.assetId}}\">{{item.assetName}}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\" *ngIf=\"false\" >\n                    <div class=\"select-box\">\n                        <label>Infrastrcuture</label>\n                        <select [(ngModel)]=\"addPropertyParam.infrastructureId\" name=\"infrastructureId\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3\" *ngIf=\"false\">\n                    <div class=\"select-box\">\n                        <label>Operational Maintanance</label>\n                        <select [(ngModel)]=\"addPropertyParam.opMaintenanceId\" name=\"opMaintenanceId\"\n                            class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                        </select>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md-12 d-flex justify-content-end mt-3\">\n                    <button mat-flat-button mat-dialog-close>Cancel</button>\n                    <button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isEdit\" (click)=\"addProperty()\">Submit</button>\n                    <button mat-flat-button [color]=\"'primary'\"  *ngIf=\"isEdit\"  (click)=\"updateProperty()\">Update</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</condo-card>";
       /***/
     },
 
@@ -139,6 +139,7 @@
           this.assetSubCategoryList = [];
           this.assetList = [];
           this.assetRawList = [];
+          this.isEdit = false;
           this.addPropertyParam = {
             "propertyPoiid": 0,
             "propertyPoitype": 0,
@@ -158,12 +159,25 @@
             "updatedBy": this.sessionService.userId,
             "updatedOn": "2020-07-06T14:48:10.120Z"
           };
+          this.addPropertyParam.propertyPoiid = this.data.poiId;
+          this.addPropertyParam.nodeId = this.data.nodeId;
+          this.addPropertyParam.id = this.data.radius;
+          this.addPropertyParam.x = this.data.x;
+          this.addPropertyParam.y = this.data.y;
 
-          for (var key in this.data) {
-            if (this.addPropertyParam.hasOwnProperty(key)) {
-              this.addPropertyParam[key] = this.data[key];
-            }
-          }
+          if (this.data.type == 'add') {
+            this.isEdit = false;
+          } else {
+            this.isEdit = true;
+            this.getProperty();
+          } // for (const key in this.data) {
+          //   if(this.addPropertyParam.hasOwnProperty(key)){
+          //     this.addPropertyParam[key] = this.data[key];
+          //   }
+          // }
+
+
+          console.log(this.addPropertyParam);
         }
 
         _createClass(AddPropertyDialogComponent, [{
@@ -172,16 +186,37 @@
             this.getPropertyType();
           }
         }, {
+          key: "getProperty",
+          value: function getProperty() {
+            var _this = this;
+
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId,
+              propertyPOIID: this.addPropertyParam.propertyPoiid
+            };
+            this.propertyService.getPropertyPoiUnitById(queryParamBase).subscribe(function (resp) {
+              if (resp[0]) {
+                for (var key in resp[0]) {
+                  if (_this.addPropertyParam.hasOwnProperty(key)) {
+                    _this.addPropertyParam[key] = _this.data[key];
+                  }
+                }
+
+                _this.selectPropertyType();
+              }
+            });
+          }
+        }, {
           key: "getPropertyType",
           value: function getPropertyType() {
-            var _this = this;
+            var _this2 = this;
 
             var getLookUpParam = {
               ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 196
             };
             this.lookupService.getLookupValueByLookupTypeId(getLookUpParam).subscribe(function (resp) {
-              _this.propertyTypeList = resp;
+              _this2.propertyTypeList = resp;
             }, function (error) {});
           }
         }, {
@@ -217,31 +252,31 @@
         }, {
           key: "getUnitList",
           value: function getUnitList() {
-            var _this2 = this;
+            var _this3 = this;
 
             var getUnitParam = {
               apartmentBlockId: this.data.apartmentBlockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(getUnitParam).subscribe(function (resp) {
-              _this2.unitList = resp;
+              _this3.unitList = resp;
             });
           }
         }, {
           key: "getFacilityList",
           value: function getFacilityList() {
-            var _this3 = this;
+            var _this4 = this;
 
             var getFacilityParam = {
               apartmentId: this.sessionService.apartmentId
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(getFacilityParam).subscribe(function (resp) {
-              _this3.facilityList = resp;
+              _this4.facilityList = resp;
             });
           }
         }, {
           key: "getAssetCategory",
           value: function getAssetCategory() {
-            var _this4 = this;
+            var _this5 = this;
 
             var queryParamBase = {
               apartmentId: this.sessionService.apartmentId,
@@ -250,54 +285,55 @@
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this4.assetCategoryList = res ? res : [];
+                _this5.assetCategoryList = res ? res : [];
               }
             });
           }
         }, {
           key: "getAssetSubCategory",
           value: function getAssetSubCategory() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.assetCategoryList.filter(function (key) {
-              if (key.id == _this5.assetCategory) {
-                _this5.assetSubCategoryList = key.subCategory;
+              if (key.id == _this6.assetCategory) {
+                _this6.assetSubCategoryList = key.subCategory;
               }
             });
           }
         }, {
           key: "getAsset",
           value: function getAsset() {
-            var _this6 = this;
+            var _this7 = this;
 
             var getAllAsset = {
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(getAllAsset).subscribe(function (resp) {
-              _this6.assetRawList = resp;
+              _this7.assetRawList = resp;
             });
           }
         }, {
           key: "selectAsset",
           value: function selectAsset() {
-            var _this7 = this;
+            var _this8 = this;
 
             this.assetRawList.filter(function (key) {
-              if (key.assetSubcategoryId == _this7.assetSubCategory) {
-                _this7.assetList.push(key);
+              if (key.assetSubcategoryId == _this8.assetSubCategory) {
+                _this8.assetList.push(key);
               }
             });
           }
         }, {
           key: "assignUnitData",
           value: function assignUnitData(poiId) {
-            var _this8 = this;
+            var _this9 = this;
 
             var unitData = new Object();
             unitData['type'] = "318";
             unitData['poiId'] = poiId;
+            unitData['radius'] = this.addPropertyParam.id;
             this.unitList.filter(function (key) {
-              if (key.apartmentBlockUnitId == _this8.addPropertyParam.blockUnitId) {
+              if (key.apartmentBlockUnitId == _this9.addPropertyParam.blockUnitId) {
                 for (var item in key) {
                   if (key[item] === true && key[item] != null) {
                     unitData[item] = item;
@@ -311,7 +347,7 @@
         }, {
           key: "addProperty",
           value: function addProperty() {
-            var _this9 = this;
+            var _this10 = this;
 
             this.addPropertyParam.insertedOn = new Date().toISOString();
             this.addPropertyParam.updatedOn = new Date().toISOString();
@@ -322,12 +358,12 @@
             };
             this.propertyService.addPropertyPoi(addProperty).subscribe(function (resp) {
               if (resp && resp.message) {
-                switch (_this9.addPropertyParam.propertyPoitype) {
+                switch (_this10.addPropertyParam.propertyPoitype) {
                   case 316:
                     break;
 
                   case 318:
-                    _this9.assignUnitData(resp.message);
+                    _this10.assignUnitData(resp.message);
 
                     break;
 
