@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<!-- <div class=\" inventory-outer\"> -->\n\t<ul class=\"legends ml-3 list-inline\" >\n\t\t<li class=\"list-inline-item cursor\"\n\t\t*ngFor=\"let list of [{name:'All',class:'medium'},{name:'Low',class:'bg-orange-900'},{name:'Normal',class:'low'}];let i =index\" \n\t\t[ngClass]=\"i ==  currIndex? 'text-blue-900':''\" (click)=\"currIndex = i;historyStatus=list.name != 'All'?list.name:'';onStatusFilter();\">\n\t\t<span class=\"dots {{list.class}}\" *ngIf=\"list.name != 'All'\" ></span>\n\t\t<span>{{list.name}}</span>\n\t</li>\t\n\t</ul>\t\n\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\n\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t<div CondoCardHeader>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Current Inventory\n\t\t\t\t\t</h4>\n\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3 ml-auto pt-4 mt-2\">\n\t\t\t\t\t<app-print-dropdown  (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</div>\n\t\t\t\t<div>\n\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t<h6 class=\"pb-1\">Select Warehouse</h6>\n\t\t\t\t\t\t<select name=\"assetCategory\" \n\t\t\t\t\t\t\tid=\"assetCategory\" \n\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t required [(ngModel)]=\"searchWareHouseId\" (change)=\"onSelectFilter()\">\n\t\t\t\t\t\t\t<option value=\"\" >All</option>\n\t\t\t\t\t\t\t<option  [ngClass]=\"!item.warehouseName?'d-none':''\" *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseName\">\n\t\t\t\t\t\t\t\t{{ item.warehouseName | titlecase}}</option>\n\t\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\t\t\t\n\t\t</div>\n\t\t<div CondoCardBody>\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"inventoryHistoryData\" [columns]=\"inventoryHeader\"\n\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t</jqxGrid>\n\t\t</div>\n\t</condo-card>\n\t</div>\n\t\n\t</div>\n\n\t");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n\t\t<ul class=\"legends ml-3 list-inline\" >\n\t\t\t<li class=\"list-inline-item cursor\"\n\t\t\t*ngFor=\"let list of [{name:'All',class:'medium'},{name:'Low',class:'bg-orange-900'},{name:'Normal',class:'low'}];let i =index\" \n\t\t\t[ngClass]=\"i ==  currIndex? 'text-blue-900':''\" (click)=\"currIndex = i;historyStatus=list.name != 'All'?list.name:'';onStatusFilter();\">\n\t\t\t<span class=\"dots {{list.class}}\" *ngIf=\"list.name != 'All'\" ></span>\n\t\t\t<span>{{list.name}}</span>\n\t\t</li>\t\n\t\t</ul>\t\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Current Inventory</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3 pt-4 mt-2\">\n\t\t\t\t\t\t<app-print-dropdown  (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<h6 class=\"pb-1\">Select Warehouse</h6>\n\t\t\t\t\t\t\t<select name=\"assetCategory\" \n\t\t\t\t\t\t\t\tid=\"assetCategory\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\trequired [(ngModel)]=\"searchWareHouseId\" (change)=\"onSelectFilter()\">\n\t\t\t\t\t\t\t\t<option value=\"\" >All</option>\n\t\t\t\t\t\t\t\t<option  [ngClass]=\"!item.warehouseName?'d-none':''\" *ngFor=\"let item of warehouseData\" [value]=\"item.warehouseName\">\n\t\t\t\t\t\t\t\t\t{{ item.warehouseName | titlecase}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"inventoryHistoryData\" [columns]=\"inventoryHeader\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\n\t");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\">\n    <form  name=\"inventoryStock\" #inventory=\"ngForm\" novalidate>\n        <h4 class=\"mb-4\">\n           Stock Consumptions\n        </h4>     \n        <div class=\"bg-card shadow\">\n            <div class=\"\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">                                   \n                                    <condo-select\n                                    labelText=\"Warehouse\"  \n                                    fieldName=\"warehouseName\"\n                                    [fieldRequired]=\"'required'\"\n                                     fieldPlaceholder=\"Select Warehouse\"\n                                     [fieldList]=\"warehouseData\"   \n                                     fieldValue=\"warehouseName\"                                  \n                                     fieldId=\"warehouseId\"\n                                     [fieldModel]=\"stock.warehouseId\"\n                                     (fieldParams)=\"setWareHouseId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">                                   \n                                  <condo-select\n                                  labelText=\"Inventory Item\"\n                                   [fieldRequired]=\"'required'\"\n                                   fieldPlaceholder=\"Select Inventory Item\"\n                                   [fieldList]=\"materialItemData\"                                     \n                                   fieldValue=\"itemName\"\n                                   fieldId=\"id\"\n                                   [fieldModel]=\"stock.materialId\"\n                                   (fieldParams)=\"setWareInventoryId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Available Stock\"\n                                            name=\"availableStockQty\" readonly [(ngModel)]=\"stock.availableStockQty\" required>\n                                    </div>\n                                </div>\n                               \n                                <div class=\"col-sm-4\">   \n                                    <condo-select \n                                        labelText=\"Verified by Staff\"\n                                        fieldPlaceholder=\"Verified by Staff\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"staffList | orderBy : 'staffName'\"\n                                        fieldValue=\"customLabel\"\n                                        [fieldModel]=\"stock.outTowhomissuedStaffId\"\n                                        fieldId=\"staffId\"\n                                        (fieldParams)=\"setStaffId($event)\"\n                                    ></condo-select> \n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Date of Consumption*</label>\n                                        <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"outDateofconsumption\"\n                                            [owlDateTimeTrigger]=\"outDateofconsumption\"\n                                            placeholder=\"Date of Consumption\" [(ngModel)]=\"stock.outDateofconsumption\"\n                                            required>\n                                        <owl-date-time #outDateofconsumption [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"outDateofconsumption\">\n                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                        </div>\n                                    </div>\n                                </div>  \n                               \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Person who received*</label>\n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter Person who received\" name=\"depreciation\"\n                                            [(ngModel)]=\"stock.depreciationPercentage\" required>\n                                    </div>\n                                </div>  \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Reason for Consuming*</label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"outOutgoingReason\" \n                                        [(ngModel)]=\"stock.outOutgoingReason\" ></textarea>\n                                        </div>\n                                </div>                                                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Qty Consumed*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Total Qty\"\n                                            name=\"outTotalQtyConsumedBy\" OnlyNumber=\"true\" [(ngModel)]=\"stock.outTotalQtyConsumedBy\" required>\n                                    </div>\n                                </div>                                                   \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"wd-50\">\n                <h6 class=\"main-title-mini float-left mt-3\">\n                    <span> Available Stock :{{stock?.availableStockQty}}</span>\n                </h6>\n                </div>\n            <div class=\"d-flex wd-50 justify-content-end\" >\n                <button class=\"mr-2\" [color]=\"'primary'\" mat-flat-button [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n        </div>\n        </div>\n        <!-- <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n                    </li>\n                </ul>\n            </div>\n        </div> -->\n        <div class=\"bg-card shadow mt-4 p-0\">\n            <div class=\"card\" class=\"mobile-display\">                \n                <table class=\"table\"  #data>\n                    <thead>\n                      <tr>                        \n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">In Qty <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Out Qty <span\n                            ></span></th>                        \n                            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Transaction Date <span\n                                ></span></th>\n                                <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Status <span\n                                    ></span></th>\n                        <th scope=\"col\">Action</th>\n                      </tr>\n                    </thead>\n                    <tbody>                  \n                      <ng-container>\n                        <tr *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex  | sort : 'desc'; \">\n                          <td>{{list.material1?list.material1:'--'}}</td>\n                          <td>{{list.inActualStockMovedIn?list.inActualStockMovedIn:'--'}}</td>\n                          <td>{{list.outTotalQtyConsumedBy?list.outTotalQtyConsumedBy:'--'}}</td>\n                          <!-- <td>--</td> -->\n                          <td>{{list.inStockReceivedDate?list.inStockReceivedDate:'--'}}</td>\n                          <td>{{list.lookupValueName?list.lookupValueName:'--'}}</td>\n                          <td>  \n                                <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" [ngClass]=\"!edit?'custom-icon-disabled':''\" title=\"edit\" ></mat-icon>\n                                     <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 text-red-900\" [ngClass]=\"!edit?'custom-icon-disabled':''\"></mat-icon>\n                   \n                    </td>\n                        </tr>\n                      </ng-container>                      \n                    </tbody>            \n                </table>               \n                <app-pagination  *ngIf=\"totalItems > 0\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </div>\n    </form>\n</div>\n</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inventory-management-wrapper\">  \n\t<div class=\"main\">\n<div class=\"assets-create-wrapper inventory-outer\">\n    <form  name=\"inventoryStock\" #inventory=\"ngForm\" novalidate>\n        <h4 class=\"mb-4\">\n           Stock Consumptions\n        </h4>     \n        <div class=\"bg-card shadow\">\n            <div class=\"\">\n                <ul class=\"list-group tabs clear\">\n                    <div id=\"assetCollapseOne\" class=\"collapse show\" aria-labelledby=\"headingOne\"\n                        data-parent=\"#accordion\">\n                        <div class=\"details\">\n                            <div class=\"row\">\n                                <div class=\"col-sm-4\">                                   \n                                    <condo-select\n                                    labelText=\"Warehouse\"  \n                                    fieldName=\"warehouseName\"\n                                    [fieldRequired]=\"'required'\"\n                                     fieldPlaceholder=\"Select Warehouse\"\n                                     [fieldList]=\"warehouseData\"   \n                                     fieldValue=\"warehouseName\"                                  \n                                     fieldId=\"warehouseId\"\n                                     [fieldModel]=\"stock.warehouseId\"\n                                     (fieldParams)=\"setWareHouseId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">                                   \n                                  <condo-select\n                                  labelText=\"Inventory Item\"\n                                   [fieldRequired]=\"'required'\"\n                                   fieldPlaceholder=\"Select Inventory Item\"\n                                   [fieldList]=\"materialItemData\"                                     \n                                   fieldValue=\"itemName\"\n                                   fieldId=\"id\"\n                                   [fieldModel]=\"stock.materialId\"\n                                   (fieldParams)=\"setWareInventoryId($event)\"></condo-select>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Available Stock*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Available Stock\"\n                                            name=\"availableStockQty\" readonly [(ngModel)]=\"stock.availableStockQty\" required>\n                                    </div>\n                                </div>\n                               \n                                <div class=\"col-sm-4\">   \n                                    <condo-select \n                                        labelText=\"Person who received\"\n                                        fieldPlaceholder=\"Person who received\"\n                                        [fieldRequired]=\"'required'\"\n                                        [fieldList]=\"staffList | orderBy : 'staffName'\"\n                                        fieldValue=\"customLabel\"\n                                        [fieldModel]=\"stock.outTowhomissuedStaffId\"\n                                        fieldId=\"staffId\"\n                                        (fieldParams)=\"setStaffId($event)\"\n                                    ></condo-select> \n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Date of Consumption*</label>\n                                        <input class=\"form-control\" name=\"purchaseDate\" [owlDateTime]=\"outDateofconsumption\"\n                                            [owlDateTimeTrigger]=\"outDateofconsumption\"\n                                            placeholder=\"Date of Consumption\" [(ngModel)]=\"stock.outDateofconsumption\"\n                                            required>\n                                        <owl-date-time #outDateofconsumption [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"outDateofconsumption\">\n                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Reason for Consuming*</label>\n                                        <textarea placeholder=\"Enter Reason\" name=\"outOutgoingReason\" \n                                        [(ngModel)]=\"stock.outOutgoingReason\" ></textarea>\n                                        </div>\n                                </div>                                                             \n                                <div class=\"col-sm-4\">\n                                    <div class=\"input-box\">\n                                        <label>Total Qty Consumed*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter Total Qty\"\n                                            name=\"outTotalQtyConsumedBy\" OnlyNumber=\"true\" [(ngModel)]=\"stock.outTotalQtyConsumedBy\" required>\n                                    </div>\n                                </div>                                                   \n                            </div>\n                        </div>\n                    </div>\n                </ul>\n            </div>\n        </div>\n        <div class=\"d-flex justify-content-center align-items-center\">\n            <div class=\"wd-50\">\n                <h6 class=\"main-title-mini float-left mt-3\">\n                    <span> Available Stock :{{stock?.availableStockQty}}</span>\n                </h6>\n                </div>\n            <div class=\"d-flex wd-50 justify-content-end\" >\n                <button class=\"mr-2\" [color]=\"'primary'\" mat-flat-button [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n        </div>\n        </div>\n        <!-- <div class=\"row\">\n            <div class=\"col-sm-12\">\n                <ul class=\"list-inline float-right\">\n                    <li class=\"list-inline-item\">\n                        <button class=\"btn blue mr-2\" [disabled]=\"inventory.invalid\"  (click)=\"addStock()\">Submit</button>\n                    </li>\n                </ul>\n            </div>\n        </div> -->\n        <div class=\"bg-card shadow mt-4 p-0\">\n            <div class=\"card\" class=\"mobile-display\">                \n                <table class=\"table\"  #data>\n                    <thead>\n                      <tr>                        \n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">Inventory Item <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('serviceType')\">In Qty <span\n                           ></span></th>\n                        <th scope=\"col\" (click)=\"sortUnitData('phone')\">Out Qty <span\n                            ></span></th>                        \n                            <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Transaction Date <span\n                                ></span></th>\n                                <th scope=\"col\" (click)=\"sortUnitData('contactperson')\">Status <span\n                                    ></span></th>\n                        <th scope=\"col\">Action</th>\n                      </tr>\n                    </thead>\n                    <tbody>                  \n                      <ng-container>\n                        <tr *ngFor=\"let list of inventoryList | slice:ItemStartIndex:ItemEndIndex  | sort : 'desc'; \">\n                          <td>{{list.material1?list.material1:'--'}}</td>\n                          <td>{{list.inActualStockMovedIn?list.inActualStockMovedIn:'--'}}</td>\n                          <td>{{list.outTotalQtyConsumedBy?list.outTotalQtyConsumedBy:'--'}}</td>\n                          <!-- <td>--</td> -->\n                          <td>{{list.inStockReceivedDate?list.inStockReceivedDate:'--'}}</td>\n                          <td>{{list.lookupValueName?list.lookupValueName:'--'}}</td>\n                          <td>  \n                                <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\" [ngClass]=\"!edit?'custom-icon-disabled':''\" title=\"edit\" ></mat-icon>\n                                     <mat-icon [svgIcon]=\"'feather:trash-2'\"  class=\"pt-2 text-red-900\" [ngClass]=\"!edit?'custom-icon-disabled':''\"></mat-icon>\n                   \n                    </td>\n                        </tr>\n                      </ng-container>                      \n                    </tbody>            \n                </table>               \n                <app-pagination  *ngIf=\"totalItems > 0\" [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n\t\t\t\t\t\t\t(outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n            </div>\n        </div>\n    </form>\n</div>\n</div>\n</div>");
 
 /***/ }),
 
@@ -983,87 +983,8 @@ let InventoryCurrentDetailsComponent = class InventoryCurrentDetailsComponent {
         this.searchWareHouseId = '';
         this.isDataLoaded = false;
     }
-    ngOnInit() {
-        var cellsrenderer = (row, column, value) => {
-            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-        };
-        var columnrenderer = (value) => {
-            return '<div style="padding: 14px">' + value + '</div>';
-        };
-        this.inventoryHeader = [{
-                text: 'Item No',
-                datafield: 'materialId',
-                width: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'Item Description',
-                datafield: 'materialName',
-                minwidth: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'Warehouse Name',
-                datafield: 'warehouseName',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'Qty on Hand',
-                datafield: 'stockQty',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            },
-            {
-                text: 'Reorder Level',
-                datafield: 'reorderTriggerlevel',
-                cellsrenderer: cellsrenderer,
-                minwidth: 100,
-                renderer: columnrenderer
-            }, {
-                text: 'Status',
-                datafield: 'stockStatus',
-                //  cellsrenderer:cellsrenderer,
-                minwidth: 100,
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell"><span class="dots mt-1 ' + getClassName(value) + '"></span>' + value + '</div>';
-                },
-                renderer: columnrenderer
-            }];
-        this.getCurrentInventory();
-        this.getAllGetAllWarehouse();
-    }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'InventoryCurrentDetails');
-    }
-    getCurrentInventory() {
-        let params = {};
-        params.ApartmentId = this.sessionService.apartmentId,
-            this.isDataLoaded = true;
-        this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe((res) => {
-            if (res) {
-                this.totalItems = res.length;
-                this.gridSourceData = {
-                    localdata: res.length > 0 ? res : [],
-                    datatype: "array"
-                };
-                this.inventoryHistoryData = new jqx.dataAdapter(this.gridSourceData);
-                this.isDataLoaded = false;
-            }
-        });
-    }
-    getAllGetAllWarehouse() {
-        let queryParamBase = {};
-        queryParamBase = {
-            apartmentId: this.sessionService.apartmentId,
-        };
-        this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe((res) => {
-            if (res) {
-                // this.warehouseData = [];
-                this.warehouseData = res && res.length > 0 ? res : [];
-            }
-        });
     }
     onStatusFilter() {
         if (this.historyStatus != "") {
@@ -1107,6 +1028,88 @@ let InventoryCurrentDetailsComponent = class InventoryCurrentDetailsComponent {
             this.datagrid.clearfilters();
         }
     }
+    getCurrentInventory() {
+        let params = {};
+        params.ApartmentId = this.sessionService.apartmentId,
+            this.isDataLoaded = true;
+        this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe((res) => {
+            if (res) {
+                this.totalItems = res.length;
+                this.gridSourceData = {
+                    localdata: res.length > 0 ? res : [],
+                    datatype: "array"
+                };
+                this.inventoryHistoryData = new jqx.dataAdapter(this.gridSourceData);
+                this.isDataLoaded = false;
+            }
+        });
+    }
+    getAllGetAllWarehouse() {
+        let queryParamBase = {};
+        queryParamBase = {
+            apartmentId: this.sessionService.apartmentId,
+        };
+        this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe((res) => {
+            if (res) {
+                this.warehouseData = res && res.length > 0 ? res : [];
+            }
+        });
+    }
+    ngOnInit() {
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.inventoryHeader = [{
+                text: 'Item No',
+                datafield: 'materialId',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Item Description',
+                datafield: 'materialName',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Warehouse Name',
+                datafield: 'warehouseName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 100,
+                renderer: columnrenderer
+            }, {
+                text: 'Qty on Hand',
+                datafield: 'stockQty',
+                cellsrenderer: cellsrenderer,
+                minwidth: 100,
+                renderer: columnrenderer
+            }, {
+                text: 'Reorder Level',
+                datafield: 'reorderTriggerlevel',
+                cellsrenderer: cellsrenderer,
+                minwidth: 100,
+                renderer: columnrenderer
+            }, {
+                text: 'Status',
+                datafield: 'stockStatus',
+                minwidth: 100,
+                cellsrenderer: (row, column, value) => {
+                    let status;
+                    if (value == 'Low')
+                        status = 'bg-orange-900';
+                    else
+                        status = 'bg-green-900';
+                    return '<div class="jqx-custom-inner-cell">'
+                        + '<span class="dots mt-1 ' + status + '"></span>' + value + '</div>';
+                },
+                renderer: columnrenderer
+            }];
+        this.getCurrentInventory();
+        this.getAllGetAllWarehouse();
+    }
 };
 InventoryCurrentDetailsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_3__["InventoryService"] },
@@ -1129,12 +1132,6 @@ InventoryCurrentDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], InventoryCurrentDetailsComponent);
 
-function getClassName(value) {
-    // var name = value.split('-');
-    // return name[0].toLowerCase();    
-    return value == "Low" ? 'bg-orange-900' : 'low';
-}
-window.getClassName = getClassName;
 
 
 /***/ }),

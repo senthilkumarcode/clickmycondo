@@ -975,6 +975,7 @@
               _this11.instrumentTypeListData = res.filter(function (item) {
                 return item.isActive;
               });
+              console.log(_this11.instrumentTypeListData);
             }, function (error) {});
             var accountParams = {
               apartmentId: this.sessionService.apartmentId,

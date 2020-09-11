@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-security-wrapper\">\n\t<div class=\"main\">\n\t\t <!-- Loader -->\n\t\t <app-loader *ngIf=\"!isAlertsLoaded\"></app-loader>\n\t\t <!-- Table -->\n\t\t <condo-card *ngIf=\"isAlertsLoaded\">\n\t\t\t <div CondoCardHeader>\n\t\t\t\t <div class=\"d-flex\">\n\t\t\t\t\t <div>\n\t\t\t\t\t\t <h4>My History</h4>\n\t\t\t\t\t\t <p>{{totalItems}} results</p>\n\t\t\t\t\t </div>\n\t\t\t\t\t <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"search\"  (ngModelChange)=\"searchHistory()\">\n\t\t\t\t\t </div>\n\t\t\t\t\t <div class=\"mr-3\">\n\t\t\t\t\t\t <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t </div>\n\t\t\t\t </div>\n\t\t\t </div>\n\t\t\t <div CondoCardBody>\n\t\t\t\t <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t [filterable]=\"true\" [sortable]=\"true\" [source]=\"historyList\" [columns]=\"column\"\n\t\t\t\t\t [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n\t\t\t\t </jqxGrid>\n\t\t\t </div>\n\t\t </condo-card>\n\t</div>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-security-wrapper\">\n\t<div class=\"main\">\n\t\t <!-- Loader -->\n\t\t <app-loader *ngIf=\"!isAlertsLoaded\"></app-loader>\n\t\t <!-- Table -->\n\t\t <condo-card *ngIf=\"isAlertsLoaded\">\n\t\t\t <div CondoCardHeader>\n\t\t\t\t <div class=\"d-flex\">\n\t\t\t\t\t <div>\n\t\t\t\t\t\t <h4>My History</h4>\n\t\t\t\t\t\t <p>{{totalItems}} results</p>\n\t\t\t\t\t </div>\n\t\t\t\t\t <div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t <div class=\"mr-3\">\n\t\t\t\t\t\t <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t </div>\n\t\t\t\t </div>\n\t\t\t </div>\n\t\t\t <div CondoCardBody>\n\t\t\t\t <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t [filterable]=\"true\" [sortable]=\"true\" [source]=\"historyList\" [columns]=\"column\"\n\t\t\t\t\t [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n\t\t\t\t </jqxGrid>\n\t\t\t </div>\n\t\t </condo-card>\n\t</div>\n</div>\n");
 
 /***/ }),
 
@@ -304,13 +304,14 @@ let SecurityMyHistoryComponent = class SecurityMyHistoryComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isAlertsLoaded = false;
+        this.search = '';
         this.totalItems = 0;
     }
-    searchHistory() {
-        if (this.search != "") {
+    onGlSearchFilter(event) {
+        if (event != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.search;
+            let filtervalue = event;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -438,7 +439,7 @@ let SecurityMyHistoryComponent = class SecurityMyHistoryComponent {
                 width: 120,
                 cellsrenderer: (row, column, value) => {
                     let id_ = this.historyList.loadedData[row].alertStatusId;
-                    if (id_ != 137) {
+                    if (id_ == 136 || id_ == 135) {
                         return '<div class="simple-actions link"  onClick="cancelAlert(' + row + ')">'
                             + '<img src="assets/images/checkin-icon.svg" class="svg" width="17" height="17" alt="Cancel">'
                             + '</div>';

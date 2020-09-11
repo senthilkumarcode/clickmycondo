@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"main\" *ngIf=\"isDataLoaded\" >\n    <condo-card >\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Broadcast History</h4>\n                    <p *ngIf=\"totalItems && totalItems.length\" >{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"searchHistory\" placeholder=\"Search...\">\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastHistoryList\" [columns]=\"broadcastHistoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\n  \n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"main\" *ngIf=\"isDataLoaded\" >\n    <condo-card >\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Broadcast History</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"searchHistory\" placeholder=\"Search...\">\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastHistoryList\" [columns]=\"broadcastHistoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\n  \n");
 
 /***/ }),
 
@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n    <h4 class=\"mb-4\">Broadcast Setup</h4>\n    <mat-accordion>\n        <mat-expansion-panel [expanded]=\"isExpand\">\n            <mat-expansion-panel-header>\n                <mat-panel-title>{{(!isEdit)?'Add':'Update'}} Broadcast Category\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <mat-panel-description>\n            </mat-panel-description>\n            <form #createBroadcastCategoryForm=\"ngForm\" name=\"createBroadcastCategoryForm\"\n                (ngSubmit)=\"UpsertBroadcastMessageCategory(createBroadcastCategoryForm)\" novalidate>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Broadcast Category<span class=\"mandatory\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter category name\"\n                                name=\"broadCastMessageCategory1\" [(ngModel)]=\"category.broadCastMessageCategory1\"\n                                required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description Template<span class=\"mandatory\">*</span></label>\n                            <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                [(ngModel)]=\"category.template\" required>\n                            </quill-editor>\n                            <!-- <textarea class=\"form-control\" placeholder=\"Enter\" name=\"template\" [(ngModel)]=\"category.template\" required></textarea> -->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12 text-right \">\n                        <button mat-flat-button class=\"mt-5 mr-3\" (click)=\"Cancel()\"\n                            [disabled]=\"createBroadcastCategoryForm.invalid\">Cancel</button>\n                        <button mat-flat-button [color]=\"'primary'\" class=\"mt-5 mr-3\"\n                            [disabled]=\"createBroadcastCategoryForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n                        <button mat-flat-button [color]=\"'primary'\" class=\"mt-5\"\n                            [disabled]=\"createBroadcastCategoryForm.invalid\" *ngIf=\"isEdit\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </mat-expansion-panel>\n    </mat-accordion>\n    <condo-card *ngIf=\"isDataLoaded\" >\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Broadcast Category</h4>\n                    <p *ngIf=\"totalItems && totalItems.length\">{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchCategory\"\n                        (ngModelChange)=\"onGlSearchFilter()\" placeholder=\"Search...\">\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastCategoryList\"\n                [columns]=\"broadcastCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n    <h4 class=\"mb-4\">Broadcast Setup</h4>\n    <mat-accordion>\n        <mat-expansion-panel [expanded]=\"isExpand\">\n            <mat-expansion-panel-header>\n                <mat-panel-title>{{(!isEdit)?'Add':'Update'}} Broadcast Category\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <mat-panel-description>\n            </mat-panel-description>\n            <form #createBroadcastCategoryForm=\"ngForm\" name=\"createBroadcastCategoryForm\"\n                (ngSubmit)=\"UpsertBroadcastMessageCategory(createBroadcastCategoryForm)\" novalidate>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Broadcast Category<span class=\"mandatory\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter category name\"\n                                name=\"broadCastMessageCategory1\" [(ngModel)]=\"category.broadCastMessageCategory1\"\n                                required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description Template<span class=\"mandatory\">*</span></label>\n                            <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                [(ngModel)]=\"category.template\" required>\n                            </quill-editor>\n                            <!-- <textarea class=\"form-control\" placeholder=\"Enter\" name=\"template\" [(ngModel)]=\"category.template\" required></textarea> -->\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12 text-right \">\n                        <button mat-flat-button class=\"mt-5 mr-3\" (click)=\"Cancel()\">Cancel</button>\n                        <button mat-flat-button [color]=\"'primary'\" class=\"mt-5 mr-3\"\n                            [disabled]=\"createBroadcastCategoryForm.invalid\" *ngIf=\"!isEdit\">Submit</button>\n                        <button mat-flat-button [color]=\"'primary'\" class=\"mt-5\"\n                            [disabled]=\"createBroadcastCategoryForm.invalid\" *ngIf=\"isEdit\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </mat-expansion-panel>\n    </mat-accordion>\n    <condo-card *ngIf=\"isDataLoaded\" >\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Broadcast Category</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchCategory\"\n                        (ngModelChange)=\"onGlSearchFilter()\" placeholder=\"Search...\">\n                </div>\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"isExpand=true;\" >Add Category</button>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastCategoryList\"\n                [columns]=\"broadcastCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>");
 
 /***/ }),
 
@@ -1305,6 +1305,7 @@ let BroadcastHistoryComponent = class BroadcastHistoryComponent {
             var localData = resp.filter(data => {
                 return data.isActive;
             });
+            this.totalItems = localData.length;
             let gridSourceData = {
                 localdata: localData,
                 datatype: "array"
@@ -2733,38 +2734,43 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
     }
     getUsersByCategories(category) {
         let params = {
-            'roleIds': "",
+            'RoleIds': "",
             'conditionIds': "",
             'appartmentbBlockIds': "",
             'apartmentId': this.apartmentID,
+            'filter': '',
             'staffcategoryIds': "",
             'staffSubCategoryIds': ''
         };
         if (category == 'tenant') {
-            params.roleIds = "2";
+            params.RoleIds = "2";
             params.appartmentbBlockIds = Array.prototype.map.call(this.apartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
             params.conditionIds = Array.prototype.map.call(this.condition.selectedItems, function (item) { return item.value; }).join(",");
             params.staffcategoryIds = "";
+            params.filter = '1';
         }
         else if (category == 'owner') {
-            params.roleIds = "4";
+            params.RoleIds = "4";
             params.appartmentbBlockIds = Array.prototype.map.call(this.ownerApartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
             params.conditionIds = Array.prototype.map.call(this.ownerCondition.selectedItems, function (item) { return item.value; }).join(",");
             params.staffcategoryIds = "";
+            params.filter = '1';
         }
         else if (category == 'admin') {
-            params.roleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
+            params.RoleIds = Array.prototype.map.call(this.roleCategory.selectedItems, function (item) { return item.value; }).join(",");
             params.appartmentbBlockIds = Array.prototype.map.call(this.adminApartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
             params.conditionIds = "";
             params.staffcategoryIds = "";
+            params.filter = '2';
         }
         else if (category == 'staff') {
-            params.roleIds = Array.prototype.map.call(this.staffRoleCategory.selectedItems, function (item) { return item.value; }).join(",");
+            params.RoleIds = Array.prototype.map.call(this.staffRoleCategory.selectedItems, function (item) { return item.value; }).join(",");
             params.appartmentbBlockIds = Array.prototype.map.call(this.staffApartmentBlock.selectedItems, function (item) { return item.apartmentBlockId; }).join(",");
             params.conditionIds = "";
+            params.filter = '2';
             params.staffcategoryIds = Array.prototype.map.call(this.staffCategory.selectedItems, function (item) { return item.value; }).join(",");
         }
-        return this.userService.getUsersByFilter(params);
+        return this.userService.getUsersByFilterNew(params);
     }
     //Submit Category
     submitCreateBroadcastMessageForm() {
@@ -3410,7 +3416,7 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
             };
             this.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
             this.isDataLoaded = true;
-            // this.totalItems = this.allBroadcastCategory.length;
+            this.totalItems = this.allBroadcastCategory.length;
             // if(this.totalItems>this.itemLimit){
             //   this.ItemEndIndex = this.itemLimit;
             // }
@@ -3423,6 +3429,7 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
     Cancel() {
         this.category = {};
         this.isEdit = false;
+        this.isExpand = false;
     }
     //Insert/Update Category
     UpsertBroadcastMessageCategory(form) {

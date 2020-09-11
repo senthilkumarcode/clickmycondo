@@ -74,7 +74,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"meeting-list-wrapper\">\n    <div class=\"main\">\n        <!-- Loader -->\n        <app-loader *ngIf=\"!isMeetingDataLoaded\"></app-loader>\n        <!-- Table -->\n        <condo-card *ngIf=\"isMeetingDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Meeting List</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"meetingFilter\" (ngModelChange)=\"searchData()\">\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addMeeting()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                            Create Meeting</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid \n                    [theme]=\"'material'\" \n                    [width]=\"'100%'\"\n                    [rowsheight]=\"48\"\n                    [autoheight]=\"true\"\n                    [pageable]=\"true\" \n                    [filterable]=\"true\" \n                    [sortable]=\"true\" \n                    [source]=\"lstMeetingData\"\n                    [columns]=\"columnData\"\n                    [columnsresize]=\"true\"\n                    [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n    \n";
+      __webpack_exports__["default"] = "<div class=\"meeting-list-wrapper\">\n    <div class=\"main\">\n        <!-- Loader -->\n        <app-loader *ngIf=\"!isMeetingDataLoaded\"></app-loader>\n        <!-- Table -->\n        <condo-card *ngIf=\"isMeetingDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Meeting List</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"meetingSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addMeeting()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                            Create Meeting</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid \n                    [theme]=\"'material'\" \n                    [width]=\"'100%'\"\n                    [rowsheight]=\"48\"\n                    [autoheight]=\"true\"\n                    [pageable]=\"true\" \n                    [filterable]=\"true\" \n                    [sortable]=\"true\" \n                    [source]=\"lstMeetingData\"\n                    [columns]=\"columnData\"\n                    [columnsresize]=\"true\"\n                    [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n    \n";
       /***/
     },
 
@@ -1165,6 +1165,7 @@
           this.sharedService = sharedService;
           this.dialog = dialog;
           this.isMeetingDataLoaded = false;
+          this.meetingSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -1181,14 +1182,14 @@
             this.modalService.showConfirmModal(dataRecord.meetingId);
           }
         }, {
-          key: "searchData",
-          value: function searchData() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this10 = this;
 
-            if (this.meetingFilter != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.meetingFilter;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';

@@ -122,7 +122,7 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
             if (resp[0]) {
                 for (const key in resp[0]) {
                     if (this.addPropertyParam.hasOwnProperty(key)) {
-                        this.addPropertyParam[key] = this.data[key];
+                        this.addPropertyParam[key] = resp[0][key];
                     }
                 }
                 this.selectPropertyType();
@@ -211,6 +211,25 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
             }
         });
     }
+    setPropertyType(id) {
+        switch (this.addPropertyParam.propertyPoitype) {
+            case 316:
+                break;
+            case 318:
+                this.assignUnitData(id);
+                break;
+            case 319:
+                break;
+            case 320:
+                break;
+            case 321:
+                break;
+            case 322:
+                break;
+            default:
+                break;
+        }
+    }
     assignUnitData(poiId) {
         let unitData = new Object();
         unitData['type'] = "318";
@@ -231,6 +250,7 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
     addProperty() {
         this.addPropertyParam.insertedOn = new Date().toISOString();
         this.addPropertyParam.updatedOn = new Date().toISOString();
+        this.addPropertyParam.id = Number(this.addPropertyParam.id);
         this.addPropertyParam.blockUnitId = Number(this.addPropertyParam.blockUnitId);
         this.addPropertyParam.propertyPoitype = Number(this.addPropertyParam.propertyPoitype);
         let addProperty = {
@@ -238,23 +258,7 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
         };
         this.propertyService.addPropertyPoi(addProperty).subscribe((resp) => {
             if (resp && resp.message) {
-                switch (this.addPropertyParam.propertyPoitype) {
-                    case 316:
-                        break;
-                    case 318:
-                        this.assignUnitData(resp.message);
-                        break;
-                    case 319:
-                        break;
-                    case 320:
-                        break;
-                    case 321:
-                        break;
-                    case 322:
-                        break;
-                    default:
-                        break;
-                }
+                this.setPropertyType(resp.message);
             }
         });
     }
@@ -263,7 +267,10 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
         let addProperty = {
             propertyPoi: this.addPropertyParam
         };
-        this.propertyService.updatePropertyPoi(addProperty).subscribe(resp => {
+        this.propertyService.updatePropertyPoi(addProperty).subscribe((resp) => {
+            if (resp && resp.message) {
+                this.setPropertyType(resp.message);
+            }
         });
     }
 };

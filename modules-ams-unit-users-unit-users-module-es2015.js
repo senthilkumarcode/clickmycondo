@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-resident-wrapper\">\n\t<div class=\"main\">\n\n\t\t<h5 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditUser\">Add User</span>\n\t\t\t<span *ngIf=\"isEditUser\">Edit User</span>\n\t\t</h5>\n\t\t<!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n\n\t\t<app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<form #CheckingEmailForm=\"ngForm\" name=\"CheckingEmailForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"emailToRegister\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<hr />\n\t\t\t\t<div class=\"row\" *ngIf=\"isValidEmail\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ng-container *ngIf=\"!isUserSubmitted\">\n\t\t\t\t\t\t\t<form #addResidentForm=\"ngForm\" name=\"addResidentForm\"\n\t\t\t\t\t\t\t\t(ngSubmit)=\"submitAddResidentForm(addResidentForm)\" novalidate>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"admin\" [(ngModel)]=\"userType\"  value=\"1\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"admin\">Admin</label>\n\t                     \t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"4\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"owner\">Owner</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"2\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Tower No*</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"blockNo\" id=\"blockNo\" placeholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" [(ngModel)]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}\n\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected && !isAdminRegister\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\" [(ngModel)]=\"apartmentBlockUnitId\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockUnitId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\" *ngIf=\"isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Admin Role</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"userRole\" \n\t\t\t\t\t\t\t        id=\"userRole\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Role\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"userRoleId\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">{{ item.roleName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box d-flex flex-column\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Mobile*</label> \n\t\t\t\t\t\t\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\"\n\t\t\t\t\t\t\t\t\t\t\t class=\"form-control\" placeholder=\"Mobile No\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"phoneNo\" [(ngModel)]=\"user.phoneNumber\"> -->\n\t\t\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"false \">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"password\" [disabled]=\"isAutoGenPassword || isExistingUSer\"\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" placeholder=\"Password\" name=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.password\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser || isExistingUSer\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\" style=\"padding-top: 28px;\">\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" [disabled]=\"isExistingUSer\"\n\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeAutoGenPass($event)\" class=\"form-check-input\"\n\t\t\t\t\t\t\t\t\t\t\t\tid=\"autoGenPassword\" name=\"autoGenPassword\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"isAutoGenPassword\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"autoGenPassword\">Auto Generate\n\t\t\t\t\t\t\t\t\t\t\t\tPassword & Send To User's Email</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"user.isLiving\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tfor=\"livingcondo\">{{risidingCondoLabel | lowercase}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary Contact</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Email*</label>\n\t\t\t                    <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"user.emailId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div> -->\n\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Notification</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tdisabled=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"flashNotify\" name=\"flashNotify\" [(ngModel)]=\"user.isFlashNotify\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"flashNotify\">Flash Notice</label>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Is Primary Contact</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"yesPrimary\" [(ngModel)]=\"isPrimary\"  value=\"Yes\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"yesPrimary\">Yes</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"NoPrimary\" [(ngModel)]=\"isPrimary\" value=\"No\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"NoPrimary\">No</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"mobileForm.form.controls['phone'].invalid\" >Submit</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-resident-wrapper\">\n\t<div class=\"main\">\n\n\t\t<h5 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditUser\">Add User</span>\n\t\t\t<span *ngIf=\"isEditUser\">Edit User</span>\n\t\t</h5>\n\t\t<!-- <app-alert-message [message]=\"errorMessage\" [isAlert]=\"isError\"></app-alert-message> -->\n\n\t\t<app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<form #CheckingEmailForm=\"ngForm\" name=\"CheckingEmailForm\" novalidate>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"emailToRegister\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t\t<hr />\n\t\t\t\t<div class=\"row\" *ngIf=\"isValidEmail\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<ng-container *ngIf=\"!isUserSubmitted\">\n\t\t\t\t\t\t\t<form #addResidentForm=\"ngForm\" name=\"addResidentForm\"\n\t\t\t\t\t\t\t\t(ngSubmit)=\"submitAddResidentForm(addResidentForm)\" novalidate>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-group\">\n\t\t                            <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"admin\" [(ngModel)]=\"userType\"  value=\"1\" type=\"radio\" required>\n\t\t                            <label class=\"radio-inline\" for=\"admin\">Admin</label>\n\t                     \t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"4\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"owner\">Owner</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"2\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Tower No*</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"blockNo\" id=\"blockNo\" placeholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" [(ngModel)]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}\n\t\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected && !isAdminRegister\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\" [(ngModel)]=\"apartmentBlockUnitId\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockUnitId\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\" *ngIf=\"isAdminRegister\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                    <label>Admin Role</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"userRole\" \n\t\t\t\t\t\t\t        id=\"userRole\" \n\t\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Select Role\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"userRoleId\" >\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">{{ item.roleName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t                \t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box d-flex flex-column\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Mobile*</label>\n\t\t\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"false \">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"password\" [disabled]=\"isAutoGenPassword || isExistingUSer\"\n\t\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" placeholder=\"Password\" name=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.password\" required>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser || isExistingUSer\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\" style=\"padding-top: 28px;\">\n\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" [disabled]=\"isExistingUSer\"\n\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeAutoGenPass($event)\" class=\"form-check-input\"\n\t\t\t\t\t\t\t\t\t\t\t\tid=\"autoGenPassword\" name=\"autoGenPassword\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"isAutoGenPassword\">\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"autoGenPassword\">Auto Generate\n\t\t\t\t\t\t\t\t\t\t\t\tPassword & Send To User's Email</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"user.isLiving\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tfor=\"livingcondo\">{{risidingCondoLabel | lowercase}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary Contact</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Email*</label>\n\t\t\t                    <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"user.emailId\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div> -->\n\n\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Notification</label>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tdisabled=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"flashNotify\" name=\"flashNotify\" [(ngModel)]=\"user.isFlashNotify\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"flashNotify\">Flash Notice</label>\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t<label>Is Primary Contact</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"yesPrimary\" [(ngModel)]=\"isPrimary\"  value=\"Yes\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"yesPrimary\">Yes</label>\n\t                     \t\t</div>\n\t\t                    \t<div class=\"form-group\">\n\t\t                            <input name=\"isPrimary\" id=\"NoPrimary\" [(ngModel)]=\"isPrimary\" value=\"No\" type=\"radio\"required>\n\t\t                            <label class=\"radio-inline\" for=\"NoPrimary\">No</label>\n\t\t                         </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"unapproved-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n<!-- <div class=\"unapproved-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t\t\n\n\n\t\t<div class=\"card mt-5\">\n\t\t\t\n\t\t\t<div class=\"card-body p-0\" *ngIf=\"isLogs\">\n\n\t\t\t\t<app-loader *ngIf=\"!isLogsDataLoaded\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"isLogsDataLoaded\">\n\n\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('blockno')\">Date <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('blockno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('unitno')\">By <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('unitno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('sqrt')\">Comment <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('sqrt')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">Before <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">After <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let log of logsData | slice:ItemLogStartIndex:ItemLogEndIndex\">\n\t\t\t\t\t\t\t\t<td class=\"name\"><a href=\"javascript:void(0)\">{{log.date}}</a></td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.by}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.comment}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.before}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.after}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalLogItems\" [ItemStartIndex]=\"ItemLogStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemLogEndIndex\" [itemLimit]=\"itemLogLimit\"\n\t\t\t\t\t\t(outputParams)=\"getLogIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-template #viewUnapprovedUserRef let-user>\n\t\t\t<div class=\"user-info info-modal-box rel\">\n\t\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h5>User Info</h5>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t<div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t<h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t\t\t\t\t<p class=\"grey\">{{user?.roleName}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.userId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.emailId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tower No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.phoneNumber}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.bloodGroup}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.address1}} {{user?.address2}} {{user?.zipCode}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</ng-template>\n\t</div>\n</div> -->");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"unapproved-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/unit&users/add-users\"\n\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n<!-- <div class=\"unapproved-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t\t\n\n\n\t\t<div class=\"card mt-5\">\n\t\t\t\n\t\t\t<div class=\"card-body p-0\" *ngIf=\"isLogs\">\n\n\t\t\t\t<app-loader *ngIf=\"!isLogsDataLoaded\"></app-loader>\n\n\t\t\t\t<ng-container *ngIf=\"isLogsDataLoaded\">\n\n\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('blockno')\">Date <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('blockno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('unitno')\">By <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('unitno')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('sqrt')\">Comment <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('sqrt')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">Before <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('intercom')\">After <span\n\t\t\t\t\t\t\t\t\t\t[ngClass]=\"getFieldOrderBy('intercom')\"></span></th>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t<tr *ngFor=\"let log of logsData | slice:ItemLogStartIndex:ItemLogEndIndex\">\n\t\t\t\t\t\t\t\t<td class=\"name\"><a href=\"javascript:void(0)\">{{log.date}}</a></td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.by}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.comment}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.before}}</td>\n\t\t\t\t\t\t\t\t<td class=\"grey\">{{log.after}}</td>\n\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t</tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalLogItems\" [ItemStartIndex]=\"ItemLogStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemLogEndIndex\" [itemLimit]=\"itemLogLimit\"\n\t\t\t\t\t\t(outputParams)=\"getLogIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-template #viewUnapprovedUserRef let-user>\n\t\t\t<div class=\"user-info info-modal-box rel\">\n\t\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h5>User Info</h5>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"card\">\n\t\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t<div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t<h5 class=\"mt-0\">{{user?.firstName}} {{user?.lastName}}</h5>\n\t\t\t\t\t\t\t\t<p class=\"grey\">{{user?.roleName}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.userId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.emailId}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tower No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.phoneNumber}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.bloodGroup}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t\t<p>{{user?.address1}} {{user?.address2}} {{user?.zipCode}}</p>\n\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</ng-template>\n\t</div>\n</div> -->");
 
 /***/ }),
 
@@ -237,6 +237,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -283,8 +285,9 @@ let AddResidentComponent = class AddResidentComponent {
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["CountryISO"];
         this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
             phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
-        });
+        }, { updateOn: 'blur' });
         this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["CountryISO"].UnitedKingdom];
+        this.message = null;
     }
     isArrayOne() {
         return this.residentArray.length > 1 ? true : false;
@@ -307,61 +310,173 @@ let AddResidentComponent = class AddResidentComponent {
             console.log(error);
         });
     }
-    submitAddResidentForm() {
-        // if(!this.IsvalidatePhoneNo(this.user.phoneNumber))
-        // return true;
-        // if(!this.IsValidEmail(this.user.emailId))
-        // return true;
-        this.isUserSubmitted = true;
-        this.isError = false;
-        if (!this.isEditUser) {
-            if (this.isValidEmail) {
-                //add user
-                let userDetails = {
+    submitAddResidentForm(form) {
+        if (!form.valid) {
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the required fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this.cd.markForCheck();
+        }
+        else {
+            this.message = null;
+            this.isUserSubmitted = true;
+            this.isError = false;
+            if (!this.isEditUser) {
+                if (this.isValidEmail) {
+                    //add user
+                    let userDetails = {
+                        "apartmentId": this.sessionService.apartmentId,
+                        "firstName": this.user.firstName,
+                        "middleName": "",
+                        "lastName": this.user.lastName,
+                        "emailId": this.isValueValid(this.emailToRegister) ? "" : this.emailToRegister,
+                        "password": this.isAutoGenPassword ? "" : this.user.password,
+                        "salt": "",
+                        "address1": "",
+                        "address2": "",
+                        "city": "",
+                        "state": "",
+                        "country": "",
+                        "zipCode": "",
+                        "genderId": parseInt(this.genderType),
+                        "dob": "2019-11-10T09:58:08.934Z",
+                        "joinedOn": "2019-11-10T09:58:08.934Z",
+                        "bloodGroup": "",
+                        "phoneNumber": this.phoneForm.value.phone.number,
+                        "emergencyContactNumber": "",
+                        "emergencyContactPerson": "",
+                        "emergencyContactNumberSecondary": "",
+                        "emergencyContactPersonSecondary": "",
+                        "accessCardNumber": "",
+                        "notes": "",
+                        "profilePictureId": null,
+                        "isLiving": this.user.isLiving,
+                        "isActive": true,
+                        "isApproved": this.isAdminRegister,
+                        "resetPassword": true,
+                        "insertedBy": parseInt(this.sessionService.userId),
+                        "updatedBy": 0,
+                        "isDocSubmitted": false,
+                        "readyForApproval": false,
+                        "timeZone": "",
+                        "phonecountrycode": this.phoneForm.value.phone.dialCode
+                    };
+                    let params = {
+                        user: userDetails
+                    };
+                    //add user 
+                    this.userService.addUser(params).subscribe((res) => {
+                        if (res && res.responseData) {
+                            var userId = res.responseData.value.message;
+                            this.submitUserConfig(userId);
+                        }
+                        else {
+                            this.isUserSubmitted = false;
+                            this.isError = true;
+                            this.errorMessage = res.errorMessage;
+                        }
+                    }, error => {
+                    });
+                }
+                else {
+                    this.submitUserConfig(this.user.userId);
+                }
+            }
+            else {
+                //edit user
+                var userDetails = {
+                    "userId": this.route.params['value'].id,
                     "apartmentId": this.sessionService.apartmentId,
                     "firstName": this.user.firstName,
-                    "middleName": "",
+                    "middleName": this.user.middleName,
                     "lastName": this.user.lastName,
-                    "emailId": this.isValueValid(this.emailToRegister) ? "" : this.emailToRegister,
-                    "password": this.isAutoGenPassword ? "" : this.user.password,
-                    "salt": "",
-                    "address1": "",
-                    "address2": "",
-                    "city": "",
-                    "state": "",
-                    "country": "",
-                    "zipCode": "",
+                    "emailId": this.user.emailId,
+                    "password": this.user.password,
+                    "salt": this.user.salt,
+                    "address1": this.user.address1,
+                    "address2": this.user.address2,
+                    "city": this.user.city,
+                    "state": this.user.state,
+                    "country": this.user.country,
+                    "zipCode": this.user.zipCode,
                     "genderId": parseInt(this.genderType),
-                    "dob": "2019-11-10T09:58:08.934Z",
-                    "joinedOn": "2019-11-10T09:58:08.934Z",
-                    "bloodGroup": "",
-                    "phoneNumber": this.phoneForm.value.phone.number,
-                    "emergencyContactNumber": "",
-                    "emergencyContactPerson": "",
-                    "emergencyContactNumberSecondary": "",
-                    "emergencyContactPersonSecondary": "",
-                    "accessCardNumber": "",
-                    "notes": "",
+                    "dob": this.user.dob,
+                    "joinedOn": this.user.joinedOn,
+                    "bloodGroup": this.user.bloodGroup,
+                    "phoneNumber": this.phoneForm.value.phone.e164Number,
+                    "emergencyContactNumber": this.user.emergencyContactNumber,
+                    "emergencyContactPerson": this.user.emergencyContactPerson,
+                    "emergencyContactNumberSecondary": this.user.emergencyContactNumberSecondary,
+                    "emergencyContactPersonSecondary": this.user.emergencyContactPersonSecondary,
+                    "accessCardNumber": this.user.accessCardNumber,
+                    "notes": this.user.notes,
                     "profilePictureId": null,
                     "isLiving": this.user.isLiving,
                     "isActive": true,
                     "isApproved": this.isAdminRegister,
-                    "resetPassword": true,
-                    "insertedBy": parseInt(this.sessionService.userId),
-                    "updatedBy": 0,
-                    "isDocSubmitted": false,
-                    "readyForApproval": false,
-                    "timeZone": "",
-                    "phonecountrycode": this.phoneForm.value.phone.dialCode
+                    "resetPassword": this.user.resetPassword,
+                    "insertedBy": this.user.insertedBy,
+                    "updatedBy": parseInt(this.sessionService.userId),
+                    "isDocSubmitted": this.user.isDocSubmitted,
+                    "readyForApproval": this.user.readyForApproval
                 };
                 let params = {
                     user: userDetails
                 };
-                //add user 
-                this.userService.addUser(params).subscribe((res) => {
-                    if (res && res.responseData) {
-                        var userId = res.responseData.value.message;
-                        this.submitUserConfig(userId);
+                //edit user 
+                this.userService.updateUser(params).subscribe((res) => {
+                    if (res.message) {
+                        var userId = res.message;
+                        var apartmentBlockUnitUser = {
+                            "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                            "userId": userId,
+                            "isPrimaryContact": this.user.isPrimaryContact,
+                            "userTypeId": parseInt(this.userType),
+                            "isActive": this.user.isActive,
+                            "insertedBy": parseInt(this.sessionService.userId),
+                            "insertedOn": this.user.insertedOn,
+                            "updatedBy": this.user.updatedBy,
+                            "updatedOn": this.user.updatedOn
+                        };
+                        let apartmentParams = {
+                            apartmentBlockUnitUser: apartmentBlockUnitUser
+                        };
+                        this.apartmentService.addApartmentBlockUnitUser(apartmentParams).subscribe((res) => {
+                            this.isUserSubmitted = false;
+                            if (res.message) {
+                                var userRole = {
+                                    "userId": userId,
+                                    "roleId": parseInt(this.userType),
+                                    "isActive": this.user.isActive,
+                                    "insertedBy": parseInt(this.sessionService.userId),
+                                    "insertedOn": this.user.insertedOn,
+                                    "updatedBy": this.user.updatedBy,
+                                    "updatedOn": this.user.updatedOn,
+                                    "apartmentBlockUnitUserId": res.message
+                                };
+                                let params = {
+                                    userRole: userRole
+                                };
+                                this.userService.addUserRole(params).subscribe((res) => {
+                                    this.sharedService.setAlertMessage("User updated successfully");
+                                    this.router.navigate(['ams/unit&users/unapproved']);
+                                }, error => {
+                                    console.log(error);
+                                });
+                            }
+                            else {
+                                this.isError = true;
+                                this.errorMessage = res.errorMessage;
+                            }
+                        }, error => {
+                            console.log(error);
+                        });
                     }
                     else {
                         this.isUserSubmitted = false;
@@ -371,107 +486,6 @@ let AddResidentComponent = class AddResidentComponent {
                 }, error => {
                 });
             }
-            else {
-                this.submitUserConfig(this.user.userId);
-            }
-        }
-        else {
-            //edit user
-            var userDetails = {
-                "userId": this.route.params['value'].id,
-                "apartmentId": this.sessionService.apartmentId,
-                "firstName": this.user.firstName,
-                "middleName": this.user.middleName,
-                "lastName": this.user.lastName,
-                "emailId": this.user.emailId,
-                "password": this.user.password,
-                "salt": this.user.salt,
-                "address1": this.user.address1,
-                "address2": this.user.address2,
-                "city": this.user.city,
-                "state": this.user.state,
-                "country": this.user.country,
-                "zipCode": this.user.zipCode,
-                "genderId": parseInt(this.genderType),
-                "dob": this.user.dob,
-                "joinedOn": this.user.joinedOn,
-                "bloodGroup": this.user.bloodGroup,
-                "phoneNumber": this.phoneForm.value.phone.e164Number,
-                "emergencyContactNumber": this.user.emergencyContactNumber,
-                "emergencyContactPerson": this.user.emergencyContactPerson,
-                "emergencyContactNumberSecondary": this.user.emergencyContactNumberSecondary,
-                "emergencyContactPersonSecondary": this.user.emergencyContactPersonSecondary,
-                "accessCardNumber": this.user.accessCardNumber,
-                "notes": this.user.notes,
-                "profilePictureId": null,
-                "isLiving": this.user.isLiving,
-                "isActive": true,
-                "isApproved": this.isAdminRegister,
-                "resetPassword": this.user.resetPassword,
-                "insertedBy": this.user.insertedBy,
-                "updatedBy": parseInt(this.sessionService.userId),
-                "isDocSubmitted": this.user.isDocSubmitted,
-                "readyForApproval": this.user.readyForApproval
-            };
-            let params = {
-                user: userDetails
-            };
-            //edit user 
-            this.userService.updateUser(params).subscribe((res) => {
-                if (res.message) {
-                    var userId = res.message;
-                    var apartmentBlockUnitUser = {
-                        "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
-                        "userId": userId,
-                        "isPrimaryContact": this.user.isPrimaryContact,
-                        "userTypeId": parseInt(this.userType),
-                        "isActive": this.user.isActive,
-                        "insertedBy": parseInt(this.sessionService.userId),
-                        "insertedOn": this.user.insertedOn,
-                        "updatedBy": this.user.updatedBy,
-                        "updatedOn": this.user.updatedOn
-                    };
-                    let apartmentParams = {
-                        apartmentBlockUnitUser: apartmentBlockUnitUser
-                    };
-                    this.apartmentService.addApartmentBlockUnitUser(apartmentParams).subscribe((res) => {
-                        this.isUserSubmitted = false;
-                        if (res.message) {
-                            var userRole = {
-                                "userId": userId,
-                                "roleId": parseInt(this.userType),
-                                "isActive": this.user.isActive,
-                                "insertedBy": parseInt(this.sessionService.userId),
-                                "insertedOn": this.user.insertedOn,
-                                "updatedBy": this.user.updatedBy,
-                                "updatedOn": this.user.updatedOn,
-                                "apartmentBlockUnitUserId": res.message
-                            };
-                            let params = {
-                                userRole: userRole
-                            };
-                            this.userService.addUserRole(params).subscribe((res) => {
-                                this.sharedService.setAlertMessage("User updated successfully");
-                                this.router.navigate(['ams/unit&users/unapproved']);
-                            }, error => {
-                                console.log(error);
-                            });
-                        }
-                        else {
-                            this.isError = true;
-                            this.errorMessage = res.errorMessage;
-                        }
-                    }, error => {
-                        console.log(error);
-                    });
-                }
-                else {
-                    this.isUserSubmitted = false;
-                    this.isError = true;
-                    this.errorMessage = res.errorMessage;
-                }
-            }, error => {
-            });
         }
     }
     submitUserConfig(userId) {
@@ -572,6 +586,23 @@ let AddResidentComponent = class AddResidentComponent {
             }, error => {
             });
         }
+        this.phoneForm.valueChanges.subscribe(() => {
+            if (!this.phoneForm.valid) {
+                // Show the validation message
+                this.message = {
+                    appearance: 'outline',
+                    content: "Fill the valid mobile number",
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+                //Mark for check
+                this.cd.markForCheck();
+            }
+            else {
+                this.message = null;
+            }
+        });
     }
     checkEmail() {
         this.isValidEmail = false;
@@ -587,6 +618,7 @@ let AddResidentComponent = class AddResidentComponent {
                     this.isExistingUSer = false;
                     this.user = {};
                     this.user.isEmailNotify = true;
+                    this.cd.markForCheck();
                 }
                 else {
                     const message = `User ${this.emailToRegister} already exists . Do you want to add this User to this condo?`;
@@ -701,6 +733,8 @@ AddResidentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         selector: 'app-add-resident',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-resident.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users/add-resident/add-resident.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_12__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-resident.component.scss */ "./src/app/modules/ams/unit-users/components/add-users/add-resident/add-resident.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
@@ -3296,6 +3330,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/unapproved-edit-modal/unapproved-edit-modal.component */ "./src/app/modules/ams/unit-users/components/unapproved-edit-modal/unapproved-edit-modal.component.ts");
 /* harmony import */ var _components_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/signup-edit-modal/signup-edit-modal.component */ "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+
 
 
 
@@ -3344,7 +3380,8 @@ UnitUsersModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_21__["NgxIntlTelInputModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"]
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_22__["CondoMessageModule"]
         ],
         bootstrap: [_unit_users_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersComponent"]]
     })

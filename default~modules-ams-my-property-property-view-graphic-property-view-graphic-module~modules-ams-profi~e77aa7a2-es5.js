@@ -198,7 +198,7 @@
               if (resp[0]) {
                 for (var key in resp[0]) {
                   if (_this.addPropertyParam.hasOwnProperty(key)) {
-                    _this.addPropertyParam[key] = _this.data[key];
+                    _this.addPropertyParam[key] = resp[0][key];
                   }
                 }
 
@@ -324,6 +324,33 @@
             });
           }
         }, {
+          key: "setPropertyType",
+          value: function setPropertyType(id) {
+            switch (this.addPropertyParam.propertyPoitype) {
+              case 316:
+                break;
+
+              case 318:
+                this.assignUnitData(id);
+                break;
+
+              case 319:
+                break;
+
+              case 320:
+                break;
+
+              case 321:
+                break;
+
+              case 322:
+                break;
+
+              default:
+                break;
+            }
+          }
+        }, {
           key: "assignUnitData",
           value: function assignUnitData(poiId) {
             var _this9 = this;
@@ -351,6 +378,7 @@
 
             this.addPropertyParam.insertedOn = new Date().toISOString();
             this.addPropertyParam.updatedOn = new Date().toISOString();
+            this.addPropertyParam.id = Number(this.addPropertyParam.id);
             this.addPropertyParam.blockUnitId = Number(this.addPropertyParam.blockUnitId);
             this.addPropertyParam.propertyPoitype = Number(this.addPropertyParam.propertyPoitype);
             var addProperty = {
@@ -358,41 +386,24 @@
             };
             this.propertyService.addPropertyPoi(addProperty).subscribe(function (resp) {
               if (resp && resp.message) {
-                switch (_this10.addPropertyParam.propertyPoitype) {
-                  case 316:
-                    break;
-
-                  case 318:
-                    _this10.assignUnitData(resp.message);
-
-                    break;
-
-                  case 319:
-                    break;
-
-                  case 320:
-                    break;
-
-                  case 321:
-                    break;
-
-                  case 322:
-                    break;
-
-                  default:
-                    break;
-                }
+                _this10.setPropertyType(resp.message);
               }
             });
           }
         }, {
           key: "updateProperty",
           value: function updateProperty() {
+            var _this11 = this;
+
             this.addPropertyParam.updatedOn = new Date().toISOString();
             var addProperty = {
               propertyPoi: this.addPropertyParam
             };
-            this.propertyService.updatePropertyPoi(addProperty).subscribe(function (resp) {});
+            this.propertyService.updatePropertyPoi(addProperty).subscribe(function (resp) {
+              if (resp && resp.message) {
+                _this11.setPropertyType(resp.message);
+              }
+            });
           }
         }]);
 

@@ -907,8 +907,8 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
-                text: 'Transaction Id',
-                datafield: 'transactionId',
+                text: 'S.No',
+                datafield: 'sNo',
                 width: 220,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
@@ -920,14 +920,16 @@ let IncomeCustomerAdvancesComponent = class IncomeCustomerAdvancesComponent {
                 minwidth: 180,
                 renderer: columnrenderer
             }, {
-                text: 'Comments',
-                datafield: 'comment',
-                minwidth: 150,
-                cellsrenderer: cellsrenderer,
+                text: 'Advance Reduced',
+                datafield: 'debitAmount',
+                minwidth: 180,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + formatAdvance(value) + '</div>';
+                },
                 renderer: columnrenderer
             }, {
-                text: 'Created aganist Bill Id',
-                datafield: 'billId_CreatedAgainst',
+                text: 'Comments',
+                datafield: 'comment',
                 minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -987,6 +989,10 @@ IncomeCustomerAdvancesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
 ], IncomeCustomerAdvancesComponent);
 
+let formatAdvance = value => {
+    return value == 0 ? '' : value;
+};
+window.formatAdvance = formatAdvance;
 let editCustomerAdvancesEvent = row => {
     let event = new CustomEvent('onEditCustomerAdvances', {
         detail: {
@@ -1471,14 +1477,14 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
-                text: 'Transaction Id',
-                datafield: 'transactionId',
+                text: 'S.No',
+                datafield: 'sNo',
                 width: 220,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
-                text: 'Security Deposit Paid',
+                text: 'Amount Added',
                 datafield: 'creditAmount',
                 cellsrenderer: cellsrenderer,
                 minwidth: 180,
@@ -1493,7 +1499,9 @@ let IncomeSecurityDepositComponent = class IncomeSecurityDepositComponent {
                 text: 'Amount Dedcuted/Used',
                 datafield: 'debitAmount',
                 minwidth: 150,
-                cellsrenderer: cellsrenderer,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + formatAdvance(value) + '</div>';
+                },
                 renderer: columnrenderer
             }, {
                 text: 'Reason for Deduction',
@@ -1549,6 +1557,10 @@ IncomeSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])
 ], IncomeSecurityDepositComponent);
 
+let formatAdvance = value => {
+    return value == 0 ? '' : value;
+};
+window.formatAdvance = formatAdvance;
 let editSecurityDepositEvent = row => {
     let event = new CustomEvent('onSecurityDeposit', {
         detail: {

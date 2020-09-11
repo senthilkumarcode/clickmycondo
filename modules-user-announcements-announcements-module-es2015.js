@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-message-wrapper\">\n    <mat-drawer-container [hasBackdrop]=\"false\">\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" #matDrawer>\n            <div class=\"p-0 col-lg-8 col-md-8 col-sm-8 col-xs-12\">\n                <app-user-group-announcement-details [detailId]=\"selectedId\" (selectedId)=\"changeRecord($event)\">\n                </app-user-group-announcement-details>\n            </div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"row d-flex justify-content-between \">\n                            <div class=\"col-sm-3\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                            </div>\n                            <div class=\"col-sm-3\">\n                                <angular2-multiselect [data]=\"filterGroupCategory.dropdownList\" name=\"groupTypeDropDown\"\n                                    [(ngModel)]=\"filterGroupCategory.selectedItems\" [settings]=\"groupCategorySetting\"\n                                    (onSelect)=\"filterMessages($event)\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <div class=\"announcementList mt-3\" (scroll)=\"scrollHandler($event)\" condoScrollbar\n                            [condoScrollbarOptions]=\"{wheelPropagation: inner, suppressScrollX: true}\">\n                            <div class=\"row m-0 announcement\" *ngFor=\"let message of broadCastBased\"\n                                [ngClass]=\"{'activeRowAnnouncement': message.broadCastMessageId == selectedId }\"\n                                (click)=\"openAnnouncement(message.broadCastMessageId)\">\n                                <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                                    <!-- <img class=\"broadCastUserImage mr-3\" [src]=\"message.filePath\" alt=\"\"> -->\n                                    <div class=\"broadCastList d-flex plr-0 align-items-center pl-5\">\n                                        <span>{{message?.subject}}{{message.filePath}}</span>\n                                        <span>\n                                            <small class=\"mr-5 text-primary\">{{message?.insertedby_label}}</small>\n                                            <small class=\"text-disabled\">{{getDateFormat(message?.broadcastOn)}}</small>\n                                        </span>\n                                    </div>\n                                </div>\n                                <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n\n                                </div>\n                            </div>\n                            <div class=\"row m-0 announcement\" *ngIf=\"broadCastBased.length == 0\">\n                                <p class=\"p-3 d-flex justify-content-center\">No Record Found</p>\n                            </div>\n                        </div>\n                    </div>\n                </condo-card>\n            </form>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"broadcast-message-wrapper\">\n    <mat-drawer-container [hasBackdrop]=\"false\">\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" #matDrawer>\n            <div class=\"p-0 col-lg-8 col-md-8 col-sm-8 col-xs-12\">\n                <app-user-group-announcement-details [detailId]=\"selectedId\" (selectedId)=\"changeRecord($event)\">\n                </app-user-group-announcement-details>\n            </div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"announcementList mt-3\" (scroll)=\"scrollHandler($event)\" condoScrollbar\n                [condoScrollbarOptions]=\"{wheelPropagation: inner, suppressScrollX: true}\">\n                <div class=\"row m-0 announcement\" *ngFor=\"let message of broadCastMessages\"\n                    [ngClass]=\"{'activeRowAnnouncement': message.broadCastMessageId == selectedId }\"\n                    (click)=\"openAnnouncement(message.broadCastMessageId)\">\n                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                        <!-- <img class=\"broadCastUserImage mr-3\" [src]=\"message.filePath\" alt=\"\"> -->\n                        <div class=\"broadCastList d-flex plr-0 align-items-center pl-5\">\n                            <span>{{message?.subject}}{{message.filePath}}</span>\n                            <span>\n                                <small class=\"mr-5 text-primary\">{{message?.insertedby_label}}</small>\n                                <small class=\"text-disabled\">{{getDateFormat(message?.broadcastOn)}}</small>\n                            </span>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n\n                    </div>\n                </div>\n                <div class=\"row m-0 announcement\" *ngIf=\"broadCastMessages.length == 0\">\n                    <p class=\"p-3 d-flex justify-content-center\">No Record Found</p>\n                </div>\n            </div>\n            </form>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -557,6 +557,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
             "dropdownList": [],
             "selectedItems": []
         };
+        this.broadCastMessages = [];
         this.messageIds = [];
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
@@ -661,12 +662,12 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
             UnituserId: this.sessionService.apartmentBlockUnitUserId,
             staffId: this.sessionService.userId,
             RoleTypeId: this.sessionService.roleTypeId,
-            fromDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(moment__WEBPACK_IMPORTED_MODULE_6___default()().subtract(21, 'days')).format(),
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(moment__WEBPACK_IMPORTED_MODULE_6___default()().subtract(80, 'days')).format(),
             toDate: moment__WEBPACK_IMPORTED_MODULE_6___default()().format(),
             PageNo: this.pagination.currentPage,
             recordsNo: this.pagination.totalResult
         };
-        this.broadcastService.getAllBroadcastMessagesByUserAndRole(queryParamBase).subscribe(resp => {
+        this.broadcastService.getAllBroadcastMessagesByUserAndRole(queryParamBase).subscribe((resp) => {
             this.broadCastMessages = resp;
             this.pagination.totalResult = 46;
             this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
@@ -674,7 +675,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
                 this.broadCastMessages.filter(key => {
                     this.messageIds.push(key.broadCastMessageId);
                 });
-                this.filterMessages({ name: "today", value: 0 });
+                // this.filterMessages({ name: "today", value: 0 });
             }
         });
     }
@@ -689,7 +690,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
             PageNo: this.pagination.currentPage,
             recordsNo: this.pagination.totalResult
         };
-        this.broadcastService.getAllInterestGroupBroadcastMessagesByUserAndRole(queryParamBase).subscribe(resp => {
+        this.broadcastService.getAllInterestGroupBroadcastMessagesByUserAndRole(queryParamBase).subscribe((resp) => {
             this.broadCastMessages = resp;
             this.pagination.totalResult = 46;
             this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
@@ -697,7 +698,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
                 this.broadCastMessages.filter(key => {
                     this.messageIds.push(key.broadCastMessageId);
                 });
-                this.filterMessages({ name: "today", value: 0 });
+                // this.filterMessages({ name: "today", value: 0 });
             }
         });
     }

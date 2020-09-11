@@ -698,6 +698,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             this.instrumentTypeListData = res.filter(item => {
                 return item.isActive;
             });
+            console.log(this.instrumentTypeListData);
         }, error => {
         });
         var accountParams = {

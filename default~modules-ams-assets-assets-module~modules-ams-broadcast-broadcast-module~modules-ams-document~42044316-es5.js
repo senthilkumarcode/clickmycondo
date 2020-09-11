@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<mat-icon class=\"icon-md help-icon\" [svgIcon]=\"'help_outline'\"></mat-icon>\n<div class=\"help-tooltip-content\" [attr.aria-labelledby]= \"title\">\n    <div class=\"bg-card shadow accent p-4\">\n        <p>{{message}}</p>\n    </div>\n</div>\n";
+      __webpack_exports__["default"] = "\n<mat-icon class=\"icon-md help-icon\" [svgIcon]=\"'help_outline'\"></mat-icon>\n<div class=\"help-tooltip-content\">\n    <div class=\"bg-card shadow accent p-4\">\n        <p>{{message}}</p>\n    </div>\n</div>\n";
       /***/
     },
 

@@ -1419,8 +1419,8 @@
             };
 
             this.columnData = [{
-              text: 'Transaction Id',
-              datafield: 'transactionId',
+              text: 'S.No',
+              datafield: 'sNo',
               width: 220,
               pinned: true,
               cellsrenderer: cellsrenderer,
@@ -1432,14 +1432,16 @@
               minwidth: 180,
               renderer: columnrenderer
             }, {
-              text: 'Comments',
-              datafield: 'comment',
-              minwidth: 150,
-              cellsrenderer: cellsrenderer,
+              text: 'Advance Reduced',
+              datafield: 'debitAmount',
+              minwidth: 180,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + formatAdvance(value) + '</div>';
+              },
               renderer: columnrenderer
             }, {
-              text: 'Created aganist Bill Id',
-              datafield: 'billId_CreatedAgainst',
+              text: 'Comments',
+              datafield: 'comment',
               minwidth: 150,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
@@ -1520,6 +1522,12 @@
         /*! ./income-customer-advances.component.scss */
         "./src/app/modules/ams/income-tracker/income-actions/income-customer-advances/income-customer-advances.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_4__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_8__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], IncomeCustomerAdvancesComponent);
+
+      var formatAdvance = function formatAdvance(value) {
+        return value == 0 ? '' : value;
+      };
+
+      window.formatAdvance = formatAdvance;
 
       var editCustomerAdvancesEvent = function editCustomerAdvancesEvent(row) {
         var event = new CustomEvent('onEditCustomerAdvances', {
@@ -2168,14 +2176,14 @@
             };
 
             this.columnData = [{
-              text: 'Transaction Id',
-              datafield: 'transactionId',
+              text: 'S.No',
+              datafield: 'sNo',
               width: 220,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Security Deposit Paid',
+              text: 'Amount Added',
               datafield: 'creditAmount',
               cellsrenderer: cellsrenderer,
               minwidth: 180,
@@ -2190,7 +2198,9 @@
               text: 'Amount Dedcuted/Used',
               datafield: 'debitAmount',
               minwidth: 150,
-              cellsrenderer: cellsrenderer,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + formatAdvance(value) + '</div>';
+              },
               renderer: columnrenderer
             }, {
               text: 'Reason for Deduction',
@@ -2267,6 +2277,12 @@
         /*! ./income-security-deposit.component.scss */
         "./src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_4__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], IncomeSecurityDepositComponent);
+
+      var formatAdvance = function formatAdvance(value) {
+        return value == 0 ? '' : value;
+      };
+
+      window.formatAdvance = formatAdvance;
 
       var editSecurityDepositEvent = function editSecurityDepositEvent(row) {
         var event = new CustomEvent('onSecurityDeposit', {
