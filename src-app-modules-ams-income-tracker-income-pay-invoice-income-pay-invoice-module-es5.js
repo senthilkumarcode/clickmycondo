@@ -747,7 +747,7 @@
         }, {
           key: "isCreditNotePaymentMode",
           value: function isCreditNotePaymentMode() {
-            return this.collection.instrumentTypeId == 155 ? true : false;
+            return this.collection.instrumentTypeId == 153 || this.collection.instrumentTypeId == 155 ? true : false;
           }
         }, {
           key: "isCustomerAdvancesPaymentMode",
@@ -774,7 +774,7 @@
                 "invoiceId": item,
                 "collectionId": null,
                 "transactionType": 1,
-                "amount": _this7.totalAmountArray[index],
+                "amount": _this7.getCollectionAmount(_this7.totalAmountArray[index]),
                 "comment": "",
                 "comment2": "",
                 "active": true,
@@ -808,7 +808,7 @@
                 "invoiceId": item,
                 "collectionId": null,
                 "transactionType": 1,
-                "amount": _this8.totalAmountArray[index],
+                "amount": _this8.getCollectionAmount(_this8.totalAmountArray[index]),
                 "comment": "",
                 "comment2": "",
                 "active": true,
@@ -843,7 +843,7 @@
                 "invoiceId": item,
                 "collectionId": null,
                 "transactionType": 1,
-                "amount": _this9.totalAmountArray[index],
+                "amount": _this9.getCollectionAmount(_this9.totalAmountArray[index]),
                 "comment": "",
                 "comment2": "",
                 "active": true,
@@ -879,6 +879,11 @@
             }
           }
         }, {
+          key: "getCollectionAmount",
+          value: function getCollectionAmount(amount) {
+            if (!this.isMultipleEntry) return this.collection.amount;else return amount;
+          }
+        }, {
           key: "addCollection",
           value: function addCollection() {
             var _this10 = this;
@@ -891,7 +896,7 @@
                 "invoiceId": item,
                 "glAccountId": 0,
                 "instrumentTypeId": parseInt(_this10.collection.instrumentTypeId),
-                "amount": _this10.totalAmountArray[index],
+                "amount": _this10.getCollectionAmount(_this10.totalAmountArray[index]),
                 "comment": "",
                 "isActive": true,
                 "insertedBy": parseInt(_this10.sessionService.userId),

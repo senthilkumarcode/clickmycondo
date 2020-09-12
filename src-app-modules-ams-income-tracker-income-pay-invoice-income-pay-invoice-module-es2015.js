@@ -498,7 +498,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         this.collection.collectionStatusId = event[0].lookupValueId;
     }
     isCreditNotePaymentMode() {
-        return this.collection.instrumentTypeId == 155 ? true : false;
+        return (this.collection.instrumentTypeId == 153 || this.collection.instrumentTypeId == 155) ? true : false;
     }
     isCustomerAdvancesPaymentMode() {
         return this.collection.instrumentTypeId == 219 ? true : false;
@@ -517,7 +517,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "invoiceId": item,
                 "collectionId": null,
                 "transactionType": 1,
-                "amount": this.totalAmountArray[index],
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
                 "comment": "",
                 "comment2": "",
                 "active": true,
@@ -547,7 +547,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "invoiceId": item,
                 "collectionId": null,
                 "transactionType": 1,
-                "amount": this.totalAmountArray[index],
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
                 "comment": "",
                 "comment2": "",
                 "active": true,
@@ -578,7 +578,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "invoiceId": item,
                 "collectionId": null,
                 "transactionType": 1,
-                "amount": this.totalAmountArray[index],
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
                 "comment": "",
                 "comment2": "",
                 "active": true,
@@ -609,6 +609,12 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             this.reduceSecurityDepositAmount();
         }
     }
+    getCollectionAmount(amount) {
+        if (!this.isMultipleEntry)
+            return this.collection.amount;
+        else
+            return amount;
+    }
     addCollection() {
         var custInvoiceObjArray = [];
         underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
@@ -618,7 +624,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "invoiceId": item,
                 "glAccountId": 0,
                 "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
-                "amount": this.totalAmountArray[index],
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
                 "comment": "",
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
