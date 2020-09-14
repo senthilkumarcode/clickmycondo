@@ -1047,7 +1047,6 @@ let AssetsCreateComponent = class AssetsCreateComponent {
                     this.isAssetSubmitted = false;
                     this.sharedService.setAlertMessage("Asset added successfully");
                     this.addInsurance(res.message);
-                    //this.router.navigate(['ams/assets/view']);
                 }
                 else {
                     this.isAssetSubmitted = false;

@@ -1605,8 +1605,7 @@
 
                   _this10.sharedService.setAlertMessage("Asset added successfully");
 
-                  _this10.addInsurance(res.message); //this.router.navigate(['ams/assets/view']);
-
+                  _this10.addInsurance(res.message);
                 } else {
                   _this10.isAssetSubmitted = false;
                   _this10.isError = true;

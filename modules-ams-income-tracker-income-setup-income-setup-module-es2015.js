@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-setup-wrapper mt-3\">\n    <form>\n        <mat-accordion>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Currency Type</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Currency Type\"\n                                fieldPlaceholder=\"Select Currency\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"currencyTypeDataList\"\n                                fieldValue=\"lookupValueName\"\n                                [fieldModel]=\"currencyTypeId\"\n                                fieldId=\"lookupValueId\"\n                                (fieldParams)=\"getCurrencyType($event)\" \n                            ></condo-select>   \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>AR Control GL Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"AR Control GL Account\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"glaccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"upsertCustAccount($event)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Customer Income Payment Term</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <div class=\"input-box\">\n                                <label>Customer Income Payment Term</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"Payment Term\" [(ngModel)]=\"paymentTerm.lookupValueName\" \n                                name=\"customerIncomePayment\" [disabled]=\"isEditTerm\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTerm\" (click)=\"isEditTerm = !isEditTerm\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTerm\" (click)=\"saveIncomePaymentTerm()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select VAT or TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <div class=\"input-box radio-box\">\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"vat\" [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\"  [value]=\"true\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"vat\">%VAT</label>\n                                </div>\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"tax\"  [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\" [value]=\"false\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"tax\">%TAX</label>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% VAT</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"VAT\" [(ngModel)]=\"vatData.lookupValueName\" \n                                name=\"vatPercentage\" [disabled]=\"isEditVat\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditVat\" (click)=\"isEditVat = !isEditVat\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditVat\" (click)=\"saveVat()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"!vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% TAX</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"TAX\" [(ngModel)]=\"taxData.lookupValueName\" \n                                name=\"taxPercentage\" [disabled]=\"isEditTax\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTax\" (click)=\"isEditTax = !isEditTax\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTax\" (click)=\"saveTax()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </form>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-setup-wrapper mt-3\">\n    <form>\n        <mat-accordion>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Currency Type</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Currency Type\"\n                                fieldPlaceholder=\"Select Currency\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"currencyTypeDataList\"\n                                fieldValue=\"lookupValueName\"\n                                [fieldModel]=\"currencyTypeId\"\n                                fieldId=\"lookupValueId\"\n                                (fieldParams)=\"getCurrencyType($event)\" \n                            ></condo-select>   \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>AR Control GL Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"AR Control GL Account\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"arControlAccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setARControlAccount($event,1)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Customer Advances Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Customer Advances Account\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"customerAdvAccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setCustomerAdvAccount($event,2)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Security Deposit Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Security Deposit Accountt\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"securityDepAccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setSecurityDepAccount($event,3)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Customer Income Payment Term</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <div class=\"input-box\">\n                                <label>Customer Income Payment Term</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"Payment Term\" [(ngModel)]=\"paymentTerm.lookupValueName\" \n                                name=\"customerIncomePayment\" [disabled]=\"isEditTerm\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTerm\" (click)=\"isEditTerm = !isEditTerm\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTerm\" (click)=\"saveIncomePaymentTerm()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select VAT or TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <div class=\"input-box radio-box\">\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"vat\" [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\"  [value]=\"true\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"vat\">%VAT</label>\n                                </div>\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"tax\"  [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\" [value]=\"false\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"tax\">%TAX</label>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% VAT</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"VAT\" [(ngModel)]=\"vatData.lookupValueName\" \n                                name=\"vatPercentage\" [disabled]=\"isEditVat\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditVat\" (click)=\"isEditVat = !isEditVat\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditVat\" (click)=\"saveVat()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"!vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% TAX</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"TAX\" [(ngModel)]=\"taxData.lookupValueName\" \n                                name=\"taxPercentage\" [disabled]=\"isEditTax\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTax\" (click)=\"isEditTax = !isEditTax\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTax\" (click)=\"saveTax()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </form>\n</div>");
 
 /***/ }),
 
@@ -515,11 +515,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
-        this.glAccountIndicator = "Income";
         this.currencyTypeId = "";
-        //AR Control GL Account
-        this.glaccountId = "";
-        this.allCustomAccounts = {};
+        //AR Control Account
+        this.arControlAccountId = "";
+        this.arControlAccount = {};
+        //Customer Advances Account
+        this.customerAdvAccountId = "";
+        this.customerAdvAccount = {};
+        //Security Deposit Account
+        this.securityDepAccountId = "";
+        this.securityDepAccount = {};
         //payment Term
         this.paymentTerm = {};
         this.isEditTerm = true;
@@ -706,27 +711,39 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
             });
         }
     }
-    // AR Control GL Account
-    upsertCustAccount(event) {
-        this.glaccountId = event[0].glaccountId;
-        if (this.glaccountId) {
-            var data = this.glAccountListData.filter(item => {
-                return item.glaccountId == this.glaccountId;
+    setARControlAccount(event, offSetAccId) {
+        this.arControlAccountId = event[0].glaccountId;
+        this.upsertCustAccount(this.arControlAccountId, offSetAccId, this.arControlAccount);
+    }
+    setCustomerAdvAccount(event, offSetAccId) {
+        this.customerAdvAccountId = event[0].glaccountId;
+        this.upsertCustAccount(this.customerAdvAccountId, offSetAccId, this.customerAdvAccount);
+    }
+    setSecurityDepAccount(event, offSetAccId) {
+        this.securityDepAccountId = event[0].glaccountId;
+        this.upsertCustAccount(this.securityDepAccountId, offSetAccId, this.securityDepAccount);
+    }
+    // GL Account
+    upsertCustAccount(glaccountId, offSetAccId, accountInfo) {
+        if (glaccountId) {
+            let data = this.glAccountListData.filter(item => {
+                return item.glaccountId == glaccountId;
             });
             let params = {
                 custAccount: {
-                    "custAccountId": this.allCustomAccounts.custAccountId ? this.allCustomAccounts.custAccountId : 0,
+                    "custAccountId": accountInfo.custAccountId ? accountInfo.custAccountId : 0,
                     "apartmentId": this.sessionService.apartmentId,
-                    "glaccountId": Number(this.glaccountId),
+                    "glaccountId": Number(glaccountId),
                     "comment": data[0].glaccountName,
                     "isActive": true,
-                    "insertedBy": this.allCustomAccounts.insertedBy ? this.allCustomAccounts.insertedBy : this.sessionService.userId,
-                    "insertedOn": this.allCustomAccounts.insertedOn ? this.allCustomAccounts.insertedOn : new Date().toISOString(),
-                    "updatedBy": this.allCustomAccounts.custAccountId ? this.sessionService.userId : null,
-                    "updatedOn": this.allCustomAccounts.custAccountId ? new Date().toISOString() : null,
+                    "insertedBy": accountInfo.insertedBy ? accountInfo.insertedBy : this.sessionService.userId,
+                    "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : new Date().toISOString(),
+                    "updatedBy": accountInfo.custAccountId ? this.sessionService.userId : null,
+                    "updatedOn": accountInfo.custAccountId ? new Date().toISOString() : null,
+                    "gloffsetaccountId": offSetAccId
                 }
             };
-            if (this.allCustomAccounts.custAccountId) { //edit
+            if (accountInfo.custAccountId) { //edit
                 this.accountsService.updateCustAccount(params).subscribe((res) => {
                     if (res.code == 200) {
                         this.sharedService.openSnackBar(res.responseData.value.message, 'success');
@@ -741,8 +758,8 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
             else { //create
                 this.accountsService.addCustAccount(params).subscribe((res) => {
                     if (res.message) {
-                        this.allCustomAccounts.custAccountId = res.message;
-                        this.sharedService.openSnackBar('Gl Account Added Successfully', 'success');
+                        this.getSelectedAccount();
+                        this.sharedService.openSnackBar('Account Added Successfully', 'success');
                     }
                     else {
                         this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -755,12 +772,17 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
         else {
             //delete CustAccountId
             let params = {
-                glAccountId: Number(this.allCustomAccounts.custAccountId),
+                glAccountId: Number(accountInfo.custAccountId),
                 deleteBy: this.sessionService.userId,
             };
             this.accountsService.deleteCustAccount(params).subscribe((res) => {
                 if (res.code == 200) {
-                    this.allCustomAccounts = {};
+                    if (offSetAccId == 1)
+                        this.arControlAccount = {};
+                    else if (offSetAccId == 2)
+                        this.customerAdvAccount = {};
+                    else if (offSetAccId == 3)
+                        this.securityDepAccount = {};
                     this.sharedService.openSnackBar(res.responseData.value.message, 'success');
                 }
                 else {
@@ -789,10 +811,31 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
         };
         this.lookupService.updateLookupValue(params).toPromise();
     }
+    getSelectedAccount() {
+        this.accountsService.getAllCustAccounts().subscribe((res) => {
+            if (res.length > 0) {
+                for (let account of res) {
+                    if (account.gloffsetaccountId == 1) {
+                        this.arControlAccount = account;
+                        this.arControlAccountId = account.glaccountId;
+                    }
+                    else if (account.gloffsetaccountId == 2) {
+                        this.customerAdvAccount = account;
+                        this.customerAdvAccountId = account.glaccountId;
+                    }
+                    else if (account.gloffsetaccountId == 3) {
+                        this.securityDepAccount = account;
+                        this.securityDepAccountId = account.glaccountId;
+                    }
+                }
+            }
+        });
+    }
     ngOnInit() {
         this.getCustomerIncomePaymentList();
         this.getCustomerVatList();
         this.getCustomerTaxList();
+        this.getSelectedAccount();
         //currency type
         let params = {
             ApartmentId: this.sessionService.apartmentId,
@@ -804,21 +847,14 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
             });
             this.currencyTypeId = this.currencyTypeDataList[0].lookupValueId;
         });
-        //GLAccountTypeId
+        // Dropdown AccountTypeId
         let glAccountTypeIdparams = {
             apartmentId: this.sessionService.apartmentId,
             GLAccountTypeId: 165
         };
         this.accountsService.getGlAccountsIdbyGlAccountTypeId(glAccountTypeIdparams).subscribe((res) => {
             this.glAccountListData = res.filter(item => {
-                return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
-            });
-            //allcustAccount for AR Control GL Account
-            this.accountsService.getAllCustAccounts().subscribe((res) => {
-                if (res.length > 0) {
-                    this.allCustomAccounts = res[0];
-                    this.glaccountId = this.allCustomAccounts.glaccountId;
-                }
+                return item.indicator == 'Income';
             });
         });
         //Radio Button  Select

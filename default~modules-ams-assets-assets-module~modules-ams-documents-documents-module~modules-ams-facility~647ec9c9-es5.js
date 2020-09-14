@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"upload-wrapper\">\n    \n    \n    <label *ngIf=\"!isFileIdNotAvailable()\">Image/Document</label>\n    \n    <ng-container *ngIf=\"multiple\">\n\n        <ng-container *ngFor=\"let file of fileList\">\n            <div class=\"preview-wrapper\">\n                <div class=\"icon-wrapper ml-1\" (click)=\"deleteFile(file)\">\n                    <mat-icon class=\"icon-sm\" [color]=\"'warn'\" [svgIcon]=\"'close'\"></mat-icon>\n                </div>\n                <figure class=\"preview-img\">\n                    <img *ngIf=\"file.isImage\" class=\"img-fluid\" [src] =\"file.fileUrl\" id=\"imageElem\">\n                    <a [href]=\"file.fileUrl\" target=\"_blank\" *ngIf=\"!file.isImage\">\n                        <mat-icon class=\"w-100 h-100\" svgIcon=\"feather:file-text\"></mat-icon>\n                    </a>\n                </figure>\n            </div>\n        </ng-container>\n\n    </ng-container>\n\n    <label>Upload File</label>\n    <div class=\"browse-files\" [appDragAndDrop] [multiple]=\"multiple\" (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() || multiple\">\n        <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event)\" [multiple]=\"isMultiple()\">\n        <div class=\"attachfiles-normal\">\n            <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n            <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n        </div>\n    </div>\n    <div class=\"progress\" *ngIf=\"isUploadProgess()\">\n        <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n    </div>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"upload-wrapper\">\n    \n    \n    <label *ngIf=\"!isFileIdNotAvailable()\">Image/Document</label>\n    \n    <ng-container *ngIf=\"multiple\">\n\n        <ng-container *ngFor=\"let file of fileList\">\n            <div class=\"preview-wrapper\">\n                <div class=\"icon-wrapper ml-1\">\n                    <mat-icon class=\"icon-sm\" [color]=\"'warn'\" [svgIcon]=\"'close'\"></mat-icon>\n                </div>\n                <figure class=\"preview-img\">\n                    <img *ngIf=\"file.isImage\" class=\"img-fluid\" [src] =\"file.fileUrl\" id=\"imageElem\">\n                    <a [href]=\"file.fileUrl\" target=\"_blank\" *ngIf=\"!file.isImage\">\n                        <mat-icon class=\"w-100 h-100\" svgIcon=\"feather:file-text\"></mat-icon>\n                    </a>\n                </figure>\n            </div>\n        </ng-container>\n\n    </ng-container>\n\n    <label>Upload File</label>\n    <div class=\"browse-files\" [appDragAndDrop] [multiple]=\"multiple\" (onFileDropped)=\"selectFile($event)\" *ngIf=\"!isUploadProgess() || multiple\">\n        <input hidden type=\"file\" #fileInput (change)=\"selectFile($event)\" [multiple]=\"isMultiple()\">\n        <div class=\"attachfiles-normal\">\n            <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n            <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n        </div>\n    </div>\n    <div class=\"progress\" *ngIf=\"isUploadProgess()\">\n        <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n    </div>\n\n</div>\n";
       /***/
     },
 
@@ -113,6 +113,12 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! underscore */
+      "./node_modules/underscore/modules/index-all.js");
 
       var UploadComponent = /*#__PURE__*/function () {
         function UploadComponent(sanitizer, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sessionService) {
@@ -154,56 +160,53 @@
             return this.multiple ? 'multiple' : '';
           }
         }, {
-          key: "uploadFile",
-          value: function uploadFile(event) {
+          key: "selectFile",
+          value: function selectFile(event) {
             var _this = this;
 
-            this.selectedFiles = event.target.files;
-            console.log(this.selectedFiles);
+            var uploadData = underscore__WEBPACK_IMPORTED_MODULE_8__["forEach"](event.target.files, function (file) {
+              return _this.uploadFile(file);
+            });
+          }
+        }, {
+          key: "uploadFile",
+          value: function uploadFile(file) {
+            var _this2 = this;
 
-            for (var i = 0; i < this.selectedFiles.length; i++) {
-              var file = this.selectedFiles[i];
-              var userId = parseInt(this.sessionService.userId);
-              this.fileUploadService.upload(file, userId).subscribe(function (res) {
-                if (res != undefined) {
-                  _this.uploadResponse = res;
+            this.fileUploadService.upload(file, parseInt(this.sessionService.userId)).subscribe(function (res) {
+              if (res != undefined) {
+                if (_this2.isUploadCompleted()) {
+                  _this2.uploadResponse = res;
+                  return _this2.uploadResponse;
                 }
-
-                if (_this.isUploadCompleted()) {
-                  _this.fileId = _this.uploadResponse.fileId;
-                  var newParams = {
-                    fileDetailsId: _this.fileId,
-                    apartmentId: Number(_this.sessionService.apartmentId)
-                  };
-
-                  _this.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                    _this.fileList.push(res[0]);
-
-                    console.log(_this.fileList);
-
-                    if (_this.fileList.length == _this.selectedFiles.length) {
-                      _this.fileList.forEach(function (file) {
-                        _this.downloadFile(file);
-                      });
-                    }
-                  });
-                }
-              });
-            }
+              }
+            });
+          }
+        }, {
+          key: "getFileDetails",
+          value: function getFileDetails(response) {
+            this.fileId = response.fileId;
+            var newParams = {
+              fileDetailsId: this.fileId,
+              apartmentId: Number(this.sessionService.apartmentId)
+            };
+            this.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+              return res[0];
+            });
           }
         }, {
           key: "downloadFile",
           value: function downloadFile(file) {
-            var _this2 = this;
+            var _this3 = this;
 
             this.fileDownloadService.downloadFile(file.filePath).subscribe(function (res) {
               var splitFile = file.filePath.split('.');
               var ext = splitFile[1].replace(/^/, '.');
-              file.isImage = _this2.constantsService.imageFormats.includes(ext);
+              file.isImage = _this3.constantsService.imageFormats.includes(ext);
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this2.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this3.sanitizer.bypassSecurityTrustUrl(objectURL);
 
               file.fileUrl = sanitizeUrl;
             });
@@ -211,7 +214,7 @@
         }, {
           key: "deleteFile",
           value: function deleteFile(file) {
-            var _this3 = this;
+            var _this4 = this;
 
             var details = {
               "fileDetailsId": file.fileDetailsId,
@@ -230,14 +233,14 @@
               fileDetails: details
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this3.uploadResponse = {
+              _this4.uploadResponse = {
                 status: '',
                 message: '',
                 fileId: null
               };
-              _this3.fileId = _this3.uploadResponse.fileId;
+              _this4.fileId = _this4.uploadResponse.fileId;
 
-              _this3.fileList.splice(file, 1);
+              _this4.fileList.splice(file, 1);
             });
           }
         }, {

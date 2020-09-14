@@ -1,4 +1,10 @@
 (function () {
+  function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -42,7 +48,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-setup-wrapper mt-3\">\n    <form>\n        <mat-accordion>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Currency Type</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Currency Type\"\n                                fieldPlaceholder=\"Select Currency\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"currencyTypeDataList\"\n                                fieldValue=\"lookupValueName\"\n                                [fieldModel]=\"currencyTypeId\"\n                                fieldId=\"lookupValueId\"\n                                (fieldParams)=\"getCurrencyType($event)\" \n                            ></condo-select>   \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>AR Control GL Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"AR Control GL Account\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"glaccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"upsertCustAccount($event)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Customer Income Payment Term</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <div class=\"input-box\">\n                                <label>Customer Income Payment Term</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"Payment Term\" [(ngModel)]=\"paymentTerm.lookupValueName\" \n                                name=\"customerIncomePayment\" [disabled]=\"isEditTerm\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTerm\" (click)=\"isEditTerm = !isEditTerm\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTerm\" (click)=\"saveIncomePaymentTerm()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select VAT or TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <div class=\"input-box radio-box\">\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"vat\" [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\"  [value]=\"true\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"vat\">%VAT</label>\n                                </div>\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"tax\"  [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\" [value]=\"false\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"tax\">%TAX</label>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% VAT</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"VAT\" [(ngModel)]=\"vatData.lookupValueName\" \n                                name=\"vatPercentage\" [disabled]=\"isEditVat\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditVat\" (click)=\"isEditVat = !isEditVat\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditVat\" (click)=\"saveVat()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"!vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% TAX</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"TAX\" [(ngModel)]=\"taxData.lookupValueName\" \n                                name=\"taxPercentage\" [disabled]=\"isEditTax\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTax\" (click)=\"isEditTax = !isEditTax\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTax\" (click)=\"saveTax()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-setup-wrapper mt-3\">\n    <form>\n        <mat-accordion>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Currency Type</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Currency Type\"\n                                fieldPlaceholder=\"Select Currency\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"currencyTypeDataList\"\n                                fieldValue=\"lookupValueName\"\n                                [fieldModel]=\"currencyTypeId\"\n                                fieldId=\"lookupValueId\"\n                                (fieldParams)=\"getCurrencyType($event)\" \n                            ></condo-select>   \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>AR Control GL Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"AR Control GL Account\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"arControlAccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setARControlAccount($event,1)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Customer Advances Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Customer Advances Account\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"customerAdvAccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setCustomerAdvAccount($event,2)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Security Deposit Account</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <condo-select \n                                labelText=\"Security Deposit Accountt\"\n                                fieldPlaceholder=\"Select Account\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"glAccountListData | orderBy : 'glaccountName'\"\n                                fieldValue=\"glaccountName\"\n                                [fieldModel]=\"securityDepAccountId\"\n                                fieldId=\"glaccountId\"\n                                (fieldParams)=\"setSecurityDepAccount($event,3)\" \n                            ></condo-select>      \n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Customer Income Payment Term</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12 col-lg-6\">\n                            <div class=\"input-box\">\n                                <label>Customer Income Payment Term</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"Payment Term\" [(ngModel)]=\"paymentTerm.lookupValueName\" \n                                name=\"customerIncomePayment\" [disabled]=\"isEditTerm\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTerm\" (click)=\"isEditTerm = !isEditTerm\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTerm\" (click)=\"saveIncomePaymentTerm()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n            <mat-expansion-panel>\n                <mat-expansion-panel-header>\n                    <mat-panel-title>Select VAT or TAX</mat-panel-title>\n                </mat-expansion-panel-header>\n                <mat-panel-description>\n                    <div class=\"row\">\n                        <div class=\"col-md-12\">\n                            <div class=\"input-box radio-box\">\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"vat\" [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\"  [value]=\"true\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"vat\">%VAT</label>\n                                </div>\n                                <div class=\"form-group\">\n                                    <input  name=\"vatTax\" id=\"tax\"  [(ngModel)]=\"vatIndicator.isDisabled\" (change)=\"changeVatIndicator()\" [value]=\"false\" type=\"radio\">\n                                    <label class=\"radio-inline\" for=\"tax\">%TAX</label>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% VAT</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"VAT\" [(ngModel)]=\"vatData.lookupValueName\" \n                                name=\"vatPercentage\" [disabled]=\"isEditVat\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditVat\" (click)=\"isEditVat = !isEditVat\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditVat\" (click)=\"saveVat()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-md-12 col-lg-6\" *ngIf=\"!vatIndicator?.isDisabled\">\n                            <div class=\"input-box\">\n                                <label>% TAX</label>\n                                <input  type=\"text\" class=\"form-control\" placeholder=\"TAX\" [(ngModel)]=\"taxData.lookupValueName\" \n                                name=\"taxPercentage\" [disabled]=\"isEditTax\">\n                                <div class=\"date-btn\">\n                                    <mat-icon *ngIf=\"isEditTax\" (click)=\"isEditTax = !isEditTax\" svgIcon=\"feather:edit\"></mat-icon>\n                                    <mat-icon *ngIf=\"!isEditTax\" (click)=\"saveTax()\" svgIcon=\"feather:save\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </mat-panel-description>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </form>\n</div>";
       /***/
     },
 
@@ -805,11 +811,16 @@
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
-          this.glAccountIndicator = "Income";
-          this.currencyTypeId = ""; //AR Control GL Account
+          this.currencyTypeId = ""; //AR Control Account
 
-          this.glaccountId = "";
-          this.allCustomAccounts = {}; //payment Term
+          this.arControlAccountId = "";
+          this.arControlAccount = {}; //Customer Advances Account
+
+          this.customerAdvAccountId = "";
+          this.customerAdvAccount = {}; //Security Deposit Account
+
+          this.securityDepAccountId = "";
+          this.securityDepAccount = {}; //payment Term
 
           this.paymentTerm = {};
           this.isEditTerm = true; // radio button
@@ -1026,34 +1037,51 @@
                 }
               });
             }
-          } // AR Control GL Account
+          }
+        }, {
+          key: "setARControlAccount",
+          value: function setARControlAccount(event, offSetAccId) {
+            this.arControlAccountId = event[0].glaccountId;
+            this.upsertCustAccount(this.arControlAccountId, offSetAccId, this.arControlAccount);
+          }
+        }, {
+          key: "setCustomerAdvAccount",
+          value: function setCustomerAdvAccount(event, offSetAccId) {
+            this.customerAdvAccountId = event[0].glaccountId;
+            this.upsertCustAccount(this.customerAdvAccountId, offSetAccId, this.customerAdvAccount);
+          }
+        }, {
+          key: "setSecurityDepAccount",
+          value: function setSecurityDepAccount(event, offSetAccId) {
+            this.securityDepAccountId = event[0].glaccountId;
+            this.upsertCustAccount(this.securityDepAccountId, offSetAccId, this.securityDepAccount);
+          } // GL Account
 
         }, {
           key: "upsertCustAccount",
-          value: function upsertCustAccount(event) {
+          value: function upsertCustAccount(glaccountId, offSetAccId, accountInfo) {
             var _this12 = this;
 
-            this.glaccountId = event[0].glaccountId;
-
-            if (this.glaccountId) {
+            if (glaccountId) {
               var data = this.glAccountListData.filter(function (item) {
-                return item.glaccountId == _this12.glaccountId;
+                return item.glaccountId == glaccountId;
               });
               var params = {
                 custAccount: {
-                  "custAccountId": this.allCustomAccounts.custAccountId ? this.allCustomAccounts.custAccountId : 0,
+                  "custAccountId": accountInfo.custAccountId ? accountInfo.custAccountId : 0,
                   "apartmentId": this.sessionService.apartmentId,
-                  "glaccountId": Number(this.glaccountId),
+                  "glaccountId": Number(glaccountId),
                   "comment": data[0].glaccountName,
                   "isActive": true,
-                  "insertedBy": this.allCustomAccounts.insertedBy ? this.allCustomAccounts.insertedBy : this.sessionService.userId,
-                  "insertedOn": this.allCustomAccounts.insertedOn ? this.allCustomAccounts.insertedOn : new Date().toISOString(),
-                  "updatedBy": this.allCustomAccounts.custAccountId ? this.sessionService.userId : null,
-                  "updatedOn": this.allCustomAccounts.custAccountId ? new Date().toISOString() : null
+                  "insertedBy": accountInfo.insertedBy ? accountInfo.insertedBy : this.sessionService.userId,
+                  "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : new Date().toISOString(),
+                  "updatedBy": accountInfo.custAccountId ? this.sessionService.userId : null,
+                  "updatedOn": accountInfo.custAccountId ? new Date().toISOString() : null,
+                  "gloffsetaccountId": offSetAccId
                 }
               };
 
-              if (this.allCustomAccounts.custAccountId) {
+              if (accountInfo.custAccountId) {
                 //edit
                 this.accountsService.updateCustAccount(params).subscribe(function (res) {
                   if (res.code == 200) {
@@ -1068,9 +1096,9 @@
                 //create
                 this.accountsService.addCustAccount(params).subscribe(function (res) {
                   if (res.message) {
-                    _this12.allCustomAccounts.custAccountId = res.message;
+                    _this12.getSelectedAccount();
 
-                    _this12.sharedService.openSnackBar('Gl Account Added Successfully', 'success');
+                    _this12.sharedService.openSnackBar('Account Added Successfully', 'success');
                   } else {
                     _this12.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
@@ -1081,12 +1109,12 @@
             } else {
               //delete CustAccountId
               var _params4 = {
-                glAccountId: Number(this.allCustomAccounts.custAccountId),
+                glAccountId: Number(accountInfo.custAccountId),
                 deleteBy: this.sessionService.userId
               };
               this.accountsService.deleteCustAccount(_params4).subscribe(function (res) {
                 if (res.code == 200) {
-                  _this12.allCustomAccounts = {};
+                  if (offSetAccId == 1) _this12.arControlAccount = {};else if (offSetAccId == 2) _this12.customerAdvAccount = {};else if (offSetAccId == 3) _this12.securityDepAccount = {};
 
                   _this12.sharedService.openSnackBar(res.responseData.value.message, 'success');
                 } else {
@@ -1118,39 +1146,66 @@
             this.lookupService.updateLookupValue(params).toPromise();
           }
         }, {
+          key: "getSelectedAccount",
+          value: function getSelectedAccount() {
+            var _this13 = this;
+
+            this.accountsService.getAllCustAccounts().subscribe(function (res) {
+              if (res.length > 0) {
+                var _iterator = _createForOfIteratorHelper(res),
+                    _step;
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    var account = _step.value;
+
+                    if (account.gloffsetaccountId == 1) {
+                      _this13.arControlAccount = account;
+                      _this13.arControlAccountId = account.glaccountId;
+                    } else if (account.gloffsetaccountId == 2) {
+                      _this13.customerAdvAccount = account;
+                      _this13.customerAdvAccountId = account.glaccountId;
+                    } else if (account.gloffsetaccountId == 3) {
+                      _this13.securityDepAccount = account;
+                      _this13.securityDepAccountId = account.glaccountId;
+                    }
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+              }
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.getCustomerIncomePaymentList();
             this.getCustomerVatList();
-            this.getCustomerTaxList(); //currency type
+            this.getCustomerTaxList();
+            this.getSelectedAccount(); //currency type
 
             var params = {
               ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 101
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this13.currencyTypeDataList = res.filter(function (item) {
+              _this14.currencyTypeDataList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this13.currencyTypeId = _this13.currencyTypeDataList[0].lookupValueId;
-            }); //GLAccountTypeId
+              _this14.currencyTypeId = _this14.currencyTypeDataList[0].lookupValueId;
+            }); // Dropdown AccountTypeId
 
             var glAccountTypeIdparams = {
               apartmentId: this.sessionService.apartmentId,
               GLAccountTypeId: 165
             };
             this.accountsService.getGlAccountsIdbyGlAccountTypeId(glAccountTypeIdparams).subscribe(function (res) {
-              _this13.glAccountListData = res.filter(function (item) {
-                return item.isActive && _this13.sessionService.apartmentId && item.indicator == _this13.glAccountIndicator;
-              }); //allcustAccount for AR Control GL Account
-
-              _this13.accountsService.getAllCustAccounts().subscribe(function (res) {
-                if (res.length > 0) {
-                  _this13.allCustomAccounts = res[0];
-                  _this13.glaccountId = _this13.allCustomAccounts.glaccountId;
-                }
+              _this14.glAccountListData = res.filter(function (item) {
+                return item.indicator == 'Income';
               });
             }); //Radio Button  Select
 
@@ -1159,7 +1214,7 @@
               LookupTypeId: 198
             };
             this.lookupService.getLookupValueByLookupTypeId(vatIndicator).subscribe(function (res) {
-              if (res.length > 0) _this13.vatIndicator = res[0];
+              if (res.length > 0) _this14.vatIndicator = res[0];
             });
           }
         }]);
@@ -1350,7 +1405,7 @@
         }, {
           key: "addPenaltyConfig",
           value: function addPenaltyConfig(data) {
-            var _this14 = this;
+            var _this15 = this;
 
             var reqObj = {};
             reqObj = {
@@ -1375,21 +1430,21 @@
             console.log("added data ", params);
             this.accountsService.addPenaltyConfig(params).subscribe(function (res) {
               if (res.message) {
-                _this14.sharedService.setAlertMessage("Penalty Setup Config added successfully");
+                _this15.sharedService.setAlertMessage("Penalty Setup Config added successfully");
 
-                _this14.isAssetLoaded = false;
-                _this14.row = {};
+                _this15.isAssetLoaded = false;
+                _this15.row = {};
 
-                _this14.getAllPenaltyConfigByApartmentId();
+                _this15.getAllPenaltyConfigByApartmentId();
               } else {
-                _this14.sharedService.setAlertMessage(res.errorMessage);
+                _this15.sharedService.setAlertMessage(res.errorMessage);
               }
             });
           }
         }, {
           key: "updatePenaltyConfig",
           value: function updatePenaltyConfig(data) {
-            var _this15 = this;
+            var _this16 = this;
 
             var reqObj = {};
             reqObj = {
@@ -1413,13 +1468,13 @@
             params.penaltyConfig = reqObj;
             this.accountsService.updatePenaltyConfig(params).subscribe(function (res) {
               if (res) {
-                _this15.sharedService.setAlertMessage("Penalty setup config Updated successfully"); // this.isAssetLoaded = false;
+                _this16.sharedService.setAlertMessage("Penalty setup config Updated successfully"); // this.isAssetLoaded = false;
 
 
-                _this15.isEditRow = false;
-                _this15.updatePenaltyRowIndex = -1;
+                _this16.isEditRow = false;
+                _this16.updatePenaltyRowIndex = -1;
 
-                _this15.getAllPenaltyConfigByApartmentId();
+                _this16.getAllPenaltyConfigByApartmentId();
               }
             });
           }
@@ -1442,7 +1497,7 @@
         }, {
           key: "getAllPenaltyConfigByApartmentId",
           value: function getAllPenaltyConfigByApartmentId() {
-            var _this16 = this;
+            var _this17 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1453,15 +1508,15 @@
               if (res) {
                 console.log("resp of penalty", res); // this.penaltyData = [];
 
-                _this16.penaltyData = res && res.length > 0 ? res : [];
-                _this16.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
+                _this17.penaltyData = res && res.length > 0 ? res : [];
+                _this17.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
 
-                _this16.totalItems = _this16.penaltyData.length;
+                _this17.totalItems = _this17.penaltyData.length;
 
-                if (_this16.totalItems > _this16.itemLimit) {
-                  _this16.ItemEndIndex = _this16.ItemEndIndex ? _this16.ItemEndIndex : _this16.itemLimit;
+                if (_this17.totalItems > _this17.itemLimit) {
+                  _this17.ItemEndIndex = _this17.ItemEndIndex ? _this17.ItemEndIndex : _this17.itemLimit;
                 } else {
-                  _this16.ItemEndIndex = _this16.totalItems;
+                  _this17.ItemEndIndex = _this17.totalItems;
                 }
               }
             });
@@ -1469,7 +1524,7 @@
         }, {
           key: "getPenaltyConfigByPenaltyId",
           value: function getPenaltyConfigByPenaltyId() {
-            var _this17 = this;
+            var _this18 = this;
 
             var queryParamBase = {};
             console.log("data[0]", this.penaltyData);
@@ -1479,16 +1534,16 @@
             this.isAssetLoaded = true;
             this.accountsService.getPenaltyConfigByPenaltyId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this17.isAssetLoaded = false;
-                _this17.penaltyType = res ? res : [];
-                console.log("penalty type ==> ", _this17.penaltyType);
+                _this18.isAssetLoaded = false;
+                _this18.penaltyType = res ? res : [];
+                console.log("penalty type ==> ", _this18.penaltyType);
               }
             });
           }
         }, {
           key: "getGlAccountsIdbyGlAccountTypeId",
           value: function getGlAccountsIdbyGlAccountTypeId() {
-            var _this18 = this;
+            var _this19 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -1499,36 +1554,36 @@
             this.accountsService.getGlAccountsIdbyGlAccountTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.isAssetLoaded = false;
-                _this18.glAccountList = res ? res : [];
-                console.log(_this18.glAccountList);
+                _this19.glAccountList = res ? res : [];
+                console.log(_this19.glAccountList);
               }
             });
           }
         }, {
           key: "getApartmentBlockByApartmentId",
           value: function getApartmentBlockByApartmentId() {
-            var _this19 = this;
+            var _this20 = this;
 
             var blockListParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockListParams).subscribe(function (res) {
-              _this19.blockDataList = res ? res : [];
+              _this20.blockDataList = res ? res : [];
             });
           }
         }, {
           key: "penaltyTypeList",
           value: function penaltyTypeList() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.accountsService.getAllPenaltyTypeFrequencyConfig().subscribe(function (res) {
-              _this20.penaltyTypeData = res ? res : [];
+              _this21.penaltyTypeData = res ? res : [];
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
             this.isPenaltySetupDataLoaded = true; // this.addPenaltyRow();
 
@@ -1539,28 +1594,28 @@
             this.penaltyTypeList();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                if (_this21.deleteType) {
+                if (_this22.deleteType) {
                   var param = {};
                   param = {
-                    apartmentId: _this21.sessionService.apartmentId,
+                    apartmentId: _this22.sessionService.apartmentId,
                     PenaltyId: id,
-                    deleteBy: parseInt(_this21.sessionService.userId)
+                    deleteBy: parseInt(_this22.sessionService.userId)
                   };
 
-                  _this21.accountsService.deletePenaltyConfig(param).subscribe(function (res) {
+                  _this22.accountsService.deletePenaltyConfig(param).subscribe(function (res) {
                     if (res.message) {
-                      _this21.getAllPenaltyConfigByApartmentId();
+                      _this22.getAllPenaltyConfigByApartmentId();
 
                       setTimeout(function () {
-                        _this21.sharedService.setAlertMessage("Penalty deleted successfully");
+                        _this22.sharedService.setAlertMessage("Penalty deleted successfully");
 
-                        _this21.sharedService.setUnitListDeleteIndex(null);
+                        _this22.sharedService.setUnitListDeleteIndex(null);
                       }, 500);
                     } else {
-                      _this21.sharedService.setAlertMessage(res.errorMessage);
+                      _this22.sharedService.setAlertMessage(res.errorMessage);
                     }
 
-                    _this21.deleteType = false;
+                    _this22.deleteType = false;
                   }, function (error) {
                     console.log(error);
                   });
