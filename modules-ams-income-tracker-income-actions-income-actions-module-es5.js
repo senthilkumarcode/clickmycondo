@@ -225,9 +225,7 @@
           value: function resolve(route, state) {
             var id = this.sharedService.getActionIncomeTrackerIndex();
 
-            if (id != null) {
-              console.log(state);
-            }
+            if (id != null) {}
 
             return;
           }
@@ -1745,7 +1743,6 @@
               };
               _this12.reportsDataList = new jqx.dataAdapter(_this12.gridSourceData);
               _this12.totalItems = reportsDataList.length;
-              console.log(reportsDataList);
               _this12.isDataLoaded = true;
               _this12.isReportSubmitted = false;
             }, function (error) {});

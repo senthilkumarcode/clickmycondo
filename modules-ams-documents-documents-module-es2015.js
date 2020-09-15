@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    \n        <ng-container *ngIf=\"isDataLoaded\">\n    \n            <h5 class=\"mb-4\">Reports</h5>\n    \n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList\">\n                        <div class=\"bg-card shadow\">\n                            <a class=\"t-no-decor\" href=\"javascript:void(0)\"\n                                routerLink = \"{{getReportRedirectPath(report.lookupValueName)}}/{{report.lookupValueID}}\" \n                                routerLinkActive=\"active\"\n                                [routerLinkActiveOptions] = \"{exact:true}\">\n                                <div>\n                                    <h6>{{report.lookupValueName}}</h6>\n                                    <p>{{report.description}}</p>\n                                </div>\n                            </a>\n                            \n                        </div>\n                </div>\n            </div>\n    \n        </ng-container>\n    \n    \n    \n       \n    </div>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    \n        <ng-container *ngIf=\"isDataLoaded\">\n    \n            <h5 class=\"mb-4\">Reports</h5>\n    \n            <div class=\"row\">\n                <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList\">\n\n                    <condo-card>\n\t\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink = \"{{getReportRedirectPath(report.lookupValueName)}}/{{report.lookupValueID}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</condo-card>\n\n                </div>\n            </div>\n    \n        </ng-container>\n    \n    \n    \n       \n    </div>\n    </div>");
 
 /***/ }),
 
@@ -1364,14 +1364,11 @@ let DocumentsReportsDataComponent = class DocumentsReportsDataComponent {
     }
     showItems() {
         this.totalItems = this.userReportDataList.length;
-        console.log("total items ", this.totalItems);
         if (this.totalItems > this.itemLimit) {
             this.ItemEndIndex = this.itemLimit;
-            console.log("Itemendindex if", this.ItemEndIndex);
         }
         else {
             this.ItemEndIndex = this.totalItems;
-            console.log("Itemendindex ", this.ItemEndIndex);
         }
     }
     ngOnInit() {
@@ -1937,13 +1934,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/document-setup/document-setup.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup.component.ts");
-/* harmony import */ var _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/document-setup/document-setup-category/document-setup-category.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-category/document-setup-category.component.ts");
-/* harmony import */ var _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/folder-lists/folder-lists.component */ "./src/app/modules/ams/documents/components/folder-lists/folder-lists.component.ts");
-/* harmony import */ var _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/documents-reports/documents-reports.component */ "./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.ts");
-/* harmony import */ var _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/document-setup/document-setup-accessible/document-setup-accessible.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-accessible/document-setup-accessible.component.ts");
-/* harmony import */ var _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/folder-lists/document-download/document-download.component */ "./src/app/modules/ams/documents/components/folder-lists/document-download/document-download.component.ts");
-/* harmony import */ var _components_my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/my-document-user-list/my-document-user-list.component */ "./src/app/modules/ams/documents/components/my-document-user-list/my-document-user-list.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/document-setup/document-setup.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup.component.ts");
+/* harmony import */ var _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/document-setup/document-setup-category/document-setup-category.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-category/document-setup-category.component.ts");
+/* harmony import */ var _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/folder-lists/folder-lists.component */ "./src/app/modules/ams/documents/components/folder-lists/folder-lists.component.ts");
+/* harmony import */ var _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/documents-reports/documents-reports.component */ "./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.ts");
+/* harmony import */ var _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/document-setup/document-setup-accessible/document-setup-accessible.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-accessible/document-setup-accessible.component.ts");
+/* harmony import */ var _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/folder-lists/document-download/document-download.component */ "./src/app/modules/ams/documents/components/folder-lists/document-download/document-download.component.ts");
+/* harmony import */ var _components_my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/my-document-user-list/my-document-user-list.component */ "./src/app/modules/ams/documents/components/my-document-user-list/my-document-user-list.component.ts");
+
 
 
 
@@ -1956,21 +1955,20 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-    { path: 'settings', component: _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_3__["DocumentSetupComponent"],
+    { path: 'settings', component: _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_4__["DocumentSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'public', pathMatch: 'full' },
-            { path: 'public', component: _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_4__["DocumentSetupCategoryComponent"] },
-            { path: 'private', component: _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_4__["DocumentSetupCategoryComponent"] },
-            { path: 'accessible', component: _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_7__["DocumentSetupAccessibleComponent"] },
+            { path: 'public', component: _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_5__["DocumentSetupCategoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'private', component: _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_5__["DocumentSetupCategoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'accessible', component: _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupAccessibleComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
             { path: '**', redirectTo: 'public', pathMatch: 'full' }
         ]
     },
-    { path: 'common', component: _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_5__["FolderListsComponent"] },
-    { path: 'common-download/:id', component: _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_8__["DocumentDownloadComponent"] },
-    //{ path: 'user/:id', component: FolderListsComponent},
-    { path: 'reports', component: _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_6__["DocumentsReportsComponent"] },
-    { path: 'user', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-documents-components-user-lists-user-list-module */ "src-app-modules-ams-documents-components-user-lists-user-list-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/documents/components/user-lists/user-list.module */ "./src/app/modules/ams/documents/components/user-lists/user-list.module.ts")).then(m => m.UserListModule) },
-    { path: 'my-documents', component: _components_my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_9__["MyDocumentUserListComponent"] },
+    { path: 'common', component: _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_6__["FolderListsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'common-download/:id', component: _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_9__["DocumentDownloadComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports', component: _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_7__["DocumentsReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'user', canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]], loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-documents-components-user-lists-user-list-module */ "src-app-modules-ams-documents-components-user-lists-user-list-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/documents/components/user-lists/user-list.module */ "./src/app/modules/ams/documents/components/user-lists/user-list.module.ts")).then(m => m.UserListModule) },
+    { path: 'my-documents', component: _components_my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_10__["MyDocumentUserListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let DocumentsRoutingModule = class DocumentsRoutingModule {
@@ -1999,19 +1997,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _documents_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./documents-routing.module */ "./src/app/modules/ams/documents/documents-routing.module.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _documents_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./documents-routing.module */ "./src/app/modules/ams/documents/documents-routing.module.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-/* harmony import */ var _document_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./document.component */ "./src/app/modules/ams/documents/document.component.ts");
-/* harmony import */ var _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/document-setup/document-setup.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup.component.ts");
-/* harmony import */ var _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/document-setup/document-setup-category/document-setup-category.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-category/document-setup-category.component.ts");
-/* harmony import */ var _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/folder-lists/folder-lists.component */ "./src/app/modules/ams/documents/components/folder-lists/folder-lists.component.ts");
-/* harmony import */ var _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/documents-reports/documents-reports.component */ "./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.ts");
-/* harmony import */ var _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/document-setup/document-setup-accessible/document-setup-accessible.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-accessible/document-setup-accessible.component.ts");
-/* harmony import */ var _components_documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/documents-reports/documents-reports-data/documents-reports-data.component */ "./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.ts");
-/* harmony import */ var _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/folder-lists/document-download/document-download.component */ "./src/app/modules/ams/documents/components/folder-lists/document-download/document-download.component.ts");
-/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
-/* harmony import */ var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/ui/upload/upload.module */ "./src/app/modules/ui/upload/upload.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/upload/upload.module */ "./src/app/modules/ui/upload/upload.module.ts");
+/* harmony import */ var _document_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./document.component */ "./src/app/modules/ams/documents/document.component.ts");
+/* harmony import */ var _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/document-setup/document-setup.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup.component.ts");
+/* harmony import */ var _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/document-setup/document-setup-category/document-setup-category.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-category/document-setup-category.component.ts");
+/* harmony import */ var _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/folder-lists/folder-lists.component */ "./src/app/modules/ams/documents/components/folder-lists/folder-lists.component.ts");
+/* harmony import */ var _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/documents-reports/documents-reports.component */ "./src/app/modules/ams/documents/components/documents-reports/documents-reports.component.ts");
+/* harmony import */ var _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/document-setup/document-setup-accessible/document-setup-accessible.component */ "./src/app/modules/ams/documents/components/document-setup/document-setup-accessible/document-setup-accessible.component.ts");
+/* harmony import */ var _components_documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/documents-reports/documents-reports-data/documents-reports-data.component */ "./src/app/modules/ams/documents/components/documents-reports/documents-reports-data/documents-reports-data.component.ts");
+/* harmony import */ var _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/folder-lists/document-download/document-download.component */ "./src/app/modules/ams/documents/components/folder-lists/document-download/document-download.component.ts");
 /* harmony import */ var _components_my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/my-document-user-list/my-document-user-list.component */ "./src/app/modules/ams/documents/components/my-document-user-list/my-document-user-list.component.ts");
 /* harmony import */ var _components_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/document-create/document-create.component */ "./src/app/modules/ams/documents/components/document-create/document-create.component.ts");
 
@@ -2037,26 +2035,26 @@ let DocumentsModule = class DocumentsModule {
 DocumentsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _document_component__WEBPACK_IMPORTED_MODULE_6__["DocumentComponent"],
-            _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_7__["DocumentSetupComponent"],
-            _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupCategoryComponent"],
-            _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_9__["FolderListsComponent"],
-            _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_10__["DocumentsReportsComponent"],
-            _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_11__["DocumentSetupAccessibleComponent"],
-            _components_documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_12__["DocumentsReportsDataComponent"],
-            _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_13__["DocumentDownloadComponent"],
+            _document_component__WEBPACK_IMPORTED_MODULE_8__["DocumentComponent"],
+            _components_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_9__["DocumentSetupComponent"],
+            _components_document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_10__["DocumentSetupCategoryComponent"],
+            _components_folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_11__["FolderListsComponent"],
+            _components_documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_12__["DocumentsReportsComponent"],
+            _components_document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_13__["DocumentSetupAccessibleComponent"],
+            _components_documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_14__["DocumentsReportsDataComponent"],
+            _components_folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_15__["DocumentDownloadComponent"],
             _components_my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_16__["MyDocumentUserListComponent"],
             _components_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_17__["DocumentCreateComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"],
-            src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_15__["UploadModule"],
-            _documents_routing_module__WEBPACK_IMPORTED_MODULE_3__["DocumentsRoutingModule"]
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"],
+            src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_7__["UploadModule"],
+            _documents_routing_module__WEBPACK_IMPORTED_MODULE_4__["DocumentsRoutingModule"]
         ],
-        bootstrap: [_document_component__WEBPACK_IMPORTED_MODULE_6__["DocumentComponent"]]
+        bootstrap: [_document_component__WEBPACK_IMPORTED_MODULE_8__["DocumentComponent"]]
     })
 ], DocumentsModule);
 

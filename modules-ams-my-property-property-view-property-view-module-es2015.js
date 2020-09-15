@@ -125,13 +125,11 @@ let PropertyTowerDetailsComponent = class PropertyTowerDetailsComponent {
         this.ddlDataLoad();
         this.controlStatus();
         this.SampleUnitData();
-        console.log(this.unitSampleData);
         // this.srvPV.Mode.subscribe(res=>{
         //   if (!isNullOrUndefined(res.data)) {
         //   this.towerDetails = res.data;
         //   this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.towerDetails.apartmentBlockId)).subscribe((res:any) => {
         //     this.towerUnitData = res;
-        //     console.log(this.towerUnitData);
         //     this.totalItems = this.towerUnitData.length;  
         //     this.cd.markForCheck();
         //   });
@@ -5160,8 +5158,6 @@ let PropertyTowerDetailsComponent = class PropertyTowerDetailsComponent {
     getFilterBasedData(evt) {
         var filterTypeName = this.ddlfilterType.find(x => x.TypeId === this.selectedFilterType).TypeName;
         var filterBasedTypeName = this.ddlfilterBased.find(x => x.BasedTypeId === evt).TypeName;
-        console.log(filterTypeName);
-        console.log(this.selectedFilterBasedType);
         if (filterTypeName === 'Unit Status' && filterBasedTypeName === 'All') {
             this.IsAllUnitStatus = true;
             this.IsAllResidentCategory = this.IsAllResidentType =
@@ -5205,7 +5201,6 @@ let PropertyTowerDetailsComponent = class PropertyTowerDetailsComponent {
         this.renderer.setStyle(this.tooltip.nativeElement, 'top', y);
         this.renderer.setStyle(this.tooltip.nativeElement, 'display', 'block');
         this.renderer.setProperty(this.tooltip.nativeElement, 'innerHTML', data);
-        console.log(circle);
         // this.tooltip.nativeElement.html = txt;
         // this.tooltip.nativeElement.style.display = "block";
         // this.tooltip.nativeElement.style.left = evt.pageX + 10 + 'px';
@@ -5287,13 +5282,10 @@ let PropertyTowerListComponent = class PropertyTowerListComponent {
             apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
-            console.log('Tower Details');
-            console.log(res);
             this.propertyTowerData = res;
         });
     }
     GetDetails(item) {
-        console.log(item);
         // this.srvPV.Mode.next({ mode: 'Details',data:item });
     }
 };
@@ -5485,7 +5477,6 @@ let PropertyViewGridComponent = class PropertyViewGridComponent {
         this.getBlockList();
     }
     getSelectedUnits(category, unitObj) {
-        console.log(unitObj[category]);
         if (category != '' && unitObj[category]) {
             let selectedCategoryObj = this.filterCategory.find(key => { if (key.id == category)
                 return key; });

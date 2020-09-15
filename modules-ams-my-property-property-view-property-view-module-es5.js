@@ -284,13 +284,11 @@
           value: function ngOnInit() {
             this.ddlDataLoad();
             this.controlStatus();
-            this.SampleUnitData();
-            console.log(this.unitSampleData); // this.srvPV.Mode.subscribe(res=>{
+            this.SampleUnitData(); // this.srvPV.Mode.subscribe(res=>{
             //   if (!isNullOrUndefined(res.data)) {
             //   this.towerDetails = res.data;
             //   this.apartmentService.getApartmentBlockUnitByBlockId(parseInt(this.towerDetails.apartmentBlockId)).subscribe((res:any) => {
             //     this.towerUnitData = res;
-            //     console.log(this.towerUnitData);
             //     this.totalItems = this.towerUnitData.length;  
             //     this.cd.markForCheck();
             //   });
@@ -5538,8 +5536,6 @@
             var filterBasedTypeName = this.ddlfilterBased.find(function (x) {
               return x.BasedTypeId === evt;
             }).TypeName;
-            console.log(filterTypeName);
-            console.log(this.selectedFilterBasedType);
 
             if (filterTypeName === 'Unit Status' && filterBasedTypeName === 'All') {
               this.IsAllUnitStatus = true;
@@ -5573,8 +5569,7 @@
             this.renderer.setStyle(this.tooltip.nativeElement, 'left', x);
             this.renderer.setStyle(this.tooltip.nativeElement, 'top', y);
             this.renderer.setStyle(this.tooltip.nativeElement, 'display', 'block');
-            this.renderer.setProperty(this.tooltip.nativeElement, 'innerHTML', data);
-            console.log(circle); // this.tooltip.nativeElement.html = txt;
+            this.renderer.setProperty(this.tooltip.nativeElement, 'innerHTML', data); // this.tooltip.nativeElement.html = txt;
             // this.tooltip.nativeElement.style.display = "block";
             // this.tooltip.nativeElement.style.left = evt.pageX + 10 + 'px';
             // this.tooltip.nativeElement.style.top = evt.pageY + 10 + 'px';
@@ -5722,15 +5717,12 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              console.log('Tower Details');
-              console.log(res);
               _this2.propertyTowerData = res;
             });
           }
         }, {
           key: "GetDetails",
-          value: function GetDetails(item) {
-            console.log(item); // this.srvPV.Mode.next({ mode: 'Details',data:item });
+          value: function GetDetails(item) {// this.srvPV.Mode.next({ mode: 'Details',data:item });
           }
         }]);
 
@@ -5962,8 +5954,6 @@
         }, {
           key: "getSelectedUnits",
           value: function getSelectedUnits(category, unitObj) {
-            console.log(unitObj[category]);
-
             if (category != '' && unitObj[category]) {
               var selectedCategoryObj = this.filterCategory.find(function (key) {
                 if (key.id == category) return key;

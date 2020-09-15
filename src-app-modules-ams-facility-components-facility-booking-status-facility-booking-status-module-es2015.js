@@ -116,7 +116,6 @@ let FacilityBookingConfirmationComponent = class FacilityBookingConfirmationComp
                 this.sharedService.setAlertMessage(res.message);
             }
         }, error => {
-            console.log(error);
         });
     }
     ngOnInit() {
@@ -701,10 +700,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./facility-booking-list/facility-booking-list.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-list/facility-booking-list.component.ts");
-/* harmony import */ var _facility_booking_status_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./facility-booking-status.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-status.component.ts");
-/* harmony import */ var _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./facility-booking-confirmation/facility-booking-confirmation.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-confirmation/facility-booking-confirmation.component.ts");
-/* harmony import */ var _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./facility-booking-status-resolver.service */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-status-resolver.service.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./facility-booking-list/facility-booking-list.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-list/facility-booking-list.component.ts");
+/* harmony import */ var _facility_booking_status_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./facility-booking-status.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-status.component.ts");
+/* harmony import */ var _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./facility-booking-confirmation/facility-booking-confirmation.component */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-confirmation/facility-booking-confirmation.component.ts");
+/* harmony import */ var _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./facility-booking-status-resolver.service */ "./src/app/modules/ams/facility/components/facility-booking-status/facility-booking-status-resolver.service.ts");
+
 
 
 
@@ -713,45 +714,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _facility_booking_status_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingStatusComponent"],
+    { path: '', component: _facility_booking_status_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingStatusComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
-            { path: 'pending', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_3__["FacilityBookingListComponent"],
+            { path: 'pending', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"],
                 children: [{
                         path: ':type/:id',
-                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingConfirmationComponent"],
+                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingConfirmationComponent"],
+                        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                         resolve: {
-                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingStatusResolverService"]
+                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_7__["FacilityBookingStatusResolverService"]
                         }
                     }]
             },
-            { path: 'confirmed', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_3__["FacilityBookingListComponent"],
+            { path: 'confirmed', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                 children: [{
                         path: ':type/:id',
-                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingConfirmationComponent"],
+                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingConfirmationComponent"],
+                        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                         resolve: {
-                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingStatusResolverService"]
+                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_7__["FacilityBookingStatusResolverService"]
                         }
                     }]
             },
-            { path: 'cancelled', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_3__["FacilityBookingListComponent"],
+            { path: 'cancelled', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                 children: [{
                         path: ':type/:id',
-                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingConfirmationComponent"],
+                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingConfirmationComponent"],
+                        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                         resolve: {
-                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingStatusResolverService"]
+                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_7__["FacilityBookingStatusResolverService"]
                         }
                     }]
             },
-            { path: 'rejected', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_3__["FacilityBookingListComponent"],
+            { path: 'rejected', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                 children: [{
                         path: ':type/:id',
-                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_5__["FacilityBookingConfirmationComponent"],
+                        component: _facility_booking_confirmation_facility_booking_confirmation_component__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingConfirmationComponent"],
+                        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                         resolve: {
-                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_6__["FacilityBookingStatusResolverService"]
+                            data: _facility_booking_status_resolver_service__WEBPACK_IMPORTED_MODULE_7__["FacilityBookingStatusResolverService"]
                         }
                     }]
             },
-            { path: 'history', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_3__["FacilityBookingListComponent"] }
+            { path: 'history', component: _facility_booking_list_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_4__["FacilityBookingListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] }
         ]
     }
 ];

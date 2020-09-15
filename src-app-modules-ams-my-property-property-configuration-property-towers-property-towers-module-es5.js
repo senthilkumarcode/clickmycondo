@@ -170,7 +170,6 @@
           value: function ngOnInit() {
             var _this2 = this;
 
-            console.log(this.tower);
             var params = {
               apartmentBlockId: parseInt(this.tower.apartmentBlockId)
             };
@@ -419,7 +418,6 @@
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this4.blockListData = res;
               _this4.isDataLoaded = true;
-              console.log(_this4.blockListData);
 
               if (_this4.blockListData.length > 0) {
                 _this4.isBlockAvailable = true;

@@ -3172,14 +3172,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.userReportDataList["_source"].localdata.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -3837,43 +3834,49 @@
       /* harmony import */
 
 
-      var _components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/facility-reports/facility-reports.component */
       "./src/app/modules/ams/facility/components/facility-reports/facility-reports.component.ts");
       /* harmony import */
 
 
-      var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/facility-calender/facility-calender.component */
       "./src/app/modules/ams/facility/components/facility-calender/facility-calender.component.ts");
       /* harmony import */
 
 
-      var _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/facility-list/facility-list.component */
       "./src/app/modules/ams/facility/components/facility-list/facility-list.component.ts");
       /* harmony import */
 
 
-      var _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/facility-create/facility-create.component */
       "./src/app/modules/ams/facility/components/facility-create/facility-create.component.ts");
       /* harmony import */
 
 
-      var _components_facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/facility-reports/facility-report-data/facility-report-data.component */
       "./src/app/modules/ams/facility/components/facility-reports/facility-report-data/facility-report-data.component.ts");
       /* harmony import */
 
 
-      var _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/facility-create-booking/facility-create-booking.component */
       "./src/app/modules/ams/facility/components/facility-create-booking/facility-create-booking.component.ts");
       /* harmony import */
 
 
-      var _components_user_facility_booking_list_user_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_user_facility_booking_list_user_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/user-facility-booking-list/user-facility-booking-list.component */
       "./src/app/modules/ams/facility/components/user-facility-booking-list/user-facility-booking-list.component.ts");
 
@@ -3883,25 +3886,32 @@
         pathMatch: 'full'
       }, {
         path: 'list',
-        component: _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_5__["FacilityListComponent"]
+        component: _components_facility_list_facility_list_component__WEBPACK_IMPORTED_MODULE_6__["FacilityListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'setup',
-        component: _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_6__["FacilityCreateComponent"]
+        component: _components_facility_create_facility_create_component__WEBPACK_IMPORTED_MODULE_7__["FacilityCreateComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-booking',
-        component: _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_8__["FacilityCreateBookingComponent"]
+        component: _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_9__["FacilityCreateBookingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit-booking/:id',
-        component: _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_8__["FacilityCreateBookingComponent"]
+        component: _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_9__["FacilityCreateBookingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view-booking/:id',
-        component: _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_8__["FacilityCreateBookingComponent"]
+        component: _components_facility_create_booking_facility_create_booking_component__WEBPACK_IMPORTED_MODULE_9__["FacilityCreateBookingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view-facility-calendar',
-        component: _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_4__["FacilityCalenderComponent"]
+        component: _components_facility_calender_facility_calender_component__WEBPACK_IMPORTED_MODULE_5__["FacilityCalenderComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'all-bookings',
-        component: _components_user_facility_booking_list_user_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_9__["UserFacilityBookingListComponent"]
+        component: _components_user_facility_booking_list_user_facility_booking_list_component__WEBPACK_IMPORTED_MODULE_10__["UserFacilityBookingListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'bookings',
         loadChildren: function loadChildren() {
@@ -3915,10 +3925,12 @@
         }
       }, {
         path: 'reports',
-        component: _components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_3__["FacilityReportsComponent"]
+        component: _components_facility_reports_facility_reports_component__WEBPACK_IMPORTED_MODULE_4__["FacilityReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/:name/:id',
-        component: _components_facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_7__["FacilityReportDataComponent"]
+        component: _components_facility_reports_facility_report_data_facility_report_data_component__WEBPACK_IMPORTED_MODULE_8__["FacilityReportDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'list',

@@ -449,7 +449,6 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
         if (!this.IsValidEmail(this.user.emailId))
             return true;
         this.isDataLoaded = false;
-        console.log('this.phoneForm.value.phone', this.phoneForm.value.phone);
         this.user.phoneNumber = this.phoneForm.value.phone.number;
         this.user.phonecountrycode = this.phoneForm.value.phone.dialCode;
         let params = {
@@ -493,7 +492,6 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
         var retVal = true;
         var rex = new RegExp(/^[+]?\d+$/);
         var isValid = rex.test(val);
-        console.log(val.length);
         if (val.length > 13) {
             retVal = false;
             var errorDetails = {
@@ -3391,7 +3389,6 @@ let PropertyManagerCreateComponent = class PropertyManagerCreateComponent {
         var retVal = true;
         var rex = new RegExp(/^[+]?\d+$/);
         var isValid = rex.test(val);
-        console.log(val.length);
         if (val.length > 13) {
             retVal = false;
             var errorDetails = {
@@ -3436,7 +3433,6 @@ let PropertyManagerCreateComponent = class PropertyManagerCreateComponent {
             propertyManager: details
         };
         this.propertyManagerService.addPropertyManager(params).subscribe((res) => {
-            console.log('res', res);
             if (res.message) {
                 this.sharedService.setAlertMessage("Property Manager added successfully");
                 this.propertyData = {};
@@ -3611,7 +3607,6 @@ let PropertyManagerComponent = class PropertyManagerComponent {
         var retVal = true;
         var rex = new RegExp(/^[+]?\d+$/);
         var isValid = rex.test(val);
-        console.log(val.length);
         if (val.length > 13) {
             retVal = false;
             var errorDetails = {
@@ -3666,7 +3661,6 @@ let PropertyManagerComponent = class PropertyManagerComponent {
                 this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe((res) => {
                     this.propertyData = res[0] || {};
                     this.isDataLoaded = true;
-                    console.log('propertyData', this.propertyData);
                 }, error => {
                     console.log(error);
                 });

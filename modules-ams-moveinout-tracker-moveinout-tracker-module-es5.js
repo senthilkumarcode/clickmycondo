@@ -1497,7 +1497,6 @@
                   return item.isActive;
                 });
                 _this9.moveInDataList = data1.concat(data2);
-                console.log('this.moveInDataList', _this9.moveInDataList);
                 _this9.gridSourceData = {
                   localdata: _this9.moveInDataList,
                   datatype: "array"
@@ -3087,7 +3086,6 @@
             };
             this.getDetails(params);
             this.goBack();
-            console.log(this.blockId);
           }
         }, {
           key: "ngOnInit",
@@ -4146,7 +4144,6 @@
             var moveOutData = this.datagrid.getrowdata(detail.rowId);
             var statusId;
             if (detail.column == 'approve') statusId = 377;else if (detail.column == 'reject') statusId = 378;else if (detail.column == 'cancel') statusId = 381;
-            console.log('moveOutData', moveOutData, moment__WEBPACK_IMPORTED_MODULE_6__(moveOutData.outTime).format('HH:mm:ss'));
             var details = {
               "id": moveOutData.id,
               "outDate": moveOutData.outDate,
@@ -4529,73 +4526,79 @@
       /* harmony import */
 
 
-      var _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/movein-setup/movein-setup.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.ts");
       /* harmony import */
 
 
-      var _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/movein-maintain/movein-maintain.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-maintain/movein-maintain.component.ts");
       /* harmony import */
 
 
-      var _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/moveout-maintain/moveout-maintain.component */
       "./src/app/modules/ams/moveinout-tracker/components/moveout-maintain/moveout-maintain.component.ts");
       /* harmony import */
 
 
-      var _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/movein-reports/movein-reports.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-reports.component.ts");
       /* harmony import */
 
 
-      var src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/components/user-movein/user-movein.component */
       "./src/app/shared/components/user-movein/user-movein.component.ts");
       /* harmony import */
 
 
-      var src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/components/user-moveout/user-moveout.component */
       "./src/app/shared/components/user-moveout/user-moveout.component.ts");
       /* harmony import */
 
 
-      var _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/movein-moveout-cancel/movein-moveout-cancel.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/movein-moveout-cancel.component.ts");
       /* harmony import */
 
 
-      var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/movein-admin-history/movein-admin-history.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.ts");
       /* harmony import */
 
 
-      var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/create-movein/create-movein.component */
       "./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.ts");
       /* harmony import */
 
 
-      var _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/movein-reports/movein-report-data/movein-report-data.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.ts");
       /* harmony import */
 
 
-      var _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/create-moveout/create-moveout.component */
       "./src/app/modules/ams/moveinout-tracker/components/create-moveout/create-moveout.component.ts");
       /* harmony import */
 
 
-      var _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component.ts");
 
@@ -4605,44 +4608,56 @@
         pathMatch: 'full'
       }, {
         path: 'settings',
-        component: _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_3__["MoveinSetupComponent"]
+        component: _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_4__["MoveinSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'movein',
-        component: _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_4__["MoveinMaintainComponent"]
+        component: _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_5__["MoveinMaintainComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'movein-approved',
-        component: _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_4__["MoveinMaintainComponent"]
+        component: _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_5__["MoveinMaintainComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-movein',
-        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_11__["CreateMoveinComponent"]
+        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view-movein/:id',
-        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_11__["CreateMoveinComponent"]
+        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'moveout',
-        component: _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_5__["MoveoutMaintainComponent"]
+        component: _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_6__["MoveoutMaintainComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'moveout-approved',
-        component: _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_5__["MoveoutMaintainComponent"]
+        component: _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_6__["MoveoutMaintainComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-moveout',
-        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_13__["CreateMoveoutComponent"]
+        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveoutComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view-moveout/:id',
-        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_13__["CreateMoveoutComponent"]
+        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveoutComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'cancelled',
-        component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_9__["MoveinMoveoutCancelComponent"],
+        component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__["MoveinMoveoutCancelComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: '',
           redirectTo: 'movein',
           pathMatch: 'full'
         }, {
           path: 'movein',
-          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_14__["CancelMoveInOutDetailsComponent"]
+          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__["CancelMoveInOutDetailsComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'moveout',
-          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_14__["CancelMoveInOutDetailsComponent"]
+          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__["CancelMoveInOutDetailsComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'movein',
@@ -4650,19 +4665,24 @@
         }]
       }, {
         path: 'edit-movein/:id',
-        component: src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_7__["UserMoveinComponent"]
+        component: src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_8__["UserMoveinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit-moveout/:id',
-        component: src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_8__["UserMoveoutComponent"]
+        component: src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_9__["UserMoveoutComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_6__["MoveinReportsComponent"]
+        component: _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_7__["MoveinReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'movein-history',
-        component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_10__["MoveinAdminHistoryComponent"]
+        component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_11__["MoveinAdminHistoryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/:title/:name/:id',
-        component: _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_12__["MoveinReportDataComponent"]
+        component: _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_13__["MoveinReportDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',

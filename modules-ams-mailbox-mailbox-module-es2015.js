@@ -1292,7 +1292,6 @@ let MailboxListComponent = class MailboxListComponent {
         while (route.firstChild) {
             route = route.firstChild;
         }
-        console.log('this._router.url', this._router.url);
         // var id = this.sharedService.guid();
         this._router.navigate([this._router.url + '/', messageId], { relativeTo: route });
     }
@@ -1929,7 +1928,6 @@ let MailboxMailResolver = class MailboxMailResolver {
      * @param state
      */
     resolve(route, state) {
-        console.log('route.paramMap.get()', route.paramMap.get('id'));
         return;
     }
 };
@@ -2750,7 +2748,6 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
         });
         dialogRef.afterClosed()
             .subscribe(result => {
-            console.log('Compose dialog was closed!');
         });
     }
 };

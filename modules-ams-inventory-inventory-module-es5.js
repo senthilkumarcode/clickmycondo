@@ -624,8 +624,6 @@
               var params = {};
               params.material = reqObj;
               this.purchaseOrderService.addMaterial(params).subscribe(function (res) {
-                console.log(res, res);
-
                 if (res) {
                   // this.sharedService.setAlertMessage("Inventory Item added successfully");
                   // this.isAssetLoaded = false;
@@ -672,8 +670,6 @@
             var params = {};
             params.material = reqObj;
             this.purchaseOrderService.updateMaterial(params).subscribe(function (res) {
-              console.log(res, res);
-
               if (res) {
                 _this6.sharedService.setAlertMessage("Inventory Item updated successfully"); // this.isAssetLoaded = false;
                 //    this.row={};
@@ -1703,9 +1699,7 @@
 
         _createClass(InventoryInitialStockComponent, [{
           key: "onItemSelect",
-          value: function onItemSelect(item) {
-            console.log(item);
-            console.log(this.selectedItems); // if(this.initalStockData && this.initalStockData.length > 0){
+          value: function onItemSelect(item) {// if(this.initalStockData && this.initalStockData.length > 0){
             //     this.initalStockData.filter(val =>{
             //       if(item.id ==  val.)
             //     })
@@ -1713,25 +1707,16 @@
           }
         }, {
           key: "OnItemDeSelect",
-          value: function OnItemDeSelect(item) {
-            console.log(item);
-            console.log(this.selectedItems);
-          }
+          value: function OnItemDeSelect(item) {}
         }, {
           key: "onSelectAll",
-          value: function onSelectAll(items) {
-            console.log(items);
-          }
+          value: function onSelectAll(items) {}
         }, {
           key: "onDeSelectAll",
-          value: function onDeSelectAll(items) {
-            console.log(items);
-          }
+          value: function onDeSelectAll(items) {}
         }, {
           key: "getSelectedBlock",
-          value: function getSelectedBlock(event) {
-            console.log(event);
-          }
+          value: function getSelectedBlock(event) {}
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
@@ -1929,7 +1914,6 @@
               this.addWareHouse(group.value);
             }
           } // saveUserDetails() {
-          //   console.log(this.userTable.value);
           // }
           // get getFormControls() {
           //   const control = this.userTable.get('tableRows') as FormArray;
@@ -1938,7 +1922,6 @@
           // submitForm() {
           //   const control = this.userTable.get('tableRows') as FormArray;
           //   this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-          //   console.log(this.touchedRows);
           // }
 
         }, {
@@ -1963,8 +1946,6 @@
             var params = {};
             params.initialstock = reqObj;
             this.purchaseOrderService.addInitialStock(params).subscribe(function (res) {
-              console.log(res, res);
-
               if (res) {
                 _this22.sharedService.setAlertMessage("Initial stock added successfully");
 
@@ -2002,7 +1983,6 @@
         }, {
           key: "deleteRow",
           value: function deleteRow(index, data) {
-            // console.log(data.warehouseId);  
             this.modalService.showConfirmModal(data.initialStockId);
           }
         }, {
@@ -2191,9 +2171,7 @@
           }
         }, {
           key: "checkWareHouse",
-          value: function checkWareHouse() {//  console.log(this.transfer.fromWarehouseId);
-            //  console.log(this.transfer.toWarehouseId)
-            // 	if(this.transfer.fromWarehouseId == this.transfer.toWarehouseId){
+          value: function checkWareHouse() {// 	if(this.transfer.fromWarehouseId == this.transfer.toWarehouseId){
             // 	 this.transfer.toWarehouseId='';	 
             // }
           }
@@ -2256,8 +2234,6 @@
                     });
                   });
                 }
-
-                console.log(_this27.materialItemData);
               }
             });
           }
@@ -2557,9 +2533,7 @@
           }
         }, {
           key: "getSelectedBlock",
-          value: function getSelectedBlock(event) {
-            console.log(event); //	this.report.apartmentBlockId = event[0].apartmentBlockId;		
-          }
+          value: function getSelectedBlock(event) {}
         }, {
           key: "getIndexParams",
           value: function getIndexParams(event) {
@@ -2623,8 +2597,6 @@
             var params = {};
             params.inventoryTransaction = receivingObj;
             this.inventoryService.updateInventoryTransaction(params).subscribe(function (res) {
-              console.log(res, res);
-
               if (res) {
                 _this33.sharedService.setAlertMessage("Receiving Item updated successfully");
 
@@ -2670,7 +2642,6 @@
             var params = {};
             params.inventoryTransaction = receivingObj;
             this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
-              // console.log(res, res);
               if (res) {
                 _this34.sharedService.setAlertMessage("Receiving Item added successfully");
 
@@ -3058,7 +3029,6 @@
           //       apartmentId: this.sessionService.apartmentId
           //     }
           //     this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res: any) => {
-          //       console.log("List of Units ", res);
           //       this.userReportDataList = res;
           //       this.isDataLoaded = true;
           //       this.showItems();
@@ -3085,14 +3055,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.userReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -3417,7 +3384,6 @@
           value: function addSetUp(name, type, value, e) {
             var _this41 = this;
 
-            console.log(type, value);
             var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
               panelClass: 'material-dialog-big',
               width: '70%',
@@ -3428,9 +3394,6 @@
               }
             });
             dialogRef.afterClosed().subscribe(function (result) {
-              console.log('The dialog was closed');
-              console.log(result);
-
               if (result) {
                 _this41.getAllInventory();
               }
@@ -3551,9 +3514,6 @@
         }, {
           key: "deleteRow",
           value: function deleteRow(index, data) {
-            // const control = this.userTable.get('tableRows') as FormArray;
-            // control.removeAt(index);
-            console.log(data.warehouseId);
             this.modalService.showConfirmModal(data.warehouseId);
           }
         }, {
@@ -4595,26 +4555,16 @@
           }
         }, {
           key: "onItemSelect",
-          value: function onItemSelect(item) {
-            console.log(item);
-            console.log(this.selectedItems);
-          }
+          value: function onItemSelect(item) {}
         }, {
           key: "OnItemDeSelect",
-          value: function OnItemDeSelect(item) {
-            console.log(item);
-            console.log(this.selectedItems);
-          }
+          value: function OnItemDeSelect(item) {}
         }, {
           key: "onSelectAll",
-          value: function onSelectAll(items) {
-            console.log(items);
-          }
+          value: function onSelectAll(items) {}
         }, {
           key: "onDeSelectAll",
-          value: function onDeSelectAll(items) {
-            console.log(items);
-          }
+          value: function onDeSelectAll(items) {}
         }]);
 
         return InventoryVendorManagementComponent;
@@ -5020,67 +4970,73 @@
       /* harmony import */
 
 
-      var _components_inventory_setup_inventory_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_inventory_setup_inventory_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/inventory-setup/inventory-setup.component */
       "./src/app/modules/ams/inventory/components/inventory-setup/inventory-setup.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/inventory-create/inventory-create.component */
       "./src/app/modules/ams/inventory/components/inventory-create/inventory-create.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/inventory-view/inventory-view.component */
       "./src/app/modules/ams/inventory/components/inventory-view/inventory-view.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/inventory-reports/inventory-reports.component */
       "./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_current_details_inventory_current_details_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_inventory_current_details_inventory_current_details_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/inventory-current-details/inventory-current-details.component */
       "./src/app/modules/ams/inventory/components/inventory-current-details/inventory-current-details.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_vendor_management_inventory_vendor_management_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_inventory_vendor_management_inventory_vendor_management_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/inventory-vendor-management/inventory-vendor-management.component */
       "./src/app/modules/ams/inventory/components/inventory-vendor-management/inventory-vendor-management.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/inventory-initial-stock/inventory-initial-stock.component */
       "./src/app/modules/ams/inventory/components/inventory-initial-stock/inventory-initial-stock.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/inventory-internal-transfer/inventory-internal-transfer.component */
       "./src/app/modules/ams/inventory/components/inventory-internal-transfer/inventory-internal-transfer.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/inventory-receiving/inventory-receiving.component */
       "./src/app/modules/ams/inventory/components/inventory-receiving/inventory-receiving.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/inventory-create-item/inventory-create-item.component */
       "./src/app/modules/ams/inventory/components/inventory-create-item/inventory-create-item.component.ts");
       /* harmony import */
 
 
-      var _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/inventory-stock-adjustments/inventory-stock-adjustments.component */
       "./src/app/modules/ams/inventory/components/inventory-stock-adjustments/inventory-stock-adjustments.component.ts");
 
@@ -5090,43 +5046,56 @@
         pathMatch: 'full'
       }, {
         path: 'settings',
-        component: _components_inventory_setup_inventory_setup_component__WEBPACK_IMPORTED_MODULE_3__["InventorySetupComponent"]
+        component: _components_inventory_setup_inventory_setup_component__WEBPACK_IMPORTED_MODULE_4__["InventorySetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-inventory',
-        component: _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_4__["InventoryCreateComponent"]
+        component: _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_5__["InventoryCreateComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit-inventory/:id',
-        component: _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_4__["InventoryCreateComponent"]
+        component: _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_5__["InventoryCreateComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'current-inventory',
-        component: _components_inventory_current_details_inventory_current_details_component__WEBPACK_IMPORTED_MODULE_7__["InventoryCurrentDetailsComponent"]
+        component: _components_inventory_current_details_inventory_current_details_component__WEBPACK_IMPORTED_MODULE_8__["InventoryCurrentDetailsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'vendor-management',
-        component: _components_inventory_vendor_management_inventory_vendor_management_component__WEBPACK_IMPORTED_MODULE_8__["InventoryVendorManagementComponent"]
+        component: _components_inventory_vendor_management_inventory_vendor_management_component__WEBPACK_IMPORTED_MODULE_9__["InventoryVendorManagementComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'initial-stock',
-        component: _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_9__["InventoryInitialStockComponent"]
+        component: _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_10__["InventoryInitialStockComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'internal-transfer',
-        component: _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_10__["InventoryInternalTransferComponent"]
+        component: _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_11__["InventoryInternalTransferComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'receiving',
-        component: _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_11__["InventoryReceivingComponent"]
+        component: _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_12__["InventoryReceivingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-item',
-        component: _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_12__["InventoryCreateItemComponent"]
+        component: _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_13__["InventoryCreateItemComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'stock-adjustments',
-        component: _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_13__["InventoryStockAdjustmentsComponent"]
+        component: _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_14__["InventoryStockAdjustmentsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view',
-        component: _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_5__["InventoryViewComponent"]
+        component: _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_6__["InventoryViewComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view/:id',
-        component: _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_5__["InventoryViewComponent"]
+        component: _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_6__["InventoryViewComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_6__["InventoryReportsComponent"]
+        component: _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_7__["InventoryReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',

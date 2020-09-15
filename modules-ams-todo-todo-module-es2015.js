@@ -271,7 +271,6 @@ let TodoCreateDialogComponent = class TodoCreateDialogComponent {
             }
             this.startTime = moment__WEBPACK_IMPORTED_MODULE_6__(this.todoParam.beginOn, 'HH:mm').format();
             this.endTime = moment__WEBPACK_IMPORTED_MODULE_6__(this.todoParam.finishOn, 'HH:mm').format();
-            console.log(this.startTime, this.endTime);
         }, error => {
         });
     }
@@ -547,7 +546,6 @@ let TodoCreateComponent = class TodoCreateComponent {
         });
     }
     onDialogClose(event) {
-        console.log('e', event);
     }
     getMeetingList() {
         let params = {
@@ -1120,10 +1118,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./todo-list/todo-list.component */ "./src/app/modules/ams/todo/todo-list/todo-list.component.ts");
-/* harmony import */ var _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./todo-create/todo-create.component */ "./src/app/modules/ams/todo/todo-create/todo-create.component.ts");
-/* harmony import */ var _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./todo-reminder/todo-reminder.component */ "./src/app/modules/ams/todo/todo-reminder/todo-reminder.component.ts");
-/* harmony import */ var _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo-history/todo-history.component */ "./src/app/modules/ams/todo/todo-history/todo-history.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./todo-list/todo-list.component */ "./src/app/modules/ams/todo/todo-list/todo-list.component.ts");
+/* harmony import */ var _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./todo-create/todo-create.component */ "./src/app/modules/ams/todo/todo-create/todo-create.component.ts");
+/* harmony import */ var _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo-reminder/todo-reminder.component */ "./src/app/modules/ams/todo/todo-reminder/todo-reminder.component.ts");
+/* harmony import */ var _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./todo-history/todo-history.component */ "./src/app/modules/ams/todo/todo-history/todo-history.component.ts");
+
 
 
 
@@ -1133,10 +1133,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'todo-creation', pathMatch: 'full' },
-    { path: 'todo-creation', component: _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_4__["TodoCreateComponent"] },
-    { path: 'todo-list', component: _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_3__["TodoListComponent"] },
-    { path: 'todo-reminder', component: _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_5__["TodoReminderComponent"] },
-    { path: 'todo-history', component: _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_6__["TodoHistoryComponent"] },
+    { path: 'todo-creation', component: _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'todo-list', component: _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__["TodoListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'todo-reminder', component: _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_6__["TodoReminderComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'todo-history', component: _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_7__["TodoHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'todo-creation', pathMatch: 'full' }
 ];
 let TodoRouting = class TodoRouting {

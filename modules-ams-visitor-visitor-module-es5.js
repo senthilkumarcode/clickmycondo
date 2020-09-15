@@ -507,9 +507,7 @@
                   } else {
                     _this4.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
-                }, function (error) {
-                  console.log(error);
-                });
+                }, function (error) {});
               }
             });
           }
@@ -3828,55 +3826,61 @@
       /* harmony import */
 
 
-      var _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/visitor-setup/visitor-setup.component */
       "./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/visitor-checkout/visitor-checkout.component */
       "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/visitor-reports/visitor-reports.component */
       "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */
       "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
       /* harmony import */
 
 
-      var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/visitor-create-checkin/visitor-create-checkin.component */
       "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
       /* harmony import */
 
 
-      var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */
       "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
       /* harmony import */
 
 
-      var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/exp-visitor-list/exp-visitor-list.component */
       "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
       /* harmony import */
 
 
-      var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/user-visitor-list/user-visitor-list.component */
       "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.ts");
       /* harmony import */
 
 
-      var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */
       "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
 
@@ -3886,43 +3890,56 @@
         pathMatch: 'full'
       }, {
         path: 'settings',
-        component: _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_3__["VisitorSetupComponent"]
+        component: _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_4__["VisitorSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'checkin',
-        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCreateCheckinComponent"]
+        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_8__["VisitorCreateCheckinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'visitor/:type/:id',
-        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCreateCheckinComponent"]
+        component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_8__["VisitorCreateCheckinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'expected-visitor-list',
-        component: _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_9__["ExpVisitorListComponent"]
+        component: _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-expected-visitor',
-        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_8__["ExpVisitorCreateChekinComponent"]
+        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_9__["ExpVisitorCreateChekinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'expected-visitor/:type/:id',
-        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_8__["ExpVisitorCreateChekinComponent"]
+        component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_9__["ExpVisitorCreateChekinComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'checkout',
-        component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_4__["VisitorCheckoutComponent"]
+        component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'history',
-        component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_4__["VisitorCheckoutComponent"]
+        component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'expected-visitor-user-checked-in',
-        component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__["UserVisitorListComponent"]
+        component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["UserVisitorListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'expected-visitor-user-history',
-        component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__["UserVisitorListComponent"]
+        component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["UserVisitorListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'expected-visitor-user-list',
-        component: _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["ExpUserVisitorListComponent"]
+        component: _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["ExpUserVisitorListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_5__["VisitorReportsComponent"]
+        component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__["VisitorReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/:name/:id',
-        component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_6__["VisitorReportsDataComponent"]
+        component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["VisitorReportsDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',

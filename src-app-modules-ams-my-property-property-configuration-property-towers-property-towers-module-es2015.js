@@ -100,7 +100,6 @@ let PropertyTowerInfoComponent = class PropertyTowerInfoComponent {
         });
     }
     ngOnInit() {
-        console.log(this.tower);
         let params = {
             apartmentBlockId: parseInt(this.tower.apartmentBlockId)
         };
@@ -252,7 +251,6 @@ let PropertyTowersComponent = class PropertyTowersComponent {
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.blockListData = res;
             this.isDataLoaded = true;
-            console.log(this.blockListData);
             if (this.blockListData.length > 0) {
                 this.isBlockAvailable = true;
             }

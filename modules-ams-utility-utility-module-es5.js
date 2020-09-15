@@ -1776,8 +1776,6 @@
           value: function onFilterByTowerChange() {
             var _this12 = this;
 
-            console.log("this.selectedTower", this.selectedTower);
-
             if (this.selectedTower == 'All') {
               this.filteredUtilityWaterListData = this.utilityWaterListData;
             } else {
@@ -2306,14 +2304,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.electricityReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -2654,14 +2649,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.insuranceReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           } // getSelectedDeliveryType(event) {
           //   this.selectedTower = event[0].apartmentBlockId;
@@ -3077,7 +3069,6 @@
           value: function onFilterByTowerChange() {
             var _this23 = this;
 
-            console.log("this.selectedTower", event[0]);
             this.selectedTower = event[0].apartmentBlockId;
 
             if (this.selectedTower == 'All') {
@@ -3209,14 +3200,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.waterReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -3407,7 +3395,6 @@
             var _this26 = this;
 
             this.isUtilityCategoryLoaded = false;
-            console.log(item);
             var params = {
               utilityId: item.utilityTrackerCategoryId,
               deleteBy: parseInt(this.sessionService.userId)
@@ -3648,55 +3635,61 @@
       /* harmony import */
 
 
-      var _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/utility-reports/utility-reports.component */
       "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.ts");
       /* harmony import */
 
 
-      var _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/utility-reports/electricity-report/electricity-report.component */
       "./src/app/modules/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts");
       /* harmony import */
 
 
-      var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/utility-reports/insurance-report/insurance-report.component */
       "./src/app/modules/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts");
       /* harmony import */
 
 
-      var _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/utility-reports/water-report/water-report.component */
       "./src/app/modules/ams/utility/components/utility-reports/water-report/water-report.component.ts");
       /* harmony import */
 
 
-      var _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/utility-setup/utility-setup.component */
       "./src/app/modules/ams/utility/components/utility-setup/utility-setup.component.ts");
       /* harmony import */
 
 
-      var _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/utility-add-reading/utility-add-reading.component */
       "./src/app/modules/ams/utility/components/utility-add-reading/utility-add-reading.component.ts");
       /* harmony import */
 
 
-      var _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/utility-add-reading/electricity-reading/electricity-reading.component */
       "./src/app/modules/ams/utility/components/utility-add-reading/electricity-reading/electricity-reading.component.ts");
       /* harmony import */
 
 
-      var _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/utility-add-reading/water-reading/water-reading.component */
       "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/water-reading.component.ts");
       /* harmony import */
 
 
-      var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/utility-history/utility-history.component */
       "./src/app/modules/ams/utility/components/utility-history/utility-history.component.ts");
 
@@ -3706,31 +3699,40 @@
         pathMatch: 'full'
       }, {
         path: 'settings',
-        component: _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_7__["UtilitySetupComponent"]
+        component: _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_8__["UtilitySetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reading',
-        component: _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_8__["UtilityAddReadingComponent"]
+        component: _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_9__["UtilityAddReadingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reading/electric',
-        component: _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_9__["ElectricityReadingComponent"]
+        component: _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_10__["ElectricityReadingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reading/water',
-        component: _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_10__["WaterReadingComponent"]
+        component: _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_11__["WaterReadingComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'history',
-        component: _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__["UtilityHistoryComponent"]
+        component: _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_12__["UtilityHistoryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_3__["UtilityReportsComponent"]
+        component: _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_4__["UtilityReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/electricity',
-        component: _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_4__["ElectricityReportComponent"]
+        component: _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_5__["ElectricityReportComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/water',
-        component: _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_6__["WaterReportComponent"]
+        component: _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_7__["WaterReportComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/insurance',
-        component: _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_5__["InsuranceReportComponent"]
+        component: _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_6__["InsuranceReportComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',
@@ -3869,120 +3871,120 @@
       /* harmony import */
 
 
-      var _utility_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./utility-routing.module */
-      "./src/app/modules/ams/utility/utility-routing.module.ts");
-      /* harmony import */
-
-
-      var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/shared/shared.module */
       "./src/app/shared/shared.module.ts");
       /* harmony import */
 
 
-      var _utility_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./utility.component */
-      "./src/app/modules/ams/utility/utility.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ./components/utility-reports/utility-reports.component */
-      "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ./components/utility-setup/utility-setup.component */
-      "./src/app/modules/ams/utility/components/utility-setup/utility-setup.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ./components/utility-add-reading/utility-add-reading.component */
-      "./src/app/modules/ams/utility/components/utility-add-reading/utility-add-reading.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ./components/utility-add-reading/electricity-reading/electricity-reading.component */
-      "./src/app/modules/ams/utility/components/utility-add-reading/electricity-reading/electricity-reading.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ./components/utility-add-reading/water-reading/water-reading.component */
-      "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/water-reading.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! ./components/utility-history/utility-history.component */
-      "./src/app/modules/ams/utility/components/utility-history/utility-history.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! ./components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component */
-      "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-      /*! ./components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component */
-      "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
-      /*! ./components/utility-add-reading/add-insurance/add-insurance.component */
-      "./src/app/modules/ams/utility/components/utility-add-reading/add-insurance/add-insurance.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
-      /*! ./components/utility-reports/electricity-report/electricity-report.component */
-      "./src/app/modules/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
-      /*! ./components/utility-reports/water-report/water-report.component */
-      "./src/app/modules/ams/utility/components/utility-reports/water-report/water-report.component.ts");
-      /* harmony import */
-
-
-      var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
-      /*! ./components/utility-reports/insurance-report/insurance-report.component */
-      "./src/app/modules/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts");
-      /* harmony import */
-
-
-      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/modules/ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/modules/ui/select/select.module */
       "./src/app/modules/ui/select/select.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/modules/ui/list/list.module */
       "./src/app/modules/ui/list/list.module.ts");
+      /* harmony import */
+
+
+      var _utility_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ./utility-routing.module */
+      "./src/app/modules/ams/utility/utility-routing.module.ts");
+      /* harmony import */
+
+
+      var _utility_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ./utility.component */
+      "./src/app/modules/ams/utility/utility.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ./components/utility-reports/utility-reports.component */
+      "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./components/utility-setup/utility-setup.component */
+      "./src/app/modules/ams/utility/components/utility-setup/utility-setup.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! ./components/utility-add-reading/utility-add-reading.component */
+      "./src/app/modules/ams/utility/components/utility-add-reading/utility-add-reading.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! ./components/utility-add-reading/electricity-reading/electricity-reading.component */
+      "./src/app/modules/ams/utility/components/utility-add-reading/electricity-reading/electricity-reading.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./components/utility-add-reading/water-reading/water-reading.component */
+      "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/water-reading.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! ./components/utility-history/utility-history.component */
+      "./src/app/modules/ams/utility/components/utility-history/utility-history.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! ./components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component */
+      "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/tower-reading-info.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! ./components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component */
+      "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/tower-reading-info/unit-reading-info/unit-reading-info.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! ./components/utility-add-reading/add-insurance/add-insurance.component */
+      "./src/app/modules/ams/utility/components/utility-add-reading/add-insurance/add-insurance.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      /*! ./components/utility-reports/electricity-report/electricity-report.component */
+      "./src/app/modules/ams/utility/components/utility-reports/electricity-report/electricity-report.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      /*! ./components/utility-reports/water-report/water-report.component */
+      "./src/app/modules/ams/utility/components/utility-reports/water-report/water-report.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      /*! ./components/utility-reports/insurance-report/insurance-report.component */
+      "./src/app/modules/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts");
 
       var UtilityModule = function UtilityModule() {
         _classCallCheck(this, UtilityModule);
       };
 
       UtilityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_utility_component__WEBPACK_IMPORTED_MODULE_5__["UtilityComponent"], _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_6__["UtilityReportsComponent"], _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_7__["UtilitySetupComponent"], _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_8__["UtilityAddReadingComponent"], _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_9__["ElectricityReadingComponent"], _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_10__["WaterReadingComponent"], _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_11__["UtilityHistoryComponent"], _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_12__["TowerReadingInfoComponent"], _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_13__["UnitReadingInfoComponent"], _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_14__["AddInsuranceComponent"], _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_15__["ElectricityReportComponent"], _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_16__["WaterReportComponent"], _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_17__["InsuranceReportComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _utility_routing_module__WEBPACK_IMPORTED_MODULE_3__["UtilityRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_18__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_19__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_20__["ListModule"]],
-        bootstrap: [_utility_component__WEBPACK_IMPORTED_MODULE_5__["UtilityComponent"]]
+        declarations: [_utility_component__WEBPACK_IMPORTED_MODULE_8__["UtilityComponent"], _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_9__["UtilityReportsComponent"], _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_10__["UtilitySetupComponent"], _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_11__["UtilityAddReadingComponent"], _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_12__["ElectricityReadingComponent"], _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_13__["WaterReadingComponent"], _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_14__["UtilityHistoryComponent"], _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_15__["TowerReadingInfoComponent"], _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_16__["UnitReadingInfoComponent"], _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_17__["AddInsuranceComponent"], _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_18__["ElectricityReportComponent"], _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_19__["WaterReportComponent"], _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_20__["InsuranceReportComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__["ListModule"], _utility_routing_module__WEBPACK_IMPORTED_MODULE_7__["UtilityRoutingModule"]],
+        bootstrap: [_utility_component__WEBPACK_IMPORTED_MODULE_8__["UtilityComponent"]]
       })], UtilityModule);
       /***/
     }

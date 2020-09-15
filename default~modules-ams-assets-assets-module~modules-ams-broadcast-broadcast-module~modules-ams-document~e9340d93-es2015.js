@@ -392,7 +392,6 @@ let SelectComponent = class SelectComponent {
     }
     ngOnInit() {
         this.fieldName = this.camelCase(this.labelText);
-        console.log(this.toolTip);
     }
     ngOnChanges() {
         if ((this.fieldModel != undefined && this.fieldModel != "" && this.fieldModel != null) && this.fieldList != undefined) {

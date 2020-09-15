@@ -3895,8 +3895,6 @@
                       _this23.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    console.log(res.errorMessage);
-
                     _this23.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
@@ -6069,9 +6067,7 @@
           value: function ngOnInit() {
             this.fromDate = this.route.params['value'].fromdate;
             this.toDate = this.route.params['value'].todate;
-            this.type = this.route.params['value'].type; //console.log(this.toDate);
-            //console.log(moment(this.toDate).toISOString());
-
+            this.type = this.route.params['value'].type;
             var params = {
               GLAccountId: this.route.params['value'].id,
               ApartmentId: this.sessionService.apartmentId,
@@ -6193,7 +6189,6 @@
           value: function ngOnInit() {
             var _this37 = this;
 
-            console.log(this.glReportsDataList);
             this.glReportsDataList = this.glReportsDataList.filter(function (item) {
               return item.description.indexOf(_this37.group) != -1;
             });
@@ -6528,109 +6523,115 @@
       /* harmony import */
 
 
-      var _components_gl_assets_gl_assets_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_gl_assets_gl_assets_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/gl-assets/gl-assets.component */
       "./src/app/modules/ams/general-ledger/components/gl-assets/gl-assets.component.ts");
       /* harmony import */
 
 
-      var _components_gl_liablilities_gl_liablilities_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_gl_liablilities_gl_liablilities_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/gl-liablilities/gl-liablilities.component */
       "./src/app/modules/ams/general-ledger/components/gl-liablilities/gl-liablilities.component.ts");
       /* harmony import */
 
 
-      var _components_gl_income_gl_income_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_gl_income_gl_income_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/gl-income/gl-income.component */
       "./src/app/modules/ams/general-ledger/components/gl-income/gl-income.component.ts");
       /* harmony import */
 
 
-      var _components_gl_expense_gl_expense_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_gl_expense_gl_expense_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/gl-expense/gl-expense.component */
       "./src/app/modules/ams/general-ledger/components/gl-expense/gl-expense.component.ts");
       /* harmony import */
 
 
-      var _components_add_gl_group_add_gl_group_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_add_gl_group_add_gl_group_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/add-gl-group/add-gl-group.component */
       "./src/app/modules/ams/general-ledger/components/add-gl-group/add-gl-group.component.ts");
       /* harmony import */
 
 
-      var _components_gl_groups_wrapper_gl_groups_wrapper_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_gl_groups_wrapper_gl_groups_wrapper_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/gl-groups-wrapper/gl-groups-wrapper.component */
       "./src/app/modules/ams/general-ledger/components/gl-groups-wrapper/gl-groups-wrapper.component.ts");
       /* harmony import */
 
 
-      var _components_gl_reports_gl_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_gl_reports_gl_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/gl-reports/gl-reports.component */
       "./src/app/modules/ams/general-ledger/components/gl-reports/gl-reports.component.ts");
       /* harmony import */
 
 
-      var _components_gl_settings_gl_settings_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_gl_settings_gl_settings_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/gl-settings/gl-settings.component */
       "./src/app/modules/ams/general-ledger/components/gl-settings/gl-settings.component.ts");
       /* harmony import */
 
 
-      var _components_gl_reports_gl_report_transactions_gl_report_transactions_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_gl_reports_gl_report_transactions_gl_report_transactions_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/gl-reports/gl-report-transactions/gl-report-transactions.component */
       "./src/app/modules/ams/general-ledger/components/gl-reports/gl-report-transactions/gl-report-transactions.component.ts");
       /* harmony import */
 
 
-      var _components_gl_journals_gl_journals_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_gl_journals_gl_journals_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components//gl-journals/gl-journals.component */
       "./src/app/modules/ams/general-ledger/components/gl-journals/gl-journals.component.ts");
       /* harmony import */
 
 
-      var _components_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/gl-journals/gl-create-journal/gl-create-journal.component */
       "./src/app/modules/ams/general-ledger/components/gl-journals/gl-create-journal/gl-create-journal.component.ts");
       /* harmony import */
 
 
-      var _components_gl_journals_gl_all_journals_gl_all_journals_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_gl_journals_gl_all_journals_gl_all_journals_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./components/gl-journals/gl-all-journals/gl-all-journals.component */
       "./src/app/modules/ams/general-ledger/components/gl-journals/gl-all-journals/gl-all-journals.component.ts");
       /* harmony import */
 
 
-      var _components_gl_journals_gl_journals_bulk_gl_journals_bulk_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _components_gl_journals_gl_journals_bulk_gl_journals_bulk_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./components/gl-journals/gl-journals-bulk/gl-journals-bulk.component */
       "./src/app/modules/ams/general-ledger/components/gl-journals/gl-journals-bulk/gl-journals-bulk.component.ts");
       /* harmony import */
 
 
-      var _components_gl_journals_gl_journals_bulk_corrections_gl_journals_bulk_corrections_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _components_gl_journals_gl_journals_bulk_corrections_gl_journals_bulk_corrections_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./components/gl-journals/gl-journals-bulk-corrections/gl-journals-bulk-corrections.component */
       "./src/app/modules/ams/general-ledger/components/gl-journals/gl-journals-bulk-corrections/gl-journals-bulk-corrections.component.ts");
       /* harmony import */
 
 
-      var _components_gl_other_reports_gl_other_reports_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _components_gl_other_reports_gl_other_reports_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ./components/gl-other-reports/gl-other-reports.component */
       "./src/app/modules/ams/general-ledger/components/gl-other-reports/gl-other-reports.component.ts");
       /* harmony import */
 
 
-      var _components_gl_other_reports_gl_other_reprots_transactions_gl_other_reprots_transactions_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _components_gl_other_reports_gl_other_reprots_transactions_gl_other_reprots_transactions_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ./components/gl-other-reports/gl-other-reprots-transactions/gl-other-reprots-transactions.component */
       "./src/app/modules/ams/general-ledger/components/gl-other-reports/gl-other-reprots-transactions/gl-other-reprots-transactions.component.ts");
       /* harmony import */
 
 
-      var _components_gl_other_reports_gl_financial_statements_gl_financial_statements_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var _components_gl_other_reports_gl_financial_statements_gl_financial_statements_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! ./components/gl-other-reports/gl-financial-statements/gl-financial-statements.component */
       "./src/app/modules/ams/general-ledger/components/gl-other-reports/gl-financial-statements/gl-financial-statements.component.ts");
       /* harmony import */
 
 
-      var _components_gl_equity_member_fund_gl_equity_member_fund_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _components_gl_equity_member_fund_gl_equity_member_fund_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ./components/gl-equity-member-fund/gl-equity-member-fund.component */
       "./src/app/modules/ams/general-ledger/components/gl-equity-member-fund/gl-equity-member-fund.component.ts");
 
@@ -6640,32 +6641,39 @@
         pathMatch: 'full'
       }, {
         path: 'settings',
-        component: _components_gl_settings_gl_settings_component__WEBPACK_IMPORTED_MODULE_10__["GlSettingsComponent"],
+        component: _components_gl_settings_gl_settings_component__WEBPACK_IMPORTED_MODULE_11__["GlSettingsComponent"],
         children: [{
           path: '',
           redirectTo: 'assets',
           pathMatch: 'full'
         }, {
           path: 'groups',
-          component: _components_gl_groups_wrapper_gl_groups_wrapper_component__WEBPACK_IMPORTED_MODULE_8__["GlGroupsWrapperComponent"]
+          component: _components_gl_groups_wrapper_gl_groups_wrapper_component__WEBPACK_IMPORTED_MODULE_9__["GlGroupsWrapperComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'liabilities',
-          component: _components_gl_liablilities_gl_liablilities_component__WEBPACK_IMPORTED_MODULE_4__["GlLiablilitiesComponent"]
+          component: _components_gl_liablilities_gl_liablilities_component__WEBPACK_IMPORTED_MODULE_5__["GlLiablilitiesComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'equity',
-          component: _components_gl_equity_member_fund_gl_equity_member_fund_component__WEBPACK_IMPORTED_MODULE_20__["GlEquityMemberFundComponent"]
+          component: _components_gl_equity_member_fund_gl_equity_member_fund_component__WEBPACK_IMPORTED_MODULE_21__["GlEquityMemberFundComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'income',
-          component: _components_gl_income_gl_income_component__WEBPACK_IMPORTED_MODULE_5__["GlIncomeComponent"]
+          component: _components_gl_income_gl_income_component__WEBPACK_IMPORTED_MODULE_6__["GlIncomeComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'expense',
-          component: _components_gl_expense_gl_expense_component__WEBPACK_IMPORTED_MODULE_6__["GlExpenseComponent"]
+          component: _components_gl_expense_gl_expense_component__WEBPACK_IMPORTED_MODULE_7__["GlExpenseComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'assets',
-          component: _components_gl_assets_gl_assets_component__WEBPACK_IMPORTED_MODULE_3__["GlAssetsComponent"]
+          component: _components_gl_assets_gl_assets_component__WEBPACK_IMPORTED_MODULE_4__["GlAssetsComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'add-group',
-          component: _components_add_gl_group_add_gl_group_component__WEBPACK_IMPORTED_MODULE_7__["AddGlGroupComponent"]
+          component: _components_add_gl_group_add_gl_group_component__WEBPACK_IMPORTED_MODULE_8__["AddGlGroupComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'assets',
@@ -6673,26 +6681,31 @@
         }]
       }, {
         path: 'journals',
-        component: _components_gl_journals_gl_journals_component__WEBPACK_IMPORTED_MODULE_12__["GlJournalsComponent"],
+        component: _components_gl_journals_gl_journals_component__WEBPACK_IMPORTED_MODULE_13__["GlJournalsComponent"],
         children: [{
           path: '',
           redirectTo: 'add-journal',
           pathMatch: 'full'
         }, {
           path: 'add-journal',
-          component: _components_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_13__["GlCreateJournalComponent"]
+          component: _components_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_14__["GlCreateJournalComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'edit-journal/:id',
-          component: _components_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_13__["GlCreateJournalComponent"]
+          component: _components_gl_journals_gl_create_journal_gl_create_journal_component__WEBPACK_IMPORTED_MODULE_14__["GlCreateJournalComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'all-journals',
-          component: _components_gl_journals_gl_all_journals_gl_all_journals_component__WEBPACK_IMPORTED_MODULE_14__["GlAllJournalsComponent"]
+          component: _components_gl_journals_gl_all_journals_gl_all_journals_component__WEBPACK_IMPORTED_MODULE_15__["GlAllJournalsComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'bulk-posting',
-          component: _components_gl_journals_gl_journals_bulk_gl_journals_bulk_component__WEBPACK_IMPORTED_MODULE_15__["GlJournalsBulkComponent"]
+          component: _components_gl_journals_gl_journals_bulk_gl_journals_bulk_component__WEBPACK_IMPORTED_MODULE_16__["GlJournalsBulkComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'bulk-corrections',
-          component: _components_gl_journals_gl_journals_bulk_corrections_gl_journals_bulk_corrections_component__WEBPACK_IMPORTED_MODULE_16__["GlJournalsBulkCorrectionsComponent"]
+          component: _components_gl_journals_gl_journals_bulk_corrections_gl_journals_bulk_corrections_component__WEBPACK_IMPORTED_MODULE_17__["GlJournalsBulkCorrectionsComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'add-journal',
@@ -6700,19 +6713,24 @@
         }]
       }, {
         path: 'trial-balances',
-        component: _components_gl_reports_gl_reports_component__WEBPACK_IMPORTED_MODULE_9__["GlReportsComponent"]
+        component: _components_gl_reports_gl_reports_component__WEBPACK_IMPORTED_MODULE_10__["GlReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'transactions/:type/:fromdate/:todate/:id',
-        component: _components_gl_reports_gl_report_transactions_gl_report_transactions_component__WEBPACK_IMPORTED_MODULE_11__["GlReportTransactionsComponent"]
+        component: _components_gl_reports_gl_report_transactions_gl_report_transactions_component__WEBPACK_IMPORTED_MODULE_12__["GlReportTransactionsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'all-reports',
-        component: _components_gl_other_reports_gl_other_reports_component__WEBPACK_IMPORTED_MODULE_17__["GlOtherReportsComponent"]
+        component: _components_gl_other_reports_gl_other_reports_component__WEBPACK_IMPORTED_MODULE_18__["GlOtherReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'report/transactions/:subtype/:id',
-        component: _components_gl_other_reports_gl_other_reprots_transactions_gl_other_reprots_transactions_component__WEBPACK_IMPORTED_MODULE_18__["GlOtherReprotsTransactionsComponent"]
+        component: _components_gl_other_reports_gl_other_reprots_transactions_gl_other_reprots_transactions_component__WEBPACK_IMPORTED_MODULE_19__["GlOtherReprotsTransactionsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'report/statements/:subtype/:id',
-        component: _components_gl_other_reports_gl_financial_statements_gl_financial_statements_component__WEBPACK_IMPORTED_MODULE_19__["GlFinancialStatementsComponent"]
+        component: _components_gl_other_reports_gl_financial_statements_gl_financial_statements_component__WEBPACK_IMPORTED_MODULE_20__["GlFinancialStatementsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',

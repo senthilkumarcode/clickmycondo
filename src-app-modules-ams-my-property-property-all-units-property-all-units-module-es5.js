@@ -276,8 +276,7 @@
               if (id != null && id == _this2._activatedRoute.params['value'].id) {
                 _this2._propertyUnitsListComponent.matDrawer.open();
 
-                _this2.unit = _this2._propertyUnitsListComponent.unit;
-                console.log(_this2.unit); //get unit type
+                _this2.unit = _this2._propertyUnitsListComponent.unit; //get unit type
 
                 _this2.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe(function (res) {
                   _this2.unitTypeData = res;

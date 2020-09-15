@@ -753,7 +753,6 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
         this.matDrawer.open();
     }
     changeRecord(event) {
-        console.log(event);
         this.selectedId = event;
     }
     onBackdropClicked() {

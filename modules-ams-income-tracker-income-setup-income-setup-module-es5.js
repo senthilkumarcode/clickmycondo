@@ -1427,7 +1427,6 @@
             };
             var params = {};
             params.penaltyConfig = reqObj;
-            console.log("added data ", params);
             this.accountsService.addPenaltyConfig(params).subscribe(function (res) {
               if (res.message) {
                 _this15.sharedService.setAlertMessage("Penalty Setup Config added successfully");
@@ -1481,9 +1480,6 @@
         }, {
           key: "deleteRow",
           value: function deleteRow(index, data) {
-            // const control = this.userTable.get('tableRows') as FormArray;
-            // control.removeAt(index);
-            console.log(data.penaltyId);
             this.deleteType = true;
             this.modalService.showConfirmModal(data.penaltyId);
           }
@@ -1506,8 +1502,7 @@
             this.isAssetLoaded = true;
             this.accountsService.getAllPenaltyConfigByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                console.log("resp of penalty", res); // this.penaltyData = [];
-
+                // this.penaltyData = [];
                 _this17.penaltyData = res && res.length > 0 ? res : [];
                 _this17.isAssetLoaded = false; // this.tempWarehouseData = this.warehouseData;
 
@@ -1527,7 +1522,6 @@
             var _this18 = this;
 
             var queryParamBase = {};
-            console.log("data[0]", this.penaltyData);
             queryParamBase = {
               PenaltyId: 1
             };
@@ -1536,7 +1530,6 @@
               if (res) {
                 _this18.isAssetLoaded = false;
                 _this18.penaltyType = res ? res : [];
-                console.log("penalty type ==> ", _this18.penaltyType);
               }
             });
           }
@@ -1555,7 +1548,6 @@
               if (res) {
                 // this.isAssetLoaded = false;
                 _this19.glAccountList = res ? res : [];
-                console.log(_this19.glAccountList);
               }
             });
           }

@@ -108,7 +108,6 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
         //     this.addPropertyParam[key] = this.data[key];
         //   }
         // }
-        console.log(this.addPropertyParam);
     }
     ngOnInit() {
         this.getPropertyType();

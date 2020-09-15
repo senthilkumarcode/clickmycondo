@@ -1026,10 +1026,7 @@
           }
         }, {
           key: "getProperty",
-          value: function getProperty(event) {
-            //this.property = event; 
-            console.log(event);
-          }
+          value: function getProperty(event) {}
         }, {
           key: "getPropertyType",
           value: function getPropertyType(id) {
@@ -1074,7 +1071,6 @@
           key: "getFileId",
           value: function getFileId(event) {
             this.property.imageId = event;
-            console.log(this.property.imageId);
           }
         }, {
           key: "submitProfileBasicForm",

@@ -173,7 +173,6 @@ let PropertyAddUnitComponent = class PropertyAddUnitComponent {
             if (id != null && id == this._activatedRoute.params['value'].id) {
                 this._propertyUnitsListComponent.matDrawer.open();
                 this.unit = this._propertyUnitsListComponent.unit;
-                console.log(this.unit);
                 //get unit type
                 this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe((res) => {
                     this.unitTypeData = res;

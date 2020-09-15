@@ -186,7 +186,6 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
         this.selectedRows = allDataRecords.filter(item => {
             return item.checked;
         });
-        console.log(this.selectedRows);
         this.datagrid.refresh();
     }
     onCheckDefaulterRow(detail) {
@@ -199,7 +198,6 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
         this.selectedRows = allDataRecords.filter(item => {
             return item.checked;
         });
-        console.log(this.selectedRows);
     }
     sendEmail() {
         this.isDefaultersDataLoaded = false;

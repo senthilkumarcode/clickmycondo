@@ -276,7 +276,6 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 }
                 objectVal.splice(0, 2);
                 // let arrObjVal = JSON.stringify(objectVal);
-                console.log(objectVal.toString());
                 $('#nodeKind').val(objectVal.toString());
                 $('#spanNode').val(this.onChangeVal.nodeId);
                 $('#poiId').val(result.poiId);

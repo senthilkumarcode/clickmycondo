@@ -320,7 +320,6 @@
             };
             this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe(function (res) {
               _this.reportsDataList = res;
-              console.log(_this.reportsDataList);
               _this.totalItems = _this.reportsDataList.length;
 
               if (_this.totalItems > _this.itemLimit) {

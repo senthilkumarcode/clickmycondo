@@ -183,7 +183,6 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
         };
         this.accountsService.getVendorGltransactionsMultiFilter(details).subscribe((res) => {
             this.reportsDataList = res;
-            console.log(this.reportsDataList);
             this.totalItems = this.reportsDataList.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;

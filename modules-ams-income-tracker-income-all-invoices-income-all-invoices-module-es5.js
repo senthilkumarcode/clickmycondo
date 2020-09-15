@@ -366,7 +366,6 @@
               invoiceId: row.custInvoiceId
             };
             this.accountsService.getCustInvoicesByApartmentId(invoiceParams).subscribe(function (res) {
-              console.log(res);
               _this2.invoice = res[0];
               var params = {
                 apartmentId: _this2.sessionService.apartmentId,

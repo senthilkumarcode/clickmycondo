@@ -327,7 +327,6 @@
             this.selectedRows = allDataRecords.filter(function (item) {
               return item.checked;
             });
-            console.log(this.selectedRows);
             this.datagrid.refresh();
           }
         }, {
@@ -342,7 +341,6 @@
             this.selectedRows = allDataRecords.filter(function (item) {
               return item.checked;
             });
-            console.log(this.selectedRows);
           }
         }, {
           key: "sendEmail",

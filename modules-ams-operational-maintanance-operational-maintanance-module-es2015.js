@@ -241,7 +241,6 @@ let InitialMaintananceComponent = class InitialMaintananceComponent {
         group.get('isEditable').setValue(false);
     }
     saveUserDetails() {
-        console.log(this.userTable.value);
     }
     get getFormControls() {
         const control = this.userTable.get('tableRows');
@@ -250,7 +249,6 @@ let InitialMaintananceComponent = class InitialMaintananceComponent {
     submitForm() {
         const control = this.userTable.get('tableRows');
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
     }
     getAllCategory() {
         this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
@@ -267,7 +265,6 @@ let InitialMaintananceComponent = class InitialMaintananceComponent {
         });
     }
     setSubcategory(item) {
-        console.log(item);
         this.row.subCategory = item.genMaintenanceCategoryId;
         if (this.subCategoriesData && this.subCategoriesData.length > 0) {
             this.subCategoriesData.filter(val => {
@@ -279,8 +276,6 @@ let InitialMaintananceComponent = class InitialMaintananceComponent {
         // this.currRow = item;
     }
     setNextPlanDate(val) {
-        console.log(val);
-        console.log(this.currRow);
         var result = new Date(val._d);
         result.setDate(result.getDate() + this.currRow.frequency);
         this.row.nextPlanDate = result;
@@ -825,7 +820,6 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
             }
         }
         if (!this.assetName && !this.categoryName && !this.subCategoryName) {
-            console.log('last');
             this.finalSearchGrid(this.tempMaintenanceList);
         }
     }
@@ -837,7 +831,6 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
         this.maintainHistoryData = new jqx.dataAdapter(tableHistoryData);
     }
     onItemSelect(item) {
-        console.log(item);
         this.assetName = item.itemName;
         this.searchMaintain();
     }
@@ -846,7 +839,6 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
         this.searchMaintain();
     }
     onItemSelectSubcategories(item) {
-        console.log(item);
         this.subCategoryName = item.itemName;
         this.searchMaintain();
     }
@@ -854,20 +846,16 @@ let OperationalMaintananceHistoryComponent = class OperationalMaintananceHistory
         this.searchMaintain();
     }
     onSelectAll(items) {
-        console.log(items);
     }
     onDeSelectAll(items) {
-        console.log(items);
         this.assetName = '';
         this.searchMaintain();
     }
     onDeSelectAllCategory(items) {
-        console.log();
         this.categoryName = '';
         this.searchMaintain();
     }
     onDeSelectAllSubcategories(items) {
-        console.log(items);
         this.subCategoryName = '';
         this.searchMaintain();
     }
@@ -1158,7 +1146,6 @@ let OperationalMaintananceListComponent = class OperationalMaintananceListCompon
                 // 	this.maintList.filter( val => {
                 //     if(status.lookupValueId == val.maintenanceStatusId){
                 // 	 val.commentStatus = true;
-                // 	 console.log(status.lookupValueId == val.maintenanceStatusId);
                 // 	} else{
                 // 		val.commentStatus= false;	
                 // 	}
@@ -1199,7 +1186,6 @@ let OperationalMaintananceListComponent = class OperationalMaintananceListCompon
                 });
                 dialogRef.afterClosed().subscribe(result => {
                     if (result) {
-                        console.log(result);
                         main.maintenanceStatusId = lookup.lookupValueId;
                         main.maintainStatusName = lookup.lookupValueName;
                         main.comments = result;
@@ -1269,7 +1255,6 @@ let OperationalMaintananceListComponent = class OperationalMaintananceListCompon
         params.genMaintenancePlan = data;
         this.genMaintService.updateGenMaintenancePlan(params).subscribe((res) => {
             if (res) {
-                console.log(res);
                 this.sharedService.setAlertMessage("Operational Maintanance updated successfully");
                 // this.isAssetLoaded = false;
                 // this.getAllMaitainList();
@@ -1351,13 +1336,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _operational_maintanance_setup_operational_maintanance_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./operational-maintanance-setup/operational-maintanance-setup.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/operational-maintanance-setup.component.ts");
-/* harmony import */ var _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./maintain-operational-maintanance/maintain-operational-maintanance.component */ "./src/app/modules/ams/operational-maintanance/maintain-operational-maintanance/maintain-operational-maintanance.component.ts");
-/* harmony import */ var _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./operational-maintanance-list/operational-maintanance-list.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-list/operational-maintanance-list.component.ts");
-/* harmony import */ var _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./operational-maintanance-history/operational-maintanance-history.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-history/operational-maintanance-history.component.ts");
-/* harmony import */ var _operational_maintanance_setup_op_maintenance_setup_title_op_maintenance_setup_title_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./operational-maintanance-setup/op-maintenance-setup-title/op-maintenance-setup-title.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-title/op-maintenance-setup-title.component.ts");
-/* harmony import */ var _operational_maintanance_setup_op_maintenance_setup_subcategory_op_maintenance_setup_subcategory_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./operational-maintanance-setup/op-maintenance-setup-subcategory/op-maintenance-setup-subcategory.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-subcategory/op-maintenance-setup-subcategory.component.ts");
-/* harmony import */ var _operational_maintanance_setup_op_maintenance_setup_category_op_maintenance_setup_category_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./operational-maintanance-setup/op-maintenance-setup-category/op-maintenance-setup-category.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-category/op-maintenance-setup-category.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _operational_maintanance_setup_operational_maintanance_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./operational-maintanance-setup/operational-maintanance-setup.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/operational-maintanance-setup.component.ts");
+/* harmony import */ var _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./maintain-operational-maintanance/maintain-operational-maintanance.component */ "./src/app/modules/ams/operational-maintanance/maintain-operational-maintanance/maintain-operational-maintanance.component.ts");
+/* harmony import */ var _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./operational-maintanance-list/operational-maintanance-list.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-list/operational-maintanance-list.component.ts");
+/* harmony import */ var _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./operational-maintanance-history/operational-maintanance-history.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-history/operational-maintanance-history.component.ts");
+/* harmony import */ var _operational_maintanance_setup_op_maintenance_setup_title_op_maintenance_setup_title_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./operational-maintanance-setup/op-maintenance-setup-title/op-maintenance-setup-title.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-title/op-maintenance-setup-title.component.ts");
+/* harmony import */ var _operational_maintanance_setup_op_maintenance_setup_subcategory_op_maintenance_setup_subcategory_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./operational-maintanance-setup/op-maintenance-setup-subcategory/op-maintenance-setup-subcategory.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-subcategory/op-maintenance-setup-subcategory.component.ts");
+/* harmony import */ var _operational_maintanance_setup_op_maintenance_setup_category_op_maintenance_setup_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./operational-maintanance-setup/op-maintenance-setup-category/op-maintenance-setup-category.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/op-maintenance-setup-category/op-maintenance-setup-category.component.ts");
+
 
 
 
@@ -1370,18 +1357,18 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'setup', pathMatch: 'full' },
-    { path: 'setup', component: _operational_maintanance_setup_operational_maintanance_setup_component__WEBPACK_IMPORTED_MODULE_3__["OperationalMaintananceSetupComponent"],
+    { path: 'setup', component: _operational_maintanance_setup_operational_maintanance_setup_component__WEBPACK_IMPORTED_MODULE_4__["OperationalMaintananceSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'category', pathMatch: 'full' },
-            { path: 'category', component: _operational_maintanance_setup_op_maintenance_setup_category_op_maintenance_setup_category_component__WEBPACK_IMPORTED_MODULE_9__["OpMaintenanceSetupCategoryComponent"] },
-            { path: 'sub-category', component: _operational_maintanance_setup_op_maintenance_setup_subcategory_op_maintenance_setup_subcategory_component__WEBPACK_IMPORTED_MODULE_8__["OpMaintenanceSetupSubcategoryComponent"] },
-            { path: 'title', component: _operational_maintanance_setup_op_maintenance_setup_title_op_maintenance_setup_title_component__WEBPACK_IMPORTED_MODULE_7__["OpMaintenanceSetupTitleComponent"] },
+            { path: 'category', component: _operational_maintanance_setup_op_maintenance_setup_category_op_maintenance_setup_category_component__WEBPACK_IMPORTED_MODULE_10__["OpMaintenanceSetupCategoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'sub-category', component: _operational_maintanance_setup_op_maintenance_setup_subcategory_op_maintenance_setup_subcategory_component__WEBPACK_IMPORTED_MODULE_9__["OpMaintenanceSetupSubcategoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'title', component: _operational_maintanance_setup_op_maintenance_setup_title_op_maintenance_setup_title_component__WEBPACK_IMPORTED_MODULE_8__["OpMaintenanceSetupTitleComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
         ] },
-    { path: 'title', component: _operational_maintanance_setup_op_maintenance_setup_title_op_maintenance_setup_title_component__WEBPACK_IMPORTED_MODULE_7__["OpMaintenanceSetupTitleComponent"] },
-    { path: 'maintain-operational-maintenance', component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__["MaintainOperationalMaintananceComponent"] },
-    { path: 'maintain-operational-maintenance/:id', component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_4__["MaintainOperationalMaintananceComponent"] },
-    { path: 'operational-maintenance-list', component: _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_5__["OperationalMaintananceListComponent"] },
-    { path: 'operational-maintenance-history', component: _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_6__["OperationalMaintananceHistoryComponent"] },
+    { path: 'title', component: _operational_maintanance_setup_op_maintenance_setup_title_op_maintenance_setup_title_component__WEBPACK_IMPORTED_MODULE_8__["OpMaintenanceSetupTitleComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'maintain-operational-maintenance', component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_5__["MaintainOperationalMaintananceComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'maintain-operational-maintenance/:id', component: _maintain_operational_maintanance_maintain_operational_maintanance_component__WEBPACK_IMPORTED_MODULE_5__["MaintainOperationalMaintananceComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'operational-maintenance-list', component: _operational_maintanance_list_operational_maintanance_list_component__WEBPACK_IMPORTED_MODULE_6__["OperationalMaintananceListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'operational-maintenance-history', component: _operational_maintanance_history_operational_maintanance_history_component__WEBPACK_IMPORTED_MODULE_7__["OperationalMaintananceHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'setup', pathMatch: 'full' }
 ];
 let OperationalMaintananceRouting = class OperationalMaintananceRouting {

@@ -241,7 +241,6 @@
           value: function onEditInvoice(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var vendorId = dataRecord.vendorId;
-            console.log(dataRecord);
             this.router.navigateByUrl('/ams/expense/post-invoice/' + 1 + '/' + vendorId);
           }
         }, {

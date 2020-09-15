@@ -749,7 +749,6 @@
             // return true;
             if (!this.IsValidEmail(this.user.emailId)) return true;
             this.isDataLoaded = false;
-            console.log('this.phoneForm.value.phone', this.phoneForm.value.phone);
             this.user.phoneNumber = this.phoneForm.value.phone.number;
             this.user.phonecountrycode = this.phoneForm.value.phone.dialCode;
             var params = {
@@ -804,7 +803,6 @@
             var retVal = true;
             var rex = new RegExp(/^[+]?\d+$/);
             var isValid = rex.test(val);
-            console.log(val.length);
 
             if (val.length > 13) {
               retVal = false;
@@ -5172,7 +5170,6 @@
             var retVal = true;
             var rex = new RegExp(/^[+]?\d+$/);
             var isValid = rex.test(val);
-            console.log(val.length);
 
             if (val.length > 13) {
               retVal = false;
@@ -5226,8 +5223,6 @@
               propertyManager: details
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
-              console.log('res', res);
-
               if (res.message) {
                 _this39.sharedService.setAlertMessage("Property Manager added successfully");
 
@@ -5498,7 +5493,6 @@
             var retVal = true;
             var rex = new RegExp(/^[+]?\d+$/);
             var isValid = rex.test(val);
-            console.log(val.length);
 
             if (val.length > 13) {
               retVal = false;
@@ -5564,7 +5558,6 @@
                 _this41.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
                   _this41.propertyData = res[0] || {};
                   _this41.isDataLoaded = true;
-                  console.log('propertyData', _this41.propertyData);
                 }, function (error) {
                   console.log(error);
                 });

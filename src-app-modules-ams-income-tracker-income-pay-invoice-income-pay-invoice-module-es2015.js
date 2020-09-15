@@ -293,7 +293,6 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         };
         this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe((res) => {
             var invoiceDataList = res;
-            console.log(res);
             this.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -489,7 +488,6 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     }
     getInstrumentType(event) {
         this.collection.instrumentTypeId = event[0].lookupValueId;
-        console.log(this.collection.instrumentTypeId);
     }
     getDepositSlip(event) {
         this.collection.depositSlipNumber = event[0].id;
@@ -704,7 +702,6 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             this.instrumentTypeListData = res.filter(item => {
                 return item.isActive;
             });
-            console.log(this.instrumentTypeListData);
         }, error => {
         });
         var accountParams = {

@@ -745,8 +745,6 @@
                     };
 
                     _this3.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
-                      console.log('user email');
-
                       _this3.sharedService.setAlertMessage("Account has been created. User notified via Email ");
 
                       _this3.router.navigate(['ams/unit&users/unapproved']);
@@ -784,14 +782,12 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe(function (res) {
-              console.log(res);
               _this4.userRolesData = res;
             });
 
             if (this.route.params['value'].id != undefined) {
               this.isEditUser = true;
               this.userService.getUserById(this.route.params['value'].id).subscribe(function (res) {
-                console.log(res);
                 _this4.user = res[0];
                 _this4.genderType = _this4.user.genderId.toString(); // get role
 
@@ -886,8 +882,7 @@
           value: function changeUserType(evt) {
             // this.isAdminRegister = false;
             if (evt.target.value == 2) {
-              console.log(evt.target.value); // this.isAdminRegister = true;
-
+              // this.isAdminRegister = true;
               this.user.isLiving = true;
             } else if (evt.target.value == 4) {
               this.user.isLiving = false; // this.isAdminRegister = false;
@@ -924,7 +919,6 @@
             var retVal = true;
             var rex = new RegExp(/^[+]?\d+$/);
             var isValid = rex.test(val);
-            console.log(val.length);
 
             if (val.length > 13) {
               retVal = false;
@@ -2129,7 +2123,6 @@
           value: function onEditUser(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             dataRecord.mode = true;
-            console.log(dataRecord);
             this.modalService.showSignUpdetailsModal(dataRecord);
           }
         }, {
@@ -3958,14 +3951,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.userReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -4204,49 +4194,55 @@
       /* harmony import */
 
 
-      var _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/add-users/add-users.component */
       "./src/app/modules/ams/unit-users/components/add-users/add-users.component.ts");
       /* harmony import */
 
 
-      var _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/unapproved/unapproved.component */
       "./src/app/modules/ams/unit-users/components/unapproved/unapproved.component.ts");
       /* harmony import */
 
 
-      var _components_approved_approved_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_approved_approved_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/approved/approved.component */
       "./src/app/modules/ams/unit-users/components/approved/approved.component.ts");
       /* harmony import */
 
 
-      var _components_de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/de-activated/de-activated.component */
       "./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.ts");
       /* harmony import */
 
 
-      var _components_user_reports_user_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_user_reports_user_reports_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/user-reports/user-reports.component */
       "./src/app/modules/ams/unit-users/components/user-reports/user-reports.component.ts");
       /* harmony import */
 
 
-      var _components_user_reports_user_report_data_user_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_user_reports_user_report_data_user_report_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/user-reports/user-report-data/user-report-data.component */
       "./src/app/modules/ams/unit-users/components/user-reports/user-report-data/user-report-data.component.ts");
       /* harmony import */
 
 
-      var _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/signuprequest/signuprequest.component */
       "./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.ts");
       /* harmony import */
 
 
-      var src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/modules/profile/profile-resolvers.service */
       "./src/app/modules/profile/profile-resolvers.service.ts");
 
@@ -4256,17 +4252,20 @@
         pathMatch: 'full'
       }, {
         path: 'usersignuprequest',
-        component: _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_9__["SignuprequestComponent"]
+        component: _components_signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_10__["SignuprequestComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'unapproved',
-        component: _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_4__["UnapprovedComponent"],
+        component: _components_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_5__["UnapprovedComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: 'profile',
           outlet: "profile",
           runGuardsAndResolvers: 'always',
           resolve: {
-            initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_10__["ProfileResolversService"]
+            initialData: src_app_modules_profile_profile_resolvers_service__WEBPACK_IMPORTED_MODULE_11__["ProfileResolversService"]
           },
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
           loadChildren: function loadChildren() {
             return __webpack_require__.e(
             /*! import() | src-app-modules-profile-profile-area-module */
@@ -4279,31 +4278,40 @@
         }]
       }, {
         path: 'add-users',
-        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"]
+        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_4__["AddUsersComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit-user/:id',
-        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"]
+        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_4__["AddUsersComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'approved',
-        component: _components_approved_approved_component__WEBPACK_IMPORTED_MODULE_5__["ApprovedComponent"]
+        component: _components_approved_approved_component__WEBPACK_IMPORTED_MODULE_6__["ApprovedComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'access-control',
-        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"]
+        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_4__["AddUsersComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'broadcast',
-        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"]
+        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_4__["AddUsersComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'statistics',
-        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_3__["AddUsersComponent"]
+        component: _components_add_users_add_users_component__WEBPACK_IMPORTED_MODULE_4__["AddUsersComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'de-activated',
-        component: _components_de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_6__["DeActivatedComponent"]
+        component: _components_de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_7__["DeActivatedComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_user_reports_user_reports_component__WEBPACK_IMPORTED_MODULE_7__["UserReportsComponent"]
+        component: _components_user_reports_user_reports_component__WEBPACK_IMPORTED_MODULE_8__["UserReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/:name/:id',
-        component: _components_user_reports_user_report_data_user_report_data_component__WEBPACK_IMPORTED_MODULE_8__["UserReportDataComponent"]
+        component: _components_user_reports_user_report_data_user_report_data_component__WEBPACK_IMPORTED_MODULE_9__["UserReportDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'unapproved',

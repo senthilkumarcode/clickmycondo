@@ -605,7 +605,6 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.fieldName = this.camelCase(this.labelText);
-            console.log(this.toolTip);
           }
         }, {
           key: "ngOnChanges",

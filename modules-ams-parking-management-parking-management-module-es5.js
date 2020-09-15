@@ -1350,7 +1350,6 @@
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this5.vehicleTypeData = res;
-              console.log(res);
             });
 
             if (this.route.params['value'].id != undefined) {
@@ -1753,9 +1752,7 @@
               StartTime: moment__WEBPACK_IMPORTED_MODULE_4__(this.searchBookingHistory.StartTime, 'hh:mm a').format(),
               EndTime: moment__WEBPACK_IMPORTED_MODULE_4__(this.searchBookingHistory.EndTime, 'hh:mm a').format()
             };
-            this.parkingService.getParkingAllocationSummary(searchHistoryParam).subscribe(function (resp) {
-              console.log('resp', resp);
-            }, function (error) {});
+            this.parkingService.getParkingAllocationSummary(searchHistoryParam).subscribe(function (resp) {}, function (error) {});
           }
         }]);
 
@@ -6794,9 +6791,7 @@
           }
         }, {
           key: "filterData",
-          value: function filterData(event) {
-            console.log(event);
-          }
+          value: function filterData(event) {}
         }, {
           key: "getCommunityAvailability",
           value: function getCommunityAvailability() {
@@ -7130,9 +7125,7 @@
               if (res.length > 0) {
                 _this47.parkingSlotList = res;
               }
-            }, function (error) {
-              console.log('error');
-            });
+            }, function (error) {});
           }
         }]);
 
@@ -7369,9 +7362,7 @@
           }
         }, {
           key: "filterData",
-          value: function filterData(event) {
-            console.log(event);
-          }
+          value: function filterData(event) {}
         }, {
           key: "getUnitAvailability",
           value: function getUnitAvailability() {

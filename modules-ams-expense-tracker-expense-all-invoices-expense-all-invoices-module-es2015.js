@@ -139,7 +139,6 @@ let ExpenseAllInvoicesComponent = class ExpenseAllInvoicesComponent {
     onEditInvoice(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let vendorId = dataRecord.vendorId;
-        console.log(dataRecord);
         this.router.navigateByUrl('/ams/expense/post-invoice/' + 1 + '/' + vendorId);
     }
     ngOnInit() {

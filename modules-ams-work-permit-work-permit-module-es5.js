@@ -2306,31 +2306,37 @@
       /* harmony import */
 
 
-      var _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/workpermit-setup/workpermit-setup.component */
       "./src/app/modules/ams/work-permit/components/workpermit-setup/workpermit-setup.component.ts");
       /* harmony import */
 
 
-      var _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/workpermit-approval/workpermit-approval.component */
       "./src/app/modules/ams/work-permit/components/workpermit-approval/workpermit-approval.component.ts");
       /* harmony import */
 
 
-      var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/workpermit-create/workpermit-create.component */
       "./src/app/modules/ams/work-permit/components/workpermit-create/workpermit-create.component.ts");
       /* harmony import */
 
 
-      var _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component */
       "./src/app/modules/ams/work-permit/components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component.ts");
       /* harmony import */
 
 
-      var _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component */
       "./src/app/modules/ams/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.ts");
 
@@ -2340,17 +2346,20 @@
         pathMatch: 'full'
       }, {
         path: 'setup',
-        component: _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_3__["WorkpermitSetupComponent"],
+        component: _components_workpermit_setup_workpermit_setup_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: '',
           redirectTo: 'workpermit-type',
           pathMatch: 'full'
         }, {
           path: 'workpermit-type',
-          component: _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_6__["WorkpermitTypeSetupComponent"]
+          component: _components_workpermit_setup_workpermit_type_setup_workpermit_type_setup_component__WEBPACK_IMPORTED_MODULE_7__["WorkpermitTypeSetupComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'nature-of-work',
-          component: _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_7__["NatureOfWorkSetupComponent"]
+          component: _components_workpermit_setup_nature_of_work_setup_nature_of_work_setup_component__WEBPACK_IMPORTED_MODULE_8__["NatureOfWorkSetupComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'workpermit-type',
@@ -2358,16 +2367,20 @@
         }]
       }, {
         path: 'create',
-        component: _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitCreateComponent"]
+        component: _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_6__["WorkpermitCreateComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'pending',
-        component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"]
+        component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitApprovalComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'approved',
-        component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"]
+        component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitApprovalComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'history',
-        component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_4__["WorkpermitApprovalComponent"]
+        component: _components_workpermit_approval_workpermit_approval_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitApprovalComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'setup',

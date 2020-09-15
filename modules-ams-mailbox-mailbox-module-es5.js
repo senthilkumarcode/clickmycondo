@@ -1884,9 +1884,8 @@
 
             while (route.firstChild) {
               route = route.firstChild;
-            }
+            } // var id = this.sharedService.guid();
 
-            console.log('this._router.url', this._router.url); // var id = this.sharedService.guid();
 
             this._router.navigate([this._router.url + '/', messageId], {
               relativeTo: route
@@ -2810,7 +2809,6 @@
         _createClass(MailboxMailResolver, [{
           key: "resolve",
           value: function resolve(route, state) {
-            console.log('route.paramMap.get()', route.paramMap.get('id'));
             return;
           }
         }]);
@@ -3937,9 +3935,7 @@
               panelClass: 'mailbox-compose-dialog'
             });
 
-            dialogRef.afterClosed().subscribe(function (result) {
-              console.log('Compose dialog was closed!');
-            });
+            dialogRef.afterClosed().subscribe(function (result) {});
           }
         }]);
 

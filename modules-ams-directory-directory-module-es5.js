@@ -462,7 +462,6 @@
         }, {
           key: "delete",
           value: function _delete(index, data) {
-            // console.log(data.warehouseId);  
             this.modalService.showConfirmModal(data.directoryTypeId);
           }
         }]);
@@ -821,9 +820,7 @@
           }
         }, {
           key: "saveUserDetails",
-          value: function saveUserDetails() {
-            console.log(this.userTable.value);
-          }
+          value: function saveUserDetails() {}
         }, {
           key: "submitForm",
           value: function submitForm() {
@@ -833,7 +830,6 @@
             }).map(function (row) {
               return row.value;
             });
-            console.log(this.touchedRows);
           }
         }, {
           key: "add",
@@ -914,7 +910,6 @@
         }, {
           key: "delete",
           value: function _delete(index, data) {
-            // console.log(data.warehouseId);  
             this.modalService.showConfirmModal(data.directoryRecordId);
           }
         }, {
@@ -1213,9 +1208,7 @@
           }
         }, {
           key: "saveUserDetails",
-          value: function saveUserDetails() {
-            console.log(this.userTable.value);
-          }
+          value: function saveUserDetails() {}
         }, {
           key: "submitForm",
           value: function submitForm() {
@@ -1225,7 +1218,6 @@
             }).map(function (row) {
               return row.value;
             });
-            console.log(this.touchedRows);
           }
         }, {
           key: "getAssetDirectoryItems",
@@ -1354,7 +1346,6 @@
         }, {
           key: "delete",
           value: function _delete(index, data) {
-            // console.log(data.warehouseId);  
             this.modalService.showConfirmModal(data.directoryRecordId);
           }
         }, {
@@ -1647,9 +1638,7 @@
           }
         }, {
           key: "saveUserDetails",
-          value: function saveUserDetails() {
-            console.log(this.userTable.value);
-          }
+          value: function saveUserDetails() {}
         }, {
           key: "submitForm",
           value: function submitForm() {
@@ -1659,7 +1648,6 @@
             }).map(function (row) {
               return row.value;
             });
-            console.log(this.touchedRows);
           }
         }, {
           key: "getAssetDirectoryItems",
@@ -1785,7 +1773,6 @@
         }, {
           key: "delete",
           value: function _delete(index, data) {
-            // console.log(data.warehouseId);  
             this.modalService.showConfirmModal(data.directoryRecordId);
           }
         }, {

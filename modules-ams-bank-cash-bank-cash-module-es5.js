@@ -525,9 +525,7 @@
                   _this2.sharedService.setAlertMessage("Bank Account deleted");
 
                   _this2.sharedService.setUnitListDeleteIndex(null);
-                }, function (error) {
-                  console.log(error);
-                });
+                }, function (error) {});
               }
             });
           }

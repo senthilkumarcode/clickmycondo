@@ -415,7 +415,6 @@
             };
             this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe(function (res) {
               var invoiceDataList = res;
-              console.log(res);
               _this5.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -732,7 +731,6 @@
           key: "getInstrumentType",
           value: function getInstrumentType(event) {
             this.collection.instrumentTypeId = event[0].lookupValueId;
-            console.log(this.collection.instrumentTypeId);
           }
         }, {
           key: "getDepositSlip",
@@ -980,7 +978,6 @@
               _this11.instrumentTypeListData = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this11.instrumentTypeListData);
             }, function (error) {});
             var accountParams = {
               apartmentId: this.sessionService.apartmentId,

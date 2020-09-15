@@ -899,7 +899,6 @@ let AddVehicleComponent = class AddVehicleComponent {
         //get vehicle type
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.vehicleTypeData = res;
-            console.log(res);
         });
         if (this.route.params['value'].id != undefined) {
             this.isEditVehicle = true;
@@ -1165,7 +1164,6 @@ let ParkingAdminViewBookingComponent = class ParkingAdminViewBookingComponent {
             EndTime: moment__WEBPACK_IMPORTED_MODULE_4__(this.searchBookingHistory.EndTime, 'hh:mm a').format()
         };
         this.parkingService.getParkingAllocationSummary(searchHistoryParam).subscribe(resp => {
-            console.log('resp', resp);
         }, error => {
         });
     }
@@ -4577,7 +4575,6 @@ let CommunityParkingAvailablityComponent = class CommunityParkingAvailablityComp
         }
     }
     filterData(event) {
-        console.log(event);
     }
     getCommunityAvailability() {
         this.isDataLoaded = true;
@@ -4815,7 +4812,6 @@ let CreateAvailablityComponent = class CreateAvailablityComponent {
                 this.parkingSlotList = res;
             }
         }, (error) => {
-            console.log('error');
         });
     }
 };
@@ -4955,7 +4951,6 @@ let UnitParkingAvailablityComponent = class UnitParkingAvailablityComponent {
         }
     }
     filterData(event) {
-        console.log(event);
     }
     getUnitAvailability() {
         this.isDataLoaded = true;

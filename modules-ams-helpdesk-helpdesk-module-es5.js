@@ -1326,14 +1326,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.userReportDataList["_source"].localdata.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -2343,14 +2340,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.userReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -4196,6 +4190,12 @@
       var _components_helpdesk_create_ticket_helpdesk_create_ticket_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/helpdesk-create-ticket/helpdesk-create-ticket.component */
       "./src/app/modules/ams/helpdesk/components/helpdesk-create-ticket/helpdesk-create-ticket.component.ts");
+      /* harmony import */
+
+
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
 
       var routes = [{
         path: '',
@@ -4204,16 +4204,20 @@
       }, {
         path: 'settings',
         component: _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_3__["HelpdeskSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]],
         children: [{
           path: '',
           redirectTo: 'private-category',
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]],
           pathMatch: 'full'
         }, {
           path: 'private-category',
-          component: _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_5__["PrivateCategoryComponent"]
+          component: _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_5__["PrivateCategoryComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
         }, {
           path: 'common-category',
-          component: _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_6__["CommonCategoryComponent"]
+          component: _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_6__["CommonCategoryComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'private-category',
@@ -4221,31 +4225,40 @@
         }]
       }, {
         path: 'create-ticket',
-        component: _components_helpdesk_create_ticket_helpdesk_create_ticket_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskCreateTicketComponent"]
+        component: _components_helpdesk_create_ticket_helpdesk_create_ticket_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskCreateTicketComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'edit-ticket/:id',
-        component: _components_helpdesk_create_ticket_helpdesk_create_ticket_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskCreateTicketComponent"]
+        component: _components_helpdesk_create_ticket_helpdesk_create_ticket_component__WEBPACK_IMPORTED_MODULE_9__["HelpdeskCreateTicketComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'unassigned',
-        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"]
+        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'open-tickets',
-        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"]
+        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'closed-tickets',
-        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"]
+        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'assigned-to-me',
-        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"]
+        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'all-tickets',
-        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"]
+        component: _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskTicketFilterComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskReportsComponent"]
+        component: _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_4__["HelpdeskReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: 'reports/:name/:id',
-        component: _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskReportsDataComponent"]
+        component: _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskReportsDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',

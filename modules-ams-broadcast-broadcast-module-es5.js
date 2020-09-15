@@ -278,61 +278,67 @@
       /* harmony import */
 
 
-      var _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/broadcast-setup/broadcast-setup.component */
       "./src/app/modules/ams/broadcast/components/broadcast-setup/broadcast-setup.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/broadcast-history/broadcast-history.component */
       "./src/app/modules/ams/broadcast/components/broadcast-history/broadcast-history.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/broadcast-sendmessage/broadcast-sendmessage.component */
       "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.ts");
       /* harmony import */
 
 
-      var _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/broadcastgroup-setup/broadcastgroup-setup.component */
       "./src/app/modules/ams/broadcast/components/broadcastgroup-setup/broadcastgroup-setup.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/broadcast-group-assignment/broadcast-group-assignment.component */
       "./src/app/modules/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/broadcast-removeuser/broadcast-removeuser.component */
       "./src/app/modules/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/broadcast-announcements/broadcast-announcements.component */
       "./src/app/modules/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/broadcast-sendmessage/broadcast-role/broadcast-role.component */
       "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-role/broadcast-role.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/broadcast-sendmessage/broadcast-group/broadcast-group.component */
       "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-group/broadcast-group.component.ts");
       /* harmony import */
 
 
-      var _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/broadcast-group-based-announcement/broadcast-group-based-announcement.component */
       "./src/app/modules/ams/broadcast/components/broadcast-group-based-announcement/broadcast-group-based-announcement.component.ts");
 
@@ -342,20 +348,24 @@
         pathMatch: 'full'
       }, {
         path: 'setup',
-        component: _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_3__["BroadcastSetupComponent"]
+        component: _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_4__["BroadcastSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'groupsetup',
-        component: _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastgroupSetupComponent"]
+        component: _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastgroupSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'sendmessage',
-        component: _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastSendmessageComponent"],
+        component: _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastSendmessageComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: 'role-based',
-          component: _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastRoleComponent"],
+          component: _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastRoleComponent"],
           pathMatch: 'full'
         }, {
           path: 'group-based',
-          component: _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastGroupComponent"]
+          component: _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastGroupComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'role-based',
@@ -363,16 +373,20 @@
         }]
       }, {
         path: 'assignusers',
-        component: _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastGroupAssignmentComponent"]
+        component: _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastGroupAssignmentComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'removeusers',
-        component: _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastRemoveuserComponent"]
+        component: _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_9__["BroadcastRemoveuserComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'announcements',
-        component: _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_9__["BroadcastAnnouncementsComponent"],
+        component: _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastAnnouncementsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: 'group-based-announcement/:category',
-          component: _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastGroupBasedAnnouncementComponent"]
+          component: _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_13__["BroadcastGroupBasedAnnouncementComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'group-based-announcement',
@@ -380,7 +394,8 @@
         }]
       }, {
         path: 'history',
-        component: _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_4__["BroadcastHistoryComponent"]
+        component: _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastHistoryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'setup',
@@ -1236,8 +1251,6 @@
               //   this.IsCategoryChanged = true;
               // }
 
-            }, function (error) {
-              return console.log(error);
             });
           }
         }, {
@@ -1749,7 +1762,6 @@
         }, {
           key: "changeRecord",
           value: function changeRecord(event) {
-            console.log(event);
             this.selectedId = event;
           }
         }, {
@@ -2415,9 +2427,7 @@
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
               _this20.unitData = res;
-            }, function (error) {
-              console.log(error);
-            });
+            }, function (error) {});
           }
         }, {
           key: "removeMappedUser",
@@ -2957,9 +2967,7 @@
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
               _this27.allnterestGroupUsers = res;
-            }, function (error) {
-              return console.log(error);
-            });
+            }, function (error) {});
           }
         }, {
           key: "selectInterestGroup",
@@ -3751,7 +3759,6 @@
           //     });
           //     this.allnterestGroupUsers = res;
           //   },
-          //     error => console.log(error)
           //   );
           // }
           // selectInterestGroup(item) {
@@ -4802,9 +4809,7 @@
 
                 _this48.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
                   _this48.getAllCategory();
-                }, function (error) {
-                  console.log(error);
-                });
+                }, function (error) {});
               }
             });
           }
@@ -5183,9 +5188,7 @@
 
                 _this52.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
                   _this52.getAllGroupCategory();
-                }, function (error) {
-                  console.log(error);
-                });
+                }, function (error) {});
               }
             });
             this.privilageCategory.dropdownList = [{

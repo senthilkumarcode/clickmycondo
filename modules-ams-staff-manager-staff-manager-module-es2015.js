@@ -1003,7 +1003,6 @@ let AddStaffComponent = class AddStaffComponent {
             ApartmentId: this.sessionService.apartmentId
         };
         this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe((res) => {
-            console.log(res);
             this.userRolesData = res;
         });
     }
@@ -1331,7 +1330,6 @@ let StaffAttendanceComponent = class StaffAttendanceComponent {
                     this.staffDetails.push(staff[0]);
                 });
             });
-            console.log('entryListData', this.entryListData);
             this.gridSourceData = {
                 localdata: this.entryListData,
                 datatype: "array"
@@ -1851,7 +1849,6 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
                 datatype: "array"
             };
             this.staffListData = new jqx.dataAdapter(this.gridSourceData);
-            console.log("staffListData Inactive", this.staffListData);
             this.totalItems = this.staffListData.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
@@ -1879,7 +1876,6 @@ let StaffInactiveStaffComponent = class StaffInactiveStaffComponent {
             this.staffOfficalCategoryData = res.filter(item => {
                 return item.isActive;
             });
-            console.log(this.staffOfficalCategoryData);
         }, error => {
         });
         let staffPersonalParams = {
@@ -2180,7 +2176,6 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
             this.staffOfficalCategoryData = res.filter(item => {
                 return item.isActive;
             });
-            console.log(this.staffOfficalCategoryData);
         }, error => {
         });
         let officialCategoryParams = {
@@ -3086,17 +3081,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_staff_setup_staff_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/staff-setup/staff-setup.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/staff-setup.component.ts");
-/* harmony import */ var _components_staff_maintain_staff_staff_maintain_staff_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/staff-maintain-staff/staff-maintain-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.ts");
-/* harmony import */ var _components_staff_inactive_staff_staff_inactive_staff_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/staff-inactive-staff/staff-inactive-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.ts");
-/* harmony import */ var _components_staff_attendance_staff_attendance_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/staff-attendance/staff-attendance.component */ "./src/app/modules/ams/staff-manager/components/staff-attendance/staff-attendance.component.ts");
-/* harmony import */ var _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/staff-payroll/staff-payroll.component */ "./src/app/modules/ams/staff-manager/components/staff-payroll/staff-payroll.component.ts");
-/* harmony import */ var _components_staff_overtime_staff_overtime_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/staff-overtime/staff-overtime.component */ "./src/app/modules/ams/staff-manager/components/staff-overtime/staff-overtime.component.ts");
-/* harmony import */ var _components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/staff-reports/staff-reports.component */ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts");
-/* harmony import */ var _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-staff/add-staff.component */ "./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.ts");
-/* harmony import */ var _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-entry/add-entry.component */ "./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.ts");
-/* harmony import */ var _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/staff-setup/associate-staff/associate-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.ts");
-/* harmony import */ var _components_staff_setup_personal_staff_personal_staff_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/staff-setup/personal-staff/personal-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/personal-staff/personal-staff.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_staff_setup_staff_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/staff-setup/staff-setup.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/staff-setup.component.ts");
+/* harmony import */ var _components_staff_maintain_staff_staff_maintain_staff_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/staff-maintain-staff/staff-maintain-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-maintain-staff/staff-maintain-staff.component.ts");
+/* harmony import */ var _components_staff_inactive_staff_staff_inactive_staff_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/staff-inactive-staff/staff-inactive-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-inactive-staff/staff-inactive-staff.component.ts");
+/* harmony import */ var _components_staff_attendance_staff_attendance_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/staff-attendance/staff-attendance.component */ "./src/app/modules/ams/staff-manager/components/staff-attendance/staff-attendance.component.ts");
+/* harmony import */ var _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/staff-payroll/staff-payroll.component */ "./src/app/modules/ams/staff-manager/components/staff-payroll/staff-payroll.component.ts");
+/* harmony import */ var _components_staff_overtime_staff_overtime_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/staff-overtime/staff-overtime.component */ "./src/app/modules/ams/staff-manager/components/staff-overtime/staff-overtime.component.ts");
+/* harmony import */ var _components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/staff-reports/staff-reports.component */ "./src/app/modules/ams/staff-manager/components/staff-reports/staff-reports.component.ts");
+/* harmony import */ var _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-staff/add-staff.component */ "./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.ts");
+/* harmony import */ var _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/add-entry/add-entry.component */ "./src/app/modules/ams/staff-manager/components/add-entry/add-entry.component.ts");
+/* harmony import */ var _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/staff-setup/associate-staff/associate-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.ts");
+/* harmony import */ var _components_staff_setup_personal_staff_personal_staff_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/staff-setup/personal-staff/personal-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/personal-staff/personal-staff.component.ts");
+
 
 
 
@@ -3113,23 +3110,24 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-    { path: 'settings', component: _components_staff_setup_staff_setup_component__WEBPACK_IMPORTED_MODULE_3__["StaffSetupComponent"],
+    { path: 'settings', component: _components_staff_setup_staff_setup_component__WEBPACK_IMPORTED_MODULE_4__["StaffSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'associate', pathMatch: 'full' },
-            { path: 'associate', component: _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_12__["AssociateStaffComponent"] },
-            { path: 'personal', component: _components_staff_setup_personal_staff_personal_staff_component__WEBPACK_IMPORTED_MODULE_13__["PersonalStaffComponent"] },
+            { path: 'associate', component: _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_13__["AssociateStaffComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'personal', component: _components_staff_setup_personal_staff_personal_staff_component__WEBPACK_IMPORTED_MODULE_14__["PersonalStaffComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
             { path: '**', redirectTo: 'associate', pathMatch: 'full' }
         ] },
-    { path: 'maintain-staff', component: _components_staff_maintain_staff_staff_maintain_staff_component__WEBPACK_IMPORTED_MODULE_4__["StaffMaintainStaffComponent"] },
-    { path: 'add-staff', component: _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_10__["AddStaffComponent"] },
-    { path: 'edit-staff/:id', component: _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_10__["AddStaffComponent"] },
-    { path: 'inactive-staff', component: _components_staff_inactive_staff_staff_inactive_staff_component__WEBPACK_IMPORTED_MODULE_5__["StaffInactiveStaffComponent"] },
-    { path: 'overtime', component: _components_staff_overtime_staff_overtime_component__WEBPACK_IMPORTED_MODULE_8__["StaffOvertimeComponent"] },
-    { path: 'attendance', component: _components_staff_attendance_staff_attendance_component__WEBPACK_IMPORTED_MODULE_6__["StaffAttendanceComponent"] },
-    { path: 'add-entry', component: _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_11__["AddEntryComponent"] },
-    { path: 'edit-entry/:id', component: _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_11__["AddEntryComponent"] },
-    { path: 'payroll', component: _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_7__["StaffPayrollComponent"] },
-    { path: 'reports', component: _components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_9__["StaffReportsComponent"] },
+    { path: 'maintain-staff', component: _components_staff_maintain_staff_staff_maintain_staff_component__WEBPACK_IMPORTED_MODULE_5__["StaffMaintainStaffComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'add-staff', component: _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_11__["AddStaffComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'edit-staff/:id', component: _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_11__["AddStaffComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'inactive-staff', component: _components_staff_inactive_staff_staff_inactive_staff_component__WEBPACK_IMPORTED_MODULE_6__["StaffInactiveStaffComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'overtime', component: _components_staff_overtime_staff_overtime_component__WEBPACK_IMPORTED_MODULE_9__["StaffOvertimeComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'attendance', component: _components_staff_attendance_staff_attendance_component__WEBPACK_IMPORTED_MODULE_7__["StaffAttendanceComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'add-entry', component: _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_12__["AddEntryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'edit-entry/:id', component: _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_12__["AddEntryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'payroll', component: _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_8__["StaffPayrollComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports', component: _components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_10__["StaffReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let StaffManagerRoutingModule = class StaffManagerRoutingModule {

@@ -400,7 +400,6 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         return this.alertList.length == 0 ? true : false;
     }
     // sortAlerts() {
-    //   // console.log(this.alertList);
     //   // this.emergencyTypeList.sort(function (a, b) {
     //   //   var nameA = a.lookupValueName.toLowerCase(), nameB = b.lookupValueName.toLowerCase()
     //   //   if (nameA < nameB) //sort string ascending
@@ -410,7 +409,6 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
     //   //   return 0 //default return value (no sorting)
     //   // })
     //   // this.emergencyTypeList.sort((a, b) => a.lookupValueName.localeCompare(b.lookupValueName));
-    //   console.log("emergency list = ", this.emergencyTypeList);
     // }
     ngOnInit() {
         this.alert = {};
@@ -430,7 +428,6 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
                 };
                 this.userService.getUserById(params).subscribe((user) => {
                     this.userDetails.push(user[0]);
-                    //console.log(this.userDetails);
                 }, error => {
                     console.log(error);
                 });
@@ -446,7 +443,6 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
                     item.gpslocation = "47.4925,19.0513";
                 }
                 this.locationDetails.push({ userId: item.insertedBy, coords: item.gpslocation });
-                // console.log(this.locationDetails);
             });
         }, error => {
             console.log(error);
@@ -775,7 +771,6 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
                 };
                 this.userService.getUserById(params).subscribe((user) => {
                     this.userDetails.push(user[0]);
-                    //console.log(this.userDetails);
                 }, error => {
                     console.log(error);
                 });
@@ -791,10 +786,8 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
                     item.gpslocation = "47.4925,19.0513";
                 }
                 this.locationDetails.push({ userId: item.insertedBy, coords: item.gpslocation });
-                // console.log(this.locationDetails);
             });
             this.tableData.alertlist = this.alertList;
-            console.log("Table data  == ", this.tableData);
             this.gridSourceData = {
                 localdata: this.tableData,
                 datatype: "array"
@@ -1350,11 +1343,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_security_active_alerts_security_active_alerts_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/security-active-alerts/security-active-alerts.component */ "./src/app/modules/ams/security/components/security-active-alerts/security-active-alerts.component.ts");
-/* harmony import */ var _components_security_history_security_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/security-history/security-history.component */ "./src/app/modules/ams/security/components/security-history/security-history.component.ts");
-/* harmony import */ var _components_security_reports_security_reports_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/security-reports/security-reports.component */ "./src/app/modules/ams/security/components/security-reports/security-reports.component.ts");
-/* harmony import */ var _components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/security-reports/security-reports-data/security-reports-data.component */ "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.ts");
-/* harmony import */ var _security_setup_security_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./security-setup/security-setup.component */ "./src/app/modules/ams/security/security-setup/security-setup.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_security_active_alerts_security_active_alerts_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/security-active-alerts/security-active-alerts.component */ "./src/app/modules/ams/security/components/security-active-alerts/security-active-alerts.component.ts");
+/* harmony import */ var _components_security_history_security_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/security-history/security-history.component */ "./src/app/modules/ams/security/components/security-history/security-history.component.ts");
+/* harmony import */ var _components_security_reports_security_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/security-reports/security-reports.component */ "./src/app/modules/ams/security/components/security-reports/security-reports.component.ts");
+/* harmony import */ var _components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/security-reports/security-reports-data/security-reports-data.component */ "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.ts");
 
 
 
@@ -1365,11 +1358,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-    { path: 'settings', component: _security_setup_security_setup_component__WEBPACK_IMPORTED_MODULE_7__["SecuritySetupComponent"] },
-    { path: 'active-alerts', component: _components_security_active_alerts_security_active_alerts_component__WEBPACK_IMPORTED_MODULE_3__["SecurityActiveAlertsComponent"] },
-    { path: 'history', component: _components_security_history_security_history_component__WEBPACK_IMPORTED_MODULE_4__["SecurityHistoryComponent"] },
-    { path: 'reports', component: _components_security_reports_security_reports_component__WEBPACK_IMPORTED_MODULE_5__["SecurityReportsComponent"] },
-    { path: 'reports/:name', component: _components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_6__["SecurityReportsDataComponent"] },
+    { path: 'active-alerts', component: _components_security_active_alerts_security_active_alerts_component__WEBPACK_IMPORTED_MODULE_4__["SecurityActiveAlertsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'history', component: _components_security_history_security_history_component__WEBPACK_IMPORTED_MODULE_5__["SecurityHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports', component: _components_security_reports_security_reports_component__WEBPACK_IMPORTED_MODULE_6__["SecurityReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports/:name', component: _components_security_reports_security_reports_data_security_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["SecurityReportsDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let SecurityRoutingModule = class SecurityRoutingModule {
@@ -1841,10 +1833,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _security_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./security-setup.component */ "./src/app/modules/ams/security/security-setup/security-setup.component.ts");
-/* harmony import */ var _security_setup_list_security_setup_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./security-setup-list/security-setup-list.component */ "./src/app/modules/ams/security/security-setup/security-setup-list/security-setup-list.component.ts");
-/* harmony import */ var _security_setup_add_category_security_setup_add_category_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./security-setup-add-category/security-setup-add-category.component */ "./src/app/modules/ams/security/security-setup/security-setup-add-category/security-setup-add-category.component.ts");
-/* harmony import */ var _security_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./security-setup-resolvers.service */ "./src/app/modules/ams/security/security-setup/security-setup-resolvers.service.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _security_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./security-setup.component */ "./src/app/modules/ams/security/security-setup/security-setup.component.ts");
+/* harmony import */ var _security_setup_list_security_setup_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./security-setup-list/security-setup-list.component */ "./src/app/modules/ams/security/security-setup/security-setup-list/security-setup-list.component.ts");
+/* harmony import */ var _security_setup_add_category_security_setup_add_category_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./security-setup-add-category/security-setup-add-category.component */ "./src/app/modules/ams/security/security-setup/security-setup-add-category/security-setup-add-category.component.ts");
+/* harmony import */ var _security_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./security-setup-resolvers.service */ "./src/app/modules/ams/security/security-setup/security-setup-resolvers.service.ts");
+
 
 
 
@@ -1855,16 +1849,19 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _security_setup_component__WEBPACK_IMPORTED_MODULE_3__["SecuritySetupComponent"],
+        component: _security_setup_component__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             { path: 'settings',
-                component: _security_setup_list_security_setup_list_component__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupListComponent"],
+                component: _security_setup_list_security_setup_list_component__WEBPACK_IMPORTED_MODULE_5__["SecuritySetupListComponent"],
+                canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                 children: [
                     {
                         path: ':type/:id',
-                        component: _security_setup_add_category_security_setup_add_category_component__WEBPACK_IMPORTED_MODULE_5__["SecuritySetupAddCategoryComponent"],
+                        component: _security_setup_add_category_security_setup_add_category_component__WEBPACK_IMPORTED_MODULE_6__["SecuritySetupAddCategoryComponent"],
+                        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                         resolve: {
-                            category: _security_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_6__["SecuritySetupListResolversService"]
+                            category: _security_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_7__["SecuritySetupListResolversService"]
                         }
                     }
                 ]

@@ -668,7 +668,6 @@
             this.accountsService.getCollectionByCollectionId(params).subscribe(function (res) {
               _this4.isReceiptPrintLoaded = true;
               _this4.receiptInfoDetails = res;
-              console.log(_this4.receiptInfoDetails);
             });
           }
         }, {

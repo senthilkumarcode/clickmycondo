@@ -696,7 +696,6 @@
               _this5.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this5.packageTypes);
             }, function (error) {});
             var deliveryTypeParams = {
               LookupTypeId: 170
@@ -810,7 +809,6 @@
             };
             this.packageService.getAllPackages(params).subscribe(function (res) {
               _this6.allParcelDelivey = res;
-              console.log(_this6.allParcelDelivey);
 
               var _deliveryHistoryList = res.filter(function (x) {
                 return x.isActive === true;
@@ -833,7 +831,6 @@
             this.isEditCredit = true;
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             this.credit = dataRecord;
-            console.log(dataRecord);
             var id = dataRecord.packageId;
             this.sharedService.setMatDrawerId(id);
 
@@ -1405,7 +1402,6 @@
               _this10._changeDetectorRef.markForCheck();
             });
             this.lookupTypeId = this._activatedRoute.queryParams['value'].typeid;
-            console.log(this._activatedRoute);
 
             if (this._activatedRoute.params['value'].type !== 'new') {
               this.deliverySetupComponent.matDrawer.open();
@@ -2691,7 +2687,6 @@
               _this23.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
-              console.log(_this23.packageTypes);
             }, function (error) {});
             var deliveryTypeParams = {
               LookupTypeId: 170
@@ -2843,7 +2838,6 @@
 
             this.packageService.getAllPendingDeliveries(params).subscribe(function (res) {
               _this24.allParcelDelivey = res;
-              console.log(_this24.allParcelDelivey);
 
               var _deliveryHistoryList = res.filter(function (x) {
                 return x.isActive === false;
@@ -2878,7 +2872,6 @@
             // this.isEditCredit = true;
             // let dataRecord = this.datagrid.getrowdata(detail.rowId)
             // this.credit = dataRecord
-            // console.log(dataRecord);
             // var id = dataRecord.packageId;
             // this.sharedService.setMatDrawerId(id);
             // this._router.navigate(['./delivery-pending' ,'edit', id], {relativeTo: this._activatedRoute.parent});
@@ -2899,13 +2892,10 @@
           value: function onEditTicket(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var permitId = dataRecord.workPermitId;
-            console.log('progress');
           }
         }, {
           key: "onSendNotification",
-          value: function onSendNotification(detail) {
-            console.log('progress2');
-          }
+          value: function onSendNotification(detail) {}
         }]);
 
         return PendingDeliveryComponent;
@@ -3253,82 +3243,96 @@
       /* harmony import */
 
 
-      var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/create-package/create-package.component */
       "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
       /* harmony import */
 
 
-      var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/delivery-history/delivery-history.component */
       "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
       /* harmony import */
 
 
-      var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/delivery-setup/delivery-setup.component */
       "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
       /* harmony import */
 
 
-      var _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/pending-delivery/pending-delivery.component */
       "./src/app/modules/ams/parcel-delivery/components/pending-delivery/pending-delivery.component.ts");
       /* harmony import */
 
 
-      var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */
       "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
       /* harmony import */
 
 
-      var _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/delivery-setup-add-category/delivery-setup-resolvers.service */
       "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-resolvers.service.ts");
       /* harmony import */
 
 
-      var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/delivery-history/delivery-view-history/delivery-view-history.component */
       "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-view-history/delivery-view-history.component.ts");
       /* harmony import */
 
 
-      var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/pending-delivery-edit/pending-delivery-edit.component */
       "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.ts");
 
       var routes = [{
         path: 'create-package',
-        component: _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_3__["CreatePackageComponent"]
+        component: _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_4__["CreatePackageComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit',
-        component: _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_10__["PendingDeliveryEditComponent"]
+        component: _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_11__["PendingDeliveryEditComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'delivery-history',
-        component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__["DeliveryHistoryComponent"],
+        component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_5__["DeliveryHistoryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: ':type/:id',
-          component: _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_9__["DeliveryViewHistoryComponent"],
+          component: _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_10__["DeliveryViewHistoryComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
           resolve: {
-            category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_8__["DeliverySetupResolversService"]
+            category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_9__["DeliverySetupResolversService"]
           }
         }]
       }, {
         path: 'delivery-manage',
-        component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__["DeliveryHistoryComponent"]
+        component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_5__["DeliveryHistoryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'delivery-pending',
-        component: _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_6__["PendingDeliveryComponent"]
+        component: _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_7__["PendingDeliveryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'delivery-setup',
-        component: _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_5__["DeliverySetupComponent"],
+        component: _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_6__["DeliverySetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: ':type/:id',
-          component: _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_7__["DeliverySetupAddCategoryComponent"],
+          component: _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_8__["DeliverySetupAddCategoryComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
           resolve: {
-            category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_8__["DeliverySetupResolversService"]
+            category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_9__["DeliverySetupResolversService"]
           }
         }]
       }];

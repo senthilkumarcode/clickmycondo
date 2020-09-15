@@ -176,8 +176,6 @@
           //   }
           // }
 
-
-          console.log(this.addPropertyParam);
         }
 
         _createClass(AddPropertyDialogComponent, [{

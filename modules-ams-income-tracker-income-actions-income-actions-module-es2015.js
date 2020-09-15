@@ -130,7 +130,6 @@ let IncomeActionsListsResolversService = class IncomeActionsListsResolversServic
     resolve(route, state) {
         var id = this.sharedService.getActionIncomeTrackerIndex();
         if (id != null) {
-            console.log(state);
         }
         return;
     }
@@ -1129,7 +1128,6 @@ let IncomeJournalComponent = class IncomeJournalComponent {
             };
             this.reportsDataList = new jqx.dataAdapter(this.gridSourceData);
             this.totalItems = reportsDataList.length;
-            console.log(reportsDataList);
             this.isDataLoaded = true;
             this.isReportSubmitted = false;
         }, error => {

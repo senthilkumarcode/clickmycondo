@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n  <div class=\"reports-wrapper\" *ngIf=\"!listType\">\n    <div class=\"main\">\n      <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n      <ng-container *ngIf=\"isDataLoaded\">\n        <h4 class=\"mb-4\">Select the reports</h4>\n        <div class=\"row\">\n          <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">\n            <condo-card>\n              <div CondoCardHeader>\n                <div (click)=\"listType = true\">\n                  <h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </div>\n              </div>\n              <div CondoCardBody>\n                <div class=\"p-4 bg-cool-gray-50\"></div>\n              </div>\n            </condo-card>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </div>\n\n\n\n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n\n     \n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n    </ng-container>\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         <!-- <label>Select Tower No</label> -->\n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n  <div class=\"reports-wrapper\" *ngIf=\"!listType\">\n    <div class=\"main\">\n      <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n      <ng-container *ngIf=\"isDataLoaded\">\n        <h4 class=\"mb-4\">Select the reports</h4>\n        <div class=\"row\">\n          <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">\n            <condo-card>\n              <div CondoCardHeader>\n                <a class=\"t-no-decor\" href=\"javascript:void(0)\" (click)=\"listType = true\">\n                  <h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </a>\n              </div>\n              <div CondoCardBody>\n                <div class=\"p-4 bg-cool-gray-50\"></div>\n              </div>\n            </condo-card>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </div>\n\n\n\n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n\n     \n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n    </ng-container>\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         <!-- <label>Select Tower No</label> -->\n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n\n</div>\n";
       /***/
     },
 
@@ -286,55 +286,61 @@
       /* harmony import */
 
 
-      var _components_assets_setup_assets_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_assets_setup_assets_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/assets-setup/assets-setup.component */
       "./src/app/modules/ams/assets/components/assets-setup/assets-setup.component.ts");
       /* harmony import */
 
 
-      var _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/assets-create/assets-create.component */
       "./src/app/modules/ams/assets/components/assets-create/assets-create.component.ts");
       /* harmony import */
 
 
-      var _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/assets-reports/assets-reports.component */
       "./src/app/modules/ams/assets/components/assets-reports/assets-reports.component.ts");
       /* harmony import */
 
 
-      var _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/assets-view/assets-view.component */
       "./src/app/modules/ams/assets/components/assets-view/assets-view.component.ts");
       /* harmony import */
 
 
-      var _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/add-asset-maintenance/add-asset-maintenance.component */
       "./src/app/modules/ams/assets/components/add-asset-maintenance/add-asset-maintenance.component.ts");
       /* harmony import */
 
 
-      var _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/add-maintenance/add-maintenance.component */
       "./src/app/modules/ams/assets/components/add-maintenance/add-maintenance.component.ts");
       /* harmony import */
 
 
-      var _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/manage-maintenance/manage-maintenance.component */
       "./src/app/modules/ams/assets/components/manage-maintenance/manage-maintenance.component.ts");
       /* harmony import */
 
 
-      var _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/maintenance-history/maintenance-history.component */
       "./src/app/modules/ams/assets/components/maintenance-history/maintenance-history.component.ts");
       /* harmony import */
 
 
-      var _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/last-maintenance/last-maintenance.component */
       "./src/app/modules/ams/assets/components/last-maintenance/last-maintenance.component.ts");
 
@@ -344,50 +350,64 @@
         pathMatch: 'full'
       }, {
         path: 'settings',
-        component: _components_assets_setup_assets_setup_component__WEBPACK_IMPORTED_MODULE_3__["AssetsSetupComponent"]
+        component: _components_assets_setup_assets_setup_component__WEBPACK_IMPORTED_MODULE_4__["AssetsSetupComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create',
-        component: _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_4__["AssetsCreateComponent"]
+        component: _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_5__["AssetsCreateComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit-asset/:id',
-        component: _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_4__["AssetsCreateComponent"]
+        component: _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_5__["AssetsCreateComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'add-asset-maintenance/:id/:type',
-        component: _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_7__["AddAssetMaintenanceComponent"]
+        component: _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_8__["AddAssetMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-maintenance',
-        component: _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_8__["AddMaintenanceComponent"]
+        component: _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_9__["AddMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-maintenance/:id',
-        component: _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_8__["AddMaintenanceComponent"]
+        component: _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_9__["AddMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'last-Maintenance',
-        component: _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_11__["LastMaintenanceComponent"]
+        component: _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_12__["LastMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'last-Maintenance/:id',
-        component: _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_11__["LastMaintenanceComponent"]
+        component: _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_12__["LastMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'maintenance-history',
-        component: _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_10__["MaintenanceHistoryComponent"]
+        component: _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_11__["MaintenanceHistoryComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'manage-maintenance',
-        component: _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_9__["ManageMaintenanceComponent"]
+        component: _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_10__["ManageMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'manage-maintenance/:id',
-        component: _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_9__["ManageMaintenanceComponent"]
+        component: _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_10__["ManageMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'edit-asset-maintenance/:id',
-        component: _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_7__["AddAssetMaintenanceComponent"]
-      }, // { path: 'maintenance-history', component: AssetsMaintenanceHistoryComponent},
-      {
+        component: _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_8__["AddAssetMaintenanceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
         path: 'view',
-        component: _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_6__["AssetsViewComponent"]
+        component: _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_7__["AssetsViewComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view/:id',
-        component: _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_6__["AssetsViewComponent"]
+        component: _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_7__["AssetsViewComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports',
-        component: _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_5__["AssetsReportsComponent"]
+        component: _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_6__["AssetsReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',
@@ -1249,8 +1269,6 @@
             var params = {};
             params.assetMaintenancePlan = reqObj;
             this.assetService.addAssetMaintenancePlan(params).subscribe(function (res) {
-              console.log(res);
-
               if (res.message) {
                 _this6.sharedService.setAlertMessage("Asset Maintenance added successfully");
 
@@ -1785,9 +1803,7 @@
             var params = {};
             params.assetInsurancePlan = reqObj;
             this.assetService.updateAssetInsurancePlan(params).subscribe(function (res) {
-              if (res) {
-                console.log(res);
-              }
+              if (res) {}
             }, function (error) {
               _this12.isAssetSubmitted = false;
               _this12.isError = true;
@@ -1819,9 +1835,7 @@
             var params = {};
             params.assetInsurancePlan = reqObj;
             this.assetService.addAssetInsurancePlan(params).subscribe(function (res) {
-              if (res) {
-                console.log(res);
-              }
+              if (res) {}
             }, function (error) {
               _this13.isAssetSubmitted = false;
               _this13.isError = true;
@@ -2319,14 +2333,11 @@
           key: "showItems",
           value: function showItems() {
             this.totalItems = this.userReportDataList.length;
-            console.log("total items ", this.totalItems);
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;
-              console.log("Itemendindex if", this.ItemEndIndex);
             } else {
               this.ItemEndIndex = this.totalItems;
-              console.log("Itemendindex ", this.ItemEndIndex);
             }
           }
         }, {
@@ -2718,7 +2729,6 @@
                 _this25.tempMainType = _this25.mainType; // if (this.data && this.data.type === 'addSubType') {
                 // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
                 // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
-                // 	// console.log(this.category);
                 // }
               }
             });
@@ -2961,7 +2971,6 @@
       //   }
       //   deleteAssetCategory(item, index){
       //   	this.isAssetCategoryLoaded = false;
-      //     console.log(item);
       //   	var params = {
       //       lookupValueId: item.lookupValueId,
       //       updateUserId: parseInt(this.sessionService.userId)
@@ -3329,9 +3338,7 @@
 
                     _this32.getAllAssets();
                   }, 500);
-                }, function (error) {
-                  console.log(error);
-                });
+                }, function (error) {});
               }
             });
             this.getAllAssets();
@@ -3861,7 +3868,6 @@
       //             this.sharedService.setUnitListDeleteIndex(null);
       //           }, 500)
       //         }, error => {
-      //           console.log(error);
       //         });
       //       }
       //     });
@@ -4783,7 +4789,6 @@
             }
 
             if (!this.assetName && !this.categoryName && !this.subCategoryName) {
-              console.log('last');
               this.maintenanceList = this.tempMaintenanceList;
             }
 
@@ -4799,7 +4804,6 @@
         }, {
           key: "onItemSelect",
           value: function onItemSelect(item) {
-            console.log(item);
             this.assetName = item.itemName;
             this.searchAsset();
           }
@@ -4812,7 +4816,6 @@
         }, {
           key: "onItemSelectSubcategory",
           value: function onItemSelectSubcategory(item) {
-            console.log(item);
             this.subCategoryName = item.itemName;
             this.searchAsset();
           }
@@ -4827,32 +4830,25 @@
             // else{
             // 	this.maintenanceList = this.tempMaintenanceList;
             // }
-            // console.log(item);
-            // console.log(this.selectedItems);
           }
         }, {
           key: "onSelectAll",
-          value: function onSelectAll(items) {
-            console.log(items);
-          }
+          value: function onSelectAll(items) {}
         }, {
           key: "onDeSelectAll",
           value: function onDeSelectAll(items) {
-            console.log(items);
             this.assetName = '';
             this.searchAsset();
           }
         }, {
           key: "onDeSelectAllCategory",
           value: function onDeSelectAllCategory(items) {
-            console.log();
             this.categoryName = '';
             this.searchAsset();
           }
         }, {
           key: "onDeSelectAllSubcategory",
           value: function onDeSelectAllSubcategory(items) {
-            console.log(items);
             this.subCategoryName = '';
             this.searchAsset();
           }
@@ -4907,8 +4903,6 @@
 
                 _this46.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
                   // this.asset = res[0];
-                  console.log('called');
-
                   if (res && res[0]) {
                     _this46.maintenanceList = res;
                   }
@@ -4964,8 +4958,6 @@
             var params = {};
             params.LookupTypeId = 19;
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              console.log(res, 'res:::::');
-
               if (res) {
                 // this.categoryList = res;
                 if (res && res.length > 0) {

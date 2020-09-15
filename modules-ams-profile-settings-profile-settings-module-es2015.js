@@ -437,7 +437,6 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
                 }
                 objectVal.splice(0, 2);
                 // let arrObjVal = JSON.stringify(objectVal);
-                console.log(objectVal.toString());
                 $('#nodeKind').val(objectVal.toString());
                 $('#spanNode').val(this.onChangeVal.nodeId);
                 $('#poiId').val(result.poiId);
@@ -544,7 +543,6 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
         var svg = d3.select("#lcanvas").append("svg")
             .attr("width", width)
             .attr("height", height);
-        console.log('svg', svg);
         graph = new GraphCreator(svg, nodes, edges);
         graph.setIdCt(0);
         // this.graph.updateGraph();
@@ -934,7 +932,6 @@ let AddFloorUnitComponent = class AddFloorUnitComponent {
         }
         let apiMethod = this.pageType == 'create' ? 'addApartmentBlockUnit' : 'updateApartmentBlock';
         this.apartmentService.addApartmentBlockUnit(params).subscribe((res) => {
-            console.log(res);
         });
     }
     newTowerSubmit() {
@@ -1235,10 +1232,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts");
-/* harmony import */ var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
-/* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
-/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts");
+/* harmony import */ var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
+/* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
+/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+
 
 
 
@@ -1248,10 +1247,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'add-block', pathMatch: 'full' },
-    { path: 'add-block', component: _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_3__["AddBlockWrapperComponent"] },
-    { path: 'add-unit', component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddUnitWrapperComponent"] },
-    { path: 'add-floor-unit', component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__["AddFloorUnitComponent"] },
-    { path: 'add-floor-unit-graphic', component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_6__["AddFloorUnitGraphicComponent"] },
+    { path: 'add-block', component: _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddBlockWrapperComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'add-unit', component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_5__["AddUnitWrapperComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'add-floor-unit', component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_6__["AddFloorUnitComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'add-floor-unit-graphic', component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__["AddFloorUnitGraphicComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'add-block', pathMatch: 'full' }
 ];
 let ProfileSettingsRoutingModule = class ProfileSettingsRoutingModule {

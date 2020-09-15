@@ -332,7 +332,6 @@ let BankSettingsComponent = class BankSettingsComponent {
                     this.sharedService.setAlertMessage("Bank Account deleted");
                     this.sharedService.setUnitListDeleteIndex(null);
                 }, error => {
-                    console.log(error);
                 });
             }
         });

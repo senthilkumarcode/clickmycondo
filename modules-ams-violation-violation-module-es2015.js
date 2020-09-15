@@ -334,8 +334,6 @@ let AddViolationComponent = class AddViolationComponent {
         };
         this.violationService.getAllViolationsByStatus(statusparams).subscribe((res) => {
             let list = res;
-            //       this.allViolationData=list;
-            // console.log(this.allViolationData);
         });
     }
     onDateChange(event, type) {
@@ -383,7 +381,6 @@ let AddViolationComponent = class AddViolationComponent {
         });
         dialogRef.componentInstance.outputEvent.subscribe((res) => {
             this.ongetSearchData(res);
-            console.log(res.amount);
             this.violationData.penaltyAmt = res.amount;
         });
         dialogRef.afterClosed().subscribe(result => {
@@ -435,7 +432,6 @@ let AddViolationComponent = class AddViolationComponent {
         });
     }
     ongetSearchData(data) {
-        console.log(data);
     }
     getViolationRule(violationCateogoryId) {
         const _apartment_Id = this.sessionService.apartmentId;
@@ -462,8 +458,6 @@ let AddViolationComponent = class AddViolationComponent {
         this.getViolationRule(event);
     }
     // onChangeRule(event) {
-    //   console.log(this.violationData.violationRuleNo);
-    //   console.log(this.violationData.violationCategory);
     //   let list = this.allViolationData;
     //   if(this.violationData.apartmentBlockUnitId !== 0){
     //     list= list.filter(x=>x.apartmentBlockUnitId === this.violationData.apartmentBlockUnitId);
@@ -476,8 +470,6 @@ let AddViolationComponent = class AddViolationComponent {
     //     // tslint:disable-next-line:radix
     //     list= list.filter(x=>x.violationRuleId === parseInt(this.violationData.violationRuleNo)).sort((a,b) => 0 - (a > b ? 1 : -1));
     //   }
-    //   console.log(list);
-    //   console.log(list[0].violationOccurrence);
     //   this.violationData.violationOccurence = list[0].violationOccurrence === undefined ?  0 : list[0].violationOccurrence;
     //   this.violationData.penaltyAmt = list[0].penaltyAmt === undefined ? 0 : list[0].penaltyAmt;
     // }
@@ -496,7 +488,6 @@ let AddViolationComponent = class AddViolationComponent {
                 reader.onload = (e) => {
                     const target = e.target;
                     const fileResult = target.result;
-                    console.log(fileResult);
                     this.violationData.uploadImage = fileResult;
                 };
                 reader.readAsDataURL(item);
@@ -711,7 +702,6 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     onSelect(facility) {
-        console.log(facility);
         this.outputEvent.emit(facility);
         this.dialogRef.close();
     }
@@ -880,7 +870,6 @@ let SearchBlockunitComponent = class SearchBlockunitComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     onSelect(facility) {
-        // console.log(facility);
         this.outputEvent.emit(facility);
         this.dialogRef.close();
     }
@@ -1166,7 +1155,6 @@ let SearchParkingslotsComponent = class SearchParkingslotsComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     onSelect(facility) {
-        console.log(facility);
         this.outputEvent.emit(facility);
         this.dialogRef.close();
     }
@@ -1378,7 +1366,6 @@ let StopPrivilegeComponent = class StopPrivilegeComponent {
                     //       descViolationNo: [_descViolation, [Validators.required]],
                     //       stopprivledges: [_violationPrivilege, [Validators.required]],
                     //     }));
-                    //     // console.log(violation);
                     //   });
                     // });
                     this.isDataLoaded = true;
@@ -1515,7 +1502,6 @@ let StopPrivilegeComponent = class StopPrivilegeComponent {
         control.push(this.initiateViolationForm());
     }
     saveUserDetails() {
-        console.log(this.userTable.value);
     }
     get getFormControls() {
         const control = this.userTable.get('tableRows');
@@ -1574,7 +1560,6 @@ let StopPrivilegeComponent = class StopPrivilegeComponent {
     submitForm() {
         const control = this.userTable.get('tableRows');
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
     }
     initiateForm() {
         return this.fb.group({
@@ -2078,7 +2063,6 @@ let UserViolationComponent = class UserViolationComponent {
         };
         this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe((res) => {
             this.violationStatusData = res;
-            console.log(this.violationStatusData);
         });
     }
     getdata(data) {
@@ -2086,7 +2070,6 @@ let UserViolationComponent = class UserViolationComponent {
         return returndata.length === 0 ? data : returndata[0].lookupValueName;
     }
     openDispute(violation) {
-        console.log(violation);
         const dialogRef = this.dialog.open(_dispute_dispute_component__WEBPACK_IMPORTED_MODULE_10__["DisputeComponent"], {
             width: '900px',
             data: {
@@ -2473,7 +2456,6 @@ let EditViolationComponent = class EditViolationComponent {
             if (getViolationData.violationCategoryId > 0) {
                 this.getViolationRule(getViolationData.violationCategoryId);
             }
-            console.log(getViolationData);
             this.violationData = {
                 id: getViolationData.id,
                 apartmentBlockId: getViolationData.apartmentBlockId,
@@ -2532,7 +2514,6 @@ let EditViolationComponent = class EditViolationComponent {
                 disputeComments: this.violationData.disputeComments === "" ? null : this.violationData.disputeComments
             }
         };
-        console.log(params);
         this.violationService.updateViolations(params).subscribe((res) => {
             if (res) {
                 this.sharedService.setAlertMessage(res.message);
@@ -2556,7 +2537,6 @@ let EditViolationComponent = class EditViolationComponent {
                 reader.onload = (e) => {
                     const target = e.target;
                     const fileResult = target.result;
-                    console.log(fileResult);
                     this.violationData.uploadImage = fileResult;
                 };
                 reader.readAsDataURL(item);
@@ -2785,7 +2765,6 @@ let ViewViolationComponent = class ViewViolationComponent {
         };
         this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe((res) => {
             this.violationStatusData = res;
-            console.log(this.violationStatusData);
         });
     }
     getdata(data) {
@@ -3239,10 +3218,6 @@ let SelectCheckAllComponent = class SelectCheckAllComponent {
     ngOnInit() {
     }
     isChecked() {
-        // console.log(this.model.value);
-        // console.log(this.values.length);
-        // console.log(this.model.value && this.values.length
-        //   && this.model.value.length === this.values.length);
         return this.model.value && this.values.length
             && this.model.value.length === this.values.length;
     }
@@ -3252,7 +3227,6 @@ let SelectCheckAllComponent = class SelectCheckAllComponent {
     }
     toggleSelection(change) {
         if (change.checked) {
-            console.log(this.values);
             this.model.update.emit(this.values);
         }
         else {
@@ -3590,7 +3564,6 @@ let ViolationSetupComponent = class ViolationSetupComponent {
         };
     }
     onChange(event) {
-        console.log(event);
     }
     getallMenu() {
         let params = {
@@ -3908,7 +3881,6 @@ let ViolationSetupComponent = class ViolationSetupComponent {
         control.push(this.initiateViolationForm());
     }
     saveUserDetails() {
-        console.log(this.userTable.value);
     }
     get getFormControls() {
         const control = this.userTable.get('tableRows');
@@ -3932,7 +3904,6 @@ let ViolationSetupComponent = class ViolationSetupComponent {
     submitForm() {
         const control = this.userTable.get('tableRows');
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
     }
     initiateForm() {
         return this.fb.group({
@@ -4044,7 +4015,6 @@ let ViolationSetupComponent = class ViolationSetupComponent {
                                 descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                                 stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                             }));
-                            // console.log(violation);
                         });
                     });
                     // // tslint:disable-next-line:no-shadowed-variable

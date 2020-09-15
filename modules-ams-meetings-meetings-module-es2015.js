@@ -1434,11 +1434,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_meetings_reports_meetings_reports_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/meetings-reports/meetings-reports.component */ "./src/app/modules/ams/meetings/components/meetings-reports/meetings-reports.component.ts");
-/* harmony import */ var _components_meetings_setup_meetings_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/meetings-setup/meetings-setup.component */ "./src/app/modules/ams/meetings/components/meetings-setup/meetings-setup.component.ts");
-/* harmony import */ var _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/meetings-create/meetings-create.component */ "./src/app/modules/ams/meetings/components/meetings-create/meetings-create.component.ts");
-/* harmony import */ var _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/meetings-scheduled-list/meetings-scheduled-list.component */ "./src/app/modules/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.ts");
-/* harmony import */ var _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/meetings-list/meetings-list.component */ "./src/app/modules/ams/meetings/components/meetings-list/meetings-list.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_meetings_reports_meetings_reports_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/meetings-reports/meetings-reports.component */ "./src/app/modules/ams/meetings/components/meetings-reports/meetings-reports.component.ts");
+/* harmony import */ var _components_meetings_setup_meetings_setup_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/meetings-setup/meetings-setup.component */ "./src/app/modules/ams/meetings/components/meetings-setup/meetings-setup.component.ts");
+/* harmony import */ var _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/meetings-create/meetings-create.component */ "./src/app/modules/ams/meetings/components/meetings-create/meetings-create.component.ts");
+/* harmony import */ var _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/meetings-scheduled-list/meetings-scheduled-list.component */ "./src/app/modules/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.ts");
+/* harmony import */ var _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/meetings-list/meetings-list.component */ "./src/app/modules/ams/meetings/components/meetings-list/meetings-list.component.ts");
+
 
 
 
@@ -1449,12 +1451,12 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
-    { path: 'create', component: _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsCreateComponent"] },
-    { path: 'edit/:id', component: _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsCreateComponent"] },
-    { path: 'settings', component: _components_meetings_setup_meetings_setup_component__WEBPACK_IMPORTED_MODULE_4__["MeetingsSetupComponent"] },
-    { path: 'list', component: _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_7__["MeetingsListComponent"] },
-    { path: 'scheduled-list', component: _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_6__["MeetingsScheduledListComponent"] },
-    { path: 'reports', component: _components_meetings_reports_meetings_reports_component__WEBPACK_IMPORTED_MODULE_3__["MeetingsReportsComponent"] },
+    { path: 'create', component: _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_6__["MeetingsCreateComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'edit/:id', component: _components_meetings_create_meetings_create_component__WEBPACK_IMPORTED_MODULE_6__["MeetingsCreateComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'settings', component: _components_meetings_setup_meetings_setup_component__WEBPACK_IMPORTED_MODULE_5__["MeetingsSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'list', component: _components_meetings_list_meetings_list_component__WEBPACK_IMPORTED_MODULE_8__["MeetingsListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'scheduled-list', component: _components_meetings_scheduled_list_meetings_scheduled_list_component__WEBPACK_IMPORTED_MODULE_7__["MeetingsScheduledListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports', component: _components_meetings_reports_meetings_reports_component__WEBPACK_IMPORTED_MODULE_4__["MeetingsReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let MeetingsRoutingModule = class MeetingsRoutingModule {

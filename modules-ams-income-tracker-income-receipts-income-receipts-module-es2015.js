@@ -421,7 +421,6 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         this.accountsService.getCollectionByCollectionId(params).subscribe((res) => {
             this.isReceiptPrintLoaded = true;
             this.receiptInfoDetails = res;
-            console.log(this.receiptInfoDetails);
         });
     }
     onUpdateInvoice(detail) {

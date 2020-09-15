@@ -534,8 +534,7 @@
               active: 1
             };
             this.violationService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
-              var list = res; //       this.allViolationData=list;
-              // console.log(this.allViolationData);
+              var list = res;
             });
           }
         }, {
@@ -597,7 +596,6 @@
             dialogRef.componentInstance.outputEvent.subscribe(function (res) {
               _this.ongetSearchData(res);
 
-              console.log(res.amount);
               _this.violationData.penaltyAmt = res.amount;
             });
             dialogRef.afterClosed().subscribe(function (result) {});
@@ -660,9 +658,7 @@
           }
         }, {
           key: "ongetSearchData",
-          value: function ongetSearchData(data) {
-            console.log(data);
-          }
+          value: function ongetSearchData(data) {}
         }, {
           key: "getViolationRule",
           value: function getViolationRule(violationCateogoryId) {
@@ -697,8 +693,6 @@
           value: function onChangeCategoryID(event) {
             this.getViolationRule(event);
           } // onChangeRule(event) {
-          //   console.log(this.violationData.violationRuleNo);
-          //   console.log(this.violationData.violationCategory);
           //   let list = this.allViolationData;
           //   if(this.violationData.apartmentBlockUnitId !== 0){
           //     list= list.filter(x=>x.apartmentBlockUnitId === this.violationData.apartmentBlockUnitId);
@@ -711,8 +705,6 @@
           //     // tslint:disable-next-line:radix
           //     list= list.filter(x=>x.violationRuleId === parseInt(this.violationData.violationRuleNo)).sort((a,b) => 0 - (a > b ? 1 : -1));
           //   }
-          //   console.log(list);
-          //   console.log(list[0].violationOccurrence);
           //   this.violationData.violationOccurence = list[0].violationOccurrence === undefined ?  0 : list[0].violationOccurrence;
           //   this.violationData.penaltyAmt = list[0].penaltyAmt === undefined ? 0 : list[0].penaltyAmt;
           // }
@@ -743,7 +735,6 @@
                   reader.onload = function (e) {
                     var target = e.target;
                     var fileResult = target.result;
-                    console.log(fileResult);
                     _this7.violationData.uploadImage = fileResult;
                   };
 
@@ -1061,7 +1052,6 @@
         }, {
           key: "onSelect",
           value: function onSelect(facility) {
-            console.log(facility);
             this.outputEvent.emit(facility);
             this.dialogRef.close();
           }
@@ -1323,7 +1313,6 @@
         }, {
           key: "onSelect",
           value: function onSelect(facility) {
-            // console.log(facility);
             this.outputEvent.emit(facility);
             this.dialogRef.close();
           }
@@ -1774,7 +1763,6 @@
         }, {
           key: "onSelect",
           value: function onSelect(facility) {
-            console.log(facility);
             this.outputEvent.emit(facility);
             this.dialogRef.close();
           }
@@ -2075,7 +2063,6 @@
                   //       descViolationNo: [_descViolation, [Validators.required]],
                   //       stopprivledges: [_violationPrivilege, [Validators.required]],
                   //     }));
-                  //     // console.log(violation);
                   //   });
                   // });
 
@@ -2240,9 +2227,7 @@
           }
         }, {
           key: "saveUserDetails",
-          value: function saveUserDetails() {
-            console.log(this.userTable.value);
-          }
+          value: function saveUserDetails() {}
         }, {
           key: "confirmPrivilege",
           value: function confirmPrivilege(id) {
@@ -2325,7 +2310,6 @@
             }).map(function (row) {
               return row.value;
             });
-            console.log(this.touchedRows);
           }
         }, {
           key: "initiateForm",
@@ -3056,7 +3040,6 @@
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe(function (res) {
               _this35.violationStatusData = res;
-              console.log(_this35.violationStatusData);
             });
           }
         }, {
@@ -3072,7 +3055,6 @@
           value: function openDispute(violation) {
             var _this36 = this;
 
-            console.log(violation);
             var dialogRef = this.dialog.open(_dispute_dispute_component__WEBPACK_IMPORTED_MODULE_10__["DisputeComponent"], {
               width: '900px',
               data: {
@@ -3644,7 +3626,6 @@
                 _this42.getViolationRule(getViolationData.violationCategoryId);
               }
 
-              console.log(getViolationData);
               _this42.violationData = {
                 id: getViolationData.id,
                 apartmentBlockId: getViolationData.apartmentBlockId,
@@ -3707,7 +3688,6 @@
                 disputeComments: this.violationData.disputeComments === "" ? null : this.violationData.disputeComments
               }
             };
-            console.log(params);
             this.violationService.updateViolations(params).subscribe(function (res) {
               if (res) {
                 _this43.sharedService.setAlertMessage(res.message);
@@ -3740,7 +3720,6 @@
                   reader.onload = function (e) {
                     var target = e.target;
                     var fileResult = target.result;
-                    console.log(fileResult);
                     _this44.violationData.uploadImage = fileResult;
                   };
 
@@ -4098,7 +4077,6 @@
             };
             this.lookupService.getLookupValueByLookupTypeIdStatus(statusparams).subscribe(function (res) {
               _this48.violationStatusData = res;
-              console.log(_this48.violationStatusData);
             });
           }
         }, {
@@ -4765,10 +4743,6 @@
         }, {
           key: "isChecked",
           value: function isChecked() {
-            // console.log(this.model.value);
-            // console.log(this.values.length);
-            // console.log(this.model.value && this.values.length
-            //   && this.model.value.length === this.values.length);
             return this.model.value && this.values.length && this.model.value.length === this.values.length;
           }
         }, {
@@ -4780,7 +4754,6 @@
           key: "toggleSelection",
           value: function toggleSelection(change) {
             if (change.checked) {
-              console.log(this.values);
               this.model.update.emit(this.values);
             } else {
               this.model.update.emit([]);
@@ -5224,9 +5197,7 @@
           }
         }, {
           key: "onChange",
-          value: function onChange(event) {
-            console.log(event);
-          }
+          value: function onChange(event) {}
         }, {
           key: "getallMenu",
           value: function getallMenu() {
@@ -5611,9 +5582,7 @@
           }
         }, {
           key: "saveUserDetails",
-          value: function saveUserDetails() {
-            console.log(this.userTable.value);
-          }
+          value: function saveUserDetails() {}
         }, {
           key: "violationForm",
           // get getViolationFormControls() {
@@ -5642,7 +5611,6 @@
             }).map(function (row) {
               return row.value;
             });
-            console.log(this.touchedRows);
           }
         }, {
           key: "initiateForm",
@@ -5781,7 +5749,7 @@
                         fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
                         descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
                         stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
-                      })); // console.log(violation);
+                      }));
                     });
                   }); // // tslint:disable-next-line:no-shadowed-variable
                   // this.ruleListData.forEach((element, index) => {

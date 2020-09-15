@@ -1092,7 +1092,6 @@
         }, {
           key: "changeRecord",
           value: function changeRecord(event) {
-            console.log(event);
             this.selectedId = event;
           }
         }, {

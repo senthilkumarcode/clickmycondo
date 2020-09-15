@@ -200,7 +200,6 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
             invoiceId: row.custInvoiceId
         };
         this.accountsService.getCustInvoicesByApartmentId(invoiceParams).subscribe((res) => {
-            console.log(res);
             this.invoice = res[0];
             let params = {
                 apartmentId: this.sessionService.apartmentId,

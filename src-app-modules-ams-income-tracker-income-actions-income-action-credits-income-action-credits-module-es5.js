@@ -559,7 +559,6 @@
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             this.credit = dataRecord;
             var id = dataRecord.transactionId;
-            console.log(this.credit);
             this.sharedService.setMatDrawerId(id);
 
             this._router.navigate(['./all-creditnotes/', this.apartmentBlockUnitId, 'edit', id], {

@@ -614,8 +614,6 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.property.propertyCategoryId = event[0].lookupValueId;
     }
     getProperty(event) {
-        //this.property = event; 
-        console.log(event);
     }
     getPropertyType(id) {
         var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.propertyTypeData, function (item) {
@@ -654,7 +652,6 @@ let PropertyProfileComponent = class PropertyProfileComponent {
     }
     getFileId(event) {
         this.property.imageId = event;
-        console.log(this.property.imageId);
     }
     submitProfileBasicForm() {
         this.isDataLoaded = false;

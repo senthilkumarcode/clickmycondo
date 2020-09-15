@@ -715,7 +715,6 @@
 
                 objectVal.splice(0, 2); // let arrObjVal = JSON.stringify(objectVal);
 
-                console.log(objectVal.toString());
                 $('#nodeKind').val(objectVal.toString());
                 $('#spanNode').val(_this5.onChangeVal.nodeId);
                 $('#poiId').val(result.poiId);
@@ -855,7 +854,6 @@
             /** MAIN SVG **/
 
             var svg = d3.select("#lcanvas").append("svg").attr("width", width).attr("height", height);
-            console.log('svg', svg);
             graph = new GraphCreator(svg, nodes, edges);
             graph.setIdCt(0); // this.graph.updateGraph();
           }
@@ -1376,9 +1374,7 @@
             }
 
             var apiMethod = this.pageType == 'create' ? 'addApartmentBlockUnit' : 'updateApartmentBlock';
-            this.apartmentService.addApartmentBlockUnit(params).subscribe(function (res) {
-              console.log(res);
-            });
+            this.apartmentService.addApartmentBlockUnit(params).subscribe(function (res) {});
           }
         }, {
           key: "newTowerSubmit",
@@ -1858,25 +1854,31 @@
       /* harmony import */
 
 
-      var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./components/add-block-wrapper/add-block-wrapper.component */
       "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts");
       /* harmony import */
 
 
-      var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./components/add-unit-wrapper/add-unit-wrapper.component */
       "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
       /* harmony import */
 
 
-      var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/add-floor-unit/add-floor-unit.component */
       "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
       /* harmony import */
 
 
-      var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */
       "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
 
@@ -1886,16 +1888,20 @@
         pathMatch: 'full'
       }, {
         path: 'add-block',
-        component: _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_3__["AddBlockWrapperComponent"]
+        component: _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddBlockWrapperComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'add-unit',
-        component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddUnitWrapperComponent"]
+        component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_5__["AddUnitWrapperComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'add-floor-unit',
-        component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_5__["AddFloorUnitComponent"]
+        component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_6__["AddFloorUnitComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'add-floor-unit-graphic',
-        component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_6__["AddFloorUnitGraphicComponent"]
+        component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__["AddFloorUnitGraphicComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'add-block',

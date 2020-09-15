@@ -463,7 +463,6 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
             this.packageTypes = res.filter(item => {
                 return item.isActive;
             });
-            console.log(this.packageTypes);
         }, error => {
         });
         const deliveryTypeParams = {
@@ -571,7 +570,6 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         };
         this.packageService.getAllPackages(params).subscribe((res) => {
             this.allParcelDelivey = res;
-            console.log(this.allParcelDelivey);
             const _deliveryHistoryList = res.filter(x => x.isActive === true);
             this.gridSourceData = {
                 localdata: _deliveryHistoryList,
@@ -588,7 +586,6 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         this.isEditCredit = true;
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.credit = dataRecord;
-        console.log(dataRecord);
         var id = dataRecord.packageId;
         this.sharedService.setMatDrawerId(id);
         this._router.navigate(['./delivery-history', 'view', id], { relativeTo: this._activatedRoute.parent });
@@ -967,7 +964,6 @@ let DeliverySetupAddCategoryComponent = class DeliverySetupAddCategoryComponent 
             this._changeDetectorRef.markForCheck();
         });
         this.lookupTypeId = this._activatedRoute.queryParams['value'].typeid;
-        console.log(this._activatedRoute);
         if (this._activatedRoute.params['value'].type !== 'new') {
             this.deliverySetupComponent.matDrawer.open();
             this.isDeliveryCategorySubmitted = false;
@@ -1792,7 +1788,6 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
             this.packageTypes = res.filter(item => {
                 return item.isActive;
             });
-            console.log(this.packageTypes);
         }, error => {
         });
         const deliveryTypeParams = {
@@ -1939,7 +1934,6 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         }
         this.packageService.getAllPendingDeliveries(params).subscribe((res) => {
             this.allParcelDelivey = res;
-            console.log(this.allParcelDelivey);
             const _deliveryHistoryList = res.filter(x => x.isActive === false);
             this.gridSourceData = {
                 localdata: _deliveryHistoryList,
@@ -1964,7 +1958,6 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         // this.isEditCredit = true;
         // let dataRecord = this.datagrid.getrowdata(detail.rowId)
         // this.credit = dataRecord
-        // console.log(dataRecord);
         // var id = dataRecord.packageId;
         // this.sharedService.setMatDrawerId(id);
         // this._router.navigate(['./delivery-pending' ,'edit', id], {relativeTo: this._activatedRoute.parent});
@@ -1977,10 +1970,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
     onEditTicket(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let permitId = dataRecord.workPermitId;
-        console.log('progress');
     }
     onSendNotification(detail) {
-        console.log('progress2');
     }
 };
 PendingDeliveryComponent.ctorParameters = () => [
@@ -2180,14 +2171,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/create-package/create-package.component */ "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
-/* harmony import */ var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/delivery-history/delivery-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
-/* harmony import */ var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/delivery-setup/delivery-setup.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
-/* harmony import */ var _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pending-delivery/pending-delivery.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery/pending-delivery.component.ts");
-/* harmony import */ var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
-/* harmony import */ var _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/delivery-setup-add-category/delivery-setup-resolvers.service */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-resolvers.service.ts");
-/* harmony import */ var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/delivery-history/delivery-view-history/delivery-view-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-view-history/delivery-view-history.component.ts");
-/* harmony import */ var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/pending-delivery-edit/pending-delivery-edit.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/create-package/create-package.component */ "./src/app/modules/ams/parcel-delivery/components/create-package/create-package.component.ts");
+/* harmony import */ var _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/delivery-history/delivery-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-history.component.ts");
+/* harmony import */ var _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/delivery-setup/delivery-setup.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup/delivery-setup.component.ts");
+/* harmony import */ var _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pending-delivery/pending-delivery.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery/pending-delivery.component.ts");
+/* harmony import */ var _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/delivery-setup-add-category/delivery-setup-add-category.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-add-category.component.ts");
+/* harmony import */ var _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/delivery-setup-add-category/delivery-setup-resolvers.service */ "./src/app/modules/ams/parcel-delivery/components/delivery-setup-add-category/delivery-setup-resolvers.service.ts");
+/* harmony import */ var _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/delivery-history/delivery-view-history/delivery-view-history.component */ "./src/app/modules/ams/parcel-delivery/components/delivery-history/delivery-view-history/delivery-view-history.component.ts");
+/* harmony import */ var _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/pending-delivery-edit/pending-delivery-edit.component */ "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.ts");
+
 
 
 
@@ -2200,27 +2193,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'create-package', component: _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_3__["CreatePackageComponent"] },
-    { path: 'edit', component: _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_10__["PendingDeliveryEditComponent"] },
-    { path: 'delivery-history', component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__["DeliveryHistoryComponent"],
+    { path: 'create-package', component: _components_create_package_create_package_component__WEBPACK_IMPORTED_MODULE_4__["CreatePackageComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'edit', component: _components_pending_delivery_edit_pending_delivery_edit_component__WEBPACK_IMPORTED_MODULE_11__["PendingDeliveryEditComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'delivery-history', component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_5__["DeliveryHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             {
                 path: ':type/:id',
-                component: _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_9__["DeliveryViewHistoryComponent"],
+                component: _components_delivery_history_delivery_view_history_delivery_view_history_component__WEBPACK_IMPORTED_MODULE_10__["DeliveryViewHistoryComponent"],
+                canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                 resolve: {
-                    category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_8__["DeliverySetupResolversService"]
+                    category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_9__["DeliverySetupResolversService"]
                 }
             }
         ] },
-    { path: 'delivery-manage', component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_4__["DeliveryHistoryComponent"] },
-    { path: 'delivery-pending', component: _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_6__["PendingDeliveryComponent"] },
-    { path: 'delivery-setup', component: _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_5__["DeliverySetupComponent"],
+    { path: 'delivery-manage', component: _components_delivery_history_delivery_history_component__WEBPACK_IMPORTED_MODULE_5__["DeliveryHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'delivery-pending', component: _components_pending_delivery_pending_delivery_component__WEBPACK_IMPORTED_MODULE_7__["PendingDeliveryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'delivery-setup', component: _components_delivery_setup_delivery_setup_component__WEBPACK_IMPORTED_MODULE_6__["DeliverySetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             {
                 path: ':type/:id',
-                component: _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_7__["DeliverySetupAddCategoryComponent"],
+                component: _components_delivery_setup_add_category_delivery_setup_add_category_component__WEBPACK_IMPORTED_MODULE_8__["DeliverySetupAddCategoryComponent"],
+                canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
                 resolve: {
-                    category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_8__["DeliverySetupResolversService"]
+                    category: _components_delivery_setup_add_category_delivery_setup_resolvers_service__WEBPACK_IMPORTED_MODULE_9__["DeliverySetupResolversService"]
                 }
             }
         ] }

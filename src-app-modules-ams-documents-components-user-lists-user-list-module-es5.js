@@ -190,44 +190,53 @@
       /* harmony import */
 
 
-      var _user_lists_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _user_lists_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./user-lists.component */
       "./src/app/modules/ams/documents/components/user-lists/user-lists.component.ts");
       /* harmony import */
 
 
-      var _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./user-table-list/user-table-list.component */
       "./src/app/modules/ams/documents/components/user-lists/user-table-list/user-table-list.component.ts");
       /* harmony import */
 
 
-      var _user_upload_drawer_user_upload_drawer_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _user_upload_drawer_user_upload_drawer_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./user-upload-drawer/user-upload-drawer.component */
       "./src/app/modules/ams/documents/components/user-lists/user-upload-drawer/user-upload-drawer.component.ts");
       /* harmony import */
 
 
-      var _user_list_resolver_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _user_list_resolver_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./user-list-resolver.service */
       "./src/app/modules/ams/documents/components/user-lists/user-list-resolver.service.ts");
 
       var routes = [{
         path: '',
-        component: _user_lists_component__WEBPACK_IMPORTED_MODULE_3__["UserListsComponent"],
+        component: _user_lists_component__WEBPACK_IMPORTED_MODULE_4__["UserListsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: '',
           redirectTo: 'list',
           pathMatch: 'full'
         }, {
           path: 'list',
-          component: _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_4__["UserTableListComponent"],
+          component: _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_5__["UserTableListComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
           children: [{
             path: ':type/:id',
-            component: _user_upload_drawer_user_upload_drawer_component__WEBPACK_IMPORTED_MODULE_5__["UserUploadDrawerComponent"],
+            component: _user_upload_drawer_user_upload_drawer_component__WEBPACK_IMPORTED_MODULE_6__["UserUploadDrawerComponent"],
+            canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
             pathMatch: 'full',
             resolve: {
-              data: _user_list_resolver_service__WEBPACK_IMPORTED_MODULE_6__["UserListResolverService"]
+              data: _user_list_resolver_service__WEBPACK_IMPORTED_MODULE_7__["UserListResolverService"]
             }
           }]
         }]

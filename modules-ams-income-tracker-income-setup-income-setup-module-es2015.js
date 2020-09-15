@@ -1015,7 +1015,6 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
         };
         let params = {};
         params.penaltyConfig = reqObj;
-        console.log("added data ", params);
         this.accountsService.addPenaltyConfig(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("Penalty Setup Config added successfully");
@@ -1060,9 +1059,6 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
         });
     }
     deleteRow(index, data) {
-        // const control = this.userTable.get('tableRows') as FormArray;
-        // control.removeAt(index);
-        console.log(data.penaltyId);
         this.deleteType = true;
         this.modalService.showConfirmModal(data.penaltyId);
     }
@@ -1079,7 +1075,6 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
         this.isAssetLoaded = true;
         this.accountsService.getAllPenaltyConfigByApartmentId(queryParamBase).subscribe((res) => {
             if (res) {
-                console.log("resp of penalty", res);
                 // this.penaltyData = [];
                 this.penaltyData = res && res.length > 0 ? res : [];
                 this.isAssetLoaded = false;
@@ -1096,7 +1091,6 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
     }
     getPenaltyConfigByPenaltyId() {
         let queryParamBase = {};
-        console.log("data[0]", this.penaltyData);
         queryParamBase = {
             PenaltyId: 1
         };
@@ -1105,7 +1099,6 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
             if (res) {
                 this.isAssetLoaded = false;
                 this.penaltyType = res ? res : [];
-                console.log("penalty type ==> ", this.penaltyType);
             }
         });
     }
@@ -1120,7 +1113,6 @@ let IncomeTrackerSetupPenaltySetupComponent = class IncomeTrackerSetupPenaltySet
             if (res) {
                 // this.isAssetLoaded = false;
                 this.glAccountList = res ? res : [];
-                console.log(this.glAccountList);
             }
         });
     }

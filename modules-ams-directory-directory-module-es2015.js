@@ -333,7 +333,6 @@ let DirectorySetupComponent = class DirectorySetupComponent {
         });
     }
     delete(index, data) {
-        // console.log(data.warehouseId);  
         this.modalService.showConfirmModal(data.directoryTypeId);
     }
 };
@@ -604,7 +603,6 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
         }
     }
     saveUserDetails() {
-        console.log(this.userTable.value);
     }
     get getFormControls() {
         const control = this.userTable.get('tableRows');
@@ -613,7 +611,6 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
     submitForm() {
         const control = this.userTable.get('tableRows');
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
     }
     add(data) {
         const params = {
@@ -683,7 +680,6 @@ let DirectoryAssetCategoryComponent = class DirectoryAssetCategoryComponent {
         });
     }
     delete(index, data) {
-        // console.log(data.warehouseId);  
         this.modalService.showConfirmModal(data.directoryRecordId);
     }
 };
@@ -904,7 +900,6 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         }
     }
     saveUserDetails() {
-        console.log(this.userTable.value);
     }
     get getFormControls() {
         const control = this.userTable.get('tableRows');
@@ -913,7 +908,6 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
     submitForm() {
         const control = this.userTable.get('tableRows');
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
     }
     getAssetDirectoryItems() {
         this.isExternalDataLoaded = false;
@@ -1023,7 +1017,6 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
         });
     }
     delete(index, data) {
-        // console.log(data.warehouseId);  
         this.modalService.showConfirmModal(data.directoryRecordId);
     }
 };
@@ -1238,7 +1231,6 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
         }
     }
     saveUserDetails() {
-        console.log(this.userTable.value);
     }
     get getFormControls() {
         const control = this.userTable.get('tableRows');
@@ -1247,7 +1239,6 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
     submitForm() {
         const control = this.userTable.get('tableRows');
         this.touchedRows = control.controls.filter(row => row.touched).map(row => row.value);
-        console.log(this.touchedRows);
     }
     getAssetDirectoryItems() {
         this.isInternalDataLoaded = false;
@@ -1357,7 +1348,6 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
         });
     }
     delete(index, data) {
-        // console.log(data.warehouseId);  
         this.modalService.showConfirmModal(data.directoryRecordId);
     }
 };

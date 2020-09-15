@@ -156,16 +156,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/broadcast-setup/broadcast-setup.component */ "./src/app/modules/ams/broadcast/components/broadcast-setup/broadcast-setup.component.ts");
-/* harmony import */ var _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/broadcast-history/broadcast-history.component */ "./src/app/modules/ams/broadcast/components/broadcast-history/broadcast-history.component.ts");
-/* harmony import */ var _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-sendmessage.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.ts");
-/* harmony import */ var _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/broadcastgroup-setup/broadcastgroup-setup.component */ "./src/app/modules/ams/broadcast/components/broadcastgroup-setup/broadcastgroup-setup.component.ts");
-/* harmony import */ var _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/broadcast-group-assignment/broadcast-group-assignment.component */ "./src/app/modules/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.ts");
-/* harmony import */ var _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/broadcast-removeuser/broadcast-removeuser.component */ "./src/app/modules/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.ts");
-/* harmony import */ var _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/broadcast-announcements/broadcast-announcements.component */ "./src/app/modules/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.ts");
-/* harmony import */ var _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-role/broadcast-role.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-role/broadcast-role.component.ts");
-/* harmony import */ var _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-group/broadcast-group.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-group/broadcast-group.component.ts");
-/* harmony import */ var _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/broadcast-group-based-announcement/broadcast-group-based-announcement.component */ "./src/app/modules/ams/broadcast/components/broadcast-group-based-announcement/broadcast-group-based-announcement.component.ts");
+/* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
+/* harmony import */ var _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/broadcast-setup/broadcast-setup.component */ "./src/app/modules/ams/broadcast/components/broadcast-setup/broadcast-setup.component.ts");
+/* harmony import */ var _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/broadcast-history/broadcast-history.component */ "./src/app/modules/ams/broadcast/components/broadcast-history/broadcast-history.component.ts");
+/* harmony import */ var _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-sendmessage.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-sendmessage.component.ts");
+/* harmony import */ var _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/broadcastgroup-setup/broadcastgroup-setup.component */ "./src/app/modules/ams/broadcast/components/broadcastgroup-setup/broadcastgroup-setup.component.ts");
+/* harmony import */ var _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/broadcast-group-assignment/broadcast-group-assignment.component */ "./src/app/modules/ams/broadcast/components/broadcast-group-assignment/broadcast-group-assignment.component.ts");
+/* harmony import */ var _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/broadcast-removeuser/broadcast-removeuser.component */ "./src/app/modules/ams/broadcast/components/broadcast-removeuser/broadcast-removeuser.component.ts");
+/* harmony import */ var _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/broadcast-announcements/broadcast-announcements.component */ "./src/app/modules/ams/broadcast/components/broadcast-announcements/broadcast-announcements.component.ts");
+/* harmony import */ var _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-role/broadcast-role.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-role/broadcast-role.component.ts");
+/* harmony import */ var _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/broadcast-sendmessage/broadcast-group/broadcast-group.component */ "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-group/broadcast-group.component.ts");
+/* harmony import */ var _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/broadcast-group-based-announcement/broadcast-group-based-announcement.component */ "./src/app/modules/ams/broadcast/components/broadcast-group-based-announcement/broadcast-group-based-announcement.component.ts");
+
 
 
 
@@ -181,23 +183,23 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'setup', pathMatch: 'full' },
-    { path: 'setup', component: _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_3__["BroadcastSetupComponent"] },
-    { path: 'groupsetup', component: _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastgroupSetupComponent"] },
-    { path: 'sendmessage', component: _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastSendmessageComponent"],
+    { path: 'setup', component: _components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_4__["BroadcastSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'groupsetup', component: _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastgroupSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'sendmessage', component: _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastSendmessageComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
-            { path: 'role-based', component: _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastRoleComponent"], pathMatch: 'full' },
-            { path: 'group-based', component: _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastGroupComponent"] },
+            { path: 'role-based', component: _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastRoleComponent"], pathMatch: 'full' },
+            { path: 'group-based', component: _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastGroupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
             { path: '**', redirectTo: 'role-based', pathMatch: 'full' }
         ] },
-    { path: 'assignusers', component: _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastGroupAssignmentComponent"] },
-    { path: 'removeusers', component: _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastRemoveuserComponent"] },
-    { path: 'announcements', component: _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_9__["BroadcastAnnouncementsComponent"],
+    { path: 'assignusers', component: _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastGroupAssignmentComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'removeusers', component: _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_9__["BroadcastRemoveuserComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'announcements', component: _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastAnnouncementsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
-            { path: 'group-based-announcement/:category', component: _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastGroupBasedAnnouncementComponent"] },
+            { path: 'group-based-announcement/:category', component: _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_13__["BroadcastGroupBasedAnnouncementComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
             { path: '**', redirectTo: 'group-based-announcement', pathMatch: 'full' }
         ]
     },
-    { path: 'history', component: _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_4__["BroadcastHistoryComponent"] },
+    { path: 'history', component: _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'setup', pathMatch: 'full' }
 ];
 let BroadcastRoutingModule = class BroadcastRoutingModule {
@@ -725,7 +727,7 @@ let BroadcastGroupAssignmentComponent = class BroadcastGroupAssignmentComponent 
             //   this.getUsersBycategory(this.broadCastGroupCategory.selectedItems[0]);
             //   this.IsCategoryChanged = true;
             // }
-        }, error => console.log(error));
+        });
     }
     selectAllUser(event) {
         let selectedObj = event.option.value;
@@ -1097,7 +1099,6 @@ let BroadcastGroupBasedAnnouncementComponent = class BroadcastGroupBasedAnnounce
         this.matDrawer.open();
     }
     changeRecord(event) {
-        console.log(event);
         this.selectedId = event;
     }
     onBackdropClicked() {
@@ -1569,7 +1570,6 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
             this.unitData = res;
         }, error => {
-            console.log(error);
         });
     }
     removeMappedUser(index) {
@@ -1939,7 +1939,8 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
             });
             this.allnterestGroupUsers = res;
-        }, error => console.log(error));
+        }, error => {
+        });
     }
     selectInterestGroup(item) {
         let categoryUsers = this.interestGroupUsers.filter(function (obj) {
@@ -2557,7 +2558,6 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
     //     });
     //     this.allnterestGroupUsers = res;
     //   },
-    //     error => console.log(error)
     //   );
     // }
     // selectInterestGroup(item) {
@@ -3363,7 +3363,6 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
                 this.broadcastService.deleteBroadCastMessageCategory(params).subscribe((res) => {
                     this.getAllCategory();
                 }, error => {
-                    console.log(error);
                 });
             }
         });
@@ -3636,7 +3635,6 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
                 this.broadcastService.deleteBroadCastGroupCategory(params).subscribe((res) => {
                     this.getAllGroupCategory();
                 }, error => {
-                    console.log(error);
                 });
             }
         });
