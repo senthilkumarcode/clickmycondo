@@ -372,11 +372,12 @@ let AddResidentComponent = class AddResidentComponent {
                     };
                     //add user 
                     this.userService.addUser(params).subscribe((res) => {
-                        if (res && res.responseData) {
+                        if (res && res.responseData && res.responseData.statusCode === 200) {
                             var userId = res.responseData.value.message;
                             this.submitUserConfig(userId);
                         }
                         else {
+                            this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                             this.isUserSubmitted = false;
                             this.isError = true;
                             this.errorMessage = res.errorMessage;
@@ -1614,7 +1615,9 @@ let SignuprequestComponent = class SignuprequestComponent {
             });
             unitListData.reverse();
             unitListData.filter(key => {
-                key['tower_unit'] = key.signupSubNotes[0].blockUnit + ' & ' + key.signupSubNotes[0].unit;
+                if (key.signupSubNotes && key.signupSubNotes.length) {
+                    key['tower_unit'] = key.signupSubNotes[0].blockUnit + ' & ' + key.signupSubNotes[0].unit;
+                }
                 key['fullName'] = key.firstName + '  ' + key.lastName;
             });
             this.gridSourceData = {

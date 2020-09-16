@@ -855,19 +855,28 @@
       /* harmony import */
 
 
-      var _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./income-post-multi-invoice.component */
       "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-multi-invoice.component.ts");
 
       var routes = [{
         path: '',
-        component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"]
+        component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_4__["IncomePostMultiInvoiceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: ':apartmentblockunitid/:type',
-        component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"]
+        component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_4__["IncomePostMultiInvoiceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: ':apartmentblockunitid/:invoiceid',
-        component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostMultiInvoiceComponent"]
+        component: _income_post_multi_invoice_component__WEBPACK_IMPORTED_MODULE_4__["IncomePostMultiInvoiceComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }];
 
       var IncomePostInvoiceRoutingModule = function IncomePostInvoiceRoutingModule() {

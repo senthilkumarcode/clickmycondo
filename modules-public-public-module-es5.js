@@ -6718,60 +6718,66 @@
       /* harmony import */
 
 
-      var src_app_modules_public_public_resolvers_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/auth/guards/auth.guard */
+      "./src/app/core/auth/guards/auth.guard.ts");
+      /* harmony import */
+
+
+      var src_app_modules_public_public_resolvers_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/modules/public/public-resolvers.service */
       "./src/app/modules/public/public-resolvers.service.ts");
       /* harmony import */
 
 
-      var _public_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _public_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./public.component */
       "./src/app/modules/public/public.component.ts");
       /* harmony import */
 
 
-      var _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/home/home.component */
       "./src/app/modules/public/components/home/home.component.ts");
       /* harmony import */
 
 
-      var _components_login_login_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_login_login_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/login/login.component */
       "./src/app/modules/public/components/login/login.component.ts");
       /* harmony import */
 
 
-      var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/signup/signup.component */
       "./src/app/modules/public/components/signup/signup.component.ts");
       /* harmony import */
 
 
-      var _components_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/forgot-password/forgot-password.component */
       "./src/app/modules/public/components/forgot-password/forgot-password.component.ts");
       /* harmony import */
 
 
-      var _components_privacy_privacy_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_privacy_privacy_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/privacy/privacy.component */
       "./src/app/modules/public/components/privacy/privacy.component.ts");
       /* harmony import */
 
 
-      var _components_join_join_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_join_join_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/join/join.component */
       "./src/app/modules/public/components/join/join.component.ts");
 
       var routes = [{
         path: '',
-        component: _public_component__WEBPACK_IMPORTED_MODULE_4__["PublicComponent"],
+        component: _public_component__WEBPACK_IMPORTED_MODULE_5__["PublicComponent"],
         data: {
           title: 'home'
         },
         resolve: {
-          initialData: src_app_modules_public_public_resolvers_service__WEBPACK_IMPORTED_MODULE_3__["PublicResolversService"]
+          initialData: src_app_modules_public_public_resolvers_service__WEBPACK_IMPORTED_MODULE_4__["PublicResolversService"]
         },
         runGuardsAndResolvers: 'always',
         children: [{
@@ -6780,22 +6786,26 @@
           pathMatch: 'full'
         }, {
           path: 'home',
-          component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]
+          component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'login',
-          component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_6__["LoginComponent"]
+          component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_7__["LoginComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'join',
-          component: _components_join_join_component__WEBPACK_IMPORTED_MODULE_10__["joinComponent"]
+          component: _components_join_join_component__WEBPACK_IMPORTED_MODULE_11__["joinComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'signup',
-          component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_7__["SignupComponent"]
+          component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_8__["SignupComponent"],
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'forgotpassword',
-          component: _components_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_8__["ForgotPasswordComponent"]
+          component: _components_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_9__["ForgotPasswordComponent"]
         }, {
           path: 'privacy',
-          component: _components_privacy_privacy_component__WEBPACK_IMPORTED_MODULE_9__["PrivacyComponent"]
+          component: _components_privacy_privacy_component__WEBPACK_IMPORTED_MODULE_10__["PrivacyComponent"]
         }]
       }];
 

@@ -1058,15 +1058,7 @@
 
             this._router.navigate(['./all-creditnotes', 'new', id], {
               relativeTo: this._activatedRoute.parent
-            });
-            /*if(this._activatedRoute.params['value'].id != undefined){
-             var apartmentBlockUnitId = this._activatedRoute.params['value'].id;
-             this._router.navigate(['./all-creditnotes', apartmentBlockUnitId ,'new', id], {relativeTo: this._activatedRoute.parent});
-            }
-            else {
-             this._router.navigate(['./all-creditnotes', 'new', id], {relativeTo: this._activatedRoute.parent});
-            }*/
-            //Mark for check
+            }); //Mark for check
 
 
             this._changeDetectorRef.markForCheck();
@@ -1249,7 +1241,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var elemId = _this9.creditNoteDataList.loadedData[row].creditNoteId;
-                return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2 text-secondary" id="' + elemId + '" onClick="editCreditNoteEvent(' + row + ')" ><i class="icon fa fa-pencil" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-2" onClick="editCreditNoteEvent(' + row + ')">' + '<svg class="edit" xmlns="http://www.w3.org/2000/svg" " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>' + '</a>' + '</div>';
               },
               renderer: columnrenderer
             }];

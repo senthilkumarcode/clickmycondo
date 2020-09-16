@@ -135,13 +135,18 @@ let ApartmentsComponent = class ApartmentsComponent {
         this.staffService.getStaffByUserId(params).subscribe((res) => {
             this.sessionService.staffId = res[0].staffId;
             this.sessionService.securityLevelId = res[0].secLevelId;
-            // Hide the message
-            this.message = null;
-            this.isRouting = true;
-            var states = this._router.url.split('/');
-            this._router.navigate(['/' + states[1]]).then(() => {
-                this.isRouting = false;
-            });
+            if (this.sessionService.securityLevelId != undefined) {
+                // Hide the message
+                this.message = null;
+                this.isRouting = true;
+                var states = this._router.url.split('/');
+                this._router.navigate(['/' + states[1]]).then(() => {
+                    this.isRouting = false;
+                });
+            }
+            else {
+                this.message = "Contact your admin to provide necessary security roles to access your account";
+            }
         });
     }
     selectCondoUnit(condo, block) {

@@ -267,13 +267,13 @@ let RolesAndPermissionsListComponent = class RolesAndPermissionsListComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.roleHeader = [{
-                text: 'role type',
-                datafield: 'roleId',
+                text: 'role name',
+                datafield: 'roleName',
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
-                text: 'Role Name',
-                datafield: 'roleName',
+                text: 'menu security name',
+                datafield: 'secLevelName',
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {

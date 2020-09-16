@@ -260,16 +260,21 @@
             };
             this.staffService.getStaffByUserId(params).subscribe(function (res) {
               _this2.sessionService.staffId = res[0].staffId;
-              _this2.sessionService.securityLevelId = res[0].secLevelId; // Hide the message
+              _this2.sessionService.securityLevelId = res[0].secLevelId;
 
-              _this2.message = null;
-              _this2.isRouting = true;
+              if (_this2.sessionService.securityLevelId != undefined) {
+                // Hide the message
+                _this2.message = null;
+                _this2.isRouting = true;
 
-              var states = _this2._router.url.split('/');
+                var states = _this2._router.url.split('/');
 
-              _this2._router.navigate(['/' + states[1]]).then(function () {
-                _this2.isRouting = false;
-              });
+                _this2._router.navigate(['/' + states[1]]).then(function () {
+                  _this2.isRouting = false;
+                });
+              } else {
+                _this2.message = "Contact your admin to provide necessary security roles to access your account";
+              }
             });
           }
         }, {

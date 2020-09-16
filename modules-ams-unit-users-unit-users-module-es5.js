@@ -584,11 +584,13 @@
                   }; //add user 
 
                   this.userService.addUser(params).subscribe(function (res) {
-                    if (res && res.responseData) {
+                    if (res && res.responseData && res.responseData.statusCode === 200) {
                       var userId = res.responseData.value.message;
 
                       _this2.submitUserConfig(userId);
                     } else {
+                      _this2.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+
                       _this2.isUserSubmitted = false;
                       _this2.isError = true;
                       _this2.errorMessage = res.errorMessage;
@@ -2269,7 +2271,10 @@
               });
               unitListData.reverse();
               unitListData.filter(function (key) {
-                key['tower_unit'] = key.signupSubNotes[0].blockUnit + ' & ' + key.signupSubNotes[0].unit;
+                if (key.signupSubNotes && key.signupSubNotes.length) {
+                  key['tower_unit'] = key.signupSubNotes[0].blockUnit + ' & ' + key.signupSubNotes[0].unit;
+                }
+
                 key['fullName'] = key.firstName + '  ' + key.lastName;
               });
               _this17.gridSourceData = {
