@@ -3002,7 +3002,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             params.isStaffassigned = false;
         }
         else if (this.urlType == 'assigned-to-me') {
-            this.getTicketByUserId();
+            this.getTicketByAssignedUser();
             return;
         }
         this.ticketService.getAllTicketsByApartmentId(params).subscribe((res) => {
@@ -3015,13 +3015,29 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             this.isTicketDataLoaded = true;
         });
     }
-    getTicketByUserId() {
+    getTicketByAssignedUser() {
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            //ticketStatusIds: params.ticketStatusIds,
             userId: this.sessionService.userId,
         };
         this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe((res) => {
+            if (res) {
+                let ticketInfo = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = ticketInfo.localdata.length;
+                this.ticketListData = new jqx.dataAdapter(ticketInfo);
+                this.isTicketDataLoaded = true;
+            }
+        });
+    }
+    getTicketsByUser() {
+        let params = {
+            apartmentId: this.sessionService.apartmentId,
+            blockunituserId: this.sessionService.apartmentBlockUnitUserId
+        };
+        this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe((res) => {
             if (res) {
                 let ticketInfo = {
                     localdata: res.reverse(),
@@ -3037,11 +3053,11 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
         this.activateRouter.url.subscribe((data) => {
             this.urlType = data[0].path;
         });
-        if (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') {
+        if (this.isAdmin()) {
             this.getTicketByAdmin();
         }
-        else if (this.sessionService.roleTypeName == 'Tenant' || this.sessionService.roleTypeName == 'Owner') {
-            this.getTicketByUserId();
+        else {
+            this.getTicketsByUser();
         }
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3184,28 +3200,30 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                 });
             }
         });
-        //Filter Purpose => Staff
-        let staffParms = {
-            apartmentId: this.sessionService.apartmentId,
-            RoleTypeId: this.sessionService.roleTypeId
-        };
-        this.staffService.getAllStaffs(staffParms).subscribe((res) => {
-            if (res.length) {
-                res.forEach((ele) => {
-                    ele.customLabel = `${ele.staffName}, ${ele.roleName} - ${ele.staffCategoryName}`;
-                });
-                this.staffsList = res;
-            }
-        }, error => {
-            console.log(error);
-        });
-        //Filter Purpose => Ticket Status
-        let statusParams = {
-            LookupTypeId: 9
-        };
-        this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
-            this.ticketStatusList = res;
-        });
+        if (this.isAdmin()) {
+            //Filter Purpose => Staff
+            let staffParms = {
+                apartmentId: this.sessionService.apartmentId,
+                RoleTypeId: this.sessionService.roleTypeId
+            };
+            this.staffService.getAllStaffs(staffParms).subscribe((res) => {
+                if (res.length) {
+                    res.forEach((ele) => {
+                        ele.customLabel = `${ele.staffName}, ${ele.roleName} - ${ele.staffCategoryName}`;
+                    });
+                    this.staffsList = res;
+                }
+            }, error => {
+                console.log(error);
+            });
+            //Filter Purpose => Ticket Status
+            let statusParams = {
+                LookupTypeId: 9
+            };
+            this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
+                this.ticketStatusList = res;
+            });
+        }
     }
     ngOnDestroy() {
         this.apiSubscribe.unsubscribe();

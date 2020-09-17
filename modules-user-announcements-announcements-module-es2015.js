@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <!-- <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n            <i class=\"ml-4 mr-4 fa fa-ellipsis-v\" aria-hidden=\"true\" [matMenuTriggerFor]=\"mail_options\"></i>\n            <mat-menu #mail_options=\"matMenu\">\n                <button mat-menu-item>Forward</button>\n                <button mat-menu-item>Reply</button>\n              </mat-menu> -->\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <!-- <img src=\"../../../../assets/images/img-users.jpg\" alt=\"\"> -->\n        <div>\n            <span>{{messageDetails?.insertedby_label}}</span>\n            <!-- <small>dharu@gmail.com</small> -->\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\">\n        {{messageDetails?.broadcastMessage1}}\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <img [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <!-- <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n            <i class=\"ml-4 mr-4 fa fa-ellipsis-v\" aria-hidden=\"true\" [matMenuTriggerFor]=\"mail_options\"></i>\n            <mat-menu #mail_options=\"matMenu\">\n                <button mat-menu-item>Forward</button>\n                <button mat-menu-item>Reply</button>\n              </mat-menu> -->\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <!-- <img src=\"../../../../assets/images/img-users.jpg\" alt=\"\"> -->\n        <div>\n            <span>{{messageDetails?.insertedby_label}}</span>\n            <!-- <small>dharu@gmail.com</small> -->\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -423,12 +423,14 @@ let UserGroupAnnouncementDetailsComponent = class UserGroupAnnouncementDetailsCo
                     apartmentId: this.sessionService.apartmentId
                 };
                 this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
-                    this.fileDownloadService.downloadFile(res[0].filePath).subscribe((res) => {
-                        const blob = res.body;
-                        let objectURL = URL.createObjectURL(blob);
-                        let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-                        this.filePath = sanitizeUrl;
-                    });
+                    if (res && res[0]) {
+                        this.fileDownloadService.downloadFile(res[0].filePath).subscribe((res) => {
+                            const blob = res.body;
+                            let objectURL = URL.createObjectURL(blob);
+                            let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+                            this.filePath = sanitizeUrl;
+                        });
+                    }
                 });
             }
         });
@@ -668,16 +670,14 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
             recordsNo: 10
         };
         this.broadcastService.getAllBroadcastMessagesByUserAndRole(queryParamBase).subscribe((resp) => {
-            this.broadCastMessages = resp;
-            this.pagination.totalResult = 46;
-            this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
-            if (this.broadCastMessages.length) {
-                this.broadCastMessages.filter(key => {
-                    this.messageIds.push(key.broadCastMessageId);
-                });
-                // this.filterMessages({ name: "today", value: 0 });
+            if (resp && resp[0] && resp[0].broadCastMessageResult.length) {
+                this.broadCastMessages.push(...resp[0].broadCastMessageResult);
+                let messageIds = underscore__WEBPACK_IMPORTED_MODULE_7__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
+                this.messageIds.push(...messageIds);
+                this.pagination.totalResult = resp[0].totalRecords;
+                this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
+                this.openAnnouncement(this.broadCastMessages[0].broadCastMessageId);
             }
-            this.openAnnouncement(this.broadCastMessages[0].broadCastMessageId);
         });
     }
     getInterestGroup() {
@@ -692,14 +692,13 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
             recordsNo: 10
         };
         this.broadcastService.getAllInterestGroupBroadcastMessagesByUserAndRole(queryParamBase).subscribe((resp) => {
-            this.broadCastMessages = resp;
-            this.pagination.totalResult = 46;
-            this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
-            if (this.broadCastMessages.length) {
-                this.broadCastMessages.filter(key => {
-                    this.messageIds.push(key.broadCastMessageId);
-                });
-                // this.filterMessages({ name: "today", value: 0 });
+            if (resp && resp[0] && resp[0].broadCastMessageResult.length) {
+                this.broadCastMessages.push(...resp[0].broadCastMessageResult);
+                let messageIds = underscore__WEBPACK_IMPORTED_MODULE_7__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
+                this.messageIds.push(...messageIds);
+                this.pagination.totalResult = resp[0].totalRecords;
+                this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 10), 1);
+                this.openAnnouncement(this.broadCastMessages[0].broadCastMessageId);
             }
         });
     }
@@ -786,6 +785,7 @@ UserGroupAnnouncementListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-user-group-announcement-list',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./user-group-announcement-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/announcements/user-group-announcement-list/user-group-announcement-list.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./user-group-announcement-list.component.scss */ "./src/app/modules/user/announcements/user-group-announcement-list/user-group-announcement-list.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"],

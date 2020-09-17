@@ -3802,7 +3802,7 @@
             } else if (this.urlType == 'unassigned') {
               params.isStaffassigned = false;
             } else if (this.urlType == 'assigned-to-me') {
-              this.getTicketByUserId();
+              this.getTicketByAssignedUser();
               return;
             }
 
@@ -3817,13 +3817,12 @@
             });
           }
         }, {
-          key: "getTicketByUserId",
-          value: function getTicketByUserId() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this32 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              //ticketStatusIds: params.ticketStatusIds,
               userId: this.sessionService.userId
             };
             this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
@@ -3839,18 +3838,39 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this33 = this;
 
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+            };
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+              if (res) {
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this33.totalItems = ticketInfo.localdata.length;
+                _this33.ticketListData = new jqx.dataAdapter(ticketInfo);
+                _this33.isTicketDataLoaded = true;
+              }
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this34 = this;
+
             this.activateRouter.url.subscribe(function (data) {
-              _this33.urlType = data[0].path;
+              _this34.urlType = data[0].path;
             });
 
-            if (this.sessionService.roleTypeName == 'Admin' || this.sessionService.roleTypeName == 'Staff') {
+            if (this.isAdmin()) {
               this.getTicketByAdmin();
-            } else if (this.sessionService.roleTypeName == 'Tenant' || this.sessionService.roleTypeName == 'Owner') {
-              this.getTicketByUserId();
+            } else {
+              this.getTicketsByUser();
             }
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -3974,49 +3994,52 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this33.datagrid.getrowdata(id);
+                var dataRecord = _this34.datagrid.getrowdata(id);
 
                 var ticketId = dataRecord.ticketId;
                 var params = {
                   ticketId: ticketId,
-                  deleteBy: parseInt(_this33.sessionService.userId)
+                  deleteBy: parseInt(_this34.sessionService.userId)
                 };
 
-                _this33.ticketService.deleteTicket(params).subscribe(function (res) {
-                  _this33.sharedService.setUnitListDeleteIndex(null);
+                _this34.ticketService.deleteTicket(params).subscribe(function (res) {
+                  _this34.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this33.datagrid.deleterow(id);
+                    _this34.datagrid.deleterow(id);
 
-                    _this33.datagrid.refresh();
+                    _this34.datagrid.refresh();
 
-                    _this33.sharedService.openSnackBar(res.message, 'success');
+                    _this34.sharedService.openSnackBar(res.message, 'success');
                   }
                 });
               }
-            }); //Filter Purpose => Staff
-
-            var staffParms = {
-              apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
-            };
-            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              if (res.length) {
-                res.forEach(function (ele) {
-                  ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
-                });
-                _this33.staffsList = res;
-              }
-            }, function (error) {
-              console.log(error);
-            }); //Filter Purpose => Ticket Status
-
-            var statusParams = {
-              LookupTypeId: 9
-            };
-            this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-              _this33.ticketStatusList = res;
             });
+
+            if (this.isAdmin()) {
+              //Filter Purpose => Staff
+              var staffParms = {
+                apartmentId: this.sessionService.apartmentId,
+                RoleTypeId: this.sessionService.roleTypeId
+              };
+              this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+                if (res.length) {
+                  res.forEach(function (ele) {
+                    ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
+                  });
+                  _this34.staffsList = res;
+                }
+              }, function (error) {
+                console.log(error);
+              }); //Filter Purpose => Ticket Status
+
+              var statusParams = {
+                LookupTypeId: 9
+              };
+              this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
+                _this34.ticketStatusList = res;
+              });
+            }
           }
         }, {
           key: "ngOnDestroy",

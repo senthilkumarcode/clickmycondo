@@ -217,6 +217,7 @@
       "./src/app/api/controllers/PropertyManager.ts");
 
       var graph;
+      var pathbuilder;
 
       var PropertyViewGraphicComponent = /*#__PURE__*/function () {
         function PropertyViewGraphicComponent(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, lookupService, propertyManagerService, dialog, sessionService, fileDetailService) {
@@ -250,6 +251,7 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.bootMe();
+            this.intializeWayfinder();
             this.getBlockList();
             this.getPropertyType();
             this.unitFilterList = [{
@@ -558,6 +560,12 @@
             var svg = d3.select("#lcanvas").append("svg").attr("width", width).attr("height", height);
             graph = new GraphCreator(svg, nodes, edges);
             graph.setIdCt(0); // this.graph.updateGraph();
+          }
+        }, {
+          key: "intializeWayfinder",
+          value: function intializeWayfinder() {
+            pathbuilder = new createWayFinder();
+            console.log('path', pathbuilder);
           }
         }, {
           key: "addPropertyMap",

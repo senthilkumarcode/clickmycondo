@@ -100,6 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var graph;
+var pathbuilder;
 let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
     constructor(element, apartmentService, documentService, cookieService, fileUploadService, fileDownloadService, sanitizer, lookupService, propertyManagerService, dialog, sessionService, fileDetailService) {
         this.element = element;
@@ -127,6 +128,7 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
     }
     ngOnInit() {
         this.bootMe();
+        this.intializeWayfinder();
         this.getBlockList();
         this.getPropertyType();
         this.unitFilterList = [
@@ -379,6 +381,10 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
         graph = new GraphCreator(svg, nodes, edges);
         graph.setIdCt(0);
         // this.graph.updateGraph();
+    }
+    intializeWayfinder() {
+        pathbuilder = new createWayFinder();
+        console.log('path', pathbuilder);
     }
     addPropertyMap(imageId) {
         this.downloadGraph();

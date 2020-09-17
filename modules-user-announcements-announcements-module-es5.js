@@ -1,4 +1,16 @@
 (function () {
+  function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+  function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+  function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+  function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -42,7 +54,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <!-- <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n            <i class=\"ml-4 mr-4 fa fa-ellipsis-v\" aria-hidden=\"true\" [matMenuTriggerFor]=\"mail_options\"></i>\n            <mat-menu #mail_options=\"matMenu\">\n                <button mat-menu-item>Forward</button>\n                <button mat-menu-item>Reply</button>\n              </mat-menu> -->\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <!-- <img src=\"../../../../assets/images/img-users.jpg\" alt=\"\"> -->\n        <div>\n            <span>{{messageDetails?.insertedby_label}}</span>\n            <!-- <small>dharu@gmail.com</small> -->\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\">\n        {{messageDetails?.broadcastMessage1}}\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <img [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <!-- <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n            <i class=\"ml-4 mr-4 fa fa-ellipsis-v\" aria-hidden=\"true\" [matMenuTriggerFor]=\"mail_options\"></i>\n            <mat-menu #mail_options=\"matMenu\">\n                <button mat-menu-item>Forward</button>\n                <button mat-menu-item>Reply</button>\n              </mat-menu> -->\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <!-- <img src=\"../../../../assets/images/img-users.jpg\" alt=\"\"> -->\n        <div>\n            <span>{{messageDetails?.insertedby_label}}</span>\n            <!-- <small>dharu@gmail.com</small> -->\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>";
       /***/
     },
 
@@ -625,14 +637,16 @@
                 };
 
                 _this.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
-                    var blob = res.body;
-                    var objectURL = URL.createObjectURL(blob);
+                  if (res && res[0]) {
+                    _this.fileDownloadService.downloadFile(res[0].filePath).subscribe(function (res) {
+                      var blob = res.body;
+                      var objectURL = URL.createObjectURL(blob);
 
-                    var sanitizeUrl = _this.sanitizer.bypassSecurityTrustUrl(objectURL);
+                      var sanitizeUrl = _this.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-                    _this.filePath = sanitizeUrl;
-                  });
+                      _this.filePath = sanitizeUrl;
+                    });
+                  }
                 });
               }
             });
@@ -993,18 +1007,20 @@
               recordsNo: 10
             };
             this.broadcastService.getAllBroadcastMessagesByUserAndRole(queryParamBase).subscribe(function (resp) {
-              _this6.broadCastMessages = resp;
-              _this6.pagination.totalResult = 46;
-              _this6.pagination.lastPage = Math.max(Math.ceil(_this6.pagination.totalResult / 10), 1);
+              if (resp && resp[0] && resp[0].broadCastMessageResult.length) {
+                var _this6$broadCastMessa, _this6$messageIds;
 
-              if (_this6.broadCastMessages.length) {
-                _this6.broadCastMessages.filter(function (key) {
-                  _this6.messageIds.push(key.broadCastMessageId);
-                }); // this.filterMessages({ name: "today", value: 0 });
+                (_this6$broadCastMessa = _this6.broadCastMessages).push.apply(_this6$broadCastMessa, _toConsumableArray(resp[0].broadCastMessageResult));
 
+                var messageIds = underscore__WEBPACK_IMPORTED_MODULE_7__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
+
+                (_this6$messageIds = _this6.messageIds).push.apply(_this6$messageIds, _toConsumableArray(messageIds));
+
+                _this6.pagination.totalResult = resp[0].totalRecords;
+                _this6.pagination.lastPage = Math.max(Math.ceil(_this6.pagination.totalResult / 10), 1);
+
+                _this6.openAnnouncement(_this6.broadCastMessages[0].broadCastMessageId);
               }
-
-              _this6.openAnnouncement(_this6.broadCastMessages[0].broadCastMessageId);
             });
           }
         }, {
@@ -1023,15 +1039,19 @@
               recordsNo: 10
             };
             this.broadcastService.getAllInterestGroupBroadcastMessagesByUserAndRole(queryParamBase).subscribe(function (resp) {
-              _this7.broadCastMessages = resp;
-              _this7.pagination.totalResult = 46;
-              _this7.pagination.lastPage = Math.max(Math.ceil(_this7.pagination.totalResult / 10), 1);
+              if (resp && resp[0] && resp[0].broadCastMessageResult.length) {
+                var _this7$broadCastMessa, _this7$messageIds;
 
-              if (_this7.broadCastMessages.length) {
-                _this7.broadCastMessages.filter(function (key) {
-                  _this7.messageIds.push(key.broadCastMessageId);
-                }); // this.filterMessages({ name: "today", value: 0 });
+                (_this7$broadCastMessa = _this7.broadCastMessages).push.apply(_this7$broadCastMessa, _toConsumableArray(resp[0].broadCastMessageResult));
 
+                var messageIds = underscore__WEBPACK_IMPORTED_MODULE_7__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
+
+                (_this7$messageIds = _this7.messageIds).push.apply(_this7$messageIds, _toConsumableArray(messageIds));
+
+                _this7.pagination.totalResult = resp[0].totalRecords;
+                _this7.pagination.lastPage = Math.max(Math.ceil(_this7.pagination.totalResult / 10), 1);
+
+                _this7.openAnnouncement(_this7.broadCastMessages[0].broadCastMessageId);
               }
             });
           }
@@ -1154,6 +1174,7 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./user-group-announcement-list.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/announcements/user-group-announcement-list/user-group-announcement-list.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./user-group-announcement-list.component.scss */
         "./src/app/modules/user/announcements/user-group-announcement-list/user-group-announcement-list.component.scss"))["default"]]
