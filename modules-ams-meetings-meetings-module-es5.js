@@ -1936,15 +1936,15 @@
                 };
 
                 _this18.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this18.sharedService.setUnitListDeleteIndex(null);
+
+                  _this18.isMeetingCategoryLoaded = true;
+
                   if (res.message) {
                     _this18.meetingCategoryList.splice(item.index, 1);
 
-                    _this18.sharedService.setUnitListDeleteIndex(null);
-
                     _this18.totalItems -= 1;
                     _this18.clickMode = ''; //close input box
-
-                    _this18.isMeetingCategoryLoaded = true;
 
                     _this18.sharedService.openSnackBar(res.message, 'success');
                   }

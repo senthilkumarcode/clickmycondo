@@ -28,7 +28,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"create-movein-wrapper\">\n    <div class=\"main\">\n        <div class=\"d-flex mb-4\">\n            <h4>\n\t\t\t\t<span *ngIf=\"mode == 'view'\">View Movein</span>\n\t\t\t\t<span *ngIf=\"mode != 'view'\">Add Movein</span>\n\t\t\t</h4>\n        </div>\n\t\t<div>\n\t\t\t<form #createMoveInForm=\"ngForm\" name=\"createMoveInForm\" novalidate>\n\t\t\t\t<app-loader *ngIf=\"!isMoveinSubmitted\"></app-loader>\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isMoveinSubmitted\">\n\t\t\t\t\t<div class=\"row\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t  <div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Tower No*</label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\"\n\t\t\t\t\t\t\t (ngModelChange)=\"getUnits('change')\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t  <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t  <option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n\t\t\t\t\t\t  <div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"movein.apartmentBlockUnitId\"\n\t\t\t\t\t\t\t (change)=\"getPrimaryName()\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t  <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t  <option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"movein.apartmentBlockUnitId\">\n\t\t\t\t\t\t  <div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Family Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter count\"\n\t\t\t\t\t\t\t\t\tname=\"familyCount\" [(ngModel)]=\"movein.familyCount\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>MoveIn Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"moveInDate\" [owlDateTime]=\"moveInDate\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"moveInDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"movein.inDate\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #moveInDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"moveInDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>MoveIn Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"moveInTime\" [owlDateTime]=\"moveInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"moveInTime\" placeholder=\"Time\" [(ngModel)]=\"movein.inTime\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #moveInTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"moveInTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  \t<label>Is the request for a Foreign National?</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<input name=\"national\" id=\"foreignNational\" [(ngModel)]=\"block.isForeignNational\" (change)=\"getBanner()\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreignNational\">Yes</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<input name=\"national\" id=\"generalNational\" [(ngModel)]=\"block.isForeignNational\" (change)=\"getBanner()\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"generalNational\">No</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t<textarea name=\"comment\" [(ngModel)]=\"movein.comments\" [disabled]=\"isDisable()\"></textarea>\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngIf=\"bannerList.length > 0\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Documents Required</label>\n\t\t\t\t\t\t\t\t<p class=\"mb-1\" *ngFor=\"let data of bannerList\">{{data.documentTypeName}} - {{data.description}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentConfigId\" id=\"documentConfigId\" class=\"form-control\" [(ngModel)]=\"movein.documentConfig\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentDataList\" [ngValue]=\"item.id\">{{ item.description }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mb-4\">\n\t\t\t\t\t\t\t\t<button mat-button [color]=\"'primary'\" (click)=\"addFileUpload()\">Add FileUpload</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mb-3\" *ngFor=\"let data of fileUploadList;let i=index\">\n\t\t\t\t\t\t\t\t<mat-icon [color]=\"'warn'\" class=\"close link float-right\" [svgIcon]=\"'close'\" (click)=\"deleteFileUpload(i)\"></mat-icon>\n\t\t\t\t\t\t\t\t<app-upload [fileId]=\"data.fileAttachmentId\" (fileIdChanged)=\"getFileId($event,data)\"></app-upload>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-5\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"mode != 'view'\" mat-flat-button [color]=\"'primary'\" (click)=\"moveinCreate()\">Create</button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"cancel()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"create-movein-wrapper\">\n    <div class=\"main\">\n        <div class=\"d-flex mb-4\">\n            <h4>\n\t\t\t\t<span *ngIf=\"mode == 'view'\">View Movein</span>\n\t\t\t\t<span *ngIf=\"mode != 'view'\">Add Movein</span>\n\t\t\t</h4>\n        </div>\n\t\t<div>\n\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t  \t</condo-message>\n\t\t\t<form #createMoveInForm=\"ngForm\" name=\"createMoveInForm\" novalidate>\n\t\t\t\t<app-loader *ngIf=\"!isMoveinSubmitted\"></app-loader>\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isMoveinSubmitted\">\n\t\t\t\t\t<div class=\"row\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t  <div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Tower No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\"\n\t\t\t\t\t\t\t (ngModelChange)=\"getUnits('change')\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t  <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t  <option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n\t\t\t\t\t\t  <div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"movein.apartmentBlockUnitId\"\n\t\t\t\t\t\t\t (change)=\"getPrimaryName()\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t  <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t  <option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"movein.apartmentBlockUnitId\">\n\t\t\t\t\t\t  <div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input  type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Family Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter count\"\n\t\t\t\t\t\t\t\t\tname=\"familyCount\" [(ngModel)]=\"movein.familyCount\" [disabled]=\"isDisable()\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>MoveIn Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"moveInDate\" [owlDateTime]=\"moveInDate\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"moveInDate\" placeholder=\"Date\"[(ngModel)]=\"movein.inDate\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #moveInDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"moveInDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>MoveIn Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"moveInTime\" [owlDateTime]=\"moveInTime\"\n\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"moveInTime\" placeholder=\"Time\" [(ngModel)]=\"movein.inTime\"\n\t\t\t\t\t\t\t\t\t[disabled]=\"isDisable()\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #moveInTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"moveInTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:clock\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  \t<label>Is the request for a Foreign National?<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<input name=\"national\" id=\"foreignNational\" [(ngModel)]=\"block.isForeignNational\" (change)=\"getBanner()\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreignNational\">Yes</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<input name=\"national\" id=\"generalNational\" [(ngModel)]=\"block.isForeignNational\" (change)=\"getBanner()\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"generalNational\">No</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t<textarea name=\"comment\" [(ngModel)]=\"movein.comments\" [disabled]=\"isDisable()\"></textarea>\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\" *ngIf=\"bannerList.length > 0\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Documents Required</label>\n\t\t\t\t\t\t\t\t<p class=\"mb-1\" *ngFor=\"let data of bannerList\">{{data.documentTypeName}} - {{data.description}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentConfigId\" id=\"documentConfigId\" class=\"form-control\" [(ngModel)]=\"movein.documentConfig\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentDataList\" [ngValue]=\"item.id\">{{ item.description }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> -->\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mb-4\">\n\t\t\t\t\t\t\t\t<button mat-button [color]=\"'primary'\" (click)=\"addFileUpload()\">Add FileUpload</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mb-3\" *ngFor=\"let data of fileUploadList;let i=index\">\n\t\t\t\t\t\t\t\t<mat-icon [color]=\"'warn'\" class=\"close link float-right\" [svgIcon]=\"'close'\" (click)=\"deleteFileUpload(i)\"></mat-icon>\n\t\t\t\t\t\t\t\t<app-upload [fileId]=\"data.fileAttachmentId\" (fileIdChanged)=\"getFileId($event,data)\"></app-upload>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-5\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"mode != 'view'\" mat-flat-button [color]=\"'primary'\" (click)=\"moveinCreate()\">Create</button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"cancel()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n    </div>\n</div>";
       /***/
     },
 
@@ -343,9 +343,21 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
 
       var CreateMoveinComponent = /*#__PURE__*/function () {
-        function CreateMoveinComponent(router, activateRouter, moveInOutService, apartmentService, sharedService, sessionService) {
+        function CreateMoveinComponent(router, activateRouter, moveInOutService, apartmentService, sharedService, sessionService, _changeDetectorRef) {
           var _this = this;
 
           _classCallCheck(this, CreateMoveinComponent);
@@ -356,6 +368,7 @@
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this._changeDetectorRef = _changeDetectorRef;
           this.movein = {};
           this.isMoveinSubmitted = true;
           this.towerList = [];
@@ -370,6 +383,7 @@
           this.fileUploadList = [{
             fileAttachmentId: null
           }];
+          this.message = null;
           this.activateRouter.params.subscribe(function (data) {
             if (data.id) {
               _this.mode = 'view';
@@ -573,41 +587,60 @@
           value: function moveinCreate() {
             var _this3 = this;
 
-            var params = {
-              moveIn: {
-                "inDate": moment__WEBPACK_IMPORTED_MODULE_6__(this.movein.inDate).format(),
-                "inTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.movein.inTime).format('HH:mm:ss'),
-                "familyCount": this.movein.familyCount,
-                "comments": this.movein.comments,
-                "apartmentBlockUnitId": this.movein.apartmentBlockUnitId,
-                "reqUserId": this.movein.reqUserId,
-                "statusId": 372,
-                "approvedBy": null,
-                "approvedDate": null,
-                "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null,
-                "apartmentId": this.sessionService.apartmentId,
-                "userName": '',
-                "mobile": '',
-                "email": '',
-                "block_Unit": '',
-                "requestType": "MoveIn",
-                "statusName": "Pending Approval",
-                "startDate": "",
-                "expiryDate": ""
-              }
-            };
-            this.moveInOutService.addMoveIn(params).subscribe(function (res) {
-              if (res.message) {
-                if (_this3.fileUploadList.length > 0) {
+            this.message = null;
+
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
+
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
+
+              this._changeDetectorRef.markForCheck();
+            } else {
+              var params = {
+                moveIn: {
+                  "inDate": moment__WEBPACK_IMPORTED_MODULE_6__(this.movein.inDate).format(),
+                  "inTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.movein.inTime).format('HH:mm:ss'),
+                  "familyCount": this.movein.familyCount,
+                  "comments": this.movein.comments,
+                  "apartmentBlockUnitId": this.movein.apartmentBlockUnitId,
+                  "reqUserId": this.movein.reqUserId,
+                  "statusId": 372,
+                  "approvedBy": null,
+                  "approvedDate": null,
+                  "isActive": true,
+                  "insertedBy": parseInt(this.sessionService.userId),
+                  "insertedOn": new Date().toISOString(),
+                  "updatedBy": null,
+                  "updatedOn": null,
+                  "apartmentId": this.sessionService.apartmentId,
+                  "userName": '',
+                  "mobile": '',
+                  "email": '',
+                  "block_Unit": '',
+                  "requestType": "MoveIn",
+                  "statusName": "Pending Approval",
+                  "startDate": "",
+                  "expiryDate": ""
+                }
+              };
+              this.moveInOutService.addMoveIn(params).subscribe(function (data) {
+                if (data.message) {
+                  var multipleAPI = [];
+
                   _this3.fileUploadList.forEach(function (data) {
                     if (data.fileAttachmentId) {
                       var fileParams = {
                         moveIn: {
-                          "moveInId": parseInt(res.message),
+                          "moveInId": parseInt(data.message),
                           "moveInOutConfigId": null,
                           "fileDetailsId": data.fileAttachmentId,
                           "comments": '',
@@ -620,37 +653,32 @@
                         file: null,
                         apartmentId: _this3.sessionService.apartmentId
                       };
-
-                      _this3.moveInOutService.addMoveInDetails(fileParams).subscribe(function (res) {
-                        if (res.message) {
-                          _this3.sharedService.openSnackBar('Movein added successfully', 'success');
-
-                          _this3.isMoveinSubmitted = true;
-
-                          _this3.cancel();
-                        } else {
-                          _this3.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                          _this3.isMoveinSubmitted = true;
-                        }
-                      }, function (error) {
-                        _this3.isMoveinSubmitted = true;
-
-                        _this3.sharedService.openSnackBar('Server Error', 'error');
-                      });
+                      multipleAPI.push(_this3.moveInOutService.addMoveInDetails(fileParams));
                     }
                   });
+
+                  if (multipleAPI.length > 0) {
+                    Object(rxjs__WEBPACK_IMPORTED_MODULE_9__["forkJoin"]).apply(void 0, multipleAPI).subscribe(function (res) {
+                      _this3.sharedService.openSnackBar('Movein added successfully', 'success');
+
+                      _this3.isMoveinSubmitted = true;
+
+                      _this3.cancel();
+                    });
+                  } else {
+                    _this3.sharedService.openSnackBar('Movein added successfully', 'success');
+
+                    _this3.isMoveinSubmitted = true;
+
+                    _this3.cancel();
+                  }
                 } else {
-                  _this3.sharedService.openSnackBar('Movein added successfully', 'success');
+                  _this3.sharedService.openSnackBar(data.errorMessage, 'error');
 
                   _this3.isMoveinSubmitted = true;
                 }
-              } else {
-                _this3.sharedService.openSnackBar(res.errorMessage, 'error');
-
-                _this3.isMoveinSubmitted = true;
-              }
-            });
+              });
+            }
           }
         }, {
           key: "cancel",
@@ -712,19 +740,28 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
 
+      CreateMoveinComponent.propDecorators = {
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['createMoveInForm']
+        }]
+      };
       CreateMoveinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-create-movein',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./create-movein.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./create-movein.component.scss */
         "./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], CreateMoveinComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], CreateMoveinComponent);
       /***/
     },
 
@@ -1796,7 +1833,7 @@
             };
             this.moveInOutService.updateMoveIn(params).subscribe(function (res) {
               if (res.message) {
-                _this13.sharedService.openSnackBar(res.message, 'success');
+                if (statusId == 373) _this13.sharedService.openSnackBar('Approved Movein', 'success');else if (statusId == 374) _this13.sharedService.openSnackBar('Rejected Movein', 'success');else if (statusId == 380) _this13.sharedService.openSnackBar('Cancelled Movein', 'success');
 
                 _this13.userBasedList();
               } else {
@@ -1830,7 +1867,7 @@
             var _this15 = this;
 
             var data = this.datagrid.getrowdata(detail.rowId);
-            var message = "Do you want to check In?";
+            var message = "Do you want to Move In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogModel"]("Confirm Action", message);
             var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-small',
@@ -1870,7 +1907,7 @@
 
                 _this15.moveInOutService.updateMoveIn(params).subscribe(function (res) {
                   if (res.message) {
-                    _this15.sharedService.openSnackBar(res.message, 'success');
+                    _this15.sharedService.openSnackBar('Successfully Moved In', 'success');
 
                     _this15.userBasedList();
                   } else {
@@ -1962,26 +1999,26 @@
             }, {
               text: 'Name',
               datafield: 'userName',
-              width: 200,
+              minwidth: 180,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Tower',
               datafield: 'block_Unit',
               cellsrenderer: cellsrenderer,
-              width: 130,
+              width: 150,
               renderer: columnrenderer
             }, {
               text: 'Phone',
               datafield: 'mobile',
               cellsrenderer: cellsrenderer,
-              width: 130,
+              width: 140,
               renderer: columnrenderer
             }, {
               text: 'Email',
               datafield: 'email',
               cellsrenderer: cellsrenderer,
-              minwidth: 190,
+              width: 200,
               renderer: columnrenderer
             }, {
               text: 'Expected Date',
@@ -2004,7 +2041,7 @@
               datafield: 'statusId',
               cellsalign: 'center',
               align: 'center',
-              width: 120,
+              width: 140,
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var status, label;
 
@@ -2652,14 +2689,21 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
 
       var MoveinMoveoutEditViewComponent = /*#__PURE__*/function () {
-        function MoveinMoveoutEditViewComponent(dialogRef, moveInOutService, sessionService, data) {
+        function MoveinMoveoutEditViewComponent(dialogRef, moveInOutService, sessionService, sharedService, data) {
           _classCallCheck(this, MoveinMoveoutEditViewComponent);
 
           this.dialogRef = dialogRef;
           this.moveInOutService = moveInOutService;
           this.sessionService = sessionService;
+          this.sharedService = sharedService;
           this.data = data;
           this.formField = {};
         }
@@ -2714,6 +2758,8 @@
             };
             this.moveInOutService.updateMoveIn(params).subscribe(function (res) {
               if (res.message) {
+                _this24.sharedService.openSnackBar(res.message, 'success');
+
                 _this24.dialogRef.close(true);
               }
             });
@@ -2754,6 +2800,8 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
+                _this25.sharedService.openSnackBar(res.message, 'success');
+
                 _this25.dialogRef.close(true);
               }
             });
@@ -2784,6 +2832,8 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
           type: undefined,
           decorators: [{
             type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
@@ -2800,7 +2850,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./movein-moveout-edit-view.component.scss */
         "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-edit-view/movein-moveout-edit-view.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], Object])], MoveinMoveoutEditViewComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], Object])], MoveinMoveoutEditViewComponent);
       /***/
     },
 
@@ -3640,7 +3690,7 @@
 
                 _this31.getMoveInMoveOutConfigList();
 
-                _this31.sharedService.openSnackBar(res.message, 'success');
+                _this31.sharedService.openSnackBar('Category Updated', 'success');
               } else {
                 _this31.sharedService.openSnackBar(res.errorMessage, 'error');
               }
@@ -4082,7 +4132,7 @@
           value: function checkOutUser(detail) {
             var _this37 = this;
 
-            var message = "Do you want to check Out?";
+            var message = "Do you want to Move Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
             var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-small',
@@ -4103,7 +4153,7 @@
                   "familyCount": moveOutData.familyCount,
                   "apartmentBlockUnitId": moveOutData.apartmentBlockUnitId,
                   "reqUserId": moveOutData.reqUserId,
-                  "statusId": 376,
+                  "statusId": 379,
                   "noDue": moveOutData.noDue,
                   "approvedBy": parseInt(_this37.sessionService.userId),
                   "approvedDate": new Date().toISOString(),
@@ -4126,7 +4176,7 @@
 
                 _this37.moveInOutService.updateMoveOut(params).subscribe(function (res) {
                   if (res.message) {
-                    _this37.sharedService.openSnackBar(res.message, 'success');
+                    _this37.sharedService.openSnackBar('Successfully Moved Out', 'success');
 
                     _this37.userBasedList();
                   } else {
@@ -4174,7 +4224,7 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                _this38.sharedService.openSnackBar(res.message, 'success');
+                if (statusId == 377) _this38.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this38.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this38.sharedService.openSnackBar('Cancelled Moveout', 'success');
 
                 _this38.userBasedList();
               } else {
@@ -4271,26 +4321,26 @@
             }, {
               text: 'Name',
               datafield: 'userName',
-              width: 200,
+              minwidth: 180,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Tower',
               datafield: 'block_Unit',
               cellsrenderer: cellsrenderer,
-              width: 130,
+              width: 150,
               renderer: columnrenderer
             }, {
               text: 'Phone',
               datafield: 'mobile',
               cellsrenderer: cellsrenderer,
-              width: 130,
+              width: 140,
               renderer: columnrenderer
             }, {
               text: 'Email',
               datafield: 'email',
               cellsrenderer: cellsrenderer,
-              minwidth: 190,
+              width: 200,
               renderer: columnrenderer
             }, {
               text: 'Date',
@@ -4313,7 +4363,7 @@
               datafield: 'statusId',
               cellsalign: 'center',
               align: 'center',
-              width: 120,
+              width: 140,
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var status, label;
 
@@ -4926,6 +4976,12 @@
       var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! src/app/modules/ui/list/list.module */
       "./src/app/modules/ui/list/list.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      /*! src/app/modules/ui/message/message.module */
+      "./src/app/modules/ui/message/message.module.ts");
 
       var MoveinoutTrackerModule = function MoveinoutTrackerModule() {
         _classCallCheck(this, MoveinoutTrackerModule);
@@ -4933,7 +4989,7 @@
 
       MoveinoutTrackerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_moveinout_tracker_component__WEBPACK_IMPORTED_MODULE_6__["MoveinoutTrackerComponent"], _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_7__["MoveinSetupComponent"], _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_8__["MoveinMaintainComponent"], _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_12__["MoveinAdminHistoryComponent"], _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_9__["MoveoutMaintainComponent"], _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_10__["MoveinReportsComponent"], _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_11__["MoveinMoveoutCancelComponent"], _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_13__["CreateMoveinComponent"], _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_14__["MoveinReportDataComponent"], _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_16__["CreateMoveoutComponent"], _components_movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_17__["MoveinMoveoutEditViewComponent"], _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_18__["CancelMoveInOutDetailsComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_15__["CondoCardModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_5__["UploadModule"], _moveinout_tracker_routing_module__WEBPACK_IMPORTED_MODULE_3__["MoveinoutTrackerRoutingModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_19__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_20__["ListModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_15__["CondoCardModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_21__["CondoMessageModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_5__["UploadModule"], _moveinout_tracker_routing_module__WEBPACK_IMPORTED_MODULE_3__["MoveinoutTrackerRoutingModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_19__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_20__["ListModule"]],
         bootstrap: [_moveinout_tracker_component__WEBPACK_IMPORTED_MODULE_6__["MoveinoutTrackerComponent"]]
       })], MoveinoutTrackerModule);
       /***/

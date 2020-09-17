@@ -1379,12 +1379,12 @@ let MeetingsSetupComponent = class MeetingsSetupComponent {
                     updateUserId: parseInt(this.sessionService.userId)
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.isMeetingCategoryLoaded = true;
                     if (res.message) {
                         this.meetingCategoryList.splice(item.index, 1);
-                        this.sharedService.setUnitListDeleteIndex(null);
                         this.totalItems -= 1;
                         this.clickMode = ''; //close input box
-                        this.isMeetingCategoryLoaded = true;
                         this.sharedService.openSnackBar(res.message, 'success');
                     }
                 });
