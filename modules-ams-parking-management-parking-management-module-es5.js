@@ -308,7 +308,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <div class=\"main\">\n         <!-- Loader -->\n         <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <!-- Indicator -->\n        <div class=\"d-flex justify-content-end\">\n            <ul class=\"legends mb-4 list-inline\" *ngIf=\"!isDataLoaded\">\n                <li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span>UnAllocated</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Allocated</li>\n            </ul>\n        </div>\n        <!-- Table -->\n        <condo-card *ngIf=\"!isDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Manage Allocated Slots - View Allocated Slots</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"allocateFilter\"  (ngModelChange)=\"searchAllocate()\" >\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                 <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-mangae-allocated-slots-wrapper\">\n    <div class=\"main\">\n         <!-- Loader -->\n         <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <!-- Indicator -->\n        <div class=\"d-flex justify-content-end\">\n            <ul class=\"legends mb-4 list-inline\" *ngIf=\"!isDataLoaded\">\n                <li class=\"list-inline-item\"><span class=\"dots bg-red-900\"></span>UnAllocated</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Allocated</li>\n            </ul>\n        </div>\n        <!-- Table -->\n        <condo-card *ngIf=\"!isDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Manage Allocated Slots - View Allocated Slots</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"allocateFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                 <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"allocatedSlotData\" [columns]=\"allocatedSlotHeader\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    </div>\n</div>";
       /***/
     },
 
@@ -428,7 +428,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-manage-parkings-slots-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Parking Slots - Manage Parking Slots</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"slotFilter\"  (ngModelChange)=\"searchSlot()\" >\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\"  routerLink=\"/ams/parking-management/create-parking-slot\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\tCreate Parking Slot</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\t\t\n\t";
+      __webpack_exports__["default"] = "<div class=\"parking-manage-parkings-slots-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Parking Slots - Manage Parking Slots</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"slotFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\"  routerLink=\"/ams/parking-management/create-parking-slot\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\tCreate Parking Slot</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"slotDataList\" [columns]=\"slotHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\t\t\n\t";
       /***/
     },
 
@@ -3548,6 +3548,7 @@
           this.vehicleService = vehicleService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.allocateFilter = '';
           this.isDataLoaded = true;
           this.totalItems = 0;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
@@ -3577,14 +3578,14 @@
             });
           }
         }, {
-          key: "searchAllocate",
-          value: function searchAllocate() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this19 = this;
 
-            if (this.allocateFilter != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.allocateFilter;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -4367,6 +4368,7 @@
           this.router = router;
           this.isDataLoaded = true;
           this.slotDataList = [];
+          this.slotFilter = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -4385,14 +4387,14 @@
             this.modalService.showConfirmModal(parkingSlotId);
           }
         }, {
-          key: "searchSlot",
-          value: function searchSlot() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this22 = this;
 
-            if (this.slotFilter != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.slotFilter;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';

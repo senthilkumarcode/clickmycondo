@@ -351,7 +351,8 @@
           }
         }, {
           key: "onAccountChange",
-          value: function onAccountChange(item, index) {
+          value: function onAccountChange(event, index) {
+            console.log(event);
             this.invoiceVendorAccountsData.glaccountName = event[0].glaccountName;
             this.invoiceVendorAccountsData.glaccountId = parseInt(event[0].glaccountId);
             this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
@@ -460,7 +461,7 @@
             if (event[0].lookupValueId != null) {
               this.invoiceVendorAccountsData.isTax1Vat = true;
               this.vendorinvoiceTaxData.isAdded = true;
-              var percent = parseFloat(event.lookupValueName) / 100;
+              var percent = parseFloat(event[0].lookupValueName) / 100;
               this.invoiceVendorAccountsData.vatid = parseInt(event[0].lookupValueId);
               this.invoiceVendorAccountsData.tax1Vatid = parseInt(event[0].lookupValueId);
               this.vendorinvoiceTaxData.vendorInvoiceId = new Date().valueOf(); // generate unique id
@@ -838,40 +839,39 @@
         }, {
           key: "getFieldParams",
           value: function getFieldParams(event) {
+            console.log(event);
             this.invoiceVendorAccountsArray = event;
             this.isFormInValid = underscore__WEBPACK_IMPORTED_MODULE_8__["some"](this.invoiceVendorAccountsArray, function (item) {
               return !item.form;
             });
-            var subAmountAfterdiscount = this.invoiceVendorAccountsArray.map(function (item) {
-              return item.lineAmountAfterDiscount;
-            }).reduce(function (a, b) {
-              return a + b;
-            });
+            console.log(this.invoiceVendorAccountsArray);
+            /*let subAmountAfterdiscount = this.invoiceVendorAccountsArray.map(item => item.lineAmountAfterDiscount).reduce((a, b) => a + b);
             this.invoice.subAmountAfterdiscount = parseFloat(subAmountAfterdiscount).toFixed(2);
-            var validLineItems = this.invoiceVendorAccountsArray.filter(function (item) {
-              return item.form;
-            }); //for only one line item
-
-            if (validLineItems.length == 1) {
-              var totalVatamount = this.vendorinvoiceTaxArray.reduce(function (total, item) {
-                return total + item.invoiceTotalAmount;
+                 var validLineItems = this.invoiceVendorAccountsArray.filter(item => {
+              return item.form
+            })
+                 //for only one line item
+            if(validLineItems.length == 1){
+                   let totalVatamount = this.vendorinvoiceTaxArray.reduce((total, item) => {
+                return total + item.invoiceTotalAmount
               }, 0);
               this.invoice.totalVatamount = parseFloat(totalVatamount).toFixed(2);
-              var value = parseInt(this.invoiceVendorAccountsArray[0].wthtaxAmount) / 100;
-              this.invoice.totalWthtaxAmount = ((this.invoice.subAmountAfterdiscount - this.invoice.totalVatamount) * value).toFixed(2);
+                   var value = parseInt(this.invoiceVendorAccountsArray[0].wthtaxAmount)/100;
+              this.invoice.totalWthtaxAmount = ((this.invoice.subAmountAfterdiscount - this.invoice.totalVatamount)*value).toFixed(2);
               this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
-            } //for more than one item
+                 }
+            //for more than one item
             else {
-                var totalWthtaxAmount = this.invoiceVendorAccountsArray.filter(function (item) {
-                  return item.form;
-                }).reduce(function (total, item) {
-                  var withTaxvalue = parseInt(item.wthtaxAmount) / 100;
-                  var vatvalue = parseInt(item.vatid) / 100;
-                  return total + item.lineAmountAfterDiscount / (1 + vatvalue) * withTaxvalue;
-                }, 0);
-                this.invoice.totalWthtaxAmount = parseFloat(totalWthtaxAmount).toFixed(2);
-                this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
-              }
+                   let totalWthtaxAmount = this.invoiceVendorAccountsArray.filter( item => {
+                return item.form
+              }).reduce( (total, item) => {
+                var withTaxvalue = parseInt(item.wthtaxAmount)/100;
+                var vatvalue = parseInt(item.vatid)/100;
+                return total + (item.lineAmountAfterDiscount/ (1 + vatvalue))*withTaxvalue
+              }, 0)
+              this.invoice.totalWthtaxAmount = parseFloat(totalWthtaxAmount).toFixed(2);
+              this.invoice.vendorInvoiceAmount = (parseFloat(this.invoice.subAmountAfterdiscount) - parseFloat(this.invoice.totalWthtaxAmount)).toFixed(2);
+                 } */
           }
         }, {
           key: "getVendorTaxInvoiceParams",
