@@ -127,6 +127,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.html":
+    /*!*********************************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.html ***!
+      \*********************************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsInventoryComponentsInventoryReportsInventoryReportDataInventoryReportDataComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n    <div class=\"main\">\n\t\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<condo-card *ngIf=\"isDataLoaded\">\n        <div CondoCardHeader>\n        \n\n            <div class=\"d-flex\">\n                    <div>\n                            <h4>{{pageName}}</h4>\n                            <p>{{totalItems}} results</p>\n                    </div>\n                \n                      <div class=\"ml-auto d-none d-md-block my-auto\">\n                            <input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n                  </div>\n                  \n                \n                    <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                            <condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                            [fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n                    </div>\n              </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n  \n</div>\n\n</div>\n";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.html":
     /*!*******************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.html ***!
@@ -142,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t\n\t<!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n\n  <div class=\"reports-wrapper\" *ngIf=\"!listType\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  \n    <ng-container *ngIf=\"isDataLoaded\">\n      <h5 class=\"mb-4\">Reports</h5>  \n      <div class=\"row\">\n        <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList\">          \n            <div class=\"card report-card\" (click)=\"listType = true\">\n              <a class=\"t-no-decor\" >\n                <div class=\"card-header\">\n                  <h6>{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </div>\n              </a>\n              <div class=\"card-body\">\n                \n              </div>\n            </div>\n        </div>\n      </div>  \n    </ng-container>     \n  </div>\n\n\n\n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n\n      <!-- <div class=\"filter-box float-left mt-4 p-0 no-border\">\n        <h6><i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By</h6>\n      </div> -->\n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n    </ng-container>\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<i class=\"fa fa-filter filter-icon pr-4\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filterCard\"></i>  \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              <!-- <span><i-feather class=\"icon mr-2\" name=\"filter\" class=\"pb-3\"></i-feather>Filter By</span> -->\n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         <!-- <label>Select Tower No</label> -->\n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t<div class=\"main\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  \n    <ng-container *ngIf=\"isDataLoaded && !listType\">\n      <h4 class=\"mb-4\">Reports</h4>  \n      <div class=\"row\">\n        <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">          \n          <condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n              <a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/inventory/reports/{{report.lookupValueName}}/{{report.lookupValueID}}\"\n              routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n                \n                  <h6>{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                \n              </a>\n            </div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div> \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n            </div>\n        </div>\n      \n    </ng-container>     \n\n  \n  \n  </div>\n\n\n<!-- \n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<i class=\"fa fa-filter filter-icon pr-4\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filterCard\"></i>  \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              \n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         \n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n  </ng-container>\n</div> -->\n";
       /***/
     },
 
@@ -2786,6 +2806,451 @@
     },
 
     /***/
+    "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.scss":
+    /*!*******************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.scss ***!
+      \*******************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsInventoryComponentsInventoryReportsInventoryReportDataInventoryReportDataComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2ludmVudG9yeS9jb21wb25lbnRzL2ludmVudG9yeS1yZXBvcnRzL2ludmVudG9yeS1yZXBvcnQtZGF0YS9pbnZlbnRvcnktcmVwb3J0LWRhdGEuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts":
+    /*!*****************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts ***!
+      \*****************************************************************************************************************************/
+
+    /*! exports provided: InventoryReportDataComponent */
+
+    /***/
+    function srcAppModulesAmsInventoryComponentsInventoryReportsInventoryReportDataInventoryReportDataComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "InventoryReportDataComponent", function () {
+        return InventoryReportDataComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/api/controllers/Ticket */
+      "./src/app/api/controllers/Ticket.ts");
+
+      var InventoryReportDataComponent = /*#__PURE__*/function () {
+        function InventoryReportDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService, ticketService) {
+          _classCallCheck(this, InventoryReportDataComponent);
+
+          this.router = router;
+          this.route = route;
+          this.userService = userService;
+          this.apartmentService = apartmentService;
+          this.lookupService = lookupService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.ticketService = ticketService;
+          this.pageName = "";
+          this.pageDesp = "";
+          this.ItemStartIndex = 0;
+          this.itemLimit = 10;
+          this.unitFieldType = "unitno";
+          this.unitOrder = true;
+          this.isDataLoaded = false;
+          this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
+          this.blockNo = "All Blocks";
+        }
+
+        _createClass(InventoryReportDataComponent, [{
+          key: "isMobileView",
+          value: function isMobileView() {
+            return window.innerWidth <= 767 ? 'table-responsive' : '';
+          }
+        }, {
+          key: "isItemsAvailable",
+          value: function isItemsAvailable() {
+            return this.totalItems > 0 ? true : false;
+          }
+        }, {
+          key: "isNoItemsAvailable",
+          value: function isNoItemsAvailable() {
+            return this.totalItems == 0 ? true : false;
+          }
+        }, {
+          key: "isListOfResidents",
+          value: function isListOfResidents() {
+            return this.pageName == "List of Residents";
+          }
+        }, {
+          key: "isListOfTickets",
+          value: function isListOfTickets() {
+            return this.pageName == "List of tickets";
+          }
+        }, {
+          key: "isListofAgedtickets",
+          value: function isListofAgedtickets() {
+            return this.pageName == "List of Aged tickets";
+          }
+        }, {
+          key: "isListofUnassignedtickets",
+          value: function isListofUnassignedtickets() {
+            return this.pageName == "List of Unassigned tickets";
+          }
+        }, {
+          key: "isListOfApprovedUsers",
+          value: function isListOfApprovedUsers() {
+            return this.pageName == "List of Approved Users";
+          }
+        }, {
+          key: "isListOfDeactivatedUsers",
+          value: function isListOfDeactivatedUsers() {
+            return this.pageName == "List of De-activated Users";
+          }
+        }, {
+          key: "isListOfResidentsVehicleInfo",
+          value: function isListOfResidentsVehicleInfo() {
+            return this.pageName == "List of Residents Vehicle Info";
+          }
+        }, {
+          key: "isListOfExpiringRental",
+          value: function isListOfExpiringRental() {
+            return this.pageName == "List of Expiring Rental  Lease Agreements";
+          }
+        }, {
+          key: "isListOfUsersWithPets",
+          value: function isListOfUsersWithPets() {
+            return this.pageName == "List of Users with Pets";
+          }
+        }, {
+          key: "isListOfUnits",
+          value: function isListOfUnits() {
+            return this.pageName == "List of Units";
+          }
+        }, {
+          key: "isListOfBlocks",
+          value: function isListOfBlocks() {
+            return this.pageName == "List of Blocks";
+          }
+        }, {
+          key: "isListOfOwners",
+          value: function isListOfOwners() {
+            return this.pageName == "List of Owners";
+          }
+        }, {
+          key: "isListOfTenants",
+          value: function isListOfTenants() {
+            return this.pageName == "List of Tenants";
+          }
+        }, {
+          key: "isListOfAdmins",
+          value: function isListOfAdmins() {
+            return this.pageName == "List of Admins";
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+          }
+        }, {
+          key: "getSelectedType",
+          value: function getSelectedType(event) {
+            var _this38 = this;
+
+            this.blockId = event[0].apartmentBlockId;
+            this.blockNo = event[0].apartmentBlockId;
+
+            if (this.blockId != "" && this.blockId != null) {
+              var filterGroup = new jqx.filter();
+              var filterOperator = 1;
+              var filterValue = event[0].apartmentBlockNumber;
+              var filterCondition = 'contains';
+              var filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+              filterGroup.operator = 'or';
+              filterGroup.addfilter(filterOperator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield === 'blockNo') {
+                  _this38.datagrid.addfilter(item.datafield, filterGroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "onSearchFilter",
+          value: function onSearchFilter() {
+            var _this39 = this;
+
+            if (this.userReportData != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = this.userReportData;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this39.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "getBlockDetails",
+          value: function getBlockDetails() {
+            var _this40 = this;
+
+            //jqx column generating
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.isDataLoaded = false;
+            var details = {
+              ApartmentID: this.sessionService.apartmentId,
+              ApartmentBlockID: this.blockId === "" ? 5 : this.blockId,
+              StartDate: this.StartDate,
+              EndDate: this.EndDate,
+              TicketStatus: this.TicketStatus,
+              TicketType: this.TicketType,
+              TicketRaisedBy: this.TicketRaisedBy,
+              AssignedToStaffId: this.AssignedToStaffId,
+              StaffCategoryType: this.StaffCategoryType,
+              StaffSubCategoryType: this.StaffSubCategoryType
+            };
+            this.columnData = [{
+              text: 'User Name',
+              datafield: 'userName',
+              width: 100,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Block Number',
+              datafield: 'blockNo',
+              minwidth: 100,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Unit Number',
+              datafield: 'unitNo',
+              minwidth: 100,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Ticket Type',
+              datafield: 'ticketType',
+              width: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'User Type',
+              datafield: 'userTypeName',
+              width: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Subject',
+              datafield: 'subject',
+              width: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Ticket Priority',
+              datafield: 'ticketPriority',
+              width: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }];
+            this.ticketService.getReportsForListofOpenCloseTicketsMultiFilter(details).subscribe(function (res) {
+              var gridSourceData = {
+                localdata: res,
+                datatype: "array"
+              };
+              _this40.userReportDataList = new jqx.dataAdapter(gridSourceData);
+              _this40.totalItems = _this40.userReportDataList.length;
+              _this40.isDataLoaded = true;
+
+              _this40.showItems();
+            });
+          }
+        }, {
+          key: "showItems",
+          value: function showItems() {
+            this.totalItems = this.userReportDataList["_source"].localdata.length;
+            console.log("total items ", this.totalItems);
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+              console.log("Itemendindex if", this.ItemEndIndex);
+            } else {
+              this.ItemEndIndex = this.totalItems;
+              console.log("Itemendindex ", this.ItemEndIndex);
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this41 = this;
+
+            this.pageName = this.route.params['value'].name;
+            var unitBlockParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
+              _this41.unitBlocksData = res;
+            });
+            var params = {
+              LookupTypeId: 87
+            };
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+              var data = res.filter(function (item) {
+                return item.lookupValueId == _this41.route.params['value'].id;
+              });
+              _this41.pageName = data[0].lookupValueName.replace('/', '');
+              _this41.pageDesp = data[0].description;
+            });
+            this.getBlockDetails();
+          }
+        }]);
+
+        return InventoryReportDataComponent;
+      }();
+
+      InventoryReportDataComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]
+        }];
+      };
+
+      InventoryReportDataComponent.propDecorators = {
+        gridResident: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['gridResident', {
+            "static": false
+          }]
+        }],
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }]
+      };
+      InventoryReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-inventory-report-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./inventory-report-data.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./inventory-report-data.component.scss */
+        "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]])], InventoryReportDataComponent);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.scss":
     /*!*****************************************************************************************************!*\
       !*** ./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.scss ***!
@@ -3039,7 +3504,7 @@
         }, {
           key: "getReportData",
           value: function getReportData() {
-            var _this38 = this;
+            var _this42 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3047,8 +3512,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this38.reportDataList = res;
-              _this38.isDataLoaded = true;
+              _this42.reportDataList = res;
+              _this42.isDataLoaded = true;
             });
           }
         }, {
@@ -3065,24 +3530,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this39 = this;
+            var _this43 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this39.unitBlocksData = res;
+              _this43.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this39.route.params['value'].id;
+                return item.lookupValueId == _this43.route.params['value'].id;
               });
-              _this39.pageName = res[0].lookupValueName;
-              _this39.pageDesp = res[0].description;
+              _this43.pageName = res[0].lookupValueName;
+              _this43.pageDesp = res[0].description;
             }); // this.getBlockDetails();
 
             this.getReportData();
@@ -3136,17 +3601,17 @@
         }, {
           key: "getCurrentInventory",
           value: function getCurrentInventory() {
-            var _this40 = this;
+            var _this44 = this;
 
             var params = {};
             params.ApartmentId = this.sessionService.apartmentId;
             this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this40.gridSourceData = {
+                _this44.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this40.inventoryHistoryData = new jqx.dataAdapter(_this40.gridSourceData);
+                _this44.inventoryHistoryData = new jqx.dataAdapter(_this44.gridSourceData);
               }
             });
           }
@@ -3382,7 +3847,7 @@
         }, {
           key: "addSetUp",
           value: function addSetUp(name, type, value, e) {
-            var _this41 = this;
+            var _this45 = this;
 
             var dialogRef = this.dialog.open(src_app_shared_components_assets_add_setup_assets_add_setup_component__WEBPACK_IMPORTED_MODULE_8__["AssetsAddSetupComponent"], {
               panelClass: 'material-dialog-big',
@@ -3395,14 +3860,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this41.getAllInventory();
+                _this45.getAllInventory();
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this42 = this;
+            var _this46 = this;
 
             this.getAllInventory();
             this.getAllStaff();
@@ -3413,43 +3878,43 @@
             this.getAllGetAllWarehouse();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                if (_this42.deleteType == 'categoryDelete') {
+                if (_this46.deleteType == 'categoryDelete') {
                   var param = {};
                   param = {
                     categoryId: id,
-                    deletedBy: parseInt(_this42.sessionService.userId)
+                    deletedBy: parseInt(_this46.sessionService.userId)
                   };
 
-                  _this42.lookupService.deleteCategory(param).subscribe(function (res) {
+                  _this46.lookupService.deleteCategory(param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this42.sharedService.setAlertMessage("Category deleted successfully");
+                      _this46.sharedService.setAlertMessage("Category deleted successfully");
 
-                      _this42.sharedService.setUnitListDeleteIndex(null);
+                      _this46.sharedService.setUnitListDeleteIndex(null);
 
-                      _this42.deleteType = '';
+                      _this46.deleteType = '';
 
-                      _this42.getAllInventory();
+                      _this46.getAllInventory();
                     }, 500);
                   }, function (error) {
                     console.log(error);
                   });
-                } else if (_this42.deleteMaterial == true) {
+                } else if (_this46.deleteMaterial == true) {
                   var _param = {};
                   _param = {
                     lookupValueId: id,
-                    updateUserId: parseInt(_this42.sessionService.userId)
+                    updateUserId: parseInt(_this46.sessionService.userId)
                   };
 
-                  _this42.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
+                  _this46.lookupService.deleteLookupvalue(_param).subscribe(function (res) {
                     setTimeout(function () {
-                      _this42.sharedService.setAlertMessage("Material type deleted successfully");
+                      _this46.sharedService.setAlertMessage("Material type deleted successfully");
 
-                      _this42.sharedService.setUnitListDeleteIndex(null);
+                      _this46.sharedService.setUnitListDeleteIndex(null);
 
-                      _this42.deleteType = '';
-                      _this42.deleteMaterial = false;
+                      _this46.deleteType = '';
+                      _this46.deleteMaterial = false;
 
-                      _this42.getAllMaterial();
+                      _this46.getAllMaterial();
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3457,18 +3922,18 @@
                 } else {
                   var _param2 = {};
                   _param2 = {
-                    apartmentId: _this42.sessionService.apartmentId,
+                    apartmentId: _this46.sessionService.apartmentId,
                     warehouseId: id,
-                    deleteBy: parseInt(_this42.sessionService.userId)
+                    deleteBy: parseInt(_this46.sessionService.userId)
                   };
 
-                  _this42.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
-                    _this42.getAllGetAllWarehouse();
+                  _this46.purchaseOrderService.deleteWarehouse(_param2).subscribe(function (res) {
+                    _this46.getAllGetAllWarehouse();
 
                     setTimeout(function () {
-                      _this42.sharedService.setAlertMessage("Warehouse deleted successfully");
+                      _this46.sharedService.setAlertMessage("Warehouse deleted successfully");
 
-                      _this42.sharedService.setUnitListDeleteIndex(null);
+                      _this46.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   }, function (error) {
                     console.log(error);
@@ -3525,7 +3990,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this43 = this;
+            var _this47 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3535,13 +4000,13 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this43.warehouseData = res && res.length > 0 ? res.reverse() : [];
-                _this43.isAssetLoaded = false;
-                _this43.tempWarehouseData = _this43.warehouseData;
-                _this43.totalItems = _this43.warehouseData.length;
+                _this47.warehouseData = res && res.length > 0 ? res.reverse() : [];
+                _this47.isAssetLoaded = false;
+                _this47.tempWarehouseData = _this47.warehouseData;
+                _this47.totalItems = _this47.warehouseData.length;
 
-                if (_this43.warehouseData && _this43.warehouseData.length > 0) {
-                  _this43.warehouseData.filter(function (val) {
+                if (_this47.warehouseData && _this47.warehouseData.length > 0) {
+                  _this47.warehouseData.filter(function (val) {
                     if (val.warehouseName == '') {
                       delete val.warehouseName;
                       delete val.warehouseId;
@@ -3549,10 +4014,10 @@
                   });
                 }
 
-                if (_this43.totalItems > _this43.itemLimit) {
-                  _this43.ItemEndIndex = _this43.itemLimit;
+                if (_this47.totalItems > _this47.itemLimit) {
+                  _this47.ItemEndIndex = _this47.itemLimit;
                 } else {
-                  _this43.ItemEndIndex = _this43.totalItems;
+                  _this47.ItemEndIndex = _this47.totalItems;
                 }
               }
             });
@@ -3560,7 +4025,7 @@
         }, {
           key: "addWareHouse",
           value: function addWareHouse(data) {
-            var _this44 = this;
+            var _this48 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3582,19 +4047,19 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.addWarehouse(params).subscribe(function (res) {
               if (res.message) {
-                _this44.sharedService.openSnackBar('Warehouse added Successfully', 'success');
+                _this48.sharedService.openSnackBar('Warehouse added Successfully', 'success');
 
-                _this44.isAssetLoaded = false;
-                _this44.row = {};
+                _this48.isAssetLoaded = false;
+                _this48.row = {};
 
-                _this44.getAllGetAllWarehouse();
+                _this48.getAllGetAllWarehouse();
               }
             });
           }
         }, {
           key: "updateWareHouse",
           value: function updateWareHouse(data) {
-            var _this45 = this;
+            var _this49 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3616,18 +4081,18 @@
             params.warehouseobj = reqObj;
             this.purchaseOrderService.updateWarehouse(params).subscribe(function (res) {
               if (res) {
-                _this45.sharedService.setAlertMessage("Warehouse Updated successfully");
+                _this49.sharedService.setAlertMessage("Warehouse Updated successfully");
 
-                _this45.isAssetLoaded = false; // this.isEditRow = false;
+                _this49.isAssetLoaded = false; // this.isEditRow = false;
 
-                _this45.wareHouseIndex = -1;
+                _this49.wareHouseIndex = -1;
               }
             });
           }
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this46 = this;
+            var _this50 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -3635,7 +4100,7 @@
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
-                _this46.staffList = res;
+                _this50.staffList = res;
               }
             }, function (error) {
               console.log(error);
@@ -3648,7 +4113,7 @@
         }, {
           key: "getAllInventory",
           value: function getAllInventory() {
-            var _this47 = this;
+            var _this51 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3659,9 +4124,9 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this47.isAssetLoaded = false;
-                _this47.inventoryCategoryList = res ? res : [];
-                _this47.tempCategoryList = _this47.inventoryCategoryList;
+                _this51.isAssetLoaded = false;
+                _this51.inventoryCategoryList = res ? res : [];
+                _this51.tempCategoryList = _this51.inventoryCategoryList;
               }
             });
           }
@@ -3678,7 +4143,7 @@
         }, {
           key: "editInventory",
           value: function editInventory(data) {
-            var _this48 = this;
+            var _this52 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -3694,20 +4159,20 @@
             params.subcategoryLookupTypeId = 175;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this48.sharedService.setAlertMessage("Inventory sub types updated successfully");
+                _this52.sharedService.setAlertMessage("Inventory sub types updated successfully");
 
-                _this48.isAssetLoaded = false;
+                _this52.isAssetLoaded = false;
 
-                _this48.getAllInventory();
+                _this52.getAllInventory();
 
-                _this48.inventoryCurrIndex = -1;
+                _this52.inventoryCurrIndex = -1;
               }
             });
           }
         }, {
           key: "getAllLocation",
           value: function getAllLocation() {
-            var _this49 = this;
+            var _this53 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3716,15 +4181,15 @@
             this.isAssetLoaded = true;
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this49.isAssetLoaded = false;
-                _this49.locationList = res ? res : [];
+                _this53.isAssetLoaded = false;
+                _this53.locationList = res ? res : [];
               }
             });
           }
         }, {
           key: "getAllMaterial",
           value: function getAllMaterial() {
-            var _this50 = this;
+            var _this54 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -3734,15 +4199,15 @@
             this.isAssetLoaded = true;
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this50.isAssetLoaded = false;
-                _this50.materialList = res ? res.reverse() : [];
-                _this50.tempMaterialList = _this50.materialList;
-                _this50.typeTotalItems = _this50.materialList.length;
+                _this54.isAssetLoaded = false;
+                _this54.materialList = res ? res.reverse() : [];
+                _this54.tempMaterialList = _this54.materialList;
+                _this54.typeTotalItems = _this54.materialList.length;
 
-                if (_this50.typeTotalItems > _this50.typeItemLimit) {
-                  _this50.typeItemEndIndex = _this50.typeItemLimit;
+                if (_this54.typeTotalItems > _this54.typeItemLimit) {
+                  _this54.typeItemEndIndex = _this54.typeItemLimit;
                 } else {
-                  _this50.typeItemEndIndex = _this50.typeTotalItems;
+                  _this54.typeItemEndIndex = _this54.typeTotalItems;
                 }
               }
             });
@@ -3750,7 +4215,7 @@
         }, {
           key: "addMaterialType",
           value: function addMaterialType(data) {
-            var _this51 = this;
+            var _this55 = this;
 
             var reqObj = {};
             reqObj = {
@@ -3771,25 +4236,25 @@
             param.lookupvalue = reqObj;
             this.lookupService.addLookupValue(param).subscribe(function (res) {
               if (res.code == 200) {
-                _this51.isAssetLoaded = false;
-                _this51.typeRow = {};
+                _this55.isAssetLoaded = false;
+                _this55.typeRow = {};
 
-                _this51.getAllMaterial();
+                _this55.getAllMaterial();
 
-                _this51.sharedService.openSnackBar('Created SuccessFully', 'success');
+                _this55.sharedService.openSnackBar('Created SuccessFully', 'success');
               } else {
-                _this51.isAssetLoaded = false;
+                _this55.isAssetLoaded = false;
 
-                _this51.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                _this55.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
               }
             }, function (error) {
-              _this51.sharedService.openSnackBar('Server Error', 'error');
+              _this55.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateMaterial",
           value: function updateMaterial(data) {
-            var _this52 = this;
+            var _this56 = this;
 
             console.log(data);
             var reqObj = {};
@@ -3811,23 +4276,23 @@
             param.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(param).subscribe(function (res) {
               if (res.message) {
-                _this52.isAssetLoaded = false;
-                _this52.currMaterialIndex = -1;
+                _this56.isAssetLoaded = false;
+                _this56.currMaterialIndex = -1;
 
-                _this52.sharedService.openSnackBar('Material type updated successfully', 'success');
+                _this56.sharedService.openSnackBar('Material type updated successfully', 'success');
               } else {
-                _this52.isAssetLoaded = false;
+                _this56.isAssetLoaded = false;
 
-                _this52.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this56.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this52.sharedService.openSnackBar('Server Error', 'error');
+              _this56.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this53 = this;
+            var _this57 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -3847,16 +4312,16 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this53.sharedService.setAlertMessage("Category updated successfully");
+                _this57.sharedService.setAlertMessage("Category updated successfully");
 
-                _this53.isAssetLoaded = false;
-                _this53.currCatIndex = -1;
+                _this57.isAssetLoaded = false;
+                _this57.currCatIndex = -1;
 
-                _this53.getAllInventory();
+                _this57.getAllInventory();
               } else if (res.body.errorMessage) {
-                _this53.isError = true;
-                _this53.errorMessage = 'Not Added it already exist';
-                _this53.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this57.isError = true;
+                _this57.errorMessage = 'Not Added it already exist';
+                _this57.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
@@ -3868,16 +4333,16 @@
         }, {
           key: "cancelWarHouse",
           value: function cancelWarHouse(type) {
-            var _this54 = this;
+            var _this58 = this;
 
             if (type == 'warhouse') {
               var index = this.warehouseData.findIndex(function (data) {
-                return data.warehouseId == _this54.backupWarhouse.warehouseId;
+                return data.warehouseId == _this58.backupWarhouse.warehouseId;
               });
               this.warehouseData.splice(index, 1, this.backupWarhouse);
             } else {
               var _index = this.materialList.findIndex(function (data) {
-                return data.lookupValueId == _this54.backupWarhouse.lookupValueId;
+                return data.lookupValueId == _this58.backupWarhouse.lookupValueId;
               });
 
               this.materialList.splice(_index, 1, this.backupWarhouse);
@@ -4195,7 +4660,7 @@
         }, {
           key: "getAllGetAllWarehouse",
           value: function getAllGetAllWarehouse() {
-            var _this55 = this;
+            var _this59 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4204,8 +4669,8 @@
             this.purchaseOrderService.getAllWarehouseByApartmentId(queryParamBase).subscribe(function (res) {
               if (res) {
                 // this.warehouseData = [];
-                _this55.warehouseData = res && res.length > 0 ? res : [];
-                _this55.warehouseData = _this55.warehouseData.filter(function (el) {
+                _this59.warehouseData = res && res.length > 0 ? res : [];
+                _this59.warehouseData = _this59.warehouseData.filter(function (el) {
                   return el.warehouseName;
                 });
               }
@@ -4214,7 +4679,7 @@
         }, {
           key: "getMaterials",
           value: function getMaterials() {
-            var _this56 = this;
+            var _this60 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -4224,7 +4689,7 @@
               if (res) {
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this56.materialItemData.push({
+                    _this60.materialItemData.push({
                       'id': val.materialId,
                       'itemName': val.material1
                     });
@@ -4236,7 +4701,7 @@
         }, {
           key: "addStock",
           value: function addStock() {
-            var _this57 = this;
+            var _this61 = this;
 
             var stockReqobj = {};
             stockReqobj = {
@@ -4265,22 +4730,22 @@
             params.inventoryTransaction = stockReqobj;
             this.inventoryService.addInventoryTransaction(params).subscribe(function (res) {
               if (res) {
-                _this57.sharedService.setAlertMessage("Stock Item added successfully");
+                _this61.sharedService.setAlertMessage("Stock Item added successfully");
 
-                _this57.stock = {};
-                _this57.isAssetLoaded = false; // this.getAllItem();	
+                _this61.stock = {};
+                _this61.isAssetLoaded = false; // this.getAllItem();	
 
-                _this57.selectedItem = [];
-                _this57.issuedStaffId = [];
-                _this57.inventoryList = [];
-                _this57.stock.inventoryList = '';
+                _this61.selectedItem = [];
+                _this61.issuedStaffId = [];
+                _this61.inventoryList = [];
+                _this61.stock.inventoryList = '';
               }
             });
           }
         }, {
           key: "getAvailableStock",
           value: function getAvailableStock() {
-            var _this58 = this;
+            var _this62 = this;
 
             if (this.stock.materialId || this.stock.warehouseId) {
               var queryParamBase = {
@@ -4290,9 +4755,9 @@
               };
               this.inventoryService.getStockCountbyMaterialId(queryParamBase).subscribe(function (res) {
                 if (res && res.length > 0) {
-                  _this58.stock.availableStockQty = res[0].totalStockQty;
+                  _this62.stock.availableStockQty = res[0].totalStockQty;
                 } else {
-                  _this58.stock.availableStockQty = 0;
+                  _this62.stock.availableStockQty = 0;
                 }
               });
             }
@@ -4300,7 +4765,7 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this59 = this;
+            var _this63 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -4311,7 +4776,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                 });
-                _this59.staffList = res;
+                _this63.staffList = res;
               }
             }, function (error) {
               console.log(error);
@@ -4320,7 +4785,7 @@
         }, {
           key: "getAllItem",
           value: function getAllItem() {
-            var _this60 = this;
+            var _this64 = this;
 
             if (this.stock.warehouseId || this.stock.materialId) {
               var queryParamBase = {
@@ -4330,13 +4795,13 @@
               };
               this.inventoryService.getAllInventoryTransactionByApartmentId(queryParamBase).subscribe(function (res) {
                 if (res) {
-                  _this60.inventoryList = res && res.length > 0 ? res : [];
-                  _this60.totalItems = _this60.inventoryList.length;
+                  _this64.inventoryList = res && res.length > 0 ? res : [];
+                  _this64.totalItems = _this64.inventoryList.length;
 
-                  if (_this60.totalItems > _this60.itemLimit) {
-                    _this60.ItemEndIndex = _this60.itemLimit;
+                  if (_this64.totalItems > _this64.itemLimit) {
+                    _this64.ItemEndIndex = _this64.itemLimit;
                   } else {
-                    _this60.ItemEndIndex = _this60.totalItems;
+                    _this64.ItemEndIndex = _this64.totalItems;
                   }
                 }
               });
@@ -4694,7 +5159,7 @@
 
       var InventoryViewComponent = /*#__PURE__*/function () {
         function InventoryViewComponent(injector, dialog, router, route, inventoryService, vendorService, lookupService, sharedService, sessionService) {
-          var _this61 = this;
+          var _this65 = this;
 
           _classCallCheck(this, InventoryViewComponent);
 
@@ -4722,7 +5187,7 @@
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]) {
-              _this61.getAllInventories();
+              _this65.getAllInventories();
             }
           });
         }
@@ -4803,87 +5268,87 @@
         }, {
           key: "getAllInventories",
           value: function getAllInventories() {
-            var _this62 = this;
+            var _this66 = this;
 
             this.isInventoryLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.inventoryService.getAllInventoryByApartmentId(params).subscribe(function (res) {
-              _this62.inventoryListData = res.filter(function (item) {
+              _this66.inventoryListData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              if (_this62.route.params['value'].id != undefined) {
-                _this62.inventoryListData = _this62.inventoryListData.filter(function (item) {
-                  return item.inventoryCategoryId == _this62.route.params['value'].id && item.isActive;
+              if (_this66.route.params['value'].id != undefined) {
+                _this66.inventoryListData = _this66.inventoryListData.filter(function (item) {
+                  return item.inventoryCategoryId == _this66.route.params['value'].id && item.isActive;
                 });
-                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this62.inventoryCategoryData, function (item, index) {
-                  if (item.lookupValueId == _this62.route.params['value'].id) {
-                    _this62.inventoryCategoryName = item.lookupValueName;
-                    _this62.inventoryCategory = item.lookupValueId;
+                underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this66.inventoryCategoryData, function (item, index) {
+                  if (item.lookupValueId == _this66.route.params['value'].id) {
+                    _this66.inventoryCategoryName = item.lookupValueName;
+                    _this66.inventoryCategory = item.lookupValueId;
                   }
 
-                  _this62.isInventoryLoaded = true;
+                  _this66.isInventoryLoaded = true;
                 });
               }
 
-              _this62.totalItems = _this62.inventoryListData.length;
+              _this66.totalItems = _this66.inventoryListData.length;
 
-              if (_this62.totalItems > _this62.itemLimit) {
-                _this62.ItemEndIndex = _this62.itemLimit;
+              if (_this66.totalItems > _this66.itemLimit) {
+                _this66.ItemEndIndex = _this66.itemLimit;
               } else {
-                _this62.ItemEndIndex = _this62.totalItems;
+                _this66.ItemEndIndex = _this66.totalItems;
               }
 
-              _this62.isInventoryLoaded = true;
+              _this66.isInventoryLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this63 = this;
+            var _this67 = this;
 
             this.inventory = {};
             var params = {
               LookupTypeId: 20
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this63.inventoryCategoryData = res.filter(function (item) {
+              _this67.inventoryCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this63.getAllInventories();
+              _this67.getAllInventories();
             });
             var vendorParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(vendorParams).subscribe(function (res) {
-              _this63.vendorListData = res;
+              _this67.vendorListData = res;
             }); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   inventoryId: id,
-                  deleteBy: parseInt(_this63.sessionService.userId)
+                  deleteBy: parseInt(_this67.sessionService.userId)
                 };
 
-                _this63.inventoryService.deleteInventory(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this63.inventoryListData, function (type) {
+                _this67.inventoryService.deleteInventory(params).subscribe(function (res) {
+                  underscore__WEBPACK_IMPORTED_MODULE_10__["each"](_this67.inventoryListData, function (type) {
                     if (type.inventoryId == id) {
                       type.isActive = false;
                     }
                   });
                   setTimeout(function () {
-                    _this63.inventoryListData = _this63.inventoryListData.filter(function (type) {
+                    _this67.inventoryListData = _this67.inventoryListData.filter(function (type) {
                       return type.id !== id;
                     });
-                    _this63.totalItems = _this63.inventoryListData.length;
+                    _this67.totalItems = _this67.inventoryListData.length;
 
-                    _this63.sharedService.setAlertMessage("Inventory deleted");
+                    _this67.sharedService.setAlertMessage("Inventory deleted");
 
-                    _this63.sharedService.setUnitListDeleteIndex(null);
+                    _this67.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -5039,6 +5504,12 @@
       var _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/inventory-stock-adjustments/inventory-stock-adjustments.component */
       "./src/app/modules/ams/inventory/components/inventory-stock-adjustments/inventory-stock-adjustments.component.ts");
+      /* harmony import */
+
+
+      var _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! ./components/inventory-reports/inventory-report-data/inventory-report-data.component */
+      "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts");
 
       var routes = [{
         path: '',
@@ -5095,6 +5566,10 @@
       }, {
         path: 'reports',
         component: _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_7__["InventoryReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports/:name/:id',
+        component: _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_15__["InventoryReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
@@ -5339,13 +5814,19 @@
       var _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! ./components/inventory-stock-adjustments/inventory-stock-adjustments.component */
       "./src/app/modules/ams/inventory/components/inventory-stock-adjustments/inventory-stock-adjustments.component.ts");
+      /* harmony import */
+
+
+      var _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      /*! ./components/inventory-reports/inventory-report-data/inventory-report-data.component */
+      "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts");
 
       var InventoryModule = function InventoryModule() {
         _classCallCheck(this, InventoryModule);
       };
 
       InventoryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_inventory_component__WEBPACK_IMPORTED_MODULE_7__["InventoryComponent"], _components_inventory_setup_inventory_setup_component__WEBPACK_IMPORTED_MODULE_8__["InventorySetupComponent"], _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_9__["InventoryCreateComponent"], _components_inventory_update_inventory_update_component__WEBPACK_IMPORTED_MODULE_10__["InventoryUpdateComponent"], _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_11__["InventoryViewComponent"], _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_12__["InventoryReportsComponent"], _components_inventory_current_details_inventory_current_details_component__WEBPACK_IMPORTED_MODULE_13__["InventoryCurrentDetailsComponent"], _components_inventory_vendor_management_inventory_vendor_management_component__WEBPACK_IMPORTED_MODULE_14__["InventoryVendorManagementComponent"], _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_16__["InventoryCreateItemComponent"], _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_17__["InventoryInitialStockComponent"], _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_18__["InventoryInternalTransferComponent"], _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_19__["InventoryReceivingComponent"], _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_20__["InventoryStockAdjustmentsComponent"]],
+        declarations: [_inventory_component__WEBPACK_IMPORTED_MODULE_7__["InventoryComponent"], _components_inventory_setup_inventory_setup_component__WEBPACK_IMPORTED_MODULE_8__["InventorySetupComponent"], _components_inventory_create_inventory_create_component__WEBPACK_IMPORTED_MODULE_9__["InventoryCreateComponent"], _components_inventory_update_inventory_update_component__WEBPACK_IMPORTED_MODULE_10__["InventoryUpdateComponent"], _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_11__["InventoryViewComponent"], _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_12__["InventoryReportsComponent"], _components_inventory_current_details_inventory_current_details_component__WEBPACK_IMPORTED_MODULE_13__["InventoryCurrentDetailsComponent"], _components_inventory_vendor_management_inventory_vendor_management_component__WEBPACK_IMPORTED_MODULE_14__["InventoryVendorManagementComponent"], _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_16__["InventoryCreateItemComponent"], _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_17__["InventoryInitialStockComponent"], _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_18__["InventoryInternalTransferComponent"], _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_19__["InventoryReceivingComponent"], _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_20__["InventoryStockAdjustmentsComponent"], _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_21__["InventoryReportDataComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_15__["AngularMultiSelectModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"], _inventory_routing_module__WEBPACK_IMPORTED_MODULE_3__["InventoryRoutingModule"]],
         bootstrap: [_inventory_component__WEBPACK_IMPORTED_MODULE_7__["InventoryComponent"]]
       })], InventoryModule);

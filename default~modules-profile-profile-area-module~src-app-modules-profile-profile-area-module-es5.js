@@ -239,6 +239,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-timezone/profile-timezone.component.html":
+    /*!************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-timezone/profile-timezone.component.html ***!
+      \************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesProfileProfileTimezoneProfileTimezoneComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Time</h4>\n\n    <div class=\"bg-card shadow\">\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <div class=\"form-group\">\n                            <label for=\"timeSettings\">Time Zone</label>\n                            <input type=\"text\" class=\"form-control\" name=\"timeSettings\" [(ngModel)]=\"user.time\" placeholder=\"Enter\" readonly>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-unit-details/profile-unit-details.component.html":
     /*!********************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-unit-details/profile-unit-details.component.html ***!
@@ -947,6 +967,11 @@
         title: 'Change Password',
         slug: 'password',
         icon: 'feather:lock'
+      }, {
+        id: '7c004a19-4506-a3c7-93ab-f16381302e3b',
+        title: 'Time Zone',
+        slug: 'timezone',
+        icon: 'feather:clock'
       }];
       /***/
     },
@@ -1072,6 +1097,12 @@
       var _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./property-manager/property-manager-create/property-manager-create.component */
       "./src/app/modules/profile/property-manager/property-manager-create/property-manager-create.component.ts");
+      /* harmony import */
+
+
+      var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      /*! ./profile-timezone/profile-timezone.component */
+      "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
 
       var routes = [{
         path: '',
@@ -1116,6 +1147,9 @@
         }, {
           path: 'absence',
           component: _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_14__["ProfileUserAbsenceComponent"]
+        }, {
+          path: 'timezone',
+          component: _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__["ProfileTimezoneComponent"]
         }, {
           path: '**',
           redirectTo: 'basic',
@@ -1506,13 +1540,19 @@
       var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+      /* harmony import */
+
+
+      var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
+      /*! ./profile-timezone/profile-timezone.component */
+      "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
 
       var ProfileAreaModule = function ProfileAreaModule() {
         _classCallCheck(this, ProfileAreaModule);
       };
 
       ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_15__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_17__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_19__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_21__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_23__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_24__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_26__["ProfileLeaseInfoComponent"], _create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_27__["CreateLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_28__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_29__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_30__["PropertyManagerCreateComponent"], _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_31__["ProfileUserAbsenceHistoryComponent"]],
+        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_15__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_17__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_19__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_21__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_23__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_24__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_26__["ProfileLeaseInfoComponent"], _create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_27__["CreateLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_28__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_29__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_30__["PropertyManagerCreateComponent"], _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_31__["ProfileUserAbsenceHistoryComponent"], _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__["ProfileTimezoneComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]), _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProfileAreaRoutingModule"], src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__["CondoScrollbarModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_32__["NgxIntlTelInputModule"]],
         bootstrap: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"]]
       })], ProfileAreaModule);
@@ -3705,6 +3745,93 @@
         /*! ./profile-sidebar.component.scss */
         "./src/app/modules/profile/profile-sidebar/profile-sidebar.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ProfileSidebarComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-timezone/profile-timezone.component.scss":
+    /*!**********************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-timezone/profile-timezone.component.scss ***!
+      \**********************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesProfileProfileTimezoneProfileTimezoneComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLXRpbWV6b25lL3Byb2ZpbGUtdGltZXpvbmUuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts":
+    /*!********************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-timezone/profile-timezone.component.ts ***!
+      \********************************************************************************/
+
+    /*! exports provided: ProfileTimezoneComponent */
+
+    /***/
+    function srcAppModulesProfileProfileTimezoneProfileTimezoneComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ProfileTimezoneComponent", function () {
+        return ProfileTimezoneComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+      var ProfileTimezoneComponent = /*#__PURE__*/function () {
+        function ProfileTimezoneComponent() {
+          _classCallCheck(this, ProfileTimezoneComponent);
+        }
+
+        _createClass(ProfileTimezoneComponent, [{
+          key: "submitTimeSettingsform",
+          value: function submitTimeSettingsform(form) {}
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.user = {};
+            this.user.time = 'Asia/Manila';
+          }
+        }]);
+
+        return ProfileTimezoneComponent;
+      }();
+
+      ProfileTimezoneComponent.ctorParameters = function () {
+        return [];
+      };
+
+      ProfileTimezoneComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile-timezone',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./profile-timezone.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-timezone/profile-timezone.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./profile-timezone.component.scss */
+        "./src/app/modules/profile/profile-timezone/profile-timezone.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], ProfileTimezoneComponent);
       /***/
     },
 

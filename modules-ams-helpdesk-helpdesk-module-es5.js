@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t\t<div class=\"main\">\n\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isDataLoaded && (isListOfTickets())\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\t  <div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t\t  </div>\n\t\t\t\t\t  \n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\t<condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t  </div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- De Activated Users -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofAgedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t[fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\n\t\t<!-- vehicle info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofUnassignedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t[fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- Rental info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- Pets info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Units -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Blocks -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Tenant -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t</select>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\t<!-- List of Owners -->\n\t\n\t\n\t\t<!-- List of Admins -->\n\t\n\t\n\t</div>\n\t</div>";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t\t<div class=\"main\">\n\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isDataLoaded && (isListOfTickets())\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\t  <div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t\t  </div>\n\t\t\t\t\t  \n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t  </div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- De Activated Users -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofAgedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\n\t\t<!-- vehicle info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofUnassignedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t\n\t\n\t\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\t</div>";
       /***/
     },
 
@@ -868,6 +868,12 @@
       var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Ticket */
       "./src/app/api/controllers/Ticket.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var HelpdeskReportsDataComponent = /*#__PURE__*/function () {
         function HelpdeskReportsDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService, ticketService) {
@@ -888,8 +894,10 @@
           this.unitFieldType = "unitno";
           this.unitOrder = true;
           this.isDataLoaded = false;
-          this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
-          this.blockNo = "All Blocks";
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
         }
 
         _createClass(HelpdeskReportsDataComponent, [{
@@ -985,34 +993,31 @@
         }, {
           key: "getSelectedType",
           value: function getSelectedType(event) {
-            var _this10 = this;
-
-            this.blockId = event[0].apartmentBlockId;
-            this.blockNo = event[0].apartmentBlockId;
-
-            if (this.blockId != "" && this.blockId != null) {
-              var filterGroup = new jqx.filter();
-              var filterOperator = 1;
-              var filterValue = event[0].apartmentBlockNumber;
-              var filterCondition = 'contains';
-              var filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
-              filterGroup.operator = 'or';
-              filterGroup.addfilter(filterOperator, filterData);
-              this.datagrid.showfiltercolumnbackground(false);
-              this.columnData.forEach(function (item) {
-                if (item.datafield === 'blockNo') {
-                  _this10.datagrid.addfilter(item.datafield, filterGroup, true);
-                }
-              });
-              this.datagrid.applyfilters();
-            } else {
-              this.datagrid.clearfilters();
-            }
+            this.blockId = event[0].apartmentBlockId; //this.blockNo = event[0].apartmentBlockId;
+            //    if(this.blockId != "" && this.blockId != null){
+            // 	let filterGroup = new jqx.filter();
+            // 	let filterOperator = 1;
+            // 	let filterValue = event[0].apartmentBlockNumber;
+            // 	let filterCondition = 'contains';
+            // 	let filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+            // 	filterGroup.operator = 'or';
+            // 	filterGroup.addfilter(filterOperator, filterData);
+            // 	this.datagrid.showfiltercolumnbackground(false);
+            // 	this.columnData.forEach(item => {
+            // 	  if(item.datafield === 'blockNo') {
+            // 		this.datagrid.addfilter(item.datafield, filterGroup, true);
+            // 	  }
+            // 	})
+            // 	this.datagrid.applyfilters();
+            //   }
+            //   else {
+            // 	this.datagrid.clearfilters();
+            //   }
           }
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this11 = this;
+            var _this10 = this;
 
             if (this.userReportData != "") {
               var filtergroup = new jqx.filter();
@@ -1025,7 +1030,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this10.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1035,8 +1040,8 @@
           }
         }, {
           key: "getBlockDetails",
-          value: function getBlockDetails() {
-            var _this12 = this;
+          value: function getBlockDetails(details) {
+            var _this11 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1048,18 +1053,6 @@
             };
 
             this.isDataLoaded = false;
-            var details = {
-              ApartmentID: this.sessionService.apartmentId,
-              ApartmentBlockID: this.blockId === "" ? 5 : this.blockId,
-              StartDate: this.StartDate,
-              EndDate: this.EndDate,
-              TicketStatus: this.TicketStatus,
-              TicketType: this.TicketType,
-              TicketRaisedBy: this.TicketRaisedBy,
-              AssignedToStaffId: this.AssignedToStaffId,
-              StaffCategoryType: this.StaffCategoryType,
-              StaffSubCategoryType: this.StaffSubCategoryType
-            };
 
             if (this.isListOfTickets()) {
               this.columnData = [{
@@ -1110,11 +1103,11 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this12.totalItems = _this12.userReportDataList.length;
-                _this12.isDataLoaded = true;
+                _this11.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this11.totalItems = _this11.userReportDataList.length;
+                _this11.isDataLoaded = true;
 
-                _this12.showItems();
+                _this11.showItems();
               });
             } else if (this.isListofAgedtickets()) {
               this.columnData = [{
@@ -1165,10 +1158,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this12.isDataLoaded = true;
+                _this11.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this11.isDataLoaded = true;
 
-                _this12.showItems();
+                _this11.showItems();
               });
             } else if (this.isListofUnassignedtickets()) {
               this.columnData = [{
@@ -1214,117 +1207,15 @@
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }];
-              this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
+              this.ticketService.getReportsForListofUnAssignedTicketsMultiFilter(details).subscribe(function (res) {
                 var gridSourceData = {
                   localdata: res,
                   datatype: "array"
                 };
-                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this12.isDataLoaded = true;
+                _this11.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this11.isDataLoaded = true;
 
-                _this12.showItems();
-              });
-            } else if (this.isListOfDeactivatedUsers()) {
-              this.columnData = [{
-                text: 'User Name',
-                datafield: 'unitUserName',
-                width: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Block Number',
-                datafield: 'blockNo',
-                minwidth: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Unit Number',
-                datafield: 'unitNo',
-                minwidth: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Email Id',
-                datafield: 'emailID',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'User Type',
-                datafield: 'userTypeName',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Mobile',
-                datafield: 'mobile',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }];
-              this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
-                var gridSourceData = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this12.isDataLoaded = true;
-
-                _this12.showItems();
-              });
-            } else if (this.isListOfResidentsVehicleInfo()) {
-              this.columnData = [{
-                text: 'User Name',
-                datafield: 'unitUserName',
-                width: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Block Number',
-                datafield: 'blockNo',
-                minwidth: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Unit Number',
-                datafield: 'unitNo',
-                minwidth: 100,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Vehicle Number',
-                datafield: 'vehicleNumber',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Vehicle Model',
-                datafield: 'vehicleModel',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Email Id',
-                datafield: 'emailID',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }, {
-                text: 'Mobile',
-                datafield: 'mobile',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-              }];
-              this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe(function (res) {
-                var gridSourceData = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this12.isDataLoaded = true;
-
-                _this12.showItems();
+                _this11.showItems();
               });
             }
           }
@@ -1340,28 +1231,92 @@
             }
           }
         }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'VisitorReportsData');
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            this.goBack();
+            this.isDataLoaded = false;
+            var details = {
+              ApartmentID: this.sessionService.apartmentId,
+              ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+              StartDate: this.getDate(this.start_date),
+              EndDate: this.getDate(this.end_date),
+              TicketStatus: this.TicketStatus,
+              TicketType: this.TicketType,
+              TicketRaisedBy: this.TicketRaisedBy,
+              AssignedToStaffId: this.AssignedToStaffId,
+              StaffCategoryType: this.StaffCategoryType,
+              StaffSubCategoryType: this.StaffSubCategoryType
+            };
+            this.getBlockDetails(details);
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null; // =this.getTicketByAdmin();
+
+            var details = {
+              ApartmentID: this.sessionService.apartmentId,
+              ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+              StartDate: this.getDate(this.start_date),
+              EndDate: this.getDate(this.end_date),
+              TicketStatus: this.TicketStatus,
+              TicketType: this.TicketType,
+              TicketRaisedBy: this.TicketRaisedBy,
+              AssignedToStaffId: this.AssignedToStaffId,
+              StaffCategoryType: this.StaffCategoryType,
+              StaffSubCategoryType: this.StaffSubCategoryType
+            };
+            this.getBlockDetails(details);
+            this.goBack();
+            console.log(this.blockId);
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this12 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this13.unitBlocksData = res;
+              _this12.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this13.route.params['value'].id;
+                return item.lookupValueId == _this12.route.params['value'].id;
               });
-              _this13.pageName = data[0].lookupValueName.replace('/', '');
-              _this13.pageDesp = data[0].description;
+              _this12.pageName = data[0].lookupValueName.replace('/', '');
+              _this12.pageDesp = data[0].description;
             });
-            this.getBlockDetails();
+            var details = {
+              ApartmentID: this.sessionService.apartmentId,
+              ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+              StartDate: this.getDate(this.start_date),
+              EndDate: this.getDate(this.end_date),
+              TicketStatus: this.TicketStatus,
+              TicketType: this.TicketType,
+              TicketRaisedBy: this.TicketRaisedBy,
+              AssignedToStaffId: this.AssignedToStaffId,
+              StaffCategoryType: this.StaffCategoryType,
+              StaffSubCategoryType: this.StaffSubCategoryType
+            };
+            this.getBlockDetails(details);
           }
         }]);
 
@@ -1399,6 +1354,12 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['datagrid', {
             "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
           }]
         }]
       };
@@ -1490,7 +1451,7 @@
         _createClass(HelpdeskReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this13 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1502,8 +1463,8 @@
             //  this.isDataLoaded = true;
 
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this14.reportDataList = res;
-              _this14.isDataLoaded = true;
+              _this13.reportDataList = res;
+              _this13.isDataLoaded = true;
             });
           }
         }, {
@@ -1759,7 +1720,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this15 = this;
+            var _this14 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1831,10 +1792,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
@@ -1891,10 +1852,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -1939,10 +1900,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -1993,10 +1954,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
@@ -2047,10 +2008,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
@@ -2101,10 +2062,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
@@ -2146,10 +2107,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
@@ -2197,10 +2158,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
@@ -2243,10 +2204,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
@@ -2289,10 +2250,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
@@ -2335,10 +2296,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this15.isDataLoaded = true;
+                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this14.isDataLoaded = true;
 
-                _this15.showItems();
+                _this14.showItems();
               });
             }
           }
@@ -2356,24 +2317,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this15 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this16.unitBlocksData = res;
+              _this15.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this16.route.params['value'].id;
+                return item.lookupValueId == _this15.route.params['value'].id;
               });
-              _this16.pageName = data[0].lookupValueName.replace('/', '');
-              _this16.pageDesp = data[0].description;
+              _this15.pageName = data[0].lookupValueName.replace('/', '');
+              _this15.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -2532,7 +2493,7 @@
         }, {
           key: "createCategory",
           value: function createCategory() {
-            var _this17 = this;
+            var _this16 = this;
 
             var entity = {
               description: this.ticketCategoryData.categoryName,
@@ -2550,22 +2511,22 @@
             };
             this.lookupService.addLookupValue(lookupvalue).subscribe(function (res) {
               if (res.code == 200) {
-                _this17.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this16.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                _this17.createEsclation(parseInt(res.message));
+                _this16.createEsclation(parseInt(res.message));
               } else {
-                _this17.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                _this16.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
               }
             }, function (error) {
               if (error.status == 0) {
-                _this17.sharedService.openSnackBar('Network Error', 'error');
+                _this16.sharedService.openSnackBar('Network Error', 'error');
               }
             });
           }
         }, {
           key: "createEsclation",
           value: function createEsclation(ticketCategoryId) {
-            var _this18 = this;
+            var _this17 = this;
 
             var addTicket = [];
             var esclator = {
@@ -2613,18 +2574,18 @@
             };
             this.ticketService.addTicketManagerMultiple(params).subscribe(function (res) {
               if (res.code == 200) {
-                _this18.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this17.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                _this18.dialogRef.close(true);
+                _this17.dialogRef.close(true);
               } else {
-                _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
         }, {
           key: "updateCategory",
           value: function updateCategory() {
-            var _this19 = this;
+            var _this18 = this;
 
             if (this.ticketCategoryData.categoryName != this.editData.ticketCategoryName) {
               var entity = {
@@ -2644,11 +2605,11 @@
               };
               this.lookupService.updateLookupValue(lookupvalue).subscribe(function (res) {
                 if (res.message) {
-                  _this19.sharedService.openSnackBar(res.message, 'success');
+                  _this18.sharedService.openSnackBar(res.message, 'success');
 
-                  _this19.createEsclation(_this19.editData.ticketCategoryId);
+                  _this18.createEsclation(_this18.editData.ticketCategoryId);
                 } else {
-                  _this19.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this18.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             } else {
@@ -2658,7 +2619,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this19 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -2669,7 +2630,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                 });
-                _this20.staffsList = res;
+                _this19.staffsList = res;
               }
             }, function (error) {
               console.log(error);
@@ -2682,21 +2643,21 @@
                 ticketTypeId: this.data.type == 'private' ? 27 : 24
               };
               this.ticketService.getTicketManagerByTicketCategoryId(queryParamBase).subscribe(function (res) {
-                _this20.editData = res[0];
-                _this20.ticketCategoryData.categoryName = res[0].ticketCategoryName;
-                _this20.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
-                _this20.ticketCategoryData.staffOne = res[0].escalationLevelId0.userId;
+                _this19.editData = res[0];
+                _this19.ticketCategoryData.categoryName = res[0].ticketCategoryName;
+                _this19.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
+                _this19.ticketCategoryData.staffOne = res[0].escalationLevelId0.userId;
 
                 if (res[0].escalationLevelId1) {
-                  _this20.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
-                  _this20.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
-                  _this20.ticketCategoryData.staffTwo = res[0].escalationLevelId1.userId;
+                  _this19.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
+                  _this19.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
+                  _this19.ticketCategoryData.staffTwo = res[0].escalationLevelId1.userId;
                 }
 
                 if (res[0].escalationLevelId2) {
-                  _this20.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
-                  _this20.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
-                  _this20.ticketCategoryData.staffThree = res[0].escalationLevelId2.userId;
+                  _this19.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
+                  _this19.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
+                  _this19.ticketCategoryData.staffThree = res[0].escalationLevelId2.userId;
                 }
               });
             }
@@ -2852,7 +2813,7 @@
         _createClass(CommonCategoryComponent, [{
           key: "addTicket",
           value: function addTicket(mode, categoryId) {
-            var _this21 = this;
+            var _this20 = this;
 
             var data = {
               type: 'common',
@@ -2865,7 +2826,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this21.getCommonCategoryList();
+                _this20.getCommonCategoryList();
               }
             });
           }
@@ -2887,7 +2848,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this22 = this;
+            var _this21 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2900,7 +2861,7 @@
               this.commondatagrid.showfiltercolumnbackground(false);
               this.commonColumns.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.commondatagrid.addfilter(item.datafield, filtergroup, true);
+                  _this21.commondatagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.commondatagrid.applyfilters();
@@ -2911,7 +2872,7 @@
         }, {
           key: "getCommonCategoryList",
           value: function getCommonCategoryList() {
-            var _this23 = this;
+            var _this22 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -2920,21 +2881,21 @@
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this23.totalItems = res.length;
+                _this22.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this23.commonListData = new jqx.dataAdapter(data);
+                _this22.commonListData = new jqx.dataAdapter(data);
               }
 
-              _this23.isDataLoaded = false;
+              _this22.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this23 = this;
 
             this.getCommonCategoryList();
 
@@ -2957,7 +2918,7 @@
               text: 'Supervisor',
               datafield: "escalationLevelId0",
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this24.commonListData.loadedData[row].escalationLevelId0;
+                var field = _this23.commonListData.loadedData[row].escalationLevelId0;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2967,7 +2928,7 @@
               text: 'Level-1',
               datafield: 'escalationLevelId1',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this24.commonListData.loadedData[row].escalationLevelId1;
+                var field = _this23.commonListData.loadedData[row].escalationLevelId1;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2976,7 +2937,7 @@
             }, {
               text: 'L1 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this24.commonListData.loadedData[row].escalationLevelId1;
+                var field = _this23.commonListData.loadedData[row].escalationLevelId1;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2986,7 +2947,7 @@
               text: 'Level-2',
               datafield: 'escalationLevelId2',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this24.commonListData.loadedData[row].escalationLevelId2;
+                var field = _this23.commonListData.loadedData[row].escalationLevelId2;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2995,7 +2956,7 @@
             }, {
               text: 'L2 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this24.commonListData.loadedData[row].escalationLevelId2;
+                var field = _this23.commonListData.loadedData[row].escalationLevelId2;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3015,16 +2976,16 @@
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
                 var params = {
-                  apartmentId: _this24.sessionService.apartmentId,
+                  apartmentId: _this23.sessionService.apartmentId,
                   ticketCategoryId: item.id,
-                  deleteBy: _this24.sessionService.userId
+                  deleteBy: _this23.sessionService.userId
                 };
 
-                _this24.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this23.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this24.sharedService.setUnitListDeleteIndex(null);
+                    _this23.sharedService.setUnitListDeleteIndex(null);
 
-                    _this24.commondatagrid.deleterow(item.index);
+                    _this23.commondatagrid.deleterow(item.index);
                   }
                 });
               }
@@ -3305,7 +3266,7 @@
         _createClass(PrivateCategoryComponent, [{
           key: "addTicket",
           value: function addTicket(mode, categoryId) {
-            var _this25 = this;
+            var _this24 = this;
 
             var data = {
               type: 'private',
@@ -3318,7 +3279,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this25.getPrivateCategoryList();
+                _this24.getPrivateCategoryList();
               }
             });
           }
@@ -3340,7 +3301,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this26 = this;
+            var _this25 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3353,7 +3314,7 @@
               this.privatedatagrid.showfiltercolumnbackground(false);
               this.privateColumns.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this26.privatedatagrid.addfilter(item.datafield, filtergroup, true);
+                  _this25.privatedatagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.privatedatagrid.applyfilters();
@@ -3364,7 +3325,7 @@
         }, {
           key: "getPrivateCategoryList",
           value: function getPrivateCategoryList() {
-            var _this27 = this;
+            var _this26 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -3373,21 +3334,21 @@
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this27.totalItems = res.length;
+                _this26.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this27.privateListData = new jqx.dataAdapter(data);
+                _this26.privateListData = new jqx.dataAdapter(data);
               }
 
-              _this27.isDataLoaded = false;
+              _this26.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this27 = this;
 
             this.getPrivateCategoryList();
 
@@ -3410,7 +3371,7 @@
               text: 'Supervisor',
               datafield: "escalationLevelId0",
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this28.privateListData.loadedData[row].escalationLevelId0;
+                var field = _this27.privateListData.loadedData[row].escalationLevelId0;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3420,7 +3381,7 @@
               text: 'Level-1',
               datafield: 'escalationLevelId1',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this28.privateListData.loadedData[row].escalationLevelId1;
+                var field = _this27.privateListData.loadedData[row].escalationLevelId1;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3429,7 +3390,7 @@
             }, {
               text: 'L1 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this28.privateListData.loadedData[row].escalationLevelId1;
+                var field = _this27.privateListData.loadedData[row].escalationLevelId1;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3439,7 +3400,7 @@
               text: 'Level-2',
               datafield: 'escalationLevelId2',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this28.privateListData.loadedData[row].escalationLevelId2;
+                var field = _this27.privateListData.loadedData[row].escalationLevelId2;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3448,7 +3409,7 @@
             }, {
               text: 'L2 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this28.privateListData.loadedData[row].escalationLevelId2;
+                var field = _this27.privateListData.loadedData[row].escalationLevelId2;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3468,16 +3429,16 @@
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
                 var params = {
-                  apartmentId: _this28.sessionService.apartmentId,
+                  apartmentId: _this27.sessionService.apartmentId,
                   ticketCategoryId: item.id,
-                  deleteBy: _this28.sessionService.userId
+                  deleteBy: _this27.sessionService.userId
                 };
 
-                _this28.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this27.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this28.sharedService.setUnitListDeleteIndex(null);
+                    _this27.sharedService.setUnitListDeleteIndex(null);
 
-                    _this28.privatedatagrid.deleterow(item.index);
+                    _this27.privatedatagrid.deleterow(item.index);
                   }
                 });
               }
@@ -3741,7 +3702,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this29 = this;
+            var _this28 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3754,7 +3715,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this28.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3765,7 +3726,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this30 = this;
+            var _this29 = this;
 
             this.goBack();
             this.isTicketDataLoaded = false;
@@ -3775,6 +3736,61 @@
               assigntoSupervisorId: this.filterData.supervisor,
               assigntoStaffId: this.filterData.staff
             };
+            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
+              _this29.isTicketDataLoaded = true;
+
+              if (res.length > 0) {
+                res.sort(function (a, b) {
+                  return b.serialNo - a.serialNo;
+                });
+                var ticketInfo = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this29.totalItems = ticketInfo.localdata.length;
+                _this29.ticketListData = new jqx.dataAdapter(ticketInfo);
+              }
+            }, function (error) {
+              _this29.isTicketDataLoaded = true;
+
+              _this29.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.filterData.ticketStatus = null;
+            this.filterData.staff = null;
+            this.filterData.supervisor = null;
+            this.getTicketByAdmin();
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getTicketByAdmin",
+          value: function getTicketByAdmin() {
+            var _this30 = this;
+
+            this.isTicketDataLoaded = false;
+            var params = {
+              apartmentId: this.sessionService.apartmentId
+            };
+
+            if (this.urlType == 'open-tickets') {
+              params.ticketStatusIds = "32,33,46";
+            } else if (this.urlType == 'closed-tickets') {
+              params.ticketStatusIds = "34";
+            } else if (this.urlType == 'unassigned') {
+              params.isStaffassigned = false;
+            } else if (this.urlType == 'assigned-to-me') {
+              this.getTicketByAssignedUser();
+              return;
+            }
+
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this30.isTicketDataLoaded = true;
 
@@ -3796,41 +3812,15 @@
             });
           }
         }, {
-          key: "clearFilter",
-          value: function clearFilter() {
-            this.filterData.ticketStatus = null;
-            this.filterData.staff = null;
-            this.filterData.supervisor = null;
-            this.getTicketByAdmin();
-            this.goBack();
-          }
-        }, {
-          key: "goBack",
-          value: function goBack() {
-            this.matDrawer.close();
-          }
-        }, {
-          key: "getTicketByAdmin",
-          value: function getTicketByAdmin() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this31 = this;
 
-            this.isTicketDataLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId
+              apartmentId: this.sessionService.apartmentId,
+              userId: this.sessionService.userId
             };
-
-            if (this.urlType == 'open-tickets') {
-              params.ticketStatusIds = "32,33,46";
-            } else if (this.urlType == 'closed-tickets') {
-              params.ticketStatusIds = "34";
-            } else if (this.urlType == 'unassigned') {
-              params.isStaffassigned = false;
-            } else if (this.urlType == 'assigned-to-me') {
-              this.getTicketByAssignedUser();
-              return;
-            }
-
-            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
+            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this31.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -3838,7 +3828,7 @@
                   return b.serialNo - a.serialNo;
                 });
                 var ticketInfo = {
-                  localdata: res,
+                  localdata: res.reverse(),
                   datatype: "array"
                 };
                 _this31.totalItems = ticketInfo.localdata.length;
@@ -3851,15 +3841,15 @@
             });
           }
         }, {
-          key: "getTicketByAssignedUser",
-          value: function getTicketByAssignedUser() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this32 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
             };
-            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
               _this32.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -3880,41 +3870,12 @@
             });
           }
         }, {
-          key: "getTicketsByUser",
-          value: function getTicketsByUser() {
-            var _this33 = this;
-
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              blockunituserId: this.sessionService.apartmentBlockUnitUserId
-            };
-            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
-              _this33.isTicketDataLoaded = true;
-
-              if (res.length > 0) {
-                res.sort(function (a, b) {
-                  return b.serialNo - a.serialNo;
-                });
-                var ticketInfo = {
-                  localdata: res.reverse(),
-                  datatype: "array"
-                };
-                _this33.totalItems = ticketInfo.localdata.length;
-                _this33.ticketListData = new jqx.dataAdapter(ticketInfo);
-              }
-            }, function (error) {
-              _this33.isTicketDataLoaded = true;
-
-              _this33.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this33 = this;
 
             this.activateRouter.url.subscribe(function (data) {
-              _this34.urlType = data[0].path;
+              _this33.urlType = data[0].path;
             });
 
             if (this.isAdmin()) {
@@ -4044,23 +4005,23 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this34.datagrid.getrowdata(id);
+                var dataRecord = _this33.datagrid.getrowdata(id);
 
                 var ticketId = dataRecord.ticketId;
                 var params = {
                   ticketId: ticketId,
-                  deleteBy: parseInt(_this34.sessionService.userId)
+                  deleteBy: parseInt(_this33.sessionService.userId)
                 };
 
-                _this34.ticketService.deleteTicket(params).subscribe(function (res) {
-                  _this34.sharedService.setUnitListDeleteIndex(null);
+                _this33.ticketService.deleteTicket(params).subscribe(function (res) {
+                  _this33.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this34.datagrid.deleterow(id);
+                    _this33.datagrid.deleterow(id);
 
-                    _this34.datagrid.refresh();
+                    _this33.datagrid.refresh();
 
-                    _this34.sharedService.openSnackBar(res.message, 'success');
+                    _this33.sharedService.openSnackBar(res.message, 'success');
                   }
                 });
               }
@@ -4077,7 +4038,7 @@
                   res.forEach(function (ele) {
                     ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-                  _this34.staffsList = res;
+                  _this33.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -4087,7 +4048,7 @@
                 LookupTypeId: 9
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this34.ticketStatusList = res;
+                _this33.ticketStatusList = res;
               });
             }
           }

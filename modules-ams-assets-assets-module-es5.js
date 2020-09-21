@@ -107,6 +107,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.html":
+    /*!*********************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.html ***!
+      \*********************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsAssetsComponentsAssetsReportsAssetsReportDataAssetsReportDataComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n    <div class=\"main\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    <condo-card *ngIf=\"isDataLoaded\">\n        <div CondoCardHeader>\n        \n\n            <div class=\"d-flex\">\n                    <div>\n                            <h4>{{pageName}}</h4>\n                            <p>{{totalItems}} results</p>\n                    </div>\n                \n                      <div class=\"ml-auto d-none d-md-block my-auto\">\n                            <input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n                  </div>\n                  \n                \n                    <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                            <condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                            [fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n                    </div>\n              </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    </div>\n    </div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/components/assets-reports/assets-reports.component.html":
     /*!**********************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/components/assets-reports/assets-reports.component.html ***!
@@ -122,7 +142,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n  <div class=\"reports-wrapper\" *ngIf=\"!listType\">\n    <div class=\"main\">\n      <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n      <ng-container *ngIf=\"isDataLoaded\">\n        <h4 class=\"mb-4\">Select the reports</h4>\n        <div class=\"row\">\n          <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">\n            <condo-card>\n              <div CondoCardHeader>\n                <a class=\"t-no-decor\" href=\"javascript:void(0)\" (click)=\"listType = true\">\n                  <h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </a>\n              </div>\n              <div CondoCardBody>\n                <div class=\"p-4 bg-cool-gray-50\"></div>\n              </div>\n            </condo-card>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </div>\n\n\n\n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n\n     \n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n    </ng-container>\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         <!-- <label>Select Tower No</label> -->\n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n  \n    <div class=\"main\">\n      <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n      <ng-container *ngIf=\"isDataLoaded && !listType\">\n        <h4 class=\"mb-4\">Select the reports</h4>\n        <div class=\"row\">\n          <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">\n            <condo-card>\n              <div CondoCardHeader>\n                <a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/assets/reports/{{report.lookupValueName}}/{{report.lookupValueID}}\"\n                routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n                  <h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </a>\n              </div>\n              <div CondoCardBody>\n                <div class=\"p-4 bg-cool-gray-50\"></div>\n              </div>\n            </condo-card>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </div>\n\n\n\n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n\n     \n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n    </ng-container>\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         <!-- <label>Select Tower No</label> -->\n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n\n</div>\n";
       /***/
     },
 
@@ -343,6 +363,12 @@
       var _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/last-maintenance/last-maintenance.component */
       "./src/app/modules/ams/assets/components/last-maintenance/last-maintenance.component.ts");
+      /* harmony import */
+
+
+      var _components_assets_reports_assets_report_data_assets_report_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./components/assets-reports/assets-report-data/assets-report-data.component */
+      "./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.ts");
 
       var routes = [{
         path: '',
@@ -407,6 +433,10 @@
       }, {
         path: 'reports',
         component: _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_6__["AssetsReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports/:name/:id',
+        component: _components_assets_reports_assets_report_data_assets_report_data_component__WEBPACK_IMPORTED_MODULE_13__["AssetsReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
@@ -651,13 +681,19 @@
       var angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! angular2-multiselect-dropdown */
       "./node_modules/angular2-multiselect-dropdown/__ivy_ngcc__/fesm2015/angular2-multiselect-dropdown.js");
+      /* harmony import */
+
+
+      var _components_assets_reports_assets_report_data_assets_report_data_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      /*! ./components/assets-reports/assets-report-data/assets-report-data.component */
+      "./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.ts");
 
       var AssetsModule = function AssetsModule() {
         _classCallCheck(this, AssetsModule);
       };
 
       AssetsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_assets_component__WEBPACK_IMPORTED_MODULE_8__["AssetsComponent"], _components_assets_setup_assets_setup_component__WEBPACK_IMPORTED_MODULE_9__["AssetsSetupComponent"], _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_10__["AssetsCreateComponent"], _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_11__["AssetsReportsComponent"], _components_assets_update_assets_update_component__WEBPACK_IMPORTED_MODULE_12__["AssetsUpdateComponent"], _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_13__["AssetsViewComponent"], _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_14__["AddAssetMaintenanceComponent"], _components_assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_15__["AssetsMaintenanceHistoryComponent"], _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_16__["AddMaintenanceComponent"], _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_17__["ManageMaintenanceComponent"], _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_18__["MaintenanceHistoryComponent"], _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_19__["LastMaintenanceComponent"]],
+        declarations: [_assets_component__WEBPACK_IMPORTED_MODULE_8__["AssetsComponent"], _components_assets_setup_assets_setup_component__WEBPACK_IMPORTED_MODULE_9__["AssetsSetupComponent"], _components_assets_create_assets_create_component__WEBPACK_IMPORTED_MODULE_10__["AssetsCreateComponent"], _components_assets_reports_assets_reports_component__WEBPACK_IMPORTED_MODULE_11__["AssetsReportsComponent"], _components_assets_update_assets_update_component__WEBPACK_IMPORTED_MODULE_12__["AssetsUpdateComponent"], _components_assets_view_assets_view_component__WEBPACK_IMPORTED_MODULE_13__["AssetsViewComponent"], _components_add_asset_maintenance_add_asset_maintenance_component__WEBPACK_IMPORTED_MODULE_14__["AddAssetMaintenanceComponent"], _components_assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_15__["AssetsMaintenanceHistoryComponent"], _components_add_maintenance_add_maintenance_component__WEBPACK_IMPORTED_MODULE_16__["AddMaintenanceComponent"], _components_manage_maintenance_manage_maintenance_component__WEBPACK_IMPORTED_MODULE_17__["ManageMaintenanceComponent"], _components_maintenance_history_maintenance_history_component__WEBPACK_IMPORTED_MODULE_18__["MaintenanceHistoryComponent"], _components_last_maintenance_last_maintenance_component__WEBPACK_IMPORTED_MODULE_19__["LastMaintenanceComponent"], _components_assets_reports_assets_report_data_assets_report_data_component__WEBPACK_IMPORTED_MODULE_21__["AssetsReportDataComponent"]],
         entryComponents: [_components_assets_maintenance_history_assets_maintenance_history_component__WEBPACK_IMPORTED_MODULE_15__["AssetsMaintenanceHistoryComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_7__["SharedModule"], _assets_routing_module__WEBPACK_IMPORTED_MODULE_3__["AssetsRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_20__["AngularMultiSelectModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_6__["UploadModule"]],
         bootstrap: [_assets_component__WEBPACK_IMPORTED_MODULE_8__["AssetsComponent"]],
@@ -2165,6 +2201,664 @@
     },
 
     /***/
+    "./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.scss":
+    /*!*******************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.scss ***!
+      \*******************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsAssetsComponentsAssetsReportsAssetsReportDataAssetsReportDataComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2Fzc2V0cy9jb21wb25lbnRzL2Fzc2V0cy1yZXBvcnRzL2Fzc2V0cy1yZXBvcnQtZGF0YS9hc3NldHMtcmVwb3J0LWRhdGEuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.ts":
+    /*!*****************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.ts ***!
+      \*****************************************************************************************************************/
+
+    /*! exports provided: AssetsReportDataComponent */
+
+    /***/
+    function srcAppModulesAmsAssetsComponentsAssetsReportsAssetsReportDataAssetsReportDataComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AssetsReportDataComponent", function () {
+        return AssetsReportDataComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/api/controllers/Ticket */
+      "./src/app/api/controllers/Ticket.ts");
+
+      var AssetsReportDataComponent = /*#__PURE__*/function () {
+        function AssetsReportDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService, ticketService) {
+          _classCallCheck(this, AssetsReportDataComponent);
+
+          this.router = router;
+          this.route = route;
+          this.userService = userService;
+          this.apartmentService = apartmentService;
+          this.lookupService = lookupService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.ticketService = ticketService;
+          this.pageName = "";
+          this.pageDesp = "";
+          this.ItemStartIndex = 0;
+          this.itemLimit = 10;
+          this.unitFieldType = "unitno";
+          this.unitOrder = true;
+          this.isDataLoaded = false;
+          this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
+          this.blockNo = "All Blocks";
+        }
+
+        _createClass(AssetsReportDataComponent, [{
+          key: "isMobileView",
+          value: function isMobileView() {
+            return window.innerWidth <= 767 ? 'table-responsive' : '';
+          }
+        }, {
+          key: "isItemsAvailable",
+          value: function isItemsAvailable() {
+            return this.totalItems > 0 ? true : false;
+          }
+        }, {
+          key: "isNoItemsAvailable",
+          value: function isNoItemsAvailable() {
+            return this.totalItems == 0 ? true : false;
+          }
+        }, {
+          key: "isListOfResidents",
+          value: function isListOfResidents() {
+            return this.pageName == "List of Residents";
+          }
+        }, {
+          key: "isListOfTickets",
+          value: function isListOfTickets() {
+            return this.pageName == "List of tickets";
+          }
+        }, {
+          key: "isListofAgedtickets",
+          value: function isListofAgedtickets() {
+            return this.pageName == "List of Aged tickets";
+          }
+        }, {
+          key: "isListofUnassignedtickets",
+          value: function isListofUnassignedtickets() {
+            return this.pageName == "List of Unassigned tickets";
+          }
+        }, {
+          key: "isListOfApprovedUsers",
+          value: function isListOfApprovedUsers() {
+            return this.pageName == "List of Approved Users";
+          }
+        }, {
+          key: "isListOfDeactivatedUsers",
+          value: function isListOfDeactivatedUsers() {
+            return this.pageName == "List of De-activated Users";
+          }
+        }, {
+          key: "isListOfResidentsVehicleInfo",
+          value: function isListOfResidentsVehicleInfo() {
+            return this.pageName == "List of Residents Vehicle Info";
+          }
+        }, {
+          key: "isListOfExpiringRental",
+          value: function isListOfExpiringRental() {
+            return this.pageName == "List of Expiring Rental  Lease Agreements";
+          }
+        }, {
+          key: "isListOfUsersWithPets",
+          value: function isListOfUsersWithPets() {
+            return this.pageName == "List of Users with Pets";
+          }
+        }, {
+          key: "isListOfUnits",
+          value: function isListOfUnits() {
+            return this.pageName == "List of Units";
+          }
+        }, {
+          key: "isListOfBlocks",
+          value: function isListOfBlocks() {
+            return this.pageName == "List of Blocks";
+          }
+        }, {
+          key: "isListOfOwners",
+          value: function isListOfOwners() {
+            return this.pageName == "List of Owners";
+          }
+        }, {
+          key: "isListOfTenants",
+          value: function isListOfTenants() {
+            return this.pageName == "List of Tenants";
+          }
+        }, {
+          key: "isListOfAdmins",
+          value: function isListOfAdmins() {
+            return this.pageName == "List of Admins";
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+          }
+        }, {
+          key: "getSelectedType",
+          value: function getSelectedType(event) {
+            var _this19 = this;
+
+            this.blockId = event[0].apartmentBlockId;
+            this.blockNo = event[0].apartmentBlockId;
+
+            if (this.blockId != "" && this.blockId != null) {
+              var filterGroup = new jqx.filter();
+              var filterOperator = 1;
+              var filterValue = event[0].apartmentBlockNumber;
+              var filterCondition = 'contains';
+              var filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+              filterGroup.operator = 'or';
+              filterGroup.addfilter(filterOperator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield === 'blockNo') {
+                  _this19.datagrid.addfilter(item.datafield, filterGroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "onSearchFilter",
+          value: function onSearchFilter() {
+            var _this20 = this;
+
+            if (this.userReportData != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = this.userReportData;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "getBlockDetails",
+          value: function getBlockDetails() {
+            var _this21 = this;
+
+            //jqx column generating
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.isDataLoaded = false;
+            var details = {
+              ApartmentID: this.sessionService.apartmentId,
+              ApartmentBlockID: this.blockId === "" ? 5 : this.blockId,
+              StartDate: this.StartDate,
+              EndDate: this.EndDate,
+              TicketStatus: this.TicketStatus,
+              TicketType: this.TicketType,
+              TicketRaisedBy: this.TicketRaisedBy,
+              AssignedToStaffId: this.AssignedToStaffId,
+              StaffCategoryType: this.StaffCategoryType,
+              StaffSubCategoryType: this.StaffSubCategoryType
+            };
+
+            if (this.isListOfTickets()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'userName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Type',
+                datafield: 'ticketType',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Subject',
+                datafield: 'subject',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Priority',
+                datafield: 'ticketPriority',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.ticketService.getReportsForListofOpenCloseTicketsMultiFilter(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this21.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this21.totalItems = _this21.userReportDataList.length;
+                _this21.isDataLoaded = true;
+
+                _this21.showItems();
+              });
+            } else if (this.isListofAgedtickets()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'userName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Type',
+                datafield: 'ticketType',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Subject',
+                datafield: 'subject',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Priority',
+                datafield: 'ticketPriority',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.ticketService.getReportsForListofAgedTicketsMultiFilter(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this21.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this21.isDataLoaded = true;
+
+                _this21.showItems();
+              });
+            } else if (this.isListofUnassignedtickets()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'userName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Type',
+                datafield: 'ticketType',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Subject',
+                datafield: 'subject',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Priority',
+                datafield: 'ticketPriority',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportApprovedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this21.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this21.isDataLoaded = true;
+
+                _this21.showItems();
+              });
+            } else if (this.isListOfDeactivatedUsers()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportDeActivatedUnitUserbyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this21.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this21.isDataLoaded = true;
+
+                _this21.showItems();
+              });
+            } else if (this.isListOfResidentsVehicleInfo()) {
+              this.columnData = [{
+                text: 'User Name',
+                datafield: 'unitUserName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Number',
+                datafield: 'vehicleNumber',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Vehicle Model',
+                datafield: 'vehicleModel',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Email Id',
+                datafield: 'emailID',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Mobile',
+                datafield: 'mobile',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }];
+              this.userService.getReportUnitUserResidentsVehicleInfobyApartmentIdBlockId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this21.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this21.isDataLoaded = true;
+
+                _this21.showItems();
+              });
+            }
+          }
+        }, {
+          key: "showItems",
+          value: function showItems() {
+            this.totalItems = this.userReportDataList["_source"].localdata.length;
+            console.log("total items ", this.totalItems);
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+              console.log("Itemendindex if", this.ItemEndIndex);
+            } else {
+              this.ItemEndIndex = this.totalItems;
+              console.log("Itemendindex ", this.ItemEndIndex);
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this22 = this;
+
+            this.pageName = this.route.params['value'].name;
+            var unitBlockParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
+              _this22.unitBlocksData = res;
+            });
+            var params = {
+              LookupTypeId: 87
+            };
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+              var data = res.filter(function (item) {
+                return item.lookupValueId == _this22.route.params['value'].id;
+              });
+              _this22.pageName = data[0].lookupValueName.replace('/', '');
+              _this22.pageDesp = data[0].description;
+            });
+            this.getBlockDetails();
+          }
+        }]);
+
+        return AssetsReportDataComponent;
+      }();
+
+      AssetsReportDataComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]
+        }];
+      };
+
+      AssetsReportDataComponent.propDecorators = {
+        gridResident: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['gridResident', {
+            "static": false
+          }]
+        }],
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }]
+      };
+      AssetsReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-assets-report-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./assets-report-data.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./assets-report-data.component.scss */
+        "./src/app/modules/ams/assets/components/assets-reports/assets-report-data/assets-report-data.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]])], AssetsReportDataComponent);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/ams/assets/components/assets-reports/assets-reports.component.scss":
     /*!********************************************************************************************!*\
       !*** ./src/app/modules/ams/assets/components/assets-reports/assets-reports.component.scss ***!
@@ -2317,7 +3011,7 @@
         }, {
           key: "getReportData",
           value: function getReportData() {
-            var _this19 = this;
+            var _this23 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -2325,8 +3019,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this19.reportDataList = res;
-              _this19.isDataLoaded = true;
+              _this23.reportDataList = res;
+              _this23.isDataLoaded = true;
             });
           }
         }, {
@@ -2343,24 +3037,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this24 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this20.unitBlocksData = res;
+              _this24.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this20.route.params['value'].id;
+                return item.lookupValueId == _this24.route.params['value'].id;
               });
-              _this20.pageName = res[0].lookupValueName;
-              _this20.pageDesp = res[0].description;
+              _this24.pageName = res[0].lookupValueName;
+              _this24.pageDesp = res[0].description;
             }); // this.getBlockDetails();
 
             this.getReportData();
@@ -2414,17 +3108,17 @@
         }, {
           key: "getCurrentInventory",
           value: function getCurrentInventory() {
-            var _this21 = this;
+            var _this25 = this;
 
             var params = {};
             params.ApartmentId = this.sessionService.apartmentId;
             this.purchaseOrderService.getAllInventoryCurrentCountByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this21.gridSourceData = {
+                _this25.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this21.inventoryHistoryData = new jqx.dataAdapter(_this21.gridSourceData);
+                _this25.inventoryHistoryData = new jqx.dataAdapter(_this25.gridSourceData);
               }
             });
           }
@@ -2591,7 +3285,7 @@
         _createClass(AssetsSetupComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this26 = this;
 
             this.getAllCategory();
             this.getAllMaintenance();
@@ -2601,27 +3295,27 @@
                 var param = {};
                 param = {
                   categoryId: id,
-                  deletedBy: parseInt(_this22.sessionService.userId)
+                  deletedBy: parseInt(_this26.sessionService.userId)
                 };
 
-                _this22.lookupService.deleteCategory(param).subscribe(function (res) {
+                _this26.lookupService.deleteCategory(param).subscribe(function (res) {
                   // _.each(this.categoryList, (type) => {
                   // 	if (type.id == id) {
                   // 		type.isActive = false;
                   // 	}
                   // })
-                  _this22.getAllCategory();
+                  _this26.getAllCategory();
 
-                  _this22.getAllMaintenance();
+                  _this26.getAllMaintenance();
 
                   setTimeout(function () {
-                    if (_this22.delType == "maintenance") {
-                      _this22.sharedService.setAlertMessage("Maintenance type deleted successfully");
+                    if (_this26.delType == "maintenance") {
+                      _this26.sharedService.setAlertMessage("Maintenance type deleted successfully");
                     } else {
-                      _this22.sharedService.setAlertMessage("Asset Category deleted successfully");
+                      _this26.sharedService.setAlertMessage("Asset Category deleted successfully");
                     }
 
-                    _this22.sharedService.setUnitListDeleteIndex(null);
+                    _this26.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -2639,7 +3333,7 @@
         }, {
           key: "addSetUp",
           value: function addSetUp(name, type, value, e) {
-            var _this23 = this;
+            var _this27 = this;
 
             // let data:any={};
             // data.name=type;
@@ -2654,9 +3348,9 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this23.getAllCategory();
+                _this27.getAllCategory();
 
-                _this23.getAllMaintenance();
+                _this27.getAllMaintenance();
               }
             });
           }
@@ -2678,7 +3372,7 @@
         }, {
           key: "editSubCategory",
           value: function editSubCategory(data) {
-            var _this24 = this;
+            var _this28 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -2699,20 +3393,20 @@
             params.subcategoryLookupTypeId = 68;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this24.sharedService.setAlertMessage("Sub Category updated successfully");
+                _this28.sharedService.setAlertMessage("Sub Category updated successfully");
 
-                _this24.isAssetLoaded = false;
+                _this28.isAssetLoaded = false;
 
-                _this24.getAllCategory();
+                _this28.getAllCategory();
 
-                _this24.currIndex = -1;
+                _this28.currIndex = -1;
               }
             });
           }
         }, {
           key: "getAllMaintenance",
           value: function getAllMaintenance() {
-            var _this25 = this;
+            var _this29 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2723,10 +3417,10 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this25.isAssetLoaded = false;
-                _this25.mainType = res ? res : [];
-                _this25.maintenaceTotalItems = res.length;
-                _this25.tempMainType = _this25.mainType; // if (this.data && this.data.type === 'addSubType') {
+                _this29.isAssetLoaded = false;
+                _this29.mainType = res ? res : [];
+                _this29.maintenaceTotalItems = res.length;
+                _this29.tempMainType = _this29.mainType; // if (this.data && this.data.type === 'addSubType') {
                 // 	this.setup.category = this.data && this.data.value && this.data.value.id ? this.data.value.id : '';
                 // 	this.setup.categoryName = this.data && this.data.value && this.data.value.name ? this.data.value.name : '';
                 // }
@@ -2741,7 +3435,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this26 = this;
+            var _this30 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2752,17 +3446,17 @@
             this.isAssetLoaded = true;
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this26.isAssetLoaded = false;
-                _this26.asseTotalItems = res.length;
-                _this26.categoryList = res ? res : [];
-                _this26.tempCategoryList = _this26.categoryList;
+                _this30.isAssetLoaded = false;
+                _this30.asseTotalItems = res.length;
+                _this30.categoryList = res ? res : [];
+                _this30.tempCategoryList = _this30.categoryList;
               }
             });
           }
         }, {
           key: "editMaintenance",
           value: function editMaintenance(data) {
-            var _this27 = this;
+            var _this31 = this;
 
             var reqObj = {};
             reqObj.id = data.id;
@@ -2778,20 +3472,20 @@
             params.subcategoryLookupTypeId = 168;
             this.lookupService.upsertSubCategory(params).subscribe(function (res) {
               if (res) {
-                _this27.sharedService.setAlertMessage("Maintenance sub types updated successfully");
+                _this31.sharedService.setAlertMessage("Maintenance sub types updated successfully");
 
-                _this27.isAssetLoaded = false;
+                _this31.isAssetLoaded = false;
 
-                _this27.getAllMaintenance();
+                _this31.getAllMaintenance();
 
-                _this27.mainCurrIndex = -1;
+                _this31.mainCurrIndex = -1;
               }
             });
           }
         }, {
           key: "getDepreciatonList",
           value: function getDepreciatonList() {
-            var _this28 = this;
+            var _this32 = this;
 
             var queryParamBase = {};
             queryParamBase = {
@@ -2800,10 +3494,10 @@
             };
             this.lookupService.getLookupValueByLookupTypeId(queryParamBase).subscribe(function (res) {
               if (res) {
-                _this28.depreciatonData = res ? res : [];
+                _this32.depreciatonData = res ? res : [];
 
-                if (_this28.depreciatonData && _this28.depreciatonData.length) {
-                  _this28.depreciatonData.filter(function (val) {
+                if (_this32.depreciatonData && _this32.depreciatonData.length) {
+                  _this32.depreciatonData.filter(function (val) {
                     val.isCheck = val.isDisabled == true ? false : true;
                   });
                 }
@@ -2813,7 +3507,7 @@
         }, {
           key: "updateDepreciatonList",
           value: function updateDepreciatonList(data) {
-            var _this29 = this;
+            var _this33 = this;
 
             var reqObj = {};
             reqObj = {
@@ -2834,22 +3528,22 @@
             param.lookupvalue = reqObj;
             this.lookupService.updateLookupValue(param).subscribe(function (res) {
               if (res) {
-                _this29.sharedService.setAlertMessage("Depreciaton method  updated successfully");
+                _this33.sharedService.setAlertMessage("Depreciaton method  updated successfully");
 
-                _this29.isAssetLoaded = false;
+                _this33.isAssetLoaded = false;
 
-                _this29.getDepreciatonList();
+                _this33.getDepreciatonList();
               } else if (res.body.errorMessage) {
                 // this.isError = true;
                 // this.errorMessage = 'Not Added it already exist'
-                _this29.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this33.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
         }, {
           key: "editMaintanance",
           value: function editMaintanance(data) {
-            var _this30 = this;
+            var _this34 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -2869,23 +3563,23 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this30.sharedService.setAlertMessage("Maintenance Type updated successfully");
+                _this34.sharedService.setAlertMessage("Maintenance Type updated successfully");
 
-                _this30.isAssetLoaded = false;
-                _this30.currMainTypeIndex = -1;
+                _this34.isAssetLoaded = false;
+                _this34.currMainTypeIndex = -1;
 
-                _this30.getAllMaintenance();
+                _this34.getAllMaintenance();
               } else if (res.body.errorMessage) {
                 // this.isError = true;
                 // this.errorMessage = 'Not Added it already exist'
-                _this30.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this34.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
         }, {
           key: "editCategory",
           value: function editCategory(data) {
-            var _this31 = this;
+            var _this35 = this;
 
             var reqObj = {};
             reqObj.lookupvalue = {
@@ -2905,16 +3599,16 @@
             this.isAssetLoaded = true;
             this.lookupService.updateLookupValue(reqObj).subscribe(function (res) {
               if (res) {
-                _this31.sharedService.setAlertMessage("Category updated successfully");
+                _this35.sharedService.setAlertMessage("Category updated successfully");
 
-                _this31.isAssetLoaded = false;
-                _this31.currCatIndex = -1;
+                _this35.isAssetLoaded = false;
+                _this35.currCatIndex = -1;
 
-                _this31.getAllCategory();
+                _this35.getAllCategory();
               } else if (res.body.errorMessage) {
                 // this.isError = true;
                 // this.errorMessage = 'Not Added it already exist'
-                _this31.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
+                _this35.isAssetLoaded = false; //  this.sharedService.setAlertMessage("Not Added as it already exist");
               }
             });
           }
@@ -3257,7 +3951,7 @@
         _createClass(AssetsViewComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this32 = this;
+            var _this36 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3320,10 +4014,10 @@
               if (id != null) {
                 var params = {
                   assetId: id,
-                  deleteBy: parseInt(_this32.sessionService.userId)
+                  deleteBy: parseInt(_this36.sessionService.userId)
                 };
 
-                _this32.assetService.deleteAsset(params).subscribe(function (res) {
+                _this36.assetService.deleteAsset(params).subscribe(function (res) {
                   // _.each(this.assetListData, (type)=>{
                   //   if(type.assetId == id){
                   //     type.isActive = false;
@@ -3332,11 +4026,11 @@
                   setTimeout(function () {
                     // this.assetListData = this.assetListData.filter((type) => type.assetId !== id);
                     // this.totalItems = this.assetListData.length;
-                    _this32.sharedService.setAlertMessage("Asset deleted");
+                    _this36.sharedService.setAlertMessage("Asset deleted");
 
-                    _this32.sharedService.setUnitListDeleteIndex(null);
+                    _this36.sharedService.setUnitListDeleteIndex(null);
 
-                    _this32.getAllAssets();
+                    _this36.getAllAssets();
                   }, 500);
                 }, function (error) {});
               }
@@ -3346,21 +4040,21 @@
         }, {
           key: "getAllAssets",
           value: function getAllAssets() {
-            var _this33 = this;
+            var _this37 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
             this.assetService.getAllAssetByApartmentId(params).subscribe(function (res) {
               if (res) {
-                _this33.totalItems = res.length;
-                _this33.gridSourceData = {
+                _this37.totalItems = res.length;
+                _this37.gridSourceData = {
                   localdata: res.length > 0 ? res : [],
                   datatype: "array"
                 };
-                _this33.assetData = new jqx.dataAdapter(_this33.gridSourceData);
+                _this37.assetData = new jqx.dataAdapter(_this37.gridSourceData);
               }
 
-              _this33.isDataLoaded = false;
+              _this37.isDataLoaded = false;
             });
           }
         }, {
@@ -3371,7 +4065,7 @@
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this34 = this;
+            var _this38 = this;
 
             if (this.histroySearch != "") {
               var filterGroup = new jqx.filter();
@@ -3384,7 +4078,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.header.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this34.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this38.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3987,7 +4681,7 @@
         _createClass(LastMaintenanceComponent, [{
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this35 = this;
+            var _this39 = this;
 
             if (this.histroySearch != "") {
               var filterGroup = new jqx.filter();
@@ -4000,7 +4694,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this35.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this39.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4016,7 +4710,7 @@
         }, {
           key: "onStatusFilter",
           value: function onStatusFilter() {
-            var _this36 = this;
+            var _this40 = this;
 
             if (this.historyStatus != "") {
               var filterGroup = new jqx.filter();
@@ -4029,7 +4723,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield == 'historyStatus') {
-                  _this36.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this40.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4045,14 +4739,14 @@
         }, {
           key: "setCatIdAndGetAssetSubCat",
           value: function setCatIdAndGetAssetSubCat(event) {
-            var _this37 = this;
+            var _this41 = this;
 
             this.search.categoryId = event[0].id;
             this.subCategoryList = [];
             this.search.subCategoryId = null;
             this.categoryList.filter(function (val) {
-              if (val.id == _this37.search.categoryId) {
-                _this37.subCategoryList = val.subCategory;
+              if (val.id == _this41.search.categoryId) {
+                _this41.subCategoryList = val.subCategory;
               }
             });
           }
@@ -4064,7 +4758,7 @@
         }, {
           key: "getMaintainAsset",
           value: function getMaintainAsset() {
-            var _this38 = this;
+            var _this42 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -4095,10 +4789,10 @@
 
               if (responeData && responeData.length > 0) {
                 responeData.filter(function (val) {
-                  val.actualMaintDate = val.actualMaintDate ? _this38.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
-                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this38.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
-                  val.nextPlannedMaintenance = val.nextPlannedMaintenance ? _this38.datePipe.transform(val.nextPlannedMaintenance, 'MM-dd-yyyy') : '';
-                  val.lastMaintenanceDate = val.lastMaintenanceDate ? _this38.datePipe.transform(val.lastMaintenanceDate, 'MM-dd-yyyy') : '';
+                  val.actualMaintDate = val.actualMaintDate ? _this42.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                  val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this42.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                  val.nextPlannedMaintenance = val.nextPlannedMaintenance ? _this42.datePipe.transform(val.nextPlannedMaintenance, 'MM-dd-yyyy') : '';
+                  val.lastMaintenanceDate = val.lastMaintenanceDate ? _this42.datePipe.transform(val.lastMaintenanceDate, 'MM-dd-yyyy') : '';
                 });
               }
 
@@ -4106,15 +4800,15 @@
                 localdata: responeData.length > 0 ? responeData : [],
                 datatype: "array"
               };
-              _this38.assetData = new jqx.dataAdapter(tableData);
-              _this38.totalItems = responeData.length;
-              _this38.isDataLoaded = false;
+              _this42.assetData = new jqx.dataAdapter(tableData);
+              _this42.totalItems = responeData.length;
+              _this42.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this39 = this;
+            var _this43 = this;
 
             this.getMaintainAsset();
 
@@ -4192,14 +4886,14 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              _this39.categoryList = res;
+              _this43.categoryList = res;
             }); // geAsset
 
             var asset = {
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(asset).subscribe(function (res) {
-              _this39.assetList = res;
+              _this43.assetList = res;
             });
           }
         }]);
@@ -4352,7 +5046,7 @@
         _createClass(MaintenanceHistoryComponent, [{
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this40 = this;
+            var _this44 = this;
 
             if (this.histroySearch != "") {
               var filterGroup = new jqx.filter();
@@ -4365,7 +5059,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this40.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this44.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4381,7 +5075,7 @@
         }, {
           key: "onStatusFilter",
           value: function onStatusFilter() {
-            var _this41 = this;
+            var _this45 = this;
 
             if (this.historyStatus != "") {
               var filterGroup = new jqx.filter();
@@ -4394,7 +5088,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield == 'historyStatus') {
-                  _this41.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this45.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4410,14 +5104,14 @@
         }, {
           key: "setCatIdAndGetAssetSubCat",
           value: function setCatIdAndGetAssetSubCat(event) {
-            var _this42 = this;
+            var _this46 = this;
 
             this.search.categoryId = event[0].id;
             this.subCategoryList = [];
             this.search.subCategoryId = null;
             this.categoryList.filter(function (val) {
-              if (val.id == _this42.search.categoryId) {
-                _this42.subCategoryList = val.subCategory;
+              if (val.id == _this46.search.categoryId) {
+                _this46.subCategoryList = val.subCategory;
               }
             });
           }
@@ -4429,7 +5123,7 @@
         }, {
           key: "getMaintainHistory",
           value: function getMaintainHistory() {
-            var _this43 = this;
+            var _this47 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -4460,27 +5154,27 @@
 
                 if (responeData && responeData.length > 0) {
                   responeData.filter(function (val) {
-                    val.actualMaintDate = val.actualMaintDate ? _this43.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
-                    val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this43.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
+                    val.actualMaintDate = val.actualMaintDate ? _this47.datePipe.transform(val.actualMaintDate, 'MM-dd-yyyy') : '';
+                    val.plannedMaintenanceDate = val.plannedMaintenanceDate ? _this47.datePipe.transform(val.plannedMaintenanceDate, 'MM-dd-yyyy') : '';
                   });
                 }
 
-                _this43.maintenanceList = res;
-                _this43.tempMaintenanceList = res;
+                _this47.maintenanceList = res;
+                _this47.tempMaintenanceList = res;
                 var tableData = {
                   localdata: responeData.length > 0 ? responeData : [],
                   datatype: "array"
                 };
-                _this43.totalItems = tableData.localdata.length;
-                _this43.isDataLoaded = false;
-                _this43.assetsHistoryData = new jqx.dataAdapter(tableData);
+                _this47.totalItems = tableData.localdata.length;
+                _this47.isDataLoaded = false;
+                _this47.assetsHistoryData = new jqx.dataAdapter(tableData);
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this44 = this;
+            var _this48 = this;
 
             this.getMaintainHistory();
 
@@ -4556,14 +5250,14 @@
               subCategoryLookupTypeId: 68
             };
             this.lookupService.getSubcategory(queryParamBase).subscribe(function (res) {
-              _this44.categoryList = res;
+              _this48.categoryList = res;
             }); // geAsset
 
             var asset = {
               apartmentId: this.sessionService.apartmentId
             };
             this.assetService.getAllAssetByApartmentId(asset).subscribe(function (res) {
-              _this44.assetList = res;
+              _this48.assetList = res;
             });
           }
         }]);
@@ -4731,7 +5425,7 @@
         _createClass(ManageMaintenanceComponent, [{
           key: "searchAsset",
           value: function searchAsset() {
-            var _this45 = this;
+            var _this49 = this;
 
             var filterArr = [];
             var filterCategoryArr = [];
@@ -4740,7 +5434,7 @@
             if (this.assetName) {
               if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
                 this.tempMaintenanceList.filter(function (val) {
-                  if (_this45.assetName == val.assetName) {
+                  if (_this49.assetName == val.assetName) {
                     filterArr.push(val);
                   }
                 });
@@ -4752,7 +5446,7 @@
             if (this.assetName && this.categoryName) {
               // if(filterArr && filterArr.length>0){
               filterArr.filter(function (val) {
-                if (_this45.categoryName == val.assetCategoryName) {
+                if (_this49.categoryName == val.assetCategoryName) {
                   filterCategoryArr.push(val);
                 }
               }); // }
@@ -4761,7 +5455,7 @@
             } else if (!this.assetName && this.categoryName) {
               if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
                 this.tempMaintenanceList.filter(function (val) {
-                  if (_this45.categoryName == val.assetCategoryName) {
+                  if (_this49.categoryName == val.assetCategoryName) {
                     filterCategoryArr.push(val);
                   }
                 });
@@ -4771,7 +5465,7 @@
 
             if (this.categoryName && this.subCategoryName) {
               filterCategoryArr.filter(function (val) {
-                if (_this45.subCategoryName == val.assetSubcategoryName) {
+                if (_this49.subCategoryName == val.assetSubcategoryName) {
                   filterSubCategoryArr.push(val);
                 }
               }); // }
@@ -4780,7 +5474,7 @@
             } else if (!this.categoryName && this.subCategoryName) {
               if (this.tempMaintenanceList && this.tempMaintenanceList.length > 0) {
                 this.tempMaintenanceList.filter(function (val) {
-                  if (_this45.subCategoryName == val.assetSubcategoryName) {
+                  if (_this49.subCategoryName == val.assetSubcategoryName) {
                     filterSubCategoryArr.push(val);
                   }
                 });
@@ -4855,7 +5549,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this46 = this;
+            var _this50 = this;
 
             this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]); // delete maintenance
 
@@ -4864,19 +5558,19 @@
                 var param = {};
                 param = {
                   assetMaintenancePlanId: id,
-                  deleteBy: parseInt(_this46.sessionService.userId)
+                  deleteBy: parseInt(_this50.sessionService.userId)
                 };
 
-                _this46.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
+                _this50.assetService.deleteAssetMaintenancePlan(param).subscribe(function (res) {
                   //  this.getMaintenaceList();
-                  var pos = _this46.maintenanceList.map(function (e) {
+                  var pos = _this50.maintenanceList.map(function (e) {
                     return e.assetMaintenancePlanId;
                   }).indexOf(id);
 
-                  _this46.maintenanceList.splice(pos, 1);
+                  _this50.maintenanceList.splice(pos, 1);
 
-                  _this46.totalItems = _this46.maintenanceList.length;
-                  _this46.ItemEndIndex = _this46.totalItems; //  if(this.totalItems>this.itemLimit){
+                  _this50.totalItems = _this50.maintenanceList.length;
+                  _this50.ItemEndIndex = _this50.totalItems; //  if(this.totalItems>this.itemLimit){
                   //    this.ItemEndIndex = this.itemLimit;
                   //  }
                   //  else {
@@ -4884,9 +5578,9 @@
                   //  }
 
                   setTimeout(function () {
-                    _this46.sharedService.setAlertMessage("Maintenance  deleted successfully");
+                    _this50.sharedService.setAlertMessage("Maintenance  deleted successfully");
 
-                    _this46.sharedService.setUnitListDeleteIndex(null);
+                    _this50.sharedService.setUnitListDeleteIndex(null);
                   }, 500);
                 }, function (error) {
                   console.log(error);
@@ -4895,16 +5589,16 @@
             });
             this.route.paramMap.subscribe(function (params) {
               if (params) {
-                _this46.assetId = params.get('id');
+                _this50.assetId = params.get('id');
                 var reqOBj = {
-                  apartmentId: _this46.sessionService.apartmentId,
-                  assetId: _this46.assetId
+                  apartmentId: _this50.sessionService.apartmentId,
+                  assetId: _this50.assetId
                 };
 
-                _this46.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
+                _this50.assetService.getAllAssetByAssetId(reqOBj).subscribe(function (res) {
                   // this.asset = res[0];
                   if (res && res[0]) {
-                    _this46.maintenanceList = res;
+                    _this50.maintenanceList = res;
                   }
                 });
               }
@@ -4953,7 +5647,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this47 = this;
+            var _this51 = this;
 
             var params = {};
             params.LookupTypeId = 19;
@@ -4962,7 +5656,7 @@
                 // this.categoryList = res;
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this47.categoryList.push({
+                    _this51.categoryList.push({
                       'id': val.lookupValueId,
                       'itemName': val.lookupValueName
                     });
@@ -4989,7 +5683,7 @@
         }, {
           key: "getSubCategory",
           value: function getSubCategory() {
-            var _this48 = this;
+            var _this52 = this;
 
             var params = {};
             params.LookupTypeId = 68;
@@ -4998,7 +5692,7 @@
                 // this.subCategoryList = res;
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this48.subCategoryList.push({
+                    _this52.subCategoryList.push({
                       'id': val.lookupValueId,
                       'itemName': val.lookupValueName
                     });
@@ -5015,7 +5709,7 @@
         }, {
           key: "getAsset",
           value: function getAsset() {
-            var _this49 = this;
+            var _this53 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
@@ -5024,7 +5718,7 @@
                 // this.assetList = res;
                 if (res && res.length > 0) {
                   res.filter(function (val) {
-                    _this49.assetList.push({
+                    _this53.assetList.push({
                       'id': val.assetId,
                       'itemName': val.assetName
                     });
@@ -5036,21 +5730,21 @@
         }, {
           key: "getMaintenaceList",
           value: function getMaintenaceList() {
-            var _this50 = this;
+            var _this54 = this;
 
             var params = {};
             params.apartmentId = this.sessionService.apartmentId;
             params.active = 1;
             this.assetService.getAllAssetMaintenancePlanByApartmentIdStatus(params).subscribe(function (res) {
               if (res) {
-                _this50.maintenanceList = res.length > 0 ? res : [];
-                _this50.tempMaintenanceList = _this50.maintenanceList;
-                _this50.totalItems = _this50.maintenanceList.length;
+                _this54.maintenanceList = res.length > 0 ? res : [];
+                _this54.tempMaintenanceList = _this54.maintenanceList;
+                _this54.totalItems = _this54.maintenanceList.length;
 
-                if (_this50.totalItems > _this50.itemLimit) {
-                  _this50.ItemEndIndex = _this50.itemLimit;
+                if (_this54.totalItems > _this54.itemLimit) {
+                  _this54.ItemEndIndex = _this54.itemLimit;
                 } else {
-                  _this50.ItemEndIndex = _this50.totalItems;
+                  _this54.ItemEndIndex = _this54.totalItems;
                 }
               }
             });

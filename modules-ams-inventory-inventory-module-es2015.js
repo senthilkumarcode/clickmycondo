@@ -78,6 +78,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.html":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.html ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-tracker-reports-customer-reports\">\n    <div class=\"main\">\n\t\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<condo-card *ngIf=\"isDataLoaded\">\n        <div CondoCardHeader>\n        \n\n            <div class=\"d-flex\">\n                    <div>\n                            <h4>{{pageName}}</h4>\n                            <p>{{totalItems}} results</p>\n                    </div>\n                \n                      <div class=\"ml-auto d-none d-md-block my-auto\">\n                            <input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n                  </div>\n                  \n                \n                    <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n                            <condo-select [fieldModel]=\"blockNo\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                            [fieldRequired]=\"\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n                    </div>\n              </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n  \n</div>\n\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.html":
 /*!*******************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.html ***!
@@ -87,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper\">\n\t\n\t<!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n\n  <div class=\"reports-wrapper\" *ngIf=\"!listType\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  \n    <ng-container *ngIf=\"isDataLoaded\">\n      <h5 class=\"mb-4\">Reports</h5>  \n      <div class=\"row\">\n        <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList\">          \n            <div class=\"card report-card\" (click)=\"listType = true\">\n              <a class=\"t-no-decor\" >\n                <div class=\"card-header\">\n                  <h6>{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </div>\n              </a>\n              <div class=\"card-body\">\n                \n              </div>\n            </div>\n        </div>\n      </div>  \n    </ng-container>     \n  </div>\n\n\n\n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n\n      <!-- <div class=\"filter-box float-left mt-4 p-0 no-border\">\n        <h6><i-feather class=\"icon mr-2\" name=\"filter\"></i-feather>Filter By</h6>\n      </div> -->\n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n    </ng-container>\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<i class=\"fa fa-filter filter-icon pr-4\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filterCard\"></i>  \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              <!-- <span><i-feather class=\"icon mr-2\" name=\"filter\" class=\"pb-3\"></i-feather>Filter By</span> -->\n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         <!-- <label>Select Tower No</label> -->\n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper\">\n\t<div class=\"main\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  \n    <ng-container *ngIf=\"isDataLoaded && !listType\">\n      <h4 class=\"mb-4\">Reports</h4>  \n      <div class=\"row\">\n        <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">          \n          <condo-card>\n\t\t\t\t\t\t<div CondoCardHeader>\n              <a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/inventory/reports/{{report.lookupValueName}}/{{report.lookupValueID}}\"\n              routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n                \n                  <h6>{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                \n              </a>\n            </div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div> \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</condo-card>\n            </div>\n        </div>\n      \n    </ng-container>     \n\n  \n  \n  </div>\n\n\n<!-- \n  <div class=\"parking-aa-unit-to-unit-allocation-wrapper\" *ngIf=\"listType == true\">\n    <ng-container>\n      <div class=\"float-right\">\n        <div class=\"float-right\">\n          <div class=\"relative-icon\">\n            <a>\n              <div class=\"icon-wrapper\">\n                <img class=\"svg\" src=\"assets/images/book-icon.svg\" width=\"17\">\n              </div>\n              <span class=\"d-inline-block\">View All Report</span>\n            </a>\n          </div>\n        </div>\n      </div>\n      \n  \n    \n  \n\n    <div class=\"card table-card clear mt-3\">\n\t\t\t<div class=\"card-header\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 d-flex align-items-center\">\n\t\t\t\t\t\t<h5>Report  <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n\t\t\t\t   </div>\n\t\t\t\t\t<div class=\"col-sm-6 d-flex justify-content-end align-items-center\"> \n\t\t\t\t\t\t<i class=\"fa fa-filter filter-icon pr-4\" aria-hidden=\"true\"  data-toggle=\"collapse\" data-target=\"#filterCard\"></i>  \n\t\t\t\t\t\t<ul class=\"list-inline\">\n              \n              <app-print-dropdown  class=\"pt-5 b-1 pb-1\" (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n             \n              <li class=\"list-inline-item search d-none d-md-inline-block\">\n                <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\"\n                (ngModelChange)=\"onGlSearchFilter()\" >\n              </li>\n              </ul>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\t\t\n\t\t</div>\n        <div class=\"card-body p-0\">\n          <div  id=\"filterCard\" class=\"row collapse\">          \n            <div class=\"col-sm-3 pl-5 pb-4\">\n              <div class=\"select-box mb-2 pl-2\">\n                         \n                          <select \n                      name=\"blockId\" \n                      id=\"blockId\" \n                      class=\"form-control\"\n                      [(ngModel)]=\"blockId\" (ngModelChange)=\"getBlockDetails()\" required>\n                      <option value=\"\">All Blocks</option>\n                      <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                  </select>\n                    </div>\n            </div>\n\n\n          </div>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"[]\" [columns]=\"inventoryHeader\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n            </jqxGrid>\n        </div>\n    </div>\n\n  </ng-container>\n</div> -->\n");
 
 /***/ }),
 
@@ -2057,6 +2070,319 @@ InventoryReceivingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
 
 /***/ }),
 
+/***/ "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.scss":
+/*!*******************************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.scss ***!
+  \*******************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2ludmVudG9yeS9jb21wb25lbnRzL2ludmVudG9yeS1yZXBvcnRzL2ludmVudG9yeS1yZXBvcnQtZGF0YS9pbnZlbnRvcnktcmVwb3J0LWRhdGEuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts":
+/*!*****************************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts ***!
+  \*****************************************************************************************************************************/
+/*! exports provided: InventoryReportDataComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InventoryReportDataComponent", function() { return InventoryReportDataComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+
+
+
+
+
+
+
+
+
+
+
+let InventoryReportDataComponent = class InventoryReportDataComponent {
+    constructor(router, route, userService, apartmentService, lookupService, sharedService, sessionService, ticketService) {
+        this.router = router;
+        this.route = route;
+        this.userService = userService;
+        this.apartmentService = apartmentService;
+        this.lookupService = lookupService;
+        this.sharedService = sharedService;
+        this.sessionService = sessionService;
+        this.ticketService = ticketService;
+        this.pageName = "";
+        this.pageDesp = "";
+        this.ItemStartIndex = 0;
+        this.itemLimit = 10;
+        this.unitFieldType = "unitno";
+        this.unitOrder = true;
+        this.isDataLoaded = false;
+        this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
+        this.blockNo = "All Blocks";
+    }
+    isMobileView() {
+        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    }
+    isItemsAvailable() {
+        return this.totalItems > 0 ? true : false;
+    }
+    isNoItemsAvailable() {
+        return this.totalItems == 0 ? true : false;
+    }
+    isListOfResidents() {
+        return this.pageName == "List of Residents";
+    }
+    isListOfTickets() {
+        return this.pageName == "List of tickets";
+    }
+    isListofAgedtickets() {
+        return this.pageName == "List of Aged tickets";
+    }
+    isListofUnassignedtickets() {
+        return this.pageName == "List of Unassigned tickets";
+    }
+    isListOfApprovedUsers() {
+        return this.pageName == "List of Approved Users";
+    }
+    isListOfDeactivatedUsers() {
+        return this.pageName == "List of De-activated Users";
+    }
+    isListOfResidentsVehicleInfo() {
+        return this.pageName == "List of Residents Vehicle Info";
+    }
+    isListOfExpiringRental() {
+        return this.pageName == "List of Expiring Rental  Lease Agreements";
+    }
+    isListOfUsersWithPets() {
+        return this.pageName == "List of Users with Pets";
+    }
+    isListOfUnits() {
+        return this.pageName == "List of Units";
+    }
+    isListOfBlocks() {
+        return this.pageName == "List of Blocks";
+    }
+    isListOfOwners() {
+        return this.pageName == "List of Owners";
+    }
+    isListOfTenants() {
+        return this.pageName == "List of Tenants";
+    }
+    isListOfAdmins() {
+        return this.pageName == "List of Admins";
+    }
+    getDate(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+    }
+    getSelectedType(event) {
+        this.blockId = event[0].apartmentBlockId;
+        this.blockNo = event[0].apartmentBlockId;
+        if (this.blockId != "" && this.blockId != null) {
+            let filterGroup = new jqx.filter();
+            let filterOperator = 1;
+            let filterValue = event[0].apartmentBlockNumber;
+            let filterCondition = 'contains';
+            let filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
+            filterGroup.operator = 'or';
+            filterGroup.addfilter(filterOperator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield === 'blockNo') {
+                    this.datagrid.addfilter(item.datafield, filterGroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    onSearchFilter() {
+        if (this.userReportData != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = this.userReportData;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    getBlockDetails() {
+        //jqx column generating
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.isDataLoaded = false;
+        var details = {
+            ApartmentID: this.sessionService.apartmentId,
+            ApartmentBlockID: this.blockId === "" ? 5 : this.blockId,
+            StartDate: this.StartDate,
+            EndDate: this.EndDate,
+            TicketStatus: this.TicketStatus,
+            TicketType: this.TicketType,
+            TicketRaisedBy: this.TicketRaisedBy,
+            AssignedToStaffId: this.AssignedToStaffId,
+            StaffCategoryType: this.StaffCategoryType,
+            StaffSubCategoryType: this.StaffSubCategoryType,
+        };
+        this.columnData = [{
+                text: 'User Name',
+                datafield: 'userName',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Block Number',
+                datafield: 'blockNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Unit Number',
+                datafield: 'unitNo',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Ticket Type',
+                datafield: 'ticketType',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'User Type',
+                datafield: 'userTypeName',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Subject',
+                datafield: 'subject',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Ticket Priority',
+                datafield: 'ticketPriority',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }
+        ];
+        this.ticketService.getReportsForListofOpenCloseTicketsMultiFilter(details).subscribe((res) => {
+            let gridSourceData = {
+                localdata: res,
+                datatype: "array"
+            };
+            this.userReportDataList = new jqx.dataAdapter(gridSourceData);
+            this.totalItems = this.userReportDataList.length;
+            this.isDataLoaded = true;
+            this.showItems();
+        });
+    }
+    showItems() {
+        this.totalItems = this.userReportDataList["_source"].localdata.length;
+        console.log("total items ", this.totalItems);
+        if (this.totalItems > this.itemLimit) {
+            this.ItemEndIndex = this.itemLimit;
+            console.log("Itemendindex if", this.ItemEndIndex);
+        }
+        else {
+            this.ItemEndIndex = this.totalItems;
+            console.log("Itemendindex ", this.ItemEndIndex);
+        }
+    }
+    ngOnInit() {
+        this.pageName = this.route.params['value'].name;
+        let unitBlockParams = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe((res) => {
+            this.unitBlocksData = res;
+        });
+        let params = {
+            LookupTypeId: 87
+        };
+        this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+            var data = res.filter(item => {
+                return item.lookupValueId == this.route.params['value'].id;
+            });
+            this.pageName = data[0].lookupValueName.replace('/', '');
+            this.pageDesp = data[0].description;
+        });
+        this.getBlockDetails();
+    }
+};
+InventoryReportDataComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"] }
+];
+InventoryReportDataComponent.propDecorators = {
+    gridResident: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['gridResident', { static: false },] }],
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+};
+InventoryReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-inventory-report-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./inventory-report-data.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./inventory-report-data.component.scss */ "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]])
+], InventoryReportDataComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.scss":
 /*!*****************************************************************************************************!*\
   !*** ./src/app/modules/ams/inventory/components/inventory-reports/inventory-reports.component.scss ***!
@@ -3678,6 +4004,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/inventory-receiving/inventory-receiving.component */ "./src/app/modules/ams/inventory/components/inventory-receiving/inventory-receiving.component.ts");
 /* harmony import */ var _components_inventory_create_item_inventory_create_item_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/inventory-create-item/inventory-create-item.component */ "./src/app/modules/ams/inventory/components/inventory-create-item/inventory-create-item.component.ts");
 /* harmony import */ var _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/inventory-stock-adjustments/inventory-stock-adjustments.component */ "./src/app/modules/ams/inventory/components/inventory-stock-adjustments/inventory-stock-adjustments.component.ts");
+/* harmony import */ var _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/inventory-reports/inventory-report-data/inventory-report-data.component */ "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts");
+
 
 
 
@@ -3708,6 +4036,7 @@ const routes = [
     { path: 'view', component: _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_6__["InventoryViewComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'view/:id', component: _components_inventory_view_inventory_view_component__WEBPACK_IMPORTED_MODULE_6__["InventoryViewComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'reports', component: _components_inventory_reports_inventory_reports_component__WEBPACK_IMPORTED_MODULE_7__["InventoryReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports/:name/:id', component: _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_15__["InventoryReportDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let InventoryRoutingModule = class InventoryRoutingModule {
@@ -3800,6 +4129,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/inventory-internal-transfer/inventory-internal-transfer.component */ "./src/app/modules/ams/inventory/components/inventory-internal-transfer/inventory-internal-transfer.component.ts");
 /* harmony import */ var _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/inventory-receiving/inventory-receiving.component */ "./src/app/modules/ams/inventory/components/inventory-receiving/inventory-receiving.component.ts");
 /* harmony import */ var _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/inventory-stock-adjustments/inventory-stock-adjustments.component */ "./src/app/modules/ams/inventory/components/inventory-stock-adjustments/inventory-stock-adjustments.component.ts");
+/* harmony import */ var _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/inventory-reports/inventory-report-data/inventory-report-data.component */ "./src/app/modules/ams/inventory/components/inventory-reports/inventory-report-data/inventory-report-data.component.ts");
+
 
 
 
@@ -3838,7 +4169,8 @@ InventoryModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_inventory_initial_stock_inventory_initial_stock_component__WEBPACK_IMPORTED_MODULE_17__["InventoryInitialStockComponent"],
             _components_inventory_internal_transfer_inventory_internal_transfer_component__WEBPACK_IMPORTED_MODULE_18__["InventoryInternalTransferComponent"],
             _components_inventory_receiving_inventory_receiving_component__WEBPACK_IMPORTED_MODULE_19__["InventoryReceivingComponent"],
-            _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_20__["InventoryStockAdjustmentsComponent"]
+            _components_inventory_stock_adjustments_inventory_stock_adjustments_component__WEBPACK_IMPORTED_MODULE_20__["InventoryStockAdjustmentsComponent"],
+            _components_inventory_reports_inventory_report_data_inventory_report_data_component__WEBPACK_IMPORTED_MODULE_21__["InventoryReportDataComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
