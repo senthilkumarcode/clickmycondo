@@ -108,7 +108,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-facility-booking-list\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isBookingDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Bookings</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"bookingSearch\" (ngModelChange)=\"searchData()\"  placeholder=\"Search...\" >\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/user/facility/bookings/create-booking\">Create Booking</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"bookingListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-facility-booking-list\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isBookingDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Bookings</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"bookingSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/user/facility/bookings/create-booking\">Create Booking</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"bookingListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -951,6 +951,7 @@
           value: function getUnits(type) {
             if (type == 'change') {
               this.booking.apartmentBlockUnitId = null;
+              this.booking.apartmentBlockUnitUserId = null;
             }
 
             var _iterator3 = _createForOfIteratorHelper(this.towerList),
@@ -989,6 +990,7 @@
 
                 if (this.booking.apartmentBlockUnitId == data.buId) {
                   this.primaryName = data.pc_Label;
+                  this.booking.apartmentBlockUnitUserId = data.blockUnitUserId;
                   break;
                 }
               }
@@ -1253,7 +1255,19 @@
             if (!this.isAdmin()) {
               this.booking.apartmentBlockId = this.sessionService.apartmentBlockID;
               this.booking.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+              this.booking.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+              this.booking.facilityBookingStatusId = 189; //pending
+
               this.getVisitorsList();
+            } else {
+              // Facility Status
+              var statusParams = {
+                LookupTypeId: 40,
+                ApartmentId: this.sessionService.apartmentId
+              };
+              this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
+                if (res.length > 0) _this13.facilityStatus = res;
+              });
             }
 
             this.booking.isBookingforGuest = true;
@@ -1297,14 +1311,6 @@
               if (res.length > 0) {
                 _this13.taxPecentage = parseInt(res[0].lookupValueName);
               }
-            }); // Facility Status
-
-            var statusParams = {
-              LookupTypeId: 40,
-              ApartmentId: this.sessionService.apartmentId
-            };
-            this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-              if (res.length > 0) _this13.facilityStatus = res;
             });
 
             if (this.urlType && this.urlType != 'create') {
@@ -1835,41 +1841,49 @@
       var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/services/modal.service */
+      "./src/app/shared/services/modal.service.ts");
 
       var UserFacilityBookingListComponent = /*#__PURE__*/function () {
-        function UserFacilityBookingListComponent(facilityService, sessionService, router, sharedService, dialog) {
+        function UserFacilityBookingListComponent(facilityService, sessionService, router, injector, sharedService, dialog) {
           _classCallCheck(this, UserFacilityBookingListComponent);
 
           this.facilityService = facilityService;
           this.sessionService = sessionService;
           this.router = router;
+          this.injector = injector;
           this.sharedService = sharedService;
           this.dialog = dialog;
+          this.bookingSearch = '';
           this.isBookingDataLoaded = false;
           this.totalItems = 0;
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         }
 
         _createClass(UserFacilityBookingListComponent, [{
           key: "editBooking",
           value: function editBooking(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            this.router.navigate(['user/facility/edit-booking', dataRecord.apartmentFacilityBookingId]);
+            this.router.navigate(['user/facility/bookings/edit-booking', dataRecord.apartmentFacilityBookingId]);
           }
         }, {
           key: "deleteBooking",
           value: function deleteBooking(detail) {
-            var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            this.modalService.showConfirmModal(dataRecord.apartmentFacilityBookingId);
+            this.modalService.showConfirmModal(detail.rowId);
           }
         }, {
-          key: "searchData",
-          value: function searchData() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this16 = this;
 
-            if (this.bookingSearch != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.bookingSearch;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -1895,17 +1909,18 @@
           value: function getBookingList() {
             var _this17 = this;
 
+            this.isBookingDataLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId,
               apartmentBlockUnitUserId: this.sessionService.apartmentBlockUnitUserId
             };
             this.facilityService.getApartmentFacilityBookingsByBlockunituserId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this17.totalItems = res.length;
                 var facility = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
+                _this17.totalItems = facility.localdata.length;
                 _this17.bookingListData = new jqx.dataAdapter(facility);
               }
 
@@ -2036,10 +2051,22 @@
               renderer: columnrenderer
             }, {
               text: 'Status',
-              datafield: 'facilityBookingStatusId_Label',
-              cellsrenderer: function cellsrenderer(row, column, label) {
-                var className = label == 'Rejected' ? 'cancelled' : label.toLowerCase();
-                return '<div class="jqx-custom-inner-cell"><span class="w-100 badge small min text-capitalize ' + className + '">' + label + '</span></div>';
+              datafield: 'facilityBookingStatusId',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                var status;
+
+                if (value == 189) {
+                  //Pending
+                  status = 'purple';
+                } else if (value == 188) {
+                  //completed
+                  status = 'green';
+                } else if (value == 208 || value == 385) {
+                  //Cancelled || Rejected
+                  status = 'red';
+                }
+
+                return "<div class=\"jqx-custom-inner-cell\">\n          <div class=\"status-badge bg-status-".concat(status, "-700\">\n            <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this18.bookingListData.loadedData[row].facilityBookingStatusId_Label, "</span>\n          </div>\n        </div>");
               },
               cellsalign: 'center',
               align: 'center',
@@ -2049,26 +2076,41 @@
               text: 'Actions',
               cellsalign: 'center',
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3" onClick="editFacilityBooking(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-2" onClick="deleteFacilityBooking(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>' + '</div>';
+                return '<div class="simple-actions">' + '<a href="javascript:void(0)" class="mr-3" onClick="editFacilityBooking(' + row + ')" title="Edit Facility"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" onClick="deleteFacilityBooking(' + row + ')" title="Delete Facility"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>' + '</div>';
               },
               minwidth: 80,
               renderer: columnrenderer
             }]; //delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
-              if (item != null) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var dataRecord = _this18.datagrid.getrowdata(id);
+
                 var params = {
-                  apartmentFacilityBookingId: item,
+                  apartmentFacilityBookingId: dataRecord.apartmentFacilityBookingId,
                   deleteBy: parseInt(_this18.sessionService.userId)
                 };
 
                 _this18.facilityService.deleteApartmentFacilityBooking(params).subscribe(function (res) {
                   _this18.sharedService.setUnitListDeleteIndex(null);
 
-                  _this18.getBookingList();
+                  if (res.message) {
+                    _this18.datagrid.deleterow(id);
+
+                    _this18.datagrid.refresh();
+
+                    _this18.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -2082,6 +2124,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
@@ -2113,7 +2157,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./user-facility-booking-list.component.scss */
         "./src/app/modules/ams/facility/facility-create-booking/user-facility-booking-list/user-facility-booking-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], UserFacilityBookingListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]])], UserFacilityBookingListComponent);
 
       function editFacilityBooking(row) {
         var event = new CustomEvent('onEditFacility', {

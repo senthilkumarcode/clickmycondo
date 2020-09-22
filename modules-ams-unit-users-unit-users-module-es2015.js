@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-resident-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditUser\">Add User</span>\n\t\t\t<span *ngIf=\"isEditUser\">Edit User</span>\n\t\t</h4>\n\t\t<app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"emailToRegister\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"clearEmail()\">Clear</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isValidEmail\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<ng-container *ngIf=\"!isUserSubmitted\">\n\t\t\t\t\t\t<form #addResidentForm=\"ngForm\" name=\"addResidentForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitAddResidentForm(addResidentForm)\" novalidate>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"admin\" [(ngModel)]=\"userType\"  value=\"1\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"admin\">Admin</label>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"4\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"owner\">Owner</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"2\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" value=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" value=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tower No*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"blockNo\" id=\"blockNo\" placeholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" [(ngModel)]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}\n\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected && !isAdminRegister\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\" [(ngModel)]=\"apartmentBlockUnitId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitData\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockUnitId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\" *ngIf=\"isAdminRegister\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Admin Role</label>\n\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"userRole\" \n\t\t\t\t\t\t\t\tid=\"userRole\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Select Role\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userRoleId\" >\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">{{ item.roleName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box d-flex flex-column\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Mobile*</label>\n\t\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditUser || isExistingUSer\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" [disabled]=\"isExistingUSer\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"auto\">Auto Generate password</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" [disabled]=\"isExistingUSer\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"set\">Setup a Password</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" [disabled]=\"isAutoGenPassword || isExistingUSer\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" placeholder=\"Password\" name=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"user.isLiving\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tfor=\"livingcondo\">{{risidingCondoLabel | lowercase}}</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary Contact</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"user.emailId\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\n\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t\t\t<label>Notification</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdisabled=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"flashNotify\" name=\"flashNotify\" [(ngModel)]=\"user.isFlashNotify\">\n\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"flashNotify\">Flash Notice</label>\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Is Primary Contact</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"isPrimary\" id=\"yesPrimary\" [(ngModel)]=\"isPrimary\"  value=\"Yes\" type=\"radio\"required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"yesPrimary\">Yes</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"isPrimary\" id=\"NoPrimary\" [(ngModel)]=\"isPrimary\" value=\"No\" type=\"radio\"required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"NoPrimary\">No</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-resident-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditUser\">Add User</span>\n\t\t\t<span *ngIf=\"isEditUser\">Edit User</span>\n\t\t</h4>\n\t\t<app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"emailToRegister\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"clearEmail()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isValidEmail\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<ng-container *ngIf=\"!isUserSubmitted\">\n\t\t\t\t\t\t<form #addResidentForm=\"ngForm\" name=\"addResidentForm\"\n\t\t\t\t\t\t\t(ngSubmit)=\"submitAddResidentForm(addResidentForm)\" novalidate>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"admin\" [(ngModel)]=\"userType\"  value=\"1\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"admin\">Admin</label>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"4\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"owner\">Owner</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\"\n\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"2\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"userEmail\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.emailId\" [disabled]=\"isExistingUSer\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Tower No*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"blockNo\" id=\"blockNo\" placeholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t\t\tclass=\"form-control\" [(ngModel)]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getUnits()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of blocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockNumber }}\n\t\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isBlockSelected && !isAdminRegister\">\n\t\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Unit No*</label>\n\t\t\t\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Select Unit\" [(ngModel)]=\"apartmentBlockUnitId\" required>\n\t\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of unitData\"\n\t\t\t\t\t\t\t\t\t\t\t\t[value]=\"item.apartmentBlockUnitId\">\n\t\t\t\t\t\t\t\t\t\t\t\t{{ item.apartmentBlockUnitNumber }}</option>\n\t\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\" *ngIf=\"isAdminRegister\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Admin Role</label>\n\t\t\t\t\t\t\t<select \n\t\t\t\t\t\t\t\tname=\"userRole\" \n\t\t\t\t\t\t\t\tid=\"userRole\" \n\t\t\t\t\t\t\t\tclass=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Select Role\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userRoleId\" >\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">{{ item.roleName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box d-flex flex-column\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Mobile*</label>\n\t\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"auto\">Auto Generate password</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"set\">Setup a Password</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isAdminRegister\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"user.isLiving\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tfor=\"livingcondo\">{{risidingCondoLabel | lowercase}}</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is\n\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary Contact</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"user.emailId\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\n\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box d-inline-block oh\">\n\t\t\t\t\t\t\t\t\t\t<label>Notification</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tdisabled=\"true\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n\t\t\t\t\t\t\t\t\t\t\t\t\tname=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"flashNotify\" name=\"flashNotify\" [(ngModel)]=\"user.isFlashNotify\">\n\t\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"flashNotify\">Flash Notice</label>\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Is Primary Contact</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"isPrimary\" id=\"yesPrimary\" [(ngModel)]=\"isPrimary\"  value=\"Yes\" type=\"radio\"required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"yesPrimary\">Yes</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"isPrimary\" id=\"NoPrimary\" [(ngModel)]=\"isPrimary\" value=\"No\" type=\"radio\"required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"NoPrimary\">No</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -271,8 +271,6 @@ let AddResidentComponent = class AddResidentComponent {
         this.isBlockSelected = false;
         this.isUserSubmitted = false;
         this.isExistingUSer = false;
-        this.isError = false;
-        this.errorMessage = "";
         this.isValidEmail = false;
         this.emailToRegister = "";
         this.isAdminRegister = false;
@@ -325,7 +323,6 @@ let AddResidentComponent = class AddResidentComponent {
         else {
             this.message = null;
             this.isUserSubmitted = true;
-            this.isError = false;
             if (!this.isEditUser) {
                 if (this.isValidEmail) {
                     //add user
@@ -334,7 +331,7 @@ let AddResidentComponent = class AddResidentComponent {
                         "firstName": this.user.firstName,
                         "middleName": "",
                         "lastName": this.user.lastName,
-                        "emailId": this.isValueValid(this.emailToRegister) ? "" : this.emailToRegister,
+                        "emailId": this.user.emailId,
                         "password": this.isAutoGenPassword ? "" : this.user.password,
                         "salt": "",
                         "address1": "",
@@ -343,7 +340,7 @@ let AddResidentComponent = class AddResidentComponent {
                         "state": "",
                         "country": "",
                         "zipCode": "",
-                        "genderId": parseInt(this.user.genderId),
+                        "genderId": this.user.genderId,
                         "dob": "2019-11-10T09:58:08.934Z",
                         "joinedOn": "2019-11-10T09:58:08.934Z",
                         "bloodGroup": "",
@@ -364,7 +361,7 @@ let AddResidentComponent = class AddResidentComponent {
                         "isDocSubmitted": false,
                         "readyForApproval": false,
                         "timeZone": "",
-                        "phonecountrycode": this.phoneForm.value.phone.dialCode
+                        "phonecountrycode": this.phoneForm.value.phone.countryCode
                     };
                     let params = {
                         user: userDetails
@@ -378,8 +375,6 @@ let AddResidentComponent = class AddResidentComponent {
                         else {
                             this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                             this.isUserSubmitted = false;
-                            this.isError = true;
-                            this.errorMessage = res.errorMessage;
                         }
                     }, error => {
                     });
@@ -405,11 +400,12 @@ let AddResidentComponent = class AddResidentComponent {
                     "state": this.user.state,
                     "country": this.user.country,
                     "zipCode": this.user.zipCode,
-                    "genderId": parseInt(this.user.genderId),
+                    "genderId": this.user.genderId,
                     "dob": this.user.dob,
                     "joinedOn": this.user.joinedOn,
                     "bloodGroup": this.user.bloodGroup,
-                    "phoneNumber": this.phoneForm.value.phone.e164Number,
+                    "phoneNumber": this.phoneForm.value.phone.number,
+                    "phonecountrycode": this.phoneForm.value.phone.countryCode,
                     "emergencyContactNumber": this.user.emergencyContactNumber,
                     "emergencyContactPerson": this.user.emergencyContactPerson,
                     "emergencyContactNumberSecondary": this.user.emergencyContactNumberSecondary,
@@ -470,18 +466,12 @@ let AddResidentComponent = class AddResidentComponent {
                                     console.log(error);
                                 });
                             }
-                            else {
-                                this.isError = true;
-                                this.errorMessage = res.errorMessage;
-                            }
                         }, error => {
                             console.log(error);
                         });
                     }
                     else {
                         this.isUserSubmitted = false;
-                        this.isError = true;
-                        this.errorMessage = res.errorMessage;
                     }
                 }, error => {
                 });
@@ -539,10 +529,6 @@ let AddResidentComponent = class AddResidentComponent {
                     console.log(error);
                 });
             }
-            else {
-                this.isError = true;
-                this.errorMessage = res.errorMessage;
-            }
         }, error => {
             console.log(error);
         });
@@ -568,7 +554,6 @@ let AddResidentComponent = class AddResidentComponent {
             this.isEditUser = true;
             this.userService.getUserById(this.route.params['value'].id).subscribe((res) => {
                 this.user = res[0];
-                this.user.genderId = this.user.genderId.toString();
                 // get role
                 this.userService.getRolesByUserId(this.route.params['value'].id).subscribe((data) => {
                     this.userType = data[0].roleId.toString();
@@ -605,8 +590,9 @@ let AddResidentComponent = class AddResidentComponent {
         this.isValidEmail = false;
         var isValid = this.validateEmail(this.emailToRegister);
         if (isValid) {
+            this.user.emailId = this.emailToRegister;
             let params = {
-                emailId: this.emailToRegister
+                emailId: this.user.emailId
             };
             // Validate Email
             this.userService.checkUserEmailExists(params).subscribe((data) => {
@@ -618,7 +604,7 @@ let AddResidentComponent = class AddResidentComponent {
                     this.cd.markForCheck();
                 }
                 else {
-                    const message = `User ${this.emailToRegister} already exists . Do you want to add this User to this condo?`;
+                    const message = `User ${this.user.emailId} already exists . Do you want to add this User to this condo?`;
                     const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogModel"]("Confirm Action", message);
                     const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["CommonConfirmModalComponent"], {
                         panelClass: 'material',
@@ -630,8 +616,10 @@ let AddResidentComponent = class AddResidentComponent {
                         if (this.result) {
                             this.isValidEmail = this.isExistingUSer = true;
                             this.user = data;
+                            this.phoneForm.patchValue({
+                                'phone': data.phoneNumber
+                            });
                             this.user.isEmailNotify = true;
-                            this.user.genderId = this.user.genderId.toString();
                         }
                         else {
                             this.isValidEmail = this.isExistingUSer = false;
@@ -641,14 +629,10 @@ let AddResidentComponent = class AddResidentComponent {
                 }
             }, error => {
                 this.isValidEmail = false;
-                this.isError = true;
-                this.errorMessage = 'Kindly enter proper email...!';
             });
         }
         else {
             this.sharedService.setAlertMessage("Kindly enter proper email...!");
-            this.isError = true;
-            this.errorMessage = 'Kindly enter proper email...!';
             this.cd.markForCheck();
         }
     }
@@ -675,11 +659,7 @@ let AddResidentComponent = class AddResidentComponent {
         var isValid = rex.test(val);
         if (!isValid) {
             retVal = false;
-            var errorDetails = {
-                msg: "Please correct your email id",
-                type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
+            this.sharedService.openSnackBar('Please correct your email id', 'error');
         }
         return retVal;
     }
@@ -2003,15 +1983,15 @@ let UnapprovedComponent = class UnapprovedComponent {
         }
     }
     onUnapproveDelete(detail) {
+        console.log(detail);
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let unapprovedId = dataRecord.userId;
         this.modalService.showConfirmModal(unapprovedId);
     }
     onviewUserInfo(detail) {
+        console.log(detail);
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.viewUserInfo(dataRecord);
-        // let unapprovedId = dataRecord.unit.idd
-        // this.modalService.showConfirmModal(unapprovedId);
     }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
@@ -2089,6 +2069,15 @@ let UnapprovedComponent = class UnapprovedComponent {
                 datafield: 'insertedOn',
                 cellsrenderer: cellsrenderer,
                 width: 200,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Document Submitted',
+                datafield: 'isDocSubmitted',
+                width: 150,
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell justify-content-center"><span class="dots mt-1 ' + getClassName(value) + '"></span></div>';
+                },
                 renderer: columnrenderer
             }, {
                 text: 'Actions',
@@ -2208,25 +2197,29 @@ UnapprovedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])
 ], UnapprovedComponent);
 
-function showConfirmDeleteEvent(row) {
+let getClassName = value => {
+    return value ? 'bg-green-900' : 'bg-red-900';
+};
+window.getClassName = getClassName;
+let showConfirmDeleteEvent = row => {
     var event = new CustomEvent('onUnapproveDelete', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
-}
+};
 window.showConfirmDeleteEvent = showConfirmDeleteEvent;
-function viewUserInfo(row) {
+let viewUserInfo = row => {
     var event = new CustomEvent('onviewUserInfo', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
-}
+};
 window.viewUserInfo = viewUserInfo;
-function checkDefaulterHeaderEvent(event, isChecked) {
+let checkDefaulterHeaderEvent = (event, isChecked) => {
     event.stopPropagation();
     var newEvent = new CustomEvent('onCheckDefaulterHeader', {
         detail: {
@@ -2234,9 +2227,9 @@ function checkDefaulterHeaderEvent(event, isChecked) {
         }
     });
     window.dispatchEvent(newEvent);
-}
+};
 window.checkDefaulterHeaderEvent = checkDefaulterHeaderEvent;
-function checkDefaulterRowEvent(row, isChecked) {
+let checkDefaulterRowEvent = (row, isChecked) => {
     var event = new CustomEvent('onCheckDefaulterRow', {
         detail: {
             rowId: row,
@@ -2244,7 +2237,7 @@ function checkDefaulterRowEvent(row, isChecked) {
         }
     });
     window.dispatchEvent(event);
-}
+};
 window.checkDefaulterRowEvent = checkDefaulterRowEvent;
 
 

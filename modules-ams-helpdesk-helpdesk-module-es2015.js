@@ -386,13 +386,16 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
                     for (let key in params.ticket) {
                         if (params.ticket[key] != this.oldData[key]) {
                             if (key == 'ticketPriorityId')
-                                this.ticketComment += `User has changed the Priority from ${this.getLabel(this.oldData[key], 'priority')} to ${this.getLabel(params.ticket[key], 'priority')}<br>`;
+                                this.ticketComment += `User has changed the Priority from ${this.getLabel(this.oldData[key], this.priortyTypeList)} to ${this.getLabel(params.ticket[key], this.priortyTypeList)}<br>`;
                             else if (key == 'ticketTypeId')
-                                this.ticketComment += `User has changed the Ticket Type from ${this.getLabel(this.oldData[key], 'ticket')} to ${this.getLabel(params.ticket[key], 'ticket')} and Category also changed<br>`;
+                                this.ticketComment += `User has changed the Ticket Type from ${this.getLabel(this.oldData[key], this.ticketTypeList)} to ${this.getLabel(params.ticket[key], this.ticketTypeList)} and Category also changed<br>`;
                             else if (key == 'title')
                                 this.ticketComment += `User has changed the Subject from ${this.oldData[key]} to ${(params.ticket[key])}<br>`;
                             else if (key == 'description')
                                 this.ticketComment += `User has changed the Description ${(params.ticket[key])}<br>`;
+                            else if (key == 'ticketStatusId') {
+                                this.ticketComment += `User has changed the Status from ${this.getLabel(this.oldData[key], this.statusTypeList)} to ${this.getLabel(params.ticket[key], this.statusTypeList)}<br>`;
+                            }
                         }
                     }
                     if (this.ticketComment.length > 0)
@@ -405,10 +408,12 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
             });
         }
     }
-    getLabel(id, type) {
-        let array = type == 'priority' ? this.priortyTypeList : this.ticketTypeList;
-        let label = array.filter((data) => data.lookupValueId == id);
-        return label[0].lookupValueName;
+    getLabel(id, list) {
+        let label = list.filter((data) => data.lookupValueId == id);
+        if (label.length > 0)
+            return label[0].lookupValueName;
+        else
+            return '';
     }
     createComment(type) {
         let commentDetails = {
@@ -2857,9 +2862,6 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
         else
             this.router.navigate(['/user/servicedesk/edit-ticket/' + ticketId]);
     }
-    onTicketDelete(detail) {
-        this.modalService.showConfirmModal(detail.rowId);
-    }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'helpdeskData');
     }
@@ -3149,29 +3151,10 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicket(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" title="Delete" aria-hidden="true"></i></a></div>';
+                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicket(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a></div>';
                 },
                 renderer: columnrenderer
             }];
-        // delete item
-        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null) {
-                let dataRecord = this.datagrid.getrowdata(id);
-                let ticketId = dataRecord.ticketId;
-                let params = {
-                    ticketId: ticketId,
-                    deleteBy: parseInt(this.sessionService.userId)
-                };
-                this.ticketService.deleteTicket(params).subscribe((res) => {
-                    this.sharedService.setUnitListDeleteIndex(null);
-                    if (res.message) {
-                        this.datagrid.deleterow(id);
-                        this.datagrid.refresh();
-                        this.sharedService.openSnackBar(res.message, 'success');
-                    }
-                });
-            }
-        });
         if (this.isAdmin()) {
             //Filter Purpose => Staff
             let staffParms = {
@@ -3197,9 +3180,6 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             });
         }
     }
-    ngOnDestroy() {
-        this.apiSubscribe.unsubscribe();
-    }
 };
 HelpdeskTicketFilterComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
@@ -3215,8 +3195,7 @@ HelpdeskTicketFilterComponent.ctorParameters = () => [
 HelpdeskTicketFilterComponent.propDecorators = {
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    onEditTicket: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditTicket', ['$event.detail'],] }],
-    onTicketDelete: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onTicketDelete', ['$event.detail'],] }]
+    onEditTicket: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditTicket', ['$event.detail'],] }]
 };
 HelpdeskTicketFilterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

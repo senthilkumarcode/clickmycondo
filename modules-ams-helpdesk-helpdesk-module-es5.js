@@ -564,7 +564,9 @@
 
                   for (var key in params.ticket) {
                     if (params.ticket[key] != _this6.oldData[key]) {
-                      if (key == 'ticketPriorityId') _this6.ticketComment += "User has changed the Priority from ".concat(_this6.getLabel(_this6.oldData[key], 'priority'), " to ").concat(_this6.getLabel(params.ticket[key], 'priority'), "<br>");else if (key == 'ticketTypeId') _this6.ticketComment += "User has changed the Ticket Type from ".concat(_this6.getLabel(_this6.oldData[key], 'ticket'), " to ").concat(_this6.getLabel(params.ticket[key], 'ticket'), " and Category also changed<br>");else if (key == 'title') _this6.ticketComment += "User has changed the Subject from ".concat(_this6.oldData[key], " to ").concat(params.ticket[key], "<br>");else if (key == 'description') _this6.ticketComment += "User has changed the Description ".concat(params.ticket[key], "<br>");
+                      if (key == 'ticketPriorityId') _this6.ticketComment += "User has changed the Priority from ".concat(_this6.getLabel(_this6.oldData[key], _this6.priortyTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.priortyTypeList), "<br>");else if (key == 'ticketTypeId') _this6.ticketComment += "User has changed the Ticket Type from ".concat(_this6.getLabel(_this6.oldData[key], _this6.ticketTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.ticketTypeList), " and Category also changed<br>");else if (key == 'title') _this6.ticketComment += "User has changed the Subject from ".concat(_this6.oldData[key], " to ").concat(params.ticket[key], "<br>");else if (key == 'description') _this6.ticketComment += "User has changed the Description ".concat(params.ticket[key], "<br>");else if (key == 'ticketStatusId') {
+                        _this6.ticketComment += "User has changed the Status from ".concat(_this6.getLabel(_this6.oldData[key], _this6.statusTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.statusTypeList), "<br>");
+                      }
                     }
                   }
 
@@ -577,12 +579,11 @@
           }
         }, {
           key: "getLabel",
-          value: function getLabel(id, type) {
-            var array = type == 'priority' ? this.priortyTypeList : this.ticketTypeList;
-            var label = array.filter(function (data) {
+          value: function getLabel(id, list) {
+            var label = list.filter(function (data) {
               return data.lookupValueId == id;
             });
-            return label[0].lookupValueName;
+            if (label.length > 0) return label[0].lookupValueName;else return '';
           }
         }, {
           key: "createComment",
@@ -3674,11 +3675,6 @@
             if (this.isAdmin()) this.router.navigateByUrl('/ams/helpdesk/edit-ticket/' + ticketId);else this.router.navigate(['/user/servicedesk/edit-ticket/' + ticketId]);
           }
         }, {
-          key: "onTicketDelete",
-          value: function onTicketDelete(detail) {
-            this.modalService.showConfirmModal(detail.rowId);
-          }
-        }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
             this.datagrid.exportdata(event, 'helpdeskData');
@@ -3998,34 +3994,10 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicket(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a><a href="javascript:void(0)" class="mr-2" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" title="Delete" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="editTicket(' + row + ')"><i class="fa fa-pencil icon edit" title="Edit Ticket Details" aria-hidden="true"></i></a></div>';
               },
               renderer: columnrenderer
-            }]; // delete item
-
-            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null) {
-                var dataRecord = _this33.datagrid.getrowdata(id);
-
-                var ticketId = dataRecord.ticketId;
-                var params = {
-                  ticketId: ticketId,
-                  deleteBy: parseInt(_this33.sessionService.userId)
-                };
-
-                _this33.ticketService.deleteTicket(params).subscribe(function (res) {
-                  _this33.sharedService.setUnitListDeleteIndex(null);
-
-                  if (res.message) {
-                    _this33.datagrid.deleterow(id);
-
-                    _this33.datagrid.refresh();
-
-                    _this33.sharedService.openSnackBar(res.message, 'success');
-                  }
-                });
-              }
-            });
+            }];
 
             if (this.isAdmin()) {
               //Filter Purpose => Staff
@@ -4051,11 +4023,6 @@
                 _this33.ticketStatusList = res;
               });
             }
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -4100,10 +4067,6 @@
         onEditTicket: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onEditTicket', ['$event.detail']]
-        }],
-        onTicketDelete: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onTicketDelete', ['$event.detail']]
         }]
       };
       HelpdeskTicketFilterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({

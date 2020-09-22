@@ -9,46 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row bg-card shadow\" *ngIf=\"data && data.isOpen\">\n    <div class=\"col-md-2 text-center\">\n        <img class=\"img-fluid red-wid w-40\" src=\"assets/images/join-cover-new.jpg\" alt=\"\">\n    </div>\n    <div class=\"col-md-7 d-flex align-items-center\">\n        <div class=\"row confirm-screen\">\n            <div class=\"col-sm-12 col-12\">\n                <h6 class=\"font-medium\">Admin Team Will Approve Your Request or Contact You Shortly</h6>\n            </div>\n        </div>\n    </div>\n</div>\n<condo-card>\n    <div CondoCardHeader>\n        <div class=\"d-flex align-items-center justify-content-between\">\n            <div>\n                <h4>User Registration</h4>\n                <!-- <p>Total {{totalUnits}} Units and {{totalItems}} Users</p> -->\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"updateUser()\">Submit</button>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #addmeetingForm=\"ngForm\" class=\"userRregistrationUpdate p-5\" name=\"addmeetingForm\" novalidate>\n            <div class=\"row\">\n                <!-- <div class=\"col-sm-4\">\n                    <div class=\"input-box radio-box\">\n                        <label>User Type*</label>\n                        <div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n                            [hidden]=\"user.value == 1 || user.value == 3 || user.value == 5\">\n                            <input name=\"userType\" (change)=\"changeUserType($event)\" [(ngModel)]=\"userType\"\n                                id=\"{{user.name}}\" value=\"{{user.value}}\" type=\"radio\" required>\n                            <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                        </div>\n                    </div>\n                </div> -->\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>First Name*</label>\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"data.firstName\" placeholder=\"Enter value\"\n                            name=\"firstName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Last Name*</label>\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"data.lastName\" placeholder=\"Enter value\"\n                            name=\"lastName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Date Of Birth</label>\n                        <input class=\"form-control\" name=\"staffDOB\" [(ngModel)]=\"data.dob\" [owlDateTime]=\"staffDOB\"\n                            [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                        <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                            </i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Address</label>\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"data.address1\" placeholder=\"Enter value\"\n                            name=\"address\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Email*</label>\n                        <input type=\"email\" class=\"form-control\" [(ngModel)]=\"data.emailId\" placeholder=\"Enter value\"\n                            name=\"staffEmail\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Contact Number</label>\n                        <input type=\"number\" OnlyNumber=\"true\" [(ngModel)]=\"data.phoneNumber\" class=\"form-control\"\n                            placeholder=\"Enter value\" name=\"contactNumber\">\n                    </div>\n                </div>\n\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Blood Group</label>\n                        <select name=\"bloodGroup\" id=\"bloodGroup\" [(ngModel)]=\"data.bloodGroup\" class=\"form-control\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                            </option>\n                        </select>\n                    </div>\n                </div>\n\n                <!-- <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Vehicle ID</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffVehicleId\">\n                    </div>\n                </div> -->\n\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box radio-box\">\n                        <label>Gender*</label>\n                        <div class=\"form-group\">\n                            <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\" type=\"radio\"\n                                required>\n                            <label class=\"radio-inline\" for=\"male\">Male</label>\n                        </div>\n                        <div class=\"form-group\">\n                            <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\"\n                                required>\n                            <label class=\"radio-inline\" for=\"female\">Female</label>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"userType && userType == 2\">\n                    <div class=\"input-box\">\n                        <label>Lease Date</label>\n                        <input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n                            [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                        <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                            </i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" *ngIf=\"userType && userType == 4\">\n                    <div class=\"input-box\">\n                        <label>Registration Date</label>\n                        <input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n                            [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                        <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                            </i-feather>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-3 d-flex align-items-center\" *ngIf=\"userType && userType == 4\">\n                    <div class=\"input-box\">\n                        <label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploaderFile.click()\">\n                            <input class=\"form-control\" #uploaderFile type=\"file\" multiple>\n                            <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Docs</label>\n                        <!-- <div class=\"file-desp\" *ngIf=\"isFileAdded\">\n                            <div *ngFor=\"let item of listOfFiles; let i = index\">\n                                <span class=\"name mr-3\">{{item.name}}</span>\n                                <span class=\"size\">{{bytesToSize(item.size)}}</span>\n                                <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n                                </i-feather>\n                            </div>\n                        </div> -->\n                    </div>\n\n                </div>\n            </div>\n            <mat-accordion>\n                <mat-expansion-panel [expanded]=\"isOpenPanel\">\n                    <mat-expansion-panel-header>\n                        <mat-panel-title>\n                            Add Family Memebers Details\n                        </mat-panel-title>\n                    </mat-expansion-panel-header>\n                    <form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\"\n                        novalidate>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"text-right mt-5\">\n                                    <button mat-flat-button [color]=\"'primary'\"\n                                        (click)=\"addFamily()\">Add Member</button>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"data-wrapper\">\n\n                            <div class=\"row\" *ngFor=\"let family of addFamilyList;let i = index;\">\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>First Name*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                            name=\"firstName{{i}}\" [(ngModel)]=\"family.firstName\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Middle Name</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                            name=\"middleName{{i}}\" [(ngModel)]=\"family.middleName\">\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Last Name*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                            name=\"lastName{{i}}\" [(ngModel)]=\"family.lastName\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Phone/Mobile*</label> \n                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                            placeholder=\"Enter value\" name=\"phoneNo{{i}}\" [(ngModel)]=\"family.phoneNumber\">\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Relationship*</label>\n                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                            name=\"relationship{{i}}\" [(ngModel)]=\"family.relationship\" required>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Email</label>\n                                        <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email{{i}}\"\n                                            [(ngModel)]=\"family.emailId\">\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box\">\n                                        <label>Date Of Birth</label>\n                                        <input class=\"form-control\" name=\"userDOB{{i}}\" [owlDateTime]=\"userDOB\"\n                                            [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"family.dob\">\n                                        <owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                                        <div class=\"date-btn\">\n                                            <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                            </i-feather>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"input-box radio-box\">\n                                        <label>Gender*</label>\n                                        <div class=\"form-group\">\n                                            <input name=\"genderType{{i}}\" id=\"male{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                value=\"43\" type=\"radio\" required>\n                                            <label class=\"radio-inline\" for=\"male{{i}}\">Male</label>\n                                        </div>\n                                        <div class=\"form-group\">\n                                            <input name=\"genderType{{i}}\" id=\"female{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                value=\"44\" type=\"radio\" required>\n                                            <label class=\"radio-inline\" for=\"female{{i}}\">Female</label>\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"col-sm-6\">\n                                    <div class=\"select-box\">\n                                        <label>Blood Group</label>\n                                        <select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n                                            [(ngModel)]=\"family.bloodGroup\">\n                                            <option value=\"\" disabled selected hidden>Select</option>\n                                            <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                            </option>\n                                        </select>\n                                    </div>\n                                </div>\n                            </div>\n\n                            <div class=\"row\" *ngIf=\"addFamilyList && addFamilyList.length\">\n                                <div class=\"col-sm-12\">\n\n                                    <div class=\"text-right mt-5\">\n                                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addFamilyDetails()\"\n                                            [disabled]=\"profileFamilyForm.invalid\">Submit</button>\n                                    </div>\n                                </div>\n                            </div>\n\n                        </div>\n\n\n                    </form>\n                </mat-expansion-panel>\n            </mat-accordion>\n        </form>\n    </div>\n</condo-card>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.html":
-/*!*******************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.html ***!
-  \*******************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-events-wrapper\">\n\t\n\t<div class=\"row\">\n\t\t\n\t\t<div class=\"col-sm-6\">\n\t\t\t\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body\">\n\t\t\t\t\t<h5><img class=\"mr-3\" src=\"assets/images/calendar-blue-icon.svg\" width=\"20\" />My Meetings</h5>\n\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t    <tr>\n\t\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('date')\">Date <span [ngClass]=\"getFieldOrderBy('date')\"></span></th>\n\t\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('time')\">Time <span [ngClass]=\"getFieldOrderBy('time')\"></span></th>\n\t\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subject')\">Subject <span [ngClass]=\"getFieldOrderBy('subject')\"></span></th>\n\t\t\t\t\t\t    </tr>\n\t\t\t\t\t    </thead>\n\t\t\t\t\t    <tbody>\n\t\t\t\t\t\t    <tr *ngFor=\"let event of meetingsEventData\">\n\t\t\t\t\t\t      <td class=\"name\"><a href=\"javascript:void(0)\">{{event.date}}</a></td>\n\t\t\t\t\t\t      <td class=\"grey\">{{event.time}}</td>\n\t\t\t\t\t\t      <td class=\"grey\">{{event.subject}}</td>\n\t\t\t\t\t    </tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t\t<div class=\"col-sm-6\">\n\t\t\t\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body\">\n\t\t\t\t\t<h5><img class=\"mr-3\" src=\"assets/images/booking-blue-icon.svg\" width=\"24\" />My Facility Bookings</h5>\n\t\t\t\t\t<table class=\"table\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t    <tr>\n\t\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('date')\">Date <span [ngClass]=\"getFieldOrderBy('date')\"></span></th>\n\t\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('time')\">Time <span [ngClass]=\"getFieldOrderBy('time')\"></span></th>\n\t\t\t\t\t\t      <th scope=\"col\" (click)=\"sortUnitData('subject')\">Subject <span [ngClass]=\"getFieldOrderBy('subject')\"></span></th>\n\t\t\t\t\t\t    </tr>\n\t\t\t\t\t    </thead>\n\t\t\t\t\t    <tbody>\n\t\t\t\t\t\t    <tr *ngFor=\"let event of facilityEventData\">\n\t\t\t\t\t\t      <td class=\"name\"><a href=\"javascript:void(0)\">{{event.date}}</a></td>\n\t\t\t\t\t\t      <td class=\"grey\">{{event.time}}</td>\n\t\t\t\t\t\t      <td class=\"grey\">{{event.subject}}</td>\n\t\t\t\t\t    </tbody>\n\t\t\t\t\t</table>\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t\n\t\t</div>\n\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.html":
-/*!***************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.html ***!
-  \***************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"userdash-main-comp-wrapper\">\n\t\n\t<div class=\"row\">\n\t\t\n\t\t<div class=\"col-sm-4\">\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body color-box user s-blue\">\n\t\t\t\t\t<h4>13.4K</h4>\n\t\t\t\t\t<h5>Pending Payments</h5>\n\t\t\t\t\t<p>&nbsp;</p>\n\t\t\t\t\t<div class=\"icon\">\n\t\t\t\t\t\t<img src=\"assets/images/credit-white-icon.svg\" width=\"22\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn-box text-center\">Pay</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-4\">\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body color-box user l-red\">\n\t\t\t\t\t<h4>12 <span>(OPEN)</span></h4>\n\t\t\t\t\t<h5>My Tickets</h5>\n\t\t\t\t\t<p>from <span>last 7 days</span></p>\n\t\t\t\t\t<div class=\"icon\">\n\t\t\t\t\t\t<img src=\"assets/images/booking-white-icon.svg\" width=\"22\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn-box text-center\">Create Ticket</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-4\">\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body color-box user green\">\n\t\t\t\t\t<h4>123</h4>\n\t\t\t\t\t<h5>My Visitors</h5>\n\t\t\t\t\t<p>1 Expected visitor from <span>last 7 days</span></p>\n\t\t\t\t\t<div class=\"icon\">\n\t\t\t\t\t\t<img src=\"assets/images/view-icon.svg\" width=\"22\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<a href=\"javascript:void(0)\" class=\"btn-box text-center\">View Visitors</a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n</div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.html":
-/*!***********************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.html ***!
-  \***********************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"userdash-messages-comp-wrapper\">\n\t<div class=\"row\">\n\t\t<div class=\"col-sm-6\">\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body messages\">\n\t\t\t\t\t<h5><img class=\"mr-3\" src=\"assets/images/alarm-blue-icon.svg\" width=\"20\" />Emergency Alert Messages</h5>\n\t\t\t\t\t<ng-container *ngFor=\"let message of emergencyMessagesData\">\n\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t<span class=\"grey\">{{message.date}}</span>\n\t\t\t\t\t\t\t<span>{{message.text}}</span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"col-sm-6\">\n\t\t\t<div class=\"card chart-card\">\n\t\t\t\t<div class=\"card-body chart-body messages\">\n\t\t\t\t\t<h5><img class=\"mr-3\" src=\"assets/images/alarm-blue-icon.svg\" width=\"20\" />Notice Board Messages</h5>\n\t\t\t\t\t<ng-container *ngFor=\"let message of noticeMessagesData\">\n\t\t\t\t\t\t<li class=\"list-group-item\">\n\t\t\t\t\t\t\t<span class=\"grey\">{{message.date}}</span>\n\t\t\t\t\t\t\t<span>{{message.text}}</span>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ng-container>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\t");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"bg-card shadow\">\n    <div class=\"row\">\n        <div class=\"col-md-2\">\n            <img class=\"img-fluid\" src=\"assets/images/join-cover-new.jpg\" alt=\"\">\n        </div>\n        <div class=\"col-md-7 d-flex align-items-center\">\n            <div class=\"row confirm-screen\">\n                <div class=\"col-sm-12 col-12\">\n                    <h6 class=\"font-medium\">Admin Team Will Approve Your Request or Contact You Shortly</h6>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<ng-container *ngIf=\"!data.isDocSubmitted\">\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex align-items-center justify-content-between\">\n                <div>\n                    <h4>User Registration</h4>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateUser()\">Submit</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <form #addmeetingForm=\"ngForm\" class=\"userRregistrationUpdate p-5\" name=\"addmeetingForm\" novalidate>\n                <div class=\"row\">\n                    <!-- <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>User Type*</label>\n                            <div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n                                [hidden]=\"user.value == 1 || user.value == 3 || user.value == 5\">\n                                <input name=\"userType\" (change)=\"changeUserType($event)\" [(ngModel)]=\"userType\"\n                                    id=\"{{user.name}}\" value=\"{{user.value}}\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                            </div>\n                        </div>\n                    </div> -->\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>First Name*</label>\n                            <input type=\"text\" class=\"form-control\" [value]=\"data.firstName\" placeholder=\"Enter value\"\n                                name=\"firstName\" required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Last Name*</label>\n                            <input type=\"text\" class=\"form-control\" [value]=\"data.lastName\" placeholder=\"Enter value\"\n                                name=\"lastName\" required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Date Of Birth</label>\n                            <input class=\"form-control\" name=\"staffDOB\" [(ngModel)]=\"data.dob\" [owlDateTime]=\"staffDOB\"\n                                [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                            <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                </i-feather>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Address</label>\n                            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"data.address1\" placeholder=\"Enter value\"\n                                name=\"address\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Email*</label>\n                            <input type=\"email\" class=\"form-control\" [value]=\"data.emailId\" placeholder=\"Enter value\"\n                                name=\"staffEmail\" required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Contact Number</label>\n                            <input type=\"number\" OnlyNumber=\"true\" [(ngModel)]=\"data.phoneNumber\" class=\"form-control\"\n                                placeholder=\"Enter value\" name=\"contactNumber\" disabled>\n                        </div>\n                    </div>\n    \n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Blood Group</label>\n                            <select name=\"bloodGroup\" id=\"bloodGroup\" [(ngModel)]=\"data.bloodGroup\" class=\"form-control\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                </option>\n                            </select>\n                        </div>\n                    </div>\n    \n                    <!-- <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Vehicle ID</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffVehicleId\">\n                        </div>\n                    </div> -->\n    \n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>Gender*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\" type=\"radio\"\n                                    required>\n                                <label class=\"radio-inline\" for=\"male\">Male</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\"\n                                    required>\n                                <label class=\"radio-inline\" for=\"female\">Female</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"userType && userType == 2\">\n                        <div class=\"input-box\">\n                            <label>Lease Date</label>\n                            <input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n                                [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                            <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                </i-feather>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"userType && userType == 4\">\n                        <div class=\"input-box\">\n                            <label>Registration Date</label>\n                            <input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n                                [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                            <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                </i-feather>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-3 d-flex align-items-center\" *ngIf=\"userType && userType == 4\">\n                        <div class=\"input-box\">\n                            <label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploaderFile.click()\">\n                                <input class=\"form-control\" #uploaderFile type=\"file\" multiple>\n                                <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Docs</label>\n                            <!-- <div class=\"file-desp\" *ngIf=\"isFileAdded\">\n                                <div *ngFor=\"let item of listOfFiles; let i = index\">\n                                    <span class=\"name mr-3\">{{item.name}}</span>\n                                    <span class=\"size\">{{bytesToSize(item.size)}}</span>\n                                    <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n                                    </i-feather>\n                                </div>\n                            </div> -->\n                        </div>\n    \n                    </div>\n                </div>\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"isOpenPanel\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                Add Family Memebers Details\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\"\n                            novalidate>\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <div class=\"text-right mt-5\">\n                                        <button mat-flat-button [color]=\"'primary'\"\n                                            (click)=\"addFamily()\">Add Member</button>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"data-wrapper\">\n    \n                                <div class=\"row\" *ngFor=\"let family of addFamilyList;let i = index;\">\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>First Name*</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"firstName{{i}}\" [(ngModel)]=\"family.firstName\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Middle Name</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"middleName{{i}}\" [(ngModel)]=\"family.middleName\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Last Name*</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"lastName{{i}}\" [(ngModel)]=\"family.lastName\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Phone/Mobile*</label> \n                                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                                placeholder=\"Enter value\" name=\"phoneNo{{i}}\" [(ngModel)]=\"family.phoneNumber\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Relationship*</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"relationship{{i}}\" [(ngModel)]=\"family.relationship\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Email</label>\n                                            <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email{{i}}\"\n                                                [(ngModel)]=\"family.emailId\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Date Of Birth</label>\n                                            <input class=\"form-control\" name=\"userDOB{{i}}\" [owlDateTime]=\"userDOB\"\n                                                [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"family.dob\">\n                                            <owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                                            <div class=\"date-btn\">\n                                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                                </i-feather>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Gender*</label>\n                                            <div class=\"form-group\">\n                                                <input name=\"genderType{{i}}\" id=\"male{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                    value=\"43\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"male{{i}}\">Male</label>\n                                            </div>\n                                            <div class=\"form-group\">\n                                                <input name=\"genderType{{i}}\" id=\"female{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                    value=\"44\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"female{{i}}\">Female</label>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"select-box\">\n                                            <label>Blood Group</label>\n                                            <select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n                                                [(ngModel)]=\"family.bloodGroup\">\n                                                <option value=\"\" disabled selected hidden>Select</option>\n                                                <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                                </option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                </div>\n    \n                                <div class=\"row\" *ngIf=\"addFamilyList && addFamilyList.length\">\n                                    <div class=\"col-sm-12\">\n    \n                                        <div class=\"text-right mt-5\">\n                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addFamilyDetails()\"\n                                                [disabled]=\"profileFamilyForm.invalid\">Submit</button>\n                                        </div>\n                                    </div>\n                                </div>\n    \n                            </div>\n    \n    \n                        </form>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </form>\n        </div>\n    </condo-card>\n</ng-container>");
 
 /***/ }),
 
@@ -93,11 +54,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 
 
 
@@ -107,7 +66,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NewUserRegistrationComponent = class NewUserRegistrationComponent {
-    constructor(dialogRef, data, apartmentService, lookupService, apartmentservice, sharedService, userService, sessionService, todoService) {
+    constructor(dialogRef, data, apartmentService, lookupService, apartmentservice, sharedService, userService, sessionService) {
         this.dialogRef = dialogRef;
         this.data = data;
         this.apartmentService = apartmentService;
@@ -116,7 +75,6 @@ let NewUserRegistrationComponent = class NewUserRegistrationComponent {
         this.sharedService = sharedService;
         this.userService = userService;
         this.sessionService = sessionService;
-        this.todoService = todoService;
         this.userTypeList = [];
         this.bloodGroupData = [];
         this.addFamilyList = [];
@@ -184,8 +142,8 @@ let NewUserRegistrationComponent = class NewUserRegistrationComponent {
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": new Date().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2020-03-28T10:44:31.345Z"
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 userFamilyMember: details
@@ -280,6 +238,7 @@ let NewUserRegistrationComponent = class NewUserRegistrationComponent {
                         };
                         this.userService.addUserRole(params).subscribe((res) => {
                             this.sharedService.setAlertMessage("User updated successfully");
+                            this.dialogRef.close();
                             // this.router.navigate(['ams/unit&users/unapproved']);
                         }, error => {
                             console.log(error);
@@ -300,13 +259,12 @@ let NewUserRegistrationComponent = class NewUserRegistrationComponent {
 NewUserRegistrationComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 NewUserRegistrationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -314,208 +272,13 @@ NewUserRegistrationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./new-user-registration.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./new-user-registration.component.scss */ "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], NewUserRegistrationComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.scss":
-/*!*****************************************************************************************************************!*\
-  !*** ./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.scss ***!
-  \*****************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdXNlci91c2VyLWRhc2hib2FyZC9jb21wb25lbnRzL3VzZXJkYXNoLWV2ZW50cy1jb21wL3VzZXJkYXNoLWV2ZW50cy1jb21wLmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.ts":
-/*!***************************************************************************************************************!*\
-  !*** ./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.ts ***!
-  \***************************************************************************************************************/
-/*! exports provided: UserdashEventsCompComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserdashEventsCompComponent", function() { return UserdashEventsCompComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let UserdashEventsCompComponent = class UserdashEventsCompComponent {
-    constructor() {
-        this.unitFieldType = "unitno";
-        this.unitOrder = true;
-    }
-    sortUnitData(type) {
-        this.unitFieldType = type;
-        this.unitOrder = !this.unitOrder;
-    }
-    getFieldOrderBy(type) {
-        if (this.unitFieldType == type) {
-            return this.unitOrder ? 'asc' : 'desc';
-        }
-        else
-            return '';
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    ngOnInit() {
-        this.meetingsEventData = [
-            {
-                'date': '24/11/2019',
-                'time': '5:00-6:00 PM',
-                'subject': 'Annual General Meeting'
-            },
-            {
-                'date': '23/12/2019',
-                'time': '4:00-6:00 PM',
-                'subject': 'Annual General Meeting'
-            }
-        ];
-        this.facilityEventData = [
-            {
-                'date': '24/11/2019',
-                'time': '5:00-6:00 PM',
-                'subject': 'Party Hall'
-            },
-            {
-                'date': '23/12/2019',
-                'time': '4:00-6:00 PM',
-                'subject': 'Tennis Court'
-            }
-        ];
-    }
-};
-UserdashEventsCompComponent.ctorParameters = () => [];
-UserdashEventsCompComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-userdash-events-comp',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./userdash-events-comp.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./userdash-events-comp.component.scss */ "./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], UserdashEventsCompComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.scss":
-/*!*************************************************************************************************************!*\
-  !*** ./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.scss ***!
-  \*************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdXNlci91c2VyLWRhc2hib2FyZC9jb21wb25lbnRzL3VzZXJkYXNoLW1haW4tY29tcC91c2VyZGFzaC1tYWluLWNvbXAuY29tcG9uZW50LnNjc3MifQ== */");
-
-/***/ }),
-
-/***/ "./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.ts":
-/*!***********************************************************************************************************!*\
-  !*** ./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.ts ***!
-  \***********************************************************************************************************/
-/*! exports provided: UserdashMainCompComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserdashMainCompComponent", function() { return UserdashMainCompComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let UserdashMainCompComponent = class UserdashMainCompComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-UserdashMainCompComponent.ctorParameters = () => [];
-UserdashMainCompComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-userdash-main-comp',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./userdash-main-comp.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./userdash-main-comp.component.scss */ "./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], UserdashMainCompComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.scss":
-/*!*********************************************************************************************************************!*\
-  !*** ./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.scss ***!
-  \*********************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdXNlci91c2VyLWRhc2hib2FyZC9jb21wb25lbnRzL3VzZXJkYXNoLW1lc3NhZ2VzLWNvbXAvdXNlcmRhc2gtbWVzc2FnZXMtY29tcC5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.ts":
-/*!*******************************************************************************************************************!*\
-  !*** ./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.ts ***!
-  \*******************************************************************************************************************/
-/*! exports provided: UserdashMessagesCompComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserdashMessagesCompComponent", function() { return UserdashMessagesCompComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let UserdashMessagesCompComponent = class UserdashMessagesCompComponent {
-    constructor() { }
-    ngOnInit() {
-        this.emergencyMessagesData = [
-            {
-                'date': '01/12/2019',
-                'text': 'Flood alert in your area'
-            },
-            {
-                'date': '23/11/2019',
-                'text': 'Water leakage in Tower-B'
-            }
-        ];
-        this.noticeMessagesData = [
-            {
-                'date': '25/11/2019',
-                'text': 'Playing kids movie this friday'
-            },
-            {
-                'date': '27/11/2019',
-                'text': 'Swimming pool maintenance'
-            }
-        ];
-    }
-};
-UserdashMessagesCompComponent.ctorParameters = () => [];
-UserdashMessagesCompComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-userdash-messages-comp',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./userdash-messages-comp.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./userdash-messages-comp.component.scss */ "./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], UserdashMessagesCompComponent);
 
 
 
@@ -793,30 +556,26 @@ let UserDashboardComponent = class UserDashboardComponent {
             userid: parseInt(this.sessionService.userId)
         };
         this.userService.getUserById(params).subscribe((res) => {
-            this.userName = res[0].firstName;
-            this.userDetails = res[0];
-            if (this.userDetails && !this.userDetails.isApproved) {
-                let data = this.userDetails;
-                data['isOpen'] = true;
-                if (this.userDetails.isDocSubmitted == null || !this.userDetails.isDocSubmitted) {
-                    data.isOpen = true;
-                }
-                else if (this.userDetails.isDocSubmitted && !this.userDetails.isApproved) {
-                    data.isOpen = false;
-                }
-                const dialogRef = this.dialog.open(_components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_8__["NewUserRegistrationComponent"], {
-                    width: 'auto',
-                    height: 'auto',
-                    data: data
-                });
-                dialogRef.afterClosed().subscribe(result => {
-                    if (result) {
-                        // this.getCategoryList();
+            if (res.length > 0) {
+                let data = res[0];
+                if (!data.isApproved) {
+                    if (!data.isDocSubmitted) {
+                        const dialogRef = this.dialog.open(_components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_8__["NewUserRegistrationComponent"], {
+                            width: 'auto',
+                            height: 'auto',
+                            disableClose: true,
+                            data: data
+                        });
+                        dialogRef.afterClosed().subscribe(result => {
+                            if (result) {
+                                // this.getCategoryList();
+                            }
+                        });
                     }
-                });
+                }
             }
-        }, error => {
-            console.log(error);
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
         this.sharedService.apartmentselectedcast.subscribe(isApartmentSelected => {
             this.isApartmentSelected = isApartmentSelected;
@@ -869,15 +628,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./user-dashboard-routing.module */ "./src/app/modules/user/user-dashboard/user-dashboard-routing.module.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _user_dashboard_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-dashboard.component */ "./src/app/modules/user/user-dashboard/user-dashboard.component.ts");
-/* harmony import */ var _components_userdash_main_comp_userdash_main_comp_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/userdash-main-comp/userdash-main-comp.component */ "./src/app/modules/user/user-dashboard/components/userdash-main-comp/userdash-main-comp.component.ts");
-/* harmony import */ var _components_userdash_messages_comp_userdash_messages_comp_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/userdash-messages-comp/userdash-messages-comp.component */ "./src/app/modules/user/user-dashboard/components/userdash-messages-comp/userdash-messages-comp.component.ts");
-/* harmony import */ var _components_userdash_events_comp_userdash_events_comp_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/userdash-events-comp/userdash-events-comp.component */ "./src/app/modules/user/user-dashboard/components/userdash-events-comp/userdash-events-comp.component.ts");
-/* harmony import */ var src_app_modules_ams_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ams/dashboard/dashboard.module */ "./src/app/modules/ams/dashboard/dashboard.module.ts");
-/* harmony import */ var _components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/new-user-registration/new-user-registration.component */ "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.ts");
-/* harmony import */ var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-
-
-
+/* harmony import */ var src_app_modules_ams_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ams/dashboard/dashboard.module */ "./src/app/modules/ams/dashboard/dashboard.module.ts");
+/* harmony import */ var _components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/new-user-registration/new-user-registration.component */ "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.ts");
+/* harmony import */ var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 
 
 
@@ -893,19 +646,16 @@ UserDashboardModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
             _user_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["UserDashboardComponent"],
-            _components_userdash_main_comp_userdash_main_comp_component__WEBPACK_IMPORTED_MODULE_6__["UserdashMainCompComponent"],
-            _components_userdash_messages_comp_userdash_messages_comp_component__WEBPACK_IMPORTED_MODULE_7__["UserdashMessagesCompComponent"],
-            _components_userdash_events_comp_userdash_events_comp_component__WEBPACK_IMPORTED_MODULE_8__["UserdashEventsCompComponent"],
-            _components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_10__["NewUserRegistrationComponent"]
+            _components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_7__["NewUserRegistrationComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             _user_dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserDashboardRoutingModule"],
-            src_app_modules_ams_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_9__["DashboardModule"],
-            _ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"]
+            src_app_modules_ams_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_6__["DashboardModule"],
+            _ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"]
         ],
-        entryComponents: [_components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_10__["NewUserRegistrationComponent"]]
+        entryComponents: [_components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_7__["NewUserRegistrationComponent"]]
     })
 ], UserDashboardModule);
 
