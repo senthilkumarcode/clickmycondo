@@ -874,11 +874,17 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                if (res) {
+                if (res.message) {
+                  _this7.sharedService.openSnackBar(res.message, 'success');
+
                   _this7.getCustomerIncomePaymentList();
 
                   _this7.isEditTerm = true;
+                } else {
+                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
+              }, function (error) {
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               //create
@@ -896,13 +902,17 @@
                 }
               };
               this.lookupService.addLookupValue(_params).subscribe(function (res) {
-                if (res) {
-                  _this7.paymentTerm.lookupValueId = res.message;
+                if (res.code == 200) {
+                  _this7.sharedService.openSnackBar(res.statusMessage, 'success');
 
                   _this7.getCustomerIncomePaymentList();
 
                   _this7.isEditTerm = true;
+                } else {
+                  _this7.sharedService.openSnackBar(res.statusMessage, 'error');
                 }
+              }, function (error) {
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -940,11 +950,17 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                if (res) {
+                if (res.message) {
+                  _this9.sharedService.openSnackBar(res.message, 'success');
+
                   _this9.getCustomerVatList();
 
                   _this9.isEditVat = true;
+                } else {
+                  _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
+              }, function (error) {
+                _this9.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               //create
@@ -962,13 +978,17 @@
                 }
               };
               this.lookupService.addLookupValue(_params2).subscribe(function (res) {
-                if (res) {
-                  _this9.vatData.lookupValueId = res.message;
+                if (res.code == 200) {
+                  _this9.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                  _this9.getCustomerIncomePaymentList();
+                  _this9.getCustomerVatList();
 
                   _this9.isEditVat = true;
+                } else {
+                  _this9.sharedService.openSnackBar(res.statusMessage, 'error');
                 }
+              }, function (error) {
+                _this9.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -1006,11 +1026,17 @@
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                if (res) {
+                if (res.message) {
+                  _this11.sharedService.openSnackBar(res.message, 'success');
+
                   _this11.getCustomerTaxList();
 
                   _this11.isEditTax = true;
+                } else {
+                  _this11.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
+              }, function (error) {
+                _this11.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               //create
@@ -1028,13 +1054,17 @@
                 }
               };
               this.lookupService.addLookupValue(_params3).subscribe(function (res) {
-                if (res) {
-                  _this11.taxData.lookupValueId = res.message;
+                if (res.code == 200) {
+                  _this11.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                  _this11.getCustomerIncomePaymentList();
+                  _this11.getCustomerTaxList();
 
                   _this11.isEditTax = true;
+                } else {
+                  _this11.sharedService.openSnackBar(res.statusMessage, 'error');
                 }
+              }, function (error) {
+                _this11.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }

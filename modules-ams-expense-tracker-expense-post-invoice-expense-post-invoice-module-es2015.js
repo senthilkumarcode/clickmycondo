@@ -374,7 +374,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             });
         });
         let vatListParams = {
-            LookupTypeId: 77
+            LookupTypeId: 189
         };
         //VAT types
         this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {

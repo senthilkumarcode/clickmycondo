@@ -567,10 +567,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
-                if (res) {
+                if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
                     this.getCustomerIncomePaymentList();
                     this.isEditTerm = true;
                 }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
@@ -589,11 +595,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 }
             };
             this.lookupService.addLookupValue(params).subscribe((res) => {
-                if (res) {
-                    this.paymentTerm.lookupValueId = res.message;
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
                     this.getCustomerIncomePaymentList();
                     this.isEditTerm = true;
                 }
+                else {
+                    this.sharedService.openSnackBar(res.statusMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }
@@ -624,10 +635,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
-                if (res) {
+                if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
                     this.getCustomerVatList();
                     this.isEditVat = true;
                 }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
@@ -646,11 +663,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 }
             };
             this.lookupService.addLookupValue(params).subscribe((res) => {
-                if (res) {
-                    this.vatData.lookupValueId = res.message;
-                    this.getCustomerIncomePaymentList();
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                    this.getCustomerVatList();
                     this.isEditVat = true;
                 }
+                else {
+                    this.sharedService.openSnackBar(res.statusMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }
@@ -681,10 +703,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
-                if (res) {
+                if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
                     this.getCustomerTaxList();
                     this.isEditTax = true;
                 }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
@@ -703,11 +731,16 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 }
             };
             this.lookupService.addLookupValue(params).subscribe((res) => {
-                if (res) {
-                    this.taxData.lookupValueId = res.message;
-                    this.getCustomerIncomePaymentList();
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                    this.getCustomerTaxList();
                     this.isEditTax = true;
                 }
+                else {
+                    this.sharedService.openSnackBar(res.statusMessage, 'error');
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }

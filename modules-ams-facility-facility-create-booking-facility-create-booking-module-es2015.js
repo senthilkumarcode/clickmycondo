@@ -661,6 +661,52 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
             this.sharedService.openSnackBar(res.errorMessage, 'error');
         }
     }
+    setSlotStructure() {
+        if (this.booking.rateBaseId == 139) { //BookingPerDay 
+            this.booking.slotId = null;
+            this.booking.isSlotBooking = false;
+            this.booking.bookedFromTime = "00:00:01";
+            this.booking.bookedToTime = "23:59:00";
+            this.booking.apartmentFacilityIsSlotBooking_List = [{
+                    "slotId": null,
+                    "isSlotBooking": false,
+                    "bookedForDate": this.booking.bookedForDate,
+                    "bookedFromTime": "00:00:01",
+                    "bookedToTime": "23:59:00"
+                }];
+        }
+        else if (this.facilitySlotData.length == 0 && this.booking.rateBaseId == 138) { // BookingPerHour Without Slot
+            this.booking.slotId = null;
+            this.booking.isSlotBooking = false;
+            this.booking.bookedFromTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.booking.bookedFromTime).format('HH:mm:ss');
+            this.booking.bookedToTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.booking.bookedToTime).format('HH:mm:ss');
+            this.booking.apartmentFacilityIsSlotBooking_List = [{
+                    "slotId": null,
+                    "isSlotBooking": false,
+                    "bookedForDate": this.booking.bookedForDate,
+                    "bookedFromTime": this.booking.bookedFromTime,
+                    "bookedToTime": this.booking.bookedToTime
+                }];
+        }
+        else if (this.facilitySlotData.length > 0 && this.booking.rateBaseId == 138) { //BookingPerHour with Slot
+            this.booking.isSlotBooking = true;
+            this.booking.bookedFromTime = null;
+            this.booking.bookedToTime = null;
+            this.booking.apartmentFacilityIsSlotBooking_List = [{
+                    "slotId": this.booking.slotId,
+                    "isSlotBooking": true,
+                    "bookedForDate": this.booking.bookedForDate,
+                    "bookedFromTime": null,
+                    "bookedToTime": null
+                }];
+        }
+        if (!this.booking.isBookingforGuest) { //Booked for USer
+            this.booking.guestName = null;
+            this.booking.guestPhone = null;
+            this.booking.guestRelation = null;
+            this.booking.totalofguestsforevent = null;
+        }
+    }
     createFacilityBooking() {
         this.message = null;
         if (!this.facilityBookingForm.valid) {
@@ -681,50 +727,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
         }
         else {
             this.isBookingSubmitted = false;
-            if (this.booking.rateBaseId == 139) { //BookingPerDay 
-                this.booking.slotId = null;
-                this.booking.isSlotBooking = false;
-                this.booking.bookedFromTime = "00:00:01";
-                this.booking.bookedToTime = "23:59:00";
-                this.booking.apartmentFacilityIsSlotBooking_List = [{
-                        "slotId": null,
-                        "isSlotBooking": false,
-                        "bookedForDate": this.booking.bookedForDate,
-                        "bookedFromTime": "00:00:01",
-                        "bookedToTime": "23:59:00"
-                    }];
-            }
-            else if (this.facilitySlotData.length == 0 && this.booking.rateBaseId == 138) { // BookingPerHour Without Slot
-                this.booking.slotId = null;
-                this.booking.isSlotBooking = false;
-                this.booking.bookedFromTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.booking.bookedFromTime).format('HH:mm:ss');
-                this.booking.bookedToTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.booking.bookedToTime).format('HH:mm:ss');
-                this.booking.apartmentFacilityIsSlotBooking_List = [{
-                        "slotId": null,
-                        "isSlotBooking": false,
-                        "bookedForDate": this.booking.bookedForDate,
-                        "bookedFromTime": this.booking.bookedFromTime,
-                        "bookedToTime": this.booking.bookedToTime
-                    }];
-            }
-            else if (this.facilitySlotData.length > 0 && this.booking.rateBaseId == 138) { //BookingPerHour with Slot
-                this.booking.isSlotBooking = true;
-                this.booking.bookedFromTime = null;
-                this.booking.bookedToTime = null;
-                this.booking.apartmentFacilityIsSlotBooking_List = [{
-                        "slotId": this.booking.slotId,
-                        "isSlotBooking": true,
-                        "bookedForDate": this.booking.bookedForDate,
-                        "bookedFromTime": null,
-                        "bookedToTime": null
-                    }];
-            }
-            if (!this.booking.isBookingforGuest) { //Booked for USer
-                this.booking.guestName = null;
-                this.booking.guestPhone = null;
-                this.booking.guestRelation = null;
-                this.booking.totalofguestsforevent = null;
-            }
+            this.setSlotStructure();
             let params = {
                 apartmentFacilityBooking: Object.assign(Object.assign({}, this.booking), { isCancelled: false, cancelledBy: null, cancelledOn: '', cancelledAmount: 0, rateBaseIdName: this.booking.rateBaseId == 138 ? 'Hour' : 'Day', isApproved: false, apartmentId: this.sessionService.apartmentId, bookedOn: new Date().toISOString(), isActive: true, insertedBy: this.sessionService.userId, insertedOn: new Date().toISOString(), updatedBy: null, updatedOn: null })
             };
@@ -757,50 +760,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
         }
         else {
             this.isBookingSubmitted = false;
-            if (this.booking.rateBaseId == 139) { //BookingPerDay 
-                this.booking.slotId = null;
-                this.booking.isSlotBooking = false;
-                this.booking.bookedFromTime = "00:00:01";
-                this.booking.bookedToTime = "23:59:00";
-                this.booking.apartmentFacilityIsSlotBooking_List = [{
-                        "slotId": null,
-                        "isSlotBooking": false,
-                        "bookedForDate": this.booking.bookedForDate,
-                        "bookedFromTime": "00:00:01",
-                        "bookedToTime": "23:59:00"
-                    }];
-            }
-            else if (this.facilitySlotData.length == 0 && this.booking.rateBaseId == 138) { // BookingPerHour Without Slot
-                this.booking.slotId = null;
-                this.booking.isSlotBooking = false;
-                this.booking.bookedFromTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.booking.bookedFromTime).format('HH:mm:ss');
-                this.booking.bookedToTime = moment__WEBPACK_IMPORTED_MODULE_10__(this.booking.bookedToTime).format('HH:mm:ss');
-                this.booking.apartmentFacilityIsSlotBooking_List = [{
-                        "slotId": null,
-                        "isSlotBooking": false,
-                        "bookedForDate": this.booking.bookedForDate,
-                        "bookedFromTime": this.booking.bookedFromTime,
-                        "bookedToTime": this.booking.bookedToTime
-                    }];
-            }
-            else if (this.facilitySlotData.length > 0 && this.booking.rateBaseId == 138) { //BookingPerHour with Slot
-                this.booking.isSlotBooking = true;
-                this.booking.bookedFromTime = null;
-                this.booking.bookedToTime = null;
-                this.booking.apartmentFacilityIsSlotBooking_List = [{
-                        "slotId": this.booking.slotId,
-                        "isSlotBooking": true,
-                        "bookedForDate": this.booking.bookedForDate,
-                        "bookedFromTime": null,
-                        "bookedToTime": null
-                    }];
-            }
-            if (!this.booking.isBookingforGuest) { //Booked for USer
-                this.booking.guestName = null;
-                this.booking.guestPhone = null;
-                this.booking.guestRelation = null;
-                this.booking.totalofguestsforevent = null;
-            }
+            this.setSlotStructure();
             let params = {
                 apartmentFacilityBooking: Object.assign(Object.assign({}, this.booking), { rateBaseIdName: this.booking.rateBaseId == 138 ? 'Hour' : 'Day', updatedBy: this.sessionService.userId, updatedOn: new Date().toISOString() })
             };

@@ -556,7 +556,7 @@
               });
             });
             var vatListParams = {
-              LookupTypeId: 77
+              LookupTypeId: 189
             }; //VAT types
 
             this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
