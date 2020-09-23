@@ -172,14 +172,6 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
     }
     onInvoiceDropDown(detail) {
         let ledger = this.datagrid.getrowdata(detail.rowId);
-        /*var datainfo:any = this.datagrid.getdatainformation();
-        let paginginfo = datainfo.paginginformation;
-        let rowIndex = Math.min(datainfo.rowscount, (paginginfo.pagenum + 1) * paginginfo.pagesize) - (paginginfo.pagenum * paginginfo.pagesize)
-    
-        if((rowIndex*(paginginfo.pagenum+1)) == detail.rowId+1){
-          var elem = document.querySelector('.simple-action-index' + detail.rowId)
-          elem.classList.add('dropup')
-        }*/
         this.dialog.open(this.viewInvoiceTypeRef, {
             panelClass: 'material-dialog-small',
             data: ledger
