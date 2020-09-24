@@ -91,16 +91,16 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
             "updatedBy": this.sessionService.userId,
             "updatedOn": "2020-07-06T14:48:10.120Z"
         };
-        this.addPropertyParam.propertyPoiid = this.data.poiId;
         this.addPropertyParam.nodeId = this.data.nodeId;
         this.addPropertyParam.id = this.data.radius;
-        this.addPropertyParam.x = this.data.x;
-        this.addPropertyParam.y = this.data.y;
+        // this.addPropertyParam.x = this.data.x;
+        // this.addPropertyParam.y = this.data.y;
         if (this.data.type == 'add') {
             this.isEdit = false;
         }
         else {
             this.isEdit = true;
+            this.addPropertyParam.propertyPoiid = Number(this.data.poiId);
             this.getProperty();
         }
         // for (const key in this.data) {

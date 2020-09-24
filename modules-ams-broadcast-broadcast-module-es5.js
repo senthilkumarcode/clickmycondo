@@ -3109,7 +3109,9 @@
               "apartmentId": this.apartmentID
             };
             var params = {
-              fileDetails: details
+              FileDetailsId: this.fileDetailId,
+              FilePath: this.filePath,
+              updatedByUserId: this.sessionService.userId
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
               _this30.isFileDetailsAvailable = false;
@@ -3962,7 +3964,9 @@
               "apartmentId": this.apartmentID
             };
             var params = {
-              fileDetails: details
+              FileDetailsId: this.fileDetailId,
+              FilePath: this.filePath,
+              updatedByUserId: this.sessionService.userId
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
               _this43.isFileDetailsAvailable = false;

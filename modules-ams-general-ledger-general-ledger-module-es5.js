@@ -673,7 +673,7 @@
           value: function openGlAccount() {
             var _this = this;
 
-            // Create the overlay
+            // Create the overlay 
             this._selectPanelOverlayRef = this._overlay.create({
               backdropClass: '',
               hasBackdrop: true,

@@ -2037,7 +2037,9 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
             "apartmentId": this.apartmentID
         };
         let params = {
-            fileDetails: details
+            FileDetailsId: this.fileDetailId,
+            FilePath: this.filePath,
+            updatedByUserId: this.sessionService.userId
         };
         this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
             this.isFileDetailsAvailable = false;
@@ -2717,7 +2719,9 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
             "apartmentId": this.apartmentID
         };
         let params = {
-            fileDetails: details
+            FileDetailsId: this.fileDetailId,
+            FilePath: this.filePath,
+            updatedByUserId: this.sessionService.userId
         };
         this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
             this.isFileDetailsAvailable = false;

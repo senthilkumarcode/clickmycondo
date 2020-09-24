@@ -233,7 +233,9 @@
               "apartmentId": this.sessionService.apartmentId
             };
             var params = {
-              fileDetails: details
+              FileDetailsId: file.fileDetailsId,
+              FilePath: file.filePath,
+              updatedByUserId: this.sessionService.userId
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
               _this3.uploadResponse = {

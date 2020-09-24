@@ -7,14 +7,14 @@ var Global = (typeof window !== 'undefined' ? window : global)
 var assign = assign;
 var trim = trim;
 var map = map;
-var slice = slice
-var pluck = pluck
-var each = each
-var bind = bind
-var create = create
-var isList = isList
-var isFunction = isFunction
-var isObject = isObject
+var slice = slice;
+var pluck = pluck;
+var each = each;
+var bind = bind;
+var create = create;
+var isList = isList;
+var isFunction = isFunction;
+var isObject = isObject;
 
 function make_assign() {
 	if (Object.assign) {
@@ -280,7 +280,18 @@ var wfAPI = {
 		start = "" + start
 		finish = "" + finish
 		const shortestpath = findShortestPath(this._bgraph, start, finish)
-		return shortestpath
+		const floor = this._building.floors;
+		let shortestPathDetails = [];
+		shortestpath.path.forEach(function (e, i) {
+			floor.forEach(f =>{
+				f.nodes.filter(key =>{
+					if(key.id == e){
+						shortestPathDetails.push(key)
+					}
+				})
+			})
+		});
+		return shortestPathDetails;
 	}
 
 }

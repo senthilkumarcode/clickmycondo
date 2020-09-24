@@ -1621,8 +1621,10 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
             updatedOn: null,
             apartmentId: this.sessionService.apartmentId
         };
-        const params = {
-            fileDetails: details
+        let params = {
+            FileDetailsId: this.asset.assetImageId,
+            FilePath: this.filePath,
+            updatedByUserId: this.sessionService.userId
         };
         this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
             this.isFileDetailsAvailable = false;

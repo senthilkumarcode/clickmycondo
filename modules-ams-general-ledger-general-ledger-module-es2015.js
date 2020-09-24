@@ -412,7 +412,7 @@ let AddGlAccountComponent = class AddGlAccountComponent {
         this.gl.glgroupId = event[0].glgroupId;
     }
     openGlAccount() {
-        // Create the overlay
+        // Create the overlay 
         this._selectPanelOverlayRef = this._overlay.create({
             backdropClass: '',
             hasBackdrop: true,

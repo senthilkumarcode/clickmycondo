@@ -2420,7 +2420,9 @@
               apartmentId: this.sessionService.apartmentId
             };
             var params = {
-              fileDetails: details
+              FileDetailsId: this.asset.assetImageId,
+              FilePath: this.filePath,
+              updatedByUserId: this.sessionService.userId
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
               _this22.isFileDetailsAvailable = false;

@@ -51,11 +51,18 @@ function GraphCreator(svg, nodes, edges) {
         .append('svg:path')
         .attr('d', 'M0,-5L10,0L0,5');
 
+    defs.append('svg:filter')
+        .attr('id', 'loopFilter')
+        .attr('x', '0')
+        .attr('y', '0')
+        .append('svg:feGaussianBlur')
+        .attr('in', 'SourceGraphic')
+        .attr('stdDeviation', '3')
+
     thisGraph.svg = svg;
     thisGraph.svgG = svg.append("g")
         .classed(thisGraph.consts.graphClass, true);
     var svgG = thisGraph.svgG;
-
 
     //zoom
 
@@ -200,7 +207,7 @@ function GraphCreator(svg, nodes, edges) {
                         };
                     });
                     thisGraph.edges = newEdges;
-                    thisGraph.updateGraph(undefined);
+                    thisGraph.updateGraph(undefined, undefined);
                 } catch (err) {
                     window.alert("Error parsing uploaded file\nerror message: " + err.message);
                     return;
@@ -248,26 +255,118 @@ GraphCreator.prototype.customImageUpdalod = function (imageSrc) {
             .attr("height", bgheight)
     };
 }
+GraphCreator.prototype.createSVGPath = function (smartPath) {
+    var thisGraph = this;
+    let pathString = "";
+    for (let index = 0; index < smartPath.length; index++) {
+        let node = smartPath[index];
+        if (index == 0) {
+            pathString += `M${node.x},${node.y}`
+        } else {
+            pathString += `L${node.x},${node.y}`
+        }
+    }
+    // var svg = document.getElementById('svgId');
+    d3.select(".graph > g")
+        .append('path')
+        .attr('class', 'animePathLink')
+        .attr('d', pathString)
+        .attr('id', 'smart-path');
 
-GraphCreator.prototype.customGraphUpdate = function (data, selectedObj) {
+    d3.select(".graph > g")
+        .append("ellipse")
+        .attr('class', 'loopWay')
+        .attr('fill', '#f1f5f9')
+        .attr("rx", 10)
+        .attr("ry", 5)
+        .attr('filter','url(#loopFilter)')
+
+    var lineDrawing = anime({
+        targets: '#lcanvas g .animePathLink',
+        strokeDashoffset: [anime.setDashoffset, 0],
+        easing: 'easeInOutSine',
+        duration: 3000,
+        delay: 1000,
+        direction: 'normal',
+        loop: false
+    });
+    setTimeout(() => {
+        var path = anime.path('.graph > g path');
+        anime({
+            targets: 'g .loopWay',
+            translateX: path('x'),
+            translateY: path('y'),
+            rotate: path('angle'),
+            easing: 'linear',
+            duration: 2000,
+            delay:500,
+            loop: true
+        });
+    }, 3000)
+}
+
+GraphCreator.prototype.pathBuilder = function (data, selectedObj, smartPath) {
     var thisGraph = this;
     if (data) {
         var fullObj = JSON.parse(data);
         var jsonObj = fullObj.maponly; //new structure
     }
+    console.log('fullObj', fullObj, jsonObj);
+    thisGraph.deleteGraph(true);
+    thisGraph.nodes = jsonObj.nodes;
+    thisGraph.setIdCt(jsonObj.idct);
+    var newEdges = [];
+    if (smartPath && smartPath.length) {
+        smartPath.forEach(function (e, i) {
+            let smartPathObj = {
+                source: {},
+                target: {}
+            }
+            if (i == smartPath.length - 1) {
+                smartPathObj.source = thisGraph.nodes.filter(function (n) { return n.id == e; })[0],
+                    smartPathObj.target = thisGraph.nodes.filter(function (n) { return n.id == e; })[0];
+            } else {
+                smartPathObj.source = thisGraph.nodes.filter(function (n) { return n.id == e; })[0],
+                    smartPathObj.target = thisGraph.nodes.filter(function (n) { return n.id == smartPath[i + 1]; })[0]
+            }
+            newEdges.push(smartPathObj);
+        })
+        // newEdges.forEach(function (e, i) {
+        //     newEdges[i] = {
+        //         source: thisGraph.nodes.filter(function (n) { return n.id == e.source; })[0],
+        //         target: thisGraph.nodes.filter(function (n) { return n.id == e.target; })[0]
+        //     };
+        // });
+    } else {
+        //TODO  
+    }
+    thisGraph.edges = newEdges;
+    thisGraph.updateGraph(selectedObj, smartPath);
+};
+
+
+GraphCreator.prototype.customGraphUpdate = function (data) {
+    var thisGraph = this;
+    if (data) {
+        var fullObj = JSON.parse(data);
+        var jsonObj = fullObj.maponly; //new structure
+    }
+    console.log('fullObj', fullObj, jsonObj);
     thisGraph.deleteGraph(true);
     thisGraph.nodes = jsonObj.nodes;
     //thisGraph.setIdCt(jsonObj.nodes.length + 1);
     thisGraph.setIdCt(jsonObj.idct);
     var newEdges = jsonObj.edges;
+    console.log('befor new', jsonObj.edges)
     newEdges.forEach(function (e, i) {
         newEdges[i] = {
             source: thisGraph.nodes.filter(function (n) { return n.id == e.source; })[0],
             target: thisGraph.nodes.filter(function (n) { return n.id == e.target; })[0]
         };
     });
+    console.log('new', newEdges)
     thisGraph.edges = newEdges;
-    thisGraph.updateGraph(selectedObj);
+    thisGraph.updateGraph(undefined, undefined);
 };
 
 GraphCreator.prototype.setIdCt = function (idct) {
@@ -312,14 +411,13 @@ GraphCreator.prototype.consts = {
 /* PROTOTYPE FUNCTIONS */
 
 GraphCreator.prototype.dragmove = function (d) {
-    console.log('loggg')
     var thisGraph = this;
     if (thisGraph.state.shiftNodeDrag) {
         thisGraph.dragLine.attr('d', 'M' + d.x + ',' + d.y + 'L' + d3.mouse(thisGraph.svgG.node())[0] + ',' + d3.mouse(this.svgG.node())[1]);
     } else {
         d.x += d3.event.dx;
         d.y += d3.event.dy;
-        thisGraph.updateGraph(undefined);
+        thisGraph.updateGraph(undefined, undefined);
     }
 };
 
@@ -332,7 +430,7 @@ GraphCreator.prototype.deleteGraph = function (skipPrompt) {
     if (doDelete) {
         thisGraph.nodes = [];
         thisGraph.edges = [];
-        thisGraph.updateGraph(undefined);
+        thisGraph.updateGraph(undefined, undefined);
     }
 };
 
@@ -449,7 +547,6 @@ GraphCreator.prototype.circleMouseUp = function (d3node, d) {
     thisGraph.dragLine.classed("hidden", true);
 
     if (mouseDownNode !== d) {
-        console.log('add new edge')
         // we're in a different node: create new edge for mousedown edge and add to graph
         //   if(localStorage.getItem('isCreatePOI') == 'true'){
         var newEdge = { source: mouseDownNode, target: d };
@@ -461,7 +558,7 @@ GraphCreator.prototype.circleMouseUp = function (d3node, d) {
         });
         if (!filtRes[0].length) {
             thisGraph.edges.push(newEdge);
-            thisGraph.updateGraph(undefined);
+            thisGraph.updateGraph(undefined, undefined);
         }
         //   }else{
 
@@ -527,9 +624,9 @@ GraphCreator.prototype.svgMouseUp = function () {
         //var nodeid = thisGraph.nodeprefix + thisGraph.idct;
 
         var xycoords = d3.mouse(thisGraph.svgG.node()),
-            d = { id: thisGraph.idct++, x: xycoords[0], y: xycoords[1], poiId: "", kind: '', type: '',radius:0 };
+            d = { id: thisGraph.idct++, x: Math.floor(xycoords[0]), y: Math.floor(xycoords[1]), poiId: "", kind: '', type: '', radius: 0 };
         thisGraph.nodes.push(d);
-        thisGraph.updateGraph(undefined);
+        thisGraph.updateGraph(undefined, undefined);
 
     } else if (state.shiftNodeDrag) {
         // dragged from node
@@ -602,12 +699,11 @@ GraphCreator.prototype.selectedUnitProperty = function (d, filteredObj) {
         //     }
         // }
     }
-    console.log('....', selectedRefClass)
     return selectedRefClass;
 }
 
 // call to propagate changes to graph
-GraphCreator.prototype.updateGraph = function (filteredObj) {
+GraphCreator.prototype.updateGraph = function (filteredObj, smartPath) {
     var thisGraph = this,
         consts = thisGraph.consts,
         state = thisGraph.state;
@@ -634,32 +730,6 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
                 return consts.circleGClass
             }
         }
-        // localStorage.setItem('poiInfo',JSON.stringify(d));
-        // if (d.kind === 'P') {
-        //   return consts.circlePOIClass
-        // } else if (d.kind === 'E') {
-        //   return consts.circleExitClass
-        // } else if (d.kind === 'F') {
-        //   return consts.circleFireClass
-        // } else if (d.kind === 'L') {
-        //   return consts.circleLiftClass
-        // } else if (d.kind === 'Y') {
-        //   return consts.circleYRHClass
-        // } else if (d.kind === 'X') {
-        //   return consts.circleEsxClass
-        // } else if (d.kind === 'S') {
-        //   return consts.circleStepClass
-        // } else if (d.kind === 'R') {
-        //   return consts.circleRampClass
-        // } else {
-        //   return consts.circleGClass
-        // }
-        // if (d.kind) {
-        //   return consts.baseG;
-        // }
-        //  else {
-        //   return consts.circleGClass;
-        // }
     }).attr("id", function (d) { return "#" + d.poiId })
         .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; })
         .attr("data-content", function (d) {
@@ -683,7 +753,7 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
             $("#spanNode").val(d.id);
             $("#poiId").val(d.poiId);
             $('#nodeKind').val(d.kind);
-            let poiInfo = { poiId: d.poiId, nodeId: d.id, nodeKind: d.kind, x: d.x, y: d.y,radius:d.radius }
+            let poiInfo = { poiId: d.poiId, nodeId: d.id, nodeKind: d.kind, x: d.x, y: d.y, radius: d.radius }
             localStorage.setItem('onchange', JSON.stringify(poiInfo))
             //   localStorage.setItem('deletedNode',JSON.stringify(d))
         })
@@ -705,17 +775,17 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
     //     .attr("width", String(consts.nodeRadius))
     //     .attr("height", String(consts.nodeRadius));
     let nodeRadius = consts.nodeRadius;
-    
-    newGs.append("circle")  
-        .attr({"r":function (d) {
-                if(d.radius && d.radius != 0){
+
+    newGs.append("circle")
+        .attr({
+            "r": function (d) {
+                if (d.radius && d.radius != 0) {
                     nodeRadius = Number(d.radius);
-                }else{
-                    nodeRadius = consts.nodeRadius; 
+                } else {
+                    nodeRadius = consts.nodeRadius;
                 }
-                console.log('noderadius',nodeRadius)
                 return String(nodeRadius);
-            } 
+            }
         });
 
     // remove old nodes
@@ -727,19 +797,25 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
     });
     var paths = thisGraph.paths;
     // update existing paths
+    var selectedPathClass = 'link';
+    if (smartPath && smartPath.length) {
+        selectedPathClass = 'animePathLink'
+    } else {
+        selectedPathClass = 'link'
+    }
     paths.style('marker-end', 'url(#end-arrow)')
         .classed(consts.selectedClass, function (d) {
             return d === state.selectedEdge;
         })
         .attr("d", function (d) {
+            console.log('d', d)
             return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
         });
-
     // add new paths
     paths.enter()
         .append("path")
         .style('marker-end', 'url(#end-arrow)')
-        .classed("link", true)
+        .classed(selectedPathClass, true)
         .attr("d", function (d) {
             return "M" + d.source.x + "," + d.source.y + "L" + d.target.x + "," + d.target.y;
         })
@@ -749,7 +825,6 @@ GraphCreator.prototype.updateGraph = function (filteredObj) {
         .on("mouseup", function (d) {
             state.mouseDownLink = null;
         });
-
     // remove old links
     paths.exit().remove();
 };
@@ -809,7 +884,7 @@ GraphCreator.prototype.setPOIId = function () {
     thisGraph.state.selectedNode.type = _type;
     thisGraph.state.selectedNode.radius = _radius;
     // thisGraph.d3SelectedNode.attr("r", String(_radius))
-    thisGraph.d3SelectedNode.attr({"r":String(_radius)});
+    thisGraph.d3SelectedNode.attr({ "r": String(_radius) });
     // $("g").children().attr("r", String(_radius))
     //   thisGraph.d3SelectedNode.children().attr("r", String(_radius))
     // thisGraph.d3SelectedNode[0][0].childNodes[0].attr("r", String(_radius));
@@ -824,11 +899,11 @@ GraphCreator.prototype.deleteSelected = function () {
         thisGraph.nodes.splice(thisGraph.nodes.indexOf(selectedNode), 1);
         thisGraph.spliceLinksForNode(selectedNode);
         thisGraph.state.selectedNode = null;
-        thisGraph.updateGraph(undefined);
+        thisGraph.updateGraph(undefined, undefined);
     } else if (selectedEdge) {
         thisGraph.edges.splice(thisGraph.edges.indexOf(selectedEdge), 1);
         thisGraph.state.selectedEdge = null;
-        thisGraph.updateGraph(undefined);
+        thisGraph.updateGraph(undefined, undefined);
     }
 }
 
@@ -841,14 +916,14 @@ var Global = (typeof window !== 'undefined' ? window : global)
 var assign = assign;
 var trim = trim;
 var map = map;
-var slice = slice
-var pluck = pluck
-var each = each
-var bind = bind
-var create = create
-var isList = isList
-var isFunction = isFunction
-var isObject = isObject
+var slice = slice;
+var pluck = pluck;
+var each = each;
+var bind = bind;
+var create = create;
+var isList = isList;
+var isFunction = isFunction;
+var isObject = isObject;
 
 function make_assign() {
 	if (Object.assign) {
@@ -1114,7 +1189,18 @@ var wfAPI = {
 		start = "" + start
 		finish = "" + finish
 		const shortestpath = findShortestPath(this._bgraph, start, finish)
-		return shortestpath
+		const floor = this._building.floors;
+		let shortestPathDetails = [];
+		shortestpath.path.forEach(function (e, i) {
+			floor.forEach(f =>{
+				f.nodes.filter(key =>{
+					if(key.id == e){
+						shortestPathDetails.push(key)
+					}
+				})
+			})
+		});
+		return shortestPathDetails;
 	}
 
 }

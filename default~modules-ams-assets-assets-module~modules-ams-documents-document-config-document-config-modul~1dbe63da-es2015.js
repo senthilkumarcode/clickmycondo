@@ -147,7 +147,9 @@ let UploadComponent = class UploadComponent {
             "apartmentId": this.sessionService.apartmentId
         };
         let params = {
-            fileDetails: details
+            FileDetailsId: file.fileDetailsId,
+            FilePath: file.filePath,
+            updatedByUserId: this.sessionService.userId
         };
         this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
             this.uploadResponse = { status: '', message: '', fileId: null };
