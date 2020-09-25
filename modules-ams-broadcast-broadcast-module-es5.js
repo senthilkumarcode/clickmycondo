@@ -3053,14 +3053,10 @@
             var file = event[0];
             var userId = parseInt(this.loginedUser);
             this.fileUploadService.upload(file).subscribe(function (res) {
-              if (res != undefined) {
-                _this28.uploadResponse = res;
-              }
-
-              if (_this28.isUploadCompleted()) {
-                _this28.fileDetailId = _this28.uploadResponse.fileId;
+              if (res != undefined && res.length) {
+                _this28.fileDetailId = res[0].fileDetailsId;
                 var newParams = {
-                  fileDetailsId: _this28.uploadResponse.fileId,
+                  fileDetailsId: _this28.fileDetailId,
                   apartmentId: Number(_this28.apartmentID)
                 };
 
@@ -3095,19 +3091,6 @@
           value: function deleteFile() {
             var _this30 = this;
 
-            var details = {
-              "fileDetailsId": this.fileDetailId,
-              "fileName": this.filePath,
-              "filePath": this.filePath,
-              "fileSize": 0,
-              "description": this.filePath,
-              "isActive": true,
-              "insertedBy": parseInt(this.loginedUser),
-              "insertedOn": new Date().toISOString(),
-              "updatedBy": null,
-              "updatedOn": null,
-              "apartmentId": this.apartmentID
-            };
             var params = {
               FileDetailsId: this.fileDetailId,
               FilePath: this.filePath,
@@ -3908,12 +3891,8 @@
             var file = event[0];
             var userId = parseInt(this.loginedUser);
             this.fileUploadService.upload(file).subscribe(function (res) {
-              if (res != undefined) {
-                _this41.uploadResponse = res;
-              }
-
-              if (_this41.isUploadCompleted()) {
-                _this41.fileDetailId = _this41.uploadResponse.fileId;
+              if (res != undefined && res.length) {
+                _this41.fileDetailId = res[0].fileDetailsId;
                 var newParams = {
                   fileDetailsId: _this41.uploadResponse.fileId,
                   apartmentId: Number(_this41.apartmentID)

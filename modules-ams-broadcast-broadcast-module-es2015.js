@@ -1994,13 +1994,10 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         let file = event[0];
         let userId = parseInt(this.loginedUser);
         this.fileUploadService.upload(file).subscribe((res) => {
-            if (res != undefined) {
-                this.uploadResponse = res;
-            }
-            if (this.isUploadCompleted()) {
-                this.fileDetailId = this.uploadResponse.fileId;
+            if (res != undefined && res.length) {
+                this.fileDetailId = res[0].fileDetailsId;
                 let newParams = {
-                    fileDetailsId: this.uploadResponse.fileId,
+                    fileDetailsId: this.fileDetailId,
                     apartmentId: Number(this.apartmentID)
                 };
                 this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
@@ -2023,19 +2020,6 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         });
     }
     deleteFile() {
-        let details = {
-            "fileDetailsId": this.fileDetailId,
-            "fileName": this.filePath,
-            "filePath": this.filePath,
-            "fileSize": 0,
-            "description": this.filePath,
-            "isActive": true,
-            "insertedBy": parseInt(this.loginedUser),
-            "insertedOn": new Date().toISOString(),
-            "updatedBy": null,
-            "updatedOn": null,
-            "apartmentId": this.apartmentID
-        };
         let params = {
             FileDetailsId: this.fileDetailId,
             FilePath: this.filePath,
@@ -2676,11 +2660,8 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
         let file = event[0];
         let userId = parseInt(this.loginedUser);
         this.fileUploadService.upload(file).subscribe((res) => {
-            if (res != undefined) {
-                this.uploadResponse = res;
-            }
-            if (this.isUploadCompleted()) {
-                this.fileDetailId = this.uploadResponse.fileId;
+            if (res != undefined && res.length) {
+                this.fileDetailId = res[0].fileDetailsId;
                 let newParams = {
                     fileDetailsId: this.uploadResponse.fileId,
                     apartmentId: Number(this.apartmentID)

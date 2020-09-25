@@ -1130,6 +1130,7 @@ let MailboxListComponent = class MailboxListComponent {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
             .subscribe((category) => {
             this.category = category;
+            console.log(this.category);
             if (this.category.name === 'inbox') {
                 this.pagination = {
                     totalResults: 0,
@@ -1320,12 +1321,7 @@ let MailboxListComponent = class MailboxListComponent {
         // }
         // // Execute the mailSelected observable
         // this._mailboxService.selectedMailChanged.next(mail);
-        let route = this._activatedRoute;
-        while (route.firstChild) {
-            route = route.firstChild;
-        }
-        // var id = this.sharedService.guid();
-        this._router.navigate([this._router.url + '/', messageId], { relativeTo: route });
+        this._router.navigateByUrl(`/ams/mailbox/${this.category.name}/1/` + messageId);
     }
     ;
     /**

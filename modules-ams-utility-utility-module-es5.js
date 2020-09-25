@@ -168,7 +168,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n\t\t<div class=\"main\">\n\t<h4 class=\"mb-4\">Electricity Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n\n\t\t<condo-card *ngIf=\"isReportLoaded\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>All Electricity Reading </h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" (ngModelChange)=\"onSearchFilter()\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n  \t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"electricityReportDataList\" [columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t</jqxGrid>\n  \t\t\t\n\n  \t\t</div>\n\t</condo-card>\n\n\n</div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t\t<div class=\"main\">\n\t<h4 class=\"mb-4\">Electricity Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n\n\t\t<condo-card *ngIf=\"isReportLoaded\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>All Electricity Reading </h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"utilitySearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n  \t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"electricityReportDataList\" [columns]=\"columnData\"\n\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t</jqxGrid>\n  \t\t\t\n\n  \t\t</div>\n\t</condo-card>\n\n\n</div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n";
       /***/
     },
 
@@ -188,7 +188,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n\t\t<div class=\"main\">\n\t<h4 class=\"mb-4\">Insurance Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  \n      <condo-card *ngIf=\"isReportLoaded\">\n\n\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n        <div>\n          <h4>All Insurance</h4>\n          <p>{{totalItems}} results</p>\n        </div>\n        <div class=\"ml-auto d-none d-md-block my-auto\">\n          <!-- <condo-select [fieldModel]=\"selectedTower\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n            [fieldRequired]=\"\" [fieldList]=\"propertyTowerData\" [isDisabled]=\"false\" fieldValue=\"apartmentBlockNumber\"\n            (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select> -->\n\n        </div>\n        \n        \n        <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n          <input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" (ngModelChange)=\"onSearchFilter()\">\n        </div>\n        \n      </div>\n  \t\t</div>\n\n  \t\t<div  CondoCardBody>\n          <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n          [filterable]=\"true\" [sortable]=\"true\" [source]=\"insuranceReportDataList\" [columns]=\"columnData\"\n          [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n      </jqxGrid>\n       \n\n  \t\t</div>\n    </condo-card>\n\t\n\n</div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t\t<div class=\"main\">\n\t<h4 class=\"mb-4\">Insurance Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  \n      <condo-card *ngIf=\"isReportLoaded\">\n\n\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n        <div>\n          <h4>All Insurance</h4>\n          <p>{{totalItems}} results</p>\n        </div>\n        <div class=\"ml-auto d-none d-md-block my-auto\">\n          <!-- <condo-select [fieldModel]=\"selectedTower\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n            [fieldRequired]=\"\" [fieldList]=\"propertyTowerData\" [isDisabled]=\"false\" fieldValue=\"apartmentBlockNumber\"\n            (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select> -->\n\n        </div>\n        \n        \n        <div class=\"ml-auto my-auto\">\n            <app-table-search [input]=\"utilitySearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n          </div>\n          <div class=\"mr-3 my-auto ml-3\">\n            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n          </div>\n          <div class=\"mr-3 my-auto ml-3\">\n            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n              <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n            </button>\n            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n              <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n            </button>\n          </div>\n        \n      </div>\n  \t\t</div>\n\n  \t\t<div  CondoCardBody>\n          <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n          [filterable]=\"true\" [sortable]=\"true\" [source]=\"insuranceReportDataList\" [columns]=\"columnData\"\n          [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n      </jqxGrid>\n       \n\n  \t\t</div>\n    </condo-card>\n\t\n\n</div>\n\n\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n";
       /***/
     },
 
@@ -228,7 +228,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n    <div class=\"main\">\n\t<h4 class=\"mb-4\">Water Reading Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  <condo-card *ngIf=\"isReportLoaded\">\n\n\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n    \t\t<div>\n          <h4>All Water Reading </h4>\n          <p>{{totalItems}} results</p>\n    \t\t</div>\n    \t\n              <div class=\"ml-auto d-none d-md-block my-auto\">\n                  <condo-select [fieldModel]=\"selectedTower\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                  [fieldRequired]=\"\" [fieldList]=\"propertyTowerData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n\n\t\t\t    \t\n          </div>\n\t\t  \n    \t\n            <div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n              <input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" (ngModelChange)=\"onSearchFilter()\">\n            </div>\n      </div>\n  \t\t</div>\n\n\n  \t\t<div CondoCardBody>\n          <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n          [filterable]=\"true\" [sortable]=\"true\" [source]=\"waterReportDataList\" [columns]=\"columnData\"\n          [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n      </jqxGrid>\n     \n\n  \t\t</div>\n\n  </condo-card>\n  \n</div>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n                       <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                  [fieldRequired]=\"'required'\" [fieldList]=\"propertyTowerData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n    <div class=\"main\">\n\t<h4 class=\"mb-4\">Water Reading Report</h4>\n\n\n\t<app-loader *ngIf=\"!isReportLoaded\"></app-loader>\n\n  <condo-card *ngIf=\"isReportLoaded\">\n\n\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n    \t\t<div>\n          <h4>All Water Reading </h4>\n          <p>{{totalItems}} results</p>\n    \t\t</div>\n    \t\n              <div class=\"ml-auto d-none d-md-block my-auto\">\n                  <!-- <condo-select [fieldModel]=\"selectedTower\" labelText=\"\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                  [fieldRequired]=\"\" [fieldList]=\"propertyTowerData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select> -->\n\n\t\t\t    \t\n          </div>\n\t\t  \n    \t\n          <div class=\"ml-auto my-auto\">\n              <app-table-search [input]=\"utilitySearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n            </div>\n            <div class=\"mr-3 my-auto ml-3\">\n              <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n            </div>\n            <div class=\"mr-3 my-auto ml-3\">\n              <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n              </button>\n              <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n              </button>\n            </div>\n      </div>\n  \t\t</div>\n\n\n  \t\t<div CondoCardBody>\n          <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n          [filterable]=\"true\" [sortable]=\"true\" [source]=\"waterReportDataList\" [columns]=\"columnData\"\n          [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n      </jqxGrid>\n     \n\n  \t\t</div>\n\n  </condo-card>\n  \n</div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n";
       /***/
     },
 
@@ -2096,6 +2096,12 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var ElectricityReportComponent = /*#__PURE__*/function () {
         function ElectricityReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
@@ -2117,6 +2123,10 @@
           this.params = {
             apartmentId: this.sessionService.apartmentId
           };
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
         }
 
         _createClass(ElectricityReportComponent, [{
@@ -2312,14 +2322,14 @@
             }
           }
         }, {
-          key: "onSearchFilter",
-          value: function onSearchFilter() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this18 = this;
 
-            if (this.utilitySearch != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.utilitySearch;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -2334,6 +2344,32 @@
             } else {
               this.datagrid.clearfilters();
             }
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'electricityReportData');
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            this.goBack();
+            this.getAllElectricalUtiliy();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null; // =this.getTicketByAdmin();
+
+            this.getAllElectricalUtiliy();
+            this.goBack();
           }
         }, {
           key: "ngOnInit",
@@ -2370,6 +2406,12 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['gridResident', {
             "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
           }]
         }]
       };
@@ -2482,6 +2524,12 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var InsuranceReportComponent = /*#__PURE__*/function () {
         function InsuranceReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
@@ -2503,6 +2551,10 @@
           this.params = {
             apartmentId: this.sessionService.apartmentId
           };
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
         }
 
         _createClass(InsuranceReportComponent, [{
@@ -2685,14 +2737,14 @@
           //  }
 
         }, {
-          key: "onSearchFilter",
-          value: function onSearchFilter() {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
             var _this20 = this;
 
-            if (this.utilitySearch != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.utilitySearch;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -2707,6 +2759,32 @@
             } else {
               this.datagrid.clearfilters();
             }
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'electricityReportData');
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            this.goBack();
+            this.getAllInsuranceUtiliy();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null; // =this.getTicketByAdmin();
+
+            this.getAllInsuranceUtiliy();
+            this.goBack();
           }
         }, {
           key: "ngOnInit",
@@ -2743,6 +2821,12 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['gridResident', {
             "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
           }]
         }]
       };
@@ -2955,6 +3039,12 @@
       var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var WaterReportComponent = /*#__PURE__*/function () {
         function WaterReportComponent(lookupService, sharedService, apartmentService, utilityTrackerService, sessionService) {
@@ -2977,6 +3067,10 @@
             apartmentId: this.sessionService.apartmentId
           };
           this["package"] = {};
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
         }
 
         _createClass(WaterReportComponent, [{
@@ -3009,19 +3103,14 @@
           value: function getSelectedDeliveryType(event) {
             var _this21 = this;
 
-            this.selectedTower = event[0].apartmentBlockId;
+            this.blockId = event[0].apartmentBlockId; //   if(this.selectedTower == null){
+            //     this.filteredUtilityWaterListData= this.utilityWaterListData;
+            //   }else{
+            //     this.filteredUtilityWaterListData= this.utilityWaterListData.filter(x=> x.block == event[0].apartmentBlockNumber);
+            //  }
+            //  this.totalItems = this.filteredUtilityWaterListData.length;
 
-            if (this.selectedTower == null) {
-              this.filteredUtilityWaterListData = this.utilityWaterListData;
-            } else {
-              this.filteredUtilityWaterListData = this.utilityWaterListData.filter(function (x) {
-                return x.block == event[0].apartmentBlockNumber;
-              });
-            }
-
-            this.totalItems = this.filteredUtilityWaterListData.length;
-
-            if (this.selectedTower != "" && this.selectedTower != null) {
+            if (this.blockId != "" && this.blockId != null) {
               var filterGroup = new jqx.filter();
               var filterOperator = 1;
               var filterValue = event[0].apartmentBlockNumber;
@@ -3208,16 +3297,66 @@
             }
           }
         }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this25 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this25.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'electricityReportData');
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            this.goBack();
+            this.getAllWaterUtiliy();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null; // =this.getTicketByAdmin();
+
+            this.getAllWaterUtiliy();
+            this.goBack();
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this["package"].deliveryTypeId = '';
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this25.propertyTowerData = res;
+              _this26.propertyTowerData = res;
             });
             this.getAllWaterUtiliy();
           }
@@ -3251,6 +3390,12 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['gridResident', {
             "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
           }]
         }]
       };
@@ -3392,7 +3537,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this26 = this;
+            var _this27 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -3400,7 +3545,7 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this26.loadUtilityCategory();
+              _this27.loadUtilityCategory();
             });
           }
         }, {
@@ -3449,7 +3594,7 @@
         }, {
           key: "addOrUpdateUtilityCategoryForm",
           value: function addOrUpdateUtilityCategoryForm(form) {
-            var _this27 = this;
+            var _this28 = this;
 
             this.isUtilityCategorySubmitted = false;
             this.isError = false;
@@ -3472,22 +3617,22 @@
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: _this27.sessionService.apartmentId
+                    apartmentId: _this28.sessionService.apartmentId
                   };
 
-                  _this27.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                    _this27.isUtilityCategorySubmitted = true;
+                  _this28.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                    _this28.isUtilityCategorySubmitted = true;
 
-                    _this27.sharedService.setAlertMessage("Category added Successfully!");
+                    _this28.sharedService.setAlertMessage("Category added Successfully!");
 
-                    _this27.utilityCategoryData = res.filter(function (item) {
+                    _this28.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this27.isUtilityCategorySubmitted = true;
-                  _this27.isError = true;
-                  _this27.alertMessage = res.errorMessage;
+                  _this28.isUtilityCategorySubmitted = true;
+                  _this28.isError = true;
+                  _this28.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -3509,24 +3654,24 @@
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: _this27.sessionService.apartmentId
+                    apartmentId: _this28.sessionService.apartmentId
                   };
 
-                  _this27.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                    _this27.isUtilityCategorySubmitted = true;
+                  _this28.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                    _this28.isUtilityCategorySubmitted = true;
 
-                    _this27.sharedService.setAlertMessage("Category updated Successfully!");
+                    _this28.sharedService.setAlertMessage("Category updated Successfully!");
 
-                    _this27.utilityCategoryData = res.filter(function (item) {
+                    _this28.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this27.isUtilityCategoryNew = false;
-                    _this27.isUtilityCategoryUpdate = false;
+                    _this28.isUtilityCategoryNew = false;
+                    _this28.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this27.isUtilityCategorySubmitted = true;
-                  _this27.isError = true;
-                  _this27.alertMessage = res.errorMessage;
+                  _this28.isUtilityCategorySubmitted = true;
+                  _this28.isError = true;
+                  _this28.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -3534,33 +3679,33 @@
         }, {
           key: "loadUtilityCategory",
           value: function loadUtilityCategory() {
-            var _this28 = this;
+            var _this29 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this28.utilityCategoryData = res.filter(function (item) {
+              _this29.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this28.isUtilityCategoryLoaded = true;
+              _this29.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this29 = this;
+            var _this30 = this;
 
             this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this29.submitUtilityCategoryForm(is_category_form);
+                _this30.submitUtilityCategoryForm(is_category_form);
               }
             });
             this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this29.deleteUtilityCategory(item_id);
+                _this30.deleteUtilityCategory(item_id);
               }
             });
           }

@@ -266,7 +266,6 @@ GraphCreator.prototype.createSVGPath = function (smartPath) {
             pathString += `L${node.x},${node.y}`
         }
     }
-    // var svg = document.getElementById('svgId');
     d3.select(".graph > g")
         .append('path')
         .attr('class', 'animePathLink')
@@ -280,6 +279,7 @@ GraphCreator.prototype.createSVGPath = function (smartPath) {
         .attr("rx", 10)
         .attr("ry", 5)
         .attr('filter','url(#loopFilter)')
+        .attr('id','smart-path-navigation')
 
     var lineDrawing = anime({
         targets: '#lcanvas g .animePathLink',

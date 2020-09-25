@@ -68,6 +68,7 @@ let UploadComponent = class UploadComponent {
         this.fileList = [];
         this.selectedFiles = [];
         this.newFiles = [];
+        this.isFileIdChanged = false;
         this.isEdit = false;
         this.multiple = false;
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -82,16 +83,15 @@ let UploadComponent = class UploadComponent {
     selectFile(event) {
         this.selectedFiles = Array.from(event.target.files);
         this.newFiles = this.selectedFiles.map(item => {
-            return { fileDetailsId: null, filePath: null };
+            return { fileDetailsId: null, filePath: null, status: false };
         });
         this.uploadSubscription = this.uploadFiles().subscribe((res) => {
             res.map((data, index) => {
+                this.fileList = this.fileList.concat(this.newFiles[index]);
                 this.newFiles[index].binary = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
                 this.newFiles[index].type = data.body.type;
                 this.newFiles[index].status = true;
             });
-            this.fileList = this.fileList.concat(this.newFiles);
-            console.log(this.fileList);
         });
     }
     isImage(type) {
@@ -100,6 +100,7 @@ let UploadComponent = class UploadComponent {
         return this.constantsService.imageFormats.includes(ext);
     }
     deleteFile(file) {
+        file.status = false;
         let params = {
             FileDetailsId: file.fileDetailsId,
             FilePath: file.filePath,
@@ -116,6 +117,7 @@ let UploadComponent = class UploadComponent {
     uploadFiles() {
         const observables = this.selectedFiles.map((file, index) => {
             return this.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {
+                this.newFiles[index].status = false;
                 this.newFiles[index].fileDetailsId = data[0].fileDetailsId;
                 this.newFiles[index].filePath = data[0].filePath;
                 return this.fileDownloadService.downloadFile(data[0].filePath);
@@ -131,6 +133,7 @@ let UploadComponent = class UploadComponent {
             };
             return this.fileDetailsService.getFileDetailsById(params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {
                 this.fileList[index].filePath = data[0].filePath;
+                this.fileList[index].status = false;
                 return this.fileDownloadService.downloadFile(data[0].filePath);
             }));
         });
@@ -142,7 +145,7 @@ let UploadComponent = class UploadComponent {
         this.downloadSubscription.unsubscribe();
     }
     ngOnChanges() {
-        if (this.isEdit && this.fileIds != undefined) {
+        if (this.isEdit && this.fileIds != undefined && !this.isFileIdChanged) {
             let temp = new Array();
             temp = this.fileIds.split(",");
             this.fileIds = temp;
@@ -156,6 +159,7 @@ let UploadComponent = class UploadComponent {
                     this.fileList[index].status = true;
                 });
             });
+            this.isFileIdChanged = true;
         }
     }
 };

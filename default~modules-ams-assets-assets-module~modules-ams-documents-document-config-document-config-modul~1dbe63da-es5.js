@@ -140,6 +140,7 @@
           this.fileList = [];
           this.selectedFiles = [];
           this.newFiles = [];
+          this.isFileIdChanged = false;
           this.isEdit = false;
           this.multiple = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -165,17 +166,17 @@
             this.newFiles = this.selectedFiles.map(function (item) {
               return {
                 fileDetailsId: null,
-                filePath: null
+                filePath: null,
+                status: false
               };
             });
             this.uploadSubscription = this.uploadFiles().subscribe(function (res) {
               res.map(function (data, index) {
+                _this.fileList = _this.fileList.concat(_this.newFiles[index]);
                 _this.newFiles[index].binary = _this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
                 _this.newFiles[index].type = data.body.type;
                 _this.newFiles[index].status = true;
               });
-              _this.fileList = _this.fileList.concat(_this.newFiles);
-              console.log(_this.fileList);
             });
           }
         }, {
@@ -190,6 +191,7 @@
           value: function deleteFile(file) {
             var _this2 = this;
 
+            file.status = false;
             var params = {
               FileDetailsId: file.fileDetailsId,
               FilePath: file.filePath,
@@ -215,6 +217,7 @@
               return _this3.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(function (data) {
                 return data != undefined;
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (data) {
+                _this3.newFiles[index].status = false;
                 _this3.newFiles[index].fileDetailsId = data[0].fileDetailsId;
                 _this3.newFiles[index].filePath = data[0].filePath;
                 return _this3.fileDownloadService.downloadFile(data[0].filePath);
@@ -236,6 +239,7 @@
                 return data != undefined;
               }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (data) {
                 _this4.fileList[index].filePath = data[0].filePath;
+                _this4.fileList[index].status = false;
                 return _this4.fileDownloadService.downloadFile(data[0].filePath);
               }));
             });
@@ -254,7 +258,7 @@
           value: function ngOnChanges() {
             var _this5 = this;
 
-            if (this.isEdit && this.fileIds != undefined) {
+            if (this.isEdit && this.fileIds != undefined && !this.isFileIdChanged) {
               var temp = new Array();
               temp = this.fileIds.split(",");
               this.fileIds = temp;
@@ -271,6 +275,7 @@
                   _this5.fileList[index].status = true;
                 });
               });
+              this.isFileIdChanged = true;
             }
           }
         }]);
