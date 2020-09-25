@@ -257,6 +257,7 @@
               this.accountsService.addCustCreditNotes(params).subscribe(function (res) {
                 if (res.error) {
                   _this4.isCreditSubmitted = true;
+                  form.reset();
                   _this4.credit = {}; //Mark for check
 
                   _this4._changeDetectorRef.markForCheck();

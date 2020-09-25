@@ -478,7 +478,7 @@ let AddFloorUnitGraphicComponent = class AddFloorUnitGraphicComponent {
     uploadFile(event) {
         var file = event[0];
         let userId = parseInt(this.sessionService.userId);
-        this.fileUploadService.upload(file, userId).subscribe((res) => {
+        this.fileUploadService.upload(file).subscribe((res) => {
             if (res != undefined) {
                 this.uploadResponse = res;
             }

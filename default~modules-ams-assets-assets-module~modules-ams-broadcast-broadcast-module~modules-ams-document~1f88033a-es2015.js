@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-wrapper input-box\" #selectFieldElem>\n    <label [ngClass]=\"isLabel == 'false' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{getLabelText(labelText)}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n    <div class=\"input-wrapper\">\n        <input type=\"text\" \n\t\treadonly\n\t\tclass=\"form-control condo-select\" \n\t\tplaceholder = \"{{fieldPlaceholder}}\"\n\t\tname = \"{{fieldName}}\"\n\t\t[required]=\"isFieldRequired() ? 'required' : null\"\n        [(ngModel)]=\"selectedModel\"\n        (click)=\"OpenDropDown()\"\n        [ngClass]=\"isDisabled? 'input-disabled' : ''\"\n        autocomplete=\"off\" readonly>\n        <mat-icon [color]=\"'warn'\" class=\"close\" [svgIcon]=\"'close'\" *ngIf=\"isValue()\" (click)=\"clearSelection()\"></mat-icon>\n        <help-tooltip title=\"{{toolTip}}\" *ngIf=\"!isValue() && isTooltip()\"></help-tooltip>\n    </div>\n</div>\n\n <!-- Tags panel -->\n <ng-template #selectPanel>\n    <app-panel-list [fieldList]=\"fieldList\" \n    [fieldValue]=\"fieldValue\" \n    [selectedItem]=\"selectedItem\"\n    (outputParams)=\"getFieldModel($event)\" ></app-panel-list>\n </ng-template>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-wrapper input-box\" #selectFieldElem>\n    <label [ngClass]=\"isLabel == 'false' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{getLabelText(labelText)}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n    <div class=\"input-wrapper\">\n        <input type=\"text\" \n\t\treadonly\n\t\tclass=\"form-control condo-select\" \n\t\tplaceholder = \"{{fieldPlaceholder}}\"\n\t\tname = \"{{fieldName}}\"\n\t\t[required]=\"isFieldRequired() ? 'required' : null\"\n        [(ngModel)]=\"selectedModel\"\n        (click)=\"OpenDropDown()\"\n        [ngClass]=\"isDisabled? 'input-disabled' : ''\"\n        autocomplete=\"off\" readonly>\n        <mat-icon [color]=\"'warn'\" class=\"close\" [svgIcon]=\"'close'\" *ngIf=\"isValue() && isFieldValue()\" (click)=\"clearSelection()\"></mat-icon>\n        <help-tooltip title=\"{{toolTip}}\" *ngIf=\"!isValue() && isTooltip() || !isFieldValue()\"></help-tooltip>\n    </div>\n</div>\n\n <!-- Tags panel -->\n <ng-template #selectPanel>\n    <app-panel-list [fieldList]=\"fieldList\" \n    [fieldValue]=\"fieldValue\" \n    [selectedItem]=\"selectedItem\"\n    (outputParams)=\"getFieldModel($event)\" ></app-panel-list>\n </ng-template>");
 
 /***/ }),
 
@@ -130,6 +130,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
 /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
 
 
 
@@ -154,7 +156,10 @@ let SelectComponent = class SelectComponent {
         this._selectPanelOverlayRef.detach();
     }
     isValue() {
-        return this.selectedModel != "" ? true : false;
+        return this.selectedModel != '' ? true : false;
+    }
+    isFieldValue() {
+        return (this.selectedModel != null && this.fieldModel != undefined) ? true : false;
     }
     isTooltip() {
         return this.toolTip != undefined ? true : false;
@@ -251,6 +256,7 @@ SelectComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         selector: 'condo-select',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./select.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/select/select.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ControlContainer"], useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgForm"] }],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./select.component.scss */ "./src/app/modules/ui/select/select.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"],

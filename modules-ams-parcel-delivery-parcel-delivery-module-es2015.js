@@ -1577,7 +1577,7 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
     uploadFile(event) {
         let file = event[0];
         let userId = parseInt(this.sessionService.userId);
-        this.fileUploadService.upload(file, userId).subscribe((res) => {
+        this.fileUploadService.upload(file).subscribe((res) => {
             if (res != undefined) {
                 this.uploadResponse = res;
             }

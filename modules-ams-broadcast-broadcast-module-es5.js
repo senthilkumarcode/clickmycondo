@@ -3052,7 +3052,7 @@
 
             var file = event[0];
             var userId = parseInt(this.loginedUser);
-            this.fileUploadService.upload(file, userId).subscribe(function (res) {
+            this.fileUploadService.upload(file).subscribe(function (res) {
               if (res != undefined) {
                 _this28.uploadResponse = res;
               }
@@ -3907,7 +3907,7 @@
 
             var file = event[0];
             var userId = parseInt(this.loginedUser);
-            this.fileUploadService.upload(file, userId).subscribe(function (res) {
+            this.fileUploadService.upload(file).subscribe(function (res) {
               if (res != undefined) {
                 _this41.uploadResponse = res;
               }

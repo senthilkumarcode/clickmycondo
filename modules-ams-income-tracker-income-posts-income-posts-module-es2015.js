@@ -169,6 +169,7 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
             this.accountsService.addCustCreditNotes(params).subscribe((res) => {
                 if (res.error) {
                     this.isCreditSubmitted = true;
+                    form.reset();
                     this.credit = {};
                     //Mark for check
                     this._changeDetectorRef.markForCheck();

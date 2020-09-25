@@ -660,7 +660,7 @@
 
             var file = event[0];
             var userId = parseInt(this.cookieService.get('userId'));
-            this.fileUploadService.upload(file, userId).subscribe(function (res) {
+            this.fileUploadService.upload(file).subscribe(function (res) {
               if (res != undefined) {
                 _this7.uploadResponse = res;
               }

@@ -1993,7 +1993,7 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
     uploadFile(event) {
         let file = event[0];
         let userId = parseInt(this.loginedUser);
-        this.fileUploadService.upload(file, userId).subscribe((res) => {
+        this.fileUploadService.upload(file).subscribe((res) => {
             if (res != undefined) {
                 this.uploadResponse = res;
             }
@@ -2675,7 +2675,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
     uploadFile(event) {
         let file = event[0];
         let userId = parseInt(this.loginedUser);
-        this.fileUploadService.upload(file, userId).subscribe((res) => {
+        this.fileUploadService.upload(file).subscribe((res) => {
             if (res != undefined) {
                 this.uploadResponse = res;
             }
