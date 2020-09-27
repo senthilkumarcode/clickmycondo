@@ -5977,7 +5977,7 @@
         redirectTo: 'setup',
         pathMatch: 'full'
       }, {
-        path: 'setup',
+        path: 'aa',
         component: _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_3__["ViolationSetupComponent"]
       }, {
         path: 'add-violation',

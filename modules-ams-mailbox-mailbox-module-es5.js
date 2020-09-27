@@ -1703,7 +1703,6 @@
             // Category
             this._mailboxService.category$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (category) {
               _this10.category = category;
-              console.log(_this10.category);
 
               if (_this10.category.name === 'inbox') {
                 _this10.pagination = {

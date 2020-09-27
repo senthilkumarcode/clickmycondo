@@ -26,19 +26,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/social-chat/social-chat.component.html":
-/*!***********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/social-chat/social-chat.component.html ***!
-  \***********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
-
-/***/ }),
-
 /***/ "./src/app/modules/user/social-chat/components/forum-category/forum-category.component.scss":
 /*!**************************************************************************************************!*\
   !*** ./src/app/modules/user/social-chat/components/forum-category/forum-category.component.scss ***!
@@ -337,24 +324,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _social_chat_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./social-chat.component */ "./src/app/modules/user/social-chat/social-chat.component.ts");
-/* harmony import */ var _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/forum-category/forum-category.component */ "./src/app/modules/user/social-chat/components/forum-category/forum-category.component.ts");
-/* harmony import */ var _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/forum/forum.component */ "./src/app/modules/user/social-chat/components/forum/forum.component.ts");
-
+/* harmony import */ var _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/forum-category/forum-category.component */ "./src/app/modules/user/social-chat/components/forum-category/forum-category.component.ts");
+/* harmony import */ var _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/forum/forum.component */ "./src/app/modules/user/social-chat/components/forum/forum.component.ts");
 
 
 
 
 
 const routes = [
-    { path: '', component: _social_chat_component__WEBPACK_IMPORTED_MODULE_3__["SocialChatComponent"],
-        children: [
-            { path: '', redirectTo: 'categories', pathMatch: 'full' },
-            { path: 'categories', component: _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_4__["ForumCategoryComponent"] },
-            { path: 'forum/:id', component: _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_5__["ForumComponent"] },
-            { path: '**', redirectTo: 'categories', pathMatch: 'full' }
-        ]
-    }
+    { path: '', redirectTo: 'categories', pathMatch: 'full' },
+    { path: 'categories', component: _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_3__["ForumCategoryComponent"] },
+    { path: 'forum/:id', component: _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_4__["ForumComponent"] },
+    { path: '**', redirectTo: 'categories', pathMatch: 'full' }
 ];
 let SocialChatRoutingModule = class SocialChatRoutingModule {
 };
@@ -364,52 +345,6 @@ SocialChatRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
 ], SocialChatRoutingModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/user/social-chat/social-chat.component.scss":
-/*!*********************************************************************!*\
-  !*** ./src/app/modules/user/social-chat/social-chat.component.scss ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdXNlci9zb2NpYWwtY2hhdC9zb2NpYWwtY2hhdC5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/modules/user/social-chat/social-chat.component.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/modules/user/social-chat/social-chat.component.ts ***!
-  \*******************************************************************/
-/*! exports provided: SocialChatComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SocialChatComponent", function() { return SocialChatComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let SocialChatComponent = class SocialChatComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-SocialChatComponent.ctorParameters = () => [];
-SocialChatComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-social-chat',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./social-chat.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/social-chat/social-chat.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./social-chat.component.scss */ "./src/app/modules/user/social-chat/social-chat.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
-], SocialChatComponent);
 
 
 
@@ -430,10 +365,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _social_chat_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./social-chat-routing.module */ "./src/app/modules/user/social-chat/social-chat-routing.module.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _social_chat_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./social-chat.component */ "./src/app/modules/user/social-chat/social-chat.component.ts");
-/* harmony import */ var _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/forum-category/forum-category.component */ "./src/app/modules/user/social-chat/components/forum-category/forum-category.component.ts");
-/* harmony import */ var _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/forum/forum.component */ "./src/app/modules/user/social-chat/components/forum/forum.component.ts");
-
+/* harmony import */ var _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/forum-category/forum-category.component */ "./src/app/modules/user/social-chat/components/forum-category/forum-category.component.ts");
+/* harmony import */ var _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/forum/forum.component */ "./src/app/modules/user/social-chat/components/forum/forum.component.ts");
 
 
 
@@ -446,9 +379,8 @@ let SocialChatModule = class SocialChatModule {
 SocialChatModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _social_chat_component__WEBPACK_IMPORTED_MODULE_5__["SocialChatComponent"],
-            _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_6__["ForumCategoryComponent"],
-            _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_7__["ForumComponent"],
+            _components_forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_5__["ForumCategoryComponent"],
+            _components_forum_forum_component__WEBPACK_IMPORTED_MODULE_6__["ForumComponent"],
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

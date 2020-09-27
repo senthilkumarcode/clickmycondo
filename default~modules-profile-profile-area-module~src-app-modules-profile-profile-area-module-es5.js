@@ -6492,10 +6492,10 @@
           value: function deletePropertyManager() {
             var _this42 = this;
 
-            var message = "Are you sure want to delete?";
+            var message = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
             var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
-              panelClass: 'material',
+              panelClass: 'material-dialog-medium',
               disableClose: true,
               data: dialogData
             });

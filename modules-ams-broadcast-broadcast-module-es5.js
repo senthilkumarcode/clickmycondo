@@ -3927,8 +3927,6 @@
         }, {
           key: "deleteFile",
           value: function deleteFile() {
-            var _this43 = this;
-
             var details = {
               "fileDetailsId": this.fileDetailId,
               "fileName": this.filePath,
@@ -3946,34 +3944,29 @@
               FileDetailsId: this.fileDetailId,
               FilePath: this.filePath,
               updatedByUserId: this.sessionService.userId
-            };
-            this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this43.isFileDetailsAvailable = false;
-              _this43.uploadResponse = {
-                status: '',
-                message: '',
-                fileId: null
-              };
-              _this43.fileDetailId = _this43.uploadResponse.fileId;
-            });
+            }; // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
+            //   this.isFileDetailsAvailable = false;
+            //   this.uploadResponse = { status: '', message: '', fileId: null };
+            //   this.fileDetailId = this.uploadResponse.fileId
+            // })
           }
         }, {
           key: "getAllStaffCategories",
           value: function getAllStaffCategories(items) {
-            var _this44 = this;
+            var _this43 = this;
 
             items.forEach(function (element) {
-              _this44.getstaffCategories(element);
+              _this43.getstaffCategories(element);
             });
           }
         }, {
           key: "removeStaffCategories",
           value: function removeStaffCategories(item) {
-            var _this45 = this;
+            var _this44 = this;
 
             var removeStaffCategory = this.staffCategoryMap.get(item.value);
             removeStaffCategory.forEach(function (element) {
-              _this45.staffCategory.dropdownList = _this45.staffCategory.dropdownList.filter(function (obj) {
+              _this44.staffCategory.dropdownList = _this44.staffCategory.dropdownList.filter(function (obj) {
                 return obj.value !== element.value;
               });
             }); // this.updateUsers();
@@ -4041,7 +4034,7 @@
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this46 = this;
+            var _this45 = this;
 
             // let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId }).join(",");
             if (this.selectedUserType == 1 || this.selectedUserType == 2 || this.selectedUserType == 4) {
@@ -4084,17 +4077,17 @@
                 broadcastMessage.filterId = parseInt(res.message);
 
                 if (broadcastMessage.userIds.length == 0) {
-                  _this46.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params = {
                     "sourceBroadCastMessage_model": broadcastMessage
                   };
 
-                  _this46.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
+                  _this45.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
                     if (res.message) {
-                      _this46.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
+                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
 
-                      _this46.removeAll('', 'clear');
+                      _this45.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4145,17 +4138,17 @@
                 _broadcastMessage.filterId = parseInt(res.message);
 
                 if (_broadcastMessage.userIds.length == 0) {
-                  _this46.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params4 = {
                     "sourceBroadCastMessage_model": _broadcastMessage
                   };
 
-                  _this46.broadcastService.addBroadCastMessage(_params4).subscribe(function (res) {
+                  _this45.broadcastService.addBroadCastMessage(_params4).subscribe(function (res) {
                     if (res.message) {
-                      _this46.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
+                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
 
-                      _this46.removeAll('', 'clear');
+                      _this45.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4206,17 +4199,17 @@
                 _broadcastMessage2.filterId = parseInt(res.message);
 
                 if (_broadcastMessage2.userIds.length == 0) {
-                  _this46.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params7 = {
                     "sourceBroadCastMessage_model": _broadcastMessage2
                   };
 
-                  _this46.broadcastService.addBroadCastMessage(_params7).subscribe(function (res) {
+                  _this45.broadcastService.addBroadCastMessage(_params7).subscribe(function (res) {
                     if (res.message) {
-                      _this46.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
+                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
 
-                      _this46.removeAll('', 'clear');
+                      _this45.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4271,17 +4264,17 @@
                 _broadcastMessage3.filterId = parseInt(res.message);
 
                 if (_broadcastMessage3.userIds.length == 0) {
-                  _this46.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params10 = {
                     "sourceBroadCastMessage_model": _broadcastMessage3
                   };
 
-                  _this46.broadcastService.addBroadCastMessage(_params10).subscribe(function (res) {
+                  _this45.broadcastService.addBroadCastMessage(_params10).subscribe(function (res) {
                     if (res.message) {
-                      _this46.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
+                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'Success');
 
-                      _this46.removeAll('', 'clear');
+                      _this45.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4374,7 +4367,7 @@
         }, {
           key: "removeAll",
           value: function removeAll(category, flag) {
-            var _this47 = this;
+            var _this46 = this;
 
             this.apartmentBlock.selectedItems = [];
             this.ownerApartmentBlock.selectedItems = [];
@@ -4412,7 +4405,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this47.roleCategory.dropdownList = res;
+                _this46.roleCategory.dropdownList = res;
               });
             }
 
@@ -4424,7 +4417,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this47.staffRoleCategory.dropdownList = res;
+                _this46.staffRoleCategory.dropdownList = res;
               });
             }
           }
@@ -4759,7 +4752,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this48 = this;
+            var _this47 = this;
 
             this.loginUserId = parseInt(this.sessionService.userId);
             this.apartmentId = this.sessionService.apartmentId;
@@ -4807,12 +4800,12 @@
               if (index != null) {
                 var params = {
                   broadcastId: index,
-                  deleteBy: _this48.loginUserId
+                  deleteBy: _this47.loginUserId
                 };
-                _this48.isDataLoaded = false;
+                _this47.isDataLoaded = false;
 
-                _this48.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
-                  _this48.getAllCategory();
+                _this47.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
+                  _this47.getAllCategory();
                 }, function (error) {});
               }
             });
@@ -4820,7 +4813,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this49 = this;
+            var _this48 = this;
 
             if (this.searchCategory != "") {
               var filtergroup = new jqx.filter();
@@ -4833,7 +4826,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.broadcastCategoryHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this49.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this48.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4857,7 +4850,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this50 = this;
+            var _this49 = this;
 
             this.isDataLoaded = false;
             var queryParamBase = {
@@ -4866,17 +4859,17 @@
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
               var allBroadcastCategory = res; //filter active true items
 
-              _this50.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
+              _this49.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
                 data.template = data.template.replace(/<[^>]*>/g, '');
                 return data.isActive;
               });
               var categorySourceData = {
-                localdata: _this50.allBroadcastCategory,
+                localdata: _this49.allBroadcastCategory,
                 datatype: "array"
               };
-              _this50.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
-              _this50.isDataLoaded = true;
-              _this50.totalItems = _this50.allBroadcastCategory.length; // if(this.totalItems>this.itemLimit){
+              _this49.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
+              _this49.isDataLoaded = true;
+              _this49.totalItems = _this49.allBroadcastCategory.length; // if(this.totalItems>this.itemLimit){
               //   this.ItemEndIndex = this.itemLimit;
               // }
               // else {
@@ -4896,7 +4889,7 @@
         }, {
           key: "UpsertBroadcastMessageCategory",
           value: function UpsertBroadcastMessageCategory(form) {
-            var _this51 = this;
+            var _this50 = this;
 
             var broadcastCategory = {
               "broadCastMessageCategoryId": 0,
@@ -4926,17 +4919,17 @@
             };
             this.broadcastService.upsertBroadCastMessageCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this51.isEdit) {
-                  _this51.sharedService.setAlertMessage("Broadcast category updated successfully");
+                if (_this50.isEdit) {
+                  _this50.sharedService.setAlertMessage("Broadcast category updated successfully");
                 } else {
-                  _this51.sharedService.setAlertMessage("Broadcast category added successfully");
+                  _this50.sharedService.setAlertMessage("Broadcast category added successfully");
                 }
 
-                _this51.getAllCategory();
+                _this50.getAllCategory();
 
-                _this51.category = {};
-                _this51.isEdit = false;
-                _this51.isExpand = false;
+                _this50.category = {};
+                _this50.isEdit = false;
+                _this50.isExpand = false;
               }
             });
           }
@@ -5164,7 +5157,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this52 = this;
+            var _this51 = this;
 
             this.groupCategory = {};
             this.apartmentID = this.sessionService.apartmentId;
@@ -5186,12 +5179,12 @@
               if (index != null) {
                 var params = {
                   broadCastGroupCategoryId: index,
-                  deleteBy: _this52.userId
+                  deleteBy: _this51.userId
                 };
-                _this52.isDataLoaded = false;
+                _this51.isDataLoaded = false;
 
-                _this52.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
-                  _this52.getAllGroupCategory();
+                _this51.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
+                  _this51.getAllGroupCategory();
                 }, function (error) {});
               }
             });
@@ -5206,35 +5199,35 @@
         }, {
           key: "getAllRoleTypesList",
           value: function getAllRoleTypesList() {
-            var _this53 = this;
+            var _this52 = this;
 
             this.userService.getAllRoleTypes().subscribe(function (res) {
-              _this53.allRoleTypesList = res;
+              _this52.allRoleTypesList = res;
             });
           }
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this54 = this;
+            var _this53 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this54.allApartmentBlockList = res;
+              _this53.allApartmentBlockList = res;
             });
           }
         }, {
           key: "getAppartmentRole",
           value: function getAppartmentRole() {
-            var _this55 = this;
+            var _this54 = this;
 
             var params = {
               'RoleTypeId': this.roleType,
               'ApartmentId': this.apartmentID
             };
             this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-              _this55.allApartmentRolesList = res;
+              _this54.allApartmentRolesList = res;
             });
           }
         }, {
@@ -5260,7 +5253,7 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this56 = this;
+            var _this55 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -5268,16 +5261,16 @@
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
               var allBroadcastGroupCategory = res; //filter active true items
 
-              _this56.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              _this55.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
                 return data.isActive;
               });
-              _this56.isDataLoaded = true;
-              _this56.totalItems = _this56.allBroadcastGroupCategory.length;
+              _this55.isDataLoaded = true;
+              _this55.totalItems = _this55.allBroadcastGroupCategory.length;
 
-              if (_this56.totalItems > _this56.itemLimit) {
-                _this56.ItemEndIndex = _this56.itemLimit;
+              if (_this55.totalItems > _this55.itemLimit) {
+                _this55.ItemEndIndex = _this55.itemLimit;
               } else {
-                _this56.ItemEndIndex = _this56.totalItems;
+                _this55.ItemEndIndex = _this55.totalItems;
               }
             });
           } //Submit Category
@@ -5285,7 +5278,7 @@
         }, {
           key: "submitcreateBroadcastGroupCategoryForm",
           value: function submitcreateBroadcastGroupCategoryForm(form) {
-            var _this57 = this;
+            var _this56 = this;
 
             var privileges = Array.prototype.map.call(this.privilageCategory.selectedItems, function (item) {
               return item.name;
@@ -5318,16 +5311,16 @@
             };
             this.broadcastService.addBroadCastGroupCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this57.isEdit) {
-                  _this57.sharedService.setAlertMessage("Broadcast category updated successfully");
+                if (_this56.isEdit) {
+                  _this56.sharedService.setAlertMessage("Broadcast category updated successfully");
                 } else {
-                  _this57.sharedService.setAlertMessage("Broadcast Group category added successfully");
+                  _this56.sharedService.setAlertMessage("Broadcast Group category added successfully");
                 }
 
-                _this57.getAllGroupCategory();
+                _this56.getAllGroupCategory();
 
-                _this57.groupCategory = {};
-                _this57.privilageCategory.selectedItems = [];
+                _this56.groupCategory = {};
+                _this56.privilageCategory.selectedItems = [];
               }
             });
           } //Cancel

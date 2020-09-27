@@ -1626,11 +1626,11 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
             FilePath: this.filePath,
             updatedByUserId: this.sessionService.userId
         };
-        this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
-            this.isFileDetailsAvailable = false;
-            this.uploadResponse = { status: '', message: '', fileId: null };
-            this.asset.assetImageId = this.uploadResponse.fileId;
-        });
+        // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
+        //   this.isFileDetailsAvailable = false;
+        //   this.uploadResponse = { status: '', message: '', fileId: null };
+        //   this.asset.assetImageId = this.uploadResponse.fileId
+        // })
     }
 };
 PendingDeliveryEditComponent.ctorParameters = () => [

@@ -977,7 +977,6 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
         };
         this.getBlockDetails(details);
         this.goBack();
-        console.log(this.blockId);
     }
     ngOnInit() {
         this.pageName = this.route.params['value'].name;

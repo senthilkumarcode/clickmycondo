@@ -2404,8 +2404,6 @@
         }, {
           key: "deleteFile",
           value: function deleteFile() {
-            var _this22 = this;
-
             var details = {
               fileDetailsId: this.asset.assetImageId,
               fileName: this.filePath,
@@ -2423,16 +2421,11 @@
               FileDetailsId: this.asset.assetImageId,
               FilePath: this.filePath,
               updatedByUserId: this.sessionService.userId
-            };
-            this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this22.isFileDetailsAvailable = false;
-              _this22.uploadResponse = {
-                status: '',
-                message: '',
-                fileId: null
-              };
-              _this22.asset.assetImageId = _this22.uploadResponse.fileId;
-            });
+            }; // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
+            //   this.isFileDetailsAvailable = false;
+            //   this.uploadResponse = { status: '', message: '', fileId: null };
+            //   this.asset.assetImageId = this.uploadResponse.fileId
+            // })
           }
         }]);
 
@@ -2677,13 +2670,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this22 = this;
 
             this.ItemEndIndex = 0;
             this.getAllPackage(); // staff type
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              _this23.staffListData = res.filter(function (data) {
+              _this22.staffListData = res.filter(function (data) {
                 return data.isActive;
               });
             });
@@ -2691,7 +2684,7 @@
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this23.packageTypes = res.filter(function (item) {
+              _this22.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2699,7 +2692,7 @@
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this23.deliveryTypes = res.filter(function (item) {
+              _this22.deliveryTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2707,7 +2700,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this23.deliveryStatus = res.filter(function (item) {
+              _this22.deliveryStatus = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2715,7 +2708,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this23.deliverySlots = res.filter(function (item) {
+              _this22.deliverySlots = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2723,7 +2716,7 @@
               LookupTypeId: 182
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
-              _this23.receiverType = res.filter(function (item) {
+              _this22.receiverType = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2825,7 +2818,7 @@
         }, {
           key: "getAllPackage",
           value: function getAllPackage() {
-            var _this24 = this;
+            var _this23 = this;
 
             var params = {};
 
@@ -2844,21 +2837,21 @@
             }
 
             this.packageService.getAllPendingDeliveries(params).subscribe(function (res) {
-              _this24.allParcelDelivey = res;
+              _this23.allParcelDelivey = res;
 
               var _deliveryHistoryList = res.filter(function (x) {
                 return x.isActive === false;
               });
 
-              _this24.gridSourceData = {
+              _this23.gridSourceData = {
                 localdata: _deliveryHistoryList,
                 datatype: "array"
               };
-              _this24.deliveryHistoryList = new jqx.dataAdapter(_this24.gridSourceData);
-              _this24.totalItems = _deliveryHistoryList.length;
-              _this24.isPendingDeliveryLoaded = true; // Mark for check
+              _this23.deliveryHistoryList = new jqx.dataAdapter(_this23.gridSourceData);
+              _this23.totalItems = _deliveryHistoryList.length;
+              _this23.isPendingDeliveryLoaded = true; // Mark for check
 
-              _this24._changeDetectorRef.markForCheck();
+              _this23._changeDetectorRef.markForCheck();
             });
           }
         }, {

@@ -1282,7 +1282,6 @@
             };
             this.getBlockDetails(details);
             this.goBack();
-            console.log(this.blockId);
           }
         }, {
           key: "ngOnInit",

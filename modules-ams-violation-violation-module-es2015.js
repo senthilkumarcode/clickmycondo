@@ -4174,7 +4174,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'setup', pathMatch: 'full' },
-    { path: 'setup', component: _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_3__["ViolationSetupComponent"] },
+    { path: 'aa', component: _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_3__["ViolationSetupComponent"] },
     { path: 'add-violation', component: _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_4__["AddViolationComponent"] },
     { path: 'view-violation', component: _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_5__["ViewViolationComponent"] },
     { path: 'stop-privilege', component: _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_6__["StopPrivilegeComponent"] },

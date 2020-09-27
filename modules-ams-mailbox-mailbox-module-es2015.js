@@ -1130,7 +1130,6 @@ let MailboxListComponent = class MailboxListComponent {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll))
             .subscribe((category) => {
             this.category = category;
-            console.log(this.category);
             if (this.category.name === 'inbox') {
                 this.pagination = {
                     totalResults: 0,

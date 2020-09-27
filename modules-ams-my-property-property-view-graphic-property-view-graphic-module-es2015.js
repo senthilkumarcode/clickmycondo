@@ -495,12 +495,10 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
         // initial node data
         var nodes = [];
         var edges = [];
-        console.log('2', d3.select("#lcanvas"), width, height);
         /** MAIN SVG **/
         var svg = d3.select("#lcanvas").append("svg")
             .attr("width", width)
             .attr("height", height);
-        console.log('2', svg);
         graph = new GraphCreator(svg, nodes, edges);
         graph.setIdCt(0);
         // this.graph.updateGraph();

@@ -2704,11 +2704,11 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
             FilePath: this.filePath,
             updatedByUserId: this.sessionService.userId
         };
-        this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
-            this.isFileDetailsAvailable = false;
-            this.uploadResponse = { status: '', message: '', fileId: null };
-            this.fileDetailId = this.uploadResponse.fileId;
-        });
+        // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
+        //   this.isFileDetailsAvailable = false;
+        //   this.uploadResponse = { status: '', message: '', fileId: null };
+        //   this.fileDetailId = this.uploadResponse.fileId
+        // })
     }
     getAllStaffCategories(items) {
         items.forEach(element => {
