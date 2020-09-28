@@ -92,6 +92,10 @@ let UploadComponent = class UploadComponent {
                 this.newFiles[index].type = data.body.type;
                 this.newFiles[index].status = true;
             });
+            this.fileIds = this.fileList.map(item => {
+                return item.fileDetailsId;
+            });
+            this.outputParams.emit(this.fileIds);
         });
     }
     isImage(type) {
@@ -142,7 +146,8 @@ let UploadComponent = class UploadComponent {
     ngOnInit() {
     }
     ngOnDestroy() {
-        this.downloadSubscription.unsubscribe();
+        if (this.downloadSubscription != undefined)
+            this.downloadSubscription.unsubscribe();
     }
     ngOnChanges() {
         if (this.isEdit && this.fileIds != undefined && !this.isFileIdChanged) {

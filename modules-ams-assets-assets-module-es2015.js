@@ -1011,6 +1011,7 @@ let AssetsCreateComponent = class AssetsCreateComponent {
     getFileIds(event) {
         this.asset.fileDetailsIds = event.join();
         this.asset.imgFileDetailGuid = this.sharedService.guid();
+        console.log(this.asset.fileDetailsIds);
     }
     submitAddAssetForm(form) {
         if (!this.isEditAsset) {

@@ -177,6 +177,11 @@
                 _this.newFiles[index].type = data.body.type;
                 _this.newFiles[index].status = true;
               });
+              _this.fileIds = _this.fileList.map(function (item) {
+                return item.fileDetailsId;
+              });
+
+              _this.outputParams.emit(_this.fileIds);
             });
           }
         }, {
@@ -251,7 +256,7 @@
         }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
-            this.downloadSubscription.unsubscribe();
+            if (this.downloadSubscription != undefined) this.downloadSubscription.unsubscribe();
           }
         }, {
           key: "ngOnChanges",
