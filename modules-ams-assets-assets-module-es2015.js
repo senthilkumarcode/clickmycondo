@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"manage-asset-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Assets</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\"  (ngModelChange)=\"onSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"assetData\" [columns]=\"header\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"manage-asset-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"!isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>All Assets</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"histroySearch\"  (ngModelChange)=\"onSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"assetData\" [columns]=\"header\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>\n\n<ng-template #actionPanel>\n\t<div class=\"bg-card popover-card p-0 table-action-menu\">\n\t\t<a href=\"javascript:void(0)\" (click)=\"editAsset(assetId)\">Edit Asset</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"deleteAsset(assetId)\">Delete Asset</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"addMaintanence(assetId)\">Add Maintenance</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"manageMaintanence(assetId)\">Manage Maintenance</a>\n\t\t<a href=\"javascript:void(0)\" (click)=\"viewMaintanenceHistory(assetId)\">View Maintenance History</a>\n\t</div>\n</ng-template>");
 
 /***/ }),
 
@@ -2835,12 +2835,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssetsViewComponent", function() { return AssetsViewComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Asset */ "./src/app/api/controllers/Asset.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
+/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Asset */ "./src/app/api/controllers/Asset.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
 
 
 
@@ -2850,7 +2854,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AssetsViewComponent = class AssetsViewComponent {
-    constructor(assetService, sessionService, router, sharedService, injector) {
+    constructor(_overlay, _viewContainerRef, assetService, sessionService, router, sharedService, injector) {
+        this._overlay = _overlay;
+        this._viewContainerRef = _viewContainerRef;
         this.assetService = assetService;
         this.sessionService = sessionService;
         this.router = router;
@@ -2858,7 +2864,7 @@ let AssetsViewComponent = class AssetsViewComponent {
         this.injector = injector;
         this.isDataLoaded = true;
         this.totalItems = 0;
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     ngOnInit() {
         var cellsrenderer = (row, column, value) => {
@@ -2916,20 +2922,13 @@ let AssetsViewComponent = class AssetsViewComponent {
                 minwidth: 120,
                 cellclassname: 'action-cell',
                 cellsrenderer: (row) => {
+                    let elemId = 'assetAction' + row;
                     return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" role="button" data-toggle="dropdown" id="invoiceDropDown" aria-haspopup="true" aria-expanded="false">'
+                        + '<a href="javascript:void(0)" id="' + elemId + '" onClick="assetActionEvent(' + row + ')">'
                         + '<span class="action-dot"></span>'
                         + '<span class="action-dot"></span>'
                         + '<span class="action-dot"></span>'
                         + '</a>'
-                        + '<div class="dropdown-menu table-action-menu dropdown-menu-right" aria-labelledby="invoiceDropDown">'
-                        + '<a href="javascript:void(0)" onClick="editAsset(' + row + ')">Edit Asset</a>'
-                        + '<a href="javascript:void(0)" onClick="deleteAsset(' + row + ')">Delete Asset</a>'
-                        + '<a href="javascript:void(0)" onClick="addMaintanence(' + row + ')">Add Maintenance</a>'
-                        + '<a href="javascript:void(0)" onClick="manageMaintanence(' + row + ')">Manage Maintenance</a>'
-                        //  + '<a href="javascript:void(0)" onClick="viewPostCollectionEvent('+ row +')">View last Maintenance</a>'
-                        + '<a href="javascript:void(0)" onClick="viewMaintanenceHistory(' + row + ')">View Maintenance History</a>'
-                        + '</div>'
                         + '</div>';
                 },
                 renderer: columnrenderer
@@ -2943,14 +2942,7 @@ let AssetsViewComponent = class AssetsViewComponent {
                     deleteBy: parseInt(this.sessionService.userId)
                 };
                 this.assetService.deleteAsset(params).subscribe((res) => {
-                    // _.each(this.assetListData, (type)=>{
-                    //   if(type.assetId == id){
-                    //     type.isActive = false;
-                    //   }
-                    // })
                     setTimeout(() => {
-                        // this.assetListData = this.assetListData.filter((type) => type.assetId !== id);
-                        // this.totalItems = this.assetListData.length;
                         this.sharedService.setAlertMessage("Asset deleted");
                         this.sharedService.setUnitListDeleteIndex(null);
                         this.getAllAssets();
@@ -3000,50 +2992,87 @@ let AssetsViewComponent = class AssetsViewComponent {
             this.datagrid.clearfilters();
         }
     }
+    editAsset(id) {
+        this.router.navigateByUrl('/ams/assets/edit-asset/' + id);
+        this._selectPanelOverlayRef.detach();
+    }
+    deleteAsset(id) {
+        this.showConfirmModal(id);
+        this._selectPanelOverlayRef.detach();
+    }
+    addMaintanence(id) {
+        this.router.navigate(['/ams/assets/create-maintenance'], { queryParams: { assetId: id, type: 'ADD' } });
+        this._selectPanelOverlayRef.detach();
+    }
+    manageMaintanence(id) {
+        this.router.navigateByUrl('/ams/assets/manage-maintenance/' + id);
+        this._selectPanelOverlayRef.detach();
+    }
+    viewMaintanenceHistory(id) {
+        this.router.navigateByUrl('/ams/assets/maintenance-history');
+    }
     showConfirmModal(id) {
         this.modalService.showConfirmModal(id);
     }
-    deleteAsset(detail) {
+    onAssetAction(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let assetId = dataRecord.assetId;
-        this.showConfirmModal(assetId);
-        // this.router.navigateByUrl('/ams/assets/edit-asset/' + assetId);
+        this.assetId = dataRecord.assetId;
+        var id = 'assetAction' + detail.rowId;
+        this.assetAction(id);
     }
-    editAsset(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let assetId = dataRecord.assetId;
-        this.router.navigateByUrl('/ams/assets/edit-asset/' + assetId);
-    }
-    addMaintanence(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let assetId = dataRecord.assetId;
-        this.router.navigate(['/ams/assets/create-maintenance'], { queryParams: { assetId: assetId, type: 'ADD' } });
-    }
-    manageMaintanence(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let assetId = dataRecord.assetId;
-        this.router.navigateByUrl('/ams/assets/manage-maintenance/' + assetId);
-    }
-    viewMaintanenceHistory(detail) {
-        let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        let assetId = dataRecord.assetId;
-        this.router.navigateByUrl('/ams/assets/maintenance-history');
+    assetAction(id) {
+        // Create the overlay
+        this._selectPanelOverlayRef = this._overlay.create({
+            backdropClass: '',
+            hasBackdrop: true,
+            scrollStrategy: this._overlay.scrollStrategies.block(),
+            positionStrategy: this._overlay.position()
+                .flexibleConnectedTo(document.getElementById(id))
+                .withFlexibleDimensions()
+                .withViewportMargin(56)
+                .withLockedPosition(false)
+                .withPositions([
+                {
+                    originX: 'start',
+                    originY: 'bottom',
+                    overlayX: 'start',
+                    overlayY: 'top'
+                }
+            ])
+        });
+        // Create a portal from the template
+        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__["TemplatePortal"](this._actionPanel, this._viewContainerRef);
+        // Attach the portal to the overlay
+        this._selectPanelOverlayRef.attach(templatePortal);
+        // Subscribe to the backdrop click
+        this._selectPanelOverlayRef.backdropClick().subscribe(() => {
+            // If overlay exists and attached...
+            if (this._selectPanelOverlayRef && this._selectPanelOverlayRef.hasAttached()) {
+                // Detach it
+                this._selectPanelOverlayRef.detach();
+            }
+            // If template portal exists and attached...
+            if (templatePortal && templatePortal.isAttached) {
+                // Detach it
+                templatePortal.detach();
+            }
+        });
     }
 };
 AssetsViewComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
+    { type: src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__["AssetService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 AssetsViewComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    deleteAsset: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:deleteAsset', ['$event.detail'],] }],
-    editAsset: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:editAsset', ['$event.detail'],] }],
-    addMaintanence: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:addMaintanence', ['$event.detail'],] }],
-    manageMaintanence: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:manageMaintanence', ['$event.detail'],] }],
-    viewMaintanenceHistory: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:viewMaintanenceHistory', ['$event.detail'],] }]
+    _actionPanel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['actionPanel',] }],
+    viewAssetsActionRef: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ["viewAssetsActionRef", { static: false },] }],
+    onAssetAction: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onAssetAction', ['$event.detail'],] }]
 };
 AssetsViewComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3051,64 +3080,37 @@ AssetsViewComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./assets-view.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/assets/components/assets-view/assets-view.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./assets-view.component.scss */ "./src/app/modules/ams/assets/components/assets-view/assets-view.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_5__["AssetService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
+        src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__["AssetService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], AssetsViewComponent);
 
-function getClassName(value) {
-    // var name = value.split('-');
-    // return name[0].toLowerCase();
+let getClassName = value => {
     return value == "Delayed" ? 'normal-status' : value == "Ontime" ? 'low' : '';
-}
+};
 window.getClassName = getClassName;
-function editAsset(row) {
-    var event = new CustomEvent('editAsset', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.editAsset = editAsset;
-function addMaintanence(row) {
-    var event = new CustomEvent('addMaintanence', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.addMaintanence = addMaintanence;
-function manageMaintanence(row) {
-    var event = new CustomEvent('manageMaintanence', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.manageMaintanence = manageMaintanence;
-function deleteAsset(row) {
-    var event = new CustomEvent('deleteAsset', {
-        detail: {
-            rowId: row
-        }
-    });
-    window.dispatchEvent(event);
-}
-window.deleteAsset = deleteAsset;
-function viewMaintanenceHistory(row) {
+let viewMaintanenceHistory = row => {
     var event = new CustomEvent('viewMaintanenceHistory', {
         detail: {
             rowId: row
         }
     });
     window.dispatchEvent(event);
-}
+};
 window.viewMaintanenceHistory = viewMaintanenceHistory;
+let assetActionEvent = row => {
+    var event = new CustomEvent('onAssetAction', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+};
+window.assetActionEvent = assetActionEvent;
 // import { Component, OnInit, Injector, ViewChild, TemplateRef } from '@angular/core';
 // import { Router, NavigationStart, NavigationEnd, ActivatedRoute } from '@angular/router';
 // import { MatDialog } from '@angular/material/dialog';
