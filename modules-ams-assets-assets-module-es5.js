@@ -1603,7 +1603,6 @@
           value: function getFileIds(event) {
             this.asset.fileDetailsIds = event.join();
             this.asset.imgFileDetailGuid = this.sharedService.guid();
-            console.log(this.asset.fileDetailsIds);
           }
         }, {
           key: "submitAddAssetForm",

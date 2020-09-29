@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"help-desk-create-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span *ngIf=\"viewMode != 'edit'\">Create Ticket</span>\n            <span *ngIf=\"viewMode == 'edit'\">Edit Ticket</span>\n        </h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n        {{message.content}}\n        </condo-message>\n        <div class=\"bg-card shadow\">\n            <app-loader *ngIf=\"!isTrackerSubmitted\"></app-loader>\n            <form #createHelpDeskForm=\"ngForm\" name=\"createHelpDeskForm\" *ngIf=\"isTrackerSubmitted\">\n                <!-- radio button in create Mode-->\n                <div class=\"row\" *ngIf=\"isAdmin() && viewMode != 'edit'\">\n                    <div class=\"col-sm-12 text-center\">\n                        <div class=\"input-box radio-box\">\n                            <label>Create Ticket For </label>\n                            <div class=\"form-group\">\n                                <input  name=\"self\" id=\"Self\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"self\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Self\">Self</label>\n                                </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"User\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"owner\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"User\">Owner</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"tenant\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"tenant\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"staff\" id=\"Staff\" [(ngModel)]=\"createdBY\"  (change)=\"createdByChange()\" value=\"staff\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Staff\">Staff</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"admin\" id=\"Admin\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\" value=\"admin\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Admin\">Admin</label>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!-- Tower Information in Edit mode -->\n                <div class=\"row\" *ngIf=\"ticket.apartmentBlockUnitUserId && viewMode == 'edit'\">\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-5 text-center text-highlight-base\">{{blockunitprimeName}}</h6>\n                    </div>\n                </div>\n                <!-- Ticket Id,Date and CreatedBy in Edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Ticket ID</label>\n                            <p>{{ticket.ticketId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Date Of Creation</label>\n                            <p>{{ticket.insertedOn | date: 'MM-dd-y h:mm a' }}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Created By</label>\n                            <p>{{ticket.insertedby_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Ticket Type<span class=\"required\">*</span></label>\n                            <select name=\"ticketType\" id=\"ticketType\" class=\"form-control\" (change)=\"getCategoryList('change')\"\n                                [(ngModel)]=\"ticket.ticketTypeId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ticketTypeList\" [ngValue]=\"item.lookupValueId\"> {{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"ticket.ticketTypeId\">\n                        <div class=\"select-box\">\n                            <label>Category<span class=\"required\">*</span></label>\n                            <select name=\"ticketCategory\" id=\"ticketCategory\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.ticketCategoryId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ticketCategoryList | orderBy : 'lookupValueName'\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box select-box\">\n                            <label>Priority<span class=\"required\">*</span></label>\n                            <select name=\"priortyType\" id=\"priortyType\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.ticketPriorityId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of priortyTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n                 <!-- supervisor in edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"select-box\">\n                            <label>Supervisor<span class=\"required\">*</span></label>\n                            <select name=\"supervisorId\" id=\"supervisorId\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.supervisorId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of staffsList  | orderBy : 'staffName'\" [ngValue]=\"item.userId\"> \n                                    {{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n                                </option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n                <!-- staff and status  -->\n                <div class=\"row\">\n                    <div class=\"col-sm-6\" *ngIf=\"createdBY == 'staff'|| createdBY == 'admin' || viewMode == 'edit'\">\n                        <div class=\"select-box\">\n                            <label *ngIf=\"viewMode != 'edit' && createdBY == 'staff'\">Ticket For Staff<span class=\"required\">*</span></label>\n                            <label *ngIf=\"viewMode != 'edit' && createdBY == 'admin'\">Ticket For Admin<span class=\"required\">*</span></label>\n                            <label *ngIf=\"viewMode == 'edit'\">Assigned To Staff<span class=\"required\">*</span></label>\n                            <select name=\"ticketStaff\" id=\"ticketStaff\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.staffId\" required>\n                                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of staffsList | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n                                    {{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n                                </option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\" viewMode == 'edit'\">\n                        <div class=\"select-box\">\n                            <label>Status<span class=\"required\">*</span></label>\n                            <select name=\"ticketStatus\" id=\"ticketStatus\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.ticketStatusId\" required>\n                                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of statusTypeList\" [ngValue]=\"item.lookupValueId\"> {{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n                <!-- block and unit in create Mode-->\n                <div class=\"row\" *ngIf=\"(createdBY == 'tenant' || createdBY == 'owner') && (viewMode != 'edit' && this.isAdmin())\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Tower No<span class=\"required\">*</span></label>\n                            <select name=\"apartmentBlockId\" id=\"blockNo\" [(ngModel)]=\"block.blockId\" class=\"form-control\" (change)=\"getBlockUnit()\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of blockList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n                        <div class=\"select-box\">\n                            <label>Unit No<span class=\"required\">*</span></label>\n                            <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"block.apartmentBlockUnitId\" (change)=\"getPrimaryNameForUnit()\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of blockUnitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>Primary Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <!-- Description and upload File -->\n                <div class=\"row\">\n                    <div class=\"col-sm-8\">\n                        <div class=\"input-box\">\n                            <label>Subject<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"ticketSubject\" [(ngModel)]=\"ticket.title\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description<span class=\"required\">*</span></label>\n                            <textarea placeholder=\"Enter value\" name=\"ticketDescription\" [(ngModel)]=\"ticket.description\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-4\">\n                            <app-upload [fileId]=\"ticket.fileDetailsId1\" (fileIdChanged)=\"getFileId1($event)\"></app-upload>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-4\">\n                            <app-upload [fileId]=\"ticket.fileDetailsId2\" (fileIdChanged)=\"getFileId2($event)\"></app-upload> \n                        </div> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" *ngIf=\"this.viewMode != 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"createTicket()\">Create</button>\n                        <button class=\"float-right\" *ngIf=\"this.viewMode == 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"updateTicket()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n        <!-- create comment box -->\n        <div class=\"bg-card shadow\" *ngIf=\"viewMode == 'edit'\">\n            <form>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Add Comment</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"ticketComment\" [(ngModel)]=\"ticketComment\"\n\t\t\t\t\t\t\t\trequired></textarea>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\" (click)=\"createComment('comment')\">Add Comment</button>\n                    </div>\n\t\t\t\t</div>\n            </form>\n        </div>\n        <!-- comment List -->\n        <div class=\"timeline\">\n            <ul>\n                <li  *ngFor=\"let data of ticketCommentList; let i=index\">\n                    <div class=\"content\">\n                        <div class=\"bg-card shadow\" [ngClass]=\"{'log-border': data.isLog}\">\n                            <div class=\"d-flex\">\n                                <h5>{{data.insertedByName}}</h5>\n                                <span class=\"ml-3 text-secondary\">{{getTimeFormat(data.insertedOn)}}</span>\n                                <div class=\"ml-3 status-badge bg-status-green-700\">\n                                    <span class=\"dot  bg-status-green-800\"></span>\n                                    <span class=\"font-bold text-status-green-900 text-uppercase\">{{data.insertedByRole}}</span>\n                                </div>\n                            </div>\n                            <p [innerHTML]=\"data.comments\" class=\"desp\"></p>\n                        </div>\n                    </div>\n                    <div class=\"initial-letter font-medium\" [ngClass]=\"i%2==0 ? 'bg-highlight-base' : 'bg-highlight-light'\">{{data.insertedByName | slice:0:2  | uppercase}}</div>        \n                    <!-- <div class=\"image\">\n                        <img src=\"assets/images/user-icon.svg\" width=\"32\"  height=\"32\"> \n                    </div> -->\n                </li>\n                <div class=\"clear\"></div>\n            </ul>\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"help-desk-create-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span *ngIf=\"viewMode != 'edit'\">Create Ticket</span>\n            <span *ngIf=\"viewMode == 'edit'\">Edit Ticket</span>\n        </h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n        {{message.content}}\n        </condo-message>\n        <div class=\"bg-card shadow\">\n            <app-loader *ngIf=\"!isTrackerSubmitted\"></app-loader>\n            <form #createHelpDeskForm=\"ngForm\" name=\"createHelpDeskForm\" *ngIf=\"isTrackerSubmitted\">\n                <!-- radio button in create Mode-->\n                <div class=\"row\" *ngIf=\"isAdmin() && viewMode != 'edit'\">\n                    <div class=\"col-sm-12 text-center\">\n                        <div class=\"input-box radio-box\">\n                            <label>Create Ticket For </label>\n                            <div class=\"form-group\">\n                                <input  name=\"self\" id=\"Self\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"self\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Self\">Self</label>\n                                </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"User\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"owner\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"User\">Owner</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"tenant\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"tenant\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"staff\" id=\"Staff\" [(ngModel)]=\"createdBY\"  (change)=\"createdByChange()\" value=\"staff\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Staff\">Staff</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"admin\" id=\"Admin\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\" value=\"admin\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Admin\">Admin</label>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <!-- Tower Information in Edit mode -->\n                <div class=\"row\" *ngIf=\"ticket.apartmentBlockUnitUserId && viewMode == 'edit'\">\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-5 text-center text-highlight-base\">{{blockunitprimeName}}</h6>\n                    </div>\n                </div>\n                <!-- Ticket Id,Date and CreatedBy in Edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Ticket ID</label>\n                            <p>{{ticket.ticketId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Date Of Creation</label>\n                            <p>{{ticket.insertedOn | date: 'MM-dd-y h:mm a' }}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Created By</label>\n                            <p>{{ticket.insertedby_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Ticket Type<span class=\"required\">*</span></label>\n                            <select name=\"ticketType\" id=\"ticketType\" class=\"form-control\" (change)=\"getCategoryList('change')\"\n                                [(ngModel)]=\"ticket.ticketTypeId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ticketTypeList\" [ngValue]=\"item.lookupValueId\"> {{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"ticket.ticketTypeId\">\n                        <div class=\"select-box\">\n                            <label>Category<span class=\"required\">*</span></label>\n                            <select name=\"ticketCategory\" id=\"ticketCategory\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.ticketCategoryId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ticketCategoryList | orderBy : 'lookupValueName'\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box select-box\">\n                            <label>Priority<span class=\"required\">*</span></label>\n                            <select name=\"priortyType\" id=\"priortyType\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.ticketPriorityId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of priortyTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n                 <!-- supervisor in edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"select-box\">\n                            <label>Supervisor<span class=\"required\">*</span></label>\n                            <select name=\"supervisorId\" id=\"supervisorId\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.supervisorId\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of staffsList  | orderBy : 'staffName'\" [ngValue]=\"item.userId\"> \n                                    {{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n                                </option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n                <!-- staff and status  -->\n                <div class=\"row\">\n                    <div class=\"col-sm-6\" *ngIf=\"createdBY == 'staff'|| createdBY == 'admin' || viewMode == 'edit'\">\n                        <div class=\"select-box\">\n                            <label *ngIf=\"viewMode != 'edit' && createdBY == 'staff'\">Ticket For Staff<span class=\"required\">*</span></label>\n                            <label *ngIf=\"viewMode != 'edit' && createdBY == 'admin'\">Ticket For Admin<span class=\"required\">*</span></label>\n                            <label *ngIf=\"viewMode == 'edit'\">Assigned To Staff<span class=\"required\">*</span></label>\n                            <select name=\"ticketStaff\" id=\"ticketStaff\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.staffId\" (change)=\"changeTicketStatus()\" required>\n                                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of staffsList | orderBy : 'staffName'\" [ngValue]=\"item.staffId\"> \n                                    {{item.staffName}}, {{item.roleName}} - {{item.staffCategoryName}}\n                                </option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\" viewMode == 'edit'\">\n                        <div class=\"select-box\">\n                            <label>Status<span class=\"required\">*</span></label>\n                            <select name=\"ticketStatus\" id=\"ticketStatus\" class=\"form-control\"\n                                [(ngModel)]=\"ticket.ticketStatusId\" required>\n                                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of statusTypeList\" [ngValue]=\"item.lookupValueId\"> {{ item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n                <!-- block and unit in create Mode-->\n                <div class=\"row\" *ngIf=\"(createdBY == 'tenant' || createdBY == 'owner') && (viewMode != 'edit' && this.isAdmin())\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Tower No<span class=\"required\">*</span></label>\n                            <select name=\"apartmentBlockId\" id=\"blockNo\" [(ngModel)]=\"block.blockId\" class=\"form-control\" (change)=\"getBlockUnit()\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of blockList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n                        <div class=\"select-box\">\n                            <label>Unit No<span class=\"required\">*</span></label>\n                            <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"block.apartmentBlockUnitId\" (change)=\"getPrimaryNameForUnit()\" required>\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of blockUnitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>Primary Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <!-- Description and upload File -->\n                <div class=\"row\">\n                    <div class=\"col-sm-8\">\n                        <div class=\"input-box\">\n                            <label>Subject<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"ticketSubject\" [(ngModel)]=\"ticket.title\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description<span class=\"required\">*</span></label>\n                            <textarea placeholder=\"Enter value\" name=\"ticketDescription\" [(ngModel)]=\"ticket.description\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\t\n                        <div class=\"mb-5\">\n                            <app-upload [fileIds]=\"fileDetailsId\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" *ngIf=\"this.viewMode != 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"createTicket()\">Create</button>\n                        <button class=\"float-right\" *ngIf=\"this.viewMode == 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"updateTicket()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n        <!-- create comment box -->\n        <div class=\"bg-card shadow\" *ngIf=\"viewMode == 'edit'\">\n            <form>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Add Comment</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"ticketComment\" [(ngModel)]=\"ticketComment\"\n\t\t\t\t\t\t\t\trequired></textarea>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\" (click)=\"createComment('comment')\">Add Comment</button>\n                    </div>\n\t\t\t\t</div>\n            </form>\n        </div>\n        <!-- comment List -->\n        <div class=\"timeline\">\n            <ul>\n                <li  *ngFor=\"let data of ticketCommentList; let i=index\">\n                    <div class=\"content\">\n                        <div class=\"bg-card shadow\" [ngClass]=\"{'log-border': data.isLog}\">\n                            <div class=\"d-flex\">\n                                <h5>{{data.insertedByName}}</h5>\n                                <span class=\"ml-3 text-secondary\">{{getTimeFormat(data.insertedOn)}}</span>\n                                <div class=\"ml-3 status-badge bg-status-green-700\">\n                                    <span class=\"dot  bg-status-green-800\"></span>\n                                    <span class=\"font-bold text-status-green-900 text-uppercase\">{{data.insertedByRole}}</span>\n                                </div>\n                            </div>\n                            <p [innerHTML]=\"data.comments\" class=\"desp\"></p>\n                        </div>\n                    </div>\n                    <div class=\"initial-letter font-medium\" [ngClass]=\"i%2==0 ? 'bg-highlight-base' : 'bg-highlight-light'\">{{data.insertedByName | slice:0:2  | uppercase}}</div>        \n                    <!-- <div class=\"image\">\n                        <img src=\"assets/images/user-icon.svg\" width=\"32\"  height=\"32\"> \n                    </div> -->\n                </li>\n                <div class=\"clear\"></div>\n            </ul>\n        </div>\n    </div>\n</div>";
       /***/
     },
 
@@ -400,6 +400,13 @@
             });
           }
         }, {
+          key: "changeTicketStatus",
+          value: function changeTicketStatus() {
+            if (this.ticket.ticketStatusId == 32) {
+              this.ticket.ticketStatusId = 33;
+            }
+          }
+        }, {
           key: "getBlockUnit",
           value: function getBlockUnit() {
             var _this3 = this;
@@ -432,19 +439,21 @@
             }
           }
         }, {
-          key: "getFileId1",
-          value: function getFileId1(event) {
-            this.ticket.fileDetailsId1 = event;
-          }
-        }, {
-          key: "getFileId2",
-          value: function getFileId2(event) {
-            this.ticket.fileDetailsId2 = event;
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            var _this5 = this;
+
+            this.fileDetailsId = event.join();
+            this.ticket.fileDetailsId1 = null;
+            this.ticket.fileDetailsId2 = null;
+            event.forEach(function (res, index) {
+              if (index == 0) _this5.ticket.fileDetailsId1 = res;else if (index == 1) _this5.ticket.fileDetailsId2 = res;
+            });
           }
         }, {
           key: "createTicket",
           value: function createTicket() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.message = null;
 
@@ -491,27 +500,27 @@
               };
               this.ticketService.addTicket(params).subscribe(function (res) {
                 if (res.message) {
-                  if (_this5.sessionService.isAdmin()) {
-                    _this5.router.navigate(['/ams/helpdesk/open-tickets']);
+                  if (_this6.sessionService.isAdmin()) {
+                    _this6.router.navigate(['/ams/helpdesk/open-tickets']);
                   } else {
-                    _this5.router.navigate(['/user/servicedesk/all-tickets']);
+                    _this6.router.navigate(['/user/servicedesk/all-tickets']);
                   }
 
-                  _this5.sharedService.openSnackBar('Ticket added successfully', 'success');
+                  _this6.sharedService.openSnackBar('Ticket added successfully', 'success');
                 }
 
-                _this5.isTrackerSubmitted = true;
+                _this6.isTrackerSubmitted = true;
               }, function (error) {
-                _this5.isTrackerSubmitted = true;
+                _this6.isTrackerSubmitted = true;
 
-                _this5.sharedService.openSnackBar('Server Error', 'error');
+                _this6.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateTicket",
           value: function updateTicket() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.message = null;
 
@@ -557,23 +566,23 @@
               };
               this.ticketService.updateTicket(params).subscribe(function (res) {
                 if (res.message) {
-                  _this6.sharedService.openSnackBar(res.message, 'success'); //comment section
+                  _this7.sharedService.openSnackBar(res.message, 'success'); //comment section
 
 
-                  _this6.ticketComment = '';
+                  _this7.ticketComment = '';
 
                   for (var key in params.ticket) {
-                    if (params.ticket[key] != _this6.oldData[key]) {
-                      if (key == 'ticketPriorityId') _this6.ticketComment += "User has changed the Priority from ".concat(_this6.getLabel(_this6.oldData[key], _this6.priortyTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.priortyTypeList), "<br>");else if (key == 'ticketTypeId') _this6.ticketComment += "User has changed the Ticket Type from ".concat(_this6.getLabel(_this6.oldData[key], _this6.ticketTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.ticketTypeList), " and Category also changed<br>");else if (key == 'title') _this6.ticketComment += "User has changed the Subject from ".concat(_this6.oldData[key], " to ").concat(params.ticket[key], "<br>");else if (key == 'description') _this6.ticketComment += "User has changed the Description ".concat(params.ticket[key], "<br>");else if (key == 'ticketStatusId') {
-                        _this6.ticketComment += "User has changed the Status from ".concat(_this6.getLabel(_this6.oldData[key], _this6.statusTypeList), " to ").concat(_this6.getLabel(params.ticket[key], _this6.statusTypeList), "<br>");
+                    if (params.ticket[key] != _this7.oldData[key]) {
+                      if (key == 'ticketPriorityId') _this7.ticketComment += "User has changed the Priority from ".concat(_this7.getLabel(_this7.oldData[key], _this7.priortyTypeList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.priortyTypeList), "<br>");else if (key == 'ticketTypeId') _this7.ticketComment += "User has changed the Ticket Type from ".concat(_this7.getLabel(_this7.oldData[key], _this7.ticketTypeList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.ticketTypeList), " and Category also changed<br>");else if (key == 'title') _this7.ticketComment += "User has changed the Subject from ".concat(_this7.oldData[key], " to ").concat(params.ticket[key], "<br>");else if (key == 'description') _this7.ticketComment += "User has changed the Description ".concat(params.ticket[key], "<br>");else if (key == 'ticketStatusId') {
+                        _this7.ticketComment += "User has changed the Status from ".concat(_this7.getLabel(_this7.oldData[key], _this7.statusTypeList), " to ").concat(_this7.getLabel(params.ticket[key], _this7.statusTypeList), "<br>");
                       }
                     }
                   }
 
-                  if (_this6.ticketComment.length > 0) _this6.createComment('log');
-                } else _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                  if (_this7.ticketComment.length > 0) _this7.createComment('log');
+                } else _this7.sharedService.openSnackBar(res.errorMessage, 'error');
               }, function (error) {
-                _this6.sharedService.openSnackBar('Server Error', 'error');
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -588,7 +597,7 @@
         }, {
           key: "createComment",
           value: function createComment(type) {
-            var _this7 = this;
+            var _this8 = this;
 
             var commentDetails = {
               "ticketComment": {
@@ -604,27 +613,27 @@
             };
             this.ticketService.addTicketComment(commentDetails).subscribe(function (res) {
               if (res.code == 200) {
-                _this7.getCommentList();
+                _this8.getCommentList();
 
-                _this7.ticketComment = '';
+                _this8.ticketComment = '';
 
-                _this7.sharedService.openSnackBar('Comment Added Successfully', 'success');
-              } else _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this8.sharedService.openSnackBar('Comment Added Successfully', 'success');
+              } else _this8.sharedService.openSnackBar(res.errorMessage, 'error');
             }, function (error) {
-              _this7.sharedService.openSnackBar('Server Error', 'error');
+              _this8.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getCommentList",
           value: function getCommentList() {
-            var _this8 = this;
+            var _this9 = this;
 
             var params = {
               ticketId: this.ticketId
             };
             this.ticketService.getAllTicketCommentsByTicketId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this8.ticketCommentList = res.reverse();
+                _this9.ticketCommentList = res.reverse();
               }
             });
           }
@@ -636,7 +645,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this10 = this;
 
             // Login Based View for admin or owner
             if (!this.isAdmin()) {
@@ -649,21 +658,21 @@
               LookupTypeId: 7
             };
             this.lookupService.getLookupValueByLookupTypeId(ticketTypeParams).subscribe(function (res) {
-              _this9.ticketTypeList = res;
+              _this10.ticketTypeList = res;
             }); //priorityList
 
             var priority = {
               LookupTypeId: 14
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
-              _this9.priortyTypeList = res;
+              _this10.priortyTypeList = res;
             }); //tower
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this9.blockList = res;
+              _this10.blockList = res;
             }); //staff
 
             var staffParms = {
@@ -672,7 +681,7 @@
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
               if (res.length) {
-                _this9.staffsList = res;
+                _this10.staffsList = res;
               }
             }); //Edit Mode
 
@@ -681,34 +690,34 @@
                 ticketId: this.ticketId
               };
               this.ticketService.getTicketById(ticketId).subscribe(function (res) {
-                _this9.ticket = res[0]; //owner or tenant edit mode
+                _this10.ticket = res[0]; //owner or tenant edit mode
 
-                if (_this9.ticket.apartmentBlockUnitUserId) {
-                  _this9.createdBY = 'owner';
+                if (_this10.ticket.apartmentBlockUnitUserId) {
+                  _this10.createdBY = 'owner';
                   var blockUnit = {
-                    apartmentId: _this9.sessionService.apartmentId,
-                    apartmentBlockUnitUserId: _this9.ticket.apartmentBlockUnitUserId
+                    apartmentId: _this10.sessionService.apartmentId,
+                    apartmentBlockUnitUserId: _this10.ticket.apartmentBlockUnitUserId
                   };
 
-                  _this9.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(blockUnit).subscribe(function (res) {
-                    if (res.length > 0) _this9.blockunitprimeName = "".concat(res[0].blockunit_Label, " ").concat(res[0].primarycontact_Name);
+                  _this10.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(blockUnit).subscribe(function (res) {
+                    if (res.length > 0) _this10.blockunitprimeName = "".concat(res[0].blockunit_Label, " ").concat(res[0].primarycontact_Name);
                   });
                 } //staff Edit Mode
 
 
-                if (_this9.ticket.staffId) {
-                  _this9.createdBY = 'staff';
+                if (_this10.ticket.staffId) {
+                  _this10.createdBY = 'staff';
                 }
 
-                _this9.oldData = Object.assign({}, _this9.ticket); //log info
+                _this10.oldData = Object.assign({}, _this10.ticket); //log info
 
-                _this9.getCategoryList('edit');
+                _this10.getCategoryList('edit');
               });
               var statusParams = {
                 LookupTypeId: 9
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this9.statusTypeList = res;
+                _this10.statusTypeList = res;
               });
               this.getCommentList();
             }
@@ -1019,7 +1028,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this10 = this;
+            var _this11 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1032,7 +1041,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this10.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1043,7 +1052,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails(details) {
-            var _this11 = this;
+            var _this12 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1105,11 +1114,11 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this11.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this11.totalItems = _this11.userReportDataList.length;
-                _this11.isDataLoaded = true;
+                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this12.totalItems = _this12.userReportDataList.length;
+                _this12.isDataLoaded = true;
 
-                _this11.showItems();
+                _this12.showItems();
               });
             } else if (this.isListofAgedtickets()) {
               this.columnData = [{
@@ -1160,10 +1169,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this11.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this11.isDataLoaded = true;
+                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this12.isDataLoaded = true;
 
-                _this11.showItems();
+                _this12.showItems();
               });
             } else if (this.isListofUnassignedtickets()) {
               this.columnData = [{
@@ -1214,10 +1223,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this11.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this11.isDataLoaded = true;
+                _this12.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this12.isDataLoaded = true;
 
-                _this11.showItems();
+                _this12.showItems();
               });
             }
           }
@@ -1286,24 +1295,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this12.unitBlocksData = res;
+              _this13.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this12.route.params['value'].id;
+                return item.lookupValueId == _this13.route.params['value'].id;
               });
-              _this12.pageName = data[0].lookupValueName.replace('/', '');
-              _this12.pageDesp = data[0].description;
+              _this13.pageName = data[0].lookupValueName.replace('/', '');
+              _this13.pageDesp = data[0].description;
             });
             var details = {
               ApartmentID: this.sessionService.apartmentId,
@@ -1452,7 +1461,7 @@
         _createClass(HelpdeskReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1464,8 +1473,8 @@
             //  this.isDataLoaded = true;
 
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this13.reportDataList = res;
-              _this13.isDataLoaded = true;
+              _this14.reportDataList = res;
+              _this14.isDataLoaded = true;
             });
           }
         }, {
@@ -1721,7 +1730,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this14 = this;
+            var _this15 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1793,10 +1802,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
@@ -1853,10 +1862,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -1901,10 +1910,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -1955,10 +1964,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
@@ -2009,10 +2018,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
@@ -2063,10 +2072,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
@@ -2108,10 +2117,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
@@ -2159,10 +2168,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
@@ -2205,10 +2214,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
@@ -2251,10 +2260,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
@@ -2297,10 +2306,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             }
           }
@@ -2318,24 +2327,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this15.unitBlocksData = res;
+              _this16.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this15.route.params['value'].id;
+                return item.lookupValueId == _this16.route.params['value'].id;
               });
-              _this15.pageName = data[0].lookupValueName.replace('/', '');
-              _this15.pageDesp = data[0].description;
+              _this16.pageName = data[0].lookupValueName.replace('/', '');
+              _this16.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -2494,7 +2503,7 @@
         }, {
           key: "createCategory",
           value: function createCategory() {
-            var _this16 = this;
+            var _this17 = this;
 
             var entity = {
               description: this.ticketCategoryData.categoryName,
@@ -2512,22 +2521,22 @@
             };
             this.lookupService.addLookupValue(lookupvalue).subscribe(function (res) {
               if (res.code == 200) {
-                _this16.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this17.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                _this16.createEsclation(parseInt(res.message));
+                _this17.createEsclation(parseInt(res.message));
               } else {
-                _this16.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                _this17.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
               }
             }, function (error) {
               if (error.status == 0) {
-                _this16.sharedService.openSnackBar('Network Error', 'error');
+                _this17.sharedService.openSnackBar('Network Error', 'error');
               }
             });
           }
         }, {
           key: "createEsclation",
           value: function createEsclation(ticketCategoryId) {
-            var _this17 = this;
+            var _this18 = this;
 
             var addTicket = [];
             var esclator = {
@@ -2575,18 +2584,18 @@
             };
             this.ticketService.addTicketManagerMultiple(params).subscribe(function (res) {
               if (res.code == 200) {
-                _this17.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this18.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                _this17.dialogRef.close(true);
+                _this18.dialogRef.close(true);
               } else {
-                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this18.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
         }, {
           key: "updateCategory",
           value: function updateCategory() {
-            var _this18 = this;
+            var _this19 = this;
 
             if (this.ticketCategoryData.categoryName != this.editData.ticketCategoryName) {
               var entity = {
@@ -2606,11 +2615,11 @@
               };
               this.lookupService.updateLookupValue(lookupvalue).subscribe(function (res) {
                 if (res.message) {
-                  _this18.sharedService.openSnackBar(res.message, 'success');
+                  _this19.sharedService.openSnackBar(res.message, 'success');
 
-                  _this18.createEsclation(_this18.editData.ticketCategoryId);
+                  _this19.createEsclation(_this19.editData.ticketCategoryId);
                 } else {
-                  _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this19.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             } else {
@@ -2620,7 +2629,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this20 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -2631,7 +2640,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                 });
-                _this19.staffsList = res;
+                _this20.staffsList = res;
               }
             }, function (error) {
               console.log(error);
@@ -2644,21 +2653,21 @@
                 ticketTypeId: this.data.type == 'private' ? 27 : 24
               };
               this.ticketService.getTicketManagerByTicketCategoryId(queryParamBase).subscribe(function (res) {
-                _this19.editData = res[0];
-                _this19.ticketCategoryData.categoryName = res[0].ticketCategoryName;
-                _this19.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
-                _this19.ticketCategoryData.staffOne = res[0].escalationLevelId0.userId;
+                _this20.editData = res[0];
+                _this20.ticketCategoryData.categoryName = res[0].ticketCategoryName;
+                _this20.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
+                _this20.ticketCategoryData.staffOne = res[0].escalationLevelId0.userId;
 
                 if (res[0].escalationLevelId1) {
-                  _this19.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
-                  _this19.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
-                  _this19.ticketCategoryData.staffTwo = res[0].escalationLevelId1.userId;
+                  _this20.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
+                  _this20.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
+                  _this20.ticketCategoryData.staffTwo = res[0].escalationLevelId1.userId;
                 }
 
                 if (res[0].escalationLevelId2) {
-                  _this19.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
-                  _this19.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
-                  _this19.ticketCategoryData.staffThree = res[0].escalationLevelId2.userId;
+                  _this20.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
+                  _this20.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
+                  _this20.ticketCategoryData.staffThree = res[0].escalationLevelId2.userId;
                 }
               });
             }
@@ -2814,7 +2823,7 @@
         _createClass(CommonCategoryComponent, [{
           key: "addTicket",
           value: function addTicket(mode, categoryId) {
-            var _this20 = this;
+            var _this21 = this;
 
             var data = {
               type: 'common',
@@ -2827,7 +2836,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this20.getCommonCategoryList();
+                _this21.getCommonCategoryList();
               }
             });
           }
@@ -2849,7 +2858,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this21 = this;
+            var _this22 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2862,7 +2871,7 @@
               this.commondatagrid.showfiltercolumnbackground(false);
               this.commonColumns.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this21.commondatagrid.addfilter(item.datafield, filtergroup, true);
+                  _this22.commondatagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.commondatagrid.applyfilters();
@@ -2873,7 +2882,7 @@
         }, {
           key: "getCommonCategoryList",
           value: function getCommonCategoryList() {
-            var _this22 = this;
+            var _this23 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -2882,21 +2891,21 @@
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this22.totalItems = res.length;
+                _this23.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this22.commonListData = new jqx.dataAdapter(data);
+                _this23.commonListData = new jqx.dataAdapter(data);
               }
 
-              _this22.isDataLoaded = false;
+              _this23.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this24 = this;
 
             this.getCommonCategoryList();
 
@@ -2919,7 +2928,7 @@
               text: 'Supervisor',
               datafield: "escalationLevelId0",
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId0;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId0;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2929,7 +2938,7 @@
               text: 'Level-1',
               datafield: 'escalationLevelId1',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId1;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId1;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2938,7 +2947,7 @@
             }, {
               text: 'L1 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId1;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId1;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2948,7 +2957,7 @@
               text: 'Level-2',
               datafield: 'escalationLevelId2',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId2;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId2;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2957,7 +2966,7 @@
             }, {
               text: 'L2 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId2;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId2;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -2977,16 +2986,16 @@
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
                 var params = {
-                  apartmentId: _this23.sessionService.apartmentId,
+                  apartmentId: _this24.sessionService.apartmentId,
                   ticketCategoryId: item.id,
-                  deleteBy: _this23.sessionService.userId
+                  deleteBy: _this24.sessionService.userId
                 };
 
-                _this23.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this24.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this23.sharedService.setUnitListDeleteIndex(null);
+                    _this24.sharedService.setUnitListDeleteIndex(null);
 
-                    _this23.commondatagrid.deleterow(item.index);
+                    _this24.commondatagrid.deleterow(item.index);
                   }
                 });
               }
@@ -3267,7 +3276,7 @@
         _createClass(PrivateCategoryComponent, [{
           key: "addTicket",
           value: function addTicket(mode, categoryId) {
-            var _this24 = this;
+            var _this25 = this;
 
             var data = {
               type: 'private',
@@ -3280,7 +3289,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this24.getPrivateCategoryList();
+                _this25.getPrivateCategoryList();
               }
             });
           }
@@ -3302,7 +3311,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this25 = this;
+            var _this26 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3315,7 +3324,7 @@
               this.privatedatagrid.showfiltercolumnbackground(false);
               this.privateColumns.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this25.privatedatagrid.addfilter(item.datafield, filtergroup, true);
+                  _this26.privatedatagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.privatedatagrid.applyfilters();
@@ -3326,7 +3335,7 @@
         }, {
           key: "getPrivateCategoryList",
           value: function getPrivateCategoryList() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -3335,21 +3344,21 @@
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this26.totalItems = res.length;
+                _this27.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this26.privateListData = new jqx.dataAdapter(data);
+                _this27.privateListData = new jqx.dataAdapter(data);
               }
 
-              _this26.isDataLoaded = false;
+              _this27.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this28 = this;
 
             this.getPrivateCategoryList();
 
@@ -3372,7 +3381,7 @@
               text: 'Supervisor',
               datafield: "escalationLevelId0",
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId0;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId0;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3382,7 +3391,7 @@
               text: 'Level-1',
               datafield: 'escalationLevelId1',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId1;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId1;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3391,7 +3400,7 @@
             }, {
               text: 'L1 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId1;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId1;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3401,7 +3410,7 @@
               text: 'Level-2',
               datafield: 'escalationLevelId2',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId2;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId2;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3410,7 +3419,7 @@
             }, {
               text: 'L2 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId2;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId2;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3430,16 +3439,16 @@
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
                 var params = {
-                  apartmentId: _this27.sessionService.apartmentId,
+                  apartmentId: _this28.sessionService.apartmentId,
                   ticketCategoryId: item.id,
-                  deleteBy: _this27.sessionService.userId
+                  deleteBy: _this28.sessionService.userId
                 };
 
-                _this27.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this28.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this27.sharedService.setUnitListDeleteIndex(null);
+                    _this28.sharedService.setUnitListDeleteIndex(null);
 
-                    _this27.privatedatagrid.deleterow(item.index);
+                    _this28.privatedatagrid.deleterow(item.index);
                   }
                 });
               }
@@ -3698,7 +3707,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this28 = this;
+            var _this29 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3711,7 +3720,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this28.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3722,7 +3731,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this29 = this;
+            var _this30 = this;
 
             this.goBack();
             this.isTicketDataLoaded = false;
@@ -3732,61 +3741,6 @@
               assigntoSupervisorId: this.filterData.supervisor,
               assigntoStaffId: this.filterData.staff
             };
-            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
-              _this29.isTicketDataLoaded = true;
-
-              if (res.length > 0) {
-                res.sort(function (a, b) {
-                  return b.serialNo - a.serialNo;
-                });
-                var ticketInfo = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this29.totalItems = ticketInfo.localdata.length;
-                _this29.ticketListData = new jqx.dataAdapter(ticketInfo);
-              }
-            }, function (error) {
-              _this29.isTicketDataLoaded = true;
-
-              _this29.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "clearFilter",
-          value: function clearFilter() {
-            this.filterData.ticketStatus = null;
-            this.filterData.staff = null;
-            this.filterData.supervisor = null;
-            this.getTicketByAdmin();
-            this.goBack();
-          }
-        }, {
-          key: "goBack",
-          value: function goBack() {
-            this.matDrawer.close();
-          }
-        }, {
-          key: "getTicketByAdmin",
-          value: function getTicketByAdmin() {
-            var _this30 = this;
-
-            this.isTicketDataLoaded = false;
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-
-            if (this.urlType == 'open-tickets') {
-              params.ticketStatusIds = "32,33,46";
-            } else if (this.urlType == 'closed-tickets') {
-              params.ticketStatusIds = "34";
-            } else if (this.urlType == 'unassigned') {
-              params.isStaffassigned = false;
-            } else if (this.urlType == 'assigned-to-me') {
-              this.getTicketByAssignedUser();
-              return;
-            }
-
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this30.isTicketDataLoaded = true;
 
@@ -3808,15 +3762,41 @@
             });
           }
         }, {
-          key: "getTicketByAssignedUser",
-          value: function getTicketByAssignedUser() {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.filterData.ticketStatus = null;
+            this.filterData.staff = null;
+            this.filterData.supervisor = null;
+            this.getTicketByAdmin();
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getTicketByAdmin",
+          value: function getTicketByAdmin() {
             var _this31 = this;
 
+            this.isTicketDataLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId
+              apartmentId: this.sessionService.apartmentId
             };
-            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
+
+            if (this.urlType == 'open-tickets') {
+              params.ticketStatusIds = "32,33,46";
+            } else if (this.urlType == 'closed-tickets') {
+              params.ticketStatusIds = "34";
+            } else if (this.urlType == 'unassigned') {
+              params.isStaffassigned = false;
+            } else if (this.urlType == 'assigned-to-me') {
+              this.getTicketByAssignedUser();
+              return;
+            }
+
+            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this31.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -3824,7 +3804,7 @@
                   return b.serialNo - a.serialNo;
                 });
                 var ticketInfo = {
-                  localdata: res.reverse(),
+                  localdata: res,
                   datatype: "array"
                 };
                 _this31.totalItems = ticketInfo.localdata.length;
@@ -3837,15 +3817,15 @@
             });
           }
         }, {
-          key: "getTicketsByUser",
-          value: function getTicketsByUser() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this32 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+              userId: this.sessionService.userId
             };
-            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this32.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -3866,12 +3846,41 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this33 = this;
 
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+            };
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+              _this33.isTicketDataLoaded = true;
+
+              if (res.length > 0) {
+                res.sort(function (a, b) {
+                  return b.serialNo - a.serialNo;
+                });
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this33.totalItems = ticketInfo.localdata.length;
+                _this33.ticketListData = new jqx.dataAdapter(ticketInfo);
+              }
+            }, function (error) {
+              _this33.isTicketDataLoaded = true;
+
+              _this33.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this34 = this;
+
             this.activateRouter.url.subscribe(function (data) {
-              _this33.urlType = data[0].path;
+              _this34.urlType = data[0].path;
             });
 
             if (this.isAdmin()) {
@@ -4010,7 +4019,7 @@
                   res.forEach(function (ele) {
                     ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-                  _this33.staffsList = res;
+                  _this34.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -4020,7 +4029,7 @@
                 LookupTypeId: 9
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this33.ticketStatusList = res;
+                _this34.ticketStatusList = res;
               });
             }
           }
