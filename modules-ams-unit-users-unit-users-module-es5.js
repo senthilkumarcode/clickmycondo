@@ -68,7 +68,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-resident-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Add User</h4>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.emailId\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"clearEmail()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n        <app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isValidEmail && !isUserSubmitted\">\n\t\t\t<form #addResidentForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box radio-box\">\n                            <label>User Type*</label>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\"\n                                    [(ngModel)]=\"towerInfo.userTypeId\" [value]=\"4\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"owner\">Owner</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\"\n                                    [(ngModel)]=\"towerInfo.userTypeId\" [value]=\"2\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n                            </div>\n                        </div>\n                    </div>\n                    <!-- <div class=\"col-sm-6\">\n                        <div class=\"float-sm-right\">\n                            <div class=\"profile-pic-wrapper\">\n                                <div class=\"profile-picture\">\n                                    <img class=\"svg\" [src]=\"profilePicUrl\" id=\"userProfile\">\n                                </div>\n                                <button mat-mini-fab [color]=\"'accent'\" class=\"upload-icon\" (click)=\"fileInput.click()\">\n                                    <input hidden type=\"file\" #fileInput [accept]=\"imageFormats\" (change)=\"uploadFile($event.target.files)\">\n                                    <mat-icon svgIcon=\"feather:plus\"></mat-icon>\n                                </button>\n                                <svg class=\"progress-ring\" width=\"100\" height=\"100\">\n                                    <circle class=\"progress-ring__circle\" stroke-width=\"4\" fill=\"transparent\" r=\"46\" cx=\"50\" cy=\"50\"/>\n                                </svg>\n                            </div>\n                        </div>\n                    </div> -->\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box float-sm-right mr-3\">\n                            <label>Existing User In</label>\n                            <p *ngFor=\"let data of emailResponse\">{{data.role_Label}} - {{data.blockId_Label}} {{data.unitId_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Email*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"userEmail\"\n                                [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>First Name*</label>\n                            <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n                                placeholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                                required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Last Name*</label>\n                            <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n                                placeholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n                                required>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                        <label>Tower No<span class=\"required\">*</span></label>\n                        <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"towerInfo.apartmentBlockId\"\n                            (ngModelChange)=\"getUnits()\" required>\n                            <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n                        </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"towerInfo.apartmentBlockId\">\n                        <div class=\"select-box\">\n                        <label>Unit No<span class=\"required\">*</span></label>\n                        <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"towerInfo.apartmentBlockUnitId\" required>\n                            <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n                        </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Mobile No<span class=\"required\">*</span></label>\n                            <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n                                [preferredCountries]=\"preferredCountries\"\n                                [enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n                                [searchCountryFlag]=\"true\"\n                                [searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n                                [selectFirstCountry]=\"false\"\n                                [selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                                [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n                                [(ngModel)]=\"user.phoneNumber\" name=\"phone\">\n                        </ngx-intl-tel-input>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>Gender*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"male\">Male</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"female\">Female</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <div class=\"form-group\">\n                                <input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"auto\">Auto Generate password</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"set\">Setup a Password</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n                        <div class=\"input-box\">\n                            <label>Password*</label>\n                            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n                                [(ngModel)]=\"user.password\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n                                        name=\"livingcondo\" [(ngModel)]=\"user.isLiving\">\n                                    <label class=\"form-check-label tiny\"\n                                        for=\"livingcondo\">Is Residing In Condo</label>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n                                        name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n                                    <label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact for Billing</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box d-inline-block oh\">\n                            <label>Notification</label>\n                            <div class=\"form-group checker-group\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n                                        name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n                                        disabled=\"true\">\n                                    <label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n                                </div>\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n                                        name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n                                    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"addResidentDetails()\">Submit</button>\n                    </div>\n                </div>\n            </form>\n\t\t</div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"add-resident-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Add User</h4>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\" [appearance]=\"message.appearance\" [showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\" [@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.emailId\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"clearEmail()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n        <app-loader *ngIf=\"isUserSubmitted\"></app-loader>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isValidEmail && !isUserSubmitted\">\n\t\t\t<form #addResidentForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box radio-box\">\n                            <label>User Type*</label>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"owner\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"4\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"owner\">Owner</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"userType\" (change)=\"changeUserType($event)\" id=\"tenant\"\n                                    [(ngModel)]=\"towerInfo.roleId\" [value]=\"2\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n                            </div>\n                        </div>\n                    </div>\n                    <!-- <div class=\"col-sm-6\">\n                        <div class=\"float-sm-right\">\n                            <div class=\"profile-pic-wrapper\">\n                                <div class=\"profile-picture\">\n                                    <img class=\"svg\" [src]=\"profilePicUrl\" id=\"userProfile\">\n                                </div>\n                                <button mat-mini-fab [color]=\"'accent'\" class=\"upload-icon\" (click)=\"fileInput.click()\">\n                                    <input hidden type=\"file\" #fileInput [accept]=\"imageFormats\" (change)=\"uploadFile($event.target.files)\">\n                                    <mat-icon svgIcon=\"feather:plus\"></mat-icon>\n                                </button>\n                                <svg class=\"progress-ring\" width=\"100\" height=\"100\">\n                                    <circle class=\"progress-ring__circle\" stroke-width=\"4\" fill=\"transparent\" r=\"46\" cx=\"50\" cy=\"50\"/>\n                                </svg>\n                            </div>\n                        </div>\n                    </div> -->\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box float-sm-right mr-3\" *ngIf=\"emailResponse.length > 0\">\n                            <label>Existing User In</label>\n                            <p *ngFor=\"let data of emailResponse\">{{data.role_Label}} - {{data.blockId_Label}} {{data.unitId_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Email*</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"userEmail\"\n                                [(ngModel)]=\"user.emailId\" disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>First Name*</label>\n                            <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n                                placeholder=\"First Name\" name=\"firstName\" [(ngModel)]=\"user.firstName\"\n                                required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Last Name*</label>\n                            <input type=\"text\" [disabled]=\"isExistingUSer\" class=\"form-control\"\n                                placeholder=\"Last Name\" name=\"lastName\" [(ngModel)]=\"user.lastName\"\n                                required>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                        <label>Tower No<span class=\"required\">*</span></label>\n                        <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"towerInfo.apartmentBlockId\"\n                            (ngModelChange)=\"getUnits()\" required>\n                            <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n                        </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"towerInfo.apartmentBlockId\">\n                        <div class=\"select-box\">\n                        <label>Unit No<span class=\"required\">*</span></label>\n                        <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"towerInfo.apartmentBlockUnitId\" required>\n                            <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n                        </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Mobile No<span class=\"required\">*</span></label>\n                            <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n                                [preferredCountries]=\"preferredCountries\"\n                                [enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n                                [searchCountryFlag]=\"true\"\n                                [searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n                                [selectFirstCountry]=\"false\"\n                                [selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                                [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n                                [(ngModel)]=\"user.phoneNumber\" name=\"phone\">\n                        </ngx-intl-tel-input>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>Gender*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"male\">Male</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"female\">Female</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <div class=\"form-group\">\n                                <input name=\"autoGenPwd\" id=\"auto\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"true\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"auto\">Auto Generate password</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"autoGenPwd\" id=\"set\" [(ngModel)]=\"isAutoGenPassword\" [value]=\"false\"\n                                    type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"set\">Setup a Password</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"!isAutoGenPassword\">\n                        <div class=\"input-box\">\n                            <label>Password*</label>\n                            <input type=\"password\" class=\"form-control\" placeholder=\"Password\" name=\"password\"\n                                [(ngModel)]=\"user.password\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\" style=\"padding-top: 25px;padding-left: 16px;\">\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n                                        name=\"livingcondo\" [(ngModel)]=\"user.isLiving\">\n                                    <label class=\"form-check-label tiny\"\n                                        for=\"livingcondo\">Is Residing In Condo</label>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n                                        name=\"primarycondo\" [(ngModel)]=\"user.isPrimaryContact\">\n                                    <label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact for Billing</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box d-inline-block oh\">\n                            <label>Notification</label>\n                            <div class=\"form-group checker-group\">\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"emailNotify\"\n                                        name=\"emailNotify\" [(ngModel)]=\"user.isEmailNotify\"\n                                        disabled=\"true\">\n                                    <label class=\"form-check-label tiny\" for=\"emailNotify\">Email</label>\n                                </div>\n                                <div class=\"form-check recur-check float-left mr-4\">\n                                    <input type=\"checkbox\" class=\"form-check-input\" id=\"smsNotify\"\n                                        name=\"smsNotify\" [(ngModel)]=\"user.isSmsNotify\">\n                                    <label class=\"form-check-label tiny\" for=\"smsNotify\">SMS</label>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"addResidentDetails()\">Submit</button>\n                    </div>\n                </div>\n            </form>\n\t\t</div>\n\t</div>\n</div>";
       /***/
     },
 
@@ -589,7 +589,7 @@
           this.towerList = [];
           this.unitList = [];
           this.towerInfo = {
-            userTypeId: null,
+            roleId: null,
             apartmentBlockId: null,
             apartmentBlockUnitId: null,
             apartmentBlockUnitUserId: null
@@ -612,6 +612,7 @@
             this.user = {};
             this.isValidEmail = false;
             this.isExistingUSer = false;
+            this.emailResponse = [];
           }
         }, {
           key: "resetField",
@@ -624,7 +625,7 @@
               emailId: mailId
             };
             this.towerInfo = {
-              userTypeId: null,
+              roleId: null,
               apartmentBlockId: null,
               apartmentBlockUnitId: null,
               apartmentBlockUnitUserId: null
@@ -858,7 +859,7 @@
                 "isBillToParty": this.user.isPrimaryContact,
                 "isActive": true,
                 "insertedBy": 1,
-                "insertedOn": "2020-09-29T06:04:07.178Z",
+                "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "isLiving": this.user.isLiving,
@@ -879,7 +880,7 @@
                 var params = {
                   userRole: {
                     "userId": userId,
-                    "roleId": _this5.towerInfo.userTypeId,
+                    "roleId": _this5.towerInfo.roleId,
                     "isActive": true,
                     "insertedBy": _this5.sessionService.userId,
                     "insertedOn": new Date().toISOString(),
@@ -929,7 +930,7 @@
             this.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
               _this6.isUserSubmitted = false;
 
-              if (res.message) {
+              if (res) {
                 _this6.sharedService.openSnackBar("Account has been created. User notified via Email", 'success');
 
                 _this6.router.navigate(['ams/unit&users/unapproved']);
@@ -2437,12 +2438,18 @@
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
 
       var UnapprovedComponent = /*#__PURE__*/function () {
-        function UnapprovedComponent(injector, dialog, _activatedRoute, _router, userService, sharedService, sessionService, srvModal) {
+        function UnapprovedComponent(injector, dialog, _activatedRoute, _router, userService, sharedService, sessionService, srvModal, apartmentService) {
           _classCallCheck(this, UnapprovedComponent);
 
           this.injector = injector;
@@ -2453,6 +2460,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.srvModal = srvModal;
+          this.apartmentService = apartmentService;
           this.displayedColumns = ['position', 'name', 'weight', 'symbol'];
           this.ItemUserStartIndex = 0;
           this.itemUserLimit = 15;
@@ -2663,7 +2671,7 @@
                 multipleApiCall.push(_this21.userService.updateRejectuser(updateParam));
               }
             });
-            Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
+            Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
               if (res.length > 0) {
                 res.forEach(function (data) {
                   if (data.code == 200) {
@@ -2761,9 +2769,7 @@
         }, {
           key: "onUnapproveDelete",
           value: function onUnapproveDelete(detail) {
-            var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var unapprovedId = dataRecord.userId;
-            this.modalService.showConfirmModal(unapprovedId);
+            this.modalService.showConfirmModal(detail.rowId);
           }
         }, {
           key: "onviewUserInfo",
@@ -2862,29 +2868,24 @@
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
+                var dataRecord = _this24.datagrid.getrowdata(id);
+
                 var params = {
-                  userId: id,
-                  updateUserId: parseInt(_this24.sessionService.userId)
+                  apartmentId: _this24.sessionService.apartmentId,
+                  apartmentBlockUnitUserId: dataRecord.apartmentBlockUnitUserID,
+                  deleteBy: _this24.sessionService.userId
                 };
 
-                _this24.userService.deleteUserById(params).subscribe(function (res) {
-                  underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this24.unitListData, function (type) {
-                    if (type.id == id) {
-                      type.active = false;
-                    }
-                  });
-                  setTimeout(function () {
-                    _this24.unitListData = _this24.unitListData.filter(function (type) {
-                      return type.id !== id;
-                    });
-                    _this24.totalUserItems = _this24.unitListData.length;
+                _this24.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
+                  _this24.sharedService.setUnitListDeleteIndex(null);
 
-                    _this24.sharedService.setAlertMessage("User deleted");
+                  if (res.message) {
+                    _this24.getUnApprovedList();
 
-                    _this24.sharedService.setUnitListDeleteIndex(null);
-                  }, 500);
-                }, function (error) {
-                  console.log(error);
+                    _this24.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this24.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
                 });
               }
             });
@@ -2910,13 +2911,6 @@
               };
               _this25.unitListData = new jqx.dataAdapter(_this25.gridSourceData);
               _this25.totalUserItems = unitListData.length;
-
-              if (_this25.totalUserItems > _this25.itemUserLimit) {
-                _this25.ItemUserEndIndex = _this25.itemUserLimit;
-              } else {
-                _this25.ItemUserEndIndex = _this25.totalUserItems;
-              }
-
               _this25.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
@@ -2954,6 +2948,8 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
           type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]
         }];
       };
 
@@ -3005,7 +3001,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./unapproved.component.scss */
         "./src/app/modules/ams/unit-users/components/unapproved/unapproved.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])], UnapprovedComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]])], UnapprovedComponent);
 
       var getClassName = function getClassName(value) {
         return value ? 'bg-green-900' : 'bg-red-900';

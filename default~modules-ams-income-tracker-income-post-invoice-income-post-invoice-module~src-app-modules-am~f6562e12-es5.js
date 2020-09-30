@@ -923,7 +923,7 @@
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
                 "custInvoiceDate": this.invoice.custInvoiceDate,
-                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.dueDate, this.zone.region).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.dueDate, 'Asia/Manila').format(),
                 "tax1": 0,
                 "tax2": 0,
                 "tax3": 0,
