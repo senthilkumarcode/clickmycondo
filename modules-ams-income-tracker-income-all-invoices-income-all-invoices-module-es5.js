@@ -480,7 +480,7 @@
               "apartmentBlockUnitId": invoice.apartmentBlockUnitId,
               "custInvoiceAmount": parseInt(invoice.custInvoiceAmount),
               "custInvoiceDate": new Date().toISOString(),
-              "dueDate": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(invoice.dueDate).tz(this.zone).toISOString(),
+              "dueDate": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(invoice.dueDate).tz(this.timeZone).toISOString(),
               "tax1": 0,
               "tax2": 0,
               "tax3": 0,
@@ -534,12 +534,9 @@
           value: function ngOnInit() {
             var _this5 = this;
 
-            this.sharedService.zonecast.subscribe(function (zone) {
-              return _this5.zone = zone;
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this5.timeZone = timeZone;
             });
-            this.todaysDate = new Date().toISOString();
-            this.isoDate = moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(new Date().toISOString()).tz(this.zone.region).format(this.constantsService.dateTimeFormat); //this.fromDate =  moment().subtract(3,'months').endOf('month').format('YYYY-MM-DD');
-            //this.toDate = moment().format('YYYY-MM-DD');
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -569,7 +566,7 @@
               datafield: 'insertedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).utcOffset(-8).format(_this5.constantsService.dateTimeFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(_this5.constantsService.dateTimeFormat) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -612,7 +609,7 @@
               minwidth: 120,
               renderer: columnrenderer,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).utcOffset(-8).format(_this5.constantsService.dateTimeFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(_this5.timeZone.offset, 'hours').format(_this5.constantsService.dateTimeFormat) + '</div>';
               }
             }, {
               text: 'Actions',

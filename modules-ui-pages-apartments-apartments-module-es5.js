@@ -303,9 +303,9 @@
             };
             this.staffService.getStaffByUserId(params).subscribe(function (res) {
               _this2.sessionService.staffId = res[0].staffId;
-              _this2.sessionService.securityLevelId = res[0].secLevelId;
+              _this2.sessionService.secLevelId = res[0].secLevelId;
 
-              if (_this2.sessionService.securityLevelId != undefined) {
+              if (_this2.sessionService.secLevelId != null) {
                 // Hide the message
                 _this2.message = null;
                 _this2.isRouting = true;

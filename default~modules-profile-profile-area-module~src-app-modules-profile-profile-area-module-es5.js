@@ -3831,7 +3831,7 @@
           value: function getSelectedZone(event) {
             this.user.zone = event[0].abbr;
             this.sessionService.zone = event[0].abbr;
-            this.sharedService.setZone(this.sessionService.zone);
+            this.sharedService.setTimeZone(this.sessionService.zone);
           }
         }, {
           key: "ngOnInit",

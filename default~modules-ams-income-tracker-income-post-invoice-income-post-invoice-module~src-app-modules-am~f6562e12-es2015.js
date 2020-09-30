@@ -608,8 +608,8 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
-                "custInvoiceDate": this.invoice.custInvoiceDate,
-                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.dueDate, 'Asia/Manila').format(),
+                "custInvoiceDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.custInvoiceDate, this.timeZone.region).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.dueDate, this.timeZone.region).format(),
                 "tax1": 0,
                 "tax2": 0,
                 "tax3": 0,
@@ -852,7 +852,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
             }
         ];
-        this.sharedService.zonecast.subscribe(zone => this.zone = zone);
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         let dateParams = {
             LookupTypeId: 74
         };

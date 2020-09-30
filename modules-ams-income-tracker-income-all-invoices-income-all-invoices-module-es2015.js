@@ -306,7 +306,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
             "apartmentBlockUnitId": invoice.apartmentBlockUnitId,
             "custInvoiceAmount": parseInt(invoice.custInvoiceAmount),
             "custInvoiceDate": new Date().toISOString(),
-            "dueDate": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(invoice.dueDate).tz(this.zone).toISOString(),
+            "dueDate": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(invoice.dueDate).tz(this.timeZone).toISOString(),
             "tax1": 0,
             "tax2": 0,
             "tax3": 0,
@@ -359,11 +359,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
         });
     }
     ngOnInit() {
-        this.sharedService.zonecast.subscribe(zone => this.zone = zone);
-        this.todaysDate = new Date().toISOString();
-        this.isoDate = moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(new Date().toISOString()).tz(this.zone.region).format(this.constantsService.dateTimeFormat);
-        //this.fromDate =  moment().subtract(3,'months').endOf('month').format('YYYY-MM-DD');
-        //this.toDate = moment().format('YYYY-MM-DD');
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -390,7 +386,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 datafield: 'insertedOn',
                 minwidth: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).utcOffset(-8).format(this.constantsService.dateTimeFormat) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(this.constantsService.dateTimeFormat) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -436,7 +432,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 minwidth: 120,
                 renderer: columnrenderer,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).utcOffset(-8).format(this.constantsService.dateTimeFormat) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(this.timeZone.offset, 'hours').format(this.constantsService.dateTimeFormat) + '</div>';
                 },
             },
             {

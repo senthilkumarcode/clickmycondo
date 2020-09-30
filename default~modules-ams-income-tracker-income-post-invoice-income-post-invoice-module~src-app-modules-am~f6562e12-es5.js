@@ -922,8 +922,8 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
-                "custInvoiceDate": this.invoice.custInvoiceDate,
-                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.dueDate, 'Asia/Manila').format(),
+                "custInvoiceDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.custInvoiceDate, this.timeZone.region).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__["tz"](this.invoice.dueDate, this.timeZone.region).format(),
                 "tax1": 0,
                 "tax2": 0,
                 "tax3": 0,
@@ -1178,8 +1178,8 @@
               "discountTypeId": "",
               "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
             }];
-            this.sharedService.zonecast.subscribe(function (zone) {
-              return _this5.zone = zone;
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this5.timeZone = timeZone;
             });
             var dateParams = {
               LookupTypeId: 74

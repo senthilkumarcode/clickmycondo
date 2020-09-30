@@ -156,8 +156,8 @@ let ApartmentsComponent = class ApartmentsComponent {
         };
         this.staffService.getStaffByUserId(params).subscribe((res) => {
             this.sessionService.staffId = res[0].staffId;
-            this.sessionService.securityLevelId = res[0].secLevelId;
-            if (this.sessionService.securityLevelId != undefined) {
+            this.sessionService.secLevelId = res[0].secLevelId;
+            if (this.sessionService.secLevelId != null) {
                 // Hide the message
                 this.message = null;
                 this.isRouting = true;
