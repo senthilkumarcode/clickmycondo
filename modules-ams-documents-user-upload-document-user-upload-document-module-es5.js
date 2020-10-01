@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-upload-drawer-wrapper\">\n    <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n    <!-- addUserDocument -->\n    <ng-container>\n        <div class=\"title\">\n            <h4>\n                <span *ngIf=\"urlType != 'view'\">Create Document</span>\n                <span *ngIf=\"urlType == 'view'\">View Document</span>\n            </h4>\n            <div class=\"ml-auto\">\n                <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button>\n            </div>\n        </div>\n        <!-- <div class=\"mb-4 text-right\">\n            <a mat-button (click)=\"navigateCreatePage()\" [color]=\"'primary'\">\n                <mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n                <span *ngIf=\"urlType == 'view'\">Create Upload</span>\n                <span *ngIf=\"urlType != 'view'\">View Upload</span>\n            </a>\n        </div> -->\n        <div class=\"bg-card shadow accent mb-5\">\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Tower: </span>{{unitDetails?.apartmentBlockNumber}}</p>\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Unit: </span>{{unitDetails?.apartmentBlockUnitNumber}}</p>\n        </div>\n        <div *ngIf=\"urlType != 'view'\">\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Document Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.userDocumentName\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"Document Category\"\n                            fieldPlaceholder=\"Document Category\"\n                            [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"document.userDocumentCategoryId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setDocCategory($event)\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description</label>\n                            <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.description\"></textarea>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <app-upload [fileIds]=\"fileIds\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                            [multiple]=\"true\"\n                        ></app-upload>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createDocument()\">Submit</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n        <div *ngIf=\"urlType == 'view'\">\n            <app-loader *ngIf=\"!viewLoader\"></app-loader>\n            <form *ngIf=\"viewLoader\">\n                <div class=\"mb-5 line\" *ngFor=\"let data of documentViewList;let i = index\">\n                    <div class=\"text-right\">\n                        <mat-icon class=\"link\" svgIcon=\"dripicons:cross\" (click)=\"deleteDocument(i,data.userDocumentTypeID)\"></mat-icon>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Document Name</label>\n                                <p>{{data.userDocumentName}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Document Category</label>\n                                <p>{{data.userDocumentCatName}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box d-flex\">\n                                <p>\n                                    <span class=\"mr-2 text-muted\">Description :</span>\n                                    <span>{{data.userDocDesc}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Document</label>\n                                <p class=\"d-flex\">\n                                    <a class=\"mr-3\" [href]=\"data.fileUrl\" target=\"_blank\">{{data.fileName}}</a>\n                                    <span class=\"text-muted\">{{getDateFormat(data.insertedOn)}}</span>\n                                </p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </ng-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-upload-drawer-wrapper\">\n    <!-- <app-loader *ngIf=\"!isDataLoaded\"></app-loader> -->\n    <!-- addUserDocument -->\n    <ng-container>\n        <div class=\"title\">\n            <h4>\n                <span *ngIf=\"urlType != 'view'\">Create Document</span>\n                <span *ngIf=\"urlType == 'view'\">View Document</span>\n            </h4>\n            <div class=\"ml-auto\">\n                <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button>\n            </div>\n        </div>\n        <!-- <div class=\"mb-4 text-right\">\n            <a mat-button (click)=\"navigateCreatePage()\" [color]=\"'primary'\">\n                <mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n                <span *ngIf=\"urlType == 'view'\">Create Upload</span>\n                <span *ngIf=\"urlType != 'view'\">View Upload</span>\n            </a>\n        </div> -->\n        <div class=\"bg-card shadow accent mb-5\">\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Tower: </span>{{unitDetails?.apartmentBlockNumber}}</p>\n\t\t\t<p class=\"d-inline-block mr-md-4\"><span class=\"font-medium\">Unit: </span>{{unitDetails?.apartmentBlockUnitNumber}}</p>\n        </div>\n        <div *ngIf=\"urlType != 'view'\">\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Document Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.userDocumentName\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"Document Category\"\n                            fieldPlaceholder=\"Document Category\"\n                            [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"document.userDocumentCategoryId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setDocCategory($event)\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description</label>\n                            <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.description\"></textarea>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <app-upload [fileIds]=\"document.fileDetailsIds\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                            [multiple]=\"true\"\n                        ></app-upload>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createDocument()\">Submit</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n        <div *ngIf=\"urlType == 'view'\">\n            <app-loader *ngIf=\"!viewLoader\"></app-loader>\n            <form *ngIf=\"viewLoader\">\n                <div class=\"mb-5 line\" *ngFor=\"let data of documentViewList;let i = index\">\n                    <div class=\"text-right\">\n                        <mat-icon class=\"link\" svgIcon=\"dripicons:cross\" (click)=\"deleteDocument(i,data.userDocumentTypeID)\"></mat-icon>\n                    </div>\n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Document Name</label>\n                                <p>{{data.userDocumentName}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-6\">\n                            <div class=\"input-box\">\n                                <label>Document Category</label>\n                                <p>{{data.userDocumentCatName}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box d-flex\">\n                                <p>\n                                    <span class=\"mr-2 text-muted\">Description :</span>\n                                    <span>{{data.userDocDesc}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Document</label>\n                                <p class=\"d-flex\">\n                                    <a class=\"mr-3\" [href]=\"data.fileUrl\" target=\"_blank\">{{data.fileName}}</a>\n                                    <span class=\"text-muted\">{{getDateFormat(data.insertedOn)}}</span>\n                                </p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </ng-container>\n</div>";
       /***/
     },
 
@@ -577,71 +577,65 @@
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! rxjs */
-      "./node_modules/rxjs/_esm2015/index.js");
-      /* harmony import */
-
-
-      var _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ../user-table-list/user-table-list.component */
       "./src/app/modules/ams/documents/user-upload-document/user-table-list/user-table-list.component.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Document */
       "./src/app/api/controllers/Document.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/file-download.service */
       "./src/app/shared/services/file-download.service.ts");
       /* harmony import */
 
 
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! @angular/platform-browser */
       "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
 
@@ -669,7 +663,7 @@
             fileDetailsId: null
           }];
           this.documentViewList = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
         }
 
         _createClass(UserUploadDrawerComponent, [{
@@ -695,12 +689,12 @@
         }, {
           key: "getFileIds",
           value: function getFileIds(event) {
-            this.fileIds = event.join();
+            this.document.fileDetailsIds = event.join();
           }
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format('MMM D YYYY hh:mm A');
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format('MMM D YYYY hh:mm A');
           }
         }, {
           key: "deleteDocument",
@@ -715,42 +709,32 @@
           value: function createDocument() {
             var _this3 = this;
 
-            if (this.fileIds) {
-              var fileList = this.fileIds.split(',');
-              var multipleApiCall = [];
-              fileList.forEach(function (data) {
-                var uploadDetails = {
-                  "ApartmentId": _this3.sessionService.apartmentId,
-                  "ApartmentBlockUnitId": _this3.document.apartmentBlockUnitId,
-                  "UserDocumentCategoryId": _this3.document.userDocumentCategoryId,
-                  "UserDocumentTypeId": 1,
-                  "UserDocumentAccessibleToId": 1,
-                  "UserDocumentName": _this3.document.userDocumentName,
-                  "Description": _this3.document.description,
-                  "IsActive": true,
-                  "InsertedBy": _this3.sessionService.userId,
-                  "InsertedOn": new Date().toISOString(),
-                  "UpdatedBy": null,
-                  "UpdatedOn": null,
-                  "FileDetailsId": Number(data),
-                  "IsPublic": false,
-                  "files": null
-                };
-                multipleApiCall.push(_this3.documentService.addUserDocument(uploadDetails));
-              });
-              Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
-                if (res.length > 0) {
-                  res.forEach(function (fileRes, index) {
-                    if (fileRes.message && index + 1 == res.length) {
-                      _this3.sharedService.openSnackBar('Document Created Successfully', 'success');
+            if (this.document.fileDetailsIds) {
+              var uploadDetails = {
+                "ApartmentId": this.sessionService.apartmentId,
+                "ApartmentBlockUnitId": this.document.apartmentBlockUnitId,
+                "UserDocumentCategoryId": this.document.userDocumentCategoryId,
+                "UserDocumentTypeId": 1,
+                "UserDocumentAccessibleToId": 1,
+                "UserDocumentName": this.document.userDocumentName,
+                "Description": this.document.description,
+                "IsActive": true,
+                "InsertedBy": this.sessionService.userId,
+                "InsertedOn": new Date().toISOString(),
+                "UpdatedBy": null,
+                "UpdatedOn": null,
+                "FileDetailsId": null,
+                "IsPublic": false,
+                "files": null,
+                "FileDetailsIds": this.document.fileDetailsIds
+              };
+              this.documentService.addUserDocument(uploadDetails).subscribe(function (res) {
+                if (res.message) {
+                  _this3.sharedService.openSnackBar('Document Created Successfully', 'success');
 
-                      _this3.goBack();
-                    } else if (fileRes.responseData && fileRes.responseData.value.errorMessage) {
-                      _this3.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
-                    }
-                  });
-                } else {
-                  _this3.sharedService.openSnackBar('Server Error', 'error');
+                  _this3.goBack();
+                } else if (res.responseData && res.responseData.value.errorMessage) {
+                  _this3.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
                 _this3.sharedService.openSnackBar('Server Error', 'error');
@@ -861,25 +845,25 @@
 
       UserUploadDrawerComponent.ctorParameters = function () {
         return [{
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
         }, {
-          type: _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_3__["UserTableListComponent"]
+          type: _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__["UserTableListComponent"]
         }, {
-          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_8__["DocumentService"]
+          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_7__["DocumentService"]
         }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"]
+          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__["FileDownloadService"]
         }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__["DomSanitizer"]
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__["DomSanitizer"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
@@ -894,7 +878,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./user-upload-drawer.component.scss */
         "./src/app/modules/ams/documents/user-upload-document/user-upload-drawer/user-upload-drawer.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_3__["UserTableListComponent"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_8__["DocumentService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_10__["DomSanitizer"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], UserUploadDrawerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _user_table_list_user_table_list_component__WEBPACK_IMPORTED_MODULE_2__["UserTableListComponent"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_7__["DocumentService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_9__["DomSanitizer"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], UserUploadDrawerComponent);
       /***/
     },
 

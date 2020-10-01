@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"document-create-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4> Upload Documents</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Document Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.userDocumentName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-12\" *ngIf=\"data.from == 'private'\">\n                    <condo-select \n                        labelText=\"Document Category\"\n                        fieldPlaceholder=\"Document Category\"\n                        [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                        fieldValue=\"lookupValueName\"\n                        [fieldModel]=\"document.userDocumentCategoryId\"\n                        fieldId=\"lookupValueId\"\n                        (fieldParams)=\"setDocCategory($event)\" \n                    ></condo-select>  \n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <app-upload [fileIds]=\"document.fileDetailsId\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                        [multiple]=\"true\"\n                    ></app-upload>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button  *ngIf=\"data.from == 'private'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPrivateDocument()\">Submit</button>\n                    <button  *ngIf=\"data.from == 'public'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPublicDocument()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"document-create-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4> Upload Documents</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Document Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.userDocumentName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-12\" *ngIf=\"data.from == 'private'\">\n                    <condo-select \n                        labelText=\"Document Category\"\n                        fieldPlaceholder=\"Document Category\"\n                        [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                        fieldValue=\"lookupValueName\"\n                        [fieldModel]=\"document.userDocumentCategoryId\"\n                        fieldId=\"lookupValueId\"\n                        (fieldParams)=\"setDocCategory($event)\" \n                    ></condo-select>  \n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <app-upload [fileIds]=\"document.fileDetailsIds\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                        [multiple]=\"true\"\n                    ></app-upload>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button  *ngIf=\"data.from == 'private'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPrivateDocument()\">Submit</button>\n                    <button  *ngIf=\"data.from == 'public'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPublicDocument()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>";
       /***/
     },
 
@@ -571,7 +571,7 @@
         }, {
           key: "getFileIds",
           value: function getFileIds(event) {
-            this.document.fileDetailsId = event[0];
+            this.document.fileDetailsIds = event.join();
           }
         }, {
           key: "createPrivateDocument",
@@ -591,9 +591,10 @@
               "InsertedOn": new Date().toISOString(),
               "UpdatedBy": null,
               "UpdatedOn": null,
-              "FileDetailsId": this.document.fileDetailsId,
+              "FileDetailsId": null,
               "IsPublic": false,
-              "files": null
+              "files": null,
+              "FileDetailsIds": this.document.fileDetailsIds
             };
             this.documentService.addUserDocument(uploadDetails).subscribe(function (res) {
               if (res.message) {
