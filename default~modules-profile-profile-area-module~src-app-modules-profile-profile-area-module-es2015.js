@@ -778,9 +778,9 @@ let ProfileAreaComponent = class ProfileAreaComponent {
     goBack() {
         this.sessionService.profileUserId = this.sessionService.userId;
         if (this._activatedRoute.queryParams['value'].subtype == 'una')
-            this._router.navigate(['/ams/unit&users/unapproved']);
+            this._router.navigate(['/ams/unit&users/info/unapproved']);
         else
-            this._router.navigate(['/ams/unit&users/approved']);
+            this._router.navigate(['/ams/unit&users/info/approved']);
     }
     toggleSideBar() {
         this.drawer.toggle();

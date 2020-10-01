@@ -11653,7 +11653,7 @@ DashboardModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_shared_admin_dash_second_row_admin_dash_second_row_component__WEBPACK_IMPORTED_MODULE_16__["AdminDashSecondRowComponent"],
             _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_17__["DashMeetingComponent"],
             _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_18__["DashBroadCastComponent"],
-            _components_shared_dash_com_list_dash_com_list_component__WEBPACK_IMPORTED_MODULE_21__["DashComListComponent"],
+            _components_shared_dash_com_list_dash_com_list_component__WEBPACK_IMPORTED_MODULE_21__["DashComListComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

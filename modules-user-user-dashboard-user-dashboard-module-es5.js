@@ -1,31 +1,11 @@
 (function () {
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-user-user-dashboard-user-dashboard-module"], {
-    /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.html":
-    /*!*********************************************************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.html ***!
-      \*********************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesUserUserDashboardComponentsNewUserRegistrationNewUserRegistrationComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<div class=\"bg-card shadow\">\n    <div class=\"row\">\n        <div class=\"col-md-2\">\n            <img class=\"img-fluid\" src=\"assets/images/join-cover-new.jpg\" alt=\"\">\n        </div>\n        <div class=\"col-md-7 d-flex align-items-center\">\n            <div class=\"row confirm-screen\">\n                <div class=\"col-sm-12 col-12\">\n                    <h6 class=\"font-medium\">Admin Team Will Approve Your Request or Contact You Shortly</h6>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<ng-container *ngIf=\"!data.isDocSubmitted\">\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex align-items-center justify-content-between\">\n                <div>\n                    <h4>User Registration</h4>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateUser()\">Submit</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <form #addmeetingForm=\"ngForm\" class=\"userRregistrationUpdate p-5\" name=\"addmeetingForm\" novalidate>\n                <div class=\"row\">\n                    <!-- <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>User Type*</label>\n                            <div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n                                [hidden]=\"user.value == 1 || user.value == 3 || user.value == 5\">\n                                <input name=\"userType\" (change)=\"changeUserType($event)\" [(ngModel)]=\"userType\"\n                                    id=\"{{user.name}}\" value=\"{{user.value}}\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                            </div>\n                        </div>\n                    </div> -->\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>First Name*</label>\n                            <input type=\"text\" class=\"form-control\" [value]=\"data.firstName\" placeholder=\"Enter value\"\n                                name=\"firstName\" required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Last Name*</label>\n                            <input type=\"text\" class=\"form-control\" [value]=\"data.lastName\" placeholder=\"Enter value\"\n                                name=\"lastName\" required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Date Of Birth</label>\n                            <input class=\"form-control\" name=\"staffDOB\" [(ngModel)]=\"data.dob\" [owlDateTime]=\"staffDOB\"\n                                [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                            <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                </i-feather>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Address</label>\n                            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"data.address1\" placeholder=\"Enter value\"\n                                name=\"address\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Email*</label>\n                            <input type=\"email\" class=\"form-control\" [value]=\"data.emailId\" placeholder=\"Enter value\"\n                                name=\"staffEmail\" required disabled>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Contact Number</label>\n                            <input type=\"number\" OnlyNumber=\"true\" [(ngModel)]=\"data.phoneNumber\" class=\"form-control\"\n                                placeholder=\"Enter value\" name=\"contactNumber\" disabled>\n                        </div>\n                    </div>\n    \n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Blood Group</label>\n                            <select name=\"bloodGroup\" id=\"bloodGroup\" [(ngModel)]=\"data.bloodGroup\" class=\"form-control\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                </option>\n                            </select>\n                        </div>\n                    </div>\n    \n                    <!-- <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Vehicle ID</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffVehicleId\">\n                        </div>\n                    </div> -->\n    \n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box radio-box\">\n                            <label>Gender*</label>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"genderType\" value=\"43\" type=\"radio\"\n                                    required>\n                                <label class=\"radio-inline\" for=\"male\">Male</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"genderType\" value=\"44\" type=\"radio\"\n                                    required>\n                                <label class=\"radio-inline\" for=\"female\">Female</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"userType && userType == 2\">\n                        <div class=\"input-box\">\n                            <label>Lease Date</label>\n                            <input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n                                [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                            <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                </i-feather>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"userType && userType == 4\">\n                        <div class=\"input-box\">\n                            <label>Registration Date</label>\n                            <input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n                                [owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\">\n                            <owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                </i-feather>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-3 d-flex align-items-center\" *ngIf=\"userType && userType == 4\">\n                        <div class=\"input-box\">\n                            <label class=\"btn sf lime-green\" for=\"my-file-selector\" (click)=\"uploaderFile.click()\">\n                                <input class=\"form-control\" #uploaderFile type=\"file\" multiple>\n                                <i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload Docs</label>\n                            <!-- <div class=\"file-desp\" *ngIf=\"isFileAdded\">\n                                <div *ngFor=\"let item of listOfFiles; let i = index\">\n                                    <span class=\"name mr-3\">{{item.name}}</span>\n                                    <span class=\"size\">{{bytesToSize(item.size)}}</span>\n                                    <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n                                    </i-feather>\n                                </div>\n                            </div> -->\n                        </div>\n    \n                    </div>\n                </div>\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"isOpenPanel\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                Add Family Memebers Details\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\"\n                            novalidate>\n                            <div class=\"row\">\n                                <div class=\"col-sm-12\">\n                                    <div class=\"text-right mt-5\">\n                                        <button mat-flat-button [color]=\"'primary'\"\n                                            (click)=\"addFamily()\">Add Member</button>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"data-wrapper\">\n    \n                                <div class=\"row\" *ngFor=\"let family of addFamilyList;let i = index;\">\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>First Name*</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"firstName{{i}}\" [(ngModel)]=\"family.firstName\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Middle Name</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"middleName{{i}}\" [(ngModel)]=\"family.middleName\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Last Name*</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"lastName{{i}}\" [(ngModel)]=\"family.lastName\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Phone/Mobile*</label> \n                                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                                placeholder=\"Enter value\" name=\"phoneNo{{i}}\" [(ngModel)]=\"family.phoneNumber\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Relationship*</label>\n                                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                name=\"relationship{{i}}\" [(ngModel)]=\"family.relationship\" required>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Email</label>\n                                            <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email{{i}}\"\n                                                [(ngModel)]=\"family.emailId\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box\">\n                                            <label>Date Of Birth</label>\n                                            <input class=\"form-control\" name=\"userDOB{{i}}\" [owlDateTime]=\"userDOB\"\n                                                [owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"family.dob\">\n                                            <owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n                                            <div class=\"date-btn\">\n                                                <i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n                                                </i-feather>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Gender*</label>\n                                            <div class=\"form-group\">\n                                                <input name=\"genderType{{i}}\" id=\"male{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                    value=\"43\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"male{{i}}\">Male</label>\n                                            </div>\n                                            <div class=\"form-group\">\n                                                <input name=\"genderType{{i}}\" id=\"female{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                    value=\"44\" type=\"radio\" required>\n                                                <label class=\"radio-inline\" for=\"female{{i}}\">Female</label>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-6\">\n                                        <div class=\"select-box\">\n                                            <label>Blood Group</label>\n                                            <select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n                                                [(ngModel)]=\"family.bloodGroup\">\n                                                <option value=\"\" disabled selected hidden>Select</option>\n                                                <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                                </option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                </div>\n    \n                                <div class=\"row\" *ngIf=\"addFamilyList && addFamilyList.length\">\n                                    <div class=\"col-sm-12\">\n    \n                                        <div class=\"text-right mt-5\">\n                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addFamilyDetails()\"\n                                                [disabled]=\"profileFamilyForm.invalid\">Submit</button>\n                                        </div>\n                                    </div>\n                                </div>\n    \n                            </div>\n    \n    \n                        </form>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </form>\n        </div>\n    </condo-card>\n</ng-container>";
-      /***/
-    },
-
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/user-dashboard.component.html":
     /*!*****************************************************************************************************************!*\
@@ -43,344 +23,6 @@
 
 
       __webpack_exports__["default"] = "<div class=\"user-dashboard-wrapper dashboard-wrapper\">\n\t<div class=\"main\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-4 col-xl-2\" *ngFor=\"let data of widgetRowOne\">\n\t\t\t\t<div class=\"bg-card shadow widget-shape\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<img src=\"assets/images/{{data.icon}}-icon.svg\" width=\"43\">\n\t\t\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t\t\t<p class=\"text-nowrap\">{{data.name}}</p>\n\t\t\t\t\t\t\t<p class=\"font-medium\">{{data.value}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-4 col-xl-2\" *ngFor=\"let data of widgetRowTwo\">\n\t\t\t\t<div class=\"bg-card shadow widget-shape\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<img src=\"assets/images/{{data.icon}}-icon.svg\" width=\"43\">\n\t\t\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t\t\t<p class=\"text-nowrap\">{{data.name}}</p>\n\t\t\t\t\t\t\t<p class=\"font-medium\">{{data.value}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-6 col-xl-3\" *ngFor=\"let data of widgetRowThree\">\n\t\t\t\t<div class=\"shadow rounded user-widget-card\">\n\t\t\t\t\t<div class=\"gradient-iyal d-flex p-4\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div class=\"mb-2 icon-left-top\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:eye\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mb-2\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/{{data.icon}}-icon.svg\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t<h6 class=\"mb-2 clear\">{{data.name}}</h6> \n\t\t\t\t\t\t\t<h5 class=\"text-right font-medium\">{{data.value}}</h5> \n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 footer-height\">\n\t\t\t\t\t\t<div class=\"label\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"feather:calendar\"></mat-icon> \n\t\t\t\t\t\t\t<span class=\"align-top\">Last day</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"dashboard-dropdown ml-auto\" *ngIf=\"data.name == 'Visitors Checked In'\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\":arrow_drop_down\" (click)=\"calenderPopup(data.name)\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div> \n\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-12 col-xl-6\">\n\t\t\t\t<div class=\"bg-card shadow meeting-schedule\">\n\t\t\t\t\t<app-dash-meeting></app-dash-meeting>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-12 col-sm-12 col-xl-6\">\n\t\t\t\t<div class=\"bg-card shadow announcement\">\n\t\t\t\t\t<app-dash-broad-cast></app-dash-broad-cast>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-6 col-xl-3\" *ngFor=\"let data of widgetRowFive\">\n\t\t\t\t<div class=\"shadow rounded user-widget-card\">\n\t\t\t\t\t<div class=\"user-bg-widget d-flex p-4\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<div class=\"mb-2 icon-left-top\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:eye\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mb-2 icon-left-bottom\">\n\t\t\t\t\t\t\t\t<img src=\"assets/images/{{data.icon}}-icon.svg\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-flex\">\n\t\t\t\t\t\t\t<h6 class=\"align-self-center\">{{data.value}}</h6> \n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"gradient-isai d-flex pt-3 pb-2 pl-4 pr-4 footer-height\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<p> {{data.name}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-12 col-xl-6\">\n\t\t\t\t<app-dash-com-list [label]=\"'Emergency Alerts'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-12 col-sm-12 col-xl-6\">\n\t\t\t\t<app-dash-com-list [label]=\"'Recent Violations'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-xs-12 col-sm-12 col-xl-6\">\n\t\t\t\t<app-dash-com-list [label]=\"'Work Permit'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t\t<div class=\"col-xs-12 col-sm-12 col-xl-6\">\n\t\t\t\t<app-dash-com-list [label]=\"'Facility Bookings'\"></app-dash-com-list>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.scss":
-    /*!*******************************************************************************************************************!*\
-      !*** ./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.scss ***!
-      \*******************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesUserUserDashboardComponentsNewUserRegistrationNewUserRegistrationComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = ".userRregistrationUpdate {\n  max-height: 450px;\n  overflow-y: auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy91c2VyL3VzZXItZGFzaGJvYXJkL2NvbXBvbmVudHMvbmV3LXVzZXItcmVnaXN0cmF0aW9uL25ldy11c2VyLXJlZ2lzdHJhdGlvbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBQ0EsZ0JBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdXNlci91c2VyLWRhc2hib2FyZC9jb21wb25lbnRzL25ldy11c2VyLXJlZ2lzdHJhdGlvbi9uZXctdXNlci1yZWdpc3RyYXRpb24uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXNlclJyZWdpc3RyYXRpb25VcGRhdGV7XG4gICAgbWF4LWhlaWdodDogNDUwcHg7XG4gICAgb3ZlcmZsb3cteTogYXV0bztcbn0iXX0= */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.ts":
-    /*!*****************************************************************************************************************!*\
-      !*** ./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.ts ***!
-      \*****************************************************************************************************************/
-
-    /*! exports provided: NewUserRegistrationComponent */
-
-    /***/
-    function srcAppModulesUserUserDashboardComponentsNewUserRegistrationNewUserRegistrationComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "NewUserRegistrationComponent", function () {
-        return NewUserRegistrationComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/material/dialog */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/api/controllers/Apartment */
-      "./src/app/api/controllers/Apartment.ts");
-
-      var NewUserRegistrationComponent = /*#__PURE__*/function () {
-        function NewUserRegistrationComponent(dialogRef, data, apartmentService, lookupService, apartmentservice, sharedService, userService, sessionService) {
-          _classCallCheck(this, NewUserRegistrationComponent);
-
-          this.dialogRef = dialogRef;
-          this.data = data;
-          this.apartmentService = apartmentService;
-          this.lookupService = lookupService;
-          this.apartmentservice = apartmentservice;
-          this.sharedService = sharedService;
-          this.userService = userService;
-          this.sessionService = sessionService;
-          this.userTypeList = [];
-          this.bloodGroupData = [];
-          this.addFamilyList = [];
-          this.isOpenPanel = false;
-
-          if (this.data.genderId != null) {
-            this.genderType = this.data.genderId.toString();
-          }
-        }
-
-        _createClass(NewUserRegistrationComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this = this;
-
-            this.userService.getAllRoleTypes().subscribe(function (resp) {
-              _this.userTypeList = resp;
-            });
-            var getUserTypeParam = {
-              userId: this.data.userId
-            }; // get role
-
-            this.userService.getRolesByUserId(getUserTypeParam).subscribe(function (data) {
-              _this.userType = data[0].roleId.toString();
-            }, function (error) {});
-            var groupParams = {
-              LookupTypeId: 24
-            };
-            this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this.bloodGroupData = res;
-            });
-            var staffParams = {
-              LookupTypeId: 25
-            };
-            var getAllApartmentParam = {
-              userId: this.data.userId
-            };
-            this.apartmentservice.getApartmentBlockUnitByUserId(getAllApartmentParam).subscribe(function (res) {
-              var data = res[0] || {};
-              _this.apartmentBlockUnitId = data.apartmentBlockUnitId;
-            }, function (error) {
-              console.log(error);
-            });
-          }
-        }, {
-          key: "addFamily",
-          value: function addFamily() {
-            this.addFamilyList.push({});
-          }
-        }, {
-          key: "changeUserType",
-          value: function changeUserType(evt) {// this.isAdminRegister = false;
-            // if(this.userType == 1){
-            //   this.isAdminRegister = true;
-            // }else if(this.userType == 3){
-            //   this.isAdminRegister = false;
-            // }
-          }
-        }, {
-          key: "addFamilyDetails",
-          value: function addFamilyDetails() {
-            var _this2 = this;
-
-            var count = 0;
-            this.addFamilyList.filter(function (key) {
-              var details = {
-                "firstName": key.firstName,
-                "middleName": key.middleName,
-                "lastName": key.lastName,
-                "relationship": key.relationship,
-                "relatedUserId": parseInt(_this2.sessionService.userId),
-                "emailId": key.emailId,
-                "genderId": parseInt(key.genderType),
-                "dob": key.dob,
-                "bloodGroup": key.bloodGroup,
-                "phoneNumber": key.phoneNumber.toString(),
-                "isActive": true,
-                "insertedBy": parseInt(_this2.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-              };
-              var params = {
-                userFamilyMember: details
-              };
-
-              _this2.userService.addUserFamilyMember(params).subscribe(function (res) {
-                if (res.message) {
-                  _this2.sharedService.setAlertMessage("Family Member added successfully");
-
-                  count += 1;
-                } else {}
-              });
-
-              if (_this2.addFamilyList.length == count) {
-                _this2.addFamilyList = [];
-                _this2.isOpenPanel = false;
-              }
-            });
-          }
-        }, {
-          key: "updateUser",
-          value: function updateUser() {
-            var _this3 = this;
-
-            //edit user
-            var userDetails = {
-              "userId": this.data.userId,
-              "apartmentId": this.sessionService.apartmentId,
-              "firstName": this.data.firstName,
-              "middleName": this.data.middleName,
-              "lastName": this.data.lastName,
-              "emailId": this.data.emailId,
-              "password": this.data.password,
-              "salt": this.data.salt,
-              "address1": this.data.address1,
-              "address2": this.data.address2,
-              "city": this.data.city,
-              "state": this.data.state,
-              "country": this.data.country,
-              "zipCode": this.data.zipCode,
-              "genderId": parseInt(this.genderType),
-              "dob": this.data.dob,
-              "joinedOn": this.data.joinedOn,
-              "bloodGroup": this.data.bloodGroup,
-              "phoneNumber": this.data.phoneNumber.toString(),
-              "emergencyContactNumber": this.data.emergencyContactNumber,
-              "emergencyContactPerson": this.data.emergencyContactPerson,
-              "emergencyContactNumberSecondary": this.data.emergencyContactNumberSecondary,
-              "emergencyContactPersonSecondary": this.data.emergencyContactPersonSecondary,
-              "accessCardNumber": this.data.accessCardNumber,
-              "notes": this.data.notes,
-              "profilePictureId": null,
-              "isLiving": this.data.isLiving,
-              "isActive": true,
-              "isApproved": this.data.isApproved,
-              "resetPassword": this.data.resetPassword,
-              "insertedBy": this.data.insertedBy,
-              "updatedBy": parseInt(this.sessionService.userId),
-              "isDocSubmitted": this.data.isDocSubmitted,
-              "readyForApproval": this.data.readyForApproval
-            };
-            var params = {
-              user: userDetails
-            }; //edit user 
-
-            this.userService.updateUser(params).subscribe(function (res) {
-              if (res.message) {
-                var userId = res.message;
-                var apartmentBlockUnitUser = {
-                  "apartmentBlockUnitId": parseInt(_this3.apartmentBlockUnitId),
-                  "userId": userId,
-                  "isPrimaryContact": _this3.data.isPrimaryContact,
-                  "userTypeId": parseInt(_this3.userType),
-                  "isActive": _this3.data.isActive,
-                  "insertedBy": parseInt(_this3.sessionService.userId),
-                  "insertedOn": _this3.data.insertedOn,
-                  "updatedBy": _this3.data.updatedBy,
-                  "updatedOn": _this3.data.updatedOn
-                };
-                var apartmentParams = {
-                  apartmentBlockUnitUser: apartmentBlockUnitUser
-                };
-
-                _this3.apartmentService.addApartmentBlockUnitUser(apartmentParams).subscribe(function (res) {
-                  if (res.message) {
-                    var userRole = {
-                      "userId": userId,
-                      "roleId": parseInt(_this3.userType),
-                      "isActive": _this3.data.isActive,
-                      "insertedBy": parseInt(_this3.sessionService.userId),
-                      "insertedOn": _this3.data.insertedOn,
-                      "updatedBy": _this3.data.updatedBy,
-                      "updatedOn": _this3.data.updatedOn,
-                      "apartmentBlockUnitUserId": res.message
-                    };
-                    var _params = {
-                      userRole: userRole
-                    };
-
-                    _this3.userService.addUserRole(_params).subscribe(function (res) {
-                      _this3.sharedService.setAlertMessage("User updated successfully");
-
-                      _this3.dialogRef.close(); // this.router.navigate(['ams/unit&users/unapproved']);
-
-                    }, function (error) {
-                      console.log(error);
-                    });
-                  } else {// this.isError = true;
-                    // this.errorMessage = res.errorMessage;
-                  }
-                }, function (error) {
-                  console.log(error);
-                });
-              }
-            }, function (error) {});
-          }
-        }]);
-
-        return NewUserRegistrationComponent;
-      }();
-
-      NewUserRegistrationComponent.ctorParameters = function () {
-        return [{
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
-        }, {
-          type: undefined,
-          decorators: [{
-            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
-            args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
-          }]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
-        }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
-        }];
-      };
-
-      NewUserRegistrationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-new-user-registration',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./new-user-registration.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./new-user-registration.component.scss */
-        "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], NewUserRegistrationComponent);
       /***/
     },
 
@@ -630,32 +272,32 @@
         }, {
           key: "calenderPopup",
           value: function calenderPopup(type) {
-            var _this4 = this;
+            var _this = this;
 
             var dialogRef = this.dialog.open(src_app_modules_ams_dashboard_components_shared_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_7__["DateModelComponent"], {
               panelClass: 'material-dialog-medium',
               data: type
             });
             dialogRef.afterClosed().subscribe(function (result) {
-              _this4.visitotsCheckedin(result);
+              _this.visitotsCheckedin(result);
             });
           }
         }, {
           key: "visitotsCheckedin",
           value: function visitotsCheckedin(params) {
-            var _this5 = this;
+            var _this2 = this;
 
             params.startDate = params.fromDate;
             params.EndDate = params.toDate;
             params.blockUnitId = parseInt(this.sessionService.apartmentBlockUnitID);
             params.blockUnitUserId = parseInt(this.sessionService.apartmentBlockUnitUserId), this.dashboardService.getUDashVisitorcheckedinbyblockunituser(params).subscribe(function (res) {
-              _this5.widgetRowThree[1].value = res.visitorsCheckIn;
+              _this2.widgetRowThree[1].value = res.visitorsCheckIn;
             });
           }
         }, {
           key: "firstRow",
           value: function firstRow() {
-            var _this6 = this;
+            var _this3 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
@@ -670,28 +312,28 @@
               apartmentBlockUnitUserId: parseInt(this.sessionService.apartmentBlockUnitUserId)
             };
             this.dashboardService.getUDashTotalparkingbyblockunitId(params).subscribe(function (res) {
-              _this6.widgetRowOne[0].value = res.totalParkingSlots;
+              _this3.widgetRowOne[0].value = res.totalParkingSlots;
             });
             this.dashboardService.getUDashVehiclecountbyblockunituser(entity).subscribe(function (res) {
-              _this6.widgetRowOne[1].value = res.vehiclecountbyblockunituser;
+              _this3.widgetRowOne[1].value = res.vehiclecountbyblockunituser;
             });
             this.userService.getUserFamilyCountByBlockUnitUserId(unitUser).subscribe(function (res) {
-              _this6.widgetRowOne[2].value = res[0]; //dummy Need to integrate
+              _this3.widgetRowOne[2].value = res[0]; //dummy Need to integrate
             });
             this.dashboardService.getUDashTotalpetstbyblockunituser(entity).subscribe(function (res) {
-              _this6.widgetRowOne[3].value = res.totalpetstbyblockunituser;
+              _this3.widgetRowOne[3].value = res.totalpetstbyblockunituser;
             });
             this.dashboardService.getUDashPrivateStaffbyblockunituser(entity).subscribe(function (res) {
-              _this6.widgetRowOne[4].value = res.totalPrivateStaffbyblockunituser;
+              _this3.widgetRowOne[4].value = res.totalPrivateStaffbyblockunituser;
             });
             this.userService.getUserInterestGroupCountByBlockUnitUserId(unitUser).subscribe(function (res) {
-              _this6.widgetRowOne[5].value = res[0]; //dummy Need to integrate
+              _this3.widgetRowOne[5].value = res[0]; //dummy Need to integrate
             });
           }
         }, {
           key: "thirdRow",
           value: function thirdRow() {
-            var _this7 = this;
+            var _this4 = this;
 
             var entity = {
               apartmentId: this.sessionService.apartmentId,
@@ -713,20 +355,20 @@
               blockUnitUserID: parseInt(this.sessionService.apartmentBlockUnitUserId)
             };
             this.dashboardService.getUDashOpenticektsbyblockunituser(entity).subscribe(function (res) {
-              _this7.widgetRowThree[0].value = res.openticket;
+              _this4.widgetRowThree[0].value = res.openticket;
             });
             this.visitotsCheckedin(params);
             this.dashboardService.getUDashVisitorNoTcheckeddoubyblockunitId(visNot).subscribe(function (res) {
-              _this7.widgetRowThree[2].value = res.visitorsNotcheckedtoday;
+              _this4.widgetRowThree[2].value = res.visitorsNotcheckedtoday;
             });
             this.dashboardService.getUDashCurrentViolationsbyblockunituserId(violation).subscribe(function (res) {
-              _this7.widgetRowThree[3].value = res.currentViolations;
+              _this4.widgetRowThree[3].value = res.currentViolations;
             });
           }
         }, {
           key: "fifthRow",
           value: function fifthRow() {
-            var _this8 = this;
+            var _this5 = this;
 
             var reading = {
               apartmentId: this.sessionService.apartmentId,
@@ -741,10 +383,10 @@
             // });
 
             this.dashboardService.getUDashWaterunitsbyblockunitId(reading).subscribe(function (res) {
-              _this8.widgetRowFive[1].value = res.waterunits;
+              _this5.widgetRowFive[1].value = res.waterunits;
             });
             this.dashboardService.getUDapprovedfacilittbookingbyblockunitId(entity).subscribe(function (res) {
-              _this8.widgetRowFive[2].value = res.approvedfaclitiesTodayCount;
+              _this5.widgetRowFive[2].value = res.approvedfaclitiesTodayCount;
             }); // this.dashboardService.getUDapprovedfacilittbookingbyblockunitId(entity).subscribe((res:any)=>{
             //   this.widgetRowFive[3].value = res.waterunits;
             // });
@@ -857,13 +499,7 @@
       /* harmony import */
 
 
-      var _components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ./components/new-user-registration/new-user-registration.component */
-      "./src/app/modules/user/user-dashboard/components/new-user-registration/new-user-registration.component.ts");
-      /* harmony import */
-
-
-      var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../../ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
 
@@ -872,9 +508,8 @@
       };
 
       UserDashboardModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_user_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["UserDashboardComponent"], _components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_7__["NewUserRegistrationComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _user_dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserDashboardRoutingModule"], src_app_modules_ams_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_6__["DashboardModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"]],
-        entryComponents: [_components_new_user_registration_new_user_registration_component__WEBPACK_IMPORTED_MODULE_7__["NewUserRegistrationComponent"]]
+        declarations: [_user_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["UserDashboardComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _user_dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__["UserDashboardRoutingModule"], src_app_modules_ams_dashboard_dashboard_module__WEBPACK_IMPORTED_MODULE_6__["DashboardModule"], _ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__["CondoCardModule"]]
       })], UserDashboardModule);
       /***/
     }

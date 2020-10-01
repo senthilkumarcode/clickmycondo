@@ -617,7 +617,9 @@
 
                 _this8.ticketComment = '';
 
-                _this8.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                if (type != 'log') {
+                  _this8.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                }
               } else _this8.sharedService.openSnackBar(res.errorMessage, 'error');
             }, function (error) {
               _this8.sharedService.openSnackBar('Server Error', 'error');
@@ -2900,6 +2902,10 @@
               }
 
               _this23.isDataLoaded = false;
+            }, function (error) {
+              _this23.isDataLoaded = false;
+
+              _this23.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -3353,6 +3359,10 @@
               }
 
               _this27.isDataLoaded = false;
+            }, function (error) {
+              _this27.isDataLoaded = false;
+
+              _this27.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {

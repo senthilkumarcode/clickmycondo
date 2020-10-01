@@ -193,6 +193,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.html":
+    /*!*************************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.html ***!
+      \*************************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsUtilityComponentsUtilityReportsUtilityReportDataUtilityReportDataComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                \n                                    <div class=\"row\">\n                \n                                        <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div>\n                                       \n                                    </div>\n                                    <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div>\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && isListofElectricity()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                    <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListofWater()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n                \n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\n\n</div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.html":
     /*!*************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.html ***!
@@ -208,7 +228,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"reports-wrapper\">\n\t\t<div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<h4 class=\"mb-4\"> Utility Reports</h4>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\"> \n\n\t\t\t\t\t<condo-card>\n\t\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/utility/reports/{{report.lookupValueId}}\"\n\t\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\n\n\t</ng-container>\n\n</div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"reports-wrapper\">\n\t\t<div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<h4 class=\"mb-4\"> Utility Reports</h4>\n\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\"> \n\n\t\t\t\t\t<condo-card>\n\t\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/utility/reports/{{report.lookupValueName}}/{{report.lookupValueId}}\"\n\t\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t</div>\n\t\n\n\t</ng-container>\n\n</div>\n</div>\n";
       /***/
     },
 
@@ -2843,6 +2863,494 @@
     },
 
     /***/
+    "./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.scss":
+    /*!***********************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.scss ***!
+      \***********************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsUtilityComponentsUtilityReportsUtilityReportDataUtilityReportDataComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3V0aWxpdHkvY29tcG9uZW50cy91dGlsaXR5LXJlcG9ydHMvdXRpbGl0eS1yZXBvcnQtZGF0YS91dGlsaXR5LXJlcG9ydC1kYXRhLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.ts":
+    /*!*********************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.ts ***!
+      \*********************************************************************************************************************/
+
+    /*! exports provided: UtilityReportDataComponent */
+
+    /***/
+    function srcAppModulesAmsUtilityComponentsUtilityReportsUtilityReportDataUtilityReportDataComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "UtilityReportDataComponent", function () {
+        return UtilityReportDataComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/app/api/controllers/UtilityTracker */
+      "./src/app/api/controllers/UtilityTracker.ts");
+
+      var UtilityReportDataComponent = /*#__PURE__*/function () {
+        function UtilityReportDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService, utilityService) {
+          _classCallCheck(this, UtilityReportDataComponent);
+
+          this.router = router;
+          this.route = route;
+          this.userService = userService;
+          this.apartmentService = apartmentService;
+          this.lookupService = lookupService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.utilityService = utilityService;
+          this.pageName = "";
+          this.pageDesp = "";
+          this.ItemStartIndex = 0;
+          this.itemLimit = 10;
+          this.unitFieldType = "unitno";
+          this.unitOrder = true;
+          this.isDataLoaded = false;
+          this.reportData = "";
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
+        }
+
+        _createClass(UtilityReportDataComponent, [{
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this21 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this21.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            var _this22 = this;
+
+            this.goBack();
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.blockNo;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield == 'block') {
+                _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters(); //this.isDataLoaded = false;
+            // let params = {
+            // 	ApartmentID : parseInt(this.sessionService.apartmentId),
+            // 	ApartmentBlockID : parseInt(this.blockId),
+            // 	StartDate : this.getDate(this.start_date),
+            // 	EndDate : this.getDate(this.end_date)
+            // }
+            // this.getBlockDetails();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null;
+            this.datagrid.clearfilters(); // =this.getTicketByAdmin();
+            // let params = {
+            // 	ApartmentID : parseInt(this.sessionService.apartmentId),
+            // 	ApartmentBlockID : parseInt(this.blockId),
+            // 	StartDate : this.getDate(this.start_date),
+            // 	EndDate : this.getDate(this.end_date)
+            // }
+            //	this.getBlockDetails();
+
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'UtilityReportData');
+          }
+        }, {
+          key: "getSelectedBlock",
+          value: function getSelectedBlock(event) {
+            this.blockId = event[0].apartmentBlockId;
+            this.blockNo = event[0].apartmentBlockNumber;
+          }
+        }, {
+          key: "getIndexParams",
+          value: function getIndexParams(event) {
+            this.ItemStartIndex = event.ItemStartIndex;
+            this.ItemEndIndex = event.ItemEndIndex; // this.itemLimit = event.itemLimit;
+          }
+        }, {
+          key: "sortUnitData",
+          value: function sortUnitData(type) {
+            this.unitFieldType = type;
+            this.unitOrder = !this.unitOrder;
+          }
+        }, {
+          key: "getFieldOrderBy",
+          value: function getFieldOrderBy(type) {
+            if (this.unitFieldType == type) {
+              return this.unitOrder ? 'asc' : 'desc';
+            } else return '';
+          }
+        }, {
+          key: "isMobileView",
+          value: function isMobileView() {
+            return window.innerWidth <= 767 ? 'table-responsive' : '';
+          }
+        }, {
+          key: "isItemsAvailable",
+          value: function isItemsAvailable() {
+            return this.totalItems > 0 ? true : false;
+          }
+        }, {
+          key: "isNoItemsAvailable",
+          value: function isNoItemsAvailable() {
+            return this.totalItems == 0 ? true : false;
+          }
+        }, {
+          key: "isListofElectricity",
+          value: function isListofElectricity() {
+            return this.pageName == "List of Utility Bills - Common Electricity";
+          }
+        }, {
+          key: "isListofWater",
+          value: function isListofWater() {
+            return this.pageName == "List of Utility Bills - Water";
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+          }
+        }, {
+          key: "getBlockDetails",
+          value: function getBlockDetails() {
+            var _this23 = this;
+
+            //jqx column generating
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.isDataLoaded = false;
+            var details = {
+              apartmentId: this.sessionService.apartmentId
+            };
+
+            if (this.isListofElectricity()) {
+              this.columnData = [{
+                text: 'Block Number',
+                datafield: 'block',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'aptUnit',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Connection No',
+                // datafield: 'waterCharge[0].connectionNo',
+                width: 200,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  var content = _this23.userReportDataList.records[row].electCharge.length > 0 ? _this23.userReportDataList.records[row].electCharge[0]["connectionNo"] === null ? '' : _this23.userReportDataList.records[row].electCharge[0]["connectionNo"] : '';
+                  return '<div class="jqx-custom-inner-cell">' + content + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'Prev Reading',
+                // datafield: 'waterCharge[0].prevReading',
+                width: 200,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  var content = _this23.userReportDataList.records[row].electCharge.length > 0 ? _this23.userReportDataList.records[row].electCharge[0]["prevReading"] : '';
+                  return '<div class="jqx-custom-inner-cell">' + content + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'currReading',
+                // datafield: 'currReading',
+                width: 200,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  var content = _this23.userReportDataList.records[row].electCharge.length > 0 ? _this23.userReportDataList.records[row].electCharge[0]["currReading"] : '';
+                  return '<div class="jqx-custom-inner-cell">' + content + '</div>';
+                },
+                renderer: columnrenderer
+              }];
+              this.utilityService.getUtilityTrackerElectricityChargesByApartmentId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this23.totalItems = _this23.userReportDataList.length;
+                _this23.isDataLoaded = true;
+
+                _this23.showItems();
+              });
+            } else if (this.isListofWater()) {
+              this.columnData = [{
+                text: 'Block Number',
+                datafield: 'block',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Unit Number',
+                datafield: 'aptUnit',
+                minwidth: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Connection No',
+                // datafield: 'waterCharge[0].connectionNo',
+                width: 200,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  var content = _this23.userReportDataList.records[row].waterCharge.length > 0 ? _this23.userReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this23.userReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
+                  return '<div class="jqx-custom-inner-cell">' + content + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'Prev Reading',
+                // datafield: 'waterCharge[0].prevReading',
+                width: 200,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  var content = _this23.userReportDataList.records[row].waterCharge.length > 0 ? _this23.userReportDataList.records[row].waterCharge[0]["prevReading"] : '';
+                  return '<div class="jqx-custom-inner-cell">' + content + '</div>';
+                },
+                renderer: columnrenderer
+              }, {
+                text: 'currReading',
+                // datafield: 'currReading',
+                width: 200,
+                cellsrenderer: function cellsrenderer(row, column, value) {
+                  var content = _this23.userReportDataList.records[row].waterCharge.length > 0 ? _this23.userReportDataList.records[row].waterCharge[0]["currReading"] : '';
+                  return '<div class="jqx-custom-inner-cell">' + content + '</div>';
+                },
+                renderer: columnrenderer
+              }];
+              this.utilityService.getUtilityTrackerWaterChargesByApartmentId(details).subscribe(function (res) {
+                var gridSourceData = {
+                  localdata: res,
+                  datatype: "array"
+                };
+                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this23.totalItems = _this23.userReportDataList.length;
+                _this23.isDataLoaded = true;
+
+                _this23.showItems();
+              });
+            }
+          }
+        }, {
+          key: "showItems",
+          value: function showItems() {
+            this.totalItems = this.userReportDataList.length;
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+            } else {
+              this.ItemEndIndex = this.totalItems;
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this24 = this;
+
+            this.pageName = this.route.params['value'].name;
+            var unitBlockParams = {
+              apartmentId: parseInt(this.sessionService.apartmentId)
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
+              _this24.unitBlocksData = res;
+            }); // let params = {
+            // 	LookupTypeId: 87
+            // }
+            // this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res: any) => {
+            // 	var data = res.filter(item => {
+            // 		return item.lookupValueId == this.route.params['value'].id
+            //   })
+            //   debugger;
+            // 	this.pageName = data[0].lookupValueName.replace('/', '');
+            // 	this.pageDesp = data[0].description;
+            // });
+
+            this.getBlockDetails();
+          }
+        }]);
+
+        return UtilityReportDataComponent;
+      }();
+
+      UtilityReportDataComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }, {
+          type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_11__["UtilityTrackerService"]
+        }];
+      };
+
+      UtilityReportDataComponent.propDecorators = {
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
+          }]
+        }]
+      };
+      UtilityReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-utility-report-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./utility-report-data.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./utility-report-data.component.scss */
+        "./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_11__["UtilityTrackerService"]])], UtilityReportDataComponent);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.scss":
     /*!***********************************************************************************************!*\
       !*** ./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.scss ***!
@@ -2899,12 +3407,19 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
 
       var UtilityReportsComponent = /*#__PURE__*/function () {
-        function UtilityReportsComponent(sessionService) {
+        function UtilityReportsComponent(sessionService, lookupService) {
           _classCallCheck(this, UtilityReportsComponent);
 
           this.sessionService = sessionService;
+          this.lookupService = lookupService;
           this.isDataLoaded = false;
         }
 
@@ -2913,21 +3428,29 @@
           value: function ngOnInit() {
             this.reportDataList = [{
               lookupValueId: 'electricity',
-              lookupValueName: 'List of electrical reading',
+              lookupValueName: 'List of Utility Bills - Common Electricity',
               description: 'Gives the list of electrical reading in the condo',
               type: 'customer'
             }, {
               lookupValueId: 'water',
-              lookupValueName: 'List of water reading',
+              lookupValueName: 'List of Utility Bills - Water',
               description: 'Gives the list of  water reading in the condo',
               type: 'customer'
-            }, {
-              lookupValueId: 'insurance',
-              lookupValueName: 'List of insurance charges',
-              description: 'Gives the list of insurance charges in the condo',
-              type: 'customer'
             }];
-            this.isDataLoaded = true;
+            this.isDataLoaded = true; //  let details = {
+            //   ApartmentId: this.sessionService.apartmentId,
+            //   LookupTypeId: 87, //lookuptypeid for report
+            //   MenuName: 'UnitUser'
+            // }
+            // this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res:any) => {
+            //   this.reportDataList = res;
+            //   this.isDataLoaded = true;
+            // })
+          }
+        }, {
+          key: "getReportRedirectPath",
+          value: function getReportRedirectPath(path) {
+            return path.replace('/', '');
           }
         }]);
 
@@ -2937,6 +3460,8 @@
       UtilityReportsComponent.ctorParameters = function () {
         return [{
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }];
       };
 
@@ -2948,7 +3473,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-reports.component.scss */
         "./src/app/modules/ams/utility/components/utility-reports/utility-reports.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], UtilityReportsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]])], UtilityReportsComponent);
       /***/
     },
 
@@ -3101,7 +3626,7 @@
         }, {
           key: "getSelectedDeliveryType",
           value: function getSelectedDeliveryType(event) {
-            var _this21 = this;
+            var _this25 = this;
 
             this.blockId = event[0].apartmentBlockId; //   if(this.selectedTower == null){
             //     this.filteredUtilityWaterListData= this.utilityWaterListData;
@@ -3121,7 +3646,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield === 'block') {
-                  _this21.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this25.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3132,7 +3657,7 @@
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this22 = this;
+            var _this26 = this;
 
             if (this.utilitySearch != "") {
               var filtergroup = new jqx.filter();
@@ -3145,7 +3670,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3156,7 +3681,7 @@
         }, {
           key: "onFilterByTowerChange",
           value: function onFilterByTowerChange() {
-            var _this23 = this;
+            var _this27 = this;
 
             this.selectedTower = event[0].apartmentBlockId;
 
@@ -3164,7 +3689,7 @@
               this.filteredUtilityWaterListData = this.utilityWaterListData;
             } else {
               this.filteredUtilityWaterListData = this.utilityWaterListData.filter(function (x) {
-                return x.block == _this23.selectedTower;
+                return x.block == _this27.selectedTower;
               });
             }
 
@@ -3205,7 +3730,7 @@
         }, {
           key: "getAllWaterUtiliy",
           value: function getAllWaterUtiliy() {
-            var _this24 = this;
+            var _this28 = this;
 
             this.selectedTower = '';
             this.isReportLoaded = false; // jqx column generating
@@ -3236,7 +3761,7 @@
               // datafield: 'waterCharge[0].connectionNo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this24.waterReportDataList.records[row].waterCharge.length > 0 ? _this24.waterReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this24.waterReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
+                var content = _this28.waterReportDataList.records[row].waterCharge.length > 0 ? _this28.waterReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this28.waterReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -3245,7 +3770,7 @@
               // datafield: 'waterCharge[0].prevReading',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this24.waterReportDataList.records[row].waterCharge.length > 0 ? _this24.waterReportDataList.records[row].waterCharge[0]["prevReading"] : '';
+                var content = _this28.waterReportDataList.records[row].waterCharge.length > 0 ? _this28.waterReportDataList.records[row].waterCharge[0]["prevReading"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -3254,7 +3779,7 @@
               // datafield: 'currReading',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this24.waterReportDataList.records[row].waterCharge.length > 0 ? _this24.waterReportDataList.records[row].waterCharge[0]["currReading"] : '';
+                var content = _this28.waterReportDataList.records[row].waterCharge.length > 0 ? _this28.waterReportDataList.records[row].waterCharge[0]["currReading"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -3267,22 +3792,22 @@
                 localdata: res,
                 datatype: "array"
               };
-              _this24.waterReportDataList = new jqx.dataAdapter(gridSourceData);
-              _this24.isReportLoaded = true;
+              _this28.waterReportDataList = new jqx.dataAdapter(gridSourceData);
+              _this28.isReportLoaded = true;
 
-              _this24.showItems();
+              _this28.showItems();
 
-              _this24.utilityWaterListData = res;
-              _this24.filteredUtilityWaterListData = _this24.utilityWaterListData;
-              _this24.totalItems = _this24.filteredUtilityWaterListData.length;
+              _this28.utilityWaterListData = res;
+              _this28.filteredUtilityWaterListData = _this28.utilityWaterListData;
+              _this28.totalItems = _this28.filteredUtilityWaterListData.length;
 
-              if (_this24.totalItems > _this24.itemLimit) {
-                _this24.ItemEndIndex = _this24.itemLimit;
+              if (_this28.totalItems > _this28.itemLimit) {
+                _this28.ItemEndIndex = _this28.itemLimit;
               } else {
-                _this24.ItemEndIndex = _this24.totalItems;
+                _this28.ItemEndIndex = _this28.totalItems;
               }
 
-              _this24.isReportLoaded = true;
+              _this28.isReportLoaded = true;
             });
           }
         }, {
@@ -3299,7 +3824,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this25 = this;
+            var _this29 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3312,7 +3837,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this25.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3349,14 +3874,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this30 = this;
 
             this["package"].deliveryTypeId = '';
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this26.propertyTowerData = res;
+              _this30.propertyTowerData = res;
             });
             this.getAllWaterUtiliy();
           }
@@ -3537,7 +4062,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this27 = this;
+            var _this31 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -3545,7 +4070,7 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this27.loadUtilityCategory();
+              _this31.loadUtilityCategory();
             });
           }
         }, {
@@ -3594,7 +4119,7 @@
         }, {
           key: "addOrUpdateUtilityCategoryForm",
           value: function addOrUpdateUtilityCategoryForm(form) {
-            var _this28 = this;
+            var _this32 = this;
 
             this.isUtilityCategorySubmitted = false;
             this.isError = false;
@@ -3617,22 +4142,22 @@
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: _this28.sessionService.apartmentId
+                    apartmentId: _this32.sessionService.apartmentId
                   };
 
-                  _this28.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                    _this28.isUtilityCategorySubmitted = true;
+                  _this32.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                    _this32.isUtilityCategorySubmitted = true;
 
-                    _this28.sharedService.setAlertMessage("Category added Successfully!");
+                    _this32.sharedService.setAlertMessage("Category added Successfully!");
 
-                    _this28.utilityCategoryData = res.filter(function (item) {
+                    _this32.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this28.isUtilityCategorySubmitted = true;
-                  _this28.isError = true;
-                  _this28.alertMessage = res.errorMessage;
+                  _this32.isUtilityCategorySubmitted = true;
+                  _this32.isError = true;
+                  _this32.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -3654,24 +4179,24 @@
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: _this28.sessionService.apartmentId
+                    apartmentId: _this32.sessionService.apartmentId
                   };
 
-                  _this28.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                    _this28.isUtilityCategorySubmitted = true;
+                  _this32.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                    _this32.isUtilityCategorySubmitted = true;
 
-                    _this28.sharedService.setAlertMessage("Category updated Successfully!");
+                    _this32.sharedService.setAlertMessage("Category updated Successfully!");
 
-                    _this28.utilityCategoryData = res.filter(function (item) {
+                    _this32.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this28.isUtilityCategoryNew = false;
-                    _this28.isUtilityCategoryUpdate = false;
+                    _this32.isUtilityCategoryNew = false;
+                    _this32.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this28.isUtilityCategorySubmitted = true;
-                  _this28.isError = true;
-                  _this28.alertMessage = res.errorMessage;
+                  _this32.isUtilityCategorySubmitted = true;
+                  _this32.isError = true;
+                  _this32.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -3679,33 +4204,33 @@
         }, {
           key: "loadUtilityCategory",
           value: function loadUtilityCategory() {
-            var _this29 = this;
+            var _this33 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this29.utilityCategoryData = res.filter(function (item) {
+              _this33.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this29.isUtilityCategoryLoaded = true;
+              _this33.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this34 = this;
 
             this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this30.submitUtilityCategoryForm(is_category_form);
+                _this34.submitUtilityCategoryForm(is_category_form);
               }
             });
             this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this30.deleteUtilityCategory(item_id);
+                _this34.deleteUtilityCategory(item_id);
               }
             });
           }
@@ -3837,6 +4362,12 @@
       var _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/utility-history/utility-history.component */
       "./src/app/modules/ams/utility/components/utility-history/utility-history.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_utility_report_data_utility_report_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./components/utility-reports/utility-report-data/utility-report-data.component */
+      "./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.ts");
 
       var routes = [{
         path: '',
@@ -3865,6 +4396,10 @@
       }, {
         path: 'reports',
         component: _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_4__["UtilityReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports/:name/:id',
+        component: _components_utility_reports_utility_report_data_utility_report_data_component__WEBPACK_IMPORTED_MODULE_13__["UtilityReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/electricity',
@@ -4121,13 +4656,19 @@
       var _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! ./components/utility-reports/insurance-report/insurance-report.component */
       "./src/app/modules/ams/utility/components/utility-reports/insurance-report/insurance-report.component.ts");
+      /* harmony import */
+
+
+      var _components_utility_reports_utility_report_data_utility_report_data_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      /*! ./components/utility-reports/utility-report-data/utility-report-data.component */
+      "./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.ts");
 
       var UtilityModule = function UtilityModule() {
         _classCallCheck(this, UtilityModule);
       };
 
       UtilityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_utility_component__WEBPACK_IMPORTED_MODULE_8__["UtilityComponent"], _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_9__["UtilityReportsComponent"], _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_10__["UtilitySetupComponent"], _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_11__["UtilityAddReadingComponent"], _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_12__["ElectricityReadingComponent"], _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_13__["WaterReadingComponent"], _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_14__["UtilityHistoryComponent"], _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_15__["TowerReadingInfoComponent"], _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_16__["UnitReadingInfoComponent"], _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_17__["AddInsuranceComponent"], _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_18__["ElectricityReportComponent"], _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_19__["WaterReportComponent"], _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_20__["InsuranceReportComponent"]],
+        declarations: [_utility_component__WEBPACK_IMPORTED_MODULE_8__["UtilityComponent"], _components_utility_reports_utility_reports_component__WEBPACK_IMPORTED_MODULE_9__["UtilityReportsComponent"], _components_utility_setup_utility_setup_component__WEBPACK_IMPORTED_MODULE_10__["UtilitySetupComponent"], _components_utility_add_reading_utility_add_reading_component__WEBPACK_IMPORTED_MODULE_11__["UtilityAddReadingComponent"], _components_utility_add_reading_electricity_reading_electricity_reading_component__WEBPACK_IMPORTED_MODULE_12__["ElectricityReadingComponent"], _components_utility_add_reading_water_reading_water_reading_component__WEBPACK_IMPORTED_MODULE_13__["WaterReadingComponent"], _components_utility_history_utility_history_component__WEBPACK_IMPORTED_MODULE_14__["UtilityHistoryComponent"], _components_utility_add_reading_water_reading_tower_reading_info_tower_reading_info_component__WEBPACK_IMPORTED_MODULE_15__["TowerReadingInfoComponent"], _components_utility_add_reading_water_reading_tower_reading_info_unit_reading_info_unit_reading_info_component__WEBPACK_IMPORTED_MODULE_16__["UnitReadingInfoComponent"], _components_utility_add_reading_add_insurance_add_insurance_component__WEBPACK_IMPORTED_MODULE_17__["AddInsuranceComponent"], _components_utility_reports_electricity_report_electricity_report_component__WEBPACK_IMPORTED_MODULE_18__["ElectricityReportComponent"], _components_utility_reports_water_report_water_report_component__WEBPACK_IMPORTED_MODULE_19__["WaterReportComponent"], _components_utility_reports_insurance_report_insurance_report_component__WEBPACK_IMPORTED_MODULE_20__["InsuranceReportComponent"], _components_utility_reports_utility_report_data_utility_report_data_component__WEBPACK_IMPORTED_MODULE_21__["UtilityReportDataComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__["ListModule"], _utility_routing_module__WEBPACK_IMPORTED_MODULE_7__["UtilityRoutingModule"]],
         bootstrap: [_utility_component__WEBPACK_IMPORTED_MODULE_8__["UtilityComponent"]]
       })], UtilityModule);

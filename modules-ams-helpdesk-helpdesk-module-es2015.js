@@ -442,7 +442,9 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
             if (res.code == 200) {
                 this.getCommentList();
                 this.ticketComment = '';
-                this.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                if (type != 'log') {
+                    this.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                }
             }
             else
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2315,6 +2317,9 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                 this.commonListData = new jqx.dataAdapter(data);
             }
             this.isDataLoaded = false;
+        }, (error) => {
+            this.isDataLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {
@@ -2633,6 +2638,9 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                 this.privateListData = new jqx.dataAdapter(data);
             }
             this.isDataLoaded = false;
+        }, (error) => {
+            this.isDataLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {
