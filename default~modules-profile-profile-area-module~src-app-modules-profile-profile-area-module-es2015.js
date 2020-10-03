@@ -780,7 +780,7 @@ let ProfileAreaComponent = class ProfileAreaComponent {
         if (this._activatedRoute.queryParams['value'].subtype == 'una')
             this._router.navigate(['/ams/unit&users/info/unapproved']);
         else
-            this._router.navigate(['/ams/unit&users/info/approved']);
+            this._router.navigate(['/ams/unit&users/approved']);
     }
     toggleSideBar() {
         this.drawer.toggle();

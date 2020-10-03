@@ -1,18 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-unit-users-unit-users-report-unit-users-report-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.html":
-/*!*************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.html ***!
-  \*************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n    <div class=\"main\">\n  \n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  \n    <ng-container *ngIf=\"isDataLoaded\">\n  \n      <h5 class=\"mb-4\">Reports</h5>\n  \n      <div class=\"row\">\n        <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList\">\n            <div class=\"bg-card shadow\">\n              <a class=\"t-no-decor\" href=\"javascript:void(0)\"\n                routerLink = \"reports/{{getReportRedirectPath(report.lookupValueName)}}/{{report.lookupValueID}}\" \n                routerLinkActive=\"active\"\n                [routerLinkActiveOptions] = \"{exact:true}\">\n                <div>\n                  <h6>{{report.lookupValueName}}</h6>\n                  <p>{{report.description}}</p>\n                </div>\n              </a>\n              <!-- <div class=\"card-body\">\n                \n              </div> -->\n            </div>\n        </div>\n      </div>\n  \n    </ng-container>\n  \n  \n  \n    <!-- <div class=\"card\">\n      \n      <div class=\"card-body p-0\" id=\"accordion\">\n        <ul class=\"list-group tabs clear\">\n  \n          <div class=\"tabs-content\" *ngFor=\"let report of unitReportData;let i = index; first as isFirst\">\n            \n            <li class=\"list-group-item\" data-toggle=\"collapse\" attr.data-target=\"#reportData{{report.lookupValueId}}\" aria-expanded=\"true\" attr.aria-controls=\"reportData{{report.lookupValueId}}\"[ngClass]=\"isFirst ? '' : 'collapsed'\"><strong class=\"tc-blue\">{{report.lookupValueName}}</strong></li>\n            <div id=\"reportData{{report.lookupValueId}}\" class=\"collapse\" attr.aria-labelledby=\"reportData{{report.lookupValueId}}\" data-parent=\"#accordion\" [ngClass]=\"isFirst ? 'show' : ''\">\n              <div class=\"details p-0\">\n                <table class=\"table\" [ngClass]=\"isMobileView()\">\n                  <thead>\n                      <tr>\n                        <th scope=\"col\" (click)=\"sortUnitData('blockno')\">Report Name</th>\n                        <th scope=\"col\" (click)=\"sortUnitData('unitno')\">Schedule Report </th>\n                        <th scope=\"col\" (click)=\"sortUnitData('intercom')\">Publish Report</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr *ngFor=\"let item of report.data\">\n                        <td class=\"name\">{{item.name}}</td>\n                        <td class=\"grey\">{{item.status}}</td>\n                        <td class=\"select\">\n                          <div class=\"form-group\">\n                            <div class=\"form-check float-left\">\n                            <input type=\"checkbox\" class=\"form-check-input\" \n                            id=\"{{item.name}}\" \n                                        name=\"{{item.name}}\"\n                                        [(ngModel)]=\"item.checked\"\n                                        (ngModelChange)=\"getSelectedReports(item)\"\n                            >\n                            <label class=\"form-check-label\" for=\"{{item.name}}\"></label>\n                        </div>\n                          </div>\n                        </td>\n                      </tr>\n                    </tbody>\n                </table> \n              </div>\n            </div>\n  \n          </div>\n          \n  \n        </ul>\n  \n      </div> \n  \n      <div class=\"card-body p-0 border-top\">\n        <div class=\"button-wrapper\">\n          <a class=\"btn lime-green sf\"\n            [ngClass]=\"!isReportSelected() ? 'disabled' : ''\">\n            <span>Publish Selected reports to notice Board</span>\n            </a>\n            \n        </div>\n      </div>\n  \n    </div>-->\n  \n  </div>\n  </div>\n  ");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.html":
 /*!*************************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.html ***!
@@ -26,76 +13,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.scss":
-/*!***********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.scss ***!
-  \***********************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.html":
+/*!*********************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.html ***!
+  \*********************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3VuaXQtdXNlcnMvdW5pdC11c2Vycy1yZXBvcnQvdW5pdC11c2VyLXJlcG9ydC91bml0LXVzZXItcmVwb3J0LmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.ts":
-/*!*********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.ts ***!
-  \*********************************************************************************************************/
-/*! exports provided: UnitUserReportComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitUserReportComponent", function() { return UnitUserReportComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
-
-
-
-let UnitUserReportComponent = class UnitUserReportComponent {
-    constructor(lookupService, sessionService) {
-        this.lookupService = lookupService;
-        this.sessionService = sessionService;
-        this.isDataLoaded = false;
-    }
-    formatName(name) {
-        return name.replace(/^\s+|\s+$/g, "");
-    }
-    ngOnInit() {
-        let details = {
-            ApartmentId: this.sessionService.apartmentId,
-            LookupTypeId: 87,
-            MenuName: 'UnitUser'
-        };
-        this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res) => {
-            this.reportDataList = res;
-            this.isDataLoaded = true;
-        });
-    }
-    getReportRedirectPath(path) {
-        return path.replace('/', '');
-    }
-};
-UnitUserReportComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
-];
-UnitUserReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-unit-user-report',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./unit-user-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./unit-user-report.component.scss */ "./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
-], UnitUserReportComponent);
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n    <div class=\"main\">\n  \n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n  \n    <ng-container *ngIf=\"isDataLoaded\">\n  \n      <h5 class=\"mb-4\">Reports</h5>\n  \n      <div class=\"row\">\n\n        <div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportDataList; let i = index\">\n\t\t\t\t\t\n\t\t\t\t\t\n          <condo-card>\n\n            <div CondoCardHeader>\n              <a class=\"t-no-decor\" href=\"javascript:void(0)\"\n              routerLink=\"reports/{{getReportRedirectPath(report.lookupValueName)}}/{{report.lookupValueID}}\" \n              routerLinkActive=\"active\"\n              [routerLinkActiveOptions] = \"{exact:true}\">\n                <h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n                <p>{{report.description}}</p>\n              </a>\n            </div>\n\n            <div CondoCardBody>\n              <div class=\"p-4 bg-cool-gray-50\"></div>\n            </div>\n\n          </condo-card>\n\n\n\t\t\t  </div>\n\n      </div>\n  \n    </ng-container>\n  \n  \n  \n    <!-- <div class=\"card\">\n      \n      <div class=\"card-body p-0\" id=\"accordion\">\n        <ul class=\"list-group tabs clear\">\n  \n          <div class=\"tabs-content\" *ngFor=\"let report of unitReportData;let i = index; first as isFirst\">\n            \n            <li class=\"list-group-item\" data-toggle=\"collapse\" attr.data-target=\"#reportData{{report.lookupValueId}}\" aria-expanded=\"true\" attr.aria-controls=\"reportData{{report.lookupValueId}}\"[ngClass]=\"isFirst ? '' : 'collapsed'\"><strong class=\"tc-blue\">{{report.lookupValueName}}</strong></li>\n            <div id=\"reportData{{report.lookupValueId}}\" class=\"collapse\" attr.aria-labelledby=\"reportData{{report.lookupValueId}}\" data-parent=\"#accordion\" [ngClass]=\"isFirst ? 'show' : ''\">\n              <div class=\"details p-0\">\n                <table class=\"table\" [ngClass]=\"isMobileView()\">\n                  <thead>\n                      <tr>\n                        <th scope=\"col\" (click)=\"sortUnitData('blockno')\">Report Name</th>\n                        <th scope=\"col\" (click)=\"sortUnitData('unitno')\">Schedule Report </th>\n                        <th scope=\"col\" (click)=\"sortUnitData('intercom')\">Publish Report</th>\n                      </tr>\n                    </thead>\n                    <tbody>\n                      <tr *ngFor=\"let item of report.data\">\n                        <td class=\"name\">{{item.name}}</td>\n                        <td class=\"grey\">{{item.status}}</td>\n                        <td class=\"select\">\n                          <div class=\"form-group\">\n                            <div class=\"form-check float-left\">\n                            <input type=\"checkbox\" class=\"form-check-input\" \n                            id=\"{{item.name}}\" \n                                        name=\"{{item.name}}\"\n                                        [(ngModel)]=\"item.checked\"\n                                        (ngModelChange)=\"getSelectedReports(item)\"\n                            >\n                            <label class=\"form-check-label\" for=\"{{item.name}}\"></label>\n                        </div>\n                          </div>\n                        </td>\n                      </tr>\n                    </tbody>\n                </table> \n              </div>\n            </div>\n  \n          </div>\n          \n  \n        </ul>\n  \n      </div> \n  \n      <div class=\"card-body p-0 border-top\">\n        <div class=\"button-wrapper\">\n          <a class=\"btn lime-green sf\"\n            [ngClass]=\"!isReportSelected() ? 'disabled' : ''\">\n            <span>Publish Selected reports to notice Board</span>\n            </a>\n            \n        </div>\n      </div>\n  \n    </div>-->\n  \n  </div>\n  </div>\n  ");
 
 /***/ }),
 
@@ -956,28 +883,28 @@ UnitUsersReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
 /*!**********************************************************************************************!*\
   !*** ./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-routing.module.ts ***!
   \**********************************************************************************************/
-/*! exports provided: UnitUsersReportRoutingModule */
+/*! exports provided: routes, UnitUsersReportRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitUsersReportRoutingModule", function() { return UnitUsersReportRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
-/* harmony import */ var _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./unit-users-report-data/unit-users-report-data.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.ts");
-/* harmony import */ var _unit_user_report_unit_user_report_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./unit-user-report/unit-user-report.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.ts");
+/* harmony import */ var _unit_users_report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./unit-users-report.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.ts");
+/* harmony import */ var _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./unit-users-report-data/unit-users-report-data.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.ts");
 
 
 
 
-;
 
 
 const routes = [
-    { path: '', component: _unit_user_report_unit_user_report_component__WEBPACK_IMPORTED_MODULE_5__["UnitUserReportComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'reports/:name/:id', component: _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_4__["UnitUsersReportDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: '', component: _unit_users_report_component__WEBPACK_IMPORTED_MODULE_4__["UnitUsersReportComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports/:name/:id', component: _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_5__["UnitUsersReportDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
 ];
 let UnitUsersReportRoutingModule = class UnitUsersReportRoutingModule {
 };
@@ -987,6 +914,79 @@ UnitUsersReportRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
 ], UnitUsersReportRoutingModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.scss":
+/*!*******************************************************************************************!*\
+  !*** ./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.scss ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3VuaXQtdXNlcnMvdW5pdC11c2Vycy1yZXBvcnQvdW5pdC11c2Vycy1yZXBvcnQuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.ts":
+/*!*****************************************************************************************!*\
+  !*** ./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.ts ***!
+  \*****************************************************************************************/
+/*! exports provided: UnitUsersReportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UnitUsersReportComponent", function() { return UnitUsersReportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
+
+
+
+let UnitUsersReportComponent = class UnitUsersReportComponent {
+    constructor(lookupService, sessionService) {
+        this.lookupService = lookupService;
+        this.sessionService = sessionService;
+        this.isDataLoaded = false;
+    }
+    formatName(name) {
+        return name.replace(/^\s+|\s+$/g, "");
+    }
+    ngOnInit() {
+        let details = {
+            ApartmentId: this.sessionService.apartmentId,
+            LookupTypeId: 87,
+            MenuName: 'UnitUser'
+        };
+        this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res) => {
+            this.reportDataList = res;
+            this.isDataLoaded = true;
+        });
+    }
+    getReportRedirectPath(path) {
+        return path.replace('/', '');
+    }
+};
+UnitUsersReportComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
+];
+UnitUsersReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-unit-users-report',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./unit-users-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./unit-users-report.component.scss */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
+], UnitUsersReportComponent);
 
 
 
@@ -1005,11 +1005,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./unit-users-report-routing.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-routing.module.ts");
-/* harmony import */ var _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./unit-users-report-data/unit-users-report-data.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.ts");
-/* harmony import */ var _unit_user_report_unit_user_report_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./unit-user-report/unit-user-report.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-user-report/unit-user-report.component.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./unit-users-report-routing.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-routing.module.ts");
+/* harmony import */ var _unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./unit-users-report.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.ts");
+/* harmony import */ var _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./unit-users-report-data/unit-users-report-data.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.ts");
+
+
 
 
 
@@ -1022,12 +1025,16 @@ let UnitUsersReportModule = class UnitUsersReportModule {
 };
 UnitUsersReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_unit_user_report_unit_user_report_component__WEBPACK_IMPORTED_MODULE_5__["UnitUserReportComponent"], _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_4__["UnitUsersReportDataComponent"]],
+        declarations: [_unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersReportComponent"], _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_8__["UnitUsersReportDataComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"],
-            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__["CondoCardModule"],
-            _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersReportRoutingModule"]
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["routes"]),
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"],
+            _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["UnitUsersReportRoutingModule"]
+        ],
+        bootstrap: [
+            _unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersReportComponent"]
         ]
     })
 ], UnitUsersReportModule);

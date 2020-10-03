@@ -1279,7 +1279,7 @@
           key: "goBack",
           value: function goBack() {
             this.sessionService.profileUserId = this.sessionService.userId;
-            if (this._activatedRoute.queryParams['value'].subtype == 'una') this._router.navigate(['/ams/unit&users/info/unapproved']);else this._router.navigate(['/ams/unit&users/info/approved']);
+            if (this._activatedRoute.queryParams['value'].subtype == 'una') this._router.navigate(['/ams/unit&users/info/unapproved']);else this._router.navigate(['/ams/unit&users/approved']);
           }
         }, {
           key: "toggleSideBar",
