@@ -117,7 +117,7 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
     }
     filterApprovedUserData() {
         if (this.apartmentBlockId != null) {
-            this.approvedUsersData = this.approvedUsersData.filter(item => {
+            this.approvedUsersData = this.approvedUsersNormalData.filter(item => {
                 return item.apartmentBlockId == this.apartmentBlockId;
             });
         }

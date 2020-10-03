@@ -233,7 +233,7 @@
             var _this = this;
 
             if (this.apartmentBlockId != null) {
-              this.approvedUsersData = this.approvedUsersData.filter(function (item) {
+              this.approvedUsersData = this.approvedUsersNormalData.filter(function (item) {
                 return item.apartmentBlockId == _this.apartmentBlockId;
               });
             } else {
