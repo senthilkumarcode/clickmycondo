@@ -278,8 +278,8 @@ GraphCreator.prototype.createSVGPath = function (smartPath) {
         .attr('fill', '#f1f5f9')
         .attr("rx", 10)
         .attr("ry", 5)
-        .attr('filter','url(#loopFilter)')
-        .attr('id','smart-path-navigation')
+        .attr('filter', 'url(#loopFilter)')
+        .attr('id', 'smart-path-navigation')
 
     var lineDrawing = anime({
         targets: '#lcanvas g .animePathLink',
@@ -299,7 +299,7 @@ GraphCreator.prototype.createSVGPath = function (smartPath) {
             rotate: path('angle'),
             easing: 'linear',
             duration: 2000,
-            delay:500,
+            delay: 500,
             loop: true
         });
     }, 3000)
@@ -345,13 +345,12 @@ GraphCreator.prototype.pathBuilder = function (data, selectedObj, smartPath) {
 };
 
 
-GraphCreator.prototype.customGraphUpdate = function (data) {
+GraphCreator.prototype.customGraphUpdate = function (data,selectedObj) {
     var thisGraph = this;
     if (data) {
         var fullObj = JSON.parse(data);
         var jsonObj = fullObj.maponly; //new structure
     }
-    console.log('fullObj', fullObj, jsonObj);
     thisGraph.deleteGraph(true);
     thisGraph.nodes = jsonObj.nodes;
     //thisGraph.setIdCt(jsonObj.nodes.length + 1);
@@ -364,9 +363,8 @@ GraphCreator.prototype.customGraphUpdate = function (data) {
             target: thisGraph.nodes.filter(function (n) { return n.id == e.target; })[0]
         };
     });
-    console.log('new', newEdges)
     thisGraph.edges = newEdges;
-    thisGraph.updateGraph(undefined, undefined);
+    thisGraph.updateGraph(selectedObj, undefined);
 };
 
 GraphCreator.prototype.setIdCt = function (idct) {
@@ -548,21 +546,20 @@ GraphCreator.prototype.circleMouseUp = function (d3node, d) {
 
     if (mouseDownNode !== d) {
         // we're in a different node: create new edge for mousedown edge and add to graph
-        //   if(localStorage.getItem('isCreatePOI') == 'true'){
-        var newEdge = { source: mouseDownNode, target: d };
-        var filtRes = thisGraph.paths.filter(function (d) {
-            if (d.source === newEdge.target && d.target === newEdge.source) {
-                thisGraph.edges.splice(thisGraph.edges.indexOf(d), 1);
+        let preventGraph = localStorage.getItem('preventGraph');
+        if (preventGraph == null) {
+            var newEdge = { source: mouseDownNode, target: d };
+            var filtRes = thisGraph.paths.filter(function (d) {
+                if (d.source === newEdge.target && d.target === newEdge.source) {
+                    thisGraph.edges.splice(thisGraph.edges.indexOf(d), 1);
+                }
+                return d.source === newEdge.source && d.target === newEdge.target;
+            });
+            if (!filtRes[0].length) {
+                thisGraph.edges.push(newEdge);
+                thisGraph.updateGraph(undefined, undefined);
             }
-            return d.source === newEdge.source && d.target === newEdge.target;
-        });
-        if (!filtRes[0].length) {
-            thisGraph.edges.push(newEdge);
-            thisGraph.updateGraph(undefined, undefined);
         }
-        //   }else{
-
-        //   }
 
     } else {
         // we're in the same node
@@ -598,11 +595,10 @@ GraphCreator.prototype.circleMouseUp = function (d3node, d) {
 
 // mousedown on main svg
 GraphCreator.prototype.svgMouseDown = function () {
-    //   if(localStorage.getItem('isCreatePOI') == 'true'){
+    let preventDrag = localStorage.getItem('preventGraph');
+      if(preventDrag == null){
     this.state.graphMouseDown = true;
-    //   }else{
-
-    //   }
+      }
 };
 
 // mouseup on main svg
