@@ -8263,6 +8263,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.html":
+/*!************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.html ***!
+  \************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<h5>asdsad</h5>\n<app-unit-users-report-data></app-unit-users-report-data>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.html":
 /*!************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.html ***!
@@ -10177,6 +10190,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _dashboard_report_dashboard_report_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dashboard-report/dashboard-report.component */ "./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.ts");
+
 
 
 
@@ -10261,7 +10276,9 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
         }
     }
     detailInfo(data) {
-        // this.router.navigate(['ams/unit&users/reports/:List of Expiring Rental  Lease Agreements/:338'],queryParams:{})
+        this.dialog.open(_dashboard_report_dashboard_report_component__WEBPACK_IMPORTED_MODULE_9__["DashboardReportComponent"], {
+            panelClass: 'material-dialog-big',
+        });
     }
     unApproveMoveIn(result) {
         let entity = {
@@ -11346,6 +11363,58 @@ DashPieChartComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 /***/ }),
 
+/***/ "./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.scss":
+/*!**********************************************************************************************************!*\
+  !*** ./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.scss ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2Rhc2hib2FyZC9jb21wb25lbnRzL3NoYXJlZC9kYXNoYm9hcmQtcmVwb3J0L2Rhc2hib2FyZC1yZXBvcnQuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.ts":
+/*!********************************************************************************************************!*\
+  !*** ./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.ts ***!
+  \********************************************************************************************************/
+/*! exports provided: DashboardReportComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardReportComponent", function() { return DashboardReportComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+let DashboardReportComponent = class DashboardReportComponent {
+    constructor(router) {
+        this.router = router;
+    }
+    ngOnInit() {
+    }
+};
+DashboardReportComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+DashboardReportComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-dashboard-report',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./dashboard-report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./dashboard-report.component.scss */ "./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+], DashboardReportComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.scss":
 /*!**********************************************************************************************!*\
   !*** ./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.scss ***!
@@ -11445,7 +11514,7 @@ const routes = [
     { path: '', component: _dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], children: [
             { path: '', redirectTo: 'main', pathMatch: 'full' },
             { path: 'main', component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"] },
-            { path: 'custom', component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"] }
+            { path: 'custom', component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"] },
         ] }
 ];
 let DashboardRoutingModule = class DashboardRoutingModule {
@@ -11614,6 +11683,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular2gridster__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! angular2gridster */ "./node_modules/angular2gridster/__ivy_ngcc__/fesm2015/angular2gridster.js");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var _components_shared_dash_com_list_dash_com_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/shared/dash-com-list/dash-com-list.component */ "./src/app/modules/ams/dashboard/components/shared/dash-com-list/dash-com-list.component.ts");
+/* harmony import */ var _unit_users_unit_users_report_unit_users_report_module__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts");
+/* harmony import */ var _components_shared_dashboard_report_dashboard_report_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/shared/dashboard-report/dashboard-report.component */ "./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.ts");
+
+
 
 
 
@@ -11652,7 +11725,8 @@ DashboardModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_shared_admin_dash_second_row_admin_dash_second_row_component__WEBPACK_IMPORTED_MODULE_16__["AdminDashSecondRowComponent"],
             _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_17__["DashMeetingComponent"],
             _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_18__["DashBroadCastComponent"],
-            _components_shared_dash_com_list_dash_com_list_component__WEBPACK_IMPORTED_MODULE_21__["DashComListComponent"]
+            _components_shared_dash_com_list_dash_com_list_component__WEBPACK_IMPORTED_MODULE_21__["DashComListComponent"],
+            _components_shared_dashboard_report_dashboard_report_component__WEBPACK_IMPORTED_MODULE_23__["DashboardReportComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -11662,7 +11736,8 @@ DashboardModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__["DashboardRoutingModule"],
             _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_6__["MatGridListModule"],
             _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_14__["DragDropModule"],
-            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"]
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"],
+            _unit_users_unit_users_report_unit_users_report_module__WEBPACK_IMPORTED_MODULE_22__["UnitUsersReportModule"]
         ],
         providers: [
             src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_9__["DashBoardService"]

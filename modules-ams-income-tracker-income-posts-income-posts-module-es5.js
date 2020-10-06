@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n            \n    <div class=\"main\">\n\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\" \n            [@shake]=\"message.shake\">\n                {{message.content}}\n\t\t</condo-message>\n\n        <form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n            <div class=\"bg-card shadow\">\n        \n                    <div class=\"row\">\n        \n                        <div class=\"col-lg-6 ol-md-12 col-sm-12\">\n                            <condo-select \n                                labelText=\"Tower No\"\n                                fieldPlaceholder=\"Select Tower\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"blocksData\"\n                                fieldValue=\"apartmentBlockNumber\"\n                                [fieldModel]=\"apartmentBlockId\"\n                                fieldId=\"apartmentBlockId\"\n                                toolTip=\"tower\"\n                                (fieldParams)=\"getBlockNo($event)\" \n                            ></condo-select>   \n                        </div>\n                        <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                            <condo-select \n                                labelText=\"Unit No\"\n                                fieldPlaceholder=\"Select Unit\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"unitData\"\n                                fieldValue=\"apartmentBlockUnitNumber\"\n                                [fieldModel]=\"apartmentBlockUnitId\"\n                                fieldId=\"apartmentBlockUnitId\"\n                                toolTip=\"unit\"\n                                [isDisabled]=\"!isBlockSelected\"\n                                (fieldParams)=\"getBlockUnitNo($event)\" \n                            ></condo-select>\n                        </div>\n                    \n                        <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                            <condo-select \n                                labelText=\"Bill No\"\n                                fieldPlaceholder=\"Select Bill\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"billData\"\n                                fieldValue=\"collectionId\"\n                                [fieldModel]=\"credit.collectionId\"\n                                fieldId=\"collectionId\"\n                                [isDisabled]=\"!isBlockSelected\"\n                                (fieldParams)=\"getBillNo($event)\" \n                            ></condo-select>\n                        </div> \n        \n                        <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Amount*</label>\n                                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n                                <help-tooltip title=\"creditAmount\"></help-tooltip>\n                            </div>\n                        </div>\n        \n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Comments</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n                            </div>\n                        </div>\n        \n                    </div>\n        \n            </div>\n\n            <submit-button class=\"mt-4 float-right\" [isSubmit]=\"isCreditSubmitted\">Submit</submit-button>\n\n        </form>\n\n    </div>\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-add-credit-wrapper\">\n            \n    <div class=\"main\">\n\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\" \n            [@shake]=\"message.shake\">\n                {{message.content}}\n        </condo-message>\n        \n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n                <div class=\"bg-card shadow\">\n            \n                        <div class=\"row\">\n            \n                            <div class=\"col-lg-6 ol-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Tower No\"\n                                    fieldPlaceholder=\"Select Tower\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"blocksData\"\n                                    fieldValue=\"apartmentBlockNumber\"\n                                    [fieldModel]=\"apartmentBlockId\"\n                                    fieldId=\"apartmentBlockId\"\n                                    toolTip=\"tower\"\n                                    (fieldParams)=\"getBlockNo($event)\" \n                                ></condo-select>   \n                            </div>\n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Unit No\"\n                                    fieldPlaceholder=\"Select Unit\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"unitData\"\n                                    fieldValue=\"apartmentBlockUnitNumber\"\n                                    [fieldModel]=\"apartmentBlockUnitId\"\n                                    fieldId=\"apartmentBlockUnitId\"\n                                    toolTip=\"unit\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBlockUnitNo($event)\" \n                                ></condo-select>\n                            </div>\n                        \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Bill No\"\n                                    fieldPlaceholder=\"Select Bill\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"billData\"\n                                    fieldValue=\"collectionId\"\n                                    [fieldModel]=\"credit.collectionId\"\n                                    fieldId=\"collectionId\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBillNo($event)\" \n                                ></condo-select>\n                            </div> \n            \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Amount*</label>\n                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n                                    <help-tooltip title=\"creditAmount\"></help-tooltip>\n                                </div>\n                            </div>\n            \n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Comments</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n                                </div>\n                            </div>\n            \n                        </div>\n            \n                </div>\n    \n                <submit-button class=\"mt-4 float-right\" [isSubmit]=\"isCreditSubmitted\">Submit</submit-button>\n    \n            </form>\n\n        </ng-container>\n\n    </div>\n\t\n</div>";
       /***/
     },
 
@@ -137,6 +137,7 @@
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.isDataLoaded = false;
           this.isCreditSubmitted = false;
           this.isBlockSelected = false;
           this.isUnitSelected = false;
@@ -201,7 +202,8 @@
                 type: 'error'
               };
             } else {
-              // Hide the message
+              this.isCreditSubmitted = true; // Hide the message
+
               this.message = null;
               var details = {
                 "apartmentId": this.sessionService.apartmentId,
@@ -226,14 +228,14 @@
               };
               this.accountsService.addCustCreditNotes(params).subscribe(function (res) {
                 if (res.error) {
-                  _this3.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = false;
                   form.reset();
                   _this3.credit = {};
                 } else {
-                  _this3.isCreditSubmitted = true;
+                  _this3.isCreditSubmitted = false;
                 }
               }, function (error) {
-                _this3.isCreditSubmitted = true;
+                _this3.isCreditSubmitted = false;
               });
             }
           }
@@ -249,6 +251,7 @@
 
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
               _this4.blocksData = res;
+              _this4.isDataLoaded = true;
             });
           }
         }]);
