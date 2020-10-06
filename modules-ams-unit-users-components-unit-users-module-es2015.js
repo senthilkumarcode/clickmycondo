@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-users-resident-success-page\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow success mb-4\">\n            <p class=\"font-medium\">Account has been created and User has been informed througth email </p>\n        </div>\n\n        <div class=\"mb-4\" *ngFor=\"let data of actions\">\n            <div class=\"bg-card shadow\">\n                <div class=\"text-center mb-4\">\n                    <h6 class=\"\">{{data.title}}</h6>\n                </div>\n                <div class=\"pt-4 pb-5 text-center\">\n                    <button mat-flat-button (click)=\"navigate(data.url)\" [color]=\"'primary'\">Yes</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-users-resident-success-page\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow success mb-4\">\n            <p class=\"font-medium\">Account has been created and User has been informed through email </p>\n        </div>\n\n        <div class=\"mb-4\" *ngFor=\"let data of actions\">\n            <div class=\"bg-card shadow\">\n                <div class=\"text-center mb-4\">\n                    <h6 class=\"\">{{data.title}}</h6>\n                </div>\n                <div class=\"pt-4 pb-5 text-center\">\n                    <button mat-flat-button (click)=\"navigate(data.url)\" [color]=\"'primary'\">Yes</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 

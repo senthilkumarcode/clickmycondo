@@ -1,18 +1,5 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-profile-settings-profile-settings-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.html":
-/*!**************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.html ***!
-  \**************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-block-wrapper\">\n\t<ng-container *ngFor=\"let block of blockArray; let i = index\">\n\t\t<app-add-block [index]=\"i\" [array]=\"blockArray\" (outputParams) = \"getBlockArray($event)\"></app-add-block>\n\t</ng-container>\n\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addBlock()\" *ngIf=\"!isEditUser\" [ngClass]=\"isMobileView() ? 'mobile' : ''\">\n\t\t<div class=\"icon\">+<span class=\"text d-sm-none ml-2\">Add Block</span></div>\n\t</a>\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.html":
 /*!****************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.html ***!
@@ -48,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-block-unit-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"block-unit-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">{{unitInfo.tower}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-8\">\n                                <div class=\"input-box\">\n                                    <label>Floor Name</label>\n                                    <p>{{unitInfo.floorLabel}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"input-box\">\n                                    <label>Floor No</label>\n                                    <p>{{unitInfo.floorno}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <mat-form-field class=\"unit-chips\">\n                                    <mat-label>Unit Information</mat-label>\n                                    <mat-chip-list #unitList aria-label=\"Unit Selection\">\n                                      <mat-chip [color]=\"'primary'\" *ngFor=\"let unitNo of unitInfo.apartmentBlockunitInfo;let i= index\" [selectable]=\"true\" (removed)=\"removeUnit(unitNo,i)\">\n                                        {{unitNo.apartmentBlockUnitNumber}}\n                                        <mat-icon [color]=\"'warn'\" matChipRemove>cancel</mat-icon>\n                                      </mat-chip>\n                                      <input \n                                            OnlyNumber=\"true\"\n                                            class=\"border-none\"\n                                            placeholder=\"Enter Unit No...\"\n                                            [matChipInputFor]=\"unitList\"\n                                            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n                                            [matChipInputAddOnBlur]=\"false\"\n                                            (matChipInputTokenEnd)=\"addUnit($event)\">\n                                            <help-tooltip title=\"addUnit\"></help-tooltip>\n                                    </mat-chip-list>\n                                </mat-form-field>\n                            </div>\n                        </div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <ng-container *ngIf=\"isDataLoaded\">\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"i == 0\"  *ngFor=\"let tower of towerList; let i = index\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                <h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <mat-panel-description>\n                            <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\" *ngIf=\"tower.floorInfo.length > 0\">\n                                <thead>\n                                    <tr>\n                                        <th class=\"red-width\" scope=\"col\">Floor No</th>\n                                        <th class=\"red-width\" scope=\"col\">Floor Name</th>\n                                        <th class=\"red-width\" scope=\"col\">Unit</th>\n                                        <th scope=\"col\">Unit No</th>\n                                        <th class=\"red-width\"scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let floor of tower.floorInfo\">\n                                        <td>{{floor.floorno}}</td>\n                                        <td>{{floor.floorLabel}}</td>\n                                        <td>{{tower.totalNounits}}</td>\n                                        <td class=\"unit-column\">\n                                            <ng-container *ngFor=\"let unit of floor.apartmentBlockunitInfo;let last = last\">\n                                                {{unit.apartmentBlockUnitNumber}}<span *ngIf=!last>,</span>\n                                            </ng-container>\n                                        </td>\n                                        <td>\n                                            <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editUnit(floor,tower.apartmentBlockNumber,tower.apartmentBlockId)\"  class=\"pt-2 link\" title=\"Add Unit\"></mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </mat-panel-description>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </ng-container>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-block-unit-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"block-unit-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">{{unitInfo.tower}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-8\">\n                                <div class=\"input-box\">\n                                    <label>Floor Name</label>\n                                    <p>{{unitInfo.floorLabel}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"input-box\">\n                                    <label>Floor No</label>\n                                    <p>{{unitInfo.floorno}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <mat-form-field class=\"unit-chips\">\n                                    <mat-label>Unit Information</mat-label>\n                                    <mat-chip-list #unitList aria-label=\"Unit Selection\">\n                                      <mat-chip [color]=\"'primary'\" *ngFor=\"let unitNo of unitInfo.apartmentBlockunitInfo;let i= index\" [selectable]=\"true\" (removed)=\"removeUnit(unitNo,i)\">\n                                        {{unitNo.apartmentBlockUnitNumber}}\n                                        <mat-icon [color]=\"'warn'\" matChipRemove>cancel</mat-icon>\n                                      </mat-chip>\n                                      <input \n                                            OnlyNumber=\"true\"\n                                            class=\"border-none\"\n                                            placeholder=\"Enter Unit No...\"\n                                            [matChipInputFor]=\"unitList\"\n                                            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n                                            [matChipInputAddOnBlur]=\"false\"\n                                            (matChipInputTokenEnd)=\"addUnit($event)\">\n                                            <help-tooltip title=\"addUnit\"></help-tooltip>\n                                    </mat-chip-list>\n                                </mat-form-field>\n                            </div>\n                        </div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <ng-container *ngIf=\"isDataLoaded\">\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"i == 0\"  *ngFor=\"let tower of towerList; let i = index\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                <h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <mat-panel-description>\n                            <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\" *ngIf=\"tower.floorInfo.length > 0\">\n                                <thead>\n                                    <tr>\n                                        <th class=\"red-width\" scope=\"col\">Floor No</th>\n                                        <th class=\"red-width\" scope=\"col\">Floor Name</th>\n                                        <th class=\"red-width\" scope=\"col\">Unit</th>\n                                        <th scope=\"col\">Unit No</th>\n                                        <th class=\"red-width\"scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let floor of tower.floorInfo\">\n                                        <td>{{floor.floorno}}</td>\n                                        <td>{{floor.floorLabel}}</td>\n                                        <td>{{floor.unitCount}}</td>\n                                        <td class=\"unit-column\">\n                                            <ng-container *ngFor=\"let unit of floor.apartmentBlockunitInfo;let last = last\">\n                                                {{unit.apartmentBlockUnitNumber}}<span *ngIf=!last>,</span>\n                                            </ng-container>\n                                        </td>\n                                        <td>\n                                            <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editUnit(floor,tower.apartmentBlockNumber,tower.apartmentBlockId)\"  class=\"pt-2 link\" title=\"Add Unit\"></mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </mat-panel-description>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </ng-container>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -78,19 +65,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.html":
-/*!************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.html ***!
-  \************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-unit-wrapper\">\n\t<div class=\"card mb-5\">\n\t\t<div class=\"card-body\">\n\t\t\t<form novalidate>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Select Tower No</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"blockId\" \n\t\t\t\t\t\t        id=\"blockId\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"blockId\" (ngModelChange)=\"chooseBlock()\" required>\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t\t\t    </select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</div>\n\n\t<div class=\"unit-main-wrapper\" *ngIf=\"isBlockSelected\">\n\t\t<ng-container *ngFor=\"let unit of unitArray; let i = index\">\n\t\t\t<app-add-unit [index]=\"i\" [array]=\"unitArray\" [blockId]=\"blockId\" (outputParams) = \"getUnitArray($event)\"></app-add-unit>\n\t\t</ng-container>\n\t\t<a href=\"javascript:void(0)\" class=\"rounded-btn green\" (click)=\"addUnit()\" *ngIf=\"!isEditUser\" [ngClass]=\"isMobileView() ? 'mobile' : ''\">\n\t\t\t<div class=\"icon\">+<span class=\"text d-sm-none ml-2\">Add Unit</span></div>\n\t\t</a>\n\t</div>\n\n</div>\n");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.html":
 /*!*************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.html ***!
@@ -114,75 +88,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.scss":
-/*!************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.scss ***!
-  \************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Byb2ZpbGUtc2V0dGluZ3MvY29tcG9uZW50cy9hZGQtYmxvY2std3JhcHBlci9hZGQtYmxvY2std3JhcHBlci5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts":
-/*!**********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts ***!
-  \**********************************************************************************************************/
-/*! exports provided: AddBlockWrapperComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddBlockWrapperComponent", function() { return AddBlockWrapperComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-
-
-
-let AddBlockWrapperComponent = class AddBlockWrapperComponent {
-    constructor(route) {
-        this.route = route;
-        this.blockCount = 1;
-        this.isEditUser = false;
-    }
-    addBlock() {
-        this.blockCount++;
-        this.blockArray = Array(this.blockCount).fill(0).map((x, i) => i);
-    }
-    getBlockArray(event) {
-        this.blockArray = event;
-        this.blockCount = this.blockArray.length;
-    }
-    isMobileView() {
-        return window.innerWidth <= 576;
-    }
-    ngOnInit() {
-        if (this.route.params['value'].id != undefined) {
-            this.isEditUser = true;
-        }
-        this.blockArray = Array(this.blockCount).fill(0).map((x, i) => i);
-    }
-};
-AddBlockWrapperComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
-];
-AddBlockWrapperComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-add-block-wrapper',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-block-wrapper.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-block-wrapper.component.scss */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
-], AddBlockWrapperComponent);
-
-
 
 /***/ }),
 
@@ -817,6 +722,11 @@ let AddBlockUnitComponent = class AddBlockUnitComponent {
             input.value = '';
         }
     }
+    //   pasteUnit(event: ClipboardEvent): void {
+    // 	event.preventDefault();
+    // 	let pastedData =  event.clipboardData.getData('Text');
+    // 	let separateUnit =  pastedData.split('.');
+    //   }
     removeUnit(unitDetails, index) {
         if (index >= 0) {
             let params = {
@@ -863,7 +773,8 @@ let AddBlockUnitComponent = class AddBlockUnitComponent {
                                 apartmentBlockId: tower.apartmentBlockId,
                                 floorno: i + 1,
                                 floorLabel: `Floor-${i + 1}`,
-                                apartmentBlockunitInfo: unit[i] ? unit[i].apartmentBlockunitInfo : []
+                                apartmentBlockunitInfo: unit[i] ? unit[i].apartmentBlockunitInfo : [],
+                                unitCount: unit[i] ? unit[i].apartmentBlockunitInfo.length : 0
                             };
                             tower.floorInfo.push(entity);
                         }
@@ -1142,90 +1053,6 @@ AddTowerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 /***/ }),
 
-/***/ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.scss":
-/*!**********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.scss ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Byb2ZpbGUtc2V0dGluZ3MvY29tcG9uZW50cy9hZGQtdW5pdC13cmFwcGVyL2FkZC11bml0LXdyYXBwZXIuY29tcG9uZW50LnNjc3MifQ== */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts":
-/*!********************************************************************************************************!*\
-  !*** ./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts ***!
-  \********************************************************************************************************/
-/*! exports provided: AddUnitWrapperComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddUnitWrapperComponent", function() { return AddUnitWrapperComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
-
-
-
-let AddUnitWrapperComponent = class AddUnitWrapperComponent {
-    constructor(apartmentService, sessionService) {
-        this.apartmentService = apartmentService;
-        this.sessionService = sessionService;
-        this.blockId = "";
-        this.isBlockSelected = false;
-        this.unitCount = 1;
-        this.isEditUser = false;
-    }
-    chooseBlock() {
-        this.isBlockSelected = true;
-        this.unitCount = 1;
-        this.unitArray = Array(this.unitCount).fill(0).map((x, i) => i);
-    }
-    addUnit() {
-        this.unitCount++;
-        this.unitArray = Array(this.unitCount).fill(0).map((x, i) => i);
-    }
-    getUnitArray(event) {
-        this.unitArray = event;
-        this.unitCount = this.unitArray.length;
-    }
-    isMobileView() {
-        return window.innerWidth <= 576;
-    }
-    ngOnInit() {
-        let params = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
-            this.unitBlocksData = res;
-        });
-        this.unitArray = Array(this.unitCount).fill(0).map((x, i) => i);
-    }
-};
-AddUnitWrapperComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
-];
-AddUnitWrapperComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-add-unit-wrapper',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-unit-wrapper.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-unit-wrapper.component.scss */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
-], AddUnitWrapperComponent);
-
-
-
-/***/ }),
-
 /***/ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.scss":
 /*!***********************************************************************************************************!*\
   !*** ./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.scss ***!
@@ -1376,14 +1203,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
-/* harmony import */ var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts");
-/* harmony import */ var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
-/* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
-/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
-/* harmony import */ var _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/add-floor-unit/add-tower/add-tower.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-tower/add-tower.component.ts");
-/* harmony import */ var _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/add-floor-unit/add-block-unit/add-block-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-block-unit/add-block-unit.component.ts");
-
-
+/* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
+/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+/* harmony import */ var _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-floor-unit/add-tower/add-tower.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-tower/add-tower.component.ts");
+/* harmony import */ var _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/add-floor-unit/add-block-unit/add-block-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-block-unit/add-block-unit.component.ts");
 
 
 
@@ -1393,20 +1216,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', redirectTo: 'add-block', pathMatch: 'full' },
-    { path: 'add-floor-unit-graphic', component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__["AddFloorUnitGraphicComponent"] },
-    { path: 'add-block', component: _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_4__["AddBlockWrapperComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'add-unit', component: _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_5__["AddUnitWrapperComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'add-floor-unit', component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_6__["AddFloorUnitComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
+    { path: '', redirectTo: 'add-floor-unit', pathMatch: 'full' },
+    // { path: 'add-block', component: AddBlockWrapperComponent, canActivate: [AuthGuard]},
+    // { path: 'add-unit', component: AddUnitWrapperComponent, canActivate: [AuthGuard
+    { path: 'add-floor-unit', component: _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_4__["AddFloorUnitComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'add-tower', canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]], pathMatch: 'full' },
-            { path: 'add-tower', component: _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_8__["AddTowerComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-            { path: 'add-unit', component: _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_9__["AddBlockUnitComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'add-tower', component: _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_6__["AddTowerComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'add-unit', component: _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_7__["AddBlockUnitComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
             { path: '**', redirectTo: 'add-tower', pathMatch: 'full' }
         ]
     },
-    { path: 'add-floor-unit-graphic', component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_7__["AddFloorUnitGraphicComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: '**', redirectTo: 'add-block', pathMatch: 'full' }
+    { path: 'add-floor-unit-graphic', component: _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_5__["AddFloorUnitGraphicComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: '**', redirectTo: 'add-floor-unit', pathMatch: 'full' }
 ];
 let ProfileSettingsRoutingModule = class ProfileSettingsRoutingModule {
 };
@@ -1483,19 +1305,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profile-settings-routing.module */ "./src/app/modules/ams/profile-settings/profile-settings-routing.module.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./profile-settings.component */ "./src/app/modules/ams/profile-settings/profile-settings.component.ts");
-/* harmony import */ var _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block-wrapper.component.ts");
-/* harmony import */ var _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit-wrapper.component */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit-wrapper.component.ts");
-/* harmony import */ var _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block/add-block.component */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.ts");
-/* harmony import */ var _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit/add-unit.component */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.ts");
-/* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
-/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
-/* harmony import */ var _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
-/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-/* harmony import */ var _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/add-floor-unit/add-tower/add-tower.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-tower/add-tower.component.ts");
-/* harmony import */ var _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/add-floor-unit/add-block-unit/add-block-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-block-unit/add-block-unit.component.ts");
-/* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
-
-
+/* harmony import */ var _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-block-wrapper/add-block/add-block.component */ "./src/app/modules/ams/profile-settings/components/add-block-wrapper/add-block/add-block.component.ts");
+/* harmony import */ var _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/add-unit-wrapper/add-unit/add-unit.component */ "./src/app/modules/ams/profile-settings/components/add-unit-wrapper/add-unit/add-unit.component.ts");
+/* harmony import */ var _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/add-floor-unit/add-floor-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-floor-unit.component.ts");
+/* harmony import */ var _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/add-floor-unit-graphic/add-floor-unit-graphic.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit-graphic/add-floor-unit-graphic.component.ts");
+/* harmony import */ var _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/add-floor-unit/add-tower/add-tower.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-tower/add-tower.component.ts");
+/* harmony import */ var _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/add-floor-unit/add-block-unit/add-block-unit.component */ "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-block-unit/add-block-unit.component.ts");
+/* harmony import */ var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/help-tooltip/help-tooltip.module */ "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
 
 
 
@@ -1516,25 +1334,25 @@ let ProfileSettingsModule = class ProfileSettingsModule {
 ProfileSettingsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_9__["AddUnitComponent"],
-            _components_add_block_wrapper_add_block_wrapper_component__WEBPACK_IMPORTED_MODULE_6__["AddBlockWrapperComponent"],
-            _components_add_unit_wrapper_add_unit_wrapper_component__WEBPACK_IMPORTED_MODULE_7__["AddUnitWrapperComponent"],
+            _components_add_unit_wrapper_add_unit_add_unit_component__WEBPACK_IMPORTED_MODULE_7__["AddUnitComponent"],
+            //AddBlockWrapperComponent,
+            //AddUnitWrapperComponent,
             _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"],
-            _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_8__["AddBlockComponent"],
-            _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_10__["AddFloorUnitComponent"],
-            _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_11__["AddFloorUnitGraphicComponent"],
-            _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__["AddPropertyDialogComponent"],
-            _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_14__["AddTowerComponent"],
-            _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_15__["AddBlockUnitComponent"],
+            _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_6__["AddBlockComponent"],
+            _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_8__["AddFloorUnitComponent"],
+            _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_9__["AddFloorUnitGraphicComponent"],
+            _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"],
+            _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_12__["AddTowerComponent"],
+            _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_13__["AddBlockUnitComponent"],
         ],
         entryComponents: [
-            _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_12__["AddPropertyDialogComponent"]
+            _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
-            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_13__["CondoCardModule"],
-            src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_16__["HelpTooltipModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"],
+            src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__["HelpTooltipModule"],
             _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]
         ],
         bootstrap: [_profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"]]
