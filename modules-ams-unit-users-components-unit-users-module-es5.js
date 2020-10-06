@@ -671,28 +671,25 @@
               this.apartmentService.checkUnitoccupied(queryParamBase).subscribe(function (res) {
                 if (res.message) {
                   var unitRes;
+                  var isExist = res.message.substr(0, 2);
 
-                  if (res.message) {
+                  if (isExist != 'No') {
                     unitRes = res.message.split(',');
-                  }
 
-                  var dialogRef = _this4.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
-                    panelClass: 'material-dialog-big',
-                    data: {
-                      title: 'Confirm Action',
-                      type: 'checkunit',
-                      response: unitRes
-                    }
-                  });
+                    var dialogRef = _this4.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
+                      panelClass: 'material-dialog-big',
+                      data: {
+                        title: 'Confirm Action',
+                        type: 'checkunit',
+                        response: unitRes
+                      }
+                    });
 
-                  dialogRef.afterClosed().subscribe(function (result) {
-                    var isExist = res.message.substr(0, 2);
-
-                    if (isExist != 'No') {
+                    dialogRef.afterClosed().subscribe(function (result) {
                       _this4.towerInfo.apartmentBlockId = null;
                       _this4.towerInfo.apartmentBlockUnitId = null;
-                    }
-                  });
+                    });
+                  }
                 } else _this4.sharedService.openSnackBar(res.errorMessage, 'error');
               }, function (error) {
                 _this4.sharedService.openSnackBar('Server Error', 'error');

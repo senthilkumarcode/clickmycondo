@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n            \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isCreditSubmitted\"></app-loader>\n\n        <ng-container *ngIf=\"isCreditSubmitted\">\n\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n                [appearance]=\"message.appearance\"\n                [showIcon]=\"message.showIcon\"\n                [type]=\"message.type\" \n                [@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n            <form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n                <div class=\"bg-card shadow\">\n            \n                        <div class=\"row\">\n            \n                            <div class=\"col-lg-6 ol-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Tower No\"\n                                    fieldPlaceholder=\"Select Tower\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"blocksData\"\n                                    fieldValue=\"apartmentBlockNumber\"\n                                    [fieldModel]=\"apartmentBlockId\"\n                                    fieldId=\"apartmentBlockId\"\n                                    toolTip=\"tower\"\n                                    (fieldParams)=\"getBlockNo($event)\" \n                                ></condo-select>   \n                            </div>\n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Unit No\"\n                                    fieldPlaceholder=\"Select Unit\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"unitData\"\n                                    fieldValue=\"apartmentBlockUnitNumber\"\n                                    [fieldModel]=\"apartmentBlockUnitId\"\n                                    fieldId=\"apartmentBlockUnitId\"\n                                    toolTip=\"unit\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBlockUnitNo($event)\" \n                                ></condo-select>\n                            </div>\n                        \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <condo-select \n                                    labelText=\"Bill No\"\n                                    fieldPlaceholder=\"Select Bill\"\n                                    [fieldRequired]=\"'required'\"\n                                    [fieldList]=\"billData\"\n                                    fieldValue=\"collectionId\"\n                                    [fieldModel]=\"credit.collectionId\"\n                                    fieldId=\"collectionId\"\n                                    [isDisabled]=\"!isBlockSelected\"\n                                    (fieldParams)=\"getBillNo($event)\" \n                                ></condo-select>\n                            </div> \n            \n                            <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Amount*</label>\n                                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n                                    <help-tooltip title=\"creditAmount\"></help-tooltip>\n                                </div>\n                            </div>\n            \n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Comments</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n                                </div>\n                            </div>\n            \n                        </div>\n            \n                </div>\n\n                <button class=\"mt-4 float-right\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\n            </form>\n\n        </ng-container>\n\n\n    </div>\n\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-credit-wrapper\">\n            \n    <div class=\"main\">\n\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\" \n            [@shake]=\"message.shake\">\n                {{message.content}}\n\t\t</condo-message>\n\n        <form #addCreditNoteForm = \"ngForm\" name=\"addCreditNoteForm\" (ngSubmit)=\"submitAddCreditNoteForm(addCreditNoteForm)\"  novalidate>\n\n            <div class=\"bg-card shadow\">\n        \n                    <div class=\"row\">\n        \n                        <div class=\"col-lg-6 ol-md-12 col-sm-12\">\n                            <condo-select \n                                labelText=\"Tower No\"\n                                fieldPlaceholder=\"Select Tower\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"blocksData\"\n                                fieldValue=\"apartmentBlockNumber\"\n                                [fieldModel]=\"apartmentBlockId\"\n                                fieldId=\"apartmentBlockId\"\n                                toolTip=\"tower\"\n                                (fieldParams)=\"getBlockNo($event)\" \n                            ></condo-select>   \n                        </div>\n                        <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                            <condo-select \n                                labelText=\"Unit No\"\n                                fieldPlaceholder=\"Select Unit\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"unitData\"\n                                fieldValue=\"apartmentBlockUnitNumber\"\n                                [fieldModel]=\"apartmentBlockUnitId\"\n                                fieldId=\"apartmentBlockUnitId\"\n                                toolTip=\"unit\"\n                                [isDisabled]=\"!isBlockSelected\"\n                                (fieldParams)=\"getBlockUnitNo($event)\" \n                            ></condo-select>\n                        </div>\n                    \n                        <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                            <condo-select \n                                labelText=\"Bill No\"\n                                fieldPlaceholder=\"Select Bill\"\n                                [fieldRequired]=\"'required'\"\n                                [fieldList]=\"billData\"\n                                fieldValue=\"collectionId\"\n                                [fieldModel]=\"credit.collectionId\"\n                                fieldId=\"collectionId\"\n                                [isDisabled]=\"!isBlockSelected\"\n                                (fieldParams)=\"getBillNo($event)\" \n                            ></condo-select>\n                        </div> \n        \n                        <div class=\"col-lg-6 col-md-12 col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Amount*</label>\n                                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"creditAmount\" [(ngModel)]=\"credit.amount\" required>\n                                <help-tooltip title=\"creditAmount\"></help-tooltip>\n                            </div>\n                        </div>\n        \n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Comments</label>\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"credit.comment\" required>\n                            </div>\n                        </div>\n        \n                    </div>\n        \n            </div>\n\n            <submit-button class=\"mt-4 float-right\" [isSubmit]=\"isCreditSubmitted\">Submit</submit-button>\n\n        </form>\n\n    </div>\n\t\n</div>");
 
 /***/ }),
 
@@ -85,8 +85,6 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
         this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe((res) => {
             this.isBlockSelected = true;
             this.unitData = res;
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
         }, error => {
             console.log(error);
         });
@@ -102,32 +100,11 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
         };
         this.accountsService.getAllCollectionInvoicesByApartmentBlockUnitId(params).subscribe((res) => {
             this.billData = res;
-            this.isCreditSubmitted = true;
             this.isUnitSelected = true;
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
         });
     }
     getBillNo(event) {
         this.credit.collectionId = event[0].collectionId;
-    }
-    getCredit(id) {
-        this.isCreditSubmitted = false;
-        let params = {
-            apartmentId: this.sessionService.apartmentId,
-            creditnotetransactionID: id
-        };
-        this.accountsService.getcustcreditnotebyId(params).subscribe((res) => {
-            this.isCreditSubmitted = true;
-            if (res === undefined || res.length == 0) {
-                this.credit = {};
-            }
-            else {
-                this.credit = res[0];
-            }
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
-        });
     }
     submitAddCreditNoteForm(form) {
         if (!form.valid) {
@@ -139,8 +116,6 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
                 showIcon: true,
                 type: 'error'
             };
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
         }
         else {
             // Hide the message
@@ -171,8 +146,6 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
                     this.isCreditSubmitted = true;
                     form.reset();
                     this.credit = {};
-                    //Mark for check
-                    this._changeDetectorRef.markForCheck();
                 }
                 else {
                     this.isCreditSubmitted = true;
@@ -190,9 +163,6 @@ let IncomeCreateCreditComponent = class IncomeCreateCreditComponent {
         //get apartment blocks
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             this.blocksData = res;
-            this.isCreditSubmitted = true;
-            //Mark for check
-            this._changeDetectorRef.markForCheck();
         });
     }
 };
@@ -208,7 +178,6 @@ IncomeCreateCreditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         selector: 'app-income-create-credit',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-create-credit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
         animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_2__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-create-credit.component.scss */ "./src/app/modules/ams/income-tracker/income-posts/income-create-credit/income-create-credit.component.scss")).default]
     }),

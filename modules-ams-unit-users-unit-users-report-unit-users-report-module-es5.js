@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\t<!-- vehicle info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Rental info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Pets info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Units -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Blocks -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Tenant -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Owners -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Admins -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                \n                                    <div class=\"row\">\n                \n                                        <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div>\n\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>Start Date</label>\n                                                    <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"start_date\">\n                                                    <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                        </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>End Date</label>\n                                                    <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\">\n                                                    <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                        </div>\n                                                </div>\n                                            </div>\n                                       \n                                    </div>\n                                    <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div>\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n             \n\t\t\t\t<!-- <div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div> -->\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\t<!-- vehicle info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Rental info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Pets info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Units -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Blocks -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Tenant -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Owners -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Admins -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -149,6 +149,12 @@
       var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
       var UnitUsersReportDataComponent = /*#__PURE__*/function () {
         function UnitUsersReportDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService) {
@@ -163,24 +169,28 @@
           this.sessionService = sessionService;
           this.pageName = "";
           this.pageDesp = "";
+          this.userReportData = "";
           this.ItemStartIndex = 0;
           this.itemLimit = 10;
           this.unitFieldType = "unitno";
           this.unitOrder = true;
           this.isDataLoaded = false;
-          this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
-          this.blockNo = "All Blocks";
+          this.reportData = "";
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
         }
 
         _createClass(UnitUsersReportDataComponent, [{
           key: "onGlSearchFilter",
-          value: function onGlSearchFilter() {
+          value: function onGlSearchFilter(event) {
             var _this = this;
 
-            if (this.userReportData != "") {
+            if (event != "") {
               var filtergroup = new jqx.filter();
               var filter_or_operator = 1;
-              var filtervalue = this.userReportData;
+              var filtervalue = event;
               var filtercondition = 'contains';
               var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
               filtergroup.operator = 'or';
@@ -195,6 +205,56 @@
             } else {
               this.datagrid.clearfilters();
             }
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            var _this2 = this;
+
+            this.goBack();
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.blockNo;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield == 'blockNo') {
+                _this2.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+
+              if (item.datafield == 'blockNo') {
+                _this2.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null;
+            this.datagrid.clearfilters();
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'UnitUsersReportData');
+          }
+        }, {
+          key: "getSelectedBlock",
+          value: function getSelectedBlock(event) {
+            this.blockId = event[0].apartmentBlockId;
+            this.blockNo = event[0].apartmentBlockNumber;
           }
         }, {
           key: "getIndexParams",
@@ -293,7 +353,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this2 = this;
+            var _this3 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -314,13 +374,13 @@
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -365,22 +425,22 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -425,22 +485,22 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -473,22 +533,22 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -527,22 +587,22 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -581,22 +641,22 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -635,22 +695,22 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
                 text: 'User Type',
                 datafield: 'unitType',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'apartmentBlockNumber',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -680,16 +740,16 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
                 text: 'Block Number',
                 datafield: 'apartmentBlockNumber',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -731,16 +791,16 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
                 text: 'Name',
                 datafield: 'userName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -777,16 +837,16 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
                 text: 'Name',
                 datafield: 'userName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -823,16 +883,16 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
                 text: 'Name',
                 datafield: 'userName',
-                width: 100,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -869,10 +929,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this2.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this2.isDataLoaded = true;
+                _this3.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this3.isDataLoaded = true;
 
-                _this2.showItems();
+                _this3.showItems();
               });
             }
           }
@@ -890,24 +950,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: parseInt(localStorage.getItem('apartmentId'))
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this3.unitBlocksData = res;
+              _this4.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this3.route.params['value'].id;
+                return item.lookupValueId == _this4.route.params['value'].id;
               });
-              _this3.pageName = data[0].lookupValueName.replace('/', '');
-              _this3.pageDesp = data[0].description;
+              _this4.pageName = data[0].lookupValueName.replace('/', '');
+              _this4.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -939,6 +999,12 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
           args: ['datagrid', {
             "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
           }]
         }]
       };
@@ -1118,7 +1184,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this5 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1126,8 +1192,8 @@
               MenuName: 'UnitUser'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this4.reportDataList = res;
-              _this4.isDataLoaded = true;
+              _this5.reportDataList = res;
+              _this5.isDataLoaded = true;
             });
           }
         }, {
@@ -1233,6 +1299,18 @@
       var _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./unit-users-report-data/unit-users-report-data.component */
       "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/modules/ui/select/select.module */
+      "./src/app/modules/ui/select/select.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/modules/ui/list/list.module */
+      "./src/app/modules/ui/list/list.module.ts");
 
       var UnitUsersReportModule = function UnitUsersReportModule() {
         _classCallCheck(this, UnitUsersReportModule);
@@ -1240,7 +1318,7 @@
 
       UnitUsersReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersReportComponent"], _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_8__["UnitUsersReportDataComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["routes"]), src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["UnitUsersReportRoutingModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["routes"]), src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["UnitUsersReportRoutingModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_10__["ListModule"]],
         bootstrap: [_unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersReportComponent"]]
       })], UnitUsersReportModule);
       /***/

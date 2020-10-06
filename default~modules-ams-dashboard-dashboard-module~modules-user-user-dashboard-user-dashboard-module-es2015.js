@@ -8233,7 +8233,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n    <h5 class=\"font-medium mb-3\">Income vs Expenses</h5>\n</div>\n<div>\n    <jqxChart #myChart\n        [width]=\"getWidth()\" [height]=\"265\"\n        [title]=\"''\" [description]=\"''\" [showBorderLine]=\"false\"\n        [showLegend]=\"true\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"days\" [xAxis]=\"xAxis\"\n        [valueAxis]=\"valueAxis\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n<div>\n    <p class=\"mt-2\">Data Information Certified</p>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n    <h5 class=\"font-medium mb-4\">Income vs Expenses</h5>\n</div>\n<div>\n    <jqxChart #myChart\n        [width]=\"getWidth()\" [height]=\"265\"\n        [title]=\"''\" [description]=\"''\" [showBorderLine]=\"false\"\n        [showLegend]=\"true\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"days\" [xAxis]=\"xAxis\"\n        [valueAxis]=\"valueAxis\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n\n");
 
 /***/ }),
 
@@ -8259,7 +8259,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\n    <h5 class=\"font-medium\">Amount Receivable vs Amount Received</h5>\n    <p class=\"text-mute mt-2\">Current Month</p>\n</div>\n<div *ngIf=\"!isDataLoaded\">\n    <app-loader></app-loader>\n</div>\n<div *ngIf=\"isDataLoaded\">\n    <jqxChart\n        [width]=\"getWidth()\" [height]=\"250\"\n        [title]=\"''\" [description]=\"''\"\n        [showLegend]=\"false\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"chartList\"\n        [showBorderLine]=\"false\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n<div *ngIf=\"isDataLoaded\">\n    <p class=\"mt-2\">Campaign sent 2 days ago</p>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\n    <h5 class=\"font-medium\">Amount Receivable vs Amount Received</h5>\n    <p class=\"text-mute mt-2\">Current Month</p>\n</div>\n<div *ngIf=\"!isDataLoaded\">\n    <app-loader></app-loader>\n</div>\n<div *ngIf=\"isDataLoaded\">\n    <jqxChart\n        [width]=\"getWidth()\" [height]=\"250\"\n        [title]=\"''\" [description]=\"''\"\n        [showLegend]=\"false\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"chartList\"\n        [showBorderLine]=\"false\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n");
 
 /***/ }),
 
@@ -11067,40 +11067,28 @@ __webpack_require__.r(__webpack_exports__);
 let DashIncomeChartComponent = class DashIncomeChartComponent {
     constructor() {
         this.days = [
-            { Day: 'Monday' },
-            { Day: 'Tuesday' },
-            { Day: 'Wednesday' },
-            { Day: 'Thursday' },
-            { Day: 'Friday' },
-            { Day: 'Saturday' },
-            { Day: 'Sunday' }
+            { Day: 'January' },
+            { Day: 'February' },
+            { Day: 'March' },
+            { Day: 'April' },
+            { Day: 'May' },
+            { Day: 'June' }
         ];
-        this.Keith = [
-            { Minutes: 30 },
-            { Minutes: 25 },
-            { Minutes: 30 },
-            { Minutes: 35 },
-            { Minutes: 20 },
-            { Minutes: 30 },
-            { Minutes: 60 }
+        this.Income = [
+            { Minutes: 10000 },
+            { Minutes: 15000 },
+            { Minutes: 12000 },
+            { Minutes: 18000 },
+            { Minutes: 11000 },
+            { Minutes: 20000 }
         ];
-        this.Erica = [
-            { Minutes: 15 },
-            { Minutes: 25 },
-            { Minutes: 20 },
-            { Minutes: 25 },
-            { Minutes: 20 },
-            { Minutes: 20 },
-            { Minutes: 45 }
-        ];
-        this.George = [
-            { Minutes: 25 },
-            { Minutes: 30 },
-            { Minutes: 25 },
-            { Minutes: 45 },
-            { Minutes: 25 },
-            { Minutes: 30 },
-            { Minutes: 90 }
+        this.Expenses = [
+            { Minutes: 5000 },
+            { Minutes: 12000 },
+            { Minutes: 10000 },
+            { Minutes: 19000 },
+            { Minutes: 45000 },
+            { Minutes: 19000 }
         ];
         this.padding = { left: 5, top: 5, right: 40, bottom: 5 };
         this.titlePadding = { left: 90, top: 0, right: 0, bottom: 10 };
@@ -11110,36 +11098,26 @@ let DashIncomeChartComponent = class DashIncomeChartComponent {
         };
         this.valueAxis = {
             visible: true,
-            title: { text: 'Time in minutes' }
+            title: { text: 'Amount' }
         };
         this.seriesGroups = [{
                 type: 'stackedline',
-                source: this.Keith,
+                source: this.Income,
                 series: [
-                    { dataField: 'Minutes', displayText: 'Keith' }
+                    { dataField: 'Minutes', displayText: 'Income' }
                 ]
             },
             {
                 type: 'stackedline',
-                source: this.Erica,
+                source: this.Expenses,
                 series: [
-                    { dataField: 'Minutes', displayText: 'Erica' }
-                ]
-            },
-            {
-                type: 'stackedline',
-                source: this.George,
-                series: [
-                    { dataField: 'Minutes', displayText: 'George' }
+                    { dataField: 'Minutes', displayText: 'Expenses' }
                 ]
             }
         ];
     }
     getWidth() {
-        if (document.body.offsetWidth < 850) {
-            return '100%';
-        }
-        return 480;
+        return '100%';
     }
     ngOnInit() {
     }
@@ -11319,10 +11297,7 @@ let DashPieChartComponent = class DashPieChartComponent {
             }];
     }
     getWidth() {
-        if (document.body.offsetWidth < 850) {
-            return '100%';
-        }
-        return 400;
+        return '100%';
     }
     ngOnInit() {
         this.isDataLoaded = false;
@@ -11345,6 +11320,7 @@ let DashPieChartComponent = class DashPieChartComponent {
                 this.chartList = new jqx.dataAdapter(chart);
             }
         }, (error) => {
+            this.isDataLoaded = true;
             this.sharedService.openSnackBar('Pie Chart Server Error', 'error');
         });
     }

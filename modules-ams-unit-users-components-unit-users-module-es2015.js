@@ -416,24 +416,22 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
             this.apartmentService.checkUnitoccupied(queryParamBase).subscribe((res) => {
                 if (res.message) {
                     let unitRes;
-                    if (res.message) {
+                    let isExist = res.message.substr(0, 2);
+                    if (isExist != 'No') {
                         unitRes = res.message.split(',');
-                    }
-                    const dialogRef = this.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
-                        panelClass: 'material-dialog-big',
-                        data: {
-                            title: 'Confirm Action',
-                            type: 'checkunit',
-                            response: unitRes
-                        }
-                    });
-                    dialogRef.afterClosed().subscribe(result => {
-                        let isExist = res.message.substr(0, 2);
-                        if (isExist != 'No') {
+                        const dialogRef = this.dialog.open(_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["AddUserConfirmModalComponent"], {
+                            panelClass: 'material-dialog-big',
+                            data: {
+                                title: 'Confirm Action',
+                                type: 'checkunit',
+                                response: unitRes
+                            }
+                        });
+                        dialogRef.afterClosed().subscribe(result => {
                             this.towerInfo.apartmentBlockId = null;
                             this.towerInfo.apartmentBlockUnitId = null;
-                        }
-                    });
+                        });
+                    }
                 }
                 else
                     this.sharedService.openSnackBar(res.errorMessage, 'error');

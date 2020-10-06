@@ -11709,7 +11709,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div>\n    <h5 class=\"font-medium mb-3\">Income vs Expenses</h5>\n</div>\n<div>\n    <jqxChart #myChart\n        [width]=\"getWidth()\" [height]=\"265\"\n        [title]=\"''\" [description]=\"''\" [showBorderLine]=\"false\"\n        [showLegend]=\"true\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"days\" [xAxis]=\"xAxis\"\n        [valueAxis]=\"valueAxis\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n<div>\n    <p class=\"mt-2\">Data Information Certified</p>\n</div>\n";
+      __webpack_exports__["default"] = "<div>\n    <h5 class=\"font-medium mb-4\">Income vs Expenses</h5>\n</div>\n<div>\n    <jqxChart #myChart\n        [width]=\"getWidth()\" [height]=\"265\"\n        [title]=\"''\" [description]=\"''\" [showBorderLine]=\"false\"\n        [showLegend]=\"true\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"days\" [xAxis]=\"xAxis\"\n        [valueAxis]=\"valueAxis\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n\n";
       /***/
     },
 
@@ -11749,7 +11749,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div>\n    <h5 class=\"font-medium\">Amount Receivable vs Amount Received</h5>\n    <p class=\"text-mute mt-2\">Current Month</p>\n</div>\n<div *ngIf=\"!isDataLoaded\">\n    <app-loader></app-loader>\n</div>\n<div *ngIf=\"isDataLoaded\">\n    <jqxChart\n        [width]=\"getWidth()\" [height]=\"250\"\n        [title]=\"''\" [description]=\"''\"\n        [showLegend]=\"false\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"chartList\"\n        [showBorderLine]=\"false\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n<div *ngIf=\"isDataLoaded\">\n    <p class=\"mt-2\">Campaign sent 2 days ago</p>\n</div>\n";
+      __webpack_exports__["default"] = "<div>\n    <h5 class=\"font-medium\">Amount Receivable vs Amount Received</h5>\n    <p class=\"text-mute mt-2\">Current Month</p>\n</div>\n<div *ngIf=\"!isDataLoaded\">\n    <app-loader></app-loader>\n</div>\n<div *ngIf=\"isDataLoaded\">\n    <jqxChart\n        [width]=\"getWidth()\" [height]=\"250\"\n        [title]=\"''\" [description]=\"''\"\n        [showLegend]=\"false\" [enableAnimations]=\"true\" [padding]=\"padding\"\n        [titlePadding]=\"titlePadding\" [source]=\"chartList\"\n        [showBorderLine]=\"false\" [seriesGroups]=\"seriesGroups\" [colorScheme]=\"'scheme02'\">\n    </jqxChart>\n</div>\n";
       /***/
     },
 
@@ -15530,64 +15530,43 @@
           _classCallCheck(this, DashIncomeChartComponent);
 
           this.days = [{
-            Day: 'Monday'
+            Day: 'January'
           }, {
-            Day: 'Tuesday'
+            Day: 'February'
           }, {
-            Day: 'Wednesday'
+            Day: 'March'
           }, {
-            Day: 'Thursday'
+            Day: 'April'
           }, {
-            Day: 'Friday'
+            Day: 'May'
           }, {
-            Day: 'Saturday'
-          }, {
-            Day: 'Sunday'
+            Day: 'June'
           }];
-          this.Keith = [{
-            Minutes: 30
+          this.Income = [{
+            Minutes: 10000
           }, {
-            Minutes: 25
+            Minutes: 15000
           }, {
-            Minutes: 30
+            Minutes: 12000
           }, {
-            Minutes: 35
+            Minutes: 18000
           }, {
-            Minutes: 20
+            Minutes: 11000
           }, {
-            Minutes: 30
-          }, {
-            Minutes: 60
+            Minutes: 20000
           }];
-          this.Erica = [{
-            Minutes: 15
+          this.Expenses = [{
+            Minutes: 5000
           }, {
-            Minutes: 25
+            Minutes: 12000
           }, {
-            Minutes: 20
+            Minutes: 10000
           }, {
-            Minutes: 25
+            Minutes: 19000
           }, {
-            Minutes: 20
+            Minutes: 45000
           }, {
-            Minutes: 20
-          }, {
-            Minutes: 45
-          }];
-          this.George = [{
-            Minutes: 25
-          }, {
-            Minutes: 30
-          }, {
-            Minutes: 25
-          }, {
-            Minutes: 45
-          }, {
-            Minutes: 25
-          }, {
-            Minutes: 30
-          }, {
-            Minutes: 90
+            Minutes: 19000
           }];
           this.padding = {
             left: 5,
@@ -15610,29 +15589,22 @@
           this.valueAxis = {
             visible: true,
             title: {
-              text: 'Time in minutes'
+              text: 'Amount'
             }
           };
           this.seriesGroups = [{
             type: 'stackedline',
-            source: this.Keith,
+            source: this.Income,
             series: [{
               dataField: 'Minutes',
-              displayText: 'Keith'
+              displayText: 'Income'
             }]
           }, {
             type: 'stackedline',
-            source: this.Erica,
+            source: this.Expenses,
             series: [{
               dataField: 'Minutes',
-              displayText: 'Erica'
-            }]
-          }, {
-            type: 'stackedline',
-            source: this.George,
-            series: [{
-              dataField: 'Minutes',
-              displayText: 'George'
+              displayText: 'Expenses'
             }]
           }];
         }
@@ -15640,11 +15612,7 @@
         _createClass(DashIncomeChartComponent, [{
           key: "getWidth",
           value: function getWidth() {
-            if (document.body.offsetWidth < 850) {
-              return '100%';
-            }
-
-            return 480;
+            return '100%';
           }
         }, {
           key: "ngOnInit",
@@ -15965,11 +15933,7 @@
         _createClass(DashPieChartComponent, [{
           key: "getWidth",
           value: function getWidth() {
-            if (document.body.offsetWidth < 850) {
-              return '100%';
-            }
-
-            return 400;
+            return '100%';
           }
         }, {
           key: "ngOnInit",
@@ -16003,6 +15967,8 @@
                 _this94.chartList = new jqx.dataAdapter(chart);
               }
             }, function (error) {
+              _this94.isDataLoaded = true;
+
               _this94.sharedService.openSnackBar('Pie Chart Server Error', 'error');
             });
           }

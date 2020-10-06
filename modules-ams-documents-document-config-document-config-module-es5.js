@@ -2530,8 +2530,7 @@
             this.isCommmonDataLoaded = false; //Folder Upload List
 
             var adminCategory = {
-              "ApartmentId": this.sessionService.apartmentId,
-              "IsPublic": true
+              "ApartmentId": this.sessionService.apartmentId
             };
             this.documentService.getAllDocCountByCategory(adminCategory).subscribe(function (res) {
               _this14.folderList = res;

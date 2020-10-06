@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper\">\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\t<!-- vehicle info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Rental info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Pets info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Units -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Blocks -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Tenant -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Owners -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Admins -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" (ngModelChange)=\"onGlSearchFilter()\" [(ngModel)]=\"userReportData\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                \n                                    <div class=\"row\">\n                \n                                        <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div>\n\n                                        <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>Start Date</label>\n                                                    <input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"start_date\">\n                                                    <owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n                                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                        </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"col-sm-12\">\n                                                <div class=\"input-box\">\n                                                    <label>End Date</label>\n                                                    <input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\">\n                                                    <owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n                                                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                        </div>\n                                                </div>\n                                            </div>\n                                       \n                                    </div>\n                                    <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div>\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && (isListOfResidents() || isListOfApprovedUsers())\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n             \n\t\t\t\t<!-- <div class=\"mr-3\">\n\t\t\t\t\t<select name=\"blockId\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockId\"\n\t\t\t\t\t(ngModelChange)=\"getBlockDetails()\" required>\n\t\t\t\t\t<option value=\"\">All Blocks</option>\n\t\t\t\t\t<option *ngFor=\"let item of unitBlocksData\" [value]=\"item.apartmentBlockId\">\n\t\t\t\t\t\t{{ item.apartmentBlockNumber }}</option>\n\t\t\t\t</select>\n\t\t\t\t</div> -->\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfDeactivatedUsers()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\t<!-- vehicle info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfResidentsVehicleInfo()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Rental info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfExpiringRental()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- Pets info -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUsersWithPets()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Units -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfUnits()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Blocks -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfBlocks()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Tenant -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfTenants()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Owners -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfOwners()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\t<!-- List of Admins -->\n\t<condo-card *ngIf=\"isDataLoaded && isListOfAdmins()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -60,6 +60,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+
 
 
 
@@ -81,19 +83,23 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         this.sessionService = sessionService;
         this.pageName = "";
         this.pageDesp = "";
+        this.userReportData = "";
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
         this.unitFieldType = "unitno";
         this.unitOrder = true;
         this.isDataLoaded = false;
-        this.blockId = parseInt(localStorage.getItem('apartmentBlockID'));
-        this.blockNo = "All Blocks";
+        this.reportData = "";
+        this.blockId = null;
+        this.blockNo = "";
+        this.end_date = null;
+        this.start_date = null;
     }
-    onGlSearchFilter() {
-        if (this.userReportData != "") {
+    onGlSearchFilter(event) {
+        if (event != "") {
             let filtergroup = new jqx.filter();
             let filter_or_operator = 1;
-            let filtervalue = this.userReportData;
+            let filtervalue = event;
             let filtercondition = 'contains';
             let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.operator = 'or';
@@ -109,6 +115,43 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         else {
             this.datagrid.clearfilters();
         }
+    }
+    filterApply() {
+        this.goBack();
+        let filtergroup = new jqx.filter();
+        let filter_or_operator = 1;
+        let filtervalue = this.blockNo;
+        let filtercondition = 'contains';
+        let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+        filtergroup.operator = 'or';
+        filtergroup.addfilter(filter_or_operator, filterData);
+        this.datagrid.showfiltercolumnbackground(false);
+        this.columnData.forEach(item => {
+            if (item.datafield == 'blockNo') {
+                this.datagrid.addfilter(item.datafield, filtergroup, true);
+            }
+            if (item.datafield == 'blockNo') {
+                this.datagrid.addfilter(item.datafield, filtergroup, true);
+            }
+        });
+        this.datagrid.applyfilters();
+    }
+    clearFilter() {
+        this.blockId = null;
+        this.start_date = null;
+        this.end_date = null;
+        this.datagrid.clearfilters();
+        this.goBack();
+    }
+    goBack() {
+        this.matDrawer.close();
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'UnitUsersReportData');
+    }
+    getSelectedBlock(event) {
+        this.blockId = event[0].apartmentBlockId;
+        this.blockNo = event[0].apartmentBlockNumber;
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -188,14 +231,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'unitUserName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -256,14 +299,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'unitUserName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -324,14 +367,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'unitUserName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -378,14 +421,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'unitUserName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -439,14 +482,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'unitUserName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -500,14 +543,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Name',
                     datafield: 'unitUserName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'blockNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -561,14 +604,14 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'User Type',
                     datafield: 'unitType',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
                     text: 'Block Number',
                     datafield: 'apartmentBlockNumber',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -611,7 +654,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Block Number',
                     datafield: 'apartmentBlockNumber',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -668,7 +711,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Name',
                     datafield: 'userName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -719,7 +762,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Name',
                     datafield: 'userName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -770,7 +813,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Name',
                     datafield: 'userName',
-                    width: 100,
+                    width: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -858,7 +901,8 @@ UnitUsersReportDataComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
 ];
 UnitUsersReportDataComponent.propDecorators = {
-    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
 };
 UnitUsersReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1011,6 +1055,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./unit-users-report-routing.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-routing.module.ts");
 /* harmony import */ var _unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./unit-users-report.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.component.ts");
 /* harmony import */ var _unit_users_report_data_unit_users_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./unit-users-report-data/unit-users-report-data.component */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report-data/unit-users-report-data.component.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
+
+
 
 
 
@@ -1031,7 +1079,9 @@ UnitUsersReportModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
             _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["routes"]),
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"],
-            _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["UnitUsersReportRoutingModule"]
+            _unit_users_report_routing_module__WEBPACK_IMPORTED_MODULE_6__["UnitUsersReportRoutingModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"],
+            src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_10__["ListModule"]
         ],
         bootstrap: [
             _unit_users_report_component__WEBPACK_IMPORTED_MODULE_7__["UnitUsersReportComponent"]

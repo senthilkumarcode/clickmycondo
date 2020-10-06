@@ -1831,7 +1831,6 @@ let FolderListsComponent = class FolderListsComponent {
         //Folder Upload List
         let adminCategory = {
             "ApartmentId": this.sessionService.apartmentId,
-            "IsPublic": true
         };
         this.documentService.getAllDocCountByCategory(adminCategory).subscribe((res) => {
             this.folderList = res;
