@@ -11629,7 +11629,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"admin-dash-wiget-one row\">\n    <div class=\"col-xs-12 col-sm-4 col-xl-2\" *ngFor= \"let data of widgets\">\n        <div class=\"flip\" #menu *ngIf=\"!data.middle\">\n            <div class=\"front\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data)\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.front}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appFront\"></i>\n                            <mat-menu #appFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"back\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.backValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.back}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.backFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appBack\"></i>\n                            <mat-menu #appBack=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"admin-wid-one\" *ngIf=\"data.middle\">\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'owner'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='tenants'\"></mat-icon>\n                        </div>\n                        <h5>{{data.frontValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.front}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widront\"></i>\n                        <mat-menu #widFront=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'tenants'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='admin'\"></mat-icon>\n                        </div>\n                        <h5>{{data.middleValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.middle}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widMiddle\"></i>\n                        <mat-menu #widMiddle=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.middle,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.middle,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.middle,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'admin'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='owner'\"></mat-icon>\n                        </div>\n                        <h5>{{data.backValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.back}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widBack\"></i>\n                        <mat-menu #widBack=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"admin-dash-wiget-one row\">\n    <div class=\"col-xs-12 col-sm-4 col-xl-2\" *ngFor= \"let data of widgets\">\n        <div class=\"flip\" #menu *ngIf=\"!data.middle\">\n            <div class=\"front\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\" (click)=\"detailInfo(data)\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.frontValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.front}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appFront\"></i>\n                            <mat-menu #appFront=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"back\">\n                <div class=\"bg-card shadow custom-card\">\n                    <div class=\"d-flex justify-content-between\">\n                        <div class=\"left mb-1\">\n                            <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:building\"></mat-icon>\n                        </div>\n                        <div class=\"text-right d-flex flex-column justify-content-between\">\n                            <div>\n                                <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                                <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"flip(menu)\"></mat-icon>\n                            </div>\n                            <h5>{{data.backValue}}</h5> \n                        </div>\n                    </div>\n                    <div class=\"d-flex justify-content-between\">\n                        <p class=\"text-secondary\">{{data.back}}</p>\n                        <div class=\"dashboard-dropdown\" *ngIf=\"data.backFooter\">\n                            <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"appBack\"></i>\n                            <mat-menu #appBack=\"matMenu\">\n                                <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                                <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                                <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                            </mat-menu>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"admin-wid-one\" *ngIf=\"data.middle\">\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'owner'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='tenants'\"></mat-icon>\n                        </div>\n                        <h5>{{data.frontValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.front}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widront\"></i>\n                        <mat-menu #widFront=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.front,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.front,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.front,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'tenants'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='admin'\"></mat-icon>\n                        </div>\n                        <h5>{{data.middleValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.middle}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widMiddle\"></i>\n                        <mat-menu #widMiddle=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.middle,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.middle,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.middle,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-card shadow custom-card\" *ngIf= \"colType == 'admin'\">\n                <div class=\"d-flex justify-content-between\">\n                    <div class=\"left mb-1\">\n                        <mat-icon class=\"icon-lg\" svgIcon=\"iconsmind:administrator\"></mat-icon>\n                    </div>\n                    <div class=\"text-right d-flex flex-column justify-content-between\">\n                        <div>\n                            <mat-icon svgIcon=\"dripicons:dots-3\" class=\"link\"></mat-icon>\n                            <mat-icon svgIcon=\":arrow_right\" class=\"link\" (click)=\"colType='owner'\"></mat-icon>\n                        </div>\n                        <h5>{{data.backValue}}</h5> \n                    </div>\n                </div>\n                <div class=\"d-flex justify-content-between\">\n                    <p class=\"text-secondary\">{{data.back}}</p>\n                    <div class=\"dashboard-dropdown\" *ngIf=\"data.frontFooter\">\n                        <i class=\"icon-md fa fa-caret-down link\" aria-hidden=\"true\" [matMenuTriggerFor]=\"widBack\"></i>\n                        <mat-menu #widBack=\"matMenu\">\n                            <p mat-menu-item (click)=\"filter('today',data.back,data.type)\">Today</p>\n                            <p mat-menu-item (click)=\"filter('yesterday',data.back,data.type)\">Yesterday</p>\n                            <p mat-menu-item (click)=\"calenderPopUp(data.back,data.type)\">Custom</p>\n                        </mat-menu>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n<ng-template #dashboardReportRef>\n\n    <div class=\"info-modal-box vh-80 rel\">\n\t\t<div class=\"d-flex p-3 border-bottom\">\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n       <div class=\"p-4\">\n        <router-outlet></router-outlet>\n       </div>\n    </div>\n\n</ng-template>";
       /***/
     },
 
@@ -14361,19 +14361,14 @@
       var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var _dashboard_report_dashboard_report_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ../dashboard-report/dashboard-report.component */
-      "./src/app/modules/ams/dashboard/components/shared/dashboard-report/dashboard-report.component.ts");
 
       var AdminDashFirstRowComponent = /*#__PURE__*/function () {
-        function AdminDashFirstRowComponent(dialog, router, dashboardService, userService, sessionService) {
+        function AdminDashFirstRowComponent(dialog, _activatedRoute, _router, dashboardService, userService, sessionService) {
           _classCallCheck(this, AdminDashFirstRowComponent);
 
           this.dialog = dialog;
-          this.router = router;
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
           this.dashboardService = dashboardService;
           this.userService = userService;
           this.sessionService = sessionService;
@@ -14449,53 +14444,51 @@
         }, {
           key: "detailInfo",
           value: function detailInfo(data) {
-            this.dialog.open(_dashboard_report_dashboard_report_component__WEBPACK_IMPORTED_MODULE_9__["DashboardReportComponent"], {
+            var _this69 = this;
+
+            var dialogRef = this.dialog.open(this.dashboardReportRef, {
               panelClass: 'material-dialog-big'
+            });
+            dialogRef.afterOpened().subscribe(function (res) {
+              _this69._router.navigate(['./report'], {
+                relativeTo: _this69._activatedRoute
+              });
+            });
+            dialogRef.afterClosed().subscribe(function (res) {
+              _this69._router.navigate(['./'], {
+                relativeTo: _this69._activatedRoute
+              });
             });
           }
         }, {
           key: "unApproveMoveIn",
           value: function unApproveMoveIn(result) {
-            var _this69 = this;
-
-            var entity = {
-              date: result.date,
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.dashboardService.getDashunapprovedmoveinbyApartmentId(entity).subscribe(function (res) {
-              _this69.widgets[4].frontValue = res.unapprovedMoveIn;
-            });
-          }
-        }, {
-          key: "unApproveMoveOut",
-          value: function unApproveMoveOut(result) {
             var _this70 = this;
 
             var entity = {
               date: result.date,
               apartmentId: this.sessionService.apartmentId
             };
+            this.dashboardService.getDashunapprovedmoveinbyApartmentId(entity).subscribe(function (res) {
+              _this70.widgets[4].frontValue = res.unapprovedMoveIn;
+            });
+          }
+        }, {
+          key: "unApproveMoveOut",
+          value: function unApproveMoveOut(result) {
+            var _this71 = this;
+
+            var entity = {
+              date: result.date,
+              apartmentId: this.sessionService.apartmentId
+            };
             this.dashboardService.getDashunapprovedmoveoutbyApartmentId(entity).subscribe(function (res) {
-              _this70.widgets[4].backValue = res.unapprovedMoveOut;
+              _this71.widgets[4].backValue = res.unapprovedMoveOut;
             });
           }
         }, {
           key: "upcomingMoveIn",
           value: function upcomingMoveIn(result) {
-            var _this71 = this;
-
-            var entity = {
-              fromDate: result.fromDate,
-              toDate: result.toDate,
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.dashboardService.getDashupcomingmoveinApartmentId(entity).subscribe(function (res) {
-              _this71.widgets[5].frontValue = res.upcomingWeeklyApprovedMoveInCounts;
-            });
-          }
-        }, {
-          key: "upcomingMoveOut",
-          value: function upcomingMoveOut(result) {
             var _this72 = this;
 
             var entity = {
@@ -14503,8 +14496,22 @@
               toDate: result.toDate,
               apartmentId: this.sessionService.apartmentId
             };
+            this.dashboardService.getDashupcomingmoveinApartmentId(entity).subscribe(function (res) {
+              _this72.widgets[5].frontValue = res.upcomingWeeklyApprovedMoveInCounts;
+            });
+          }
+        }, {
+          key: "upcomingMoveOut",
+          value: function upcomingMoveOut(result) {
+            var _this73 = this;
+
+            var entity = {
+              fromDate: result.fromDate,
+              toDate: result.toDate,
+              apartmentId: this.sessionService.apartmentId
+            };
             this.dashboardService.getDashupcomingmoveoutApprovedbyApartmentId(entity).subscribe(function (res) {
-              _this72.widgets[5].backValue = res.upcomingMoveOut;
+              _this73.widgets[5].backValue = res.upcomingMoveOut;
             });
           }
         }, {
@@ -14553,7 +14560,7 @@
         }, {
           key: "calenderPopUp",
           value: function calenderPopUp(name, type) {
-            var _this73 = this;
+            var _this74 = this;
 
             var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_2__["DateModelComponent"], {
               panelClass: 'material-dialog-small',
@@ -14563,13 +14570,13 @@
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
                 if (name == 'Un Approve Move In') {
-                  _this73.unApproveMoveIn(result);
+                  _this74.unApproveMoveIn(result);
                 } else if (name == 'Un Approve Move Out') {
-                  _this73.unApproveMoveOut(result);
+                  _this74.unApproveMoveOut(result);
                 } else if (name == 'Up Coming Move In') {
-                  _this73.upcomingMoveIn(result);
+                  _this74.upcomingMoveIn(result);
                 } else if (name == 'Up Coming Move Out') {
-                  _this73.upcomingMoveOut(result);
+                  _this74.upcomingMoveOut(result);
                 }
               }
             });
@@ -14577,37 +14584,37 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this74 = this;
+            var _this75 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.dashboardService.getDashTotalunitsbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[0].frontValue = res.totalUnits;
+              _this75.widgets[0].frontValue = res.totalUnits;
             });
             this.dashboardService.getDashTotalTowersbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[0].backValue = res.totalTowers;
+              _this75.widgets[0].backValue = res.totalTowers;
             });
             this.dashboardService.getDashTotalownersbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[1].frontValue = res.totalOwners;
+              _this75.widgets[1].frontValue = res.totalOwners;
             });
             this.dashboardService.getDashTotalTenantsbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[1].middleValue = res.totalTenants;
+              _this75.widgets[1].middleValue = res.totalTenants;
             });
             this.dashboardService.getDashTotalStaffbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[1].backValue = res.totalStaf;
+              _this75.widgets[1].backValue = res.totalStaf;
             });
             this.dashboardService.getDashuptotalparkingslotsbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[2].frontValue = res.totalParkingSlots;
+              _this75.widgets[2].frontValue = res.totalParkingSlots;
             });
             this.dashboardService.getDashuptotalparkingslotsunassignedbyApartmentId(params).subscribe(function (res) {
-              _this74.widgets[2].backValue = res.unassignedParkingSlots;
+              _this75.widgets[2].backValue = res.unassignedParkingSlots;
             });
             var lease = {
               ApartmentID: this.sessionService.apartmentId
             };
             this.userService.getReportExpiredRentLeaseAgreemtbyApartmentIdBlockId(lease).subscribe(function (res) {
-              _this74.widgets[3].frontValue = res.length;
+              _this75.widgets[3].frontValue = res.length;
             });
             this.unApproveMoveIn(this.today('unapprove'));
             this.unApproveMoveOut(this.today('unapprove'));
@@ -14623,6 +14630,8 @@
         return [{
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
+        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
         }, {
           type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"]
@@ -14633,6 +14642,14 @@
         }];
       };
 
+      AdminDashFirstRowComponent.propDecorators = {
+        dashboardReportRef: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ["dashboardReportRef", {
+            "static": false
+          }]
+        }]
+      };
       AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-admin-dash-first-row',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -14642,7 +14659,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./admin-dash-first-row.component.scss */
         "./src/app/modules/ams/dashboard/components/shared/admin-dash-first-row/admin-dash-first-row.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AdminDashFirstRowComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AdminDashFirstRowComponent);
       /***/
     },
 
@@ -14763,7 +14780,7 @@
         }, {
           key: "calenderPopUp",
           value: function calenderPopUp(name, type) {
-            var _this75 = this;
+            var _this76 = this;
 
             var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_2__["DateModelComponent"], {
               panelClass: 'material-dialog-small',
@@ -14773,31 +14790,31 @@
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
                 if (name == 'Pending Admins') {
-                  _this75.pendingAdmins(result);
+                  _this76.pendingAdmins(result);
                 } else if (name == 'Pending Users') {
-                  _this75.pendingUsers(result);
+                  _this76.pendingUsers(result);
                 } else if (name == 'Open Community') {
-                  _this75.openCommunity(result);
+                  _this76.openCommunity(result);
                 } else if (name == 'Open Personal') {
-                  _this75.openPersonal(result);
+                  _this76.openPersonal(result);
                 } else if (name == 'High Priority Community') {
-                  _this75.highPriorityCommunity(result);
+                  _this76.highPriorityCommunity(result);
                 } else if (name == 'High Priority Personal') {
-                  _this75.highPriorityPersonal(result);
+                  _this76.highPriorityPersonal(result);
                 } else if (name == 'Unassigned Community') {
-                  _this75.unAssignedCommunity(result);
+                  _this76.unAssignedCommunity(result);
                 } else if (name == 'Unassigned Personal') {
-                  _this75.unassignedPersonal(result);
+                  _this76.unassignedPersonal(result);
                 } else if (name == 'Open Community Aged') {
-                  _this75.openCommunityAged(result);
+                  _this76.openCommunityAged(result);
                 } else if (name == 'Open Personal Aged') {
-                  _this75.openPersonalAged(result);
+                  _this76.openPersonalAged(result);
                 } else if (name == 'InProgress Panic Alerts') {
-                  _this75.inProgressPanicAlerts(result);
+                  _this76.inProgressPanicAlerts(result);
                 } else if (name == 'Open Panic Alerts') {
-                  _this75.openPanicAlerts(result);
+                  _this76.openPanicAlerts(result);
                 } else if (name == 'Visitors In') {
-                  _this75.visitorsIn(result);
+                  _this76.visitorsIn(result);
                 }
               }
             });
@@ -14805,20 +14822,6 @@
         }, {
           key: "pendingAdmins",
           value: function pendingAdmins(result) {
-            var _this76 = this;
-
-            var entity = {
-              fromDate: result.fromDate,
-              toDate: result.toDate,
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(entity).subscribe(function (res) {
-              _this76.label.frontValue = res.unapprovedUsersPendingAdmin;
-            });
-          }
-        }, {
-          key: "pendingUsers",
-          value: function pendingUsers(result) {
             var _this77 = this;
 
             var entity = {
@@ -14826,13 +14829,13 @@
               toDate: result.toDate,
               apartmentId: this.sessionService.apartmentId
             };
-            this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(entity).subscribe(function (res) {
-              _this77.label.backValue = res.unapprovedPendingusers;
+            this.dashboardService.getDashUnapprovedUsersPendingAdminbyApartmentId(entity).subscribe(function (res) {
+              _this77.label.frontValue = res.unapprovedUsersPendingAdmin;
             });
           }
         }, {
-          key: "openCommunity",
-          value: function openCommunity(result) {
+          key: "pendingUsers",
+          value: function pendingUsers(result) {
             var _this78 = this;
 
             var entity = {
@@ -14840,13 +14843,13 @@
               toDate: result.toDate,
               apartmentId: this.sessionService.apartmentId
             };
-            this.dashboardService.getDashOpencommticketsbyApartmentId(entity).subscribe(function (res) {
-              _this78.label.frontValue = res.openCommunitytickets;
+            this.dashboardService.getDashUnapprovedUsersPendingusersbyApartmentId(entity).subscribe(function (res) {
+              _this78.label.backValue = res.unapprovedPendingusers;
             });
           }
         }, {
-          key: "openPersonal",
-          value: function openPersonal(result) {
+          key: "openCommunity",
+          value: function openCommunity(result) {
             var _this79 = this;
 
             var entity = {
@@ -14854,13 +14857,13 @@
               toDate: result.toDate,
               apartmentId: this.sessionService.apartmentId
             };
-            this.dashboardService.getDashOpenpersonalticketsbyApartmentId(entity).subscribe(function (res) {
-              _this79.label.backValue = res.openPersonalticket;
+            this.dashboardService.getDashOpencommticketsbyApartmentId(entity).subscribe(function (res) {
+              _this79.label.frontValue = res.openCommunitytickets;
             });
           }
         }, {
-          key: "highPriorityCommunity",
-          value: function highPriorityCommunity(result) {
+          key: "openPersonal",
+          value: function openPersonal(result) {
             var _this80 = this;
 
             var entity = {
@@ -14868,13 +14871,13 @@
               toDate: result.toDate,
               apartmentId: this.sessionService.apartmentId
             };
-            this.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(entity).subscribe(function (res) {
-              _this80.label.frontValue = res.highPriorityOpenCommunityTicket;
+            this.dashboardService.getDashOpenpersonalticketsbyApartmentId(entity).subscribe(function (res) {
+              _this80.label.backValue = res.openPersonalticket;
             });
           }
         }, {
-          key: "highPriorityPersonal",
-          value: function highPriorityPersonal(result) {
+          key: "highPriorityCommunity",
+          value: function highPriorityCommunity(result) {
             var _this81 = this;
 
             var entity = {
@@ -14882,26 +14885,27 @@
               toDate: result.toDate,
               apartmentId: this.sessionService.apartmentId
             };
+            this.dashboardService.getDashHighpriorityopenCommunityTicketsbyApartmentId(entity).subscribe(function (res) {
+              _this81.label.frontValue = res.highPriorityOpenCommunityTicket;
+            });
+          }
+        }, {
+          key: "highPriorityPersonal",
+          value: function highPriorityPersonal(result) {
+            var _this82 = this;
+
+            var entity = {
+              fromDate: result.fromDate,
+              toDate: result.toDate,
+              apartmentId: this.sessionService.apartmentId
+            };
             this.dashboardService.getDashHighpriorityopenpersonalTicketsbyApartmentId(entity).subscribe(function (res) {
-              _this81.label.backValue = res.highPriorityOpenPersonalTicket;
+              _this82.label.backValue = res.highPriorityOpenPersonalTicket;
             });
           }
         }, {
           key: "unAssignedCommunity",
           value: function unAssignedCommunity(result) {
-            var _this82 = this;
-
-            var params = {
-              fromDate: result.date,
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
-              _this82.label.frontValue = res.unassignedCommunityTickets;
-            });
-          }
-        }, {
-          key: "unassignedPersonal",
-          value: function unassignedPersonal(result) {
             var _this83 = this;
 
             var params = {
@@ -14913,22 +14917,21 @@
             });
           }
         }, {
-          key: "openCommunityAged",
-          value: function openCommunityAged(result) {
+          key: "unassignedPersonal",
+          value: function unassignedPersonal(result) {
             var _this84 = this;
 
             var params = {
-              date: result.date,
-              noOfDays: result.noOfDays,
+              fromDate: result.date,
               apartmentId: this.sessionService.apartmentId
             };
-            this.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(params).subscribe(function (res) {
-              _this84.label.frontValue = res.openCommunityAgedTickets;
+            this.dashboardService.getDashUnassignedCommunityTicketsbyApartmentId(params).subscribe(function (res) {
+              _this84.label.frontValue = res.unassignedCommunityTickets;
             });
           }
         }, {
-          key: "openPersonalAged",
-          value: function openPersonalAged(result) {
+          key: "openCommunityAged",
+          value: function openCommunityAged(result) {
             var _this85 = this;
 
             var params = {
@@ -14936,40 +14939,54 @@
               noOfDays: result.noOfDays,
               apartmentId: this.sessionService.apartmentId
             };
+            this.dashboardService.getDashOpenCommunityAgedTicketsbyApartmentIDbyDays(params).subscribe(function (res) {
+              _this85.label.frontValue = res.openCommunityAgedTickets;
+            });
+          }
+        }, {
+          key: "openPersonalAged",
+          value: function openPersonalAged(result) {
+            var _this86 = this;
+
+            var params = {
+              date: result.date,
+              noOfDays: result.noOfDays,
+              apartmentId: this.sessionService.apartmentId
+            };
             this.dashboardService.getDashOpenPersonalAgedTicketsbyApartmentIDbyDays(params).subscribe(function (res) {
-              _this85.label.backValue = res.openPersonalAgedTickets;
+              _this86.label.backValue = res.openPersonalAgedTickets;
             });
           }
         }, {
           key: "inProgressPanicAlerts",
           value: function inProgressPanicAlerts(result) {
-            var _this86 = this;
-
-            var params = {
-              fromDate: result.date,
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.dashboardService.getDashinProgressPanicAlertsbyApartmentId(params).subscribe(function (res) {
-              _this86.label.frontValue = res.inProgressPanicAlerts;
-            });
-          }
-        }, {
-          key: "openPanicAlerts",
-          value: function openPanicAlerts(result) {
             var _this87 = this;
 
             var params = {
               fromDate: result.date,
               apartmentId: this.sessionService.apartmentId
             };
+            this.dashboardService.getDashinProgressPanicAlertsbyApartmentId(params).subscribe(function (res) {
+              _this87.label.frontValue = res.inProgressPanicAlerts;
+            });
+          }
+        }, {
+          key: "openPanicAlerts",
+          value: function openPanicAlerts(result) {
+            var _this88 = this;
+
+            var params = {
+              fromDate: result.date,
+              apartmentId: this.sessionService.apartmentId
+            };
             this.dashboardService.getDashOpenPanicAlertsbyApartmentId(params).subscribe(function (res) {
-              _this87.label.backValue = res.openPanicAlerts;
+              _this88.label.backValue = res.openPanicAlerts;
             });
           }
         }, {
           key: "visitorsIn",
           value: function visitorsIn(result) {
-            var _this88 = this;
+            var _this89 = this;
 
             var params = {
               startDate: result.fromDate,
@@ -14977,7 +14994,7 @@
               apartmentId: result.apartmentId
             };
             this.dashboardService.getDashVisitorsCheckedinbyApartmentId(params).subscribe(function (res) {
-              _this88.label.frontValue = res.visitorsCheckIn;
+              _this89.label.frontValue = res.visitorsCheckIn;
             });
           }
         }, {
@@ -15186,7 +15203,7 @@
         }, {
           key: "calenderPopUp",
           value: function calenderPopUp(dateType) {
-            var _this89 = this;
+            var _this90 = this;
 
             var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_5__["DateModelComponent"], {
               panelClass: 'material-dialog-small',
@@ -15195,18 +15212,18 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this89.announcementList(result);
+                _this90.announcementList(result);
               }
             });
           }
         }, {
           key: "announcementList",
           value: function announcementList(entity) {
-            var _this90 = this;
+            var _this91 = this;
 
             this.dashboardService.getDashlistBroadcastsentbyApartmentId(entity).subscribe(function (res) {
               if (res.length > 0) {
-                _this90.broadCastList = res.reverse().slice(0, 10);
+                _this91.broadCastList = res.reverse().slice(0, 10);
               }
             });
           }
@@ -15412,7 +15429,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this91 = this;
+            var _this92 = this;
 
             this.role = this.sessionService.roleTypeName;
             var entity = {
@@ -15423,7 +15440,7 @@
             if (this.label == 'Emergency Alerts' && this.role != 'Owner' && this.role != 'Tenant') {
               this.alertService.getAllApartmentBlockUnitAlertByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
-                  _this91.emergencyAlert = res.reverse().slice(0, 5);
+                  _this92.emergencyAlert = res.reverse().slice(0, 5);
                 }
               });
             } else if (this.label == 'Emergency Alerts' && (this.role == 'Owner' || this.role == 'Tenant')) {
@@ -15432,19 +15449,19 @@
               };
               this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe(function (res) {
                 if (res.length > 0) {
-                  _this91.emergencyAlert = res.reverse().slice(0, 5);
+                  _this92.emergencyAlert = res.reverse().slice(0, 5);
                 }
               });
             } else if (this.label == 'Recent Violations') {
               this.violationService.getAllViolationsByStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
-                  _this91.violation = res.reverse().slice(0, 5);
+                  _this92.violation = res.reverse().slice(0, 5);
                 }
               });
             } else if (this.label == 'Work Permit' && this.role != 'Owner' && this.role != 'Tenant') {
               this.workpermitService.getWorkPermitsByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
-                  _this91.workPermit = res.reverse().slice(0, 10);
+                  _this92.workPermit = res.reverse().slice(0, 10);
                 }
               });
             } else if (this.label == 'Work Permit' && (this.role == 'Owner' || this.role == 'Tenant')) {
@@ -15454,13 +15471,13 @@
               };
               this.workpermitService.getWorkPermitsByApartmentIdUnitId(_params).subscribe(function (res) {
                 if (res.length > 0) {
-                  _this91.workPermit = res.reverse().slice(0, 10);
+                  _this92.workPermit = res.reverse().slice(0, 10);
                 }
               });
             } else if (this.label == 'Facility Bookings') {
               this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
-                  _this91.facility = res.reverse().slice(0, 10);
+                  _this92.facility = res.reverse().slice(0, 10);
                 }
               });
             }
@@ -15772,7 +15789,7 @@
         }, {
           key: "calenderPopUp",
           value: function calenderPopUp(dateType) {
-            var _this92 = this;
+            var _this93 = this;
 
             var dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_4__["DateModelComponent"], {
               panelClass: 'material-dialog-small',
@@ -15781,20 +15798,20 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this92.scheduledMeeting(result);
+                _this93.scheduledMeeting(result);
               }
             });
           }
         }, {
           key: "scheduledMeeting",
           value: function scheduledMeeting(entity) {
-            var _this93 = this;
+            var _this94 = this;
 
             this.dashboardService.getDashlistupcomingmeetingbyApartmentId(entity).subscribe(function (res) {
               if (res.length > 0) {
-                _this93.meetingList = res.reverse().slice(0, 10);
+                _this94.meetingList = res.reverse().slice(0, 10);
 
-                _this93.meetingList.forEach(function (data) {
+                _this94.meetingList.forEach(function (data) {
                   data.fromTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.fromTime, 'HH:mm').format('hh:mm A');
                   data.toTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.toTime, 'HH:mm').format('hh:mm A');
                 });
@@ -15967,7 +15984,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this94 = this;
+            var _this95 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -15976,7 +15993,7 @@
             var amtBilled = this.dashboardService.getDashTotalamtbilledcustomersthismonthbyApartmentId(params);
             var amtReceived = this.dashboardService.getDashTotalamtreceivedcustomersthismonthbyApartmentId(params);
             Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["forkJoin"])([amtBilled, amtReceived]).subscribe(function (res) {
-              _this94.isDataLoaded = true;
+              _this95.isDataLoaded = true;
 
               if (res.length > 0) {
                 var billed, received, chart, amount;
@@ -15993,12 +16010,12 @@
                   localdata: amount,
                   datatype: "array"
                 };
-                _this94.chartList = new jqx.dataAdapter(chart);
+                _this95.chartList = new jqx.dataAdapter(chart);
               }
             }, function (error) {
-              _this94.isDataLoaded = true;
+              _this95.isDataLoaded = true;
 
-              _this94.sharedService.openSnackBar('Pie Chart Server Error', 'error');
+              _this95.sharedService.openSnackBar('Pie Chart Server Error', 'error');
             });
           }
         }]);
@@ -16313,7 +16330,17 @@
           pathMatch: 'full'
         }, {
           path: 'main',
-          component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"]
+          component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"],
+          children: [{
+            path: 'report',
+            loadChildren: function loadChildren() {
+              return Promise.resolve().then(__webpack_require__.bind(null,
+              /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */
+              "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(function (m) {
+                return m.UnitUsersReportModule;
+              });
+            }
+          }]
         }, {
           path: 'custom',
           component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"]
@@ -16461,17 +16488,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this95 = this;
+            var _this96 = this;
 
             // Subscribe to the resolved route data
             this._activatedRoute.parent.parent.data.subscribe(function (data) {
-              _this95.data = data.initialData;
+              _this96.data = data.initialData;
 
-              var dashboardMenu = _this95.data.navigation["default"].filter(function (item) {
+              var dashboardMenu = _this96.data.navigation["default"].filter(function (item) {
                 return item.id == 'DASHBOARD';
               });
 
-              _this95.isCustomAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](dashboardMenu[0].children, function (item) {
+              _this96.isCustomAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](dashboardMenu[0].children, function (item) {
                 return item.id == 'CUSTOM';
               });
             });
@@ -16479,18 +16506,18 @@
             this._router.events.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(function (event) {
               return event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"];
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(this._router)).subscribe(function (event) {
-              _this95.customDashBoard = event.url.includes('custom');
-              _this95.dashBoardName = event.url.includes('custom') ? 'Custom' : 'General';
+              _this96.customDashBoard = event.url.includes('custom');
+              _this96.dashBoardName = event.url.includes('custom') ? 'Custom' : 'General';
             });
 
             var params = {
               userid: parseInt(this.sessionService.userId)
             };
             this.userService.getUserById(params).subscribe(function (res) {
-              _this95.userName = res[0].firstName;
+              _this96.userName = res[0].firstName;
             }, function (error) {});
             this.sharedService.apartmentselectedcast.subscribe(function (isSelected) {
-              _this95.isApartmentSelected = isSelected;
+              _this96.isApartmentSelected = isSelected;
             });
           }
         }]);
