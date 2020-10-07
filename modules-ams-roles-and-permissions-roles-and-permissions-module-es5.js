@@ -22,6 +22,26 @@
       /* harmony default export */
 
 
+      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #createParkingSlotForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"p-5\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Type</label>\n\t\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleTypeId\" class=\"form-control\" required>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" value=\"{{item.value}}\">{{item?.name}}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Name</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\"\n\t\t\t\t\t\t\t\t\t\trows=\"3\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button >Clear</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t\t<!-- <button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"updateRole()\">Update</button> -->\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.html":
+    /*!****************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.html ***!
+      \****************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsRolesAndPermissionsConfigureRolesConfigureRolesComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
       __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #createParkingSlotForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"p-5\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Type</label>\n\t\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleTypeId\" class=\"form-control\">\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" value=\"{{item.value}}\">{{item?.name}}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Name</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\"\n\t\t\t\t\t\t\t\t\t\trows=\"3\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button\n\t\t\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/role-permissions-list\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Cancel</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"updateRole()\">Update</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
@@ -42,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\" >\n\t\t\t\t\t\t<h4>Roles And Permissions</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/add-roles-permissions\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Create Roles</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody *ngIf=\"isShowRoleList\" >\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleList\" [columns]=\"roleHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isShowRoleList\"></app-loader>\n\t\t<condo-card *ngIf=\"isShowRoleList\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<h4>Roles And Permissions</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/configure-roles\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Create Roles</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleList\" [columns]=\"roleHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -141,15 +161,22 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
 
       var AddRoleComponent = /*#__PURE__*/function () {
-        function AddRoleComponent(userService, router, activatedRoute, sessionService, screenService) {
+        function AddRoleComponent(userService, router, activatedRoute, sessionService, sharedService, screenService) {
           _classCallCheck(this, AddRoleComponent);
 
           this.userService = userService;
           this.router = router;
           this.activatedRoute = activatedRoute;
           this.sessionService = sessionService;
+          this.sharedService = sharedService;
           this.screenService = screenService;
           this.allRoles = [];
           this.isCreate = true;
@@ -203,62 +230,27 @@
           value: function addRole() {
             var _this3 = this;
 
-            var addMenuLevelParam = {
-              "menuSecLevelId": 0,
+            var addRoleParam = {
+              "roleId": 0,
               "apartmentId": this.sessionService.apartmentId,
-              "name": this.roleName,
+              "roleName": this.roleName,
+              "description": this.description,
               "isActive": true,
               "insertedBy": this.sessionService.userId,
               "insertedOn": new Date().toISOString(),
               "updatedBy": this.sessionService.userId,
-              "updatedOn": "2020-08-09T06:22:21.539Z"
+              "updatedOn": "2020-08-09T06:22:21.539Z",
+              "roleTypeId": this.roleTypeId
             };
-            var secLevelParam = {
-              seclevel: addMenuLevelParam
+            var roleParam = {
+              role: addRoleParam
             };
-            this.screenService.addMenuSecLevel(secLevelParam).subscribe(function (resp) {
-              if (resp && resp.message) {
-                var addMenuRoleSecLevel = {
-                  "menuRoleSecLevelId": 0,
-                  "apartmentId": _this3.sessionService.apartmentId,
-                  "roleId": parseInt(_this3.roleTypeId),
-                  "secLevelId": resp.message,
-                  "isActive": true,
-                  "insertedBy": _this3.sessionService.userId,
-                  "insertedOn": new Date().toISOString(),
-                  "updatedBy": _this3.sessionService.userId,
-                  "updatedOn": "2020-08-09T06:22:21.539Z"
-                };
-                var roleSecLevelParam = {
-                  roleseclevel: addMenuRoleSecLevel
-                };
+            this.userService.addRole(roleParam).subscribe(function (resp) {
+              _this3.sharedService.openSnackBar('Role Added Successfully', 'success');
 
-                _this3.screenService.addMenuRoleSecLevel(roleSecLevelParam).subscribe(function (resp) {
-                  _this3.router.navigate(['/ams/roles-permissions/role-permissions-list']);
-                });
-              }
-            });
-          }
-        }, {
-          key: "updateRole",
-          value: function updateRole() {
-            var _this4 = this;
-
-            var updataParam = {
-              "menuSecLevelId": this.menuRole.menuRoleSecLevelId,
-              "apartmentId": this.sessionService.apartmentId,
-              "name": this.roleName,
-              "isActive": true,
-              "insertedBy": 0,
-              "insertedOn": new Date().toISOString(),
-              "updatedBy": this.sessionService.userId,
-              "updatedOn": new Date().toISOString()
-            };
-            var updateRoleParam = {
-              menuSecLevel: updataParam
-            };
-            this.screenService.updateMenuSecLevel(updateRoleParam).subscribe(function (resp) {
-              _this4.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+              _this3.roleTypeId = null;
+              _this3.roleName = '';
+              _this3.description = '';
             });
           }
         }]);
@@ -276,6 +268,8 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
           type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]
         }];
       };
@@ -288,7 +282,233 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-role.component.scss */
         "./src/app/modules/ams/roles-and-permissions/add-role/add-role.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])], AddRoleComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])], AddRoleComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.scss":
+    /*!**************************************************************************************************!*\
+      !*** ./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.scss ***!
+      \**************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsRolesAndPermissionsConfigureRolesConfigureRolesComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3JvbGVzLWFuZC1wZXJtaXNzaW9ucy9jb25maWd1cmUtcm9sZXMvY29uZmlndXJlLXJvbGVzLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.ts":
+    /*!************************************************************************************************!*\
+      !*** ./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.ts ***!
+      \************************************************************************************************/
+
+    /*! exports provided: ConfigureRolesComponent */
+
+    /***/
+    function srcAppModulesAmsRolesAndPermissionsConfigureRolesConfigureRolesComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ConfigureRolesComponent", function () {
+        return ConfigureRolesComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/Screen */
+      "./src/app/api/controllers/Screen.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+
+      var ConfigureRolesComponent = /*#__PURE__*/function () {
+        function ConfigureRolesComponent(userService, router, activatedRoute, sessionService, screenService) {
+          _classCallCheck(this, ConfigureRolesComponent);
+
+          this.userService = userService;
+          this.router = router;
+          this.activatedRoute = activatedRoute;
+          this.sessionService = sessionService;
+          this.screenService = screenService;
+          this.allRoles = [];
+          this.isCreate = true;
+        }
+
+        _createClass(ConfigureRolesComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            if (this.activatedRoute.params['value'].id != undefined) {
+              this.menuRoleSecLevelId = this.activatedRoute.params['value'].id;
+              this.isCreate = false;
+              this.getRole();
+            }
+
+            this.getAllRoles();
+          }
+        }, {
+          key: "getRole",
+          value: function getRole() {
+            var _this4 = this;
+
+            var queryParamBase = {
+              apartmentId: this.sessionService.apartmentId,
+              menuRoleSecLevelId: this.menuRoleSecLevelId
+            };
+            this.screenService.getMenuRoleSecLevelbyRoleSecLevelId(queryParamBase).subscribe(function (resp) {
+              _this4.menuRole = resp[0];
+              _this4.roleTypeId = _this4.menuRole.roleId;
+              _this4.roleName = _this4.menuRole.roleName;
+            });
+          }
+        }, {
+          key: "getAllRoles",
+          value: function getAllRoles() {
+            var _this5 = this;
+
+            this.userService.getAllRoleTypes().subscribe(function (resp) {
+              _this5.allRoles = resp;
+
+              if (_this5.allRoles && _this5.allRoles.length) {
+                _this5.allRoles.filter(function (key) {
+                  if (key.value == 2 || key.value == 4 || key.value == 5) {
+                    _this5.allRoles.splice(_this5.allRoles.indexOf(key), 1);
+                  }
+                });
+              }
+            });
+          }
+        }, {
+          key: "addRole",
+          value: function addRole() {
+            var _this6 = this;
+
+            var addMenuLevelParam = {
+              "menuSecLevelId": 0,
+              "apartmentId": this.sessionService.apartmentId,
+              "name": this.roleName,
+              "isActive": true,
+              "insertedBy": this.sessionService.userId,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": "2020-08-09T06:22:21.539Z"
+            };
+            var secLevelParam = {
+              seclevel: addMenuLevelParam
+            };
+            this.screenService.addMenuSecLevel(secLevelParam).subscribe(function (resp) {
+              if (resp && resp.message) {
+                var addMenuRoleSecLevel = {
+                  "menuRoleSecLevelId": 0,
+                  "apartmentId": _this6.sessionService.apartmentId,
+                  "roleId": parseInt(_this6.roleTypeId),
+                  "secLevelId": resp.message,
+                  "isActive": true,
+                  "insertedBy": _this6.sessionService.userId,
+                  "insertedOn": new Date().toISOString(),
+                  "updatedBy": _this6.sessionService.userId,
+                  "updatedOn": "2020-08-09T06:22:21.539Z"
+                };
+                var roleSecLevelParam = {
+                  roleseclevel: addMenuRoleSecLevel
+                };
+
+                _this6.screenService.addMenuRoleSecLevel(roleSecLevelParam).subscribe(function (resp) {
+                  _this6.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+                });
+              }
+            });
+          }
+        }, {
+          key: "updateRole",
+          value: function updateRole() {
+            var _this7 = this;
+
+            var updataParam = {
+              "menuSecLevelId": this.menuRole.menuRoleSecLevelId,
+              "apartmentId": this.sessionService.apartmentId,
+              "name": this.roleName,
+              "isActive": true,
+              "insertedBy": 0,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": new Date().toISOString()
+            };
+            var updateRoleParam = {
+              menuSecLevel: updataParam
+            };
+            this.screenService.updateMenuSecLevel(updateRoleParam).subscribe(function (resp) {
+              _this7.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+            });
+          }
+        }]);
+
+        return ConfigureRolesComponent;
+      }();
+
+      ConfigureRolesComponent.ctorParameters = function () {
+        return [{
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]
+        }];
+      };
+
+      ConfigureRolesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-configure-roles',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./configure-roles.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./configure-roles.component.scss */
+        "./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])], ConfigureRolesComponent);
       /***/
     },
 
@@ -423,7 +643,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this8 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -467,11 +687,11 @@
               if (id != null) {
                 var params = {
                   menuRoleSecLevelId: id,
-                  deleteBy: parseInt(_this5.sessionService.userId)
+                  deleteBy: parseInt(_this8.sessionService.userId)
                 };
 
-                _this5.screenService.deleteMenuRoleSecLevel(params).subscribe(function (res) {
-                  _this5.getRolePermissionList();
+                _this8.screenService.deleteMenuRoleSecLevel(params).subscribe(function (res) {
+                  _this8.getRolePermissionList();
                 }, function (error) {
                   console.log(error);
                 });
@@ -482,7 +702,7 @@
         }, {
           key: "getRolePermissionList",
           value: function getRolePermissionList() {
-            var _this6 = this;
+            var _this9 = this;
 
             this.isShowRoleList = false;
             var param = {
@@ -496,9 +716,9 @@
                 localdata: refMenuData,
                 datatype: "array"
               };
-              _this6.roleList = new jqx.dataAdapter(gridSourceData);
-              _this6.isShowRoleList = true;
-              _this6.isEnableCreate = true;
+              _this9.roleList = new jqx.dataAdapter(gridSourceData);
+              _this9.isShowRoleList = true;
+              _this9.isEnableCreate = true;
             });
           }
         }]);
@@ -631,13 +851,19 @@
       /* harmony import */
 
 
-      var _roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _configure_roles_configure_roles_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! ./configure-roles/configure-roles.component */
+      "./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.ts");
+      /* harmony import */
+
+
+      var _roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./roles-and-permissions-list/roles-and-permissions-list.component */
       "./src/app/modules/ams/roles-and-permissions/roles-and-permissions-list/roles-and-permissions-list.component.ts");
       /* harmony import */
 
 
-      var _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./set-permissions/set-permissions.component */
       "./src/app/modules/ams/roles-and-permissions/set-permissions/set-permissions.component.ts");
 
@@ -647,13 +873,16 @@
         pathMatch: 'full'
       }, {
         path: 'roles-permissions-list',
-        component: _roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_4__["RolesAndPermissionsListComponent"]
+        component: _roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_5__["RolesAndPermissionsListComponent"]
       }, {
         path: 'set-permission',
-        component: _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_5__["SetPermissionsComponent"]
+        component: _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_6__["SetPermissionsComponent"]
       }, {
         path: 'role-type',
         component: _add_role_add_role_component__WEBPACK_IMPORTED_MODULE_3__["AddRoleComponent"]
+      }, {
+        path: 'configure-roles',
+        component: _configure_roles_configure_roles_component__WEBPACK_IMPORTED_MODULE_4__["ConfigureRolesComponent"]
       }, {
         path: '**',
         redirectTo: 'roles-permissions-list',
@@ -750,13 +979,19 @@
       var _add_role_add_role_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./add-role/add-role.component */
       "./src/app/modules/ams/roles-and-permissions/add-role/add-role.component.ts");
+      /* harmony import */
+
+
+      var _configure_roles_configure_roles_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ./configure-roles/configure-roles.component */
+      "./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.ts");
 
       var RolesAndPermissionsModule = function RolesAndPermissionsModule() {
         _classCallCheck(this, RolesAndPermissionsModule);
       };
 
       RolesAndPermissionsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_3__["RolesAndPermissionsListComponent"], _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_4__["SetPermissionsComponent"], _add_role_add_role_component__WEBPACK_IMPORTED_MODULE_9__["AddRoleComponent"]],
+        declarations: [_roles_and_permissions_list_roles_and_permissions_list_component__WEBPACK_IMPORTED_MODULE_3__["RolesAndPermissionsListComponent"], _set_permissions_set_permissions_component__WEBPACK_IMPORTED_MODULE_4__["SetPermissionsComponent"], _add_role_add_role_component__WEBPACK_IMPORTED_MODULE_9__["AddRoleComponent"], _configure_roles_configure_roles_component__WEBPACK_IMPORTED_MODULE_10__["ConfigureRolesComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _angular_material_list__WEBPACK_IMPORTED_MODULE_7__["MatListModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"], _roles_and_permissions_routing_module__WEBPACK_IMPORTED_MODULE_5__["RolesAndPermissionsRouting"]]
       })], RolesAndPermissionsModule);
       /***/
@@ -845,13 +1080,13 @@
         _createClass(SetPermissionsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this10 = this;
 
             this.activatedRoute.queryParams.subscribe(function (params) {
-              _this7.secLevelId = params['secLevelId'];
-              _this7.roleId = params['roleId'];
+              _this10.secLevelId = params['secLevelId'];
+              _this10.roleId = params['roleId'];
 
-              _this7.getScreenList();
+              _this10.getScreenList();
             });
             this.actionList = [{
               name: 'add',
@@ -874,7 +1109,7 @@
         }, {
           key: "getScreenList",
           value: function getScreenList() {
-            var _this8 = this;
+            var _this11 = this;
 
             var queryParamBase = {
               ApartmentId: this.sessionService.apartmentId,
@@ -882,19 +1117,19 @@
               secLevelId: parseInt(this.secLevelId)
             };
             this.screenService.getMenuFunctionByRoleIdMultiFilter(queryParamBase).subscribe(function (resp) {
-              _this8.menuList = resp;
+              _this11.menuList = resp;
 
-              if (_this8.menuList && _this8.menuList.length) {
-                _this8.selectedMenuName = _this8.menuList[0].menuName;
+              if (_this11.menuList && _this11.menuList.length) {
+                _this11.selectedMenuName = _this11.menuList[0].menuName;
 
-                _this8.changeMenu('');
+                _this11.changeMenu('');
               }
             });
           }
         }, {
           key: "changeMenu",
           value: function changeMenu(event) {
-            var _this9 = this;
+            var _this12 = this;
 
             if (event) {
               this.selectedMenuName = event.option.value ? event.option.value.menuName : '';
@@ -902,11 +1137,11 @@
 
             if (this.selectedMenuName) {
               this.menuList.filter(function (key) {
-                if (key.menuName == _this9.selectedMenuName) {
-                  _this9.subMenuList = key.subMenuNames;
-                  _this9.selectedSubMenuName = _this9.subMenuList.length ? _this9.subMenuList[0].subMenuName : '';
+                if (key.menuName == _this12.selectedMenuName) {
+                  _this12.subMenuList = key.subMenuNames;
+                  _this12.selectedSubMenuName = _this12.subMenuList.length ? _this12.subMenuList[0].subMenuName : '';
 
-                  _this9.changeSubMenu('');
+                  _this12.changeSubMenu('');
                 }
               });
             }
@@ -914,17 +1149,17 @@
         }, {
           key: "changeSubMenu",
           value: function changeSubMenu(event) {
-            var _this10 = this;
+            var _this13 = this;
 
             if (event) {
               this.actions = event.option.value ? event.option.value.actions : {};
               this.mapActions();
             } else {
               this.subMenuList.filter(function (key) {
-                if (_this10.selectedSubMenuName == key.subMenuName) {
-                  _this10.actions = key.actions;
+                if (_this13.selectedSubMenuName == key.subMenuName) {
+                  _this13.actions = key.actions;
 
-                  _this10.mapActions();
+                  _this13.mapActions();
                 }
               });
             }

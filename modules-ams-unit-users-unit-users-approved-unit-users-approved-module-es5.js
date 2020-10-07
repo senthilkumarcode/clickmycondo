@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"approved-user-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<div class=\"userList\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Approved Users</h4>\n\t\t\t\t\t\t\t<p class=\"\">Total {{totalUnits}} Units and {{totalItems}} Users</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3\">\n\n\t\t\t\t\t\t\t<form novalidate>\n\n\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\" [fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\" [isLabel]=\"'false'\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\n\t\t\t\t\t\t\t</form>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<div class=\"users\">\n\n\t\t\t\t\t\t<mat-list class=\"border-bottom\"\n\t\t\t\t\t\t\t*ngFor=\"let item of approvedUsersData | slice:ItemStartIndex:ItemEndIndex | approvedUserPipe:unitData\"\n\t\t\t\t\t\t\t(click)=\"showApprovedUserDetails(item)\">\n\t\t\t\t\t\t\t<mat-list-item class=\"h-auto\">\n\t\t\t\t\t\t\t\t<div class=\"w-100 pt-4 pb-4 link\">\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4 text-secondary text-sm pt-xs-2\">\n\t\t\t\t\t\t\t\t\t\t\t{{item?.apartmentBlockNumber}} {{item.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let user of item.userInfo\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:verified_user\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Owner'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person_outline\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Tenant'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"user.roleName != 'Admin'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-sm\">{{user.userName}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-orange-900 text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isPrimaryContact\">(Primary)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"text-primary text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isLiving\">(Living)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-6 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.phone}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle class=\"ml-5\" *ngIf=\"!user.isPrimaryContact\" (change)=\"changePrimayContact(item.apartmentBlockUnitUserId)\" ></mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-list-item>\n\t\t\t\t\t\t</mat-list>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"approved-user-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<div class=\"userList\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Approved Users</h4>\n\t\t\t\t\t\t\t<p class=\"\">Total {{totalUnits}} Units and {{totalItems}} Users</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3\">\n\n\t\t\t\t\t\t\t<form novalidate>\n\n\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\" [fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\" [isLabel]=\"'false'\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\n\t\t\t\t\t\t\t</form>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<div class=\"users\">\n\n\t\t\t\t\t\t<mat-list class=\"border-bottom\"\n\t\t\t\t\t\t\t*ngFor=\"let item of approvedUsersData | slice:ItemStartIndex:ItemEndIndex | approvedUserPipe:unitData\"\n\t\t\t\t\t\t\t(click)=\"showApprovedUserDetails(item)\">\n\t\t\t\t\t\t\t<mat-list-item class=\"h-auto\">\n\t\t\t\t\t\t\t\t<div class=\"w-100 pt-4 pb-4 link\">\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-2\">\n\t\t\t\t\t\t\t\t\t\t\t{{item?.apartmentBlockNumber}} {{item.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let user of item.userInfo\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:verified_user\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Owner'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person_outline\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Tenant'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"user.roleName != 'Admin'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-sm\">{{user.userName}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-orange-900 text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isPrimaryContact\">(Primary)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"text-primary text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isLiving\">(Living)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.phone}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[checked]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimay\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"!user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[checked]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-3 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[checked]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tLiving\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"!user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[checked]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-list-item>\n\t\t\t\t\t\t</mat-list>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -284,14 +284,14 @@
           }
         }, {
           key: "changePrimayContact",
-          value: function changePrimayContact(apartmentBlockUnitUserId) {
+          value: function changePrimayContact(apartmentBlockUnitUserId, user) {
             var _this3 = this;
 
             var apartmentBlockUnitUser = {
               "apartmentId": this.sessionService.apartmentId,
               "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
-              "isPrimaryContact": true,
-              "isLiving": true,
+              "isPrimaryContact": !user.isPrimaryContact,
+              "isLiving": user.isLiving,
               "updatedBy": this.sessionService.userId,
               "updatedOn": new Date().toISOString()
             };
@@ -305,9 +305,31 @@
             });
           }
         }, {
+          key: "changeLiving",
+          value: function changeLiving(apartmentBlockUnitUserId, user) {
+            var _this4 = this;
+
+            var apartmentBlockUnitUser = {
+              "apartmentId": this.sessionService.apartmentId,
+              "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
+              "isPrimaryContact": user.isPrimaryContact,
+              "isLiving": !user.isLiving,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": new Date().toISOString()
+            };
+            var updateParam = {
+              apartmentBlockUnitUser: apartmentBlockUnitUser
+            };
+            this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+              _this4.sharedService.openSnackBar('Living Updated Successfully', 'Success');
+
+              _this4.getApprovedUsers();
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.getApprovedUsers();
             var getTowerParam = {
@@ -315,13 +337,13 @@
             }; //get apartment blocks
 
             this.apartmentService.getApartmentBlockByApartmentId(getTowerParam).subscribe(function (res) {
-              _this4.towerList = res;
+              _this5.towerList = res;
             });
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-              _this4.totalUnits = res.length;
+              _this5.totalUnits = res.length;
             }, function (error) {
               console.log(error);
             });

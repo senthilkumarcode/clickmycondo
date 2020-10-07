@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"payment-dues-wrapper\">\n\t\n\t<div class=\"desp-block\">\n\t\t\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-5\">\n\n\t\t\t\t<div class=\"bg-card shadow basic\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<div class=\"rounded mr-4 yellow\">\n\t\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/coin-stack-icon.svg\" />\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t  <h6 class=\"mb-2\">Amount Due</h6>\n\t\t\t\t\t\t  <h5 class=\"text-secondary\">7000/-rs</h5>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t  </div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow basic\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<div class=\"rounded mr-4 red\">\n\t\t\t\t\t\t\t<img class=\"svg\" src=\"assets/images/light-bolt-icon.svg\" />\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t  <h6 class=\"mb-2\">Accrued Penality</h6>\n\t\t\t\t\t\t  <h5 class=\"text-secondary\">2000/-rs</h5>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\t\t\t<div class=\"col-sm-7\">\n\n\t\t\t\t<div class=\"bg-card shadow classic\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"details-wrapper text-center\">\n\t\t\t\t\t\t\t\t <h6 class=\"mb-2\">Maintenance</h6>\n\t\t\t\t\t\t\t\t <h5 class=\"text-secondary\">0/-rs</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6 col-border\">\n\t\t\t\t\t\t\t<div class=\"details-wrapper col-border-padding text-center\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-2\">Utility</h6>\n\t\t\t\t\t\t\t\t<h5 class=\"text-secondary\">0/-rs</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\t\n\t\t\t\t\t<div class=\"text-center mt-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Pay</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<!-- <div class=\"payment-dues-wrapper\">\n\t\n\t<div class=\"main\">\n\n\t\t<ng-container *ngFor=\" let due of paymentData; let i = index\">\n\t\t\t<div class=\"bg-card shadow mb-4 p-4\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2 border-right\">\n\t\t\t\t\t\t<div class=\"form-check\">\n\t\t\t\t\t\t\t<input type=\"checkbox\" [checked]=\"due.isChecked\"  class=\"form-check-input\" [id]=\"due.custInvoiceID\" [name]=\"due.custInvoiceID\" (change)=selectDue(due)>\n        \t\t\t\t\t<label class=\"form-check-label\" [for]=\"due.custInvoiceID\"></label>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-1\">Bill No</h6>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{due.custInvoiceID}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-1\">Due Date</h6>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{ getDate(due.custInvoiceDate) }}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-1\">Bill Amount</h6>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{due.billAmount}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-1\">Bill Date</h6>\n\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{ getDate(due.dueDate) }}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4 border-left\">\n\t\t\t\t\t\t<h5 class=\"text-primary\">{{due.remainingAmount}}</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\">Pay</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</ng-container>\n\t</div>\n</div> -->";
       /***/
     },
 
@@ -198,22 +198,66 @@
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/api/controllers/Accounts */
+      "./src/app/api/controllers/Accounts.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 
       var PaymentDuesComponent = /*#__PURE__*/function () {
-        function PaymentDuesComponent() {
+        function PaymentDuesComponent(accountsService, sessionService) {
           _classCallCheck(this, PaymentDuesComponent);
+
+          this.accountsService = accountsService;
+          this.sessionService = sessionService;
         }
 
         _createClass(PaymentDuesComponent, [{
+          key: "getDate",
+          value: function getDate(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_4__(date).format("MM-DD-YYYY");
+          }
+        }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            var _this = this;
+
+            var params = {
+              ApartmentBlockUnitID: this.sessionService.apartmentBlockUnitID
+            };
+            this.accountsService.getArBalancewithDueByAptBlkUnitId(params).subscribe(function (res) {
+              _this.paymentData = res;
+              console.log(res);
+            });
+          }
         }]);
 
         return PaymentDuesComponent;
       }();
 
       PaymentDuesComponent.ctorParameters = function () {
-        return [];
+        return [{
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+        }];
       };
 
       PaymentDuesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -224,7 +268,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./payment-dues.component.scss */
         "./src/app/modules/user/user-payment/components/payment-dues/payment-dues.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], PaymentDuesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], PaymentDuesComponent);
       /***/
     },
 
