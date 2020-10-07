@@ -3573,7 +3573,13 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
 
@@ -3585,7 +3591,7 @@
          * @param {MailboxService} _mailboxService
          * @param {MatDialog} _matDialog
          */
-        function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, sessionService) {
+        function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
           var _this24 = this;
 
           _classCallCheck(this, ProfileSidebarComponent);
@@ -3594,6 +3600,7 @@
           this._router = _router;
           this._condoNavigationService = _condoNavigationService;
           this._matDialog = _matDialog;
+          this.apartmentService = apartmentService;
           this.sessionService = sessionService; // Set the private defaults
 
           this._foldersMenuData = [];
@@ -3627,9 +3634,24 @@
           value: function ngOnInit() {
             var _this25 = this;
 
-            // Subscribe to the resolved route data
+            this.user = {}; // Subscribe to the resolved route data
+
             this._activatedRoute.parent.data.subscribe(function (data) {
               _this25.user = data.initialData.profileUser;
+            }); //if profile from unapproved and approved modules
+
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params['unituserid'] != undefined) {
+                var userparams = {
+                  apartmentId: _this25.sessionService.apartmentId,
+                  apartmentBlockUnitUserId: params['unituserid']
+                };
+
+                _this25.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
+                  _this25.user.roleName = res[0].roleName;
+                });
+              }
             }); // Generate menu links
 
 
@@ -3728,7 +3750,9 @@
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }];
       };
 
@@ -3741,7 +3765,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-sidebar.component.scss */
         "./src/app/modules/profile/profile-sidebar/profile-sidebar.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ProfileSidebarComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], ProfileSidebarComponent);
       /***/
     },
 

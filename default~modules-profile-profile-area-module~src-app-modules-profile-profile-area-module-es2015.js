@@ -2259,7 +2259,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/layout/regulars/navigation/navigation.service */ "./src/app/layout/regulars/navigation/navigation.service.ts");
 /* harmony import */ var src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/profile/profile-area-data */ "./src/app/modules/profile/profile-area-data.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
@@ -2276,11 +2278,12 @@ let ProfileSidebarComponent = class ProfileSidebarComponent {
      * @param {MailboxService} _mailboxService
      * @param {MatDialog} _matDialog
      */
-    constructor(_activatedRoute, _router, _condoNavigationService, _matDialog, sessionService) {
+    constructor(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this._condoNavigationService = _condoNavigationService;
         this._matDialog = _matDialog;
+        this.apartmentService = apartmentService;
         this.sessionService = sessionService;
         // Set the private defaults
         this._foldersMenuData = [];
@@ -2305,9 +2308,22 @@ let ProfileSidebarComponent = class ProfileSidebarComponent {
         return this.sessionService.roleTypeName == 'Admin' ? 'ams' : 'user';
     }
     ngOnInit() {
+        this.user = {};
         // Subscribe to the resolved route data
         this._activatedRoute.parent.data.subscribe((data) => {
             this.user = data.initialData.profileUser;
+        });
+        //if profile from unapproved and approved modules
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params['unituserid'] != undefined) {
+                let userparams = {
+                    apartmentId: this.sessionService.apartmentId,
+                    apartmentBlockUnitUserId: params['unituserid']
+                };
+                this.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe((res) => {
+                    this.user.roleName = res[0].roleName;
+                });
+            }
         });
         // Generate menu links
         this._generateFoldersMenuLinks();
@@ -2388,7 +2404,8 @@ ProfileSidebarComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] }
 ];
 ProfileSidebarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2401,7 +2418,8 @@ ProfileSidebarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])
 ], ProfileSidebarComponent);
 
 
