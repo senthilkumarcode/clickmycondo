@@ -1253,7 +1253,7 @@
         }, {
           key: "getPrintParams",
           value: function getPrintParams(event) {
-            this.datagrid.exportdata(event, 'VisitorReportsData');
+            this.datagrid.exportdata(event, 'HelpdeskReportsData');
           }
         }, {
           key: "goBack",

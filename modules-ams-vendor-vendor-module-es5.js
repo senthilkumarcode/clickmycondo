@@ -47,6 +47,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.html":
+    /*!*********************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.html ***!
+      \*********************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsVendorComponentsVendorReportsVendorReportDataVendorReportDataComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n<div class=\"vendors-view-wrapper\">\n        <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n    \n        <condo-card *ngIf=\"isVendorLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{selected_report_type}} Vendors </h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"vendorData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n                  \n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"vendorTableList\" [columns]=\"columnData\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n        <ng-template #viewVendorRef let-vendor>\n            <div class=\"user-info\">\n                <div class=\"close-icon\" mat-dialog-close>\n                    <i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n                </div>\n                <div class=\"title\">\n                    <h5>Vendor Info</h5>\n                </div>\n    \n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <div class=\"media\">\n                            <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n                                <p class=\"grey\">{{vendor.email}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"card-body lists\">\n                        <ul class=\"list-group\">\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Vendor ID</h6>\n                                <p>{{vendor.vendorId}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Contact Person</h6>\n                                <p>{{vendor.contactPerson}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Phone No</h6>\n                                <p>{{vendor.phone1}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">VAT No</h6>\n                                <p>{{vendor.vatorTin}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax1 No</h6>\n                                <p>{{vendor.tax1}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax2 No</h6>\n                                <p>{{vendor.tax2}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax3 No</h6>\n                                <p>{{vendor.tax3}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax4 No</h6>\n                                <p>{{vendor.tax4}}</p>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            </div>\n    \n        </ng-template>\n    </div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n    </div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/vendor/components/vendor-reports/vendor-reports.component.html":
     /*!**********************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/vendor/components/vendor-reports/vendor-reports.component.html ***!
@@ -62,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div *ngIf=\"!selected_report_type \" class=\"gl-other-reports-wrapper\">\n\t<div class=\"main\">\n\t<condo-card>\n\t\t<div CondoCardHeader>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>Select the reports</h4>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div CondoCardBody>\n\t\t\t<div class=\"simple-lists\">\n\t\t\t\t<ng-container *ngFor=\"let report of reportsTypes; let i = index\">\n\t\t\t\t\t<a (click)=\"selectReport(report.type)\">{{report.name}}</a>\n\t\t\t\t</ng-container>\n\t\t\t</div>\n\t\t</div>\n\t</condo-card>\n</div>\n</div>\n\n\n\n<div class=\"vendors-view-wrapper\">\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n\n\t<condo-card *ngIf=\"isVendorLoaded && selected_report_type \">\n\t\t<div CondoCardHeader>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>{{selected_report_type}} Vendors </h4>\n\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"vendorData\"\n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div CondoCardBody>\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"vendorTableList\" [columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t</div>\n\t</condo-card>\n\t<ng-template #viewVendorRef let-vendor>\n\t\t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>Vendor Info</h5>\n\t\t\t</div>\n\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t<h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n\t\t\t\t\t\t\t<p class=\"grey\">{{vendor.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Vendor ID</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vendorId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Contact Person</h6>\n\t\t\t\t\t\t\t<p>{{vendor.contactPerson}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.phone1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">VAT No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.vatorTin}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax1 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax1}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax2 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax2}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax3 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax3}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tax4 No</h6>\n\t\t\t\t\t\t\t<p>{{vendor.tax4}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-template>\n</div>\n</div>";
+      __webpack_exports__["default"] = "<div *ngIf=\"!selected_report \" class=\"gl-other-reports-wrapper\">\n\t<div class=\"main\">\n\n\n\t\t\t<ng-container>\n\t\t\t\n\t\t\t\t<h4 class=\"mb-4\">Select the reports</h4>\n\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportsTypes; let i = index\">\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/vendor/reports/{{report.type}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t <h6>{{report.name}}</h6>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t</ng-container>\n</div>\n</div>\n\n\n";
       /***/
     },
 
@@ -1104,6 +1124,472 @@
     },
 
     /***/
+    "./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.scss":
+    /*!*******************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.scss ***!
+      \*******************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsVendorComponentsVendorReportsVendorReportDataVendorReportDataComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3ZlbmRvci9jb21wb25lbnRzL3ZlbmRvci1yZXBvcnRzL3ZlbmRvci1yZXBvcnQtZGF0YS92ZW5kb3ItcmVwb3J0LWRhdGEuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.ts":
+    /*!*****************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.ts ***!
+      \*****************************************************************************************************************/
+
+    /*! exports provided: VendorReportDataComponent */
+
+    /***/
+    function srcAppModulesAmsVendorComponentsVendorReportsVendorReportDataVendorReportDataComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "VendorReportDataComponent", function () {
+        return VendorReportDataComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/Vendor */
+      "./src/app/api/controllers/Vendor.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! underscore */
+      "./node_modules/underscore/modules/index-all.js");
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _view_vendor_report_view_vendor_report_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ../../view-vendor-report/view-vendor-report.component */
+      "./src/app/modules/ams/vendor/components/view-vendor-report/view-vendor-report.component.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! @angular/material/sidenav */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+
+      var VendorReportDataComponent = /*#__PURE__*/function () {
+        function VendorReportDataComponent(dialog, vendorService, lookupService, sessionService, router, route, apartmentService) {
+          _classCallCheck(this, VendorReportDataComponent);
+
+          this.dialog = dialog;
+          this.vendorService = vendorService;
+          this.lookupService = lookupService;
+          this.sessionService = sessionService;
+          this.router = router;
+          this.route = route;
+          this.apartmentService = apartmentService;
+          this.pageName = "";
+          this.pageDesp = "";
+          this.vendorCategoryId = "";
+          this.vendorData = "";
+          this.unitFieldType = "unitno";
+          this.unitOrder = true;
+          this.ItemStartIndex = 0;
+          this.itemLimit = 10;
+          this.categoryName = "";
+          this.selectedInput = "";
+          this.columnField = {};
+          this.isVendorLoaded = false;
+          this.vendorTableList = [];
+          this.isDataLoaded = false;
+          this.blockId = null;
+          this.blockNo = "";
+          this.end_date = null;
+          this.start_date = null;
+        }
+
+        _createClass(VendorReportDataComponent, [{
+          key: "getIndexParams",
+          value: function getIndexParams(event) {
+            this.ItemStartIndex = event.ItemStartIndex;
+            this.ItemEndIndex = event.ItemEndIndex;
+          }
+        }, {
+          key: "sortUnitData",
+          value: function sortUnitData(type) {
+            this.unitFieldType = type;
+            this.unitOrder = !this.unitOrder;
+          }
+        }, {
+          key: "getFieldOrderBy",
+          value: function getFieldOrderBy(type) {
+            if (this.unitFieldType == type) {
+              return this.unitOrder ? 'asc' : 'desc';
+            } else return '';
+          }
+        }, {
+          key: "selectColInput",
+          value: function selectColInput(value) {
+            this.selectedInput = value;
+          }
+        }, {
+          key: "onSelectChange",
+          value: function onSelectChange(event, type, name) {
+            if (!underscore__WEBPACK_IMPORTED_MODULE_6__["isEmpty"](event)) {
+              this.selectedInput = type;
+              this.columnField[type] = event[name];
+            } else {
+              this.columnField = {};
+            }
+          }
+        }, {
+          key: "isMobileView",
+          value: function isMobileView() {
+            return window.innerWidth <= 767 ? 'table-responsive' : '';
+          }
+        }, {
+          key: "showVendorInfo",
+          value: function showVendorInfo(vendor) {
+            this.dialog.open(this.viewVendorRef, {
+              panelClass: 'material',
+              disableClose: true,
+              data: vendor
+            });
+          }
+        }, {
+          key: "isNoItemsAvailable",
+          value: function isNoItemsAvailable() {
+            return this.totalItems == 0 ? true : false;
+          }
+        }, {
+          key: "selectReport",
+          value: function selectReport(type) {
+            this.vendorList = [];
+            this.selected_report_type = type;
+
+            if (type == 'Active') {
+              this.vendorList = this.allVendorListData.filter(function (item) {
+                return item.isActive;
+              });
+            } else {
+              this.vendorList = this.allVendorListData.filter(function (item) {
+                return item.isActive == false;
+              });
+            }
+
+            this.isDataLoaded = true;
+            var arrangeVendorRawData = {
+              localdata: this.vendorList,
+              datatype: "array"
+            };
+            this.vendorTableList = new jqx.dataAdapter(arrangeVendorRawData);
+            this.totalItems = this.vendorList.length;
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+            } else {
+              this.ItemEndIndex = this.totalItems;
+            }
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this5 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'VendorReportData');
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "filterApply",
+          value: function filterApply() {
+            var _this6 = this;
+
+            this.goBack();
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = event;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this6.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          }
+        }, {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.blockId = null;
+            this.start_date = null;
+            this.end_date = null; // =this.getTicketByAdmin();
+
+            this.datagrid.clearfilters();
+            this.goBack();
+          }
+        }, {
+          key: "onViewVendor",
+          value: function onViewVendor(detail) {
+            var dataRecord = this.datagrid.getrowdata(detail.rowId); // this.dialog.open(this.viewVendorRef, {
+            //   panelClass: 'material',
+            //   disableClose: true,
+            //   data: dataRecord
+            // });
+
+            var dialogRef = this.dialog.open(_view_vendor_report_view_vendor_report_component__WEBPACK_IMPORTED_MODULE_9__["ViewVendorReportComponent"], {
+              width: '500px',
+              data: dataRecord
+            });
+            dialogRef.afterClosed().subscribe(function (result) {});
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this7 = this;
+
+            this.pageName = this.route.params['value'].name;
+            this.selected_report_type = this.pageName;
+            var unitBlockParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
+              _this7.unitBlocksData = res;
+            });
+
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.columnData = [{
+              text: 'Vendor ID',
+              datafield: 'vendorId',
+              minwidth: 130,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Contact Person',
+              datafield: 'contactPerson',
+              minwidth: 250,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Phone No',
+              datafield: 'phone1',
+              minwidth: 170,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'VAT',
+              datafield: 'vatorTin',
+              minwidth: 160,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Percentage Tax',
+              datafield: 'tax1',
+              minwidth: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'With Holding Tax',
+              datafield: 'tax2',
+              minwidth: 150,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Actions',
+              cellsalign: 'center',
+              align: 'center',
+              minwidth: 150,
+              cellclassname: 'action-cell',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="viewVendor(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></div>';
+              },
+              renderer: columnrenderer
+            }];
+            this.vendor = {};
+            this.vendorCategoryId = "All";
+            this.vendor.categoryName = "";
+            var params = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
+              _this7.allVendorListData = res;
+              _this7.isVendorLoaded = true;
+
+              _this7.selectReport(_this7.pageName);
+            }, function (error) {});
+            var vendorParams = {
+              LookupTypeId: 57
+            };
+            this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
+              _this7.vendorCategoryData = res.filter(function (item) {
+                return item.isActive;
+              });
+            });
+          }
+        }]);
+
+        return VendorReportDataComponent;
+      }();
+
+      VendorReportDataComponent.ctorParameters = function () {
+        return [{
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+        }, {
+          type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
+        }, {
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]
+        }];
+      };
+
+      VendorReportDataComponent.propDecorators = {
+        viewVendorRef: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ["viewVendorRef", {
+            "static": false
+          }]
+        }],
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }],
+        matDrawer: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['matDrawer', {
+            "static": true
+          }]
+        }],
+        onViewVendor: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:onViewVendor', ['$event.detail']]
+        }]
+      };
+      VendorReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-vendor-report-data',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./vendor-report-data.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./vendor-report-data.component.scss */
+        "./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_3__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])], VendorReportDataComponent);
+
+      function viewVendor(row) {
+        var event = new CustomEvent('onViewVendor', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      }
+
+      window.viewVendor = viewVendor;
+      /***/
+    },
+
+    /***/
     "./src/app/modules/ams/vendor/components/vendor-reports/vendor-reports.component.scss":
     /*!********************************************************************************************!*\
       !*** ./src/app/modules/ams/vendor/components/vendor-reports/vendor-reports.component.scss ***!
@@ -1215,7 +1701,9 @@
           this.selectedInput = "";
           this.columnField = {};
           this.isVendorLoaded = false;
+          this.selected_report = false;
           this.vendorTableList = [];
+          this.isDataLoaded = false;
         }
 
         _createClass(VendorReportsComponent, [{
@@ -1276,6 +1764,7 @@
           value: function selectReport(type) {
             this.vendorList = [];
             this.selected_report_type = type;
+            this.selected_report = true;
 
             if (type == 'Active') {
               this.vendorList = this.allVendorListData.filter(function (item) {
@@ -1287,6 +1776,7 @@
               });
             }
 
+            this.isDataLoaded = true;
             var arrangeVendorRawData = {
               localdata: this.vendorList,
               datatype: "array"
@@ -1303,7 +1793,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this5 = this;
+            var _this8 = this;
 
             if (this.vendorData != "") {
               var filtergroup = new jqx.filter();
@@ -1316,7 +1806,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this8.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1347,7 +1837,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this9 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1418,14 +1908,14 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.vendorService.getVendorByApartmentId(params).subscribe(function (res) {
-              _this6.allVendorListData = res;
-              _this6.isVendorLoaded = true;
+              _this9.allVendorListData = res;
+              _this9.isVendorLoaded = true;
             }, function (error) {});
             var vendorParams = {
               LookupTypeId: 57
             };
             this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
-              _this6.vendorCategoryData = res.filter(function (item) {
+              _this9.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             });
@@ -1608,7 +2098,7 @@
         }, {
           key: "deleteVendorCategory",
           value: function deleteVendorCategory(item) {
-            var _this7 = this;
+            var _this10 = this;
 
             this.isVendorCategoryLoaded = false;
             var params = {
@@ -1617,7 +2107,7 @@
             };
             this.lookupService.deleteLookupvalue(params).subscribe(function (res) {
               //this.vendorCategoryData.splice(index, 1);
-              _this7.loadVendorCategory();
+              _this10.loadVendorCategory();
             });
           }
         }, {
@@ -1657,7 +2147,7 @@
         }, {
           key: "submitVendorCategoryForm",
           value: function submitVendorCategoryForm(form) {
-            var _this8 = this;
+            var _this11 = this;
 
             this.isVendorCategorySubmitted = false;
             this.isError = false;
@@ -1682,22 +2172,22 @@
                     LookupTypeId: 57
                   };
 
-                  _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                    _this8.isVendorCategorySubmitted = true;
+                  _this11.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                    _this11.isVendorCategorySubmitted = true;
 
-                    _this8.sharedService.setAlertMessage("Category added Successfully!");
+                    _this11.sharedService.setAlertMessage("Category added Successfully!");
 
-                    _this8.vendorCategoryData = res.filter(function (item) {
+                    _this11.vendorCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this8.isVendorCategorySubmitted = true;
-                  _this8.isError = true;
-                  _this8.alertMessage = res.errorMessage;
+                  _this11.isVendorCategorySubmitted = true;
+                  _this11.isError = true;
+                  _this11.alertMessage = res.errorMessage;
 
-                  if (_this8.alertMessage === "addLookupValue Not Added as it already exist.") {
-                    _this8.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
+                  if (_this11.alertMessage === "addLookupValue Not Added as it already exist.") {
+                    _this11.alertMessage = "Invalid action. " + details.lookupValueName + " vendor category already exist.";
                   }
                 }
               });
@@ -1722,19 +2212,19 @@
                     LookupTypeId: 57
                   };
 
-                  _this8.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-                    _this8.isVendorCategorySubmitted = true;
+                  _this11.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
+                    _this11.isVendorCategorySubmitted = true;
 
-                    _this8.sharedService.setAlertMessage("Category updated Successfully!");
+                    _this11.sharedService.setAlertMessage("Category updated Successfully!");
 
-                    _this8.vendorCategoryData = res.filter(function (item) {
+                    _this11.vendorCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this8.isVendorCategorySubmitted = true;
-                  _this8.isError = true;
-                  _this8.alertMessage = res.errorMessage;
+                  _this11.isVendorCategorySubmitted = true;
+                  _this11.isError = true;
+                  _this11.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -1744,39 +2234,39 @@
         }, {
           key: "loadVendorCategory",
           value: function loadVendorCategory() {
-            var _this9 = this;
+            var _this12 = this;
 
             var categoryParams = {
               LookupTypeId: 57
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this9.vendorCategoryData = res.filter(function (item) {
+              _this12.vendorCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
               var vendorListParams = {
-                apartmentId: _this9.sessionService.apartmentId
+                apartmentId: _this12.sessionService.apartmentId
               };
 
-              _this9.vendorService.getVendorByApartmentId(vendorListParams).subscribe(function (res) {
-                _this9.vendorListData = res;
-                _this9.isVendorCategoryLoaded = true;
+              _this12.vendorService.getVendorByApartmentId(vendorListParams).subscribe(function (res) {
+                _this12.vendorListData = res;
+                _this12.isVendorCategoryLoaded = true;
               }, function (error) {});
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this13 = this;
 
             this.loadVendorCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this10.submitVendorCategoryForm(is_category_form);
+                _this13.submitVendorCategoryForm(is_category_form);
               }
             });
             this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this10.deleteVendorCategory(item_id);
+                _this13.deleteVendorCategory(item_id);
               }
             }); //vendor category
           }
@@ -2093,6 +2583,12 @@
       var _components_all_vendors_all_vendors_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/all-vendors/all-vendors.component */
       "./src/app/modules/ams/vendor/components/all-vendors/all-vendors.component.ts");
+      /* harmony import */
+
+
+      var _components_vendor_reports_vendor_report_data_vendor_report_data_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ./components/vendor-reports/vendor-report-data/vendor-report-data.component */
+      "./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.ts");
 
       var routes = [{
         path: '',
@@ -2121,6 +2617,10 @@
       }, {
         path: 'reports',
         component: _components_vendor_reports_vendor_reports_component__WEBPACK_IMPORTED_MODULE_6__["VendorReportsComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'reports/:name',
+        component: _components_vendor_reports_vendor_report_data_vendor_report_data_component__WEBPACK_IMPORTED_MODULE_8__["VendorReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
@@ -2329,13 +2829,19 @@
       var _components_view_vendor_report_view_vendor_report_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/view-vendor-report/view-vendor-report.component */
       "./src/app/modules/ams/vendor/components/view-vendor-report/view-vendor-report.component.ts");
+      /* harmony import */
+
+
+      var _components_vendor_reports_vendor_report_data_vendor_report_data_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! ./components/vendor-reports/vendor-report-data/vendor-report-data.component */
+      "./src/app/modules/ams/vendor/components/vendor-reports/vendor-report-data/vendor-report-data.component.ts");
 
       var VendorModule = function VendorModule() {
         _classCallCheck(this, VendorModule);
       };
 
       VendorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_vendor_component__WEBPACK_IMPORTED_MODULE_8__["VendorComponent"], _components_vendor_setup_vendor_setup_component__WEBPACK_IMPORTED_MODULE_9__["VendorSetupComponent"], _components_create_vendor_create_vendor_component__WEBPACK_IMPORTED_MODULE_10__["CreateVendorComponent"], _components_vendor_reports_vendor_reports_component__WEBPACK_IMPORTED_MODULE_11__["VendorReportsComponent"], _components_all_vendors_all_vendors_component__WEBPACK_IMPORTED_MODULE_12__["AllVendorsComponent"], _components_view_vendor_view_vendor_component__WEBPACK_IMPORTED_MODULE_13__["ViewVendorComponent"], _components_view_vendor_report_view_vendor_report_component__WEBPACK_IMPORTED_MODULE_14__["ViewVendorReportComponent"]],
+        declarations: [_vendor_component__WEBPACK_IMPORTED_MODULE_8__["VendorComponent"], _components_vendor_setup_vendor_setup_component__WEBPACK_IMPORTED_MODULE_9__["VendorSetupComponent"], _components_create_vendor_create_vendor_component__WEBPACK_IMPORTED_MODULE_10__["CreateVendorComponent"], _components_vendor_reports_vendor_reports_component__WEBPACK_IMPORTED_MODULE_11__["VendorReportsComponent"], _components_all_vendors_all_vendors_component__WEBPACK_IMPORTED_MODULE_12__["AllVendorsComponent"], _components_view_vendor_view_vendor_component__WEBPACK_IMPORTED_MODULE_13__["ViewVendorComponent"], _components_view_vendor_report_view_vendor_report_component__WEBPACK_IMPORTED_MODULE_14__["ViewVendorReportComponent"], _components_vendor_reports_vendor_report_data_vendor_report_data_component__WEBPACK_IMPORTED_MODULE_15__["VendorReportDataComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_7__["ListModule"], _vendor_routing_module__WEBPACK_IMPORTED_MODULE_4__["VendorRoutingModule"]],
         entryComponents: [_components_view_vendor_view_vendor_component__WEBPACK_IMPORTED_MODULE_13__["ViewVendorComponent"], _components_view_vendor_report_view_vendor_report_component__WEBPACK_IMPORTED_MODULE_14__["ViewVendorReportComponent"]],
         bootstrap: [_vendor_component__WEBPACK_IMPORTED_MODULE_8__["VendorComponent"]]

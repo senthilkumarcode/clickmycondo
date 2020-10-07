@@ -622,7 +622,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
         this.columnData = [{
                 text: 'Tower No',
                 datafield: 'apartmentBlockNumber',
-                width: 180,
+                width: 160,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -630,14 +630,14 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             {
                 text: 'Unit No',
                 datafield: 'apartmentBlockUnitNumber',
-                width: 180,
+                width: 110,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Built Area SQ.M',
                 datafield: 'builtupArea',
-                width: 120,
+                width: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
@@ -651,23 +651,23 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             {
                 text: 'Unit Type',
                 datafield: 'unitType',
-                width: 120,
+                minwidth: 120,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Is Furnished',
                 datafield: 'isFurnished',
-                width: 120,
+                width: 130,
                 cellsrenderer: (row, column, value) => {
                     return '<div style="padding: 14px; overflow: hidden; text-overflow: ellipsis; text-align: center"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
                 },
                 renderer: columnrenderer
             },
             {
-                text: 'Is PetsAllowed',
+                text: 'Pets Occupied',
                 datafield: 'isPetsAllowed',
-                width: 120,
+                width: 130,
                 cellsrenderer: (row, column, value) => {
                     return '<div style="padding: 14px; overflow: hidden; text-overflow: ellipsis; text-align: center"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
                 },
@@ -676,7 +676,7 @@ let PropertyUnitsListComponent = class PropertyUnitsListComponent {
             {
                 text: 'Is Vacant',
                 datafield: 'isVacant',
-                width: 120,
+                width: 130,
                 cellsrenderer: (row, column, value) => {
                     return '<div style="padding: 14px; overflow: hidden; text-overflow: ellipsis; text-align: center"><span class="dots rt-3 ' + getClassName(value) + '"></span></div>';
                 },

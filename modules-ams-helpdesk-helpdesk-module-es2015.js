@@ -947,7 +947,7 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
         }
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'VisitorReportsData');
+        this.datagrid.exportdata(event, 'HelpdeskReportsData');
     }
     goBack() {
         this.matDrawer.close();
