@@ -34,7 +34,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"\n\t\tnovalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone No\" name=\"phoneNumber\" [(ngModel)]=\"user.phoneNumber\" required> -->\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"\n\t\tnovalidate>\n\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isDataLoaded && isProfile\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{getStatus(user.isActive)}}</span></h6>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"user.isActive\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t </div>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"user.isActive\"  [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t </div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone No\" name=\"phoneNumber\" [(ngModel)]=\"user.phoneNumber\" required> -->\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -748,6 +748,7 @@
           this.sessionService = sessionService;
           this.isDataLoaded = false;
           this.isEdit = false;
+          this.isProfile = false;
           this.bloodGroupData = [];
           this.userEmailId = "";
           this.separateDialCode = true;
@@ -764,6 +765,11 @@
         }
 
         _createClass(ProfileAreaBasicComponent, [{
+          key: "getStatus",
+          value: function getStatus(status) {
+            return status ? 'Active' : 'Inactive';
+          }
+        }, {
           key: "showEditForm",
           value: function showEditForm() {
             this.isEdit = !this.isEdit;
@@ -793,11 +799,23 @@
             });
           }
         }, {
+          key: "isAdmin",
+          value: function isAdmin() {
+            return this.sessionService.isAdmin();
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this2 = this;
 
-            this.user = {}; // Subscribe to the resolved route data
+            this.user = {};
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params['type'] != undefined) {
+                _this2.isProfile = true;
+              }
+            }); // Subscribe to the resolved route data
+
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               _this2.user = data.initialData.profileUser;
@@ -867,11 +885,6 @@
           key: "isValueValid",
           value: function isValueValid(val) {
             return val === undefined || val == null || val.length <= 0 || val === "" ? true : false;
-          }
-        }, {
-          key: "isAdmin",
-          get: function get() {
-            return this.sessionService.isAdmin();
           }
         }]);
 
