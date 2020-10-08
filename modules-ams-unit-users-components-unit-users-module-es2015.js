@@ -13,19 +13,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.html":
-/*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.html ***!
-  \*************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"confirm-modal-wrapper\">\n    <div class=\"info-modal-box rel\">\n      <div class=\"d-flex p-4\">\n        <h4>{{data.title}}</h4>\n        <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n      </div>\n      <!-- Check E-mail -->\n      <div class=\"pt-4 text-center\" *ngIf=\"data.type == 'email'\">\n        <h6 class=\"text-secondary mx-5\">{{data.message}}</h6>\n      </div>\n      <div class=\"pt-4 text-center\" *ngIf=\"data.type == 'email' && data.response\">\n        <p class=\"text-secondary my-2\" *ngFor=\"let towerInfo of data.response\"> {{towerInfo.role_Label}} - {{towerInfo.blockId_Label}} {{towerInfo.unitId_Label}}</p>\n      </div>\n\n       <!-- Check Unit -->\n       <div class=\"pt-4 text-center\" *ngIf=\"data.type == 'checkunit' && data.response\">\n        <h6 class=\"text-secondary mx-5 mb-3\" *ngFor=\"let message of data.response\">{{message}}</h6>\n      </div>\n\n      <div class=\"pt-4 pb-5 text-center\">\n        <button mat-flat-button [color]=\"'primary'\" (click)=\"confirm()\" >{{data.type == 'email' ? 'Yes' : 'Ok'}}</button>\n        <button *ngIf=\"data.type == 'email'\" class=\"ml-2\" mat-button (click)=\"dismiss()\">No</button>\n      </div>\n    </div>\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.html":
 /*!**********************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.html ***!
@@ -138,68 +125,6 @@ AddUsersResidentSuccessPageComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], AddUsersResidentSuccessPageComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.scss":
-/*!***********************************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.scss ***!
-  \***********************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3VuaXQtdXNlcnMvY29tcG9uZW50cy9hZGQtdXNlcnMtcmVzaWRlbnQvYWRkLXVzZXItY29uZmlybS1tb2RhbC9hZGQtdXNlci1jb25maXJtLW1vZGFsLmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts":
-/*!*********************************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts ***!
-  \*********************************************************************************************************************************/
-/*! exports provided: AddUserConfirmModalComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddUserConfirmModalComponent", function() { return AddUserConfirmModalComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-
-
-
-let AddUserConfirmModalComponent = class AddUserConfirmModalComponent {
-    constructor(dialogRef, data) {
-        this.dialogRef = dialogRef;
-        this.data = data;
-    }
-    confirm() {
-        // Close the dialog, return true
-        this.dialogRef.close(true);
-    }
-    dismiss() {
-        // Close the dialog, return false
-        this.dialogRef.close(false);
-    }
-    ngOnInit() {
-    }
-};
-AddUserConfirmModalComponent.ctorParameters = () => [
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
-];
-AddUserConfirmModalComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-add-user-confirm-modal',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-user-confirm-modal.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-user-confirm-modal.component.scss */ "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object])
-], AddUserConfirmModalComponent);
 
 
 
@@ -506,7 +431,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                     //this.sharedService.openSnackBar('User Created Successfully', 'success');
                     this.submitUserConfig(userId);
                 }
-                else if (res.message == 'ErrorAlready EmailId Exists') {
+                else if (res.code == 404 && res.message == 'Already EmailId Exists') {
                     let userId = parseInt(res.statusMessage);
                     this.submitUserConfig(userId);
                 }
@@ -560,12 +485,13 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                     }
                 };
                 this.userService.addUserRole(params).subscribe((res) => {
+                    this.isUserSubmitted = false;
                     if (res.message) {
                         //this.sharedService.openSnackBar('User Role Created Successfully','success');
-                        this.sentMail();
+                        this.router.navigate(['ams/unit&users/info/success']);
+                        //this.sentMail();
                     }
                     else {
-                        this.isUserSubmitted = false;
                         this.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
                 }, (error) => {

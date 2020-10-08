@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.type == 'common'\">COMMON TICKET CATEGORY</span>\n                    <span *ngIf=\"data.type == 'private'\">PRIVATE TICKET CATEGORY</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form #ticketCategoryForm=\"ngForm\" name=\"ticketCategoryForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Category Name<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Category Name\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" (input)=\"errorMessage=''\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"Default Supervisor\"\n                            fieldPlaceholder=\"Default Supervisor\"\n                            [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticketCategoryData.staffOne\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"isExistUser($event,'one')\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-4\">Esclation Setup (Optional)</h6>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 1 After</label>\n                            <div class=\"d-flex\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Days\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-1 Manager\"\n                        fieldPlaceholder=\"Select Level-1 Manager\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffTwo\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'two')\" \n                        ></condo-select> \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 2 After</label>\n                            <div class=\"d-flex\">\n                                <input type=\"text\" class=\"form-control d-inline-block w-40\" placeholder=\"Days\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-2 Manager\"\n                        fieldPlaceholder=\"Select Level-2 Manager\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffThree\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'three')\" \n                        ></condo-select> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" [disabled]=\"ticketCategoryForm.invalid\"  mat-flat-button  [color]=\"'primary'\" *ngIf=\"data.mode == 'create'\" (click)=\"createCategory()\">Submit</button>\n                        <button class=\"float-right\" [disabled]=\"ticketCategoryForm.invalid\"  mat-flat-button  [color]=\"'primary'\" *ngIf=\"data.mode == 'edit'\" (click)=\"updateCategory()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-ticket-cateory-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.type == 'common'\">COMMON TICKET CATEGORY</span>\n                    <span *ngIf=\"data.type == 'private'\">PRIVATE TICKET CATEGORY</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n                [appearance]=\"message.appearance\"\n                [showIcon]=\"message.showIcon\"\n                [type]=\"message.type\"\n                [@shake]=\"message.shake\">\n                {{message.content}}\n            </condo-message>\n            <form #ticketCategoryForm=\"ngForm\" name=\"ticketCategoryForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Category Name<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Category Name\" name=\"categoryName\" [(ngModel)]=\"ticketCategoryData.categoryName\" (input)=\"errorMessage=''\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                            labelText=\"Default Supervisor\"\n                            fieldPlaceholder=\"Default Supervisor\"\n                            [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticketCategoryData.staffOne\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"isExistUser($event,'one')\" \n                        ></condo-select>  \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-4\">Esclation Setup (Optional)</h6>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 1 After</label>\n                            <div class=\"d-flex\">\n                                <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Days\" name=\"escdayone\" [(ngModel)]=\"ticketCategoryData.escalationDaysOne\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-1 Manager\"\n                        fieldPlaceholder=\"Select Level-1 Manager\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffTwo\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'two')\" \n                        ></condo-select> \n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Auto Esclate to Level 2 After</label>\n                            <div class=\"d-flex\">\n                                <input OnlyNumber=\"true\" class=\"form-control d-inline-block w-40\" placeholder=\"Days\" name=\"escdaytwo\" [(ngModel)]=\"ticketCategoryData.escalationDaysTwo\">\n                                <label class=\"ml-4 align-self-end\">Days</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <condo-select \n                        labelText=\"Select Level-2 Manager\"\n                        fieldPlaceholder=\"Select Level-2 Manager\"\n                        [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"ticketCategoryData.staffThree\"\n                        fieldId=\"userId\"\n                        (fieldParams)=\"isExistUser($event,'three')\" \n                        ></condo-select> \n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <submit-button class=\"float-right\" [isSubmit]=\"isTicketSubmitted\" *ngIf=\"data.mode == 'create'\" (click)=\"createCategory()\">Create</submit-button>\n                        <submit-button class=\"float-right\" [isSubmit]=\"isTicketSubmitted\" *ngIf=\"data.mode == 'edit'\" (click)=\"updateCategory()\">Update</submit-button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -508,10 +508,15 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
                 let _a = res[0], { fileDetailsPath } = _a, response = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["fileDetailsPath"]);
                 this.ticket = response;
                 //Get File Information
-                if (fileDetailsPath.length > 0) {
-                    this.ticket.fileDetailsIds = fileDetailsPath.reduce((acc, file) => {
-                        return `${acc.fileDetailsId},${file.fileDetailsId}`;
-                    });
+                if (fileDetailsPath && fileDetailsPath.length > 0) {
+                    this.ticket.fileDetailsIds = fileDetailsPath.reduce((acc, file, index) => {
+                        if (index == 0) {
+                            return `${file.fileDetailsId}`;
+                        }
+                        else {
+                            return `${acc},${file.fileDetailsId}`;
+                        }
+                    }, '');
                 }
                 else
                     this.ticket.fileDetailsIds = null;
@@ -1994,6 +1999,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -2003,17 +2010,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddTicketCategoryComponent = class AddTicketCategoryComponent {
-    constructor(dialogRef, staffService, sessionService, lookupService, ticketService, sharedService, data) {
+    constructor(dialogRef, staffService, sessionService, lookupService, ticketService, sharedService, _changeDetectorRef, data) {
         this.dialogRef = dialogRef;
         this.staffService = staffService;
         this.sessionService = sessionService;
         this.lookupService = lookupService;
         this.ticketService = ticketService;
         this.sharedService = sharedService;
+        this._changeDetectorRef = _changeDetectorRef;
         this.data = data;
         this.ticketCategoryData = {};
         this.staffsList = [];
         this.editData = {};
+        this.isTicketSubmitted = false;
+        this.message = null;
     }
     isExistUser(event, type) {
         if (type == 'one')
@@ -2024,33 +2034,53 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
             this.ticketCategoryData.staffThree = event[0].userId;
     }
     createCategory() {
-        let entity = {
-            description: this.ticketCategoryData.categoryName,
-            lookupTypeId: this.data.type == 'private' ? 16 : 17,
-            lookupValueName: this.ticketCategoryData.categoryName,
-            apartmentId: this.sessionService.apartmentId,
-            insertedBy: parseInt(this.sessionService.userId),
-            insertedOn: new Date().toISOString(),
-            isActive: true,
-            updatedBy: 0,
-            updatedOn: null
-        };
-        let lookupvalue = {
-            lookupvalue: entity
-        };
-        this.lookupService.addLookupValue(lookupvalue).subscribe((res) => {
-            if (res.code == 200) {
-                this.sharedService.openSnackBar(res.statusMessage, 'success');
-                this.createEsclation(parseInt(res.message));
-            }
-            else {
-                this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
-            }
-        }, (error) => {
-            if (error.status == 0) {
+        this.message = null;
+        if (!this.form.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
+        }
+        else {
+            this.isTicketSubmitted = true;
+            let entity = {
+                description: this.ticketCategoryData.categoryName,
+                lookupTypeId: this.data.type == 'private' ? 16 : 17,
+                lookupValueName: this.ticketCategoryData.categoryName,
+                apartmentId: this.sessionService.apartmentId,
+                insertedBy: parseInt(this.sessionService.userId),
+                insertedOn: new Date().toISOString(),
+                isActive: true,
+                updatedBy: 0,
+                updatedOn: null
+            };
+            let lookupvalue = {
+                lookupvalue: entity
+            };
+            this.lookupService.addLookupValue(lookupvalue).subscribe((res) => {
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                    this.createEsclation(parseInt(res.message));
+                }
+                else {
+                    this.isTicketSubmitted = false;
+                    this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.isTicketSubmitted = false;
                 this.sharedService.openSnackBar('Network Error', 'error');
-            }
-        });
+            });
+        }
     }
     createEsclation(ticketCategoryId) {
         let addTicket = [];
@@ -2099,43 +2129,72 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
         };
         this.ticketService.addTicketManagerMultiple(params).subscribe((res) => {
             if (res.code == 200) {
+                this.isTicketSubmitted = false;
                 this.sharedService.openSnackBar(res.statusMessage, 'success');
                 this.dialogRef.close(true);
             }
             else {
+                this.isTicketSubmitted = false;
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
             }
+        }, (error) => {
+            this.isTicketSubmitted = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     updateCategory() {
-        if (this.ticketCategoryData.categoryName != this.editData.ticketCategoryName) {
-            let entity = {
-                lookupValueId: this.editData.ticketCategoryId,
-                description: this.ticketCategoryData.categoryName,
-                lookupTypeId: this.data.type == 'private' ? 16 : 17,
-                lookupValueName: this.ticketCategoryData.categoryName,
-                apartmentId: this.sessionService.apartmentId,
-                insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
-                isActive: true,
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
-            };
-            let lookupvalue = {
-                lookupvalue: entity
-            };
-            this.lookupService.updateLookupValue(lookupvalue).subscribe((res) => {
-                if (res.message) {
-                    this.sharedService.openSnackBar(res.message, 'success');
-                    this.createEsclation(this.editData.ticketCategoryId);
-                }
-                else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
+        this.message = null;
+        if (!this.form.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
             });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
         }
         else {
-            this.createEsclation(this.editData.ticketCategoryId);
+            this.isTicketSubmitted = true;
+            if (this.ticketCategoryData.categoryName != this.editData.ticketCategoryName) {
+                let entity = {
+                    lookupValueId: this.editData.ticketCategoryId,
+                    description: this.ticketCategoryData.categoryName,
+                    lookupTypeId: this.data.type == 'private' ? 16 : 17,
+                    lookupValueName: this.ticketCategoryData.categoryName,
+                    apartmentId: this.sessionService.apartmentId,
+                    insertedBy: parseInt(this.sessionService.userId),
+                    insertedOn: new Date().toISOString(),
+                    isActive: true,
+                    updatedBy: parseInt(this.sessionService.userId),
+                    updatedOn: new Date().toISOString(),
+                };
+                let lookupvalue = {
+                    lookupvalue: entity
+                };
+                this.lookupService.updateLookupValue(lookupvalue).subscribe((res) => {
+                    if (res.message) {
+                        this.sharedService.openSnackBar(res.message, 'success');
+                        this.createEsclation(this.editData.ticketCategoryId);
+                    }
+                    else {
+                        this.isTicketSubmitted = false;
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.isTicketSubmitted = false;
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+            else {
+                this.createEsclation(this.editData.ticketCategoryId);
+            }
         }
     }
     ngOnInit() {
@@ -2186,12 +2245,18 @@ AddTicketCategoryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
 ];
+AddTicketCategoryComponent.propDecorators = {
+    form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['ticketCategoryForm',] }]
+};
 AddTicketCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-add-ticket-category',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-ticket-category.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-ticket-category.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-setup/add-ticket-category/add-ticket-category.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
@@ -2199,7 +2264,8 @@ AddTicketCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], Object])
 ], AddTicketCategoryComponent);
 
 
