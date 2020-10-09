@@ -2005,6 +2005,10 @@
           value: function ngOnInit() {
             var _this16 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this16.timeZone = timeZone;
+            });
+
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -2018,7 +2022,7 @@
               datafield: 'periodFrom',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2026,7 +2030,7 @@
               datafield: 'periodTo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2126,7 +2130,7 @@
               datafield: 'dateEntered',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }];

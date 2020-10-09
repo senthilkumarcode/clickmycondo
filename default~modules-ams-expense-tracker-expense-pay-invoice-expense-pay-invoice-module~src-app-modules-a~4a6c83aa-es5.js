@@ -193,9 +193,9 @@
       /* harmony import */
 
 
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/shared/services/constants.service */
-      "./src/app/shared/services/constants.service.ts");
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
@@ -226,14 +226,14 @@
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
       var ExpensePayInvoiceComponent = /*#__PURE__*/function () {
-        function ExpensePayInvoiceComponent(route, lookupService, accountsService, vendorService, constantsService, sessionService) {
+        function ExpensePayInvoiceComponent(route, lookupService, accountsService, vendorService, sharedService, sessionService) {
           _classCallCheck(this, ExpensePayInvoiceComponent);
 
           this.route = route;
           this.lookupService = lookupService;
           this.accountsService = accountsService;
           this.vendorService = vendorService;
-          this.constantsService = constantsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isInvoiceDataLoaded = false;
           this.invoiceData = "";
@@ -250,7 +250,7 @@
         _createClass(ExpensePayInvoiceComponent, [{
           key: "getInvoiceDate",
           value: function getInvoiceDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD/MM/YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
           }
         }, {
           key: "getAccountName",
@@ -387,6 +387,10 @@
           value: function ngOnInit() {
             var _this4 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this4.timeZone = timeZone;
+            });
+
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -433,7 +437,7 @@
               datafield: 'vendorInvoiceDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this4.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this4.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -447,7 +451,7 @@
               datafield: 'dueDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this4.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this4.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -505,7 +509,7 @@
         }, {
           type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"]
         }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__["ConstantsService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
@@ -527,7 +531,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./expense-pay-invoice.component.scss */
         "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_6__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ExpensePayInvoiceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ExpensePayInvoiceComponent);
       /***/
     },
 

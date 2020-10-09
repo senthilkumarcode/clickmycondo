@@ -151,7 +151,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
         event.stopPropagation();
     }
     getDate(date) {
-        return moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(date).format(this.constantsService.dateFormat);
+        return moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(date).format(this.timeZone.date);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -386,7 +386,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 datafield: 'insertedOn',
                 minwidth: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(this.constantsService.dateTimeFormat) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -432,7 +432,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 minwidth: 120,
                 renderer: columnrenderer,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(this.timeZone.offset, 'hours').format(this.constantsService.dateTimeFormat) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
             },
             {

@@ -305,7 +305,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(date).format(this.constantsService.dateFormat);
+            return moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(date).format(this.timeZone.date);
           }
         }, {
           key: "isMobileView",
@@ -566,7 +566,7 @@
               datafield: 'insertedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(_this5.constantsService.dateTimeFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(_this5.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -609,7 +609,7 @@
               minwidth: 120,
               renderer: columnrenderer,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(_this5.timeZone.offset, 'hours').format(_this5.constantsService.dateTimeFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.time) + '</div>';
               }
             }, {
               text: 'Actions',

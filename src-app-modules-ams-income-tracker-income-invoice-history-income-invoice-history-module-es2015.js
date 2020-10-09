@@ -224,12 +224,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
 /* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+
 
 
 
@@ -242,12 +244,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
-    constructor(_overlay, _viewContainerRef, route, accountsService, sessionService, constantsService, router) {
+    constructor(_overlay, _viewContainerRef, route, accountsService, sessionService, sharedService, constantsService, router) {
         this._overlay = _overlay;
         this._viewContainerRef = _viewContainerRef;
         this.route = route;
         this.accountsService = accountsService;
         this.sessionService = sessionService;
+        this.sharedService = sharedService;
         this.constantsService = constantsService;
         this.router = router;
         this.isInvoiceDataLoaded = false;
@@ -257,10 +260,10 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
         this.isReverseSubmitted = true;
     }
     getInvoiceDate(itr, date) {
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceDataList, (obj, index) => {
-            obj.postedOn = moment__WEBPACK_IMPORTED_MODULE_8__(obj.custInvoiceDate).format("MM-DD-YYYY");
+        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, (obj, index) => {
+            obj.postedOn = moment__WEBPACK_IMPORTED_MODULE_9__(obj.custInvoiceDate).format("MM-DD-YYYY");
         });
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
     }
     getAccountName(account) {
         var accountDetails = {
@@ -272,7 +275,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
         else {
             accountDetails.glaccountId = account[0].glaccountId;
         }
-        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glAccountListData, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glAccountListData, function (item) {
             if (item.glaccountId === accountDetails.glaccountId)
                 return item;
         });
@@ -298,8 +301,8 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
     }
     getFieldParams(event) {
         this.isInvoiceDataFilterLoaded = false;
-        var postStartDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostStartDate).format('MM-DD-YYYY');
-        var postEndDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostEndDate).format('MM-DD-YYYY');
+        var postStartDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostStartDate).format('MM-DD-YYYY');
+        var postEndDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostEndDate).format('MM-DD-YYYY');
         var params = {
             ApartmentBlockUnitID: this.route.params['value'].id,
             PostStartDate: postStartDate,
@@ -318,7 +321,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 invoiceDataList = invoiceDataList.filter(item => { return item.isCreditNote == event.isCreditNote; });
             }
             if (event.postedDate != null) {
-                invoiceDataList = invoiceDataList.filter(item => { return moment__WEBPACK_IMPORTED_MODULE_8__(item.postedDate).format("MM-DD-YYYY") == moment__WEBPACK_IMPORTED_MODULE_8__(event.postedDate).format("MM-DD-YYYY"); });
+                invoiceDataList = invoiceDataList.filter(item => { return moment__WEBPACK_IMPORTED_MODULE_9__(item.postedDate).format(this.timeZone.date) == moment__WEBPACK_IMPORTED_MODULE_9__(event.postedDate).format(this.timeZone.date); });
             }
             if (event.billNo != null) {
                 invoiceDataList = invoiceDataList.filter(item => { return item.billNo == event.billNo; });
@@ -423,6 +426,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.accountsService.getAllGlAccounts().subscribe((res) => {
             var glAccountListData = res.filter(item => {
                 return item.apartmentId == this.sessionService.apartmentId;
@@ -459,7 +463,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 datafield: 'postedDate',
                 width: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(this.constantsService.dateFormat) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -537,8 +541,9 @@ IncomeInvoiceHistoryComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
 ];
 IncomeInvoiceHistoryComponent.propDecorators = {
@@ -557,8 +562,9 @@ IncomeInvoiceHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
 ], IncomeInvoiceHistoryComponent);
 

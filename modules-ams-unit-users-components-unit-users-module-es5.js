@@ -1552,6 +1552,10 @@
           value: function ngOnInit() {
             var _this17 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this17.timeZone = timeZone;
+            });
+
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -1596,7 +1600,7 @@
               datafield: 'insertedOn',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this17.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this17.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {

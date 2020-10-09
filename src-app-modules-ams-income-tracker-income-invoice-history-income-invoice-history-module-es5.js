@@ -397,40 +397,46 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/constants.service */
       "./src/app/shared/services/constants.service.ts");
 
       var IncomeInvoiceHistoryComponent = /*#__PURE__*/function () {
-        function IncomeInvoiceHistoryComponent(_overlay, _viewContainerRef, route, accountsService, sessionService, constantsService, router) {
+        function IncomeInvoiceHistoryComponent(_overlay, _viewContainerRef, route, accountsService, sessionService, sharedService, constantsService, router) {
           _classCallCheck(this, IncomeInvoiceHistoryComponent);
 
           this._overlay = _overlay;
@@ -438,6 +444,7 @@
           this.route = route;
           this.accountsService = accountsService;
           this.sessionService = sessionService;
+          this.sharedService = sharedService;
           this.constantsService = constantsService;
           this.router = router;
           this.isInvoiceDataLoaded = false;
@@ -450,10 +457,10 @@
         _createClass(IncomeInvoiceHistoryComponent, [{
           key: "getInvoiceDate",
           value: function getInvoiceDate(itr, date) {
-            underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceDataList, function (obj, index) {
-              obj.postedOn = moment__WEBPACK_IMPORTED_MODULE_8__(obj.custInvoiceDate).format("MM-DD-YYYY");
+            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, function (obj, index) {
+              obj.postedOn = moment__WEBPACK_IMPORTED_MODULE_9__(obj.custInvoiceDate).format("MM-DD-YYYY");
             });
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
           }
         }, {
           key: "getAccountName",
@@ -468,7 +475,7 @@
               accountDetails.glaccountId = account[0].glaccountId;
             }
 
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.glAccountListData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.glAccountListData, function (item) {
               if (item.glaccountId === accountDetails.glaccountId) return item;
             });
 
@@ -506,8 +513,8 @@
             var _this2 = this;
 
             this.isInvoiceDataFilterLoaded = false;
-            var postStartDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostStartDate).format('MM-DD-YYYY');
-            var postEndDate = moment__WEBPACK_IMPORTED_MODULE_8__(event.PostEndDate).format('MM-DD-YYYY');
+            var postStartDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostStartDate).format('MM-DD-YYYY');
+            var postEndDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostEndDate).format('MM-DD-YYYY');
             var params = {
               ApartmentBlockUnitID: this.route.params['value'].id,
               PostStartDate: postStartDate,
@@ -533,7 +540,7 @@
 
               if (event.postedDate != null) {
                 invoiceDataList = invoiceDataList.filter(function (item) {
-                  return moment__WEBPACK_IMPORTED_MODULE_8__(item.postedDate).format("MM-DD-YYYY") == moment__WEBPACK_IMPORTED_MODULE_8__(event.postedDate).format("MM-DD-YYYY");
+                  return moment__WEBPACK_IMPORTED_MODULE_9__(item.postedDate).format(_this2.timeZone.date) == moment__WEBPACK_IMPORTED_MODULE_9__(event.postedDate).format(_this2.timeZone.date);
                 });
               }
 
@@ -658,6 +665,9 @@
           value: function ngOnInit() {
             var _this5 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this5.timeZone = timeZone;
+            });
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
               var glAccountListData = res.filter(function (item) {
                 return item.apartmentId == _this5.sessionService.apartmentId;
@@ -698,7 +708,7 @@
               datafield: 'postedDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(_this5.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this5.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -770,9 +780,11 @@
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+        }, {
+          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }];
@@ -806,7 +818,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-invoice-history.component.scss */
         "./src/app/modules/ams/income-tracker/income-invoice-history/income-invoice-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], IncomeInvoiceHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])], IncomeInvoiceHistoryComponent);
 
       var getStatusClassName = function getStatusClassName(value) {
         return value ? 'text-purple-100 bg-purple-500' : 'd-none';

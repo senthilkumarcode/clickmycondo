@@ -456,21 +456,21 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/shared/services/constants.service */
-      "./src/app/shared/services/constants.service.ts");
       /* harmony import */
 
 
@@ -503,7 +503,7 @@
       var jspdf__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_12__);
 
       var IncomeViewReceiptsComponent = /*#__PURE__*/function () {
-        function IncomeViewReceiptsComponent(_overlay, _viewContainerRef, dialog, accountsService, apartmentService, sessionService, constantsService) {
+        function IncomeViewReceiptsComponent(_overlay, _viewContainerRef, dialog, accountsService, apartmentService, sessionService, sharedService) {
           _classCallCheck(this, IncomeViewReceiptsComponent);
 
           this._overlay = _overlay;
@@ -512,7 +512,7 @@
           this.accountsService = accountsService;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
-          this.constantsService = constantsService;
+          this.sharedService = sharedService;
           this.isReceiptsLoaded = false;
           this.receiptsData = "";
           this.ItemStartIndex = 0;
@@ -557,7 +557,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.constantsService.dateFormat);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
           }
         }, {
           key: "isMobileView",
@@ -678,7 +678,7 @@
         }, {
           key: "getReceiptInfoDate",
           value: function getReceiptInfoDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.constantsService.dateFormat);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
           }
         }, {
           key: "isReversed",
@@ -725,6 +725,10 @@
           value: function ngOnInit() {
             var _this6 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this6.timeZone = timeZone;
+            });
+
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -753,7 +757,7 @@
               datafield: 'paymentDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this6.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this6.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -836,9 +840,9 @@
         }, {
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }];
       };
 
@@ -881,7 +885,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-view-receipts.component.scss */
         "./src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]])], IncomeViewReceiptsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], IncomeViewReceiptsComponent);
 
       var isReverse = function isReverse(value) {
         return value ? '' : 'd-none';

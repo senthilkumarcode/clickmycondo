@@ -1094,6 +1094,7 @@ let SignuprequestComponent = class SignuprequestComponent {
     //   this.modalService.showSignUpdetailsModal(data);
     // }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -1140,7 +1141,7 @@ let SignuprequestComponent = class SignuprequestComponent {
                 datafield: 'insertedOn',
                 width: 200,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.constantsService.dateFormat) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             },

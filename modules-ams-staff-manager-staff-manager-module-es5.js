@@ -1480,52 +1480,52 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/shared/services/constants.service */
-      "./src/app/shared/services/constants.service.ts");
 
       var StaffAttendanceComponent = /*#__PURE__*/function () {
-        function StaffAttendanceComponent(staffService, lookupService, sessionService, constantsService, router) {
+        function StaffAttendanceComponent(staffService, lookupService, sessionService, sharedService, router) {
           _classCallCheck(this, StaffAttendanceComponent);
 
           this.staffService = staffService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
-          this.constantsService = constantsService;
+          this.sharedService = sharedService;
           this.router = router;
           this.isEntryDataLoaded = false;
           this.unitFieldType = "unitno";
@@ -1570,7 +1570,7 @@
         }, {
           key: "onSelectChange",
           value: function onSelectChange(event, type, name) {
-            if (!underscore__WEBPACK_IMPORTED_MODULE_6__["isEmpty"](event)) {
+            if (!underscore__WEBPACK_IMPORTED_MODULE_7__["isEmpty"](event)) {
               this.selectedInput = type;
               this.columnField[type] = event[name];
             } else {
@@ -1703,6 +1703,10 @@
           value: function ngOnInit() {
             var _this11 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this11.timeZone = timeZone;
+            });
+
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -1728,7 +1732,7 @@
               datafield: 'inTime',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this11.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(_this11.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1736,7 +1740,7 @@
               datafield: 'outTime',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this11.constantsService.dateFormat) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format(_this11.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1780,7 +1784,7 @@
               _this11.entryListData = res.filter(function (data) {
                 return data.isActive;
               });
-              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this11.entryListData, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this11.entryListData, function (item) {
                 _this11.staffService.getStaffByStaffId(item.staffId).subscribe(function (staff) {
                   _this11.staffDetails.push(staff[0]);
                 });
@@ -1840,11 +1844,11 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
         }];
       };
 
@@ -1868,7 +1872,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./staff-attendance.component.scss */
         "./src/app/modules/ams/staff-manager/components/staff-attendance/staff-attendance.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])], StaffAttendanceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_2__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]])], StaffAttendanceComponent);
 
       function editAttendenceStaff(row) {
         var event = new CustomEvent('onEditAttendenceStaff', {
