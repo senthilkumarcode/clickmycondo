@@ -964,8 +964,8 @@ let AddTowerComponent = class AddTowerComponent {
                 apartmentBlocks: [{
                         "apartmentBlockId": 0,
                         "apartmentBlockNumber": this.tower.apartmentBlockNumber,
-                        "totalNounits": this.tower.totalNounits,
-                        "totalnofloors": this.tower.totalnofloors,
+                        "totalNounits": Number(this.tower.totalNounits),
+                        "totalnofloors": Number(this.tower.totalnofloors),
                         "description": this.tower.apartmentBlockNumber,
                         "apartmentId": this.sessionService.apartmentId,
                         "isActive": true,
@@ -991,6 +991,8 @@ let AddTowerComponent = class AddTowerComponent {
             });
         }
         else if (this.clickMode == 'edit') {
+            this.tower.totalNounits = Number(this.tower.totalNounits);
+            this.tower.totalnofloors = Number(this.tower.totalnofloors);
             let params = {
                 apartmentBlock: this.tower
             };

@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"\n\t\tnovalidate>\n\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isDataLoaded && isProfile\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{getStatus(user.isActive)}}</span></h6>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"user.isActive\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t </div>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"user.isActive\"  [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t </div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone No\" name=\"phoneNumber\" [(ngModel)]=\"user.phoneNumber\" required> -->\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"\n\t\tnovalidate>\n\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isDataLoaded && isProfile\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{getStatus(user.isActive)}}</span></h6>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"user.isActive\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t </div>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"user.isActive\"  [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t </div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t<p>{{user.phoneNumber.number}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile*</label> \n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" [disabled]=\"!isAdmin\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"row\" *ngIf=\"!isFamilyNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deleteMember()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" (ngSubmit)=\"submitProfileFamilyForm(profileFamilyForm)\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label class=\"d-block\">Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<select name=\"relationship\" id=\"relationship\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.relationship\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of relationshipList\">{{ item }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"user.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded && !isFamilyNew\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deleteMember()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<!-- Edit Form -->\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber?.number | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\t</ng-container>\n\n\t<!-- New Form -->\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" (ngSubmit)=\"submitProfileFamilyForm(profileFamilyForm)\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label class=\"d-block\">Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<select name=\"relationship\" id=\"relationship\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.relationship\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of relationshipList\">{{ item }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"userFormData.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"userFormData.genderId\" [value]=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"userFormData.genderId\" [value]=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.bloodGroup\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-family-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Family Members</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && !isFamilyMembersAvailable()\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-family-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Family Members</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && familyDataList.length == 0\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Family Members -->\n\t\t<mat-expansion-panel>\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<!-- Family Members List -->\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n</div>");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-pet-details-wrapper\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\n\t\t<div class=\"row\" *ngIf=\"!isPetNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deletePet()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isPetNew\">\n\t\t\t\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\"  novalidate>\n\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet Type</label>\n\t\t\t\t                <p>{{getPetType(pet.petTypeId)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet DOB</label>\n\t\t\t\t                <p>{{getDate(pet.dob)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit || isPetNew\">\n\t\t\t\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\" (ngSubmit)=\"submitProfilPetForm(profilePetForm)\"  novalidate>\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Pet Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"petTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"pet.petTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPetType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Date Of Birth</label>\n\t\t\t                    <input class=\"form-control\" name=\"PetDOB\" [owlDateTime]=\"PetDOB\" [owlDateTimeTrigger]=\"PetDOB\" placeholder=\"Date\" [(ngModel)]=\"pet.dob\">\n\t\t\t\t\t\t\t\t<owl-date-time #PetDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PetDOB\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profilePetForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</ng-container>\n\n\t</ng-container>\n\n\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-pet-details-wrapper\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\n\t\t<div class=\"row\" *ngIf=\"!isPetNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deletePet()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet Type</label>\n\t\t\t\t                <p>{{petData?.pet.petType_Label}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet DOB</label>\n\t\t\t\t                <p>{{getDate(petData?.pet.dob)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\n\t\t<ng-container *ngIf=\"isEdit || isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\" (ngSubmit)=\"submitProfilPetForm(profilePetForm)\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Pet Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"petTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"petFormData.pet.petTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPetType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Date Of Birth</label>\n\t\t\t                    <input class=\"form-control\" name=\"PetDOB\" [owlDateTime]=\"PetDOB\" [owlDateTimeTrigger]=\"PetDOB\" placeholder=\"Date\" [(ngModel)]=\"petFormData.pet.dob\">\n\t\t\t\t\t\t\t\t<owl-date-time #PetDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PetDOB\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profilePetForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</ng-container>\n\n\n\n</div>\n");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-pets-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex flex-column mb-4\">\n\t\t\t<h4 class=\"mb-2\">Pets</h4>\n\t\t\t<h6 class=\"text-secondary\" *ngIf=\"isPetsAvailable\">{{petDataList.length}} Records found</h6>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && !isPetsAvailable\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\n\t<ng-container *ngIf=\"isUserDataLoaded && isPetsAvailable\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{getPetType(item.pet.petTypeId)}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [petData]=\"item\" [apartmentBlockUnitId]=\"apartmentBlockUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [isPetNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\t\t\n\t\t\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-pets-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Pets</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && petDataList.length == 0\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Pet -->\n\t\t<mat-expansion-panel>\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [isPetNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t\t\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Pet List -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.pet.petType_Label}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [petData]=\"item\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t</mat-accordion>\n\n</div>");
 
 /***/ }),
 
@@ -191,7 +191,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-basic wrapper p-5\">\n  \n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n      </div>\n      <div class=\"ml-auto\" *ngIf=\"isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" (ngSubmit)=\"submitAbsenceForm(absenceForm)\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n      <ng-container *ngIf=\"!isEdit\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <ng-container *ngIf=\"isEdit\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label> \n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localContactP1phone\" name=\"localContactP1phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localcontactP1alternatephone\" name=\"localcontactP1alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localContactP2phone\" name=\"localContactP2phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localcontactP2alternatephone\" name=\"localcontactP2alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-basic wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\">\n        <button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n        <button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n        <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      </div>\n\t\t</div>\n  </ng-container>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n      <!-- View Mode -->\n      <ng-container *ngIf=\"clickMode=='showAll'\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <!-- Create Mode and Edit Mode -->\n      <ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label> \n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP1phone\" name=\"localContactP1phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP1alternatephone\" name=\"localcontactP1alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP2phone\" name=\"localContactP2phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1Two\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP2alternatephone\" name=\"localcontactP2alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitAbsenceForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>\n");
 
 /***/ }),
 
@@ -423,9 +423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 
 
 
@@ -449,14 +447,7 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
         this.separateDialCode = true;
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"];
-        this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormGroup"]({
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])
-        });
         this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
-        this._activatedRoute.queryParams.subscribe(params => {
-            if (params['type'] != undefined) {
-            }
-        });
     }
     getStatus(status) {
         return status ? 'Active' : 'Inactive';
@@ -464,28 +455,34 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
     showEditForm() {
         this.isEdit = !this.isEdit;
     }
+    get isAdmin() {
+        return this.sessionService.isAdmin();
+    }
+    IsValidEmail(val) {
+        var retVal = true;
+        var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+        var isValid = rex.test(val);
+        if (!isValid) {
+            retVal = false;
+            this.sharedService.openSnackBar('"Kindly enter proper email id"', 'error');
+        }
+        return retVal;
+    }
     submitProfileBasicForm(form) {
-        // if(!this.IsvalidatePhoneNo(this.user.phoneNumber))
-        // return true;
         if (!this.IsValidEmail(this.user.emailId))
             return true;
         this.isDataLoaded = false;
-        this.user.phoneNumber = this.phoneForm.value.phone.number;
-        this.user.phonecountrycode = this.phoneForm.value.phone.countryCode;
         let params = {
-            user: this.user
+            user: Object.assign(Object.assign({}, this.user), { 'phoneNumber': this.user.phoneNumber.number, 'phonecountrycode': this.user.phoneNumber.countryCode })
         };
-        //update user 
         this.userService.updateUser(params).subscribe((res) => {
             if (res.message) {
                 this.sharedService.setAlertMessage("User updated successfully");
                 this.isDataLoaded = true;
                 this.isEdit = false;
             }
+            this.isDataLoaded = true;
         });
-    }
-    isAdmin() {
-        return this.sessionService.isAdmin();
     }
     ngOnInit() {
         this.user = {};
@@ -497,9 +494,10 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
         // Subscribe to the resolved route data
         this._activatedRoute.parent.data.subscribe((data) => {
             this.user = data.initialData.profileUser;
-            this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormGroup"]({
-                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]({ value: this.user.phoneNumber, disabled: !this.isAdmin }, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])
-            });
+            this.user.phoneNumber = {
+                'number': this.user.phoneNumber,
+                'countryCode': this.user.phonecountrycode
+            };
             this.isDataLoaded = true;
         });
         //Blood Group
@@ -510,51 +508,12 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
             this.bloodGroupData = res;
         });
     }
-    IsValidEmail(val) {
-        var retVal = true;
-        var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
-        var isValid = rex.test(val);
-        if (!isValid) {
-            retVal = false;
-            var errorDetails = {
-                msg: "Kindly enter proper email id",
-                type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-        }
-        return retVal;
-    }
-    IsvalidatePhoneNo(val) {
-        var retVal = true;
-        var rex = new RegExp(/^[+]?\d+$/);
-        var isValid = rex.test(val);
-        if (val.length > 13) {
-            retVal = false;
-            var errorDetails = {
-                msg: "phone no length should be within 13 characters",
-                type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-        }
-        if (!isValid) {
-            retVal = false;
-            var errorDetails = {
-                msg: "Kindly enter proper phoneno",
-                type: "Error"
-            };
-            this.sharedService.setCustomAlertMessage(errorDetails);
-        }
-        return retVal;
-    }
-    isValueValid(val) {
-        return (val === undefined || val == null || val.length <= 0 || val === "") ? true : false;
-    }
 };
 ProfileAreaBasicComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 ProfileAreaBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -566,7 +525,7 @@ ProfileAreaBasicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], ProfileAreaBasicComponent);
 
@@ -1024,11 +983,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 
 
 
@@ -1040,22 +997,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileFamilyMembersDetailsComponent = class ProfileFamilyMembersDetailsComponent {
-    constructor(router, route, apartmentService, userService, sharedService, lookupService, sessionService) {
+    constructor(router, _activatedRoute, apartmentService, userService, sharedService, lookupService, sessionService) {
         this.router = router;
-        this.route = route;
+        this._activatedRoute = _activatedRoute;
         this.apartmentService = apartmentService;
         this.userService = userService;
         this.sharedService = sharedService;
         this.lookupService = lookupService;
         this.sessionService = sessionService;
-        this.isDataLoaded = false;
+        this.isDataLoaded = true;
         this.isEdit = false;
-        this.relationshipList = ['Parents', 'Spouse', 'Children', 'Friend', 'Grandparent', 'LivingPartner', 'Roommate'];
+        this.bloodGroupData = [];
+        this.userFormData = {};
+        this.relationshipList = ['Children', 'Friend', 'Grandparent', 'LivingPartner', 'Parents', 'Roommate', 'Siblings', 'Spouse'];
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
     }
     get isAdmin() {
         return this.sessionService.isAdmin();
@@ -1071,13 +1030,13 @@ let ProfileFamilyMembersDetailsComponent = class ProfileFamilyMembersDetailsComp
             return "";
         }
         else {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD-MM-YY");
         }
     }
     deleteMember() {
         let params = {
-            userFamilyMemberId: parseInt(this.user.userFamilyMemberId),
-            deleteBy: parseInt(this.sessionService.userId)
+            userFamilyMemberId: parseInt(this.userFormData.userFamilyMemberId),
+            deleteBy: this.sessionService.userId
         };
         this.userService.deleteUserFamilyMember(params).subscribe((res) => {
             if (res.message) {
@@ -1093,23 +1052,24 @@ let ProfileFamilyMembersDetailsComponent = class ProfileFamilyMembersDetailsComp
     submitProfileFamilyForm(form) {
         if (!this.isEdit) {
             let details = {
-                "firstName": this.user.firstName,
-                "middleName": this.user.middleName,
-                "lastName": this.user.lastName,
-                "relationship": this.user.relationship,
-                "relatedUserId": this.userId,
-                "emailId": this.user.emailId,
-                "genderId": this.user.genderId,
-                "dob": this.user.dob,
-                "bloodGroup": this.user.bloodGroup,
-                "phoneNumber": this.user.phoneNumber.number,
+                "firstName": this.userFormData.firstName,
+                "middleName": this.userFormData.middleName,
+                "lastName": this.userFormData.lastName,
+                "relationship": this.userFormData.relationship,
+                //"relatedUserId": this.userId,
+                "relatedUserId": this.sessionService.userId,
+                "emailId": this.userFormData.emailId,
+                "genderId": this.userFormData.genderId,
+                "dob": this.userFormData.dob,
+                "bloodGroup": this.userFormData.bloodGroup,
+                "phoneNumber": this.userFormData.phoneNumber.number,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
-                "phoneNumbercountrycode": this.user.phoneNumber.countryCode
+                "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
             };
             let params = {
                 userFamilyMember: details
@@ -1129,23 +1089,25 @@ let ProfileFamilyMembersDetailsComponent = class ProfileFamilyMembersDetailsComp
         }
         else {
             let details = {
-                "userFamilyMemberId": this.user.userFamilyMemberId,
-                "firstName": this.user.firstName,
-                "middleName": this.user.middleName,
-                "lastName": this.user.lastName,
-                "relationship": this.user.relationship,
-                "relatedUserId": this.userId,
-                "emailId": this.user.emailId,
-                "genderId": this.user.genderId,
-                "dob": this.user.dob,
-                "bloodGroup": this.user.bloodGroup,
-                "phoneNumber": this.user.phoneNumber.number,
-                "isActive": this.user.isActive,
-                "insertedBy": this.user.insertedBy,
-                "insertedOn": this.user.insertedOn,
+                "userFamilyMemberId": this.userFormData.userFamilyMemberId,
+                "firstName": this.userFormData.firstName,
+                "middleName": this.userFormData.middleName,
+                "lastName": this.userFormData.lastName,
+                "relationship": this.userFormData.relationship,
+                //"relatedUserId": this.userId,
+                "relatedUserId": this.sessionService.userId,
+                "emailId": this.userFormData.emailId,
+                "genderId": this.userFormData.genderId,
+                "dob": this.userFormData.dob,
+                "bloodGroup": this.userFormData.bloodGroup,
+                "phoneNumber": this.userFormData.phoneNumber.number,
+                "isActive": this.userFormData.isActive,
+                "insertedBy": this.userFormData.insertedBy,
+                "insertedOn": this.userFormData.insertedOn,
                 "updatedBy": this.sessionService.userId,
                 "updatedOn": new Date().toISOString(),
-                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
+                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
+                "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
             };
             let params = {
                 userFamilyMember: details
@@ -1164,57 +1126,66 @@ let ProfileFamilyMembersDetailsComponent = class ProfileFamilyMembersDetailsComp
             });
         }
     }
-    getUnitUserId(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.unitListData, function (item) {
-            if (item.apartmentBlockUnitId == id) {
-                return item;
-            }
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            this.apartmentBlockUnitUserId = data[0].apartmentBlockUnitUserId;
-        }
-    }
+    // getUnitUserId(id) {
+    //   var data = _.filter(this.unitListData, function (item) {
+    //     if (item.apartmentBlockUnitId == id) {
+    //       return item;
+    //     }
+    //   });
+    //   if (data === undefined || data.length == 0) {
+    //     return '';
+    //   }
+    //   else {
+    //     this.apartmentBlockUnitUserId = data[0].apartmentBlockUnitUserId;
+    //   }
+    // }
     ngOnInit() {
-        if (this.route.params['value'].id != undefined) {
-            this.userId = this.route.params['value'].id;
-        }
-        else {
-            this.userId = this.sessionService.userId;
-        }
-        let groupParams = {
-            LookupTypeId: 24
-        };
-        this.apiSubscibe = this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
-            this.bloodGroupData = res;
-        });
-        if (this.isAdmin) {
-            let getAllApartmentParam = {
-                userId: this.userId
-            };
-            this.apartmentService.getAllApartmentBlockUnitUsersByUserId(getAllApartmentParam).subscribe((unit) => {
-                this.unitListData = unit;
-                this.apartmentService.getApartmentBlockUnitByUserId(getAllApartmentParam).subscribe((res) => {
-                    let data = res[0] || {};
-                    this.getUnitUserId(data.apartmentBlockUnitId);
-                }, error => {
-                    console.log(error);
-                });
-            });
-        }
-        else {
+        if (!this.isAdmin) {
             this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
         }
-        if (this.isFamilyNew) {
-            this.user = {};
-            this.user.bloodGroup = "";
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params && params.unituserid) {
+                this.apartmentBlockUnitUserId = Number(params.unituserid);
+            }
+        });
+        // if(this.route.params['value'].id != undefined){
+        //   this.userId = this.route.params['value'].id
+        // }
+        // else {
+        //   this.userId = this.sessionService.userId;
+        // }
+        // if(this.isAdmin) {
+        //   let getAllApartmentParam = {
+        //     userId : this.userId
+        //   }
+        //   this.apartmentService.getAllApartmentBlockUnitUsersByUserId(getAllApartmentParam).subscribe((unit: any) => {
+        //     this.unitListData = unit;
+        //     this.apartmentService.getApartmentBlockUnitByUserId(getAllApartmentParam).subscribe((res: any) => {
+        //       let data = res[0] || {};
+        //       this.getUnitUserId(data.apartmentBlockUnitId);
+        //     },
+        //     error => {
+        //       console.log(error);
+        //     });
+        //   });
+        // } else {
+        //   this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+        // }
+        if (this.user) {
+            this.userFormData = Object.assign({}, this.user);
         }
-        this.isDataLoaded = true;
-    }
-    ngOnDestroy() {
-        this.apiSubscibe.unsubscribe();
+        if (this.isFamilyNew) {
+            this.userFormData = {
+                relationship: null,
+                bloodGroup: null
+            };
+        }
+        else {
+            this.userFormData.phoneNumber = {
+                'countryCode': this.userFormData.phoneNumbercountrycode,
+                'number': this.userFormData.phoneNumber
+            };
+        }
     }
 };
 ProfileFamilyMembersDetailsComponent.ctorParameters = () => [
@@ -1229,6 +1200,7 @@ ProfileFamilyMembersDetailsComponent.ctorParameters = () => [
 ProfileFamilyMembersDetailsComponent.propDecorators = {
     isFamilyNew: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     user: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    bloodGroupData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     outputParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
 };
 ProfileFamilyMembersDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1297,18 +1269,14 @@ let ProfileFamilyMembersComponent = class ProfileFamilyMembersComponent {
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.isDataLoaded = false;
+        this.bloodGroupList = [];
     }
     get isAdmin() {
         return this.sessionService.isAdmin();
     }
     getParams(event) {
         if (event) {
-            if (this.isAdmin) {
-                this.getFamilyList(this.userId);
-            }
-            else {
-                this.getFamilyList(this.sessionService.apartmentBlockUnitUserId);
-            }
+            this.getFamilyList(this.apartmentBlockUnitUserId);
         }
     }
     isFamilyMembersAvailable() {
@@ -1322,18 +1290,27 @@ let ProfileFamilyMembersComponent = class ProfileFamilyMembersComponent {
         this.userService.getUserFamilyMembersByUserId(getFamilyMember).subscribe((res) => {
             this.familyDataList = res;
             this.isDataLoaded = true;
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {
-        this.userId = this.sessionService.profileUserId;
-        this._activatedRoute.queryParams.subscribe(params => {
-            if (params['type'] != undefined) {
-                this.apartmentBlockUnitUserId = params['unituserId'];
-            }
-            else if (this.sessionService.roleTypeName != 'Admin') {
-                this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
-            }
+        //this.userId = this.sessionService.profileUserId;
+        if (!this.isAdmin) {
+            this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
             this.getFamilyList(this.apartmentBlockUnitUserId);
+        }
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params && params.unituserid) {
+                this.apartmentBlockUnitUserId = Number(params.unituserid);
+                this.getFamilyList(this.apartmentBlockUnitUserId);
+            }
+        });
+        let groupParams = {
+            LookupTypeId: 24
+        };
+        this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
+            this.bloodGroupList = res;
         });
     }
 };
@@ -1778,11 +1755,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 
 
 
@@ -1801,177 +1776,187 @@ let ProfilePetDetailsComponent = class ProfilePetDetailsComponent {
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.modalService = modalService;
-        this.isDataLoaded = false;
+        this.isDataLoaded = true;
         this.isEdit = false;
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.petFormData = {
+            pet: {
+                petTypeId: ''
+            }
+        };
+    }
+    get isAdmin() {
+        return this.sessionService.isAdmin();
     }
     showEditForm() {
         this.isEdit = !this.isEdit;
     }
     getSelectedPetType(event) {
-        this.pet.petTypeId = event[0].lookupValueId;
-    }
-    getPetType(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.petTypeList, function (item) {
-            if (item.lookupValueId === id) {
-                return item;
-            }
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].lookupValueName;
-        }
+        this.petFormData.pet.petTypeId = event[0].lookupValueId;
     }
     getDate(date) {
-        if (date === undefined || date.length == 0) {
-            return "";
+        if (date) {
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD-MM-YY");
         }
         else {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD-MM-YY");
+            return '';
         }
     }
     deletePet() {
         this.modalService.showConfirmModal(this.pet.petId);
     }
     submitProfilPetForm(form) {
-        this.isDataLoaded = false;
         if (!this.isEdit) {
-            let details = {
-                "petTypeId": parseInt(this.pet.petTypeId),
-                "dob": this.pet.dob,
-                "isActive": true,
-                "insertedBy": this.userId,
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2020-03-27T07:50:54.680Z"
-            };
-            let params = {
-                pet: details
-            };
-            this.petService.addPet(params).subscribe((res) => {
-                if (res.message) {
-                    var unitDetails = {
-                        "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
-                        "petId": res.message,
-                        "isActive": true,
-                        "insertedBy": this.userId,
-                        "insertedOn": new Date().toISOString(),
-                        "updatedBy": 0,
-                        "updatedOn": "2020-03-27T07:52:53.767Z"
-                    };
-                    let params = {
-                        apartmentBlockUnitPet: unitDetails
-                    };
-                    this.petService.addApartmentBlockUnitPet(params).subscribe((res) => {
-                        if (res.message) {
-                            this.isDataLoaded = true;
-                            this.sharedService.setAlertMessage("Pet added successfully");
-                            this.outputParams.emit(true);
-                        }
-                        else {
-                            this.isDataLoaded = true;
-                        }
-                    });
-                }
-                else {
-                    this.isDataLoaded = true;
-                }
-            });
+            this.createPet();
         }
         else {
-            let details = {
-                "petId": this.pet.petId,
-                "petTypeId": parseInt(this.pet.petTypeId),
-                "dob": this.pet.dob,
-                "isActive": this.pet.isActive,
-                "insertedBy": this.pet.insertedBy,
-                "insertedOn": this.pet.insertedOn,
-                "updatedBy": this.userId,
-                "updatedOn": new Date().toISOString()
-            };
-            let params = {
-                pet: details
-            };
-            this.petService.updatePet(params).subscribe((res) => {
-                if (res.message) {
-                    var unitDetails = {
-                        "apartmentBlockUnitPetId": parseInt(this.petUnit.apartmentBlockUnitPetId),
-                        "apartmentBlockUnitId": parseInt(this.petUnit.apartmentBlockUnitId),
-                        "petId": parseInt(this.pet.petId),
-                        "isActive": this.petUnit.isActive,
-                        "insertedBy": this.petUnit.insertedBy,
-                        "insertedOn": this.petUnit.insertedOn,
-                        "updatedBy": this.userId,
-                        "updatedOn": new Date().toISOString()
-                    };
-                    let params = {
-                        apartmentBlockUnitPet: unitDetails
-                    };
-                    this.petService.updateApartmentBlockUnitPet(params).subscribe((res) => {
-                        if (res.message) {
-                            this.isDataLoaded = true;
-                            this.sharedService.setAlertMessage("Pet updated successfully");
-                            this.outputParams.emit(true);
-                        }
-                        else {
-                            this.isDataLoaded = true;
-                        }
-                    });
-                }
-                else {
-                    this.isDataLoaded = true;
-                }
-            });
+            this.updatePet();
         }
     }
-    ngOnInit() {
-        this.userId = this.sessionService.profileUserId;
-        this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-        this._activatedRoute.queryParams.subscribe(params => {
-            if (params['type'] != undefined) {
-                this.apartmentBlockUnitId = params['unitId'];
+    createPet() {
+        this.isDataLoaded = false;
+        let params = {
+            pet: {
+                "petTypeId": this.petFormData.pet.petTypeId,
+                "dob": this.petFormData.pet.dob,
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": 0,
+                "updatedOn": null
             }
-            else if (this.sessionService.roleTypeName != 'Admin') {
-                this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-            }
-        });
-        this.pet = {};
-        if (this.petData != undefined) {
-            this.petUnit = this.petData;
-            this.pet = this.petData.pet;
-        }
-        else {
-            this.pet.petTypeId = "";
-        }
-        this.isDataLoaded = true;
-        let petTypeParams = {
-            LookupTypeId: 85
         };
-        this.lookupService.getLookupValueByLookupTypeId(petTypeParams).subscribe((res) => {
-            this.petTypeList = res;
-        });
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null) {
+        this.petService.addPet(params).subscribe((res) => {
+            if (res.message) {
                 let params = {
-                    petId: parseInt(id),
-                    deleteBy: this.userId
+                    apartmentBlockUnitPet: {
+                        "apartmentBlockUnitId": this.apartmentBlockUnitId,
+                        "petId": res.message,
+                        "isActive": true,
+                        "insertedBy": this.sessionService.userId,
+                        "insertedOn": new Date().toISOString(),
+                        "updatedBy": 0,
+                        "updatedOn": null
+                    }
                 };
-                this.petService.deletePet(params).subscribe((res) => {
+                this.petService.addApartmentBlockUnitPet(params).subscribe((res) => {
                     if (res.message) {
                         this.isDataLoaded = true;
-                        this.sharedService.setAlertMessage("Pet deleted");
+                        this.petFormData.pet.petTypeId = '';
+                        this.petFormData.pet.dob = '';
+                        this.sharedService.openSnackBar("Pet added successfully", 'success');
                         this.outputParams.emit(true);
                     }
                     else {
                         this.isDataLoaded = true;
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
+                }, (error) => {
+                    this.isDataLoaded = true;
+                    this.sharedService.openSnackBar('Server Error', 'error');
                 });
             }
+            else {
+                this.isDataLoaded = true;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isDataLoaded = true;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
-    ngOnChanges(changes) {
+    updatePet() {
+        this.isDataLoaded = false;
+        let details = {
+            "petId": this.petFormData.pet.petId,
+            "petTypeId": this.petFormData.pet.petTypeId,
+            "dob": this.petFormData.pet.dob,
+            "isActive": this.petFormData.pet.isActive,
+            "insertedBy": this.petFormData.pet.insertedBy,
+            "insertedOn": this.petFormData.pet.insertedOn,
+            "updatedBy": this.sessionService.userId,
+            "updatedOn": new Date().toISOString()
+        };
+        let params = {
+            pet: details
+        };
+        this.petService.updatePet(params).subscribe((res) => {
+            if (res.message) {
+                let params = {
+                    apartmentBlockUnitPet: {
+                        "apartmentBlockUnitPetId": this.petFormData.apartmentBlockUnitPetId,
+                        "apartmentBlockUnitId": this.petFormData.apartmentBlockUnitId,
+                        "petId": this.petFormData.petId,
+                        "isActive": this.petFormData.isActive,
+                        "insertedBy": this.petFormData.insertedBy,
+                        "insertedOn": this.petFormData.insertedOn,
+                        "updatedBy": this.sessionService.userId,
+                        "updatedOn": new Date().toISOString()
+                    }
+                };
+                this.petService.updateApartmentBlockUnitPet(params).subscribe((res) => {
+                    if (res.message) {
+                        this.isDataLoaded = true;
+                        this.sharedService.openSnackBar("Pet updated successfully", 'success');
+                        this.outputParams.emit(true);
+                    }
+                    else {
+                        this.isDataLoaded = true;
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.isDataLoaded = true;
+                    this.sharedService.openSnackBar('Server Error', 'error');
+                });
+            }
+            else {
+                this.isDataLoaded = true;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isDataLoaded = true;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    ngOnInit() {
+        if (!this.isAdmin) {
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+        }
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params && params.unitId) {
+                this.apartmentBlockUnitId = Number(params.unitId);
+            }
+        });
+        if (this.petData) {
+            this.petFormData = Object.assign({}, this.petData);
+        }
+        // this.pet = {};
+        // if(this.petData != undefined){
+        //   this.petUnit = this.petData
+        //   this.pet = this.petData.pet;
+        // }
+        // else {
+        //   this.pet.petTypeId = "";
+        // }
+        // this.isDataLoaded = true;
+        // this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        //   if (id != null) {
+        //     let params = {
+        //       petId: parseInt(id),
+        //       deleteBy: this.userId
+        //     }
+        //     this.petService.deletePet(params).subscribe((res:any) => {
+        //       if(res.message){
+        //         this.isDataLoaded = true;  
+        //         this.sharedService.setAlertMessage("Pet deleted");
+        //         this.outputParams.emit(true);
+        //       }
+        //       else {
+        //         this.isDataLoaded = true;
+        //       }
+        //     })
+        //   }
+        // });
     }
 };
 ProfilePetDetailsComponent.ctorParameters = () => [
@@ -1981,12 +1966,12 @@ ProfilePetDetailsComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"] }
+    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"] }
 ];
 ProfilePetDetailsComponent.propDecorators = {
     petData: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
     isPetNew: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
-    apartmentBlockUnitId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    petTypeList: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['dropDownList',] }],
     outputParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
 };
 ProfilePetDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -2001,7 +1986,7 @@ ProfilePetDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]])
+        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]])
 ], ProfilePetDetailsComponent);
 
 
@@ -2037,9 +2022,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Pet */ "./src/app/api/controllers/Pet.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 
 
 
@@ -2049,64 +2034,59 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfilePetComponent = class ProfilePetComponent {
-    constructor(_router, _activatedRoute, petService, lookupService, sessionService) {
-        this._router = _router;
+    constructor(_activatedRoute, petService, sharedService, lookupService, sessionService) {
         this._activatedRoute = _activatedRoute;
         this.petService = petService;
+        this.sharedService = sharedService;
         this.lookupService = lookupService;
         this.sessionService = sessionService;
         this.isUserDataLoaded = false;
-        this.isPetsAvailable = false;
+        this.petDataList = [];
+        this.petTypeList = [];
     }
-    showUnitDetails() {
+    get isAdmin() {
+        return this.sessionService.isAdmin();
+    }
+    getDate(date) {
+        if (date) {
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD-MM-YY");
+        }
+        else {
+            return '';
+        }
+    }
+    getParams(event) {
+        if (event) {
+            this.showUnitPetDetails(this.apartmentBlockUnitId);
+        }
+    }
+    showUnitPetDetails(id) {
         this.isUserDataLoaded = false;
         let petListParams = {
-            apartmentBlockUnitId: this.apartmentBlockUnitId
+            apartmentBlockUnitId: id
         };
         this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe((res) => {
             if (res.length != 0) {
-                this.petDataList = res.filter(item => { return item.pet.isActive; });
-                this.isPetsAvailable = true;
-            }
-            else {
-                this.isPetsAvailable = false;
+                this.petDataList = res.reverse();
             }
             this.isUserDataLoaded = true;
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
-    }
-    getPetType(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.petTypeList, function (item) {
-            if (item.lookupValueId === id) {
-                return item;
-            }
-        });
-        if (data === undefined || data.length == 0) {
-            return '';
-        }
-        else {
-            return data[0].lookupValueName;
-        }
-    }
-    getDate(date) {
-        if (date === undefined || date.length == 0) {
-            return "";
-        }
-        else {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD-MM-YY");
-        }
     }
     ngOnInit() {
-        this.userId = this.sessionService.profileUserId;
-        this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+        //this.userId = this.sessionService.profileUserId;
+        if (!this.isAdmin) {
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            this.showUnitPetDetails(this.apartmentBlockUnitId);
+        }
         this._activatedRoute.queryParams.subscribe(params => {
-            if (params['type'] != undefined) {
-                this.apartmentBlockUnitId = params['unitId'];
-            }
-            else if (this.sessionService.roleTypeName != 'Admin') {
-                this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            if (params && params.unitId) {
+                this.apartmentBlockUnitId = Number(params.unitId);
+                this.showUnitPetDetails(this.apartmentBlockUnitId);
             }
         });
-        this.showUnitDetails();
+        //Pet DropDown
         let petParams = {
             LookupTypeId: 85
         };
@@ -2116,9 +2096,9 @@ let ProfilePetComponent = class ProfilePetComponent {
     }
 };
 ProfilePetComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
@@ -2128,9 +2108,9 @@ ProfilePetComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-pet.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-pet/profile-pet.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-pet.component.scss */ "./src/app/modules/profile/profile-pet/profile-pet.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], ProfilePetComponent);
@@ -2859,7 +2839,7 @@ ProfileUnitStaffsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLXVzZXItYWJzZW5jZS9wcm9maWxlLXVzZXItYWJzZW5jZS5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".intl-tel-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9wcm9maWxlL3Byb2ZpbGUtdXNlci1hYnNlbmNlL3Byb2ZpbGUtdXNlci1hYnNlbmNlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9wcm9maWxlL3Byb2ZpbGUtdXNlci1hYnNlbmNlL3Byb2ZpbGUtdXNlci1hYnNlbmNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmludGwtdGVsLWlucHV0IHtcbiAgICB3aWR0aDogMTAwJTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -2878,13 +2858,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../profile-user-absence-history/profile-user-absence-history.component */ "./src/app/modules/profile/profile-user-absence-history/profile-user-absence-history.component.ts");
 
 
 
@@ -2895,71 +2872,64 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileUserAbsenceComponent = class ProfileUserAbsenceComponent {
-    constructor(_router, _activatedRoute, injector, apartmentService, sharedService, sessionService) {
-        this._router = _router;
+    constructor(_activatedRoute, apartmentService, sharedService, sessionService, dialog) {
         this._activatedRoute = _activatedRoute;
-        this.injector = injector;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
-        this.isDataLoaded = false;
-        this.isEdit = false;
-        this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"];
-        this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormGroup"]({
-            localContactP1phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required]),
-            localcontactP1alternatephone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required]),
-            localContactP2phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required]),
-            localcontactP2alternatephone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required])
-        });
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"].UnitedKingdom];
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
-    }
-    ngOnInit() {
+        this.dialog = dialog;
         this.data = {};
-        this.userId = this.sessionService.profileUserId;
-        this._activatedRoute.queryParams.subscribe(params => {
-            if (params['type'] != undefined) {
-                this.apartmentBlockUnitId = params['unitId'];
-                this.apartmentBlockUnitUserId = params['unituserId'];
-            }
-            else if (this.sessionService.roleTypeName != 'Admin') {
-                this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-                this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
-            }
-        });
-        this.getHistoryData();
+        this.isDataLoaded = false;
+        this.clickMode = 'showAll';
+        this.separateDialCode = true;
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
     }
-    getHistoryData() {
-        let params = {
-            apartmentId: this.sessionService.apartmentId,
-            ApartmentBlockUnitUserId: this.apartmentBlockUnitUserId
-        };
-        this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe((unit) => {
-            this.historyListData = unit.filter(data => {
-                return data.isActive;
-            });
-            let length = this.historyListData.length - 1;
-            this.data = this.historyListData[length];
-            this.isDataLoaded = true;
-        }, error => {
-        });
+    get isAdmin() {
+        return this.sessionService.isAdmin();
     }
     showEditForm(type) {
-        this.isEdit = !this.isEdit;
-        if (type == 'reset') {
+        if (type == 'add') {
             this.data = {};
         }
-        else {
-            let length = this.historyListData.length - 1;
-            this.data = this.historyListData.length ? this.historyListData[length] : {};
+        else if (type == 'edit') {
+            this.data = Object.assign({}, this.historyListData[0]);
+            this.data.localContactP1phone = {
+                'number': this.data.localContactP1phone,
+                'countryCode': this.data.localContactP1phoneCountrycode
+            };
+            this.data.localcontactP1alternatephone = {
+                'number': this.data.localcontactP1alternatephone,
+                'countryCode': this.data.localContactP1alternatePhoneCountrycode
+            };
+            this.data.localContactP2phone = {
+                'number': this.data.localContactP2phone,
+                'countryCode': this.data.localContactP2phoneCountrycode
+            };
+            this.data.localcontactP2alternatephone = {
+                'number': this.data.localcontactP2alternatephone,
+                'countryCode': this.data.localContactP2alternatePhoneCountrycode
+            };
         }
+        else if (type == 'showAll') {
+            this.data = Object.assign({}, this.historyListData[0]);
+        }
+        this.clickMode = type;
     }
     showHistory() {
-        this.modalService.showUserAbsenceHistoryModal(this.historyListData);
+        this.dialog.open(_profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_8__["ProfileUserAbsenceHistoryComponent"], {
+            panelClass: 'material-dialog-big',
+            data: this.historyListData
+        });
     }
     submitAbsenceForm(form) {
+        if (this.clickMode == 'add')
+            this.createAbsenceForm();
+        else if (this.clickMode == 'edit')
+            this.updateAbsenceForm();
+    }
+    createAbsenceForm() {
         this.isDataLoaded = false;
         let details = {
             "apartmentId": this.sessionService.apartmentId,
@@ -2967,17 +2937,21 @@ let ProfileUserAbsenceComponent = class ProfileUserAbsenceComponent {
             "outFrom": this.data.outFrom,
             "outTo": this.data.outTo,
             "localContactP1": this.data.localContactP1,
-            "localContactP1phone": this.phoneForm.value.localContactP1phone.e164Number,
-            "localcontactP1alternatephone": this.phoneForm.value.localcontactP1alternatephone.e164Number,
+            "localContactP1phone": this.data.localContactP1phone.number,
+            "localContactP1phoneCountrycode": this.data.localContactP1phone.countryCode,
+            "localcontactP1alternatephone": this.data.localcontactP1alternatephone.number,
+            "localContactP1alternatePhoneCountrycode": this.data.localcontactP1alternatephone.countryCode,
             "localcontactP1email": this.data.localcontactP1email,
             "localContactP2": this.data.localContactP2,
-            "localContactP2phone": this.phoneForm.value.localContactP2phone.e164Number,
-            "localcontactP2alternatephone": this.phoneForm.value.localcontactP2alternatephone.e164Number,
+            "localContactP2phone": this.data.localContactP2phone.number,
+            "localContactP2phoneCountrycode": this.data.localContactP2phone.countryCode,
+            "localcontactP2alternatephone": this.data.localcontactP2alternatephone.number,
+            "localContactP2alternatePhoneCountrycode": this.data.localcontactP2alternatephone.countryCode,
             "localcontactP2email": this.data.localcontactP2email,
             "outofCondoStatusId": 5,
             "isActive": true,
-            "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+            "insertedBy": this.sessionService.userId,
+            "insertedOn": new Date().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
             "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
@@ -2985,39 +2959,92 @@ let ProfileUserAbsenceComponent = class ProfileUserAbsenceComponent {
         let params = {
             apartmentLongAbsence: details
         };
-        this.apartmentService.addApartmentLongAbsence(params).subscribe((data) => {
-            if (data.message) {
-                this.data = {};
-                this.sharedService.setAlertMessage("Out of condo Info added successfully");
+        this.apartmentService.addApartmentLongAbsence(params).subscribe((res) => {
+            this.isDataLoaded = true;
+            if (res.message) {
+                this.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
                 this.getHistoryData();
-                this.isEdit = false;
+            }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, error => {
+            this.isDataLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    updateAbsenceForm() {
+        this.isDataLoaded = false;
+        let params = {
+            apartmentLongAbsence: Object.assign(Object.assign({}, this.data), { "localContactP1phone": this.data.localContactP1phone.number, "localContactP1phoneCountrycode": this.data.localContactP1phone.countryCode, "localcontactP1alternatephone": this.data.localcontactP1alternatephone.number, "localContactP1alternatePhoneCountrycode": this.data.localcontactP1alternatephone.countryCode, "localContactP2phone": this.data.localContactP2phone.number, "localContactP2phoneCountrycode": this.data.localContactP2phone.countryCode, "localcontactP2alternatephone": this.data.localcontactP2alternatephone.number, "localContactP2alternatePhoneCountrycode": this.data.localcontactP2alternatephone.countryCode, "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId, "updatedBy": this.sessionService.userId, "updatedOn": new Date().toISOString() })
+        };
+        this.apartmentService.updateApartmentLongAbsence(params).subscribe((res) => {
+            this.isDataLoaded = true;
+            if (res.message) {
+                this.sharedService.openSnackBar(res.message, 'success');
+                this.getHistoryData();
+            }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, error => {
+            this.isDataLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    getHistoryData() {
+        this.isDataLoaded = false;
+        let params = {
+            apartmentId: this.sessionService.apartmentId,
+            ApartmentBlockUnitUserId: this.apartmentBlockUnitUserId
+        };
+        this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe((unit) => {
+            this.historyListData = unit.reverse();
+            if (this.historyListData.length > 0) {
+                this.data = this.historyListData[0];
+                this.clickMode = 'showAll';
             }
             this.isDataLoaded = true;
         }, error => {
-            this.isDataLoaded = false;
+            this.isDataLoaded = true;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    ngOnInit() {
+        //this.userId = this.sessionService.profileUserId;
+        if (!this.isAdmin) {
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID,
+                this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            this.getHistoryData();
+        }
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params && params.unituserid && params.unitId) {
+                this.apartmentBlockUnitId = Number(params.unitId),
+                    this.apartmentBlockUnitUserId = Number(params.unituserid);
+                this.getHistoryData();
+            }
         });
     }
 };
 ProfileUserAbsenceComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
 ProfileUserAbsenceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-user-absence',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-user-absence.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-user-absence/profile-user-absence.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-user-absence.component.scss */ "./src/app/modules/profile/profile-user-absence/profile-user-absence.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], ProfileUserAbsenceComponent);
 
 

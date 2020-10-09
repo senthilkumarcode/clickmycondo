@@ -34,7 +34,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"\n\t\tnovalidate>\n\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isDataLoaded && isProfile\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{getStatus(user.isActive)}}</span></h6>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"user.isActive\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t </div>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"user.isActive\"  [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t </div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<!-- <input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone No\" name=\"phoneNumber\" [(ngModel)]=\"user.phoneNumber\" required> -->\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>General</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\"\n\t\tnovalidate>\n\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isDataLoaded && isProfile\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{getStatus(user.isActive)}}</span></h6>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"active\" [(ngModel)]=\"user.isActive\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t </div>\n\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t<input name=\"assetStatus\" id=\"inactive\" [(ngModel)]=\"user.isActive\"  [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t </div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t\t<p>{{user.phoneNumber.number}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile*</label> \n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" [disabled]=\"!isAdmin\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -74,7 +74,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"row\" *ngIf=\"!isFamilyNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deleteMember()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\t</ng-container>\n\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" (ngSubmit)=\"submitProfileFamilyForm(profileFamilyForm)\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label class=\"d-block\">Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<select name=\"relationship\" id=\"relationship\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.relationship\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of relationshipList\">{{ item }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"user.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"user.genderId\" [value]=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"user.genderId\" [value]=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"family-members-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded && !isFamilyNew\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deleteMember()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<!-- Edit Form -->\n\t<ng-container *ngIf=\"!isEdit && !isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name {{userId}}</label>\n\t\t\t\t\t\t\t<p>{{user.firstName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<p>{{user.middleName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name</label>\n\t\t\t\t\t\t\t<p>{{user.lastName | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Relationship</label>\n\t\t\t\t\t\t\t<p>{{user.relationship | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone/Mobile</label>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber?.number | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{user.emailId | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<p>{{getDOB(user.dob) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender</label>\n\t\t\t\t\t\t\t<p>{{getGender(user.genderId) | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail }}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\t</ng-container>\n\n\t<!-- New Form -->\n\t<ng-container *ngIf=\"isEdit || isFamilyNew\">\n\t\t<form #profileFamilyForm=\"ngForm\" name=\"profileFamilyForm\" (ngSubmit)=\"submitProfileFamilyForm(profileFamilyForm)\" novalidate>\n\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.firstName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Middle Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"middleName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.middleName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.lastName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label class=\"d-block\">Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Relationship*</label>\n\t\t\t\t\t\t\t<select name=\"relationship\" id=\"relationship\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.relationship\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of relationshipList\">{{ item }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.emailId\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"userDOB\" [owlDateTime]=\"userDOB\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"userDOB\" placeholder=\"Date\" [(ngModel)]=\"userFormData.dob\">\n\t\t\t\t\t\t\t<owl-date-time #userDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"userFormData.genderId\" [value]=\"43\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"userFormData.genderId\" [value]=\"44\" type=\"radio\"\n\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"userFormData.bloodGroup\">\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -94,7 +94,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-family-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Family Members</h4>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && !isFamilyMembersAvailable()\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-family-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Family Members</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && familyDataList.length == 0\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Family Members -->\n\t\t<mat-expansion-panel>\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<!-- Family Members List -->\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n</div>";
       /***/
     },
 
@@ -174,7 +174,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-pet-details-wrapper\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\n\t\t<div class=\"row\" *ngIf=\"!isPetNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deletePet()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isPetNew\">\n\t\t\t\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\"  novalidate>\n\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet Type</label>\n\t\t\t\t                <p>{{getPetType(pet.petTypeId)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet DOB</label>\n\t\t\t\t                <p>{{getDate(pet.dob)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit || isPetNew\">\n\t\t\t\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\" (ngSubmit)=\"submitProfilPetForm(profilePetForm)\"  novalidate>\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Pet Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"petTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"pet.petTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPetType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Date Of Birth</label>\n\t\t\t                    <input class=\"form-control\" name=\"PetDOB\" [owlDateTime]=\"PetDOB\" [owlDateTimeTrigger]=\"PetDOB\" placeholder=\"Date\" [(ngModel)]=\"pet.dob\">\n\t\t\t\t\t\t\t\t<owl-date-time #PetDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PetDOB\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profilePetForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</ng-container>\n\n\t</ng-container>\n\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-pet-details-wrapper\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\n\t\t<div class=\"row\" *ngIf=\"!isPetNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deletePet()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet Type</label>\n\t\t\t\t                <p>{{petData?.pet.petType_Label}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet DOB</label>\n\t\t\t\t                <p>{{getDate(petData?.pet.dob)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\n\t\t<ng-container *ngIf=\"isEdit || isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\" (ngSubmit)=\"submitProfilPetForm(profilePetForm)\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Pet Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"petTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"petFormData.pet.petTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPetType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Date Of Birth</label>\n\t\t\t                    <input class=\"form-control\" name=\"PetDOB\" [owlDateTime]=\"PetDOB\" [owlDateTimeTrigger]=\"PetDOB\" placeholder=\"Date\" [(ngModel)]=\"petFormData.pet.dob\">\n\t\t\t\t\t\t\t\t<owl-date-time #PetDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PetDOB\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profilePetForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</ng-container>\n\n\n\n</div>\n";
       /***/
     },
 
@@ -194,7 +194,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-pets-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex flex-column mb-4\">\n\t\t\t<h4 class=\"mb-2\">Pets</h4>\n\t\t\t<h6 class=\"text-secondary\" *ngIf=\"isPetsAvailable\">{{petDataList.length}} Records found</h6>\n\t\t</div>\n\t</ng-container>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && !isPetsAvailable\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\n\t<ng-container *ngIf=\"isUserDataLoaded && isPetsAvailable\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{getPetType(item.pet.petTypeId)}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [petData]=\"item\" [apartmentBlockUnitId]=\"apartmentBlockUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel>\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [isPetNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\t\t\n\t\t\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-pets-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Pets</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && petDataList.length == 0\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Pet -->\n\t\t<mat-expansion-panel>\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [isPetNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t\t\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Pet List -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.pet.petType_Label}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [petData]=\"item\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t</mat-accordion>\n\n</div>";
       /***/
     },
 
@@ -314,7 +314,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper p-5\">\n  \n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n      </div>\n      <div class=\"ml-auto\" *ngIf=\"isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" (ngSubmit)=\"submitAbsenceForm(absenceForm)\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n      <ng-container *ngIf=\"!isEdit\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <ng-container *ngIf=\"isEdit\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label> \n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localContactP1phone\" name=\"localContactP1phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localcontactP1alternatephone\" name=\"localcontactP1alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localContactP2phone\" name=\"localContactP2phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\tformControlName=\"localcontactP2alternatephone\" name=\"localcontactP2alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\">\n        <button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n        <button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n        <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      </div>\n\t\t</div>\n  </ng-container>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n      <!-- View Mode -->\n      <ng-container *ngIf=\"clickMode=='showAll'\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <!-- Create Mode and Edit Mode -->\n      <ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label> \n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP1phone\" name=\"localContactP1phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP1alternatephone\" name=\"localcontactP1alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP2phone\" name=\"localContactP2phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1Two\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP2alternatephone\" name=\"localcontactP2alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitAbsenceForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>\n";
       /***/
     },
 
@@ -727,13 +727,7 @@
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
 
@@ -754,14 +748,7 @@
           this.separateDialCode = true;
           this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
           this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"];
-          this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormGroup"]({
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])
-          });
           this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
-
-          this._activatedRoute.queryParams.subscribe(function (params) {
-            if (params['type'] != undefined) {}
-          });
         }
 
         _createClass(ProfileAreaBasicComponent, [{
@@ -775,20 +762,32 @@
             this.isEdit = !this.isEdit;
           }
         }, {
+          key: "IsValidEmail",
+          value: function IsValidEmail(val) {
+            var retVal = true;
+            var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+            var isValid = rex.test(val);
+
+            if (!isValid) {
+              retVal = false;
+              this.sharedService.openSnackBar('"Kindly enter proper email id"', 'error');
+            }
+
+            return retVal;
+          }
+        }, {
           key: "submitProfileBasicForm",
           value: function submitProfileBasicForm(form) {
             var _this = this;
 
-            // if(!this.IsvalidatePhoneNo(this.user.phoneNumber))
-            // return true;
             if (!this.IsValidEmail(this.user.emailId)) return true;
             this.isDataLoaded = false;
-            this.user.phoneNumber = this.phoneForm.value.phone.number;
-            this.user.phonecountrycode = this.phoneForm.value.phone.countryCode;
             var params = {
-              user: this.user
-            }; //update user 
-
+              user: Object.assign(Object.assign({}, this.user), {
+                'phoneNumber': this.user.phoneNumber.number,
+                'phonecountrycode': this.user.phoneNumber.countryCode
+              })
+            };
             this.userService.updateUser(params).subscribe(function (res) {
               if (res.message) {
                 _this.sharedService.setAlertMessage("User updated successfully");
@@ -796,12 +795,9 @@
                 _this.isDataLoaded = true;
                 _this.isEdit = false;
               }
+
+              _this.isDataLoaded = true;
             });
-          }
-        }, {
-          key: "isAdmin",
-          value: function isAdmin() {
-            return this.sessionService.isAdmin();
           }
         }, {
           key: "ngOnInit",
@@ -819,12 +815,10 @@
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               _this2.user = data.initialData.profileUser;
-              _this2.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormGroup"]({
-                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]({
-                  value: _this2.user.phoneNumber,
-                  disabled: !_this2.isAdmin
-                }, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])
-              });
+              _this2.user.phoneNumber = {
+                'number': _this2.user.phoneNumber,
+                'countryCode': _this2.user.phonecountrycode
+              };
               _this2.isDataLoaded = true;
             }); //Blood Group
 
@@ -837,54 +831,9 @@
             });
           }
         }, {
-          key: "IsValidEmail",
-          value: function IsValidEmail(val) {
-            var retVal = true;
-            var rex = new RegExp(/^[a-zA-Z0-9_\-.]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
-            var isValid = rex.test(val);
-
-            if (!isValid) {
-              retVal = false;
-              var errorDetails = {
-                msg: "Kindly enter proper email id",
-                type: "Error"
-              };
-              this.sharedService.setCustomAlertMessage(errorDetails);
-            }
-
-            return retVal;
-          }
-        }, {
-          key: "IsvalidatePhoneNo",
-          value: function IsvalidatePhoneNo(val) {
-            var retVal = true;
-            var rex = new RegExp(/^[+]?\d+$/);
-            var isValid = rex.test(val);
-
-            if (val.length > 13) {
-              retVal = false;
-              var errorDetails = {
-                msg: "phone no length should be within 13 characters",
-                type: "Error"
-              };
-              this.sharedService.setCustomAlertMessage(errorDetails);
-            }
-
-            if (!isValid) {
-              retVal = false;
-              var errorDetails = {
-                msg: "Kindly enter proper phoneno",
-                type: "Error"
-              };
-              this.sharedService.setCustomAlertMessage(errorDetails);
-            }
-
-            return retVal;
-          }
-        }, {
-          key: "isValueValid",
-          value: function isValueValid(val) {
-            return val === undefined || val == null || val.length <= 0 || val === "" ? true : false;
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -899,7 +848,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
@@ -913,7 +862,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-area-basic.component.scss */
         "./src/app/modules/profile/profile-area-basic/profile-area-basic.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfileAreaBasicComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfileAreaBasicComponent);
       /***/
     },
 
@@ -1722,45 +1671,41 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
       /* harmony import */
 
 
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 
       var ProfileFamilyMembersDetailsComponent = /*#__PURE__*/function () {
-        function ProfileFamilyMembersDetailsComponent(router, route, apartmentService, userService, sharedService, lookupService, sessionService) {
+        function ProfileFamilyMembersDetailsComponent(router, _activatedRoute, apartmentService, userService, sharedService, lookupService, sessionService) {
           _classCallCheck(this, ProfileFamilyMembersDetailsComponent);
 
           this.router = router;
-          this.route = route;
+          this._activatedRoute = _activatedRoute;
           this.apartmentService = apartmentService;
           this.userService = userService;
           this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
-          this.isDataLoaded = false;
+          this.isDataLoaded = true;
           this.isEdit = false;
-          this.relationshipList = ['Parents', 'Spouse', 'Children', 'Friend', 'Grandparent', 'LivingPartner', 'Roommate'];
+          this.bloodGroupData = [];
+          this.userFormData = {};
+          this.relationshipList = ['Children', 'Friend', 'Grandparent', 'LivingPartner', 'Parents', 'Roommate', 'Siblings', 'Spouse'];
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
-          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
         }
 
         _createClass(ProfileFamilyMembersDetailsComponent, [{
@@ -1779,7 +1724,7 @@
             if (date === undefined || date.length == 0) {
               return "";
             } else {
-              return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("DD-MM-YY");
+              return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD-MM-YY");
             }
           }
         }, {
@@ -1788,8 +1733,8 @@
             var _this4 = this;
 
             var params = {
-              userFamilyMemberId: parseInt(this.user.userFamilyMemberId),
-              deleteBy: parseInt(this.sessionService.userId)
+              userFamilyMemberId: parseInt(this.userFormData.userFamilyMemberId),
+              deleteBy: this.sessionService.userId
             };
             this.userService.deleteUserFamilyMember(params).subscribe(function (res) {
               if (res.message) {
@@ -1810,23 +1755,24 @@
 
             if (!this.isEdit) {
               var details = {
-                "firstName": this.user.firstName,
-                "middleName": this.user.middleName,
-                "lastName": this.user.lastName,
-                "relationship": this.user.relationship,
-                "relatedUserId": this.userId,
-                "emailId": this.user.emailId,
-                "genderId": this.user.genderId,
-                "dob": this.user.dob,
-                "bloodGroup": this.user.bloodGroup,
-                "phoneNumber": this.user.phoneNumber.number,
+                "firstName": this.userFormData.firstName,
+                "middleName": this.userFormData.middleName,
+                "lastName": this.userFormData.lastName,
+                "relationship": this.userFormData.relationship,
+                //"relatedUserId": this.userId,
+                "relatedUserId": this.sessionService.userId,
+                "emailId": this.userFormData.emailId,
+                "genderId": this.userFormData.genderId,
+                "dob": this.userFormData.dob,
+                "bloodGroup": this.userFormData.bloodGroup,
+                "phoneNumber": this.userFormData.phoneNumber.number,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
                 "insertedOn": new Date().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
-                "phoneNumbercountrycode": this.user.phoneNumber.countryCode
+                "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
               };
               var params = {
                 userFamilyMember: details
@@ -1846,23 +1792,25 @@
               });
             } else {
               var _details = {
-                "userFamilyMemberId": this.user.userFamilyMemberId,
-                "firstName": this.user.firstName,
-                "middleName": this.user.middleName,
-                "lastName": this.user.lastName,
-                "relationship": this.user.relationship,
-                "relatedUserId": this.userId,
-                "emailId": this.user.emailId,
-                "genderId": this.user.genderId,
-                "dob": this.user.dob,
-                "bloodGroup": this.user.bloodGroup,
-                "phoneNumber": this.user.phoneNumber.number,
-                "isActive": this.user.isActive,
-                "insertedBy": this.user.insertedBy,
-                "insertedOn": this.user.insertedOn,
+                "userFamilyMemberId": this.userFormData.userFamilyMemberId,
+                "firstName": this.userFormData.firstName,
+                "middleName": this.userFormData.middleName,
+                "lastName": this.userFormData.lastName,
+                "relationship": this.userFormData.relationship,
+                //"relatedUserId": this.userId,
+                "relatedUserId": this.sessionService.userId,
+                "emailId": this.userFormData.emailId,
+                "genderId": this.userFormData.genderId,
+                "dob": this.userFormData.dob,
+                "bloodGroup": this.userFormData.bloodGroup,
+                "phoneNumber": this.userFormData.phoneNumber.number,
+                "isActive": this.userFormData.isActive,
+                "insertedBy": this.userFormData.insertedBy,
+                "insertedOn": this.userFormData.insertedOn,
                 "updatedBy": this.sessionService.userId,
                 "updatedOn": new Date().toISOString(),
-                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
+                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
+                "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
               };
               var _params = {
                 userFamilyMember: _details
@@ -1881,70 +1829,73 @@
                 _this5.sharedService.openSnackBar("Server Error", 'error');
               });
             }
-          }
-        }, {
-          key: "getUnitUserId",
-          value: function getUnitUserId(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.unitListData, function (item) {
-              if (item.apartmentBlockUnitId == id) {
-                return item;
-              }
-            });
+          } // getUnitUserId(id) {
+          //   var data = _.filter(this.unitListData, function (item) {
+          //     if (item.apartmentBlockUnitId == id) {
+          //       return item;
+          //     }
+          //   });
+          //   if (data === undefined || data.length == 0) {
+          //     return '';
+          //   }
+          //   else {
+          //     this.apartmentBlockUnitUserId = data[0].apartmentBlockUnitUserId;
+          //   }
+          // }
 
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.apartmentBlockUnitUserId = data[0].apartmentBlockUnitUserId;
-            }
-          }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this6 = this;
 
-            if (this.route.params['value'].id != undefined) {
-              this.userId = this.route.params['value'].id;
-            } else {
-              this.userId = this.sessionService.userId;
-            }
-
-            var groupParams = {
-              LookupTypeId: 24
-            };
-            this.apiSubscibe = this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this6.bloodGroupData = res;
-            });
-
-            if (this.isAdmin) {
-              var getAllApartmentParam = {
-                userId: this.userId
-              };
-              this.apartmentService.getAllApartmentBlockUnitUsersByUserId(getAllApartmentParam).subscribe(function (unit) {
-                _this6.unitListData = unit;
-
-                _this6.apartmentService.getApartmentBlockUnitByUserId(getAllApartmentParam).subscribe(function (res) {
-                  var data = res[0] || {};
-
-                  _this6.getUnitUserId(data.apartmentBlockUnitId);
-                }, function (error) {
-                  console.log(error);
-                });
-              });
-            } else {
+            if (!this.isAdmin) {
               this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
             }
 
-            if (this.isFamilyNew) {
-              this.user = {};
-              this.user.bloodGroup = "";
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unituserid) {
+                _this6.apartmentBlockUnitUserId = Number(params.unituserid);
+              }
+            }); // if(this.route.params['value'].id != undefined){
+            //   this.userId = this.route.params['value'].id
+            // }
+            // else {
+            //   this.userId = this.sessionService.userId;
+            // }
+            // if(this.isAdmin) {
+            //   let getAllApartmentParam = {
+            //     userId : this.userId
+            //   }
+            //   this.apartmentService.getAllApartmentBlockUnitUsersByUserId(getAllApartmentParam).subscribe((unit: any) => {
+            //     this.unitListData = unit;
+            //     this.apartmentService.getApartmentBlockUnitByUserId(getAllApartmentParam).subscribe((res: any) => {
+            //       let data = res[0] || {};
+            //       this.getUnitUserId(data.apartmentBlockUnitId);
+            //     },
+            //     error => {
+            //       console.log(error);
+            //     });
+            //   });
+            // } else {
+            //   this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            // }
+
+
+            if (this.user) {
+              this.userFormData = Object.assign({}, this.user);
             }
 
-            this.isDataLoaded = true;
-          }
-        }, {
-          key: "ngOnDestroy",
-          value: function ngOnDestroy() {
-            this.apiSubscibe.unsubscribe();
+            if (this.isFamilyNew) {
+              this.userFormData = {
+                relationship: null,
+                bloodGroup: null
+              };
+            } else {
+              this.userFormData.phoneNumber = {
+                'countryCode': this.userFormData.phoneNumbercountrycode,
+                'number': this.userFormData.phoneNumber
+              };
+            }
           }
         }, {
           key: "isAdmin",
@@ -1979,6 +1930,9 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         user: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        bloodGroupData: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         outputParams: [{
@@ -2091,17 +2045,14 @@
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.isDataLoaded = false;
+          this.bloodGroupList = [];
         }
 
         _createClass(ProfileFamilyMembersComponent, [{
           key: "getParams",
           value: function getParams(event) {
             if (event) {
-              if (this.isAdmin) {
-                this.getFamilyList(this.userId);
-              } else {
-                this.getFamilyList(this.sessionService.apartmentBlockUnitUserId);
-              }
+              this.getFamilyList(this.apartmentBlockUnitUserId);
             }
           }
         }, {
@@ -2121,6 +2072,8 @@
             this.userService.getUserFamilyMembersByUserId(getFamilyMember).subscribe(function (res) {
               _this7.familyDataList = res;
               _this7.isDataLoaded = true;
+            }, function (error) {
+              _this7.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -2128,16 +2081,25 @@
           value: function ngOnInit() {
             var _this8 = this;
 
-            this.userId = this.sessionService.profileUserId;
+            //this.userId = this.sessionService.profileUserId;
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+              this.getFamilyList(this.apartmentBlockUnitUserId);
+            }
 
             this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this8.apartmentBlockUnitUserId = params['unituserId'];
-              } else if (_this8.sessionService.roleTypeName != 'Admin') {
-                _this8.apartmentBlockUnitUserId = _this8.sessionService.apartmentBlockUnitUserId;
-              }
+              if (params && params.unituserid) {
+                _this8.apartmentBlockUnitUserId = Number(params.unituserid);
 
-              _this8.getFamilyList(_this8.apartmentBlockUnitUserId);
+                _this8.getFamilyList(_this8.apartmentBlockUnitUserId);
+              }
+            });
+
+            var groupParams = {
+              LookupTypeId: 24
+            };
+            this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
+              _this8.bloodGroupList = res;
             });
           }
         }, {
@@ -2851,23 +2813,17 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
 
@@ -2882,9 +2838,14 @@
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.modalService = modalService;
-          this.isDataLoaded = false;
+          this.isDataLoaded = true;
           this.isEdit = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          this.petFormData = {
+            pet: {
+              petTypeId: ''
+            }
+          };
         }
 
         _createClass(ProfilePetDetailsComponent, [{
@@ -2895,30 +2856,15 @@
         }, {
           key: "getSelectedPetType",
           value: function getSelectedPetType(event) {
-            this.pet.petTypeId = event[0].lookupValueId;
-          }
-        }, {
-          key: "getPetType",
-          value: function getPetType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.petTypeList, function (item) {
-              if (item.lookupValueId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
+            this.petFormData.pet.petTypeId = event[0].lookupValueId;
           }
         }, {
           key: "getDate",
           value: function getDate(date) {
-            if (date === undefined || date.length == 0) {
-              return "";
+            if (date) {
+              return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD-MM-YY");
             } else {
-              return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("DD-MM-YY");
+              return '';
             }
           }
         }, {
@@ -2929,156 +2875,186 @@
         }, {
           key: "submitProfilPetForm",
           value: function submitProfilPetForm(form) {
-            var _this18 = this;
-
-            this.isDataLoaded = false;
-
             if (!this.isEdit) {
-              var details = {
-                "petTypeId": parseInt(this.pet.petTypeId),
-                "dob": this.pet.dob,
-                "isActive": true,
-                "insertedBy": this.userId,
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2020-03-27T07:50:54.680Z"
-              };
-              var params = {
-                pet: details
-              };
-              this.petService.addPet(params).subscribe(function (res) {
-                if (res.message) {
-                  var unitDetails = {
-                    "apartmentBlockUnitId": parseInt(_this18.apartmentBlockUnitId),
-                    "petId": res.message,
-                    "isActive": true,
-                    "insertedBy": _this18.userId,
-                    "insertedOn": new Date().toISOString(),
-                    "updatedBy": 0,
-                    "updatedOn": "2020-03-27T07:52:53.767Z"
-                  };
-                  var _params2 = {
-                    apartmentBlockUnitPet: unitDetails
-                  };
-
-                  _this18.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
-                    if (res.message) {
-                      _this18.isDataLoaded = true;
-
-                      _this18.sharedService.setAlertMessage("Pet added successfully");
-
-                      _this18.outputParams.emit(true);
-                    } else {
-                      _this18.isDataLoaded = true;
-                    }
-                  });
-                } else {
-                  _this18.isDataLoaded = true;
-                }
-              });
+              this.createPet();
             } else {
-              var _details2 = {
-                "petId": this.pet.petId,
-                "petTypeId": parseInt(this.pet.petTypeId),
-                "dob": this.pet.dob,
-                "isActive": this.pet.isActive,
-                "insertedBy": this.pet.insertedBy,
-                "insertedOn": this.pet.insertedOn,
-                "updatedBy": this.userId,
-                "updatedOn": new Date().toISOString()
-              };
-              var _params3 = {
-                pet: _details2
-              };
-              this.petService.updatePet(_params3).subscribe(function (res) {
-                if (res.message) {
-                  var unitDetails = {
-                    "apartmentBlockUnitPetId": parseInt(_this18.petUnit.apartmentBlockUnitPetId),
-                    "apartmentBlockUnitId": parseInt(_this18.petUnit.apartmentBlockUnitId),
-                    "petId": parseInt(_this18.pet.petId),
-                    "isActive": _this18.petUnit.isActive,
-                    "insertedBy": _this18.petUnit.insertedBy,
-                    "insertedOn": _this18.petUnit.insertedOn,
-                    "updatedBy": _this18.userId,
-                    "updatedOn": new Date().toISOString()
-                  };
-                  var _params4 = {
-                    apartmentBlockUnitPet: unitDetails
-                  };
-
-                  _this18.petService.updateApartmentBlockUnitPet(_params4).subscribe(function (res) {
-                    if (res.message) {
-                      _this18.isDataLoaded = true;
-
-                      _this18.sharedService.setAlertMessage("Pet updated successfully");
-
-                      _this18.outputParams.emit(true);
-                    } else {
-                      _this18.isDataLoaded = true;
-                    }
-                  });
-                } else {
-                  _this18.isDataLoaded = true;
-                }
-              });
+              this.updatePet();
             }
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this19 = this;
+          key: "createPet",
+          value: function createPet() {
+            var _this18 = this;
 
-            this.userId = this.sessionService.profileUserId;
-            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-
-            this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this19.apartmentBlockUnitId = params['unitId'];
-              } else if (_this19.sessionService.roleTypeName != 'Admin') {
-                _this19.apartmentBlockUnitId = _this19.sessionService.apartmentBlockUnitID;
+            this.isDataLoaded = false;
+            var params = {
+              pet: {
+                "petTypeId": this.petFormData.pet.petTypeId,
+                "dob": this.petFormData.pet.dob,
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": 0,
+                "updatedOn": null
               }
-            });
-
-            this.pet = {};
-
-            if (this.petData != undefined) {
-              this.petUnit = this.petData;
-              this.pet = this.petData.pet;
-            } else {
-              this.pet.petTypeId = "";
-            }
-
-            this.isDataLoaded = true;
-            var petTypeParams = {
-              LookupTypeId: 85
             };
-            this.lookupService.getLookupValueByLookupTypeId(petTypeParams).subscribe(function (res) {
-              _this19.petTypeList = res;
-            });
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null) {
-                var params = {
-                  petId: parseInt(id),
-                  deleteBy: _this19.userId
+            this.petService.addPet(params).subscribe(function (res) {
+              if (res.message) {
+                var _params2 = {
+                  apartmentBlockUnitPet: {
+                    "apartmentBlockUnitId": _this18.apartmentBlockUnitId,
+                    "petId": res.message,
+                    "isActive": true,
+                    "insertedBy": _this18.sessionService.userId,
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": 0,
+                    "updatedOn": null
+                  }
                 };
 
-                _this19.petService.deletePet(params).subscribe(function (res) {
+                _this18.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
+                  if (res.message) {
+                    _this18.isDataLoaded = true;
+                    _this18.petFormData.pet.petTypeId = '';
+                    _this18.petFormData.pet.dob = '';
+
+                    _this18.sharedService.openSnackBar("Pet added successfully", 'success');
+
+                    _this18.outputParams.emit(true);
+                  } else {
+                    _this18.isDataLoaded = true;
+
+                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this18.isDataLoaded = true;
+
+                  _this18.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this18.isDataLoaded = true;
+
+                _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this18.isDataLoaded = true;
+
+              _this18.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "updatePet",
+          value: function updatePet() {
+            var _this19 = this;
+
+            this.isDataLoaded = false;
+            var details = {
+              "petId": this.petFormData.pet.petId,
+              "petTypeId": this.petFormData.pet.petTypeId,
+              "dob": this.petFormData.pet.dob,
+              "isActive": this.petFormData.pet.isActive,
+              "insertedBy": this.petFormData.pet.insertedBy,
+              "insertedOn": this.petFormData.pet.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": new Date().toISOString()
+            };
+            var params = {
+              pet: details
+            };
+            this.petService.updatePet(params).subscribe(function (res) {
+              if (res.message) {
+                var _params3 = {
+                  apartmentBlockUnitPet: {
+                    "apartmentBlockUnitPetId": _this19.petFormData.apartmentBlockUnitPetId,
+                    "apartmentBlockUnitId": _this19.petFormData.apartmentBlockUnitId,
+                    "petId": _this19.petFormData.petId,
+                    "isActive": _this19.petFormData.isActive,
+                    "insertedBy": _this19.petFormData.insertedBy,
+                    "insertedOn": _this19.petFormData.insertedOn,
+                    "updatedBy": _this19.sessionService.userId,
+                    "updatedOn": new Date().toISOString()
+                  }
+                };
+
+                _this19.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
                   if (res.message) {
                     _this19.isDataLoaded = true;
 
-                    _this19.sharedService.setAlertMessage("Pet deleted");
+                    _this19.sharedService.openSnackBar("Pet updated successfully", 'success');
 
                     _this19.outputParams.emit(true);
                   } else {
                     _this19.isDataLoaded = true;
+
+                    _this19.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
+                }, function (error) {
+                  _this19.isDataLoaded = true;
+
+                  _this19.sharedService.openSnackBar('Server Error', 'error');
                 });
+              } else {
+                _this19.isDataLoaded = true;
+
+                _this19.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this19.isDataLoaded = true;
+
+              _this19.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
-          key: "ngOnChanges",
-          value: function ngOnChanges(changes) {}
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this20 = this;
+
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unitId) {
+                _this20.apartmentBlockUnitId = Number(params.unitId);
+              }
+            });
+
+            if (this.petData) {
+              this.petFormData = Object.assign({}, this.petData);
+            } // this.pet = {};
+            // if(this.petData != undefined){
+            //   this.petUnit = this.petData
+            //   this.pet = this.petData.pet;
+            // }
+            // else {
+            //   this.pet.petTypeId = "";
+            // }
+            // this.isDataLoaded = true;
+            // this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            //   if (id != null) {
+            //     let params = {
+            //       petId: parseInt(id),
+            //       deleteBy: this.userId
+            //     }
+            //     this.petService.deletePet(params).subscribe((res:any) => {
+            //       if(res.message){
+            //         this.isDataLoaded = true;  
+            //         this.sharedService.setAlertMessage("Pet deleted");
+            //         this.outputParams.emit(true);
+            //       }
+            //       else {
+            //         this.isDataLoaded = true;
+            //       }
+            //     })
+            //   }
+            // });
+
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
+          }
         }]);
 
         return ProfilePetDetailsComponent;
@@ -3098,7 +3074,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
-          type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]
+          type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]
         }];
       };
 
@@ -3109,8 +3085,9 @@
         isPetNew: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
-        apartmentBlockUnitId: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        petTypeList: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
+          args: ['dropDownList']
         }],
         outputParams: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
@@ -3124,7 +3101,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-pet-details.component.scss */
         "./src/app/modules/profile/profile-pet-details/profile-pet-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]])], ProfilePetDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]])], ProfilePetDetailsComponent);
       /***/
     },
 
@@ -3206,102 +3183,100 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
 
       var ProfilePetComponent = /*#__PURE__*/function () {
-        function ProfilePetComponent(_router, _activatedRoute, petService, lookupService, sessionService) {
+        function ProfilePetComponent(_activatedRoute, petService, sharedService, lookupService, sessionService) {
           _classCallCheck(this, ProfilePetComponent);
 
-          this._router = _router;
           this._activatedRoute = _activatedRoute;
           this.petService = petService;
+          this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
           this.isUserDataLoaded = false;
-          this.isPetsAvailable = false;
+          this.petDataList = [];
+          this.petTypeList = [];
         }
 
         _createClass(ProfilePetComponent, [{
-          key: "showUnitDetails",
-          value: function showUnitDetails() {
-            var _this20 = this;
+          key: "getDate",
+          value: function getDate(date) {
+            if (date) {
+              return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("DD-MM-YY");
+            } else {
+              return '';
+            }
+          }
+        }, {
+          key: "getParams",
+          value: function getParams(event) {
+            if (event) {
+              this.showUnitPetDetails(this.apartmentBlockUnitId);
+            }
+          }
+        }, {
+          key: "showUnitPetDetails",
+          value: function showUnitPetDetails(id) {
+            var _this21 = this;
 
             this.isUserDataLoaded = false;
             var petListParams = {
-              apartmentBlockUnitId: this.apartmentBlockUnitId
+              apartmentBlockUnitId: id
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length != 0) {
-                _this20.petDataList = res.filter(function (item) {
-                  return item.pet.isActive;
-                });
-                _this20.isPetsAvailable = true;
-              } else {
-                _this20.isPetsAvailable = false;
+                _this21.petDataList = res.reverse();
               }
 
-              _this20.isUserDataLoaded = true;
+              _this21.isUserDataLoaded = true;
+            }, function (error) {
+              _this21.sharedService.openSnackBar('Server Error', 'error');
             });
-          }
-        }, {
-          key: "getPetType",
-          value: function getPetType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.petTypeList, function (item) {
-              if (item.lookupValueId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          }
-        }, {
-          key: "getDate",
-          value: function getDate(date) {
-            if (date === undefined || date.length == 0) {
-              return "";
-            } else {
-              return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD-MM-YY");
-            }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
-            this.userId = this.sessionService.profileUserId;
-            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            //this.userId = this.sessionService.profileUserId;
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+              this.showUnitPetDetails(this.apartmentBlockUnitId);
+            }
 
             this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this21.apartmentBlockUnitId = params['unitId'];
-              } else if (_this21.sessionService.roleTypeName != 'Admin') {
-                _this21.apartmentBlockUnitId = _this21.sessionService.apartmentBlockUnitID;
-              }
-            });
+              if (params && params.unitId) {
+                _this22.apartmentBlockUnitId = Number(params.unitId);
 
-            this.showUnitDetails();
+                _this22.showUnitPetDetails(_this22.apartmentBlockUnitId);
+              }
+            }); //Pet DropDown
+
+
             var petParams = {
               LookupTypeId: 85
             };
             this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-              _this21.petTypeList = res;
+              _this22.petTypeList = res;
             });
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -3310,11 +3285,11 @@
 
       ProfilePetComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
           type: src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
@@ -3330,7 +3305,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-pet.component.scss */
         "./src/app/modules/profile/profile-pet/profile-pet.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfilePetComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfilePetComponent);
       /***/
     },
 
@@ -3449,33 +3424,33 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this22 = this;
+            var _this23 = this;
 
             var file = event[0];
             this.profilepPicUploadService.upload(file, this.user.emailId).subscribe(function (res) {
               if (res != undefined) {
-                _this22.uploadResponse = res;
-                var offset = _this22.circumference - _this22.uploadResponse.message / 100 * _this22.circumference;
-                _this22.circle.style.strokeDashoffset = offset;
+                _this23.uploadResponse = res;
+                var offset = _this23.circumference - _this23.uploadResponse.message / 100 * _this23.circumference;
+                _this23.circle.style.strokeDashoffset = offset;
               }
 
-              if (_this22.isUploadCompleted()) {
+              if (_this23.isUploadCompleted()) {
                 var userParams = {
-                  userid: _this22.user.userId
+                  userid: _this23.user.userId
                 };
 
-                _this22.userService.getUserById(userParams).subscribe(function (res) {
+                _this23.userService.getUserById(userParams).subscribe(function (res) {
                   var imagePath = 'data:image/png;base64,' + res[0].image;
 
-                  _this22.sharedService.setProfilePic(imagePath);
+                  _this23.sharedService.setProfilePic(imagePath);
 
-                  _this22.initialiseProgressRing();
+                  _this23.initialiseProgressRing();
                 }, function (error) {
                   console.log(error);
                 });
               }
             }, function (err) {
-              _this22.error = err;
+              _this23.error = err;
             });
           }
         }, {
@@ -3489,13 +3464,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this24 = this;
 
             this.imageFormats = this.constantsService.imageFormats.join(',');
             this.circle = document.querySelector('.progress-ring__circle');
             this.initialiseProgressRing();
             this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-              _this23.profilePicUrl = profilePicUrl;
+              _this24.profilePicUrl = profilePicUrl;
             });
           }
         }]);
@@ -3638,7 +3613,7 @@
          * @param {MatDialog} _matDialog
          */
         function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
-          var _this24 = this;
+          var _this25 = this;
 
           _classCallCheck(this, ProfileSidebarComponent);
 
@@ -3663,7 +3638,7 @@
 
           this._activatedRoute.queryParams.subscribe(function (params) {
             if (params['type'] != undefined) {
-              _this24.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
+              _this25.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
             }
           });
 
@@ -3678,24 +3653,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this25.user = data.initialData.profileUser;
+              _this26.user = data.initialData.profileUser;
             }); //if profile from unapproved and approved modules
 
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['unituserid'] != undefined) {
                 var userparams = {
-                  apartmentId: _this25.sessionService.apartmentId,
+                  apartmentId: _this26.sessionService.apartmentId,
                   apartmentBlockUnitUserId: params['unituserid']
                 };
 
-                _this25.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
-                  _this25.user.roleName = res[0].roleName;
+                _this26.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
+                  _this26.user.roleName = res[0].roleName;
                 });
               }
             }); // Generate menu links
@@ -3717,7 +3692,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this26 = this;
+            var _this27 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -3730,7 +3705,7 @@
                 type: 'basic',
                 icon: folder.icon,
                 query: 'preserve',
-                link: '/' + _this26.pagePath() + '/profile/' + folder.slug
+                link: '/' + _this27.pagePath() + '/profile/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -3742,7 +3717,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this26._foldersMenuData.push(menuItem);
+              _this27._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -3750,19 +3725,19 @@
         }, {
           key: "_generateSettingsMenuLinks",
           value: function _generateSettingsMenuLinks() {
-            var _this27 = this;
+            var _this28 = this;
 
             // Reset the labels menu
             this._settingsMenuData = []; // Iterate through the labels
 
             this.settings.forEach(function (setting) {
               // Generate menu item for the label
-              _this27._settingsMenuData.push({
+              _this28._settingsMenuData.push({
                 id: setting.id,
                 title: setting.title,
                 type: 'basic',
                 icon: setting.icon,
-                link: '/' + _this27.pagePath() + '/profile/' + setting.slug
+                link: '/' + _this28.pagePath() + '/profile/' + setting.slug
               });
             }); // Update the menu data
 
@@ -4056,15 +4031,15 @@
         }, {
           key: "getSelectedBlock",
           value: function getSelectedBlock(event) {
-            var _this28 = this;
+            var _this29 = this;
 
             this.block.apartmentBlockId = event[0].apartmentBlockId;
             var params = {
               apartmentBlockId: parseInt(this.block.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this28.blockUnitData = res;
-              _this28.isBlockSelected = true;
+              _this29.blockUnitData = res;
+              _this29.isBlockSelected = true;
             });
           }
         }, {
@@ -4125,7 +4100,7 @@
         }, {
           key: "submitProfileUnitForm",
           value: function submitProfileUnitForm(form) {
-            var _this29 = this;
+            var _this30 = this;
 
             this.isUserDataLoaded = false;
             var apartmentBlockUnitUser = {
@@ -4146,40 +4121,40 @@
             this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
               if (res.message) {
                 var details = {
-                  "apartmentBlockUnitId": parseInt(_this29.block.apartmentBlockUnitId),
-                  "apartmentBlockUnitNumber": _this29.block.apartmentBlockUnitNumber,
-                  "apartmentBlockId": parseInt(_this29.block.apartmentBlockId),
-                  "unitTypeId": _this29.block.unitTypeId,
-                  "builtupArea": _this29.block.builtupArea,
-                  "carpetArea": _this29.block.carpetArea,
-                  "intercom": _this29.block.intercom,
-                  "cars": parseInt(_this29.block.cars),
-                  "isAvailableForRent": _this29.block.isAvailableForRent,
+                  "apartmentBlockUnitId": parseInt(_this30.block.apartmentBlockUnitId),
+                  "apartmentBlockUnitNumber": _this30.block.apartmentBlockUnitNumber,
+                  "apartmentBlockId": parseInt(_this30.block.apartmentBlockId),
+                  "unitTypeId": _this30.block.unitTypeId,
+                  "builtupArea": _this30.block.builtupArea,
+                  "carpetArea": _this30.block.carpetArea,
+                  "intercom": _this30.block.intercom,
+                  "cars": parseInt(_this30.block.cars),
+                  "isAvailableForRent": _this30.block.isAvailableForRent,
                   "availableDate": "2019-12-13T07:07:59.550Z",
-                  "rentAmount": _this29.block.rentAmount,
-                  "advanceAmount": _this29.block.advanceAmount,
-                  "isPetsAllowed": _this29.block.isPetsAllowed,
-                  "isFurnished": _this29.block.isFurnished,
-                  "isVacant": _this29.block.isVacant,
+                  "rentAmount": _this30.block.rentAmount,
+                  "advanceAmount": _this30.block.advanceAmount,
+                  "isPetsAllowed": _this30.block.isPetsAllowed,
+                  "isFurnished": _this30.block.isFurnished,
+                  "isVacant": _this30.block.isVacant,
                   "propertyManagerId": null,
-                  "isActive": _this29.block.isActive,
-                  "insertedBy": _this29.block.insertedBy,
-                  "insertedOn": _this29.block.insertedOn,
-                  "updatedBy": parseInt(_this29.sessionService.userId),
+                  "isActive": _this30.block.isActive,
+                  "insertedBy": _this30.block.insertedBy,
+                  "insertedOn": _this30.block.insertedOn,
+                  "updatedBy": parseInt(_this30.sessionService.userId),
                   "updatedOn": new Date().toISOString()
                 };
                 var apartmentBlockUnitParams = {
                   apartmentBlockUnit: details
                 };
 
-                _this29.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
+                _this30.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this29.isUserDataLoaded = true;
-                    _this29.isEdit = false;
+                    _this30.isUserDataLoaded = true;
+                    _this30.isEdit = false;
 
-                    _this29.sharedService.setAlertMessage("Unit updated successfully");
+                    _this30.sharedService.setAlertMessage("Unit updated successfully");
 
-                    _this29.isBlockSelected = false;
+                    _this30.isBlockSelected = false;
                   } else {}
                 }, function (error) {});
               } else {}
@@ -4188,7 +4163,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this31 = this;
 
             this.block = {};
             this.userId = this.sessionService.profileUserId;
@@ -4198,13 +4173,13 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {
-                _this30.block.apartmentBlockId = params['blockId'];
-                _this30.block.apartmentBlockUnitId = params['unitId'];
-                _this30.apartmentBlockUnitUserId = params['unituserId'];
-              } else if (_this30.sessionService.roleTypeName != 'Admin') {
-                _this30.block.apartmentBlockId = _this30.sessionService.apartmentBlockID;
-                _this30.block.apartmentBlockUnitId = _this30.sessionService.apartmentBlockUnitID;
-                _this30.apartmentBlockUnitUserId = _this30.sessionService.apartmentBlockUnitUserId;
+                _this31.block.apartmentBlockId = params['blockId'];
+                _this31.block.apartmentBlockUnitId = params['unitId'];
+                _this31.apartmentBlockUnitUserId = params['unituserId'];
+              } else if (_this31.sessionService.roleTypeName != 'Admin') {
+                _this31.block.apartmentBlockId = _this31.sessionService.apartmentBlockID;
+                _this31.block.apartmentBlockUnitId = _this31.sessionService.apartmentBlockUnitID;
+                _this31.apartmentBlockUnitUserId = _this31.sessionService.apartmentBlockUnitUserId;
               }
             });
 
@@ -4213,45 +4188,45 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this30.blockData = res;
+              _this31.blockData = res;
             });
             var params = {
               apartmentBlockId: parseInt(this.block.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this30.blockUnitData = res;
-              _this30.isBlockSelected = true;
+              _this31.blockUnitData = res;
+              _this31.isBlockSelected = true;
             });
             var queryParamBase = {
               userId: this.userId
             }; // get role
 
             this.userService.getRolesByUserId(queryParamBase).subscribe(function (data) {
-              _this30.userType = data[0].roleId.toString();
+              _this31.userType = data[0].roleId.toString();
             }, function (error) {});
             var unitTypeParams = {
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-              _this30.unitTypeData = res;
+              _this31.unitTypeData = res;
               var queryParamBase = {
-                userId: _this30.userId
+                userId: _this31.userId
               };
 
-              _this30.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
-                _this30.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this30.unitListData, function (item) {
+              _this31.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
+                _this31.unitListData = unit;
+                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this31.unitListData, function (item) {
                   var queryParamBase = {
                     apartmentBlockUnitId: item.apartmentBlockUnitId
                   };
 
-                  _this30.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
-                    _this30.unitNameList.push(data[0]);
+                  _this31.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
+                    _this31.unitNameList.push(data[0]);
 
-                    _this30.isUserDataLoaded = true;
-                    var id = _this30.unitListData[0].apartmentBlockUnitId;
+                    _this31.isUserDataLoaded = true;
+                    var id = _this31.unitListData[0].apartmentBlockUnitId;
 
-                    _this30.showUnitDetails(id);
+                    _this31.showUnitDetails(id);
                   }, function (error) {});
                 });
               }, function (error) {});
@@ -4394,7 +4369,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLXVzZXItYWJzZW5jZS9wcm9maWxlLXVzZXItYWJzZW5jZS5jb21wb25lbnQuc2NzcyJ9 */";
+      __webpack_exports__["default"] = ".intl-tel-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9wcm9maWxlL3Byb2ZpbGUtdXNlci1hYnNlbmNlL3Byb2ZpbGUtdXNlci1hYnNlbmNlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9wcm9maWxlL3Byb2ZpbGUtdXNlci1hYnNlbmNlL3Byb2ZpbGUtdXNlci1hYnNlbmNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmludGwtdGVsLWlucHV0IHtcbiAgICB3aWR0aDogMTAwJTtcbn0iXX0= */";
       /***/
     },
 
@@ -4450,122 +4425,92 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-      /* harmony import */
-
-
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/shared/services/modal.service */
-      "./src/app/shared/services/modal.service.ts");
-      /* harmony import */
-
-
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ../profile-user-absence-history/profile-user-absence-history.component */
+      "./src/app/modules/profile/profile-user-absence-history/profile-user-absence-history.component.ts");
 
       var ProfileUserAbsenceComponent = /*#__PURE__*/function () {
-        function ProfileUserAbsenceComponent(_router, _activatedRoute, injector, apartmentService, sharedService, sessionService) {
+        function ProfileUserAbsenceComponent(_activatedRoute, apartmentService, sharedService, sessionService, dialog) {
           _classCallCheck(this, ProfileUserAbsenceComponent);
 
-          this._router = _router;
           this._activatedRoute = _activatedRoute;
-          this.injector = injector;
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.dialog = dialog;
+          this.data = {};
           this.isDataLoaded = false;
-          this.isEdit = false;
+          this.clickMode = 'showAll';
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"];
-          this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormGroup"]({
-            localContactP1phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required]),
-            localcontactP1alternatephone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required]),
-            localContactP2phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required]),
-            localcontactP2alternatephone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required])
-          });
-          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"].UnitedKingdom];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
         }
 
         _createClass(ProfileUserAbsenceComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this31 = this;
-
-            this.data = {};
-            this.userId = this.sessionService.profileUserId;
-
-            this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this31.apartmentBlockUnitId = params['unitId'];
-                _this31.apartmentBlockUnitUserId = params['unituserId'];
-              } else if (_this31.sessionService.roleTypeName != 'Admin') {
-                _this31.apartmentBlockUnitId = _this31.sessionService.apartmentBlockUnitID;
-                _this31.apartmentBlockUnitUserId = _this31.sessionService.apartmentBlockUnitUserId;
-              }
-            });
-
-            this.getHistoryData();
-          }
-        }, {
-          key: "getHistoryData",
-          value: function getHistoryData() {
-            var _this32 = this;
-
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              ApartmentBlockUnitUserId: this.apartmentBlockUnitUserId
-            };
-            this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
-              _this32.historyListData = unit.filter(function (data) {
-                return data.isActive;
-              });
-              var length = _this32.historyListData.length - 1;
-              _this32.data = _this32.historyListData[length];
-              _this32.isDataLoaded = true;
-            }, function (error) {});
-          }
-        }, {
           key: "showEditForm",
           value: function showEditForm(type) {
-            this.isEdit = !this.isEdit;
-
-            if (type == 'reset') {
+            if (type == 'add') {
               this.data = {};
-            } else {
-              var length = this.historyListData.length - 1;
-              this.data = this.historyListData.length ? this.historyListData[length] : {};
+            } else if (type == 'edit') {
+              this.data = Object.assign({}, this.historyListData[0]);
+              this.data.localContactP1phone = {
+                'number': this.data.localContactP1phone,
+                'countryCode': this.data.localContactP1phoneCountrycode
+              };
+              this.data.localcontactP1alternatephone = {
+                'number': this.data.localcontactP1alternatephone,
+                'countryCode': this.data.localContactP1alternatePhoneCountrycode
+              };
+              this.data.localContactP2phone = {
+                'number': this.data.localContactP2phone,
+                'countryCode': this.data.localContactP2phoneCountrycode
+              };
+              this.data.localcontactP2alternatephone = {
+                'number': this.data.localcontactP2alternatephone,
+                'countryCode': this.data.localContactP2alternatePhoneCountrycode
+              };
+            } else if (type == 'showAll') {
+              this.data = Object.assign({}, this.historyListData[0]);
             }
+
+            this.clickMode = type;
           }
         }, {
           key: "showHistory",
           value: function showHistory() {
-            this.modalService.showUserAbsenceHistoryModal(this.historyListData);
+            this.dialog.open(_profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_8__["ProfileUserAbsenceHistoryComponent"], {
+              panelClass: 'material-dialog-big',
+              data: this.historyListData
+            });
           }
         }, {
           key: "submitAbsenceForm",
           value: function submitAbsenceForm(form) {
-            var _this33 = this;
+            if (this.clickMode == 'add') this.createAbsenceForm();else if (this.clickMode == 'edit') this.updateAbsenceForm();
+          }
+        }, {
+          key: "createAbsenceForm",
+          value: function createAbsenceForm() {
+            var _this32 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -4574,17 +4519,21 @@
               "outFrom": this.data.outFrom,
               "outTo": this.data.outTo,
               "localContactP1": this.data.localContactP1,
-              "localContactP1phone": this.phoneForm.value.localContactP1phone.e164Number,
-              "localcontactP1alternatephone": this.phoneForm.value.localcontactP1alternatephone.e164Number,
+              "localContactP1phone": this.data.localContactP1phone.number,
+              "localContactP1phoneCountrycode": this.data.localContactP1phone.countryCode,
+              "localcontactP1alternatephone": this.data.localcontactP1alternatephone.number,
+              "localContactP1alternatePhoneCountrycode": this.data.localcontactP1alternatephone.countryCode,
               "localcontactP1email": this.data.localcontactP1email,
               "localContactP2": this.data.localContactP2,
-              "localContactP2phone": this.phoneForm.value.localContactP2phone.e164Number,
-              "localcontactP2alternatephone": this.phoneForm.value.localcontactP2alternatephone.e164Number,
+              "localContactP2phone": this.data.localContactP2phone.number,
+              "localContactP2phoneCountrycode": this.data.localContactP2phone.countryCode,
+              "localcontactP2alternatephone": this.data.localcontactP2alternatephone.number,
+              "localContactP2alternatePhoneCountrycode": this.data.localcontactP2alternatephone.countryCode,
               "localcontactP2email": this.data.localcontactP2email,
               "outofCondoStatusId": 5,
               "isActive": true,
-              "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
+              "insertedBy": this.sessionService.userId,
+              "insertedOn": new Date().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
@@ -4592,21 +4541,107 @@
             var params = {
               apartmentLongAbsence: details
             };
-            this.apartmentService.addApartmentLongAbsence(params).subscribe(function (data) {
-              if (data.message) {
-                _this33.data = {};
+            this.apartmentService.addApartmentLongAbsence(params).subscribe(function (res) {
+              _this32.isDataLoaded = true;
 
-                _this33.sharedService.setAlertMessage("Out of condo Info added successfully");
+              if (res.message) {
+                _this32.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
+
+                _this32.getHistoryData();
+              } else {
+                _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this32.isDataLoaded = false;
+
+              _this32.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "updateAbsenceForm",
+          value: function updateAbsenceForm() {
+            var _this33 = this;
+
+            this.isDataLoaded = false;
+            var params = {
+              apartmentLongAbsence: Object.assign(Object.assign({}, this.data), {
+                "localContactP1phone": this.data.localContactP1phone.number,
+                "localContactP1phoneCountrycode": this.data.localContactP1phone.countryCode,
+                "localcontactP1alternatephone": this.data.localcontactP1alternatephone.number,
+                "localContactP1alternatePhoneCountrycode": this.data.localcontactP1alternatephone.countryCode,
+                "localContactP2phone": this.data.localContactP2phone.number,
+                "localContactP2phoneCountrycode": this.data.localContactP2phone.countryCode,
+                "localcontactP2alternatephone": this.data.localcontactP2alternatephone.number,
+                "localContactP2alternatePhoneCountrycode": this.data.localcontactP2alternatephone.countryCode,
+                "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": new Date().toISOString()
+              })
+            };
+            this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
+              _this33.isDataLoaded = true;
+
+              if (res.message) {
+                _this33.sharedService.openSnackBar(res.message, 'success');
 
                 _this33.getHistoryData();
-
-                _this33.isEdit = false;
+              } else {
+                _this33.sharedService.openSnackBar(res.errorMessage, 'error');
               }
-
-              _this33.isDataLoaded = true;
             }, function (error) {
               _this33.isDataLoaded = false;
+
+              _this33.sharedService.openSnackBar('Server Error', 'error');
             });
+          }
+        }, {
+          key: "getHistoryData",
+          value: function getHistoryData() {
+            var _this34 = this;
+
+            this.isDataLoaded = false;
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              ApartmentBlockUnitUserId: this.apartmentBlockUnitUserId
+            };
+            this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
+              _this34.historyListData = unit.reverse();
+
+              if (_this34.historyListData.length > 0) {
+                _this34.data = _this34.historyListData[0];
+                _this34.clickMode = 'showAll';
+              }
+
+              _this34.isDataLoaded = true;
+            }, function (error) {
+              _this34.isDataLoaded = true;
+
+              _this34.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this35 = this;
+
+            //this.userId = this.sessionService.profileUserId;
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID, this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+              this.getHistoryData();
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unituserid && params.unitId) {
+                _this35.apartmentBlockUnitId = Number(params.unitId), _this35.apartmentBlockUnitUserId = Number(params.unituserid);
+
+                _this35.getHistoryData();
+              }
+            });
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -4615,17 +4650,15 @@
 
       ProfileUserAbsenceComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
         }];
       };
 
@@ -4634,10 +4667,11 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./profile-user-absence.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-user-absence/profile-user-absence.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-user-absence.component.scss */
         "./src/app/modules/profile/profile-user-absence/profile-user-absence.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], ProfileUserAbsenceComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], ProfileUserAbsenceComponent);
       /***/
     },
 
@@ -4764,7 +4798,7 @@
         }, {
           key: "submitProfilVehicleForm",
           value: function submitProfilVehicleForm(form) {
-            var _this34 = this;
+            var _this36 = this;
 
             this.isDataLoaded = false;
 
@@ -4788,9 +4822,9 @@
               this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
                 if (res.message) {
                   var unitDetails = {
-                    "apartmentBlockUnitId": parseInt(_this34.apartmentBlockUnitId),
+                    "apartmentBlockUnitId": parseInt(_this36.apartmentBlockUnitId),
                     "vehicleId": res.message,
-                    "userId": _this34.userId,
+                    "userId": _this36.userId,
                     "documentId": null,
                     "parkingSlotId": null,
                     "stickerNumber": "string",
@@ -4799,7 +4833,7 @@
                     "toDate": "2020-03-26T20:30:26.576Z",
                     "isPassIssued": true,
                     "isActive": true,
-                    "insertedBy": parseInt(_this34.sessionService.userId),
+                    "insertedBy": parseInt(_this36.sessionService.userId),
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": "2020-03-26T20:30:26.576Z"
@@ -4808,23 +4842,23 @@
                     apartmentBlockUnitVehicle: unitDetails
                   };
 
-                  _this34.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                  _this36.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                     if (res.message) {
-                      _this34.isDataLoaded = true;
+                      _this36.isDataLoaded = true;
 
-                      _this34.sharedService.setAlertMessage("Vehicle added successfully");
+                      _this36.sharedService.setAlertMessage("Vehicle added successfully");
 
-                      _this34.outputParams.emit(true);
+                      _this36.outputParams.emit(true);
                     } else {
-                      _this34.isDataLoaded = true;
+                      _this36.isDataLoaded = true;
                     }
                   });
                 } else {
-                  _this34.isDataLoaded = true;
+                  _this36.isDataLoaded = true;
                 }
               });
             } else {
-              var _details3 = {
+              var _details2 = {
                 "vehicleId": parseInt(this.vehicle.vehicleId),
                 "vehicleNumber": this.vehicle.vehicleNumber,
                 "vehicleTypeId": parseInt(this.vehicle.vehicleTypeId),
@@ -4839,45 +4873,45 @@
                 "updatedOn": new Date().toISOString()
               };
               var _vehicleParams = {
-                vehicle: _details3
+                vehicle: _details2
               };
               this.vehicleService.updateVehicle(_vehicleParams).subscribe(function (res) {
                 if (res.message) {
                   var unitDetails = {
-                    "apartmentBlockUnitVehicleId": parseInt(_this34.vehicleUnit.apartmentBlockUnitVehicleId),
-                    "apartmentBlockUnitId": parseInt(_this34.apartmentBlockUnitId),
-                    "vehicleId": parseInt(_this34.vehicle.vehicleId),
-                    "userId": _this34.userId,
+                    "apartmentBlockUnitVehicleId": parseInt(_this36.vehicleUnit.apartmentBlockUnitVehicleId),
+                    "apartmentBlockUnitId": parseInt(_this36.apartmentBlockUnitId),
+                    "vehicleId": parseInt(_this36.vehicle.vehicleId),
+                    "userId": _this36.userId,
                     "documentId": null,
                     "parkingSlotId": null,
                     "stickerNumber": "string",
                     "rfid": "string",
                     "fromDate": "2020-03-26T20:30:26.576Z",
                     "toDate": "2020-03-26T20:30:26.576Z",
-                    "isPassIssued": _this34.vehicle.isPassIssued,
-                    "isActive": _this34.vehicle.isActive,
-                    "insertedBy": _this34.vehicle.insertedBy,
-                    "insertedOn": _this34.vehicle.insertedOn,
-                    "updatedBy": parseInt(_this34.sessionService.userId),
+                    "isPassIssued": _this36.vehicle.isPassIssued,
+                    "isActive": _this36.vehicle.isActive,
+                    "insertedBy": _this36.vehicle.insertedBy,
+                    "insertedOn": _this36.vehicle.insertedOn,
+                    "updatedBy": parseInt(_this36.sessionService.userId),
                     "updatedOn": new Date().toISOString()
                   };
                   var unitParams = {
                     apartmentBlockUnitVehicle: unitDetails
                   };
 
-                  _this34.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                  _this36.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                     if (res.message) {
-                      _this34.isDataLoaded = true;
+                      _this36.isDataLoaded = true;
 
-                      _this34.sharedService.setAlertMessage("Vehicle updated successfully");
+                      _this36.sharedService.setAlertMessage("Vehicle updated successfully");
 
-                      _this34.outputParams.emit(true);
+                      _this36.outputParams.emit(true);
                     } else {
-                      _this34.isDataLoaded = true;
+                      _this36.isDataLoaded = true;
                     }
                   });
                 } else {
-                  _this34.isDataLoaded = true;
+                  _this36.isDataLoaded = true;
                 }
               });
             }
@@ -4885,7 +4919,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this37 = this;
 
             this.userId = this.sessionService.userId;
             this.vehicleUnit = {};
@@ -4903,7 +4937,7 @@
               LookupTypeId: 2
             };
             this.lookupService.getLookupValueByLookupTypeId(vehcileTypeParams).subscribe(function (res) {
-              _this35.vehicleTypeList = res;
+              _this37.vehicleTypeList = res;
             });
           }
         }, {
@@ -5077,7 +5111,7 @@
         _createClass(ProfileVehiclesComponent, [{
           key: "showUnitDetails",
           value: function showUnitDetails(id) {
-            var _this36 = this;
+            var _this38 = this;
 
             // this.isUserDataLoaded = false;
             this.isUnitSelected = true;
@@ -5085,14 +5119,14 @@
               apartmentBlockUnitId: parseInt(id)
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this36.vehicleDataList = res;
-              _this36.isUserDataLoaded = true;
+              _this38.vehicleDataList = res;
+              _this38.isUserDataLoaded = true;
             });
             var parkingListParams = {
               apartmentIdBlockUnitId: parseInt(id)
             };
             this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-              _this36.parkingSlotsDataList = res;
+              _this38.parkingSlotsDataList = res;
             });
           }
         }, {
@@ -5128,15 +5162,15 @@
         }, {
           key: "getParams",
           value: function getParams(event) {
-            var _this37 = this;
+            var _this39 = this;
 
             if (event) {
               var params = {
                 apartmentBlockUnitId: parseInt(this.userUnitId)
               };
               this.vehicleService.getAllVehiclesByApartmentBlockUnitId(params).subscribe(function (res) {
-                _this37.vehicleDataList = res;
-                _this37.isUserDataLoaded = true;
+                _this39.vehicleDataList = res;
+                _this39.isUserDataLoaded = true;
               });
             }
           }
@@ -5153,7 +5187,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this38 = this;
+            var _this40 = this;
 
             this.userId = this.sessionService.profileUserId;
             this.unitNameList = [];
@@ -5161,38 +5195,38 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this38.blockData = res;
+              _this40.blockData = res;
             });
             var vehicleTypeParams = {
               LookupTypeId: 2
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this38.vehicleTypeList = res;
+              _this40.vehicleTypeList = res;
             });
             var unitTypeParams = {
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-              _this38.unitTypeData = res;
+              _this40.unitTypeData = res;
               var unitUserParam = {
-                userId: _this38.userId
+                userId: _this40.userId
               };
 
-              _this38.apartmentService.getAllApartmentBlockUnitUsersByUserId(unitUserParam).subscribe(function (unit) {
-                _this38.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this38.unitListData, function (item) {
+              _this40.apartmentService.getAllApartmentBlockUnitUsersByUserId(unitUserParam).subscribe(function (unit) {
+                _this40.unitListData = unit;
+                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this40.unitListData, function (item) {
                   var apartmentBlockUnitParam = {
                     apartmentBlockUnitId: item.apartmentBlockUnitId
                   };
 
-                  _this38.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitParam).subscribe(function (data) {
-                    _this38.unitNameList.push(data[0]);
+                  _this40.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitParam).subscribe(function (data) {
+                    _this40.unitNameList.push(data[0]);
 
-                    _this38.isUserDataLoaded = true;
-                    var id = _this38.unitListData[0].apartmentBlockUnitId;
-                    _this38.userUnitId = id;
+                    _this40.isUserDataLoaded = true;
+                    var id = _this40.unitListData[0].apartmentBlockUnitId;
+                    _this40.userUnitId = id;
 
-                    _this38.showUnitDetails(id);
+                    _this40.showUnitDetails(id);
                   }, function (error) {});
                 });
               }, function (error) {});
@@ -5441,7 +5475,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this39 = this;
+            var _this41 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5466,15 +5500,15 @@
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
               if (res.message) {
-                _this39.sharedService.setAlertMessage("Property Manager added successfully");
+                _this41.sharedService.setAlertMessage("Property Manager added successfully");
 
-                _this39.propertyData = {};
-                _this39.isDataLoaded = true;
+                _this41.propertyData = {};
+                _this41.isDataLoaded = true;
 
-                _this39.outputParams.emit('close');
+                _this41.outputParams.emit('close');
               }
             }, function (error) {
-              _this39.isDataLoaded = true;
+              _this41.isDataLoaded = true;
               console.log(error);
             });
           }
@@ -5666,16 +5700,16 @@
         _createClass(PropertyManagerComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this42 = this;
 
             this.userId = this.sessionService.profileUserId;
             this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {
-                _this40.apartmentBlockUnitId = params['unitId'];
-              } else if (_this40.sessionService.roleTypeName != 'Admin') {
-                _this40.apartmentBlockUnitId = _this40.sessionService.apartmentBlockUnitID;
+                _this42.apartmentBlockUnitId = params['unitId'];
+              } else if (_this42.sessionService.roleTypeName != 'Admin') {
+                _this42.apartmentBlockUnitId = _this42.sessionService.apartmentBlockUnitID;
               }
             });
 
@@ -5684,21 +5718,21 @@
             };
             this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
               var data = res[0] || {};
-              _this40.apartmentBlockUnitId = data.apartmentBlockUnitId;
+              _this42.apartmentBlockUnitId = data.apartmentBlockUnitId;
               var param = {
-                apartmentBlockUnitId: _this40.apartmentBlockUnitId
+                apartmentBlockUnitId: _this42.apartmentBlockUnitId
               };
 
-              _this40.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
+              _this42.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
                 if (res == [null] || []) {
-                  _this40.propertyData = {};
-                  _this40.isDataAvailable = false;
+                  _this42.propertyData = {};
+                  _this42.isDataAvailable = false;
                 } else {
-                  _this40.propertyData = res[0];
-                  _this40.isDataAvailable = true;
+                  _this42.propertyData = res[0];
+                  _this42.isDataAvailable = true;
                 }
 
-                _this40.isDataLoaded = true;
+                _this42.isDataLoaded = true;
               }, function (error) {
                 console.log(error);
               });
@@ -5764,7 +5798,7 @@
         }, {
           key: "submitpropertyManagerForm",
           value: function submitpropertyManagerForm(form) {
-            var _this41 = this;
+            var _this43 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5790,29 +5824,29 @@
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
               if (res.message) {
-                _this41.sharedService.setAlertMessage("Property Manager updated successfully");
+                _this43.sharedService.setAlertMessage("Property Manager updated successfully");
 
-                _this41.isEdit = false;
+                _this43.isEdit = false;
                 var param = {
-                  apartmentBlockUnitId: parseInt(_this41.apartmentBlockUnitId)
+                  apartmentBlockUnitId: parseInt(_this43.apartmentBlockUnitId)
                 };
 
-                _this41.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-                  _this41.propertyData = res[0] || {};
-                  _this41.isDataLoaded = true;
+                _this43.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
+                  _this43.propertyData = res[0] || {};
+                  _this43.isDataLoaded = true;
                 }, function (error) {
                   console.log(error);
                 });
               }
             }, function (error) {
-              _this41.isDataLoaded = true;
+              _this43.isDataLoaded = true;
               console.log(error);
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this42 = this;
+            var _this44 = this;
 
             var message = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -5823,15 +5857,15 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this42.isDataLoaded = false;
+                _this44.isDataLoaded = false;
                 var details = {
-                  "propertyManagerId": _this42.propertyData.propertyManagerId,
-                  "deleteBy": _this42.userId
+                  "propertyManagerId": _this44.propertyData.propertyManagerId,
+                  "deleteBy": _this44.userId
                 };
 
-                _this42.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                _this44.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                   if (res.message) {
-                    _this42.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                    _this44.sharedService.setAlertMessage("Property Manager Deleted successfully");
                   }
                 }, function (error) {});
               }
