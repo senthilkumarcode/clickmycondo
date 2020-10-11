@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n\n    <h5 class=\"mb-4\">\n        <span *ngIf=\"!isEditUser\">Create TODO</span>\n    </h5>\n    <div class=\"row\">\n        <div class=\"col-lg-9 col-md-9 col-xs-12 col-sm-6\">\n            <div class=\"bg-card shadow\">\n                <full-calendar #calendar [options]=\"calendarOptions\"></full-calendar>\n            </div>\n        </div>\n        <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <button mat-raised-button class=\"w-100\" color=\"primary\" (click)=\"openCategory()\">Create Category</button>\n            <!-- <div class=\"todo-category-list mt-3\">\n                <mat-card class=\"mt-12 todo-category bg-card shadow\" *ngFor=\"let category of categoryList;let i = index\"\n                    (click)=\"editCategory(category.todoListCategoryId)\" (mouseenter)=\"isShowRemove=i\" (mouseleave)=\"isShowRemove=null\">\n                    <div *ngIf=\"isShowRemove == i\" class=\"todo-action\"\n                        (click)=\"removeCategory(category.todoListCategoryId)\">\n                        <i class=\"fa fa-times icon\" aria-hidden=\"true\"></i>\n                    </div>\n                    {{category.categoryName}}\n                </mat-card>\n            </div> -->\n            <div class=\"todo-category-list\">\n                <div class=\"bg-card-list w-100\">\n                    <div class=\"bg-card pt-4 w-100 shadow\" *ngFor=\"let item of categoryList;let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.categoryName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editCategory(item.todoListCategoryId)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"removeCategory(item.todoListCategoryId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon> Delete\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n\n    <h5 class=\"mb-4\">\n        <span *ngIf=\"!isEditUser\">Create TODO</span>\n    </h5>\n    <div class=\"row\">\n        <div class=\"col-lg-9 col-md-9 col-xs-12 col-sm-6\">\n            <div class=\"bg-card shadow\">\n                <full-calendar #calendar [options]=\"calendarOptions\"></full-calendar>\n            </div>\n        </div>\n        <div class=\"col-lg-3 col-md-3 col-sm-3 col-xs-12\">\n            <button mat-raised-button class=\"w-100\" color=\"primary\" (click)=\"openCategory()\">Create Category</button>\n            <!-- <div class=\"todo-category-list mt-3\">\n                <mat-card class=\"mt-12 todo-category bg-card shadow\" *ngFor=\"let category of categoryList;let i = index\"\n                    (click)=\"editCategory(category.todoListCategoryId)\" (mouseenter)=\"isShowRemove=i\" (mouseleave)=\"isShowRemove=null\">\n                    <div *ngIf=\"isShowRemove == i\" class=\"todo-action\"\n                        (click)=\"removeCategory(category.todoListCategoryId)\">\n                        <i class=\"fa fa-times icon\" aria-hidden=\"true\"></i>\n                    </div>\n                    {{category.categoryName}}\n                </mat-card>\n            </div> -->\n            <div class=\"todo-category-list mt-3\">\n                <div class=\"bg-card-list w-100\">\n                    <div class=\"bg-card m-0 pt-4 w-100 shadow\" *ngFor=\"let item of categoryList;let i = index\">\n                        <div class=\"desp\">\n                            <h6>{{item.categoryName}}</h6>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -75,6 +75,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isTodoLoaded\"></app-loader>\n\n\n        <ng-container *ngIf=\"isTodoLoaded\">\n            \n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>TODO Reminder</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Tasks</p>\n                </div>\n                <div class=\"ml-auto\">\n                    <input #searchList name=\"searchTodo\" [(ngModel)]=\"searchTodoList\" type=\"text\" class=\"form-control\" placeholder=\"Search...\">\n                </div>\n            </div>\n\n            <ul class=\"legends mb-4 ml-3 list-inline mb-4\">\n                <li class=\"list-inline-item mr-3\"><span class=\"dots bg-red-800\"></span><span>Open</span></li>\n                <li class=\"list-inline-item mr-3\"><span class=\"dots bg-orange-800\"></span>In Progress</li>\n                <li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Completed</li>\n            </ul>\n\n            <div class=\"row\">\n                <div class=\"col-xl-3 col-lg-4 col-md-6 col-sm-12\" *ngFor=\"let remind of todoReminderList | simpleSearch : searchTodoList\">\n                    <div class=\"bg-card shadow reminder-card mb-4\" [ngClass]=\"getReminderStatus(remind.priorityId)\" title=\"{{remind?.description}}\" >\n                        \n                        <h6 class=\"mb-1 text-primary\">{{remind?.title}}</h6>\n                        <p class=\"mb-3\">{{getCategoryName(remind?.todoListCategoryId)}}</p>\n                        <div class=\"d-flex\">\n                            <div><mat-icon class=\"mr-2 ml-n1 icon-md\" svgIcon=\"feather:clock\"></mat-icon></div>\n                            <p class=\"text-secondary\">{{remind?.finishOn | date : 'MMM d, y, h:mm a'}}</p>\n                        </div>\n                        <!-- <div class=\"mt-2\">\n\n                            <div class=\"status-badge bg-status-{{getStatusColor(remind.todoStatusId)}}-700\" (click)=\"changeStatus(remind)\">\n                                <span class=\"font-bold text-status-{{getStatusColor(remind.todoStatusId)}}-900 text-uppercase\">{{getTodoStatus(remind.todoStatusId)}}</span>\n                            </div>\n\n                        </div> -->\n    \n                    </div>\n                </div>\n            </div>\n        </ng-container>\n\n        \n        \n    </div>\n</div>\n\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/todo/todo-setup/todo-setup.component.html":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/todo/todo-setup/todo-setup.component.html ***!
+  \*************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #addTodoCategory mode=\"over\" position=\"end\">\n\t\t<div class=\"add-association-category\">\n\t\t\t<div class=\"title\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Add Category</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Update Category</span>\n\t\t\t\t</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"openCategory()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form #addAssociationCategoryForm=\"ngForm\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n                            <label>Category Name *</label>\n                            <input type=\"text\" class=\"form-control\" name=\"categoryTitle\"\n                                [(ngModel)]=\"category.categoryName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n\t\t\t\t\t\t\t\t(click)=\"submitCategory()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</div>\n\t</mat-drawer>\n\t<mat-drawer-content>\n\t\t<app-loader *ngIf=\"!isCategoryDataLoaded\"></app-loader>\n\t\t<div class=\"main\">\n\t\t\t<div *ngIf=\"isCategoryDataLoaded\">\n\t\t\t\t<!-- Document Header -->\n\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Todo Category</h4>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{categoryList.length}} Items</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openCategory()\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\tAdd New Category\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Document List -->\n\t\t\t\t<div class=\"bg-card-list\">\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\" *ngFor=\"let item of categoryList;let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.categoryName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editCategory(item.todoListCategoryId)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon> Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"removeCategory(item.todoListCategoryId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon> Delete\n                            </button>\n                        </div>\n                    </div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -426,11 +439,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../todo-create-dialog/todo-create-dialog.component */ "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.ts");
-/* harmony import */ var _todo_create_category_todo_create_category_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../todo-create-category/todo-create-category.component */ "./src/app/modules/ams/todo/todo-create-category/todo-create-category.component.ts");
-/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-
+/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 
 
 
@@ -476,21 +487,6 @@ let TodoCreateComponent = class TodoCreateComponent {
     ngOnInit() {
         this.getCategoryList();
         this.getMeetingList();
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null) {
-                let deleteCategoryParam = {
-                    todoListCategoryId: id,
-                    deleteBy: this.sessionService.userId
-                };
-                this.todoService.deleteTodoListCategory(deleteCategoryParam).subscribe(resp => {
-                    this.sharedService.openSnackBar('Todo Category Deleted Successfully', 'success');
-                    this.getCategoryList();
-                });
-            }
-        });
-    }
-    removeCategory(categoryId) {
-        this.modalService.showConfirmModal(categoryId);
     }
     getCategoryList() {
         let getCategoryParam = {
@@ -532,40 +528,6 @@ let TodoCreateComponent = class TodoCreateComponent {
             if (result) {
                 this.getMeetingList();
             }
-        });
-    }
-    openCategory() {
-        let data = { type: 'create' };
-        const dialogRef = this.dialog.open(_todo_create_category_todo_create_category_component__WEBPACK_IMPORTED_MODULE_7__["TodoCreateCategoryComponent"], {
-            width: '500px',
-            height: 'auto',
-            data: data
-        });
-        dialogRef.afterClosed().subscribe(result => {
-            if (result) {
-                this.getCategoryList();
-            }
-        });
-    }
-    editCategory(id) {
-        let getCategoryParam = {
-            apartmentId: this.sessionService.apartmentId,
-            TodoListCategoryId: id
-        };
-        this.todoService.getTodoListCategoryById(getCategoryParam).subscribe((resp) => {
-            let data = resp[0];
-            data['type'] = 'edit';
-            const dialogRef = this.dialog.open(_todo_create_category_todo_create_category_component__WEBPACK_IMPORTED_MODULE_7__["TodoCreateCategoryComponent"], {
-                width: '500px',
-                height: 'auto',
-                data: data
-            });
-            dialogRef.afterClosed().subscribe(result => {
-                if (result) {
-                    this.getCategoryList();
-                }
-            });
-        }, error => {
         });
     }
     onDialogClose(event) {
@@ -610,10 +572,10 @@ let TodoCreateComponent = class TodoCreateComponent {
 TodoCreateComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"] },
-    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_8__["TodoListService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
+    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__["TodoListService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
-    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"] }
+    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"] }
 ];
 TodoCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -623,10 +585,10 @@ TodoCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"],
-        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_8__["TodoListService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
+        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__["TodoListService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
-        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]])
+        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]])
 ], TodoCreateComponent);
 
 
@@ -1158,6 +1120,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./todo-create/todo-create.component */ "./src/app/modules/ams/todo/todo-create/todo-create.component.ts");
 /* harmony import */ var _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./todo-reminder/todo-reminder.component */ "./src/app/modules/ams/todo/todo-reminder/todo-reminder.component.ts");
 /* harmony import */ var _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./todo-history/todo-history.component */ "./src/app/modules/ams/todo/todo-history/todo-history.component.ts");
+/* harmony import */ var _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./todo-setup/todo-setup.component */ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.ts");
+
 
 
 
@@ -1168,6 +1132,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', redirectTo: 'todo-creation', pathMatch: 'full' },
+    { path: 'todo-setup', component: _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_8__["TodoSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'todo-creation', component: _todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'todo-list', component: _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__["TodoListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'todo-reminder', component: _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_6__["TodoReminderComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
@@ -1182,6 +1147,178 @@ TodoRouting = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
 ], TodoRouting);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.scss":
+/*!***********************************************************************!*\
+  !*** ./src/app/modules/ams/todo/todo-setup/todo-setup.component.scss ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3RvZG8vdG9kby1zZXR1cC90b2RvLXNldHVwLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/modules/ams/todo/todo-setup/todo-setup.component.ts ***!
+  \*********************************************************************/
+/*! exports provided: TodoSetupComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TodoSetupComponent", function() { return TodoSetupComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+
+
+
+
+
+let TodoSetupComponent = class TodoSetupComponent {
+    constructor(sessionService, sharedService, todoService, dialog, modalService) {
+        this.sessionService = sessionService;
+        this.sharedService = sharedService;
+        this.todoService = todoService;
+        this.dialog = dialog;
+        this.modalService = modalService;
+        this.categoryList = [];
+        this.isEdit = false;
+        this.category = {
+            "todoListCategoryId": 0,
+            "apartmentId": this.sessionService.apartmentId,
+            "staffId": 1,
+            "categoryName": "",
+            "isActive": true,
+            "insertedBy": 0,
+            "insertedOn": "2020-06-09T07:29:07.302Z",
+            "updatedBy": 0,
+            "updatedOn": "2020-06-09T07:29:07.302Z"
+        };
+    }
+    ngOnInit() {
+        this.getCategoryList();
+        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+            if (id != null) {
+                let deleteCategoryParam = {
+                    todoListCategoryId: id,
+                    deleteBy: this.sessionService.userId
+                };
+                this.todoService.deleteTodoListCategory(deleteCategoryParam).subscribe(resp => {
+                    this.sharedService.openSnackBar('Todo Category Deleted Successfully', 'success');
+                    this.getCategoryList();
+                });
+            }
+        });
+    }
+    removeCategory(categoryId) {
+        this.modalService.showConfirmModal(categoryId);
+    }
+    getCategoryList() {
+        let getCategoryParam = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.todoService.getAllTodoListCategorysByApartmentId(getCategoryParam).subscribe((resp) => {
+            this.categoryList = resp;
+        }, error => {
+        });
+    }
+    openCategory() {
+        this.isEdit = false;
+        this.addTodoCategory.toggle();
+        this.category.categoryName = '';
+    }
+    editCategory(id) {
+        let getCategoryParam = {
+            apartmentId: this.sessionService.apartmentId,
+            TodoListCategoryId: id
+        };
+        this.todoService.getTodoListCategoryById(getCategoryParam).subscribe((resp) => {
+            let data = resp[0];
+            for (const key in data) {
+                this.category[key] = data[key];
+            }
+            this.isEdit = true;
+            this.addTodoCategory.toggle();
+        }, error => {
+        });
+    }
+    submitCategory() {
+        if (this.addTodoCategory.valid) {
+            if (this.isEdit) {
+                this.category.insertedBy = 0;
+                this.category.insertedOn = new Date().toISOString();
+                this.category.updatedOn = new Date().toISOString();
+                this.category.updatedBy = parseInt(this.sessionService.userId);
+                let updateCategory = {
+                    todoListCategoryModel: this.category
+                };
+                this.todoService.updateTodoListCategory(updateCategory).subscribe(resp => {
+                    this.sharedService.openSnackBar('Category Updated Successfully', 'success');
+                    this.getCategoryList();
+                }, errro => {
+                });
+            }
+            else {
+                this.category.insertedBy = parseInt(this.sessionService.userId);
+                this.category.insertedOn = new Date().toISOString();
+                this.category.updatedOn = new Date().toISOString();
+                this.category.updatedBy = 0;
+                let createCategoryParam = {
+                    todoListCategoryModel: this.category
+                };
+                this.todoService.addTodoListCategory(createCategoryParam).subscribe(resp => {
+                    this.sharedService.openSnackBar('Category Created Successfully', 'success');
+                    this.getCategoryList();
+                }, errro => {
+                });
+            }
+        }
+        else {
+            this.sharedService.openSnackBar('Please Enter Category', 'error');
+        }
+    }
+};
+TodoSetupComponent.ctorParameters = () => [
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_4__["TodoListService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
+    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"] }
+];
+TodoSetupComponent.propDecorators = {
+    addTodoCategory: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addTodoCategory',] }],
+    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['addTodoCategory', { static: true },] }]
+};
+TodoSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-todo-setup',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./todo-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/todo/todo-setup/todo-setup.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./todo-setup.component.scss */ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_4__["TodoListService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
+        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]])
+], TodoSetupComponent);
 
 
 
@@ -1209,6 +1346,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./todo-create-dialog/todo-create-dialog.component */ "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.ts");
 /* harmony import */ var _todo_create_category_todo_create_category_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./todo-create-category/todo-create-category.component */ "./src/app/modules/ams/todo/todo-create-category/todo-create-category.component.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./todo-setup/todo-setup.component */ "./src/app/modules/ams/todo/todo-setup/todo-setup.component.ts");
+
 
 
 
@@ -1225,7 +1364,7 @@ let TodoModule = class TodoModule {
 };
 TodoModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_3__["TodoCreateComponent"], _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__["TodoListComponent"], _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_5__["TodoReminderComponent"], _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_6__["TodoHistoryComponent"], _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_9__["TodoCreateDialogComponent"], _todo_create_category_todo_create_category_component__WEBPACK_IMPORTED_MODULE_10__["TodoCreateCategoryComponent"]],
+        declarations: [_todo_create_todo_create_component__WEBPACK_IMPORTED_MODULE_3__["TodoCreateComponent"], _todo_list_todo_list_component__WEBPACK_IMPORTED_MODULE_4__["TodoListComponent"], _todo_reminder_todo_reminder_component__WEBPACK_IMPORTED_MODULE_5__["TodoReminderComponent"], _todo_history_todo_history_component__WEBPACK_IMPORTED_MODULE_6__["TodoHistoryComponent"], _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_9__["TodoCreateDialogComponent"], _todo_create_category_todo_create_category_component__WEBPACK_IMPORTED_MODULE_10__["TodoCreateCategoryComponent"], _todo_setup_todo_setup_component__WEBPACK_IMPORTED_MODULE_12__["TodoSetupComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_7__["SharedModule"],

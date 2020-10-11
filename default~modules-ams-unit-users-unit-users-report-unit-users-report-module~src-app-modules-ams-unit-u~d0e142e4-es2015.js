@@ -130,7 +130,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             if (item.datafield == 'blockNo') {
                 this.datagrid.addfilter(item.datafield, filtergroup, true);
             }
-            if (item.datafield == 'blockNo') {
+            if (item.datafield == 'apartmentBlockNumber') {
                 this.datagrid.addfilter(item.datafield, filtergroup, true);
             }
         });
@@ -245,7 +245,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                 {
                     text: 'Unit Number',
                     datafield: 'unitNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -313,7 +313,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                 {
                     text: 'Unit Number',
                     datafield: 'unitNo',
-                    minwidth: 100,
+                    minwidth: 150,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -388,7 +388,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                 {
                     text: 'Email Id',
                     datafield: 'emailID',
-                    width: 200,
+                    width: 250,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
@@ -630,7 +630,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Available Date Date',
+                    text: 'Available Date',
                     datafield: 'availableDate',
                     width: 200,
                     cellsrenderer: cellsrenderer,
@@ -711,20 +711,20 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Name',
                     datafield: 'userName',
-                    width: 150,
+                    width: 300,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Phone Number',
-                    datafield: 'phoneNumber',
+                    text: 'Block Number',
+                    datafield: 'apartmentBlockNumber',
                     minwidth: 100,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Gender',
-                    datafield: 'genderId',
+                    text: 'Unit No',
+                    datafield: 'apartmentBlockUnitNumber',
                     minwidth: 100,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
@@ -735,17 +735,10 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                     width: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
-                },
-                {
-                    text: 'Date of Birth',
-                    datafield: 'dob',
-                    width: 200,
-                    cellsrenderer: cellsrenderer,
-                    renderer: columnrenderer
                 }
             ];
             let params = {
-                ApartmentID: parseInt(localStorage.getItem('apartmentId')),
+                ApartmentID: parseInt(this.sessionService.apartmentId),
                 strRoleTypeIds: '2'
             };
             this.userService.getAllUsersByRoleTypes(params).subscribe((res) => {
@@ -762,20 +755,20 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Name',
                     datafield: 'userName',
-                    width: 150,
+                    width: 300,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Phone Number',
-                    datafield: 'phoneNumber',
+                    text: 'Block Number',
+                    datafield: 'apartmentBlockNumber',
                     minwidth: 100,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Gender',
-                    datafield: 'genderId',
+                    text: 'Unit No',
+                    datafield: 'apartmentBlockUnitNumber',
                     minwidth: 100,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
@@ -786,17 +779,10 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                     width: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
-                },
-                {
-                    text: 'Date of Birth',
-                    datafield: 'dob',
-                    width: 200,
-                    cellsrenderer: cellsrenderer,
-                    renderer: columnrenderer
                 }
             ];
             let params = {
-                ApartmentID: parseInt(localStorage.getItem('apartmentId')),
+                ApartmentID: parseInt(this.sessionService.apartmentId),
                 strRoleTypeIds: '4'
             };
             this.userService.getAllUsersByRoleTypes(params).subscribe((res) => {
@@ -813,20 +799,20 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.columnData = [{
                     text: 'Name',
                     datafield: 'userName',
-                    width: 150,
+                    width: 300,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Phone Number',
-                    datafield: 'phoneNumber',
+                    text: 'Block Number',
+                    datafield: 'apartmentBlockNumber',
                     minwidth: 100,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
                 },
                 {
-                    text: 'Gender',
-                    datafield: 'genderId',
+                    text: 'Unit No',
+                    datafield: 'apartmentBlockUnitNumber',
                     minwidth: 100,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
@@ -837,17 +823,10 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
                     width: 200,
                     cellsrenderer: cellsrenderer,
                     renderer: columnrenderer
-                },
-                {
-                    text: 'Date of Birth',
-                    datafield: 'dob',
-                    width: 200,
-                    cellsrenderer: cellsrenderer,
-                    renderer: columnrenderer
                 }
             ];
             let params = {
-                ApartmentID: parseInt(localStorage.getItem('apartmentId')),
+                ApartmentID: parseInt(this.sessionService.apartmentId),
                 strRoleTypeIds: '1'
             };
             this.userService.getAllUsersByRoleTypes(params).subscribe((res) => {
@@ -862,7 +841,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         }
     }
     showItems() {
-        this.totalItems = this.userReportDataList.length;
+        this.totalItems = this.userReportDataList["_source"]["localdata"].length;
         if (this.totalItems > this.itemLimit) {
             this.ItemEndIndex = this.itemLimit;
         }

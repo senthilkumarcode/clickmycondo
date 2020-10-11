@@ -225,7 +225,7 @@
                 _this2.datagrid.addfilter(item.datafield, filtergroup, true);
               }
 
-              if (item.datafield == 'blockNo') {
+              if (item.datafield == 'apartmentBlockNumber') {
                 _this2.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
@@ -386,7 +386,7 @@
               }, {
                 text: 'Unit Number',
                 datafield: 'unitNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -446,7 +446,7 @@
               }, {
                 text: 'Unit Number',
                 datafield: 'unitNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -512,7 +512,7 @@
               }, {
                 text: 'Email Id',
                 datafield: 'emailID',
-                width: 200,
+                width: 250,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -726,7 +726,7 @@
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Available Date Date',
+                text: 'Available Date',
                 datafield: 'availableDate',
                 width: 200,
                 cellsrenderer: cellsrenderer,
@@ -800,18 +800,18 @@
               this.columnData = [{
                 text: 'Name',
                 datafield: 'userName',
-                width: 150,
+                width: 300,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Phone Number',
-                datafield: 'phoneNumber',
+                text: 'Block Number',
+                datafield: 'apartmentBlockNumber',
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Gender',
-                datafield: 'genderId',
+                text: 'Unit No',
+                datafield: 'apartmentBlockUnitNumber',
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -821,15 +821,9 @@
                 width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-              }, {
-                text: 'Date of Birth',
-                datafield: 'dob',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
               }];
               var _params2 = {
-                ApartmentID: parseInt(localStorage.getItem('apartmentId')),
+                ApartmentID: parseInt(this.sessionService.apartmentId),
                 strRoleTypeIds: '2'
               };
               this.userService.getAllUsersByRoleTypes(_params2).subscribe(function (res) {
@@ -846,18 +840,18 @@
               this.columnData = [{
                 text: 'Name',
                 datafield: 'userName',
-                width: 150,
+                width: 300,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Phone Number',
-                datafield: 'phoneNumber',
+                text: 'Block Number',
+                datafield: 'apartmentBlockNumber',
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Gender',
-                datafield: 'genderId',
+                text: 'Unit No',
+                datafield: 'apartmentBlockUnitNumber',
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -867,15 +861,9 @@
                 width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-              }, {
-                text: 'Date of Birth',
-                datafield: 'dob',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
               }];
               var _params3 = {
-                ApartmentID: parseInt(localStorage.getItem('apartmentId')),
+                ApartmentID: parseInt(this.sessionService.apartmentId),
                 strRoleTypeIds: '4'
               };
               this.userService.getAllUsersByRoleTypes(_params3).subscribe(function (res) {
@@ -892,18 +880,18 @@
               this.columnData = [{
                 text: 'Name',
                 datafield: 'userName',
-                width: 150,
+                width: 300,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Phone Number',
-                datafield: 'phoneNumber',
+                text: 'Block Number',
+                datafield: 'apartmentBlockNumber',
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
-                text: 'Gender',
-                datafield: 'genderId',
+                text: 'Unit No',
+                datafield: 'apartmentBlockUnitNumber',
                 minwidth: 100,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -913,15 +901,9 @@
                 width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-              }, {
-                text: 'Date of Birth',
-                datafield: 'dob',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
               }];
               var _params4 = {
-                ApartmentID: parseInt(localStorage.getItem('apartmentId')),
+                ApartmentID: parseInt(this.sessionService.apartmentId),
                 strRoleTypeIds: '1'
               };
               this.userService.getAllUsersByRoleTypes(_params4).subscribe(function (res) {
@@ -939,7 +921,7 @@
         }, {
           key: "showItems",
           value: function showItems() {
-            this.totalItems = this.userReportDataList.length;
+            this.totalItems = this.userReportDataList["_source"]["localdata"].length;
 
             if (this.totalItems > this.itemLimit) {
               this.ItemEndIndex = this.itemLimit;

@@ -1301,7 +1301,7 @@
                 _this8.getStaffType(_this8.staff.staffCategoryId);
 
                 _this8.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
-                  phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](_this8.staff.contactNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
+                  phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](_this8.staff.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
                 });
               }, function (error) {});
             } else {

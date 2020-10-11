@@ -1010,7 +1010,7 @@ let AddStaffComponent = class AddStaffComponent {
                 this.userId = this.staff.userId;
                 this.getStaffType(this.staff.staffCategoryId);
                 this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
-                    phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.staff.contactNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
+                    phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.staff.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
                 });
             }, error => {
             });
