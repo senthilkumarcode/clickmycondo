@@ -1117,7 +1117,7 @@ let SignuprequestComponent = class SignuprequestComponent {
                 renderer: columnrenderer
             },
             {
-                text: 'Tower Unit',
+                text: 'Tower & Unit',
                 datafield: 'tower_unit',
                 width: 250,
                 cellsrenderer: cellsrenderer,
@@ -1158,7 +1158,7 @@ let SignuprequestComponent = class SignuprequestComponent {
         ];
         this.getSignUpUserList();
         // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 let dataRecord = this.datagrid.getrowdata(id);
                 let signupUserId = dataRecord.signupUserRequestId;
@@ -1207,6 +1207,9 @@ let SignuprequestComponent = class SignuprequestComponent {
         }, error => {
             console.log(error);
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 SignuprequestComponent.ctorParameters = () => [
@@ -1691,7 +1694,7 @@ let UnapprovedComponent = class UnapprovedComponent {
         else
             this.isMobile = false;
         // delete user
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 let dataRecord = this.datagrid.getrowdata(id);
                 let params = {
@@ -1740,6 +1743,9 @@ let UnapprovedComponent = class UnapprovedComponent {
     }
     getColor(docstatus) {
         return docstatus ? "red" : "yellow";
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 UnapprovedComponent.ctorParameters = () => [

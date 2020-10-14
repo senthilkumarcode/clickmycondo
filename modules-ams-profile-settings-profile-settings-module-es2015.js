@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-block-unit-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"block-unit-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">{{unitInfo.tower}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-8\">\n                                <div class=\"input-box\">\n                                    <label>Floor Name</label>\n                                    <p>{{unitInfo.floorLabel}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"input-box\">\n                                    <label>Floor No</label>\n                                    <p>{{unitInfo.floorno}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <mat-form-field class=\"unit-chips\">\n                                    <mat-label>Unit Information</mat-label>\n                                    <mat-chip-list #unitList aria-label=\"Unit Selection\">\n                                      <mat-chip [color]=\"'primary'\" *ngFor=\"let unitNo of unitInfo.apartmentBlockunitInfo;let i= index\" [selectable]=\"true\" (removed)=\"removeUnit(unitNo,i)\">\n                                        {{unitNo.apartmentBlockUnitNumber}}\n                                        <mat-icon [color]=\"'warn'\" matChipRemove>cancel</mat-icon>\n                                      </mat-chip>\n                                      <input \n                                            OnlyNumber=\"true\"\n                                            class=\"border-none\"\n                                            placeholder=\"Enter Unit No...\"\n                                            [matChipInputFor]=\"unitList\"\n                                            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n                                            [matChipInputAddOnBlur]=\"false\"\n                                            (matChipInputTokenEnd)=\"addUnit($event)\">\n                                            <help-tooltip title=\"addUnit\"></help-tooltip>\n                                    </mat-chip-list>\n                                </mat-form-field>\n                            </div>\n                        </div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <ng-container *ngIf=\"isDataLoaded\">\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"i == 0\"  *ngFor=\"let tower of towerList; let i = index\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                <h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <mat-panel-description>\n                            <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\" *ngIf=\"tower.floorInfo.length > 0\">\n                                <thead>\n                                    <tr>\n                                        <th class=\"red-width\" scope=\"col\">Floor No</th>\n                                        <th class=\"red-width\" scope=\"col\">Floor Name</th>\n                                        <th class=\"red-width\" scope=\"col\">Total Units</th>\n                                        <th scope=\"col\">Unit No</th>\n                                        <th class=\"red-width\"scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let floor of tower.floorInfo\">\n                                        <td>{{floor.floorno}}</td>\n                                        <td>{{floor.floorLabel}}</td>\n                                        <td>{{floor.unitCount}}</td>\n                                        <td class=\"unit-column\">\n                                            <ng-container *ngFor=\"let unit of floor.apartmentBlockunitInfo;let last = last\">\n                                                {{unit.apartmentBlockUnitNumber}}<span *ngIf=!last>,</span>\n                                            </ng-container>\n                                        </td>\n                                        <td>\n                                            <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editUnit(floor,tower.apartmentBlockNumber,tower.apartmentBlockId)\"  class=\"pt-2 link\" title=\"Add Unit\"></mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </mat-panel-description>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </ng-container>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-block-unit-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"block-unit-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">{{unitInfo.tower}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-8\">\n                                <div class=\"input-box\">\n                                    <label>Floor Name</label>\n                                    <p>{{unitInfo.floorLabel}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"input-box\">\n                                    <label>Floor No</label>\n                                    <p>{{unitInfo.floorno}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <mat-form-field class=\"unit-chips\">\n                                    <mat-label>Unit Information</mat-label>\n                                    <mat-chip-list #unitList aria-label=\"UnitSelection\">\n                                      <mat-chip [color]=\"'primary'\" *ngFor=\"let unitNo of unitInfo.apartmentBlockunitInfo;let i= index\" [selectable]=\"true\" (removed)=\"removeUnit(unitNo,i)\">\n                                        {{unitNo.apartmentBlockUnitNumber}}\n                                        <mat-icon [color]=\"'warn'\" matChipRemove>cancel</mat-icon>\n                                      </mat-chip>\n                                      <input \n                                            OnlyNumber=\"true\"\n                                            class=\"border-none\"\n                                            placeholder=\"Enter Unit No...\"\n                                            [matChipInputFor]=\"unitList\"\n                                            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n                                            [matChipInputAddOnBlur]=\"true\"\n                                            (matChipInputTokenEnd)=\"addUnit($event)\">\n                                            <help-tooltip title=\"addUnit\"></help-tooltip>\n                                    </mat-chip-list>\n                                </mat-form-field>\n                            </div>\n                        </div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <ng-container *ngIf=\"isDataLoaded\">\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"i == 0\"  *ngFor=\"let tower of towerList; let i = index\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                <h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <mat-panel-description>\n                            <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\" *ngIf=\"tower.floorInfo.length > 0\">\n                                <thead>\n                                    <tr>\n                                        <th class=\"red-width\" scope=\"col\">Floor No</th>\n                                        <th class=\"red-width\" scope=\"col\">Floor Name</th>\n                                        <th class=\"red-width\" scope=\"col\">Total Units</th>\n                                        <th scope=\"col\">Unit No</th>\n                                        <th class=\"red-width\"scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let floor of tower.floorInfo\">\n                                        <td>{{floor.floorno}}</td>\n                                        <td>{{floor.floorLabel}}</td>\n                                        <td>{{floor.unitCount}}</td>\n                                        <td class=\"unit-column\">\n                                            <ng-container *ngFor=\"let unit of floor.apartmentBlockunitInfo;let last = last\">\n                                                {{unit.apartmentBlockUnitNumber}}<span *ngIf=!last>,</span>\n                                            </ng-container>\n                                        </td>\n                                        <td>\n                                            <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editUnit(floor,tower.apartmentBlockNumber,tower.apartmentBlockId)\"  class=\"pt-2 link\" title=\"Add Unit\"></mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </mat-panel-description>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </ng-container>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-tower-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"tower-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Tower</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Tower</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Tower</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Tower\" name=\"towerName\" [(ngModel)]=\"tower.apartmentBlockNumber\">\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>No of Floors</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Floors\" name=\"floor\" [(ngModel)]=\"tower.totalnofloors\">\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total of Units</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Units\" name=\"units\" [(ngModel)]=\"tower.totalNounits\">\n                                </div>\n                            </div>\n                        </div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitTowerInfo()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div class=\"bg-card shadow\">\n                <!-- Tower Header -->\n                <div class=\"d-flex mb-4\">\n                    <div>\n                        <h4>No.Of Towers</h4>\n                        <p class=\"text-secondary\">{{totalItems}} Items</p>\n                    </div>\n                    <div class=\"ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addTower()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Tower\n                        </button>\n                    </div>\n                </div>\n                 <!-- Loader -->\n                 <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n                    <!-- Tower List -->\n                <div class=\"row\" *ngIf=\"isDataLoaded\">\n                    <div class=\"col-sm-12\">\n                        <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\">\n                            <thead>\n                                <tr>\n                                    <th scope=\"col\">Tower Name</th>\n                                    <th scope=\"col\">No of Floors</th>\n                                    <th scope=\"col\">Total of Units</th>\n                                    <th scope=\"col\">Action</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let data of towerList\">\n                                    <td>{{data.apartmentBlockNumber}}</td>\n                                    <td>{{data.totalnofloors}}</td>\n                                    <td>{{data.totalNounits}}</td>\n                                    <td>\n                                        <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editTower(data)\"  class=\"pt-2 link\" title=\"Edit\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"add-tower-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"tower-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Tower</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Tower</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Tower Name</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Tower\" name=\"towerName\" [(ngModel)]=\"tower.apartmentBlockNumber\">\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total No of Floors</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Floors\" name=\"floor\" [(ngModel)]=\"tower.totalnofloors\">\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total No of Units</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Units\" name=\"units\" [(ngModel)]=\"tower.totalNounits\">\n                                </div>\n                            </div>\n                        </div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitTowerInfo()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n             <!-- Loader -->\n             <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <condo-card *ngIf=\"isDataLoaded\">\n                <div CondoCardHeader>\n                    <div class=\"d-flex\">\n                        <div>\n                            <h4>No.Of Towers</h4>\n                            <p>{{totalItems}} results</p>\n                        </div>\n                        <div class=\"ml-auto mr-3\">\n                            <app-table-search [input]=\"towerFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addTower()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Tower\n                            </button>\n                        </div>\n                    </div>\n                </div>\n                <div CondoCardBody>\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                        [filterable]=\"true\" [sortable]=\"true\" [source]=\"towerList\" [columns]=\"column\"\n                        [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n                    </jqxGrid>\n                </div>\n            </condo-card>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -752,6 +752,7 @@ let AddBlockUnitComponent = class AddBlockUnitComponent {
     closeDrawer() {
         this.matDrawer.close();
         this.unitInfo = {};
+        this.getTowerList();
     }
     getTowerList() {
         this.isDataLoaded = false;
@@ -916,6 +917,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+
 
 
 
@@ -931,22 +934,43 @@ let AddTowerComponent = class AddTowerComponent {
         this.sessionService = sessionService;
         this.tower = {};
         this.totalItems = 0;
+        this.towerFilter = '';
         this.isDataLoaded = false;
         this.isDrawerLoader = true;
         this.towerList = [];
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
     }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = event;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.dataGrid.showfiltercolumnbackground(false);
+            this.column.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.dataGrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.dataGrid.applyfilters();
+        }
+        else {
+            this.dataGrid.clearfilters();
+        }
     }
     addTower() {
         this.clickMode = 'add';
         this.matDrawer.open();
         this.tower = {};
     }
-    editTower(item) {
+    onEditTower(detail) {
         this.clickMode = 'edit';
-        this.tower = Object.assign({}, item);
+        let dataRecord = this.dataGrid.getrowdata(detail.rowId);
+        console.log(dataRecord);
+        this.tower = Object.assign({}, dataRecord);
         window.scroll({
             top: 0,
             behavior: 'smooth'
@@ -960,57 +984,65 @@ let AddTowerComponent = class AddTowerComponent {
     }
     submitTowerInfo() {
         if (this.clickMode == 'add') {
-            let params = {
-                apartmentBlocks: [{
-                        "apartmentBlockId": 0,
-                        "apartmentBlockNumber": this.tower.apartmentBlockNumber,
-                        "totalNounits": Number(this.tower.totalNounits),
-                        "totalnofloors": Number(this.tower.totalnofloors),
-                        "description": this.tower.apartmentBlockNumber,
-                        "apartmentId": this.sessionService.apartmentId,
-                        "isActive": true,
-                        "insertedBy": this.sessionService.userId,
-                        "insertedOn": new Date().toISOString(),
-                        "updatedBy": null,
-                        "updatedOn": null,
-                    }]
-            };
-            this.apartmentService.addApartmentBlock(params).subscribe((res) => {
-                this.isDrawerLoader = true;
-                if (res.message) {
-                    this.closeDrawer();
-                    this.getTowerList();
-                    this.sharedService.openSnackBar('Tower Created Successfully', 'success');
-                }
-                else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-            }, (error) => {
-                this.isDrawerLoader = true;
-                this.sharedService.openSnackBar('Network Error', 'error');
-            });
+            this.createTower();
         }
         else if (this.clickMode == 'edit') {
-            this.tower.totalNounits = Number(this.tower.totalNounits);
-            this.tower.totalnofloors = Number(this.tower.totalnofloors);
-            let params = {
-                apartmentBlock: this.tower
-            };
-            this.apartmentService.updateApartmentBlock(params).subscribe((res) => {
-                this.isDrawerLoader = true;
-                if (res.code == 200) {
-                    this.closeDrawer();
-                    this.getTowerList();
-                    this.sharedService.openSnackBar(res.responseData.value.message, 'success');
-                }
-                else {
-                    this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
-                }
-            }, (error) => {
-                this.isDrawerLoader = true;
-                this.sharedService.openSnackBar('Network Error', 'error');
-            });
+            this.updateTower();
         }
+    }
+    createTower() {
+        this.isDataLoaded = false;
+        let params = {
+            apartmentBlocks: [{
+                    "apartmentBlockId": 0,
+                    "apartmentBlockNumber": this.tower.apartmentBlockNumber,
+                    "totalNounits": Number(this.tower.totalNounits),
+                    "totalnofloors": Number(this.tower.totalnofloors),
+                    "description": this.tower.apartmentBlockNumber,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "isActive": true,
+                    "insertedBy": this.sessionService.userId,
+                    "insertedOn": new Date().toISOString(),
+                    "updatedBy": null,
+                    "updatedOn": null,
+                }]
+        };
+        this.apartmentService.addApartmentBlock(params).subscribe((res) => {
+            this.isDrawerLoader = true;
+            if (res.message) {
+                this.closeDrawer();
+                this.getTowerList();
+                this.sharedService.openSnackBar('Tower Created Successfully', 'success');
+            }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isDrawerLoader = true;
+            this.sharedService.openSnackBar('Network Error', 'error');
+        });
+    }
+    updateTower() {
+        this.isDataLoaded = false;
+        this.tower.totalNounits = Number(this.tower.totalNounits);
+        this.tower.totalnofloors = Number(this.tower.totalnofloors);
+        let params = {
+            apartmentBlock: this.tower
+        };
+        this.apartmentService.updateApartmentBlock(params).subscribe((res) => {
+            this.isDrawerLoader = true;
+            if (res.code == 200) {
+                this.closeDrawer();
+                this.getTowerList();
+                this.sharedService.openSnackBar(res.responseData.value.message, 'success');
+            }
+            else {
+                this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isDrawerLoader = true;
+            this.sharedService.openSnackBar('Network Error', 'error');
+        });
     }
     getTowerList() {
         this.isDataLoaded = false;
@@ -1019,7 +1051,11 @@ let AddTowerComponent = class AddTowerComponent {
         };
         this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
             if (res.length > 0) {
-                this.towerList = res;
+                let tableData = {
+                    localdata: res,
+                    datatype: "array"
+                };
+                this.towerList = new jqx.dataAdapter(tableData);
                 this.totalItems = res.length;
             }
             this.isDataLoaded = true;
@@ -1027,6 +1063,45 @@ let AddTowerComponent = class AddTowerComponent {
     }
     ngOnInit() {
         this.getTowerList();
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.column = [
+            {
+                text: 'Tower Name',
+                datafield: 'apartmentBlockNumber',
+                cellsrenderer: cellsrenderer,
+                minwidth: 250,
+                renderer: columnrenderer,
+            }, {
+                text: 'No of Floors',
+                datafield: 'totalnofloors',
+                cellsrenderer: cellsrenderer,
+                width: 250,
+                renderer: columnrenderer,
+            }, {
+                text: 'Total of Units',
+                datafield: 'totalNounits',
+                cellsrenderer: cellsrenderer,
+                width: 250,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions">'
+                        + '<a href="javascript:void(0)" class="mr-2" onClick="editTower(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>'
+                        + '</div>';
+                },
+                width: 180,
+                renderer: columnrenderer
+            }
+        ];
     }
 };
 AddTowerComponent.ctorParameters = () => [
@@ -1036,7 +1111,9 @@ AddTowerComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] }
 ];
 AddTowerComponent.propDecorators = {
-    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
+    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
+    dataGrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['dataGrid', { static: false },] }],
+    onEditTower: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditTower', ['$event.detail'],] }]
 };
 AddTowerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1051,6 +1128,15 @@ AddTowerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
 ], AddTowerComponent);
 
+function editTower(row) {
+    var event = new CustomEvent('onEditTower', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.editTower = editTower;
 
 
 /***/ }),

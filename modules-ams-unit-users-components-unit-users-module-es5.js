@@ -1578,7 +1578,7 @@
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
-              text: 'Tower Unit',
+              text: 'Tower & Unit',
               datafield: 'tower_unit',
               width: 250,
               cellsrenderer: cellsrenderer,
@@ -1615,7 +1615,7 @@
             }];
             this.getSignUpUserList(); // delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var dataRecord = _this17.datagrid.getrowdata(id);
 
@@ -1673,6 +1673,11 @@
             }, function (error) {
               console.log(error);
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -2309,7 +2314,7 @@
             this.getUnApprovedList();
             if (window.innerWidth <= 991) this.isMobile = true;else this.isMobile = false; // delete user
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var dataRecord = _this23.datagrid.getrowdata(id);
 
@@ -2369,6 +2374,11 @@
           key: "getColor",
           value: function getColor(docstatus) {
             return docstatus ? "red" : "yellow";
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 

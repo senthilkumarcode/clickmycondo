@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-layout fullwidth-basic-normal-scroll\">\n\n    <div class=\"bg-card shadow p-5\">\n\n         <!-- Form container -->\n         <div class=\"form-container p-3\">\n\n            <div class=\"form\">\n\n                <!-- Logo -->\n                <div class=\"logo\">\n                    <img class=\"img-fluid\" src=\"assets/images/logo-cmc-brand.svg\">\n                </div>\n\n                <!-- Title -->\n                <h2 class=\"title font-bold\">Forgot password?</h2>\n                <div class=\"subtitle font-medium\">Fill the form to reset your password</div>\n\n                 <!-- Forgot password form -->\n                 <form [formGroup]=\"forgotPasswordForm\">\n\n                    <!-- Email field -->\n                    <mat-form-field>\n                        <mat-label>Email address</mat-label>\n                        <input id=\"email\"\n                               matInput\n                               [formControlName]=\"'email'\">\n                        <mat-error *ngIf=\"forgotPasswordForm.get('email').hasError('required')\">\n                            Email address is required\n                        </mat-error>\n                        <mat-error *ngIf=\"forgotPasswordForm.get('email').hasError('email')\">\n                            Please enter a valid email address\n                        </mat-error>\n                    </mat-form-field>\n\n                    <!-- Submit button -->\n                    <button class=\"submit-button condo-mat-button-large\"\n                            mat-flat-button\n                            type=\"button\"\n                            [color]=\"'primary'\"\n                            [disabled]=\"forgotPasswordForm.disabled\"\n                            (click)=\"sendResetLink()\">\n                        <span class=\"text-md\" *ngIf=\"!forgotPasswordForm.disabled\">\n                            Send reset link\n                        </span>\n                        \n                    </button>\n\n                    <!-- Form footer -->\n                    <div class=\"form-footer font-medium\">\n                        <span class=\"text-secondary\">Go to</span>\n                        <a class=\"link ml-2\"\n                        [routerLink]=\"['/login']\">Login</a>\n                    </div>\n\n                </form>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-layout fullwidth-basic-normal-scroll\">\n\n    <div class=\"bg-card shadow p-5\">\n\n         <!-- Form container -->\n         <div class=\"form-container p-3\">\n\n            <div class=\"form\">\n\n                <!-- Logo -->\n                <div class=\"logo\">\n                    <img class=\"img-fluid\" src=\"assets/images/logo-cmc-brand.svg\">\n                </div>\n\n                <!-- Title -->\n                <h2 class=\"title font-bold mb-2\">Forgot password?</h2>\n                \n                <div class=\"subtitle font-medium\">Fill the form to reset your password</div>\n\n                 <!-- Forgot password form -->\n                 <form [formGroup]=\"forgotPasswordForm\">\n\n                    <condo-message *ngIf=\"message\"\n                    [appearance]=\"message.appearance\"\n                    [showIcon]=\"message.showIcon\"\n                    [type]=\"message.type\"\n                    [@shake]=\"message.shake\">\n                        {{message.content}}\n                    </condo-message>\n\n                    <div class=\"mt-4\">\n                        \n                        <!-- Email field -->\n                        <mat-form-field>\n                            <mat-label>Email address</mat-label>\n                            <input id=\"email\"\n                                matInput\n                                [formControlName]=\"'email'\">\n                            <mat-error *ngIf=\"forgotPasswordForm.get('email').hasError('required')\">\n                                Email address is required\n                            </mat-error>\n                            <mat-error *ngIf=\"forgotPasswordForm.get('email').hasError('email')\">\n                                Please enter a valid email address\n                            </mat-error>\n                        </mat-form-field>\n\n                        <!-- Submit button -->\n                        <button class=\"submit-button condo-mat-button-large\"\n                                mat-flat-button\n                                type=\"button\"\n                                [color]=\"'primary'\"\n                                [disabled]=\"forgotPasswordForm.disabled\"\n                                (click)=\"sendResetLink()\">\n                            <span class=\"text-md\" *ngIf=\"!forgotPasswordForm.disabled\">\n                                Send reset link\n                            </span>\n                            \n                        </button>\n                        \n                    </div>\n\n                    <!-- Form footer -->\n                    <div class=\"form-footer font-medium\">\n                        <span class=\"text-secondary\">Go to</span>\n                        <a class=\"link ml-2\"\n                        [routerLink]=\"['/login']\">Login</a>\n                    </div>\n\n                </form>\n\n            </div>\n\n        </div>\n\n    </div>\n\n</div>\n");
 
 /***/ }),
 
@@ -106,14 +106,24 @@ let AuthForgotPasswordComponent = class AuthForgotPasswordComponent {
             this.forgotPasswordForm.enable();
             // Reset the form
             this.forgotPasswordForm.reset({});
-            // Show the message
-            this.message = {
-                appearance: 'outline',
-                content: 'Password reset sent! You\'ll receive an email if you are registered on our system.',
-                shake: false,
-                showIcon: false,
-                type: 'success'
-            };
+            if (res.errorMessage) {
+                this.message = {
+                    appearance: 'outline',
+                    content: res.errorMessage,
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            }
+            else {
+                this.message = {
+                    appearance: 'outline',
+                    content: 'Password reset sent! You\'ll receive an email if you are registered on our system.',
+                    shake: false,
+                    showIcon: false,
+                    type: 'success'
+                };
+            }
         }, error => {
         });
     }
@@ -157,7 +167,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_modules_ui_pages_forgot_password_forgot_password_routing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/pages/forgot-password/forgot-password.routing */ "./src/app/modules/ui/pages/forgot-password/forgot-password.routing.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-/* harmony import */ var src_app_modules_ui_pages_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/pages/forgot-password/forgot-password.component */ "./src/app/modules/ui/pages/forgot-password/forgot-password.component.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var src_app_modules_ui_pages_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/pages/forgot-password/forgot-password.component */ "./src/app/modules/ui/pages/forgot-password/forgot-password.component.ts");
+
 
 
 
@@ -171,13 +183,14 @@ let AuthForgotPasswordModule = class AuthForgotPasswordModule {
 AuthForgotPasswordModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            src_app_modules_ui_pages_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_7__["AuthForgotPasswordComponent"]
+            src_app_modules_ui_pages_forgot_password_forgot_password_component__WEBPACK_IMPORTED_MODULE_8__["AuthForgotPasswordComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(src_app_modules_ui_pages_forgot_password_forgot_password_routing__WEBPACK_IMPORTED_MODULE_5__["routes"]),
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_7__["CondoMessageModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"]
         ]
     })

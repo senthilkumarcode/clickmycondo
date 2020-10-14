@@ -94,7 +94,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-family-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Family Members</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && familyDataList.length == 0\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Family Members -->\n\t\t<mat-expansion-panel>\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<!-- Family Members List -->\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-family-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Family Members</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isDataLoaded && familyDataList.length == 0\">\n\t\t<h6>No Members added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Family Members -->\n\t\t<mat-expansion-panel [expanded] = \"expanded\">\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add family Members</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-family-members-details [isFamilyNew]=\"true\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<!-- Family Members List -->\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let person of familyDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{person.firstName}} {{person.lastName}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Relationship: <span class=\"font-normal\">{{person.relationship}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-family-members-details [user]=\"person\" [bloodGroupData]=\"bloodGroupList\" (outputParams)=\"getParams($event)\"></app-profile-family-members-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n</div>";
       /***/
     },
 
@@ -134,7 +134,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" (ngSubmit)=\"submitLeaseInfoForm(leaseInfoForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{rent.startDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{rent.expiryDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"rent.startDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"create-lease-info-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      \t\t</div>\n\t\t</div>\n \t </ng-container>\n\n  \t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{rent.startDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{rent.expiryDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t  <!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"rent.startDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitLeaseInfoForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -174,7 +174,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-pet-details-wrapper\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\n\t\t<div class=\"row\" *ngIf=\"!isPetNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deletePet()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet Type</label>\n\t\t\t\t                <p>{{petData?.pet.petType_Label}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet DOB</label>\n\t\t\t\t                <p>{{getDate(petData?.pet.dob)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\n\t\t<ng-container *ngIf=\"isEdit || isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\" (ngSubmit)=\"submitProfilPetForm(profilePetForm)\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Pet Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"petTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"petFormData.pet.petTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPetType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Date Of Birth</label>\n\t\t\t                    <input class=\"form-control\" name=\"PetDOB\" [owlDateTime]=\"PetDOB\" [owlDateTimeTrigger]=\"PetDOB\" placeholder=\"Date\" [(ngModel)]=\"petFormData.pet.dob\">\n\t\t\t\t\t\t\t\t<owl-date-time #PetDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PetDOB\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profilePetForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</ng-container>\n\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-pet-details-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"row\" *ngIf=\"!isPetNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"link ml-1\" (click)=\"deletePet()\" *ngIf=\"!isEdit\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'warn'\" svgIcon=\"feather:trash\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet Type</label>\n\t\t\t\t                <p>{{petData?.pet.petType_Label}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Pet DOB</label>\n\t\t\t\t                <p>{{getDate(petData?.pet.dob)}}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\n\t\t<ng-container *ngIf=\"isEdit || isPetNew\">\n\t\t\t<form #profilePetForm = \"ngForm\" name=\"profilePetForm\" (ngSubmit)=\"submitProfilPetForm(profilePetForm)\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Pet Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"petTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"petFormData.pet.petTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPetType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Date Of Birth</label>\n\t\t\t                    <input class=\"form-control\" name=\"PetDOB\" [owlDateTime]=\"PetDOB\" [owlDateTimeTrigger]=\"PetDOB\" placeholder=\"Date\" [(ngModel)]=\"petFormData.pet.dob\">\n\t\t\t\t\t\t\t\t<owl-date-time #PetDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PetDOB\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profilePetForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</ng-container>\n\n</div>\n";
       /***/
     },
 
@@ -194,7 +194,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-pets-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Pets</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && petDataList.length == 0\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Pet -->\n\t\t<mat-expansion-panel>\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [isPetNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t\t\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Pet List -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.pet.petType_Label}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [petData]=\"item\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t</mat-accordion>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-pets-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4>Pets</h4>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && petDataList.length == 0\">\n\t\t<h6>No Pet added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\t\t<!-- Add Pet -->\n\t\t<mat-expansion-panel [expanded]=\"expanded\">\n\t\t\t<mat-expansion-panel-header>\n\t\t\t\t<mat-panel-title>\n\t\t\t\t\t<h6>Add Pet</h6>\n\t\t\t\t</mat-panel-title>\n\t\t\t</mat-expansion-panel-header>\n\t\t\t<mat-panel-description>\n\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [isPetNew]=\"true\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t</mat-panel-description>\n\t\t</mat-expansion-panel>\n\t\t\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Pet List -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of petDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.pet.petType_Label}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium text-sm\">DOB: <span class=\"font-normal\">{{getDate(item.pet.dob)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-pet-details [dropDownList]=\"petTypeList\" [petData]=\"item\" (outputParams)=\"getParams($event)\"></app-profile-pet-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t</mat-accordion>\n\n</div>";
       /***/
     },
 
@@ -274,7 +274,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-unit wrapper p-5\">\n\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Unit Details</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit && isAdmin\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" (ngSubmit)=\"submitProfileUnitForm(profileUnitForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t<ng-container>\n\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Block Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Type</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.unitType}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.intercom}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Car</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.cars}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</ng-container>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t</ng-container>\n\t\t\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\n\t\t\t\t\t<div class=\"row\">\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"blockData\"\n\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockId\"\n\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"blockUnitData\"\n\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitTypeData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.unitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getUnitTypeId($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Car (in number)*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitCar\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"block.cars\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"advanceAmount\" [(ngModel)]=\"block.intercom\" minlength=\"6\" maxlength=\"10\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isUserDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\t\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-unit wrapper p-5\">\n\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Unit Details</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit && isAdmin\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t</ng-container>\n\n\t<form #profileUnitForm = \"ngForm\" name=\"profileUnitForm\" (ngSubmit)=\"submitProfileUnitForm(profileUnitForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t<ng-container>\n\t\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockUnitNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Block Name</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.apartmentBlockNumber}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Unit Type</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.unitType}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.intercom}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Car</label>\n\t\t\t\t\t\t\t\t\t<p>{{block.cars}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</ng-container>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t</ng-container>\n\t\t\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\t\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\t\n\t\t\t\t\t<div class=\"row\">\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"blockList\"\n\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockId\"\n\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"blockUnitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"setBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.unitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"setUnitTypeId($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Car (in number)*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"unitCar\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"block.cars\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Intercom</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"advanceAmount\" [(ngModel)]=\"block.intercom\" minlength=\"6\" maxlength=\"10\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\t\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isUserDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\t\n</div>";
       /***/
     },
 
@@ -314,7 +314,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\">\n        <button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n        <button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n        <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      </div>\n\t\t</div>\n  </ng-container>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n      <!-- View Mode -->\n      <ng-container *ngIf=\"clickMode=='showAll'\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <!-- Create Mode and Edit Mode -->\n      <ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label> \n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP1phone\" name=\"localContactP1phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP1alternatephone\" name=\"localcontactP1alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP2phone\" name=\"localContactP2phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1Two\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP2alternatephone\" name=\"localcontactP2alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitAbsenceForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-user-absence-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Out of Condo/Prolonged Absence</h4>\n\t\t\t<div class=\"ml-auto\">\n        <button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n        <button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n        <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      </div>\n\t\t</div>\n  </ng-container>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n  <form #absenceForm = \"ngForm\" name=\"absenceForm\" novalidate>\n\n    <div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n      <!-- View Mode -->\n      <ng-container *ngIf=\"clickMode=='showAll'\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <p>{{data?.outFrom}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <p>{{data?.outTo}}</p>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <p>{{data?.localContactP1}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP1phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP1email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP1alternatephone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <p>{{data?.localContactP2}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n              <p>{{data?.localContactP2phone}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <p>{{data?.localcontactP2email}}</p>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n              <p>{{data?.localcontactP2alternatephone}}</p>\n            </div>\n          </div>\n        </div>\n\n      </ng-container>\n\n      <!-- Create Mode and Edit Mode -->\n      <ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>From Date*</label>\n              <input class=\"form-control\" name=\"fromDate\" [owlDateTime]=\"fromDate\" [owlDateTimeTrigger]=\"fromDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outFrom\" required>\n              <owl-date-time #fromDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"fromDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>To Date*</label>\n              <input class=\"form-control\" name=\"toDate\" [owlDateTime]=\"toDate\" [owlDateTimeTrigger]=\"toDate\"\n                placeholder=\"Date Time\" [(ngModel)]=\"data.outTo\" required>\n              <owl-date-time #toDate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"toDate\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <h6>Please contact my local representative given below</h6>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 1*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"name\" [(ngModel)]=\"data.localContactP1\"\n                required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label> \n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP1phone\" name=\"localContactP1phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email\"\n                [(ngModel)]=\"data.localcontactP1email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP1alternatephone\" name=\"localcontactP1alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Local Representative Name 2*</label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"alternateName\"\n                [(ngModel)]=\"data.localContactP2\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Phone/Mobile*</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localContactP2phone\" name=\"localContactP2phone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Email*</label>\n              <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"email1Two\"\n                [(ngModel)]=\"data.localcontactP2email\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"input-box\">\n              <label>Alternate Phone Number</label>\n                <ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n                [phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n                [(ngModel)]=\"data.localcontactP2alternatephone\" name=\"localcontactP2alternatephone\">\n\t\t\t\t\t\t\t</ngx-intl-tel-input>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n\n    <div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitAbsenceForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n  </form>\n  \n\n</div>\n";
       /***/
     },
 
@@ -334,7 +334,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-vehicle-details-wrapper\">\n\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\n\t<div class=\"row\" *ngIf=\"isDataLoaded && !isVehicleNew\">\n\t\t<div class=\"col-sm-12\">\n\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit && isAdmin\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isVehicleNew\">\n\t\t\t\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\"  novalidate>\n\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Number</label>\n\t\t\t\t                <p>{{vehicle.vehicleNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Type</label>\n\t\t\t\t                <p>{{getVehicleType(vehicle.vehicleTypeId) | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Manufacturer</label>\n\t\t\t\t                <p>{{vehicle.vehicleManufacturer | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Color</label>\n\t\t\t\t                <p>{{vehicle.vehicleColor | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Driver Number</label>\n\t\t\t\t                <p>{{vehicle.vehicleDriverNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</ng-container>\n\n\n\t\t<ng-container *ngIf=\"isEdit || isVehicleNew\">\n\t\t\t\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" (ngSubmit)=\"submitProfilVehicleForm(profileVehicleForm)\"  novalidate>\n\t\t\t\n\t\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Number*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleNumber\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleNumber\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Vehicle Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"vehicleTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"vehicle.vehicleTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVehicleType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Manufacturer*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleManufacturer\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleManufacturer\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Color</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleColor\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleColor\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Driver Number</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleDriverNumber\" \n\t\t\t                    [(ngModel)]=\"vehicle.vehicleDriverNumber\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profileVehicleForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\n\t\t</ng-container>\n\n\t</ng-container>\n\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"profile-vehicle-details-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"row\" *ngIf=\"!isVehicleNew\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"d-flex justify-content-end mb-3\">\n\t\t\t\t\t<div class=\"link\" (click)=\"showEditForm()\">\n\t\t\t\t\t\t<mat-icon  [color]=\"'primary'\" *ngIf=\"isEdit\" [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t\t<mat-icon class=\"icon-md\" [color]=\"'primary'\" *ngIf=\"!isEdit && isAdmin\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<ng-container *ngIf=\"!isEdit && !isVehicleNew\">\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Number</label>\n\t\t\t\t                <p>{{vehicleData.vehicle.vehicleNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Type</label>\n\t\t\t\t                <p>{{vehicleData.vehicle.vehicleTypeId | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Manufacturer</label>\n\t\t\t\t                <p>{{vehicleData.vehicle.vehicleManufacturer | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Color</label>\n\t\t\t\t                <p>{{vehicleData.vehicle.vehicleColor | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Vehicle Driver Number</label>\n\t\t\t\t                <p>{{vehicleData.vehicle.vehicleDriverNumber | notAvail }}</p>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\n\t\t<ng-container *ngIf=\"isEdit || isVehicleNew\">\n\t\t\t<form #profileVehicleForm = \"ngForm\" name=\"profileVehicleForm\" (ngSubmit)=\"submitProfilVehicleForm()\"  novalidate>\n\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Number*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleNumber\" \n\t\t\t                    [(ngModel)]=\"vehicleFormData.vehicleNumber\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Vehicle Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"vehicleTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"vehicleFormData.vehicleTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVehicleType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Manufacturer*</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleManufacturer\" \n\t\t\t                    [(ngModel)]=\"vehicleFormData.vehicleManufacturer\" required>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Color</label>\n\t\t\t                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleColor\" \n\t\t\t                    [(ngModel)]=\"vehicleFormData.vehicleColor\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Vehicle Driver Number</label>\n\t\t\t                    <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"vehicleDriverNumber\" \n\t\t\t                    [(ngModel)]=\"vehicleFormData.vehicleDriverNumber\">\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-center mt-5\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" [disabled]=\"profileVehicleForm.invalid\">Submit</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t</ng-container>\n\t</ng-container>\n\n</div>\n\n\n\n";
       /***/
     },
 
@@ -354,7 +354,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-vehicles-wrapper p-5\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"mb-4\">\n\t\t\t<h4 class=\"mb-4\">Unit vehicles and Parking</h4>\n\t\t\t<p *ngIf=\"!isAdmin\" class=\"text-secondary\">Please contact your association admin to update vehicle or parking slot</p>\n\t\t</div>\n\t</ng-container> \n\n\t<div class=\"bg-card shadow primary\" *ngIf=\"isUserDataLoaded\">\n\t\t<h6 class=\"mb-2\">Parking Slots Available</h6>\n\t\t<p class=\"text-secondary d-inline-block ft mr-md-2\" *ngFor=\" let item of parkingSlotsDataList; let i = index; last as isLast\">\n\t\t\t{{item.slotName}}<span *ngIf=\"!isLast\">,</span>\n\t\t</p>\n\t\t<p class=\"text-secondary d-inline-block\" *ngIf=\"isPlotNotAvailable()\">\n\t\t\tNot Allocated\n\t\t</p>\n\t</div>\n\t\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && isVehicleNotAvailable()\">\n\t\t<h6>No Vehicle added yet</h6>\n\t</div>\n\n\t<ng-container *ngIf=\"isUserDataLoaded\">\n\n\t\t<mat-accordion>\n\n\t\t\t<mat-expansion-panel *ngFor=\"let item of vehicleDataList; let i = index\">\n\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Type: <span class=\"font-normal\">{{getVehicleType(item.vehicle.vehicleTypeId)}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t\t<mat-expansion-panel *ngIf=\"isAdmin\">\n\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\"  [apartmentBlockUnitId]=\"userUnitId\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\n\t\t\t</mat-expansion-panel>\n\n\t\t</mat-accordion>\n\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-pevehiclests-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4 class=\"mb-4\">Unit vehicles and Parking</h4>\n\t\t<p *ngIf=\"!isAdmin\" class=\"text-secondary\">Please contact your association admin to update vehicle or parking slot</p>\n\t</div>\n\n\t<div class=\"bg-card shadow primary\" *ngIf=\"isUserDataLoaded && parkingSlotsDataList\">\n\t\t<h6 class=\"mb-2\">Parking Slots Available</h6>\n\t\t<p class=\"text-secondary d-inline-block ft mr-md-2\" *ngFor=\" let item of parkingSlotsDataList; let i = index; last as isLast\">\n\t\t\t{{item.slotName}}<span *ngIf=\"!isLast\">,</span>\n\t\t</p>\n\t\t<p class=\"text-secondary d-inline-block\" *ngIf=\"parkingSlotsDataList.length > 0\">\n\t\t\tNot Allocated\n\t\t</p>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && vehicleDataList.length == 0\">\n\t\t<h6>No Vehicle added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\n\t\t<!-- Add Vehicle -->\n\t\t<ng-container *ngIf=\"isAdmin\">\n\t\t\t<mat-expansion-panel [expanded] = \"expanded\">\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\" [dropDownList]=\"vehicleTypeList\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container >\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Edit Vehicle -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of vehicleDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Type: <span class=\"font-normal\">{{item.vehicle.vehicleTypeId}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [dropDownList]=\"vehicleTypeList\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n\n</div>";
       /***/
     },
 
@@ -394,7 +394,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-basic wrapper p-5\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Property Manager</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit && isDataAvailable\">\n\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\t\t<div class=\"bg-card shadow warn\" *ngIf=\"!isDataAvailable\">\n\t\t\t<h6>No Records</h6>\n\t\t</div>\n\t</ng-container>\n\n\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" (ngSubmit)=\"submitPropertyManagerForm(propertyManagerForm)\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded && isDataAvailable\">\n\n\t\t\t<ng-container *ngIf=\"!isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company</label>\n\t\t\t\t\t\t\t<p>{{propertyData.propertyManagerName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person</label>\n\t\t\t\t\t\t\t<p>{{propertyData.contactPerson}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{propertyData.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<p>{{propertyData.city}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<p>{{propertyData.state}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<p>{{propertyData.pin}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</ng-container>\n\n\t\t\t<ng-container *ngIf=\"isEdit\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.propertyManagerName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.contactPerson\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo1\" [(ngModel)]=\"propertyData.phone1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsvalidatePhoneNo($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo2\" [(ngModel)]=\"propertyData.phone2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address1\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.city\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.state\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.pin\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\n\t\t\n\t\t\t</ng-container>\n\n\t\t</div>\n\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"property-manager-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Property Manager</h4>\n\t\t\t<div class=\"ml-auto\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<!-- <button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button> -->\n\t\t\t</div>\n\t\t</div>\n  \t</ng-container>\n\n  <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<form #propertyManagerForm = \"ngForm\" name=\"propertyManagerForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company</label>\n\t\t\t\t\t\t\t<p>{{propertyData.propertyManagerName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person</label>\n\t\t\t\t\t\t\t<p>{{propertyData.contactPerson}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email</label>\n\t\t\t\t\t\t\t<p>{{propertyData.email}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<p>{{propertyData.phone2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address1}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<p>{{propertyData.address2}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<p>{{propertyData.city}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<p>{{propertyData.state}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<p>{{propertyData.pin}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t<!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Property Company*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Property Company\" name=\"propertyCompany\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.propertyManagerName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Contact Person*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Contact Person\" name=\"contactPerson\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.contactPerson\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"email\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Email\" name=\"email\" [(ngModel)]=\"propertyData.email\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Phone Number*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo1\" [(ngModel)]=\"propertyData.phone1\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Alternate Phone Number</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\tplaceholder=\"Phone no\" name=\"phoneNo2\" [(ngModel)]=\"propertyData.phone2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 1</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address1\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Address Line 2</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address2\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.address2\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>City</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"City\" name=\"city\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.city\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Province / Region</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Province / Region\" name=\"region\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.state\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Zip</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Zip\" name=\"zip\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"propertyData.pin\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t  \n\t\t</div>\n\t\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitPropertyManagerForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\n</div>";
       /***/
     },
 
@@ -1854,6 +1854,8 @@
                 if (res.message) {
                   _this7.sharedService.openSnackBar("Family Member added successfully", 'success');
 
+                  _this7.userFormData = {};
+
                   _this7.outputParams.emit(true);
                 } else {
                   _this7.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2124,6 +2126,7 @@
           value: function getParams(event) {
             if (event) {
               this.getFamilyList(this.apartmentBlockUnitUserId);
+              this.expanded = false;
             }
           }
         }, {
@@ -2561,23 +2564,13 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-      /* harmony import */
-
-
-      var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Rent */
       "./src/app/api/controllers/Rent.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
 
@@ -2592,48 +2585,39 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isDataLoaded = false;
-          this.isEdit = false;
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+          this.clickMode = 'showAll';
+          this.rent = {};
+          this.rentListData = [];
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(ProfileLeaseInfoComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this17 = this;
+          key: "showEditForm",
+          value: function showEditForm(type) {
+            if (type == 'add') {
+              this.rent = {};
+            } else if (type == 'edit') {
+              this.rent = Object.assign({}, this.rentListData[0]);
+            } else if (type == 'showAll') {
+              this.rent = Object.assign({}, this.rentListData[0]);
+            }
 
-            this.rent = {};
-            this.userId = this.sessionService.profileUserId;
-            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-
-            this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this17.apartmentBlockUnitId = params['unitId'];
-              } else if (_this17.sessionService.roleTypeName != 'Admin') {
-                _this17.apartmentBlockUnitId = _this17.sessionService.apartmentBlockUnitID;
-              }
-            });
-
-            this.getListData();
+            this.clickMode = type;
           }
         }, {
-          key: "getListData",
-          value: function getListData() {
-            var _this18 = this;
-
-            this.rentService.getAllApartmentBlockUnitRents().subscribe(function (res) {
-              _this18.rentListData = res.filter(function (data) {
-                return data.isActive && data.apartmentBlockUnitId == _this18.apartmentBlockUnitId;
-              });
-              _this18.rent = _this18.rentListData[_this18.rentListData.length - 1];
-              _this18.isDataLoaded = true;
-            }, function (error) {
-              console.log(error);
-            });
+          key: "showHistory",
+          value: function showHistory() {
+            this.modalService.showLeaseInfoModal(this.rentListData);
           }
         }, {
           key: "submitLeaseInfoForm",
-          value: function submitLeaseInfoForm(form) {
-            var _this19 = this;
+          value: function submitLeaseInfoForm() {
+            if (this.clickMode == 'add') this.createLeaseForm();else if (this.clickMode == 'edit') this.updateLeaseForm();
+          }
+        }, {
+          key: "createLeaseForm",
+          value: function createLeaseForm() {
+            var _this17 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -2648,38 +2632,110 @@
               "field1": "string",
               "field2": "string",
               "isActive": true,
-              "insertedBy": this.userId,
-              "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
-              "updatedBy": this.userId,
-              "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString()
+              "insertedBy": this.sessionService.userId,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null
             };
             var AddApartmentBlockUnitRentParams = {
               apartmentBlockUnitRent: details
             };
             this.rentService.addApartmentBlockUnitRent(AddApartmentBlockUnitRentParams).subscribe(function (res) {
               if (res.message) {
-                _this19.sharedService.setAlertMessage("Lease Info added successfully");
+                _this17.sharedService.openSnackBar("Lease Info added successfully", 'success');
 
-                _this19.getListData();
-
-                _this19.isEdit = false;
+                _this17.getListData();
+              } else {
+                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this19.isDataLoaded = true;
+              _this17.isDataLoaded = true;
             }, function (error) {
-              _this19.isDataLoaded = true;
-              console.log(error);
+              _this17.isDataLoaded = false;
+
+              _this17.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
-          key: "showEditForm",
-          value: function showEditForm() {
-            this.isEdit = !this.isEdit;
+          key: "updateLeaseForm",
+          value: function updateLeaseForm() {
+            var _this18 = this;
+
+            this.isDataLoaded = false;
+            var params = {
+              apartmentBlockUnitRent: Object.assign(Object.assign({}, this.rent), {
+                "rentAmount": parseInt(this.rent.rentAmount),
+                "advanceAmount": parseInt(this.rent.advanceAmount),
+                "leaseAmount": parseInt(this.rent.leaseAmount),
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": new Date().toISOString()
+              })
+            };
+            this.rentService.updateApartmentBlockUnitRent(params).subscribe(function (res) {
+              if (res.message) {
+                _this18.sharedService.openSnackBar("Lease Info Updated successfully", 'success');
+
+                _this18.getListData();
+              } else {
+                _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+
+              _this18.isDataLoaded = true;
+            }, function (error) {
+              _this18.isDataLoaded = false;
+
+              _this18.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
-          key: "showHistory",
-          value: function showHistory() {
-            this.modalService.showLeaseInfoModal(this.rentListData);
+          key: "getListData",
+          value: function getListData() {
+            var _this19 = this;
+
+            this.rentService.getAllApartmentBlockUnitRents().subscribe(function (res) {
+              if (res && Array.isArray(res)) {
+                if (res.length > 0) {
+                  _this19.rentListData = res.filter(function (data) {
+                    return data.isActive && data.apartmentBlockUnitId == _this19.apartmentBlockUnitId;
+                  });
+                  _this19.rentListData = _this19.rentListData.reverse();
+                  _this19.rent = _this19.rentListData[0];
+                }
+              } else {
+                _this19.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+
+              _this19.clickMode = 'showAll';
+              _this19.isDataLoaded = true;
+            }, function (error) {
+              _this19.isDataLoaded = true;
+
+              _this19.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this20 = this;
+
+            // this.rent = {};
+            // this.userId =  this.sessionService.profileUserId;
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID, this.getListData();
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unituserid && params.unitId) {
+                _this20.apartmentBlockUnitId = Number(params.unitId);
+
+                _this20.getListData();
+              }
+            });
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -2694,7 +2750,7 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"]
+          type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_5__["RentService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
@@ -2710,7 +2766,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-lease-info.component.scss */
         "./src/app/modules/profile/profile-lease-info/profile-lease-info.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], ProfileLeaseInfoComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_5__["RentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], ProfileLeaseInfoComponent);
       /***/
     },
 
@@ -2955,7 +3011,7 @@
         }, {
           key: "createPet",
           value: function createPet() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2973,85 +3029,23 @@
               if (res.message) {
                 var _params2 = {
                   apartmentBlockUnitPet: {
-                    "apartmentBlockUnitId": _this20.apartmentBlockUnitId,
+                    "apartmentBlockUnitId": _this21.apartmentBlockUnitId,
                     "petId": res.message,
                     "isActive": true,
-                    "insertedBy": _this20.sessionService.userId,
+                    "insertedBy": _this21.sessionService.userId,
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": null
                   }
                 };
 
-                _this20.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
-                  if (res.message) {
-                    _this20.isDataLoaded = true;
-                    _this20.petFormData.pet.petTypeId = '';
-                    _this20.petFormData.pet.dob = '';
-
-                    _this20.sharedService.openSnackBar("Pet added successfully", 'success');
-
-                    _this20.outputParams.emit(true);
-                  } else {
-                    _this20.isDataLoaded = true;
-
-                    _this20.sharedService.openSnackBar(res.errorMessage, 'error');
-                  }
-                }, function (error) {
-                  _this20.isDataLoaded = true;
-
-                  _this20.sharedService.openSnackBar('Server Error', 'error');
-                });
-              } else {
-                _this20.isDataLoaded = true;
-
-                _this20.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this20.isDataLoaded = true;
-
-              _this20.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "updatePet",
-          value: function updatePet() {
-            var _this21 = this;
-
-            this.isDataLoaded = false;
-            var details = {
-              "petId": this.petFormData.pet.petId,
-              "petTypeId": this.petFormData.pet.petTypeId,
-              "dob": this.petFormData.pet.dob,
-              "isActive": this.petFormData.pet.isActive,
-              "insertedBy": this.petFormData.pet.insertedBy,
-              "insertedOn": this.petFormData.pet.insertedOn,
-              "updatedBy": this.sessionService.userId,
-              "updatedOn": new Date().toISOString()
-            };
-            var params = {
-              pet: details
-            };
-            this.petService.updatePet(params).subscribe(function (res) {
-              if (res.message) {
-                var _params3 = {
-                  apartmentBlockUnitPet: {
-                    "apartmentBlockUnitPetId": _this21.petFormData.apartmentBlockUnitPetId,
-                    "apartmentBlockUnitId": _this21.petFormData.apartmentBlockUnitId,
-                    "petId": _this21.petFormData.petId,
-                    "isActive": _this21.petFormData.isActive,
-                    "insertedBy": _this21.petFormData.insertedBy,
-                    "insertedOn": _this21.petFormData.insertedOn,
-                    "updatedBy": _this21.sessionService.userId,
-                    "updatedOn": new Date().toISOString()
-                  }
-                };
-
-                _this21.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                _this21.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   if (res.message) {
                     _this21.isDataLoaded = true;
+                    _this21.petFormData.pet.petTypeId = '';
+                    _this21.petFormData.pet.dob = '';
 
-                    _this21.sharedService.openSnackBar("Pet updated successfully", 'success');
+                    _this21.sharedService.openSnackBar("Pet added successfully", 'success');
 
                     _this21.outputParams.emit(true);
                   } else {
@@ -3076,9 +3070,71 @@
             });
           }
         }, {
+          key: "updatePet",
+          value: function updatePet() {
+            var _this22 = this;
+
+            this.isDataLoaded = false;
+            var details = {
+              "petId": this.petFormData.pet.petId,
+              "petTypeId": this.petFormData.pet.petTypeId,
+              "dob": this.petFormData.pet.dob,
+              "isActive": this.petFormData.pet.isActive,
+              "insertedBy": this.petFormData.pet.insertedBy,
+              "insertedOn": this.petFormData.pet.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": new Date().toISOString()
+            };
+            var params = {
+              pet: details
+            };
+            this.petService.updatePet(params).subscribe(function (res) {
+              if (res.message) {
+                var _params3 = {
+                  apartmentBlockUnitPet: {
+                    "apartmentBlockUnitPetId": _this22.petFormData.apartmentBlockUnitPetId,
+                    "apartmentBlockUnitId": _this22.petFormData.apartmentBlockUnitId,
+                    "petId": _this22.petFormData.petId,
+                    "isActive": _this22.petFormData.isActive,
+                    "insertedBy": _this22.petFormData.insertedBy,
+                    "insertedOn": _this22.petFormData.insertedOn,
+                    "updatedBy": _this22.sessionService.userId,
+                    "updatedOn": new Date().toISOString()
+                  }
+                };
+
+                _this22.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                  if (res.message) {
+                    _this22.isDataLoaded = true;
+
+                    _this22.sharedService.openSnackBar("Pet updated successfully", 'success');
+
+                    _this22.outputParams.emit(true);
+                  } else {
+                    _this22.isDataLoaded = true;
+
+                    _this22.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this22.isDataLoaded = true;
+
+                  _this22.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this22.isDataLoaded = true;
+
+                _this22.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this22.isDataLoaded = true;
+
+              _this22.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this23 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -3086,7 +3142,7 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this22.apartmentBlockUnitId = Number(params.unitId);
+                _this23.apartmentBlockUnitId = Number(params.unitId);
               }
             });
 
@@ -3296,31 +3352,32 @@
           value: function getParams(event) {
             if (event) {
               this.showUnitPetDetails(this.apartmentBlockUnitId);
+              this.expanded = false;
             }
           }
         }, {
           key: "showUnitPetDetails",
           value: function showUnitPetDetails(id) {
-            var _this23 = this;
+            var _this24 = this;
 
             this.isUserDataLoaded = false;
             var petListParams = {
               apartmentBlockUnitId: id
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
-              if (res.length != 0) {
-                _this23.petDataList = res.reverse();
+              if (res.length > 0) {
+                _this24.petDataList = res.reverse();
               }
 
-              _this23.isUserDataLoaded = true;
+              _this24.isUserDataLoaded = true;
             }, function (error) {
-              _this23.sharedService.openSnackBar('Server Error', 'error');
+              _this24.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this25 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -3330,9 +3387,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this24.apartmentBlockUnitId = Number(params.unitId);
+                _this25.apartmentBlockUnitId = Number(params.unitId);
 
-                _this24.showUnitPetDetails(_this24.apartmentBlockUnitId);
+                _this25.showUnitPetDetails(_this25.apartmentBlockUnitId);
               }
             }); //Pet DropDown
 
@@ -3341,7 +3398,7 @@
               LookupTypeId: 85
             };
             this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-              _this24.petTypeList = res;
+              _this25.petTypeList = res;
             });
           }
         }, {
@@ -3495,33 +3552,33 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this25 = this;
+            var _this26 = this;
 
             var file = event[0];
             this.profilepPicUploadService.upload(file, this.user.emailId).subscribe(function (res) {
               if (res != undefined) {
-                _this25.uploadResponse = res;
-                var offset = _this25.circumference - _this25.uploadResponse.message / 100 * _this25.circumference;
-                _this25.circle.style.strokeDashoffset = offset;
+                _this26.uploadResponse = res;
+                var offset = _this26.circumference - _this26.uploadResponse.message / 100 * _this26.circumference;
+                _this26.circle.style.strokeDashoffset = offset;
               }
 
-              if (_this25.isUploadCompleted()) {
+              if (_this26.isUploadCompleted()) {
                 var userParams = {
-                  userid: _this25.user.userId
+                  userid: _this26.user.userId
                 };
 
-                _this25.userService.getUserById(userParams).subscribe(function (res) {
+                _this26.userService.getUserById(userParams).subscribe(function (res) {
                   var imagePath = 'data:image/png;base64,' + res[0].image;
 
-                  _this25.sharedService.setProfilePic(imagePath);
+                  _this26.sharedService.setProfilePic(imagePath);
 
-                  _this25.initialiseProgressRing();
+                  _this26.initialiseProgressRing();
                 }, function (error) {
                   console.log(error);
                 });
               }
             }, function (err) {
-              _this25.error = err;
+              _this26.error = err;
             });
           }
         }, {
@@ -3535,13 +3592,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.imageFormats = this.constantsService.imageFormats.join(',');
             this.circle = document.querySelector('.progress-ring__circle');
             this.initialiseProgressRing();
             this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-              _this26.profilePicUrl = profilePicUrl;
+              _this27.profilePicUrl = profilePicUrl;
             });
           }
         }]);
@@ -3684,7 +3741,7 @@
          * @param {MatDialog} _matDialog
          */
         function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
-          var _this27 = this;
+          var _this28 = this;
 
           _classCallCheck(this, ProfileSidebarComponent);
 
@@ -3709,7 +3766,7 @@
 
           this._activatedRoute.queryParams.subscribe(function (params) {
             if (params['type'] != undefined) {
-              _this27.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
+              _this28.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
             }
           });
 
@@ -3724,24 +3781,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this28.user = data.initialData.profileUser;
+              _this29.user = data.initialData.profileUser;
             }); //if profile from unapproved and approved modules
 
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['unituserid'] != undefined) {
                 var userparams = {
-                  apartmentId: _this28.sessionService.apartmentId,
+                  apartmentId: _this29.sessionService.apartmentId,
                   apartmentBlockUnitUserId: params['unituserid']
                 };
 
-                _this28.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
-                  _this28.user.roleName = res[0].roleName;
+                _this29.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
+                  _this29.user.roleName = res[0].roleName;
                 });
               }
             }); // Generate menu links
@@ -3763,7 +3820,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this29 = this;
+            var _this30 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -3776,7 +3833,7 @@
                 type: 'basic',
                 icon: folder.icon,
                 query: 'preserve',
-                link: '/' + _this29.pagePath() + '/profile/' + folder.slug
+                link: '/' + _this30.pagePath() + '/profile/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -3788,7 +3845,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this29._foldersMenuData.push(menuItem);
+              _this30._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -3796,19 +3853,19 @@
         }, {
           key: "_generateSettingsMenuLinks",
           value: function _generateSettingsMenuLinks() {
-            var _this30 = this;
+            var _this31 = this;
 
             // Reset the labels menu
             this._settingsMenuData = []; // Iterate through the labels
 
             this.settings.forEach(function (setting) {
               // Generate menu item for the label
-              _this30._settingsMenuData.push({
+              _this31._settingsMenuData.push({
                 id: setting.id,
                 title: setting.title,
                 type: 'basic',
                 icon: setting.icon,
-                link: '/' + _this30.pagePath() + '/profile/' + setting.slug
+                link: '/' + _this31.pagePath() + '/profile/' + setting.slug
               });
             }); // Update the menu data
 
@@ -4068,12 +4125,6 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
 
       var ProfileUnitDetailsComponent = /*#__PURE__*/function () {
         function ProfileUnitDetailsComponent(_router, _activatedRoute, userService, apartmentService, sharedService, lookupService, sessionService) {
@@ -4088,220 +4139,168 @@
           this.sessionService = sessionService;
           this.isUserDataLoaded = false;
           this.isEdit = false;
-          this.userUnitId = "";
-          this.isBlockSelected = false;
-          this.isUnitSelected = false;
+          this.block = {};
+          this.blockList = [];
+          this.blockUnitList = [];
+          this.unitTypeList = [];
         }
 
         _createClass(ProfileUnitDetailsComponent, [{
           key: "showEditForm",
           value: function showEditForm() {
             this.isEdit = !this.isEdit;
-            this.isBlockSelected = false;
           }
         }, {
-          key: "getSelectedBlock",
-          value: function getSelectedBlock(event) {
-            var _this31 = this;
+          key: "getBlockUnit",
+          value: function getBlockUnit(event) {
+            var _this32 = this;
 
-            this.block.apartmentBlockId = event[0].apartmentBlockId;
-            var params = {
-              apartmentBlockId: parseInt(this.block.apartmentBlockId)
+            if (event) {
+              this.block.apartmentBlockId = event[0].apartmentBlockId;
+              this.block.apartmentBlockUnitId = '';
+            }
+
+            this.blockUnitList = [];
+            var unitParams = {
+              apartmentBlockId: this.block.apartmentBlockId
             };
-            this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this31.blockUnitData = res;
-              _this31.isBlockSelected = true;
+            this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
+              _this32.blockUnitList = res;
             });
           }
         }, {
-          key: "getSelectedBlockUnit",
-          value: function getSelectedBlockUnit(event) {
+          key: "setBlockUnit",
+          value: function setBlockUnit(event) {
             this.block.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
           }
         }, {
-          key: "getUnitTypeId",
-          value: function getUnitTypeId(event) {
+          key: "setUnitTypeId",
+          value: function setUnitTypeId(event) {
             this.block.unitTypeId = event[0].lookupValueId;
-          }
-        }, {
-          key: "getUnitType",
-          value: function getUnitType(name) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.unitTypeData, function (item) {
-              if (item.lookupValueName === name) return item;
-            });
-
-            if (data === undefined || data.length == 0) {
-              this.block.unitTypeId = null;
-            } else {
-              this.block.unitTypeId = data[0].lookupValueId;
-            }
-          }
-        }, {
-          key: "getUnitName",
-          value: function getUnitName(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.unitNameList, function (item) {
-              if (item.apartmentBlockUnitId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].apartmentBlockUnitNumber;
-            }
-          }
-        }, {
-          key: "showUnitDetails",
-          value: function showUnitDetails(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.unitNameList, function (item) {
-              if (item.apartmentBlockUnitId == id) {
-                return item;
-              }
-            });
-            this.isUnitSelected = true;
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.block = data[0];
-              this.getUnitType(this.block.unitType);
-            }
           }
         }, {
           key: "submitProfileUnitForm",
           value: function submitProfileUnitForm(form) {
-            var _this32 = this;
+            var _this33 = this;
 
-            this.isUserDataLoaded = false;
-            var apartmentBlockUnitUser = {
-              "apartmentBlockUnitUserId": parseInt(this.apartmentBlockUnitUserId),
-              "apartmentBlockUnitId": parseInt(this.block.apartmentBlockUnitId),
-              "userId": this.userId,
-              "userTypeId": parseInt(this.userType),
-              "isPrimaryContact": true,
-              "isActive": this.block.isActive,
-              "insertedBy": 0,
-              "insertedOn": "2019-12-14T07:01:44.740Z",
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": "2019-12-14T07:01:44.740Z"
+            this.isUserDataLoaded = false; // let apartmentBlockUnitUserParams = {
+            //   apartmentBlockUnitUser:  {
+            //   "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
+            //   "apartmentBlockUnitId": parseInt(this.block.apartmentBlockUnitId),
+            //   "userId": this.userId,
+            //   "userTypeId": parseInt(this.userType),
+            //   "isPrimaryContact": true,
+            //   "isActive": this.block.isActive,
+            //   "insertedBy": 0,
+            //   "insertedOn": "2019-12-14T07:01:44.740Z",
+            //   "updatedBy": this.sessionService.userId,
+            //   "updatedOn": new Date().toISOString()
+            // }
+            // }
+            // this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe((res:any) => {
+            //   if(res.message) {
+            //   }
+            //   else {
+            //     this.isUserDataLoaded = true;
+            //     this.sharedService.openSnackBar(res.errorMessage,'error');
+            //   }
+            // },error => {
+            //   this.isUserDataLoaded = true;
+            //   this.sharedService.openSnackBar('Server Error','error');
+            // });
+
+            var apartmentBlockUnitParams = {
+              apartmentBlockUnit: {
+                "apartmentBlockUnitId": parseInt(this.block.apartmentBlockUnitId),
+                "apartmentBlockUnitNumber": this.block.apartmentBlockUnitNumber,
+                "apartmentBlockId": parseInt(this.block.apartmentBlockId),
+                "unitTypeId": this.block.unitTypeId,
+                "builtupArea": this.block.builtupArea,
+                "carpetArea": this.block.carpetArea,
+                "intercom": this.block.intercom,
+                "cars": this.block.cars ? parseInt(this.block.cars) : null,
+                "isAvailableForRent": this.block.isAvailableForRent,
+                "availableDate": "",
+                "rentAmount": this.block.rentAmount,
+                "advanceAmount": this.block.advanceAmount,
+                "isPetsAllowed": this.block.isPetsAllowed,
+                "isFurnished": this.block.isFurnished,
+                "isVacant": this.block.isVacant,
+                "propertyManagerId": null,
+                "isActive": this.block.isActive,
+                "insertedBy": this.block.insertedBy,
+                "insertedOn": this.block.insertedOn,
+                "updatedBy": parseInt(this.sessionService.userId),
+                "updatedOn": new Date().toISOString()
+              }
             };
-            var apartmentBlockUnitUserParams = {
-              apartmentBlockUnitUser: apartmentBlockUnitUser
-            };
-            this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe(function (res) {
-              if (res.message) {
-                var details = {
-                  "apartmentBlockUnitId": parseInt(_this32.block.apartmentBlockUnitId),
-                  "apartmentBlockUnitNumber": _this32.block.apartmentBlockUnitNumber,
-                  "apartmentBlockId": parseInt(_this32.block.apartmentBlockId),
-                  "unitTypeId": _this32.block.unitTypeId,
-                  "builtupArea": _this32.block.builtupArea,
-                  "carpetArea": _this32.block.carpetArea,
-                  "intercom": _this32.block.intercom,
-                  "cars": parseInt(_this32.block.cars),
-                  "isAvailableForRent": _this32.block.isAvailableForRent,
-                  "availableDate": "2019-12-13T07:07:59.550Z",
-                  "rentAmount": _this32.block.rentAmount,
-                  "advanceAmount": _this32.block.advanceAmount,
-                  "isPetsAllowed": _this32.block.isPetsAllowed,
-                  "isFurnished": _this32.block.isFurnished,
-                  "isVacant": _this32.block.isVacant,
-                  "propertyManagerId": null,
-                  "isActive": _this32.block.isActive,
-                  "insertedBy": _this32.block.insertedBy,
-                  "insertedOn": _this32.block.insertedOn,
-                  "updatedBy": parseInt(_this32.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
-                };
-                var apartmentBlockUnitParams = {
-                  apartmentBlockUnit: details
-                };
+            this.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
+              _this33.isUserDataLoaded = true;
 
-                _this32.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
-                  if (res.message) {
-                    _this32.isUserDataLoaded = true;
-                    _this32.isEdit = false;
+              if (res.code == 200) {
+                _this33.isEdit = false;
 
-                    _this32.sharedService.setAlertMessage("Unit updated successfully");
+                _this33.sharedService.openSnackBar(res.statusMessage, 'success');
+              } else {
+                _this33.sharedService.openSnackBar(res.statusMessage, 'error');
+              }
+            }, function (error) {
+              _this33.isUserDataLoaded = true;
 
-                    _this32.isBlockSelected = false;
-                  } else {}
-                }, function (error) {});
-              } else {}
-            }, function (error) {});
+              _this33.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this33 = this;
+            var _this34 = this;
 
-            this.block = {};
-            this.userId = this.sessionService.profileUserId;
-            this.block.apartmentBlockId = this.sessionService.apartmentBlockID;
-            this.block.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-            this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            if (!this.isAdmin) {
+              this.block.apartmentBlockId = this.sessionService.apartmentBlockID;
+              this.block.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+              this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
+            }
 
             this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this33.block.apartmentBlockId = params['blockId'];
-                _this33.block.apartmentBlockUnitId = params['unitId'];
-                _this33.apartmentBlockUnitUserId = params['unituserId'];
-              } else if (_this33.sessionService.roleTypeName != 'Admin') {
-                _this33.block.apartmentBlockId = _this33.sessionService.apartmentBlockID;
-                _this33.block.apartmentBlockUnitId = _this33.sessionService.apartmentBlockUnitID;
-                _this33.apartmentBlockUnitUserId = _this33.sessionService.apartmentBlockUnitUserId;
+              if (params && params.unituserid && params.unitId) {
+                _this34.block.apartmentBlockId = Number(params.blockId);
+                _this34.block.apartmentBlockUnitId = Number(params.unitId);
+                _this34.apartmentBlockUnitUserId = Number(params.unituserid);
               }
-            });
+            }); // Get ApartmentBlockUnit Info
 
-            this.unitNameList = [];
-            var blockParams = {
+
+            var blockUnitInfo = {
+              apartmentBlockUnitId: this.block.apartmentBlockUnitId
+            };
+            this.apartmentService.getApartmentBlockUnitById(blockUnitInfo).subscribe(function (res) {
+              if (res.length > 0) {
+                _this34.block = res[0];
+                _this34.isUserDataLoaded = true;
+              }
+            }); // Tower
+
+            var towerInfo = {
               apartmentId: this.sessionService.apartmentId
             };
-            this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this33.blockData = res;
-            });
-            var params = {
-              apartmentBlockId: parseInt(this.block.apartmentBlockId)
-            };
-            this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this33.blockUnitData = res;
-              _this33.isBlockSelected = true;
-            });
-            var queryParamBase = {
-              userId: this.userId
-            }; // get role
+            this.apartmentService.getApartmentBlockByApartmentId(towerInfo).subscribe(function (res) {
+              _this34.blockList = res;
 
-            this.userService.getRolesByUserId(queryParamBase).subscribe(function (data) {
-              _this33.userType = data[0].roleId.toString();
-            }, function (error) {});
-            var unitTypeParams = {
+              _this34.getBlockUnit(null);
+            }); //Unit Type
+
+            var unitTypeInfo = {
               LookupTypeId: 1
             };
-            this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-              _this33.unitTypeData = res;
-              var queryParamBase = {
-                userId: _this33.userId
-              };
-
-              _this33.apartmentService.getAllApartmentBlockUnitUsersByUserId(queryParamBase).subscribe(function (unit) {
-                _this33.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_8__["each"](_this33.unitListData, function (item) {
-                  var queryParamBase = {
-                    apartmentBlockUnitId: item.apartmentBlockUnitId
-                  };
-
-                  _this33.apartmentService.getApartmentBlockUnitById(queryParamBase).subscribe(function (data) {
-                    _this33.unitNameList.push(data[0]);
-
-                    _this33.isUserDataLoaded = true;
-                    var id = _this33.unitListData[0].apartmentBlockUnitId;
-
-                    _this33.showUnitDetails(id);
-                  }, function (error) {});
-                });
-              }, function (error) {});
-            });
+            this.lookupService.getLookupValueByLookupTypeId(unitTypeInfo).subscribe(function (res) {
+              _this34.unitTypeList = res;
+            }); // let rollsInfo = {
+            //   userId: this.userId
+            // }
+            // // get role
+            // this.userService.getRolesByUserId(rollsInfo).subscribe((data:any) => {
+            //   this.userType = data[0].roleId.toString();
+            // });
           }
         }, {
           key: "isAdmin",
@@ -4529,6 +4528,7 @@
           this.dialog = dialog;
           this.data = {};
           this.isDataLoaded = false;
+          this.historyListData = [];
           this.clickMode = 'showAll';
           this.separateDialCode = true;
           this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
@@ -4575,13 +4575,13 @@
           }
         }, {
           key: "submitAbsenceForm",
-          value: function submitAbsenceForm(form) {
+          value: function submitAbsenceForm() {
             if (this.clickMode == 'add') this.createAbsenceForm();else if (this.clickMode == 'edit') this.updateAbsenceForm();
           }
         }, {
           key: "createAbsenceForm",
           value: function createAbsenceForm() {
-            var _this34 = this;
+            var _this35 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -4613,25 +4613,25 @@
               apartmentLongAbsence: details
             };
             this.apartmentService.addApartmentLongAbsence(params).subscribe(function (res) {
-              _this34.isDataLoaded = true;
+              _this35.isDataLoaded = true;
 
               if (res.message) {
-                _this34.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
+                _this35.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
 
-                _this34.getHistoryData();
+                _this35.getHistoryData();
               } else {
-                _this34.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this35.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this34.isDataLoaded = false;
+              _this35.isDataLoaded = false;
 
-              _this34.sharedService.openSnackBar('Server Error', 'error');
+              _this35.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateAbsenceForm",
           value: function updateAbsenceForm() {
-            var _this35 = this;
+            var _this36 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4650,25 +4650,25 @@
               })
             };
             this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
-              _this35.isDataLoaded = true;
+              _this36.isDataLoaded = true;
 
               if (res.message) {
-                _this35.sharedService.openSnackBar(res.message, 'success');
+                _this36.sharedService.openSnackBar(res.message, 'success');
 
-                _this35.getHistoryData();
+                _this36.getHistoryData();
               } else {
-                _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this36.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this35.isDataLoaded = false;
+              _this36.isDataLoaded = false;
 
-              _this35.sharedService.openSnackBar('Server Error', 'error');
+              _this36.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getHistoryData",
           value: function getHistoryData() {
-            var _this36 = this;
+            var _this37 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4676,24 +4676,27 @@
               ApartmentBlockUnitUserId: this.apartmentBlockUnitUserId
             };
             this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
-              _this36.historyListData = unit.reverse();
-
-              if (_this36.historyListData.length > 0) {
-                _this36.data = _this36.historyListData[0];
-                _this36.clickMode = 'showAll';
+              if (unit && Array.isArray(unit)) {
+                if (unit.length > 0) {
+                  _this37.historyListData = unit.reverse();
+                  _this37.data = _this37.historyListData[0];
+                }
+              } else {
+                _this37.sharedService.openSnackBar(unit.errorMessage, 'error');
               }
 
-              _this36.isDataLoaded = true;
+              _this37.clickMode = 'showAll';
+              _this37.isDataLoaded = true;
             }, function (error) {
-              _this36.isDataLoaded = true;
+              _this37.isDataLoaded = true;
 
-              _this36.sharedService.openSnackBar('Server Error', 'error');
+              _this37.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this37 = this;
+            var _this38 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -4703,9 +4706,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this37.apartmentBlockUnitId = Number(params.unitId), _this37.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this38.apartmentBlockUnitId = Number(params.unitId), _this38.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this37.getHistoryData();
+                _this38.getHistoryData();
               }
             });
           }
@@ -4824,20 +4827,23 @@
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
+      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
       var ProfileVehicleDetailsComponent = /*#__PURE__*/function () {
-        function ProfileVehicleDetailsComponent(vehicleService, sharedService, lookupService, sessionService) {
+        function ProfileVehicleDetailsComponent(vehicleService, sharedService, lookupService, sessionService, _activatedRoute) {
           _classCallCheck(this, ProfileVehicleDetailsComponent);
 
           this.vehicleService = vehicleService;
           this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
-          this.isDataLoaded = false;
+          this._activatedRoute = _activatedRoute;
+          this.vehicleData = {};
+          this.isDataLoaded = true;
           this.isEdit = false;
+          this.vehicleFormData = {};
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
@@ -4849,167 +4855,198 @@
         }, {
           key: "getSelectedVehicleType",
           value: function getSelectedVehicleType(event) {
-            this.vehicle.vehicleTypeId = event[0].lookupValueId;
-          }
-        }, {
-          key: "getVehicleType",
-          value: function getVehicleType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.vehicleTypeList, function (item) {
-              if (item.lookupValueId === id) {
-                return item;
-              }
-            });
+            this.vehicleFormData.vehicleTypeId = event[0].lookupValueId;
+          } // getVehicleType(id){
+          // 	var data = _.filter( this.vehicleTypeList, function( item ) {
+          //     if(item.lookupValueId === id){
+          //     	return item;
+          //     }
+          //   });
+          //   if(data === undefined || data.length == 0){
+          //     return '';
+          //   }
+          //   else {
+          //     return data[0].lookupValueName;
+          //   }
+          // }
 
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          }
         }, {
           key: "submitProfilVehicleForm",
-          value: function submitProfilVehicleForm(form) {
-            var _this38 = this;
+          value: function submitProfilVehicleForm() {
+            if (!this.isEdit) {
+              this.createProfileVehicle();
+            } else {
+              this.updateProfileVehicle();
+            }
+          }
+        }, {
+          key: "createProfileVehicle",
+          value: function createProfileVehicle() {
+            var _this39 = this;
 
             this.isDataLoaded = false;
+            var details = {
+              "vehicleNumber": this.vehicleFormData.vehicleNumber,
+              "vehicleTypeId": parseInt(this.vehicleFormData.vehicleTypeId),
+              "vehicleManufacturer": this.vehicleFormData.vehicleManufacturer,
+              "vehicleModel": this.vehicleFormData.vehicleModel,
+              "vehicleDriverNumber": this.vehicleFormData.vehicleDriverNumber,
+              "vehicleColor": this.vehicleFormData.vehicleColor,
+              "isActive": this.vehicleFormData.isActive,
+              "insertedBy": this.sessionService.userId,
+              "insertedOn": new Date().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null
+            };
+            var vehicleParams = {
+              vehicle: details
+            };
+            this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
+              if (res.message) {
+                var unitDetails = {
+                  "apartmentBlockUnitId": _this39.apartmentBlockUnitId,
+                  "vehicleId": parseInt(res.message),
+                  "userId": _this39.sessionService.userId,
+                  "documentId": null,
+                  "parkingSlotId": null,
+                  "stickerNumber": "string",
+                  "rfid": "string",
+                  "fromDate": "2020-03-26T20:30:26.576Z",
+                  "toDate": "2020-03-26T20:30:26.576Z",
+                  "isPassIssued": true,
+                  "isActive": true,
+                  "insertedBy": parseInt(_this39.sessionService.userId),
+                  "insertedOn": new Date().toISOString(),
+                  "updatedBy": 0,
+                  "updatedOn": null
+                };
+                var unitParams = {
+                  apartmentBlockUnitVehicle: unitDetails
+                };
 
-            if (!this.isEdit) {
-              var details = {
-                "vehicleNumber": this.vehicle.vehicleNumber,
-                "vehicleTypeId": parseInt(this.vehicle.vehicleTypeId),
-                "vehicleManufacturer": this.vehicle.vehicleManufacturer,
-                "vehicleModel": this.vehicle.vehicleModel,
-                "vehicleDriverNumber": this.vehicle.vehicleDriverNumber,
-                "vehicleColor": this.vehicle.vehicleColor,
-                "isActive": this.vehicle.isActive,
-                "insertedBy": this.userId,
-                "insertedOn": new Date().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-              };
-              var vehicleParams = {
-                vehicle: details
-              };
-              this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
-                if (res.message) {
-                  var unitDetails = {
-                    "apartmentBlockUnitId": parseInt(_this38.apartmentBlockUnitId),
-                    "vehicleId": res.message,
-                    "userId": _this38.userId,
-                    "documentId": null,
-                    "parkingSlotId": null,
-                    "stickerNumber": "string",
-                    "rfid": "string",
-                    "fromDate": "2020-03-26T20:30:26.576Z",
-                    "toDate": "2020-03-26T20:30:26.576Z",
-                    "isPassIssued": true,
-                    "isActive": true,
-                    "insertedBy": parseInt(_this38.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
-                    "updatedBy": 0,
-                    "updatedOn": "2020-03-26T20:30:26.576Z"
-                  };
-                  var unitParams = {
-                    apartmentBlockUnitVehicle: unitDetails
-                  };
+                _this39.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                  if (res.message) {
+                    _this39.isDataLoaded = true;
+                    _this39.vehicleFormData = {};
 
-                  _this38.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
-                    if (res.message) {
-                      _this38.isDataLoaded = true;
+                    _this39.sharedService.openSnackBar("Vehicle added successfully", 'success');
 
-                      _this38.sharedService.setAlertMessage("Vehicle added successfully");
+                    _this39.outputParams.emit(true);
+                  } else {
+                    _this39.isDataLoaded = true;
 
-                      _this38.outputParams.emit(true);
-                    } else {
-                      _this38.isDataLoaded = true;
-                    }
-                  });
-                } else {
-                  _this38.isDataLoaded = true;
-                }
-              });
-            } else {
-              var _details2 = {
-                "vehicleId": parseInt(this.vehicle.vehicleId),
-                "vehicleNumber": this.vehicle.vehicleNumber,
-                "vehicleTypeId": parseInt(this.vehicle.vehicleTypeId),
-                "vehicleManufacturer": this.vehicle.vehicleManufacturer,
-                "vehicleModel": this.vehicle.vehicleModel,
-                "vehicleDriverNumber": this.vehicle.vehicleDriverNumber,
-                "vehicleColor": this.vehicle.vehicleColor,
-                "isActive": this.vehicle.isActive,
-                "insertedBy": this.vehicle.insertedBy,
-                "insertedOn": this.vehicle.insertedOn,
-                "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
-              };
-              var _vehicleParams = {
-                vehicle: _details2
-              };
-              this.vehicleService.updateVehicle(_vehicleParams).subscribe(function (res) {
-                if (res.message) {
-                  var unitDetails = {
-                    "apartmentBlockUnitVehicleId": parseInt(_this38.vehicleUnit.apartmentBlockUnitVehicleId),
-                    "apartmentBlockUnitId": parseInt(_this38.apartmentBlockUnitId),
-                    "vehicleId": parseInt(_this38.vehicle.vehicleId),
-                    "userId": _this38.userId,
-                    "documentId": null,
-                    "parkingSlotId": null,
-                    "stickerNumber": "string",
-                    "rfid": "string",
-                    "fromDate": "2020-03-26T20:30:26.576Z",
-                    "toDate": "2020-03-26T20:30:26.576Z",
-                    "isPassIssued": _this38.vehicle.isPassIssued,
-                    "isActive": _this38.vehicle.isActive,
-                    "insertedBy": _this38.vehicle.insertedBy,
-                    "insertedOn": _this38.vehicle.insertedOn,
-                    "updatedBy": parseInt(_this38.sessionService.userId),
-                    "updatedOn": new Date().toISOString()
-                  };
-                  var unitParams = {
-                    apartmentBlockUnitVehicle: unitDetails
-                  };
+                    _this39.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this39.isDataLoaded = true;
 
-                  _this38.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
-                    if (res.message) {
-                      _this38.isDataLoaded = true;
+                  _this39.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this39.isDataLoaded = true;
 
-                      _this38.sharedService.setAlertMessage("Vehicle updated successfully");
+                _this39.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this39.isDataLoaded = true;
 
-                      _this38.outputParams.emit(true);
-                    } else {
-                      _this38.isDataLoaded = true;
-                    }
-                  });
-                } else {
-                  _this38.isDataLoaded = true;
-                }
-              });
-            }
+              _this39.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "updateProfileVehicle",
+          value: function updateProfileVehicle() {
+            var _this40 = this;
+
+            this.isDataLoaded = false;
+            var details = {
+              "vehicleId": parseInt(this.vehicleFormData.vehicleId),
+              "vehicleNumber": this.vehicleFormData.vehicleNumber,
+              "vehicleTypeId": parseInt(this.vehicleFormData.vehicleTypeId),
+              "vehicleManufacturer": this.vehicleFormData.vehicleManufacturer,
+              "vehicleModel": this.vehicleFormData.vehicleModel,
+              "vehicleDriverNumber": this.vehicleFormData.vehicleDriverNumber,
+              "vehicleColor": this.vehicleFormData.vehicleColor,
+              "isActive": this.vehicleFormData.isActive,
+              "insertedBy": this.vehicleFormData.insertedBy,
+              "insertedOn": this.vehicleFormData.insertedOn,
+              "updatedBy": this.sessionService.userId,
+              "updatedOn": new Date().toISOString()
+            };
+            var vehicleParams = {
+              vehicle: details
+            };
+            this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
+              if (res.message) {
+                var unitDetails = {
+                  "apartmentBlockUnitVehicleId": parseInt(_this40.vehicleData.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": _this40.apartmentBlockUnitId,
+                  "vehicleId": parseInt(_this40.vehicleFormData.vehicleId),
+                  "userId": _this40.sessionService.userId,
+                  "documentId": null,
+                  "parkingSlotId": null,
+                  "stickerNumber": "string",
+                  "rfid": "string",
+                  "fromDate": "2020-03-26T20:30:26.576Z",
+                  "toDate": "2020-03-26T20:30:26.576Z",
+                  "isPassIssued": _this40.vehicleFormData.isPassIssued,
+                  "isActive": _this40.vehicleFormData.isActive,
+                  "insertedBy": _this40.vehicleFormData.insertedBy,
+                  "insertedOn": _this40.vehicleFormData.insertedOn,
+                  "updatedBy": parseInt(_this40.sessionService.userId),
+                  "updatedOn": new Date().toISOString()
+                };
+                var unitParams = {
+                  apartmentBlockUnitVehicle: unitDetails
+                };
+
+                _this40.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                  if (res.message) {
+                    _this40.isDataLoaded = true;
+
+                    _this40.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+
+                    _this40.outputParams.emit(true);
+                  } else {
+                    _this40.isDataLoaded = true;
+
+                    _this40.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this40.isDataLoaded = true;
+
+                  _this40.sharedService.openSnackBar('Server Error', 'error');
+                });
+              } else {
+                _this40.isDataLoaded = true;
+
+                _this40.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this40.isDataLoaded = true;
+
+              _this40.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this39 = this;
+            var _this41 = this;
 
-            this.userId = this.sessionService.userId;
-            this.vehicleUnit = {};
-            this.vehicle = {};
-
-            if (this.vehicleData != undefined) {
-              this.vehicleUnit = this.vehicleData;
-              this.vehicle = this.vehicleData.vehicle;
-            } else {
-              this.vehicle.vehicleTypeId = "";
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
             }
 
-            this.isDataLoaded = true;
-            var vehcileTypeParams = {
-              LookupTypeId: 2
-            };
-            this.lookupService.getLookupValueByLookupTypeId(vehcileTypeParams).subscribe(function (res) {
-              _this39.vehicleTypeList = res;
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unitId) {
+                _this41.apartmentBlockUnitId = Number(params.unitId);
+              }
             });
+
+            if (this.vehicleData) {
+              this.vehicleFormData = Object.assign({}, this.vehicleData.vehicle);
+              console.log(this.vehicleData);
+            }
           }
         }, {
           key: "isAdmin",
@@ -5030,6 +5067,8 @@
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]
         }];
       };
 
@@ -5040,8 +5079,9 @@
         isVehicleNew: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
-        apartmentBlockUnitId: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        vehicleTypeList: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"],
+          args: ['dropDownList']
         }],
         outputParams: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
@@ -5055,7 +5095,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-vehicle-details.component.scss */
         "./src/app/modules/profile/profile-vehicle-details/profile-vehicle-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], ProfileVehicleDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]])], ProfileVehicleDetailsComponent);
       /***/
     },
 
@@ -5119,188 +5159,99 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Vehicle */
       "./src/app/api/controllers/Vehicle.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/Apartment */
-      "./src/app/api/controllers/Apartment.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
 
       var ProfileVehiclesComponent = /*#__PURE__*/function () {
-        function ProfileVehiclesComponent(router, route, userService, vehicleService, apartmentService, sharedService, lookupService, sessionService) {
+        function ProfileVehiclesComponent(vehicleService, sharedService, lookupService, sessionService, _activatedRoute) {
           _classCallCheck(this, ProfileVehiclesComponent);
 
-          this.router = router;
-          this.route = route;
-          this.userService = userService;
           this.vehicleService = vehicleService;
-          this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.lookupService = lookupService;
           this.sessionService = sessionService;
-          this.isUserDataLoaded = true;
-          this.isUnitSelected = false;
-          this.userUnitId = "";
-          this.isError = false;
-          this.errorMessage = "";
-          this.isVehicleAvailable = false;
+          this._activatedRoute = _activatedRoute;
+          this.isUserDataLoaded = false;
+          this.parkingSlotsDataList = [];
+          this.vehicleDataList = [];
+          this.vehicleTypeList = [];
         }
 
         _createClass(ProfileVehiclesComponent, [{
-          key: "showUnitDetails",
-          value: function showUnitDetails(id) {
-            var _this40 = this;
-
-            // this.isUserDataLoaded = false;
-            this.isUnitSelected = true;
-            var vehicleListParams = {
-              apartmentBlockUnitId: parseInt(id)
-            };
-            this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this40.vehicleDataList = res;
-              _this40.isUserDataLoaded = true;
-            });
-            var parkingListParams = {
-              apartmentIdBlockUnitId: parseInt(id)
-            };
-            this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-              _this40.parkingSlotsDataList = res;
-            });
-          }
-        }, {
-          key: "getVehicleType",
-          value: function getVehicleType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.vehicleTypeList, function (item) {
-              if (item.lookupValueId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].lookupValueName;
-            }
-          }
-        }, {
-          key: "getUnitName",
-          value: function getUnitName(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_9__["filter"](this.unitNameList, function (item) {
-              if (item.apartmentBlockUnitId === id) {
-                return item;
-              }
-            });
-
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              return data[0].apartmentBlockUnitNumber;
-            }
-          }
-        }, {
           key: "getParams",
           value: function getParams(event) {
-            var _this41 = this;
-
             if (event) {
-              var params = {
-                apartmentBlockUnitId: parseInt(this.userUnitId)
-              };
-              this.vehicleService.getAllVehiclesByApartmentBlockUnitId(params).subscribe(function (res) {
-                _this41.vehicleDataList = res;
-                _this41.isUserDataLoaded = true;
-              });
+              this.vehicleList(this.apartmentBlockUnitId);
+              this.expanded = false;
             }
           }
         }, {
-          key: "isPlotNotAvailable",
-          value: function isPlotNotAvailable() {
-            return this.parkingSlotsDataList == 0 ? true : false;
-          }
-        }, {
-          key: "isVehicleNotAvailable",
-          value: function isVehicleNotAvailable() {
-            return this.vehicleDataList == 0 ? true : false;
+          key: "vehicleList",
+          value: function vehicleList(id) {
+            var _this42 = this;
+
+            this.isUserDataLoaded = false;
+            var vehicleListParams = {
+              apartmentBlockUnitId: id
+            };
+            this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
+              _this42.isUserDataLoaded = true;
+              if (res.length > 0) _this42.vehicleDataList = res.reverse();
+            }, function (error) {
+              _this42.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this42 = this;
+            var _this43 = this;
 
-            this.userId = this.sessionService.profileUserId;
-            this.unitNameList = [];
-            var blockParams = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.apartmentService.getApartmentBlockByApartmentId(blockParams).subscribe(function (res) {
-              _this42.blockData = res;
-            });
+            //this.userId = this.sessionService.profileUserId
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+              this.vehicleList(this.apartmentBlockUnitId);
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unitId) {
+                _this43.apartmentBlockUnitId = Number(params.unitId);
+
+                _this43.vehicleList(_this43.apartmentBlockUnitId);
+              }
+            }); //Vehicle Type DropDown
+
+
             var vehicleTypeParams = {
               LookupTypeId: 2
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this42.vehicleTypeList = res;
-            });
-            var unitTypeParams = {
-              LookupTypeId: 1
+              _this43.vehicleTypeList = res;
+            }); //parking List
+
+            var parkingListParams = {
+              apartmentIdBlockUnitId: this.apartmentBlockUnitId
             };
-            this.lookupService.getLookupValueByLookupTypeId(unitTypeParams).subscribe(function (res) {
-              _this42.unitTypeData = res;
-              var unitUserParam = {
-                userId: _this42.userId
-              };
-
-              _this42.apartmentService.getAllApartmentBlockUnitUsersByUserId(unitUserParam).subscribe(function (unit) {
-                _this42.unitListData = unit;
-                underscore__WEBPACK_IMPORTED_MODULE_9__["each"](_this42.unitListData, function (item) {
-                  var apartmentBlockUnitParam = {
-                    apartmentBlockUnitId: item.apartmentBlockUnitId
-                  };
-
-                  _this42.apartmentService.getApartmentBlockUnitById(apartmentBlockUnitParam).subscribe(function (data) {
-                    _this42.unitNameList.push(data[0]);
-
-                    _this42.isUserDataLoaded = true;
-                    var id = _this42.unitListData[0].apartmentBlockUnitId;
-                    _this42.userUnitId = id;
-
-                    _this42.showUnitDetails(id);
-                  }, function (error) {});
-                });
-              }, function (error) {});
+            this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
+              _this43.parkingSlotsDataList = res;
             });
           }
         }, {
@@ -5315,29 +5266,18 @@
 
       ProfileVehiclesComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
-        }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
-        }, {
-          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }];
       };
 
-      ProfileVehiclesComponent.propDecorators = {
-        userId: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }]
-      };
       ProfileVehiclesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-profile-vehicles',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
@@ -5346,7 +5286,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-vehicles.component.scss */
         "./src/app/modules/profile/profile-vehicles/profile-vehicles.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_4__["VehicleService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], ProfileVehiclesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])], ProfileVehiclesComponent);
       /***/
     },
 
@@ -5546,7 +5486,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this43 = this;
+            var _this44 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5571,15 +5511,15 @@
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
               if (res.message) {
-                _this43.sharedService.setAlertMessage("Property Manager added successfully");
+                _this44.sharedService.setAlertMessage("Property Manager added successfully");
 
-                _this43.propertyData = {};
-                _this43.isDataLoaded = true;
+                _this44.propertyData = {};
+                _this44.isDataLoaded = true;
 
-                _this43.outputParams.emit('close');
+                _this44.outputParams.emit('close');
               }
             }, function (error) {
-              _this43.isDataLoaded = true;
+              _this44.isDataLoaded = true;
               console.log(error);
             });
           }
@@ -5762,59 +5702,25 @@
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.propertyData = {};
+          this.propertyList = [];
           this.isDataLoaded = false;
-          this.isEdit = false;
-          this.isDataAvailable = false;
+          this.clickMode = 'showAll';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__["ModalService"]);
         }
 
         _createClass(PropertyManagerComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this44 = this;
-
-            this.userId = this.sessionService.profileUserId;
-            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
-
-            this._activatedRoute.queryParams.subscribe(function (params) {
-              if (params['type'] != undefined) {
-                _this44.apartmentBlockUnitId = params['unitId'];
-              } else if (_this44.sessionService.roleTypeName != 'Admin') {
-                _this44.apartmentBlockUnitId = _this44.sessionService.apartmentBlockUnitID;
-              }
-            });
-
-            var params = {
-              userId: this.userId
-            };
-            this.apartmentService.getApartmentBlockUnitByUserId(params).subscribe(function (res) {
-              var data = res[0] || {};
-              _this44.apartmentBlockUnitId = data.apartmentBlockUnitId;
-              var param = {
-                apartmentBlockUnitId: _this44.apartmentBlockUnitId
-              };
-
-              _this44.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-                if (res == [null] || []) {
-                  _this44.propertyData = {};
-                  _this44.isDataAvailable = false;
-                } else {
-                  _this44.propertyData = res[0];
-                  _this44.isDataAvailable = true;
-                }
-
-                _this44.isDataLoaded = true;
-              }, function (error) {
-                console.log(error);
-              });
-            }, function (error) {
-              console.log(error);
-            });
-          }
-        }, {
           key: "showEditForm",
-          value: function showEditForm() {
-            this.isEdit = !this.isEdit;
+          value: function showEditForm(type) {
+            if (type == 'add') {
+              this.propertyData = {};
+            } else if (type == 'edit') {
+              this.propertyData = Object.assign({}, this.propertyList[0]);
+            } else if (type == 'showAll') {
+              this.propertyData = Object.assign({}, this.propertyList[0]);
+            }
+
+            this.clickMode = type;
           }
         }, {
           key: "IsValidEmail",
@@ -5835,89 +5741,95 @@
             return retVal;
           }
         }, {
-          key: "IsvalidatePhoneNo",
-          value: function IsvalidatePhoneNo(val) {
-            var retVal = true;
-            var rex = new RegExp(/^[+]?\d+$/);
-            var isValid = rex.test(val);
-
-            if (val.length > 13) {
-              retVal = false;
-              var errorDetails = {
-                msg: "phone no length should be within 13 characters",
-                type: "Error"
-              };
-              this.sharedService.setCustomAlertMessage(errorDetails);
-            }
-
-            if (!isValid) {
-              retVal = false;
-              var errorDetails = {
-                msg: "Kindly enter proper phoneno",
-                type: "Error"
-              };
-              this.sharedService.setCustomAlertMessage(errorDetails);
-            }
-
-            return retVal;
+          key: "submitPropertyManagerForm",
+          value: function submitPropertyManagerForm() {
+            if (this.clickMode == 'add') this.addPropertyManager();else if (this.clickMode == 'edit') this.updatePropertyManagerForm();
           }
         }, {
-          key: "isValueValid",
-          value: function isValueValid(val) {
-            return val === undefined || val == null || val.length <= 0 || val === "" ? true : false;
-          }
-        }, {
-          key: "submitpropertyManagerForm",
-          value: function submitpropertyManagerForm(form) {
+          key: "addPropertyManager",
+          value: function addPropertyManager() {
             var _this45 = this;
 
             this.isDataLoaded = false;
-            var details = {
-              "propertyManagerId": this.propertyData.propertyManagerId,
-              "propertyManagerName": this.propertyData.propertyManagerName,
-              "contactPerson": this.propertyData.contactPerson,
-              "email": this.propertyData.email,
-              "phone1": this.propertyData.phone1,
-              "phone2": this.propertyData.phone2,
-              "address1": this.propertyData.address1,
-              "address2": this.propertyData.address2,
-              "city": this.propertyData.city,
-              "state": this.propertyData.state,
-              "pin": this.propertyData.pin,
-              "isActive": this.propertyData.isActive,
-              "insertedBy": this.propertyData.insertedBy,
-              "insertedOn": this.propertyData.insertedOn,
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date().toISOString()
-            };
             var propertyManagerParams = {
-              propertyManager: details
+              propertyManager: {
+                "propertyManagerName": this.propertyData.propertyManagerName,
+                "contactPerson": this.propertyData.contactPerson,
+                "email": this.propertyData.email,
+                "phone1": this.propertyData.phone1,
+                "phone2": this.propertyData.phone2,
+                "address1": this.propertyData.address1,
+                "address2": this.propertyData.address2,
+                "city": this.propertyData.city,
+                "state": this.propertyData.state,
+                "pin": this.propertyData.pin,
+                "isActive": this.propertyData.isActive,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "apartmentBlockUnitID": this.apartmentBlockUnitId
+              }
+            };
+            this.propertyManagerService.addPropertyManager(propertyManagerParams).subscribe(function (res) {
+              if (res.message) {
+                _this45.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+
+                _this45.getPropertyList();
+              } else {
+                _this45.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this45.isDataLoaded = false;
+
+              _this45.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "updatePropertyManagerForm",
+          value: function updatePropertyManagerForm() {
+            var _this46 = this;
+
+            this.isDataLoaded = false;
+            var propertyManagerParams = {
+              propertyManager: {
+                "propertyManagerId": this.propertyData.propertyManagerId,
+                "propertyManagerName": this.propertyData.propertyManagerName,
+                "contactPerson": this.propertyData.contactPerson,
+                "email": this.propertyData.email,
+                "phone1": this.propertyData.phone1,
+                "phone2": this.propertyData.phone2,
+                "address1": this.propertyData.address1,
+                "address2": this.propertyData.address2,
+                "city": this.propertyData.city,
+                "state": this.propertyData.state,
+                "pin": this.propertyData.pin,
+                "isActive": this.propertyData.isActive,
+                "insertedBy": this.propertyData.insertedBy,
+                "insertedOn": this.propertyData.insertedOn,
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": new Date().toISOString(),
+                "apartmentBlockUnitID": this.apartmentBlockUnitId
+              }
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
               if (res.message) {
-                _this45.sharedService.setAlertMessage("Property Manager updated successfully");
+                _this46.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this45.isEdit = false;
-                var param = {
-                  apartmentBlockUnitId: parseInt(_this45.apartmentBlockUnitId)
-                };
-
-                _this45.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(param).subscribe(function (res) {
-                  _this45.propertyData = res[0] || {};
-                  _this45.isDataLoaded = true;
-                }, function (error) {
-                  console.log(error);
-                });
+                _this46.getPropertyList();
+              } else {
+                _this46.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this45.isDataLoaded = true;
-              console.log(error);
+              _this46.isDataLoaded = false;
+
+              _this46.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this46 = this;
+            var _this47 = this;
 
             var message = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -5928,19 +5840,70 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this46.isDataLoaded = false;
+                _this47.isDataLoaded = false;
                 var details = {
-                  "propertyManagerId": _this46.propertyData.propertyManagerId,
-                  "deleteBy": _this46.userId
+                  "propertyManagerId": _this47.propertyData.propertyManagerId,
+                  "deleteBy": _this47.userId
                 };
 
-                _this46.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                _this47.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                   if (res.message) {
-                    _this46.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                    _this47.sharedService.setAlertMessage("Property Manager Deleted successfully");
                   }
                 }, function (error) {});
               }
             });
+          }
+        }, {
+          key: "getPropertyList",
+          value: function getPropertyList() {
+            var _this48 = this;
+
+            this.isDataLoaded = false;
+            var params = {
+              apartmentBlockUnitId: this.apartmentBlockUnitId
+            };
+            this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(params).subscribe(function (res) {
+              if (res && Array.isArray(res)) {
+                if (res.length > 0) {
+                  _this48.propertyList = res.reverse();
+                  _this48.propertyData = res[0];
+                }
+              } else {
+                _this48.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+
+              _this48.clickMode = 'showAll';
+              _this48.isDataLoaded = true;
+            }, function (error) {
+              _this48.isDataLoaded = true;
+
+              _this48.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this49 = this;
+
+            //this.userId =  this.sessionService.profileUserId;
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+              this.getPropertyList();
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unitId) {
+                _this49.apartmentBlockUnitId = Number(params.unitId);
+
+                _this49.getPropertyList();
+              }
+            });
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
