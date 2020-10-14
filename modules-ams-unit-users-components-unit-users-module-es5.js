@@ -53,26 +53,6 @@
     },
 
     /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.html":
-    /*!**********************************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.html ***!
-      \**********************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsUnitUsersComponentsDeActivatedDeActivatedComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<div class=\"deactivated-wrapper\">\n\t<div class=\"main\">\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isUserDataLoaded\">\n\t\t<div CondoCardHeader>\n\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t<div>\n\t\t\t\t\t<h4>De Activated Resident Accounts</h4>\n\t\t\t\t\t<p class=\"text-secondary\" >{{totalUserItems}} results</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"deActivatedData\"\n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div CondoCardBody>\n\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"deActivatedListData\" [columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t</jqxGrid>\n\t\t</div>\n\t</condo-card>\n\t<!-- <div class=\"card table-card\" *ngIf=\"isUserDataLoaded\">\n\t\t<div class=\"card-header\">\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>De Activated Resident Accounts <span class=\"badge lime-green\">{{totalUserItems}}</span></h5>\n    \t\t\t<p class=\"d-none d-md-inline-block\">Edit and Activate documents</p>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" \n\t\t\t\t\t[(ngModel)]=\"deActivatedData\" (ngModelChange)=\"onGlSearchFilter()\">\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn\">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\t\t<div class=\"card-body p-0\">\n\t\t\t\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"deActivatedListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t</div>\n\t</div> -->\n\n\t<ng-template #viewDeactivatedUserRef let-user>\n\t\t<div class=\"user-info\">\n\t\t\t<div class=\"close-icon\" mat-dialog-close>\n\t\t\t\t<i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n\t\t\t</div>\n\t\t\t<div class=\"title\">\n\t\t\t\t<h5>User Info</h5>\n\t\t\t</div>\n\t\t\t<div class=\"card\">\n\t\t\t\t<div class=\"card-header\">\n\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t<div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t<h5 class=\"mt-0\">{{user.firstName}} {{user.lastName}}</h5>\n\t\t\t\t\t\t\t<p class=\"grey\">{{user.roleName}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body lists\">\n\t\t\t\t\t<ul class=\"list-group\">\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">User ID</h6>\n\t\t\t\t\t\t\t<p>{{user.userId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Email</h6>\n\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Tower No</h6>\n\t\t\t\t\t\t\t<p>{{user.blockNo}} {{user.unitNo}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Phone No</h6>\n\t\t\t\t\t\t\t<p>{{user.phoneNumber}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Blood Group</h6>\n\t\t\t\t\t\t\t<p>{{user.bloodGroup}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t\t<li class=\"list-inline-item\">\n\t\t\t\t\t\t\t<h6 class=\"mt-0\">Address</h6>\n\t\t\t\t\t\t\t<p>{{user.address1}} {{user.address2}} {{user.zipCode}}</p>\n\t\t\t\t\t\t</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ng-template>\n</div>\n</div>";
-      /***/
-    },
-
-    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.html":
     /*!************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.html ***!
@@ -809,491 +789,6 @@
     },
 
     /***/
-    "./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.scss":
-    /*!********************************************************************************************!*\
-      !*** ./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.scss ***!
-      \********************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesAmsUnitUsersComponentsDeActivatedDeActivatedComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3VuaXQtdXNlcnMvY29tcG9uZW50cy9kZS1hY3RpdmF0ZWQvZGUtYWN0aXZhdGVkLmNvbXBvbmVudC5zY3NzIn0= */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.ts":
-    /*!******************************************************************************************!*\
-      !*** ./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.ts ***!
-      \******************************************************************************************/
-
-    /*! exports provided: DeActivatedComponent */
-
-    /***/
-    function srcAppModulesAmsUnitUsersComponentsDeActivatedDeActivatedComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DeActivatedComponent", function () {
-        return DeActivatedComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/material/dialog */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/router */
-      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/shared/services/modal.service */
-      "./src/app/shared/services/modal.service.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! underscore */
-      "./node_modules/underscore/modules/index-all.js");
-      /* harmony import */
-
-
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
-      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-
-      var DeActivatedComponent = /*#__PURE__*/function () {
-        function DeActivatedComponent(injector, dialog, userService, sharedService, sessionService, router) {
-          _classCallCheck(this, DeActivatedComponent);
-
-          this.injector = injector;
-          this.dialog = dialog;
-          this.userService = userService;
-          this.sharedService = sharedService;
-          this.sessionService = sessionService;
-          this.router = router;
-          this.deActivatedData = "";
-          this.ItemUserStartIndex = 0;
-          this.itemUserLimit = 20;
-          this.unitFieldType = "unitno";
-          this.unitOrder = true;
-          this.selectAllDeactivatedUser = false;
-          this.isUserSelected = false;
-          this.isBulkActivate = false;
-          this.isUserDataLoaded = false;
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
-        }
-
-        _createClass(DeActivatedComponent, [{
-          key: "getSelectedDeActivatedUser",
-          value: function getSelectedDeActivatedUser(unit) {
-            var length = 0;
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item) {
-              if (item.checked) {
-                length++;
-              }
-            });
-
-            if (length > 0) {
-              this.isUserSelected = true;
-            } else {
-              this.isUserSelected = false;
-            }
-
-            if (length > 1) {
-              this.isBulkActivate = true;
-              this.isUserSelected = false;
-            } else {
-              this.isBulkActivate = false;
-            }
-
-            if (length == 0) {
-              this.selectAllDeactivatedUser = false;
-            }
-
-            if (length == this.deActivatedListData.length) {
-              this.selectAllDeactivatedUser = true;
-            }
-          }
-        }, {
-          key: "getAllDeactivatedUser",
-          value: function getAllDeactivatedUser() {
-            if (this.selectAllDeactivatedUser) {
-              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item) {
-                item.checked = true;
-              });
-              this.isBulkActivate = true;
-            } else {
-              underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item) {
-                item.checked = false;
-              });
-              this.isBulkActivate = false;
-            }
-          }
-        }, {
-          key: "isMobileView",
-          value: function isMobileView() {
-            return window.innerWidth <= 767 ? 'table-responsive' : '';
-          }
-        }, {
-          key: "sortUnitData",
-          value: function sortUnitData(type) {
-            this.unitFieldType = type;
-            this.unitOrder = !this.unitOrder;
-          }
-        }, {
-          key: "getFieldOrderBy",
-          value: function getFieldOrderBy(type) {
-            if (this.unitFieldType == type) {
-              return this.unitOrder ? 'asc' : 'desc';
-            } else return '';
-          }
-        }, {
-          key: "getUserIndexParams",
-          value: function getUserIndexParams(event) {
-            this.ItemUserStartIndex = event.ItemUserStartIndex;
-            this.ItemUserEndIndex = event.ItemUserEndIndex;
-          }
-        }, {
-          key: "getBlockNo",
-          value: function getBlockNo(data, index) {
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.deActivatedListData[index].blockNo = data[0].apartmentBlockNumber;
-              return data[0].apartmentBlockNumber;
-            }
-          }
-        }, {
-          key: "getBlockUnitNo",
-          value: function getBlockUnitNo(data, index) {
-            if (data === undefined || data.length == 0) {
-              return '';
-            } else {
-              this.deActivatedListData[index].unitNo = data[0].apartmentBlockUnitNumber;
-              return data[0].apartmentBlockUnitNumber;
-            }
-          }
-        }, {
-          key: "getNotes",
-          value: function getNotes(data) {
-            if (data === undefined || data.length == 0) return '';else return data[0].notes;
-          }
-        }, {
-          key: "getUserRole",
-          value: function getUserRole(role, index) {
-            if (role === undefined || role.length == 0) {
-              return '';
-            } else {
-              this.deActivatedListData[index].roleName = role[0].roleName;
-              return role[0].roleName;
-            }
-          }
-        }, {
-          key: "getUserRoleInfo",
-          value: function getUserRoleInfo(role) {
-            if (role.userRole === undefined || role.userRole.length == 0) {
-              return '';
-            } else {
-              return role.userRole[0].roleName;
-            }
-          }
-        }, {
-          key: "showConfirmModal",
-          value: function showConfirmModal(index) {
-            this.modalService.showConfirmModal(index);
-          }
-        }, {
-          key: "showUserInfo",
-          value: function showUserInfo(index) {
-            var _this9 = this;
-
-            var userId = this.deActivatedListData[index].id;
-            var blockData = this.deActivatedListData[index].apartmentBlockUnit;
-            var userRole = this.deActivatedListData[index].userRole;
-            this.userService.getUserById(userId).subscribe(function (res) {
-              var userData = res[0];
-
-              if (blockData === undefined || blockData.length == 0) {
-                userData.blockNo = "Not Available";
-                userData.unitNo = "";
-              } else {
-                userData.blockNo = blockData[0].apartmentBlockNumber;
-                userData.unitNo = blockData[0].apartmentBlockUnitNumber;
-              }
-
-              if (userRole === undefined || userRole.length == 0) {
-                userData.roleName = "Not Available";
-              } else {
-                userData.roleName = userRole[0].roleName;
-              }
-
-              _this9.dialog.open(_this9.viewDeactivatedUserRef, {
-                panelClass: 'material',
-                disableClose: true,
-                data: userData
-              });
-            });
-          }
-        }, {
-          key: "activateUser",
-          value: function activateUser() {
-            var _this10 = this;
-
-            this.isUserDataLoaded = false;
-            underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.deActivatedListData, function (item, index) {
-              if (item.checked) {
-                _this10.userService.getUserById(item.id).subscribe(function (res) {
-                  var user = res[0];
-                  user.isActive = true;
-
-                  _this10.userService.updateUser(user).subscribe(function (res) {
-                    _this10.deActivatedListData.splice(index, 1);
-
-                    _this10.totalUserItems = _this10.deActivatedListData.length;
-                    _this10.isUserDataLoaded = true;
-                  });
-                });
-              }
-            });
-          }
-        }, {
-          key: "onGlSearchFilter",
-          value: function onGlSearchFilter() {
-            var _this11 = this;
-
-            if (this.deActivatedData != "") {
-              var filtergroup = new jqx.filter();
-              var filter_or_operator = 1;
-              var filtervalue = this.deActivatedData;
-              var filtercondition = 'contains';
-              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-              filtergroup.operator = 'or';
-              filtergroup.addfilter(filter_or_operator, filterData);
-              this.datagrid.showfiltercolumnbackground(false);
-              this.columnData.forEach(function (item) {
-                if (item.datafield != 'Actions') {
-                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-              });
-              this.datagrid.applyfilters();
-            } else {
-              this.datagrid.clearfilters();
-            }
-          }
-        }, {
-          key: "onEditDeActivateResident",
-          value: function onEditDeActivateResident(detail) {
-            var dataRecord = this.datagrid.getrowdata(detail.rowId);
-            var Id = dataRecord.Id;
-            this.router.navigateByUrl('/ams/unit&users/info/edit-user/' + Id);
-          }
-        }, {
-          key: "onShowUserInfoView",
-          value: function onShowUserInfoView(detail) {
-            this.showUserInfo(detail.rowId);
-          }
-        }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this12 = this;
-
-            var cellsrenderer = function cellsrenderer(row, column, value) {
-              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-            };
-
-            var columnrenderer = function columnrenderer(value) {
-              return '<div style="padding: 14px">' + value + '</div>';
-            };
-
-            this.columnData = [{
-              text: 'Name',
-              datafield: 'firstName',
-              width: 100,
-              pinned: true,
-              cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
-            }, {
-              text: 'Phone',
-              datafield: 'emailId',
-              cellsrenderer: cellsrenderer,
-              minwidth: 80,
-              renderer: columnrenderer
-            }, {
-              text: 'Email',
-              datafield: 'staffCategory_Label',
-              cellsrenderer: cellsrenderer,
-              minwidth: 170,
-              renderer: columnrenderer
-            }, {
-              text: 'Tower No',
-              datafield: 'jobTitleId',
-              cellsrenderer: cellsrenderer,
-              minwidth: 170,
-              renderer: columnrenderer
-            }, {
-              text: 'Unit No',
-              datafield: 'lastttt',
-              cellsrenderer: cellsrenderer,
-              minwidth: 170,
-              renderer: columnrenderer
-            }, {
-              text: 'Actions',
-              cellsalign: 'center',
-              align: 'center',
-              width: 120,
-              cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="showUserInfo(' + row + ')"><i-feather class="icon view" name="eye"></i-feather></a> <a href="javascript:void(0)" class="mr-2" onClick="editDeActivateResident(' + row + ')" <i class="fa fa-pencil icon edit" aria-hidden="true"></i> </a></div>';
-              },
-              renderer: columnrenderer
-            }];
-            this.userService.getAllUnApprovedUsers().subscribe(function (res) {
-              //filter active true items
-              var deActivatedListData = res.filter(function (data) {
-                return !data.active;
-              });
-              _this12.gridSourceData = {
-                localdata: deActivatedListData,
-                datatype: "array"
-              };
-              _this12.deActivatedListData = new jqx.dataAdapter(_this12.gridSourceData);
-              _this12.totalUserItems = _this12.deActivatedListData.length;
-
-              if (_this12.totalUserItems > _this12.itemUserLimit) {
-                _this12.ItemUserEndIndex = _this12.itemUserLimit;
-              } else {
-                _this12.ItemUserEndIndex = _this12.totalUserItems;
-              }
-
-              _this12.isUserDataLoaded = true;
-            }, function (error) {
-              console.log(error);
-            });
-          }
-        }]);
-
-        return DeActivatedComponent;
-      }();
-
-      DeActivatedComponent.ctorParameters = function () {
-        return [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
-        }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
-        }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
-        }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
-        }];
-      };
-
-      DeActivatedComponent.propDecorators = {
-        datagrid: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['datagrid', {
-            "static": false
-          }]
-        }],
-        viewDeactivatedUserRef: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ["viewDeactivatedUserRef", {
-            "static": false
-          }]
-        }],
-        onEditDeActivateResident: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onEditDeActivateResident', ['$event.detail']]
-        }],
-        onShowUserInfoView: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onShowUserInfoView', ['$event.detail']]
-        }]
-      };
-      DeActivatedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-de-activated',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./de-activated.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./de-activated.component.scss */
-        "./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])], DeActivatedComponent);
-
-      function editDeActivateResident(row) {
-        var event = new CustomEvent('onEditDeActivateResident', {
-          detail: {
-            rowId: row
-          }
-        });
-        window.dispatchEvent(event);
-      }
-
-      window.editDeActivateResident = editDeActivateResident;
-
-      function showUserInfo(row) {
-        var event = new CustomEvent('onShowUserInfoView', {
-          detail: {
-            rowId: row
-          }
-        });
-        window.dispatchEvent(event);
-      }
-
-      window.showUserInfo = showUserInfo;
-      /***/
-    },
-
-    /***/
     "./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.scss":
     /*!**********************************************************************************************!*\
       !*** ./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.scss ***!
@@ -1436,7 +931,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this13 = this;
+            var _this9 = this;
 
             if (this.unitData != "") {
               var filtergroup = new jqx.filter();
@@ -1449,7 +944,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1465,11 +960,11 @@
         }, {
           key: "viewUserInfo",
           value: function viewUserInfo(id) {
-            var _this14 = this;
+            var _this10 = this;
 
             this.isProfile = false;
             setTimeout(function () {
-              _this14.isProfile = true;
+              _this10.isProfile = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.user-info-card');
@@ -1485,7 +980,7 @@
         }, {
           key: "showConfirmModal",
           value: function showConfirmModal(data) {
-            var _this15 = this;
+            var _this11 = this;
 
             this.modalService.showConfirmModal(data.signupUserRequestId);
             var params = {
@@ -1494,9 +989,9 @@
             };
             this.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
               if (res.message) {
-                _this15.sharedService.setAlertMessage("Signup deleted successfully.");
+                _this11.sharedService.setAlertMessage("Signup deleted successfully.");
 
-                _this15.router.navigate(['ams/unit&users/usersignuprequest', _this15.viewUserId]);
+                _this11.router.navigate(['ams/unit&users/usersignuprequest', _this11.viewUserId]);
               }
             }, function (error) {
               console.log(error);
@@ -1524,7 +1019,7 @@
         }, {
           key: "openEditDialog",
           value: function openEditDialog(signupData) {
-            var _this16 = this;
+            var _this12 = this;
 
             var dialogRef = this.dialog.open(_signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["SignupEditModalComponent"], {
               panelClass: 'material-dialog-medium',
@@ -1534,7 +1029,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this16.getSignUpUserList(); // this.sharedService.refreshSignUpList(true)
+                _this12.getSignUpUserList(); // this.sharedService.refreshSignUpList(true)
 
               }
             });
@@ -1550,10 +1045,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this13 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this17.timeZone = timeZone;
+              return _this13.timeZone = timeZone;
             });
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1600,7 +1095,7 @@
               datafield: 'insertedOn',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this17.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this13.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1617,26 +1112,28 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this17.datagrid.getrowdata(id);
+                var dataRecord = _this13.datagrid.getrowdata(id);
 
                 var signupUserId = dataRecord.signupUserRequestId;
                 var params = {
                   signupUserId: signupUserId,
-                  apartmentId: _this17.sessionService.apartmentId
+                  apartmentId: _this13.sessionService.apartmentId
                 };
 
-                _this17.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
-                  setTimeout(function () {
-                    _this17.datagrid.deleterow(id);
+                _this13.userService.updateSignupUserRequestByApartmentId(params).subscribe(function (res) {
+                  if (res.message) {
+                    _this13.datagrid.deleterow(id);
 
-                    _this17.totalItems = _this17.unitListData.length;
+                    _this13.totalItems = _this13.unitListData.length;
 
-                    _this17.sharedService.setAlertMessage("Signup deleted successfully.");
+                    _this13.sharedService.openSnackBar("User sign up request deleted successfully", 'success');
+                  } else {
+                    _this13.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
 
-                    _this17.sharedService.setUnitListDeleteIndex(null);
-                  }, 500);
+                  _this13.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  console.log(error);
+                  _this13.sharedService.openSnackBar("Server Error", 'error');
                 });
               }
             }); // this.sharedService.refreshSignUpUser.subscribe(resp =>{
@@ -1646,7 +1143,7 @@
         }, {
           key: "getSignUpUserList",
           value: function getSignUpUserList() {
-            var _this18 = this;
+            var _this14 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -1663,13 +1160,13 @@
 
                 key['fullName'] = key.firstName + '  ' + key.lastName;
               });
-              _this18.gridSourceData = {
+              _this14.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this18.unitListData = new jqx.dataAdapter(_this18.gridSourceData);
-              _this18.totalItems = unitListData.length;
-              _this18.isUserDataLoaded = true;
+              _this14.unitListData = new jqx.dataAdapter(_this14.gridSourceData);
+              _this14.totalItems = unitListData.length;
+              _this14.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2068,7 +1565,7 @@
         }, {
           key: "approveUsers",
           value: function approveUsers() {
-            var _this19 = this;
+            var _this15 = this;
 
             this.isUserDataLoaded = false;
             var multipleApiCall = [];
@@ -2076,26 +1573,26 @@
               if (item.checked) {
                 var updateParam = {
                   approveuser: {
-                    apartmentId: _this19.sessionService.apartmentId,
+                    apartmentId: _this15.sessionService.apartmentId,
                     apartmentBlockUnitUserId: item.apartmentBlockUnitUserID
                   }
                 };
-                multipleApiCall.push(_this19.userService.updateApproveuser(updateParam));
+                multipleApiCall.push(_this15.userService.updateApproveuser(updateParam));
               }
             });
             Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
               if (res.length > 0) {
                 res.forEach(function (data) {
                   if (data.code == 200) {
-                    _this19.sharedService.openSnackBar(data.statusMessage, 'success');
+                    _this15.sharedService.openSnackBar(data.statusMessage, 'success');
                   } else {
-                    _this19.sharedService.openSnackBar(data.statusMessage, 'error');
+                    _this15.sharedService.openSnackBar(data.statusMessage, 'error');
                   }
                 });
 
-                _this19.getUnApprovedList();
+                _this15.getUnApprovedList();
               } else {
-                _this19.isUserDataLoaded = true;
+                _this15.isUserDataLoaded = true;
               }
             });
             this.isUserSelected = !this.isUserSelected;
@@ -2103,7 +1600,7 @@
         }, {
           key: "rejPopUpClose",
           value: function rejPopUpClose(comments) {
-            var _this20 = this;
+            var _this16 = this;
 
             this.isUserDataLoaded = false;
             var multipleApiCall = [];
@@ -2111,29 +1608,29 @@
               if (item.checked) {
                 var updateParam = {
                   approveuser: {
-                    apartmentId: _this20.sessionService.apartmentId,
+                    apartmentId: _this16.sessionService.apartmentId,
                     apartmentBlockUnitUserId: item.apartmentBlockUnitUserID,
                     comments: comments
                   }
                 };
-                multipleApiCall.push(_this20.userService.updateRejectuser(updateParam));
+                multipleApiCall.push(_this16.userService.updateRejectuser(updateParam));
               }
             });
             Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
               if (res.length > 0) {
                 res.forEach(function (data) {
                   if (data.code == 200) {
-                    _this20.sharedService.openSnackBar(data.statusMessage, 'success');
+                    _this16.sharedService.openSnackBar(data.statusMessage, 'success');
                   } else {
-                    _this20.sharedService.openSnackBar(data.statusMessage, 'error');
+                    _this16.sharedService.openSnackBar(data.statusMessage, 'error');
                   }
                 });
 
-                _this20.getUnApprovedList();
+                _this16.getUnApprovedList();
 
-                _this20.dialog.closeAll();
+                _this16.dialog.closeAll();
               } else {
-                _this20.isUserDataLoaded = true;
+                _this16.isUserDataLoaded = true;
               }
             });
             this.isUserSelected = !this.isUserSelected;
@@ -2172,20 +1669,20 @@
         }, {
           key: "showLogs",
           value: function showLogs() {
-            var _this21 = this;
+            var _this17 = this;
 
             this.isLogs = !this.isLogs;
             this.sharedService.getJsonData().subscribe(function (res) {
-              _this21.logsData = res.logsData;
-              _this21.totalLogItems = _this21.logsData.length;
+              _this17.logsData = res.logsData;
+              _this17.totalLogItems = _this17.logsData.length;
 
-              if (_this21.totalLogItems > _this21.itemLogLimit) {
-                _this21.ItemLogEndIndex = _this21.itemLogLimit;
+              if (_this17.totalLogItems > _this17.itemLogLimit) {
+                _this17.ItemLogEndIndex = _this17.itemLogLimit;
               } else {
-                _this21.ItemLogEndIndex = _this21.totalLogItems;
+                _this17.ItemLogEndIndex = _this17.totalLogItems;
               }
 
-              _this21.isLogsDataLoaded = true;
+              _this17.isLogsDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2193,7 +1690,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this22 = this;
+            var _this18 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2206,7 +1703,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this18.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2229,7 +1726,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this19 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2260,14 +1757,14 @@
             }, {
               text: 'Name',
               datafield: 'userName',
-              minwidth: 120,
+              minwidth: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Phone',
               datafield: 'phoneNumber',
               cellsrenderer: cellsrenderer,
-              width: 200,
+              width: 150,
               renderer: columnrenderer
             }, {
               text: 'Email',
@@ -2279,27 +1776,27 @@
               text: 'Block  No',
               datafield: 'apartmentBlockNumber',
               cellsrenderer: cellsrenderer,
-              width: 200,
+              width: 180,
               renderer: columnrenderer
             }, {
               text: 'Unit No',
               datafield: 'apartmentBlockUnitNumber',
               cellsrenderer: cellsrenderer,
-              width: 200,
+              width: 130,
+              renderer: columnrenderer
+            }, {
+              text: 'Document Submitted',
+              datafield: 'isDocSubmitted',
+              width: 180,
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell justify-content-center"><span class="dots mt-1 ' + getClassName(value) + '"></span></div>';
+              },
               renderer: columnrenderer
             }, {
               text: 'Requested On',
               datafield: 'insertedOn',
               cellsrenderer: cellsrenderer,
-              width: 200,
-              renderer: columnrenderer
-            }, {
-              text: 'Document Submitted',
-              datafield: 'isDocSubmitted',
-              width: 150,
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell justify-content-center"><span class="dots mt-1 ' + getClassName(value) + '"></span></div>';
-              },
+              width: 130,
               renderer: columnrenderer
             }, {
               text: 'Actions',
@@ -2316,23 +1813,23 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
-                var dataRecord = _this23.datagrid.getrowdata(id);
+                var dataRecord = _this19.datagrid.getrowdata(id);
 
                 var params = {
-                  apartmentId: _this23.sessionService.apartmentId,
+                  apartmentId: _this19.sessionService.apartmentId,
                   apartmentBlockUnitUserId: dataRecord.apartmentBlockUnitUserID,
-                  deleteBy: _this23.sessionService.userId
+                  deleteBy: _this19.sessionService.userId
                 };
 
-                _this23.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
-                  _this23.sharedService.setUnitListDeleteIndex(null);
+                _this19.apartmentService.deleteUnApprovedUser(params).subscribe(function (res) {
+                  _this19.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this23.getUnApprovedList();
+                    _this19.getUnApprovedList();
 
-                    _this23.sharedService.openSnackBar(res.message, 'success');
+                    _this19.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this23.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this19.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -2341,7 +1838,7 @@
         }, {
           key: "getUnApprovedList",
           value: function getUnApprovedList() {
-            var _this24 = this;
+            var _this20 = this;
 
             this.unitData = '';
             var params = {
@@ -2350,17 +1847,17 @@
             this.userService.getAllUnApprovedUsersByApartmentIdNew(params).subscribe(function (res) {
               var unitListData = res; //filter active true items
 
-              _this24.unitListData = unitListData.filter(function (data) {
+              _this20.unitListData = unitListData.filter(function (data) {
                 data.insertedOn = new Date(data.insertedOn).toLocaleDateString();
                 return data.active;
               });
-              _this24.gridSourceData = {
+              _this20.gridSourceData = {
                 localdata: unitListData,
                 datatype: "array"
               };
-              _this24.unitListData = new jqx.dataAdapter(_this24.gridSourceData);
-              _this24.totalUserItems = unitListData.length;
-              _this24.isUserDataLoaded = true;
+              _this20.unitListData = new jqx.dataAdapter(_this20.gridSourceData);
+              _this20.totalUserItems = unitListData.length;
+              _this20.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -2587,13 +2084,7 @@
       /* harmony import */
 
 
-      var _de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ./de-activated/de-activated.component */
-      "./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.ts");
-      /* harmony import */
-
-
-      var _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./add-users-resident-success-page/add-users-resident-success-page.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident-success-page/add-users-resident-success-page.component.ts");
 
@@ -2637,11 +2128,7 @@
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'success',
-        component: _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_9__["AddUsersResidentSuccessPageComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
-      }, {
-        path: 'de-activated',
-        component: _de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_8__["DeActivatedComponent"],
+        component: _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_8__["AddUsersResidentSuccessPageComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
@@ -2742,43 +2229,37 @@
       /* harmony import */
 
 
-      var _de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ./de-activated/de-activated.component */
-      "./src/app/modules/ams/unit-users/components/de-activated/de-activated.component.ts");
-      /* harmony import */
-
-
-      var _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./signuprequest/signuprequest.component */
       "./src/app/modules/ams/unit-users/components/signuprequest/signuprequest.component.ts");
       /* harmony import */
 
 
-      var _unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./unapproved-edit-modal/unapproved-edit-modal.component */
       "./src/app/modules/ams/unit-users/components/unapproved-edit-modal/unapproved-edit-modal.component.ts");
       /* harmony import */
 
 
-      var _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./signup-edit-modal/signup-edit-modal.component */
       "./src/app/modules/ams/unit-users/components/signup-edit-modal/signup-edit-modal.component.ts");
       /* harmony import */
 
 
-      var _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./add-users-resident/add-users-resident.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.ts");
       /* harmony import */
 
 
-      var _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts");
       /* harmony import */
 
 
-      var _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./add-users-resident-success-page/add-users-resident-success-page.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident-success-page/add-users-resident-success-page.component.ts");
 
@@ -2787,7 +2268,7 @@
       };
 
       UnitUsersModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__["UnapprovedComponent"], _de_activated_de_activated_component__WEBPACK_IMPORTED_MODULE_10__["DeActivatedComponent"], _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_11__["SignuprequestComponent"], _unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_12__["UnapprovedEditModalComponent"], _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_13__["SignupEditModalComponent"], _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_14__["AddUsersResidentComponent"], _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_15__["AddUserConfirmModalComponent"], _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_16__["AddUsersResidentSuccessPageComponent"]],
+        declarations: [_unapproved_unapproved_component__WEBPACK_IMPORTED_MODULE_9__["UnapprovedComponent"], _signuprequest_signuprequest_component__WEBPACK_IMPORTED_MODULE_10__["SignuprequestComponent"], _unapproved_edit_modal_unapproved_edit_modal_component__WEBPACK_IMPORTED_MODULE_11__["UnapprovedEditModalComponent"], _signup_edit_modal_signup_edit_modal_component__WEBPACK_IMPORTED_MODULE_12__["SignupEditModalComponent"], _add_users_resident_add_users_resident_component__WEBPACK_IMPORTED_MODULE_13__["AddUsersResidentComponent"], _add_users_resident_add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["AddUserConfirmModalComponent"], _add_users_resident_success_page_add_users_resident_success_page_component__WEBPACK_IMPORTED_MODULE_15__["AddUsersResidentSuccessPageComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _unit_users_routing_module__WEBPACK_IMPORTED_MODULE_3__["UnitUsersRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_7__["NgxIntlTelInputModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_6__["SelectModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_8__["CondoMessageModule"]]
       })], UnitUsersModule);
       /***/

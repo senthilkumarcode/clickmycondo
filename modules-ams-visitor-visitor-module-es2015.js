@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-visitor-visitor-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html":
+/*!*****************************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html ***!
+  \*****************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">\n            <span *ngIf=\"urlType == 'frequent-visitor-create'\">Create Frequent Visitor</span>\n            <span *ngIf=\"urlType == 'vendor-pass-create'\">Create Frequent Vendor Pass</span>\n        </h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t</condo-message>\n\t\t<form #expectedVisitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Tower No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"visitor.tomeetStaffId\" (ngModelChange)=\"changeStaff('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList | orderBy : 'staffName'\" [ngValue]=\"item.staffId\">{{ item.staffName}}, {{item.roleTypeName}} - {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t[min]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList | orderBy : 'lookupValueName'\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.html":
 /*!*************************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.html ***!
@@ -39,6 +52,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.html":
+/*!*************************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.html ***!
+  \*************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-frequent-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <condo-card *ngIf=\"isVisitorDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-sm-flex table-header\">\n                    <div>\n                        <h4>Frequent Visitor</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"d-flex ml-auto\">\n                        <div class=\"mr-3\">\n                            <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3\">\n                            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Frequent Visitor</span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid  [theme]=\"'material'\"  [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                    [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n                    [columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.html":
 /*!*****************************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.html ***!
@@ -49,6 +75,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <condo-card *ngIf=\"isVisitorDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-sm-flex table-header\">\n                    <div>\n                        <h4>\n                            <span *ngIf=\"urlType == 'expected-visitor-user-checked-in'\">Currently Checked In</span>\n                            <span *ngIf=\"urlType == 'expected-visitor-user-history'\">Visitor History</span>\n                       </h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"d-flex ml-auto\">\n                        <div class=\"mr-3\">\n                            <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3\">\n                            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid  [theme]=\"'material'\"  [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                    [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n                    [columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.html":
+/*!***************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.html ***!
+  \***************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-vendor-pass-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <condo-card *ngIf=\"isVisitorDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-sm-flex table-header\">\n                    <div>\n                        <h4>Frequent Visitor</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"d-flex ml-auto\">\n                        <div class=\"mr-3\">\n                            <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3\">\n                            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Vendor Pass</span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid  [theme]=\"'material'\"  [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                    [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n                    [columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n");
 
 /***/ }),
 
@@ -127,6 +166,230 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss":
+/*!***************************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss ***!
+  \***************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9jcmVhdGUtdmVuZG9yLWZycXVlbnQtdmlzaXRvci9jcmVhdGUtdmVuZG9yLWZycXVlbnQtdmlzaXRvci5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts":
+/*!*************************************************************************************************************************!*\
+  !*** ./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts ***!
+  \*************************************************************************************************************************/
+/*! exports provided: CreateVendorFrquentVisitorComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateVendorFrquentVisitorComponent", function() { return CreateVendorFrquentVisitorComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+
+
+
+
+
+
+
+
+
+
+let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorComponent {
+    constructor(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef) {
+        this.apartmentService = apartmentService;
+        this.visitorService = visitorService;
+        this.lookupService = lookupService;
+        this.sessionService = sessionService;
+        this.staffService = staffService;
+        this.router = router;
+        this.activateRouter = activateRouter;
+        this.sharedService = sharedService;
+        this._changeDetectorRef = _changeDetectorRef;
+        this.visitor = {};
+        this.message = null;
+        this.isDataLoaded = true;
+        this.visitTypeList = [];
+        this.visitCategoryList = [];
+        this.towerList = [];
+        this.unitList = [];
+        this.staffsList = [];
+        this.block = {};
+        this.separateDialCode = true;
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+        this.activateRouter.url.subscribe((data) => {
+            this.urlType = data[0].path;
+        });
+    }
+    resetField() {
+        this.visitor = {};
+        this.visitor.visitTypeId = null;
+        this.visitor.visitorCategoryId = null;
+        this.block = {
+            blockId: null,
+            primaryName: ''
+        };
+    }
+    changeVisitorType() {
+        this.visitor.apartmentUnitId = null;
+        this.visitor.tomeetStaffId = null;
+        this.block = {
+            blockId: null,
+            primaryName: ''
+        };
+    }
+    getTowers() {
+        let tower = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        return this.apartmentService.getApartmentBlockAndBlockUnitIsLivingByApartmentId(tower).toPromise();
+    }
+    getUnits(type) {
+        if (type == 'change') {
+            this.visitor.apartmentUnitId = null;
+            this.block.primaryName = '';
+        }
+        for (let data of this.towerList) {
+            if (this.block.blockId == data.block_Id) {
+                this.unitList = data.blockUnit;
+                break;
+            }
+        }
+    }
+    getPrimaryName() {
+        for (let data of this.unitList) {
+            if (this.visitor.apartmentUnitId == data.buId) {
+                this.block.primaryName = data.il_Label;
+                break;
+            }
+        }
+    }
+    changeStaff() {
+        this.visitor.apartmentUnitId = null;
+        this.block = {
+            blockId: null,
+            primaryName: ''
+        };
+    }
+    createExpectedVisitor() {
+        this.message = null;
+        if (!this.form.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this._changeDetectorRef.markForCheck();
+        }
+        else {
+            this.isDataLoaded = false;
+            let params = {
+                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
+            };
+            this.visitorService.addExpectedVisitor(params).subscribe((res) => {
+                this.isDataLoaded = true;
+                if (res.message) {
+                    this.sharedService.openSnackBar('Expected Visitor Created Successfully', 'success');
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            });
+        }
+    }
+    ngOnInit() {
+        this.resetField();
+        this.getTowers().then((res) => {
+            if (res.length > 0) {
+                this.towerList = res;
+            }
+        });
+        //visit type
+        let visitParams = {
+            ApartmentId: this.sessionService.apartmentId,
+            LookupTypeId: 15
+        };
+        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
+            this.visitTypeList = res;
+        });
+        //Visit Category
+        let visitCategoryParams = {
+            ApartmentId: this.sessionService.apartmentId,
+            LookupTypeId: 100
+        };
+        this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe((res) => {
+            this.visitCategoryList = res;
+        });
+        //Staff
+        let staffParms = {
+            apartmentId: this.sessionService.apartmentId,
+            RoleTypeId: this.sessionService.roleTypeId
+        };
+        this.staffService.getAllStaffs(staffParms).subscribe((res) => {
+            this.staffsList = res;
+            ;
+        });
+    }
+};
+CreateVendorFrquentVisitorComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+];
+CreateVendorFrquentVisitorComponent.propDecorators = {
+    form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['expectedVisitorForm',] }]
+};
+CreateVendorFrquentVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-create-vendor-frquent-visitor',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./create-vendor-frquent-visitor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./create-vendor-frquent-visitor.component.scss */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+], CreateVendorFrquentVisitorComponent);
+
+
 
 /***/ }),
 
@@ -404,7 +667,7 @@ window.deleteVisitor = deleteVisitor;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9leHAtdmlzaXRvci1jcmVhdGUtY2hla2luL2V4cC12aXNpdG9yLWNyZWF0ZS1jaGVraW4uY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".intl-tel-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvdmlzaXRvci9jb21wb25lbnRzL2V4cC12aXNpdG9yLWNyZWF0ZS1jaGVraW4vZXhwLXZpc2l0b3ItY3JlYXRlLWNoZWtpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9leHAtdmlzaXRvci1jcmVhdGUtY2hla2luL2V4cC12aXNpdG9yLWNyZWF0ZS1jaGVraW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW50bC10ZWwtaW5wdXQge1xuICAgIHdpZHRoOiAxMDAlO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -1049,6 +1312,195 @@ window.copyWith = copyWith;
 
 /***/ }),
 
+/***/ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.scss":
+/*!***********************************************************************************************************!*\
+  !*** ./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.scss ***!
+  \***********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9mcmVxdWVudC12aXNpdG9yLWxpc3QvZnJlcXVlbnQtdmlzaXRvci1saXN0LmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts":
+/*!*********************************************************************************************************!*\
+  !*** ./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts ***!
+  \*********************************************************************************************************/
+/*! exports provided: FrequentVisitorListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FrequentVisitorListComponent", function() { return FrequentVisitorListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+
+
+
+
+
+let FrequentVisitorListComponent = class FrequentVisitorListComponent {
+    constructor(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
+        this.router = router;
+        this.injector = injector;
+        this.visitorService = visitorService;
+        this.sessionService = sessionService;
+        this.dialog = dialog;
+        this.sharedService = sharedService;
+        this.activeRouter = activeRouter;
+        this.visitorList = [];
+        this.visitorSearch = '';
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'expectedVisitorData');
+    }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = event;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    navigateToCreate() {
+        this.router.navigate(['/ams/visitor/frequent-visitor-create']);
+    }
+    getVisitorCheckedIn() {
+        this.isVisitorDataLoaded = false;
+        let param = {
+            apartmentId: this.sessionService.apartmentId,
+            BlockUnitId: this.sessionService.apartmentBlockUnitID,
+        };
+        this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe((res) => {
+            if (res.length > 0) {
+                let tableData = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = tableData.localdata.length;
+                this.visitorList = new jqx.dataAdapter(tableData);
+            }
+            this.isVisitorDataLoaded = true;
+        }, (error) => {
+            this.isVisitorDataLoaded = true;
+        });
+    }
+    ngOnInit() {
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'Id',
+                datafield: 'serialNo',
+                width: 80,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor Name',
+                datafield: 'visitorName',
+                minwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Phone Number',
+                datafield: 'visitorPhone',
+                cellsrenderer: cellsrenderer,
+                width: 220,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor In Time',
+                datafield: 'visitorInTime',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+                },
+                width: 240,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor Out Time',
+                datafield: 'visitorOutTime',
+                cellsrenderer: (row, column, value) => {
+                    if (value) {
+                        return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+                    }
+                    else {
+                        return '<div class="jqx-custom-inner-cell"></div>';
+                    }
+                },
+                width: 240,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor category',
+                datafield: 'visitorCategoryName',
+                cellsrenderer: cellsrenderer,
+                width: 240,
+                renderer: columnrenderer
+            }];
+        this.getVisitorCheckedIn();
+    }
+};
+FrequentVisitorListComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
+    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_5__["VisitorService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
+];
+FrequentVisitorListComponent.propDecorators = {
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+};
+FrequentVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-frequent-visitor-list',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./frequent-visitor-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./frequent-visitor-list.component.scss */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
+        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_5__["VisitorService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
+], FrequentVisitorListComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.scss":
 /*!***************************************************************************************************!*\
   !*** ./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.scss ***!
@@ -1293,6 +1745,177 @@ UserVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])
 ], UserVisitorListComponent);
 
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.scss":
+/*!*************************************************************************************************!*\
+  !*** ./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.scss ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92ZW5kb3ItcGFzcy1saXN0L3ZlbmRvci1wYXNzLWxpc3QuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts":
+/*!***********************************************************************************************!*\
+  !*** ./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts ***!
+  \***********************************************************************************************/
+/*! exports provided: VendorPassListComponent, FrequentVisitorListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VendorPassListComponent", function() { return VendorPassListComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FrequentVisitorListComponent", function() { return FrequentVisitorListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+let VendorPassListComponent = class VendorPassListComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+VendorPassListComponent.ctorParameters = () => [];
+VendorPassListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-vendor-pass-list',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./vendor-pass-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./vendor-pass-list.component.scss */ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], VendorPassListComponent);
+
+class FrequentVisitorListComponent {
+    constructor(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
+        this.router = router;
+        this.injector = injector;
+        this.visitorService = visitorService;
+        this.sessionService = sessionService;
+        this.dialog = dialog;
+        this.sharedService = sharedService;
+        this.activeRouter = activeRouter;
+        this.visitorList = [];
+        this.visitorSearch = '';
+    }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'expectedVisitorData');
+    }
+    onGlSearchFilter(event) {
+        if (event != "") {
+            let filtergroup = new jqx.filter();
+            let filter_or_operator = 1;
+            let filtervalue = event;
+            let filtercondition = 'contains';
+            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(item => {
+                if (item.datafield != 'Actions') {
+                    this.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+            });
+            this.datagrid.applyfilters();
+        }
+        else {
+            this.datagrid.clearfilters();
+        }
+    }
+    navigateToCreate() {
+        this.router.navigate(['/ams/visitor/vendor-pass-create']);
+    }
+    getVisitorCheckedIn() {
+        this.isVisitorDataLoaded = false;
+        let param = {
+            apartmentId: this.sessionService.apartmentId,
+            BlockUnitId: this.sessionService.apartmentBlockUnitID,
+        };
+        this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe((res) => {
+            if (res.length > 0) {
+                let tableData = {
+                    localdata: res.reverse(),
+                    datatype: "array"
+                };
+                this.totalItems = tableData.localdata.length;
+                this.visitorList = new jqx.dataAdapter(tableData);
+            }
+            this.isVisitorDataLoaded = true;
+        }, (error) => {
+            this.isVisitorDataLoaded = true;
+        });
+    }
+    ngOnInit() {
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.columnData = [{
+                text: 'Id',
+                datafield: 'serialNo',
+                width: 80,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor Name',
+                datafield: 'visitorName',
+                minwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
+                text: 'Phone Number',
+                datafield: 'visitorPhone',
+                cellsrenderer: cellsrenderer,
+                width: 220,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor In Time',
+                datafield: 'visitorInTime',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+                },
+                width: 240,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor Out Time',
+                datafield: 'visitorOutTime',
+                cellsrenderer: (row, column, value) => {
+                    if (value) {
+                        return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+                    }
+                    else {
+                        return '<div class="jqx-custom-inner-cell"></div>';
+                    }
+                },
+                width: 240,
+                renderer: columnrenderer
+            }, {
+                text: 'Visitor category',
+                datafield: 'visitorCategoryName',
+                cellsrenderer: cellsrenderer,
+                width: 240,
+                renderer: columnrenderer
+            }];
+        this.getVisitorCheckedIn();
+    }
+}
+FrequentVisitorListComponent.propDecorators = {
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
+};
 
 
 /***/ }),
@@ -1606,7 +2229,7 @@ window.editCheckout = editCheckout;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92aXNpdG9yLWNyZWF0ZS1jaGVja2luL3Zpc2l0b3ItY3JlYXRlLWNoZWNraW4uY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".intl-tel-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvdmlzaXRvci9jb21wb25lbnRzL3Zpc2l0b3ItY3JlYXRlLWNoZWNraW4vdmlzaXRvci1jcmVhdGUtY2hlY2tpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92aXNpdG9yLWNyZWF0ZS1jaGVja2luL3Zpc2l0b3ItY3JlYXRlLWNoZWNraW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW50bC10ZWwtaW5wdXQge1xuICAgIHdpZHRoOiAxMDAlO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -2617,6 +3240,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/exp-visitor-list/exp-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
 /* harmony import */ var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/user-visitor-list/user-visitor-list.component */ "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.ts");
 /* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
+/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
+/* harmony import */ var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/frequent-visitor-list/frequent-visitor-list.component */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
+
+
 
 
 
@@ -2645,6 +3272,10 @@ const routes = [
     { path: 'expected-visitor-user-list', component: _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["ExpUserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'reports', component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__["VisitorReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'reports/:name/:id', component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["VisitorReportsDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'frequent-visitor-list', component: _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["FrequentVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'frequent-visitor-create', component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CreateVendorFrquentVisitorComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'vendor-pass-list', component: _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["FrequentVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'vendor-pass-create', component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CreateVendorFrquentVisitorComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let VisitorRoutingModule = class VisitorRoutingModule {
@@ -2736,6 +3367,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 /* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
 /* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/vendor-pass-list/vendor-pass-list.component */ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts");
+/* harmony import */ var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/frequent-visitor-list/frequent-visitor-list.component */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
+/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
+
+
+
 
 
 
@@ -2770,7 +3407,10 @@ VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_12__["ExpVisitorCreateChekinComponent"],
             _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_13__["ExpVisitorListComponent"],
             _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["UserVisitorListComponent"],
-            _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__["ExpUserVisitorListComponent"]
+            _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__["ExpUserVisitorListComponent"],
+            _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_20__["VendorPassListComponent"],
+            _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_21__["FrequentVisitorListComponent"],
+            _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_22__["CreateVendorFrquentVisitorComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],

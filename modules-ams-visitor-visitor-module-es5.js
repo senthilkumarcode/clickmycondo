@@ -13,6 +13,26 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ams-visitor-visitor-module"], {
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html":
+    /*!*****************************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html ***!
+      \*****************************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsVisitorComponentsCreateVendorFrquentVisitorCreateVendorFrquentVisitorComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t<h4 class=\"mb-4\">\n            <span *ngIf=\"urlType == 'frequent-visitor-create'\">Create Frequent Visitor</span>\n            <span *ngIf=\"urlType == 'vendor-pass-create'\">Create Frequent Vendor Pass</span>\n        </h4>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t</condo-message>\n\t\t<form #expectedVisitorForm=\"ngForm\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Type<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitBy\" id=\"visitBy\" class=\"form-control\" [(ngModel)]=\"visitor.visitTypeId\" (change)=\"changeVisitorType()\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitTypeList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Tower No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of towerList\" [ngValue]=\"item.block_Id\">{{ item.block_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Unit No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"visitor.apartmentUnitId\" (change)=\"getPrimaryName()\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of unitList\" [ngValue]=\"item.buId\">{{ item.bu_Label }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t<div class=\"col-sm-6\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t<label>Staff<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"visitor.tomeetStaffId\" (ngModelChange)=\"changeStaff('change')\" required>\n\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t<option *ngFor=\"let item of staffsList | orderBy : 'staffName'\" [ngValue]=\"item.staffId\">{{ item.staffName}}, {{item.roleTypeName}} - {{item.staffCategoryName}}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div> \n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t[min]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t<label>Expected Visit Category<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<select name=\"visitByCategory\" id=\"visitByCategory\" class=\"form-control\"[(ngModel)]=\"visitor.visitorCategoryId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of visitCategoryList | orderBy : 'lookupValueName'\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"createExpectedVisitor()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.html":
     /*!*************************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.html ***!
@@ -73,6 +93,26 @@
     },
 
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.html":
+    /*!*************************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.html ***!
+      \*************************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsVisitorComponentsFrequentVisitorListFrequentVisitorListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"user-frequent-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <condo-card *ngIf=\"isVisitorDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-sm-flex table-header\">\n                    <div>\n                        <h4>Frequent Visitor</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"d-flex ml-auto\">\n                        <div class=\"mr-3\">\n                            <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3\">\n                            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Frequent Visitor</span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid  [theme]=\"'material'\"  [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                    [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n                    [columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.html":
     /*!*****************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.html ***!
@@ -89,6 +129,26 @@
 
 
       __webpack_exports__["default"] = "<div class=\"user-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <condo-card *ngIf=\"isVisitorDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-sm-flex table-header\">\n                    <div>\n                        <h4>\n                            <span *ngIf=\"urlType == 'expected-visitor-user-checked-in'\">Currently Checked In</span>\n                            <span *ngIf=\"urlType == 'expected-visitor-user-history'\">Visitor History</span>\n                       </h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"d-flex ml-auto\">\n                        <div class=\"mr-3\">\n                            <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3\">\n                            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid  [theme]=\"'material'\"  [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                    [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n                    [columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.html":
+    /*!***************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.html ***!
+      \***************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsVisitorComponentsVendorPassListVendorPassListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"user-vendor-pass-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <condo-card *ngIf=\"isVisitorDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-sm-flex table-header\">\n                    <div>\n                        <h4>Frequent Visitor</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"d-flex ml-auto\">\n                        <div class=\"mr-3\">\n                            <app-table-search [input]=\"visitorSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div class=\"mr-3\">\n                            <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"ml-auto\">\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Vendor Pass</span>\n                            </button>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid  [theme]=\"'material'\"  [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                    [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"visitorList\"\n                    [columns]=\"columnData\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid> \n            </div>\n        </condo-card>\n    </div>\n</div>\n";
       /***/
     },
 
@@ -213,6 +273,360 @@
     },
 
     /***/
+    "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss":
+    /*!***************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss ***!
+      \***************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsVisitorComponentsCreateVendorFrquentVisitorCreateVendorFrquentVisitorComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9jcmVhdGUtdmVuZG9yLWZycXVlbnQtdmlzaXRvci9jcmVhdGUtdmVuZG9yLWZycXVlbnQtdmlzaXRvci5jb21wb25lbnQuc2NzcyJ9 */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts":
+    /*!*************************************************************************************************************************!*\
+      !*** ./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts ***!
+      \*************************************************************************************************************************/
+
+    /*! exports provided: CreateVendorFrquentVisitorComponent */
+
+    /***/
+    function srcAppModulesAmsVisitorComponentsCreateVendorFrquentVisitorCreateVendorFrquentVisitorComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "CreateVendorFrquentVisitorComponent", function () {
+        return CreateVendorFrquentVisitorComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/Apartment */
+      "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/Visitor */
+      "./src/app/api/controllers/Visitor.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/api/controllers/Staff */
+      "./src/app/api/controllers/Staff.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! ngx-intl-tel-input */
+      "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+
+      var CreateVendorFrquentVisitorComponent = /*#__PURE__*/function () {
+        function CreateVendorFrquentVisitorComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef) {
+          var _this = this;
+
+          _classCallCheck(this, CreateVendorFrquentVisitorComponent);
+
+          this.apartmentService = apartmentService;
+          this.visitorService = visitorService;
+          this.lookupService = lookupService;
+          this.sessionService = sessionService;
+          this.staffService = staffService;
+          this.router = router;
+          this.activateRouter = activateRouter;
+          this.sharedService = sharedService;
+          this._changeDetectorRef = _changeDetectorRef;
+          this.visitor = {};
+          this.message = null;
+          this.isDataLoaded = true;
+          this.visitTypeList = [];
+          this.visitCategoryList = [];
+          this.towerList = [];
+          this.unitList = [];
+          this.staffsList = [];
+          this.block = {};
+          this.separateDialCode = true;
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+          this.activateRouter.url.subscribe(function (data) {
+            _this.urlType = data[0].path;
+          });
+        }
+
+        _createClass(CreateVendorFrquentVisitorComponent, [{
+          key: "resetField",
+          value: function resetField() {
+            this.visitor = {};
+            this.visitor.visitTypeId = null;
+            this.visitor.visitorCategoryId = null;
+            this.block = {
+              blockId: null,
+              primaryName: ''
+            };
+          }
+        }, {
+          key: "changeVisitorType",
+          value: function changeVisitorType() {
+            this.visitor.apartmentUnitId = null;
+            this.visitor.tomeetStaffId = null;
+            this.block = {
+              blockId: null,
+              primaryName: ''
+            };
+          }
+        }, {
+          key: "getTowers",
+          value: function getTowers() {
+            var tower = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            return this.apartmentService.getApartmentBlockAndBlockUnitIsLivingByApartmentId(tower).toPromise();
+          }
+        }, {
+          key: "getUnits",
+          value: function getUnits(type) {
+            if (type == 'change') {
+              this.visitor.apartmentUnitId = null;
+              this.block.primaryName = '';
+            }
+
+            var _iterator = _createForOfIteratorHelper(this.towerList),
+                _step;
+
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                var data = _step.value;
+
+                if (this.block.blockId == data.block_Id) {
+                  this.unitList = data.blockUnit;
+                  break;
+                }
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
+            }
+          }
+        }, {
+          key: "getPrimaryName",
+          value: function getPrimaryName() {
+            var _iterator2 = _createForOfIteratorHelper(this.unitList),
+                _step2;
+
+            try {
+              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+                var data = _step2.value;
+
+                if (this.visitor.apartmentUnitId == data.buId) {
+                  this.block.primaryName = data.il_Label;
+                  break;
+                }
+              }
+            } catch (err) {
+              _iterator2.e(err);
+            } finally {
+              _iterator2.f();
+            }
+          }
+        }, {
+          key: "changeStaff",
+          value: function changeStaff() {
+            this.visitor.apartmentUnitId = null;
+            this.block = {
+              blockId: null,
+              primaryName: ''
+            };
+          }
+        }, {
+          key: "createExpectedVisitor",
+          value: function createExpectedVisitor() {
+            var _this2 = this;
+
+            this.message = null;
+
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
+
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
+
+              this._changeDetectorRef.markForCheck();
+            } else {
+              this.isDataLoaded = false;
+              var params = {
+                expectedVisitor: Object.assign(Object.assign({}, this.visitor), {
+                  "apartmentUnitId": this.visitor.apartmentUnitId,
+                  "apartmentId": this.sessionService.apartmentId,
+                  "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number,
+                  "isActive": true,
+                  "insertedBy": this.sessionService.userId,
+                  "insertedOn": new Date().toISOString(),
+                  "updatedBy": null,
+                  "updatedOn": null,
+                  "enteredBy": parseInt(this.sessionService.userId),
+                  "meetingPersonId": 1,
+                  "visitorsOrg": "string",
+                  "entryGateId": null,
+                  "exitGateId": null,
+                  "tomeetStaffId": this.visitor.tomeetStaffId,
+                  "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode
+                })
+              };
+              this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
+                _this2.isDataLoaded = true;
+
+                if (res.message) {
+                  _this2.sharedService.openSnackBar('Expected Visitor Created Successfully', 'success');
+                } else {
+                  _this2.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+              });
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this3 = this;
+
+            this.resetField();
+            this.getTowers().then(function (res) {
+              if (res.length > 0) {
+                _this3.towerList = res;
+              }
+            }); //visit type
+
+            var visitParams = {
+              ApartmentId: this.sessionService.apartmentId,
+              LookupTypeId: 15
+            };
+            this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
+              _this3.visitTypeList = res;
+            }); //Visit Category
+
+            var visitCategoryParams = {
+              ApartmentId: this.sessionService.apartmentId,
+              LookupTypeId: 100
+            };
+            this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
+              _this3.visitCategoryList = res;
+            }); //Staff
+
+            var staffParms = {
+              apartmentId: this.sessionService.apartmentId,
+              RoleTypeId: this.sessionService.roleTypeId
+            };
+            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+              _this3.staffsList = res;
+              ;
+            });
+          }
+        }]);
+
+        return CreateVendorFrquentVisitorComponent;
+      }();
+
+      CreateVendorFrquentVisitorComponent.ctorParameters = function () {
+        return [{
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
+        }, {
+          type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }];
+      };
+
+      CreateVendorFrquentVisitorComponent.propDecorators = {
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['expectedVisitorForm']
+        }]
+      };
+      CreateVendorFrquentVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-create-vendor-frquent-visitor',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./create-vendor-frquent-visitor.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./create-vendor-frquent-visitor.component.scss */
+        "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], CreateVendorFrquentVisitorComponent);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.scss":
     /*!***********************************************************************************************************!*\
       !*** ./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.scss ***!
@@ -318,7 +732,7 @@
 
       var ExpUserVisitorListComponent = /*#__PURE__*/function () {
         function ExpUserVisitorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
-          var _this = this;
+          var _this4 = this;
 
           _classCallCheck(this, ExpUserVisitorListComponent);
 
@@ -333,7 +747,7 @@
           this.visitorSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
           this.activeRouter.url.subscribe(function (data) {
-            _this.urlType = data[0].path;
+            _this4.urlType = data[0].path;
           });
         }
 
@@ -355,7 +769,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this2 = this;
+            var _this5 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -368,7 +782,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this2.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this5.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -394,7 +808,7 @@
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this3 = this;
+            var _this6 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
@@ -406,19 +820,19 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this3.totalItems = tableData.localdata.length;
-                _this3.visitorList = new jqx.dataAdapter(tableData);
+                _this6.totalItems = tableData.localdata.length;
+                _this6.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this3.isVisitorDataLoaded = true;
+              _this6.isVisitorDataLoaded = true;
             }, function (error) {
-              _this3.isVisitorDataLoaded = true;
+              _this6.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this7 = this;
 
             this.getVisitorList();
 
@@ -492,20 +906,20 @@
               if (item != null && item.id) {
                 var params = {
                   expectedVisitorId: item.id,
-                  deleteBy: _this4.sessionService.userId
+                  deleteBy: _this7.sessionService.userId
                 };
 
-                _this4.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
+                _this7.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
                   if (res.message) {
-                    _this4.sharedService.setUnitListDeleteIndex(null);
+                    _this7.sharedService.setUnitListDeleteIndex(null);
 
-                    _this4.datagrid.deleterow(item.index);
+                    _this7.datagrid.deleterow(item.index);
 
-                    _this4.datagrid.refresh();
+                    _this7.datagrid.refresh();
 
-                    _this4.sharedService.openSnackBar(res.message, 'success');
+                    _this7.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this4.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {});
               }
@@ -605,7 +1019,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9leHAtdmlzaXRvci1jcmVhdGUtY2hla2luL2V4cC12aXNpdG9yLWNyZWF0ZS1jaGVraW4uY29tcG9uZW50LnNjc3MifQ== */";
+      __webpack_exports__["default"] = ".intl-tel-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvdmlzaXRvci9jb21wb25lbnRzL2V4cC12aXNpdG9yLWNyZWF0ZS1jaGVraW4vZXhwLXZpc2l0b3ItY3JlYXRlLWNoZWtpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9leHAtdmlzaXRvci1jcmVhdGUtY2hla2luL2V4cC12aXNpdG9yLWNyZWF0ZS1jaGVraW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW50bC10ZWwtaW5wdXQge1xuICAgIHdpZHRoOiAxMDAlO1xufSJdfQ== */";
       /***/
     },
 
@@ -707,7 +1121,7 @@
 
       var ExpVisitorCreateChekinComponent = /*#__PURE__*/function () {
         function ExpVisitorCreateChekinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef) {
-          var _this5 = this;
+          var _this8 = this;
 
           _classCallCheck(this, ExpVisitorCreateChekinComponent);
 
@@ -738,38 +1152,38 @@
 
           this.activateRouter.params.subscribe(function (param) {
             if (param.id && param.type) {
-              _this5.isDataLoaded = false;
-              _this5.urlType = param.type;
+              _this8.isDataLoaded = false;
+              _this8.urlType = param.type;
               var visitor = {
                 expectedVisitorId: +param.id
               };
 
-              _this5.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
-                _this5.visitor = res[0];
-                _this5.visitor.expectedVisitorPhone = {
-                  'countryCode': _this5.visitor.phonecountrycode,
-                  'number': _this5.visitor.expectedVisitorPhone
+              _this8.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
+                _this8.visitor = res[0];
+                _this8.visitor.expectedVisitorPhone = {
+                  'countryCode': _this8.visitor.phonecountrycode,
+                  'number': _this8.visitor.expectedVisitorPhone
                 };
 
                 if (param.type == 'edit') {
-                  _this5.expectedDurationChange();
+                  _this8.expectedDurationChange();
 
-                  _this5.isDataLoaded = true;
+                  _this8.isDataLoaded = true;
                 } else {
                   //copy Within
-                  _this5.visitor.expectedVisitorOutTime = '';
-                  _this5.visitor.expectedVisitorInTime = '';
-                  _this5.visitor.expectedDuration = '';
+                  _this8.visitor.expectedVisitorOutTime = '';
+                  _this8.visitor.expectedVisitorInTime = '';
+                  _this8.visitor.expectedDuration = '';
 
-                  if (_this5.visitor.apartmentUnitId && _this5.isAdmin()) {
-                    _this5.getTowers().then(function (res) {
+                  if (_this8.visitor.apartmentUnitId && _this8.isAdmin()) {
+                    _this8.getTowers().then(function (res) {
                       if (res.length > 0) {
-                        _this5.towerList = res;
+                        _this8.towerList = res;
 
-                        _this5.getUnits('edit');
+                        _this8.getUnits('edit');
                       }
                     });
-                  } else _this5.isDataLoaded = true;
+                  } else _this8.isDataLoaded = true;
                 }
               });
             }
@@ -803,7 +1217,7 @@
           key: "getUnits",
           value: function getUnits(type) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-              var tower, _iterator, _step, data;
+              var tower, _iterator3, _step3, data;
 
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
@@ -828,18 +1242,18 @@
                       if (tower.length > 0) this.block.blockId = tower[0].apartmentBlockId;
 
                     case 9:
-                      _iterator = _createForOfIteratorHelper(this.towerList);
+                      _iterator3 = _createForOfIteratorHelper(this.towerList);
                       _context.prev = 10;
 
-                      _iterator.s();
+                      _iterator3.s();
 
                     case 12:
-                      if ((_step = _iterator.n()).done) {
+                      if ((_step3 = _iterator3.n()).done) {
                         _context.next = 20;
                         break;
                       }
 
-                      data = _step.value;
+                      data = _step3.value;
 
                       if (!(this.block.blockId == data.block_Id)) {
                         _context.next = 18;
@@ -867,12 +1281,12 @@
                       _context.prev = 22;
                       _context.t0 = _context["catch"](10);
 
-                      _iterator.e(_context.t0);
+                      _iterator3.e(_context.t0);
 
                     case 25:
                       _context.prev = 25;
 
-                      _iterator.f();
+                      _iterator3.f();
 
                       return _context.finish(25);
 
@@ -887,12 +1301,12 @@
         }, {
           key: "getPrimaryName",
           value: function getPrimaryName() {
-            var _iterator2 = _createForOfIteratorHelper(this.unitList),
-                _step2;
+            var _iterator4 = _createForOfIteratorHelper(this.unitList),
+                _step4;
 
             try {
-              for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-                var data = _step2.value;
+              for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+                var data = _step4.value;
 
                 if (this.visitor.apartmentUnitId == data.buId) {
                   this.block.primaryName = data.il_Label;
@@ -900,9 +1314,9 @@
                 }
               }
             } catch (err) {
-              _iterator2.e(err);
+              _iterator4.e(err);
             } finally {
-              _iterator2.f();
+              _iterator4.f();
             }
           }
         }, {
@@ -941,7 +1355,7 @@
         }, {
           key: "createExpectedVisitor",
           value: function createExpectedVisitor() {
-            var _this6 = this;
+            var _this9 = this;
 
             this.message = null;
 
@@ -982,14 +1396,14 @@
                 })
               };
               this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
-                _this6.isDataLoaded = true;
+                _this9.isDataLoaded = true;
 
                 if (res.message) {
-                  _this6.sharedService.openSnackBar('Expected Visitor Created Successfully', 'success');
+                  _this9.sharedService.openSnackBar('Expected Visitor Created Successfully', 'success');
 
-                  if (_this6.isAdmin()) _this6.router.navigate(['/ams/visitor/expected-visitor-list']);else _this6.router.navigate(['/user/visitor/expected-visitor-user-list']);
+                  if (_this9.isAdmin()) _this9.router.navigate(['/ams/visitor/expected-visitor-list']);else _this9.router.navigate(['/user/visitor/expected-visitor-user-list']);
                 } else {
-                  _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -997,7 +1411,7 @@
         }, {
           key: "updateExpectedVisitor",
           value: function updateExpectedVisitor() {
-            var _this7 = this;
+            var _this10 = this;
 
             this.message = null;
 
@@ -1025,14 +1439,14 @@
                 })
               };
               this.visitorService.updateExpectedVisitor(visitor).subscribe(function (res) {
-                _this7.isDataLoaded = true;
+                _this10.isDataLoaded = true;
 
                 if (res.message) {
-                  _this7.sharedService.openSnackBar(res.message, 'success');
+                  _this10.sharedService.openSnackBar(res.message, 'success');
 
-                  if (_this7.isAdmin()) _this7.router.navigate(['/ams/visitor/expected-visitor-list']);else _this7.router.navigate(['/user/visitor/expected-visitor-user-list']);
+                  if (_this10.isAdmin()) _this10.router.navigate(['/ams/visitor/expected-visitor-list']);else _this10.router.navigate(['/user/visitor/expected-visitor-user-list']);
                 } else {
-                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this10.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -1048,7 +1462,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this11 = this;
 
             //set apartmentBlockUnitId and VisitorTypeId in User Mode
             if (!this.isAdmin()) {
@@ -1062,14 +1476,14 @@
               LookupTypeId: 15
             };
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this8.visitTypeList = res;
+              _this11.visitTypeList = res;
             }); //TowerList
 
             if (this.urlType == 'create' && this.isAdmin()) {
               this.resetField();
               this.getTowers().then(function (res) {
                 if (res.length > 0) {
-                  _this8.towerList = res;
+                  _this11.towerList = res;
                 }
               });
             } // Staffs List
@@ -1081,7 +1495,7 @@
                 RoleTypeId: this.sessionService.roleTypeId
               };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-                _this8.staffsList = res;
+                _this11.staffsList = res;
                 ;
               });
             } //Visit Category
@@ -1092,7 +1506,7 @@
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this8.visitCategoryList = res;
+              _this11.visitCategoryList = res;
             });
           }
         }]);
@@ -1288,7 +1702,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this9 = this;
+            var _this12 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1301,7 +1715,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1312,7 +1726,7 @@
         }, {
           key: "onCheckIn",
           value: function onCheckIn(detail) {
-            var _this10 = this;
+            var _this13 = this;
 
             var message = "Are you sure you want to Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -1323,16 +1737,16 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this10.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this13.datagrid.getrowdata(detail.rowId);
 
-                _this10.router.navigate(["/ams/visitor/visitor/checkin/".concat(dataRecord.expectedVisitorId)]);
+                _this13.router.navigate(["/ams/visitor/visitor/checkin/".concat(dataRecord.expectedVisitorId)]);
               }
             });
           }
         }, {
           key: "onCopyWith",
           value: function onCopyWith(detail) {
-            var _this11 = this;
+            var _this14 = this;
 
             var message = "Are you sure, you want to copy the details?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -1343,9 +1757,9 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this11.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this14.datagrid.getrowdata(detail.rowId);
 
-                _this11.router.navigate(["/ams/visitor/expected-visitor/copy/".concat(dataRecord.expectedVisitorId)]);
+                _this14.router.navigate(["/ams/visitor/expected-visitor/copy/".concat(dataRecord.expectedVisitorId)]);
               }
             });
           }
@@ -1373,7 +1787,7 @@
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this12 = this;
+            var _this15 = this;
 
             this.isVisitorDataLoaded = false;
             var params = {
@@ -1387,19 +1801,19 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this12.totalItems = tableData.localdata.length;
-                _this12.visitorList = new jqx.dataAdapter(tableData);
+                _this15.totalItems = tableData.localdata.length;
+                _this15.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this12.isVisitorDataLoaded = true;
+              _this15.isVisitorDataLoaded = true;
             }, function (error) {
-              _this12.isVisitorDataLoaded = true;
+              _this15.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this16 = this;
 
             this.getVisitorList();
 
@@ -1483,7 +1897,7 @@
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
                 var new_ = moment__WEBPACK_IMPORTED_MODULE_4__().format('DD/MM/YYYY');
-                var date = moment__WEBPACK_IMPORTED_MODULE_4__(_this13.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
+                var date = moment__WEBPACK_IMPORTED_MODULE_4__(_this16.visitorList.loadedData[row].expectedVisitorInTime).format('DD/MM/YYYY');
 
                 if (new_ != date) {
                   return '<div class="simple-actions">' + '<a href="javascript:void(0)" onClick="copyWith(' + row + ')" >Copy Details</a>' + '</div>';
@@ -1565,6 +1979,280 @@
       }
 
       window.copyWith = copyWith;
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.scss":
+    /*!***********************************************************************************************************!*\
+      !*** ./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.scss ***!
+      \***********************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsVisitorComponentsFrequentVisitorListFrequentVisitorListComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy9mcmVxdWVudC12aXNpdG9yLWxpc3QvZnJlcXVlbnQtdmlzaXRvci1saXN0LmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts":
+    /*!*********************************************************************************************************!*\
+      !*** ./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts ***!
+      \*********************************************************************************************************/
+
+    /*! exports provided: FrequentVisitorListComponent */
+
+    /***/
+    function srcAppModulesAmsVisitorComponentsFrequentVisitorListFrequentVisitorListComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "FrequentVisitorListComponent", function () {
+        return FrequentVisitorListComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Visitor */
+      "./src/app/api/controllers/Visitor.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+
+      var FrequentVisitorListComponent = /*#__PURE__*/function () {
+        function FrequentVisitorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
+          _classCallCheck(this, FrequentVisitorListComponent);
+
+          this.router = router;
+          this.injector = injector;
+          this.visitorService = visitorService;
+          this.sessionService = sessionService;
+          this.dialog = dialog;
+          this.sharedService = sharedService;
+          this.activeRouter = activeRouter;
+          this.visitorList = [];
+          this.visitorSearch = '';
+        }
+
+        _createClass(FrequentVisitorListComponent, [{
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'expectedVisitorData');
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this17 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "navigateToCreate",
+          value: function navigateToCreate() {
+            this.router.navigate(['/ams/visitor/frequent-visitor-create']);
+          }
+        }, {
+          key: "getVisitorCheckedIn",
+          value: function getVisitorCheckedIn() {
+            var _this18 = this;
+
+            this.isVisitorDataLoaded = false;
+            var param = {
+              apartmentId: this.sessionService.apartmentId,
+              BlockUnitId: this.sessionService.apartmentBlockUnitID
+            };
+            this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe(function (res) {
+              if (res.length > 0) {
+                var tableData = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this18.totalItems = tableData.localdata.length;
+                _this18.visitorList = new jqx.dataAdapter(tableData);
+              }
+
+              _this18.isVisitorDataLoaded = true;
+            }, function (error) {
+              _this18.isVisitorDataLoaded = true;
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.columnData = [{
+              text: 'Id',
+              datafield: 'serialNo',
+              width: 80,
+              pinned: true,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor Name',
+              datafield: 'visitorName',
+              minwidth: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Phone Number',
+              datafield: 'visitorPhone',
+              cellsrenderer: cellsrenderer,
+              width: 220,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor In Time',
+              datafield: 'visitorInTime',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+              },
+              width: 240,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor Out Time',
+              datafield: 'visitorOutTime',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                if (value) {
+                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+                } else {
+                  return '<div class="jqx-custom-inner-cell"></div>';
+                }
+              },
+              width: 240,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor category',
+              datafield: 'visitorCategoryName',
+              cellsrenderer: cellsrenderer,
+              width: 240,
+              renderer: columnrenderer
+            }];
+            this.getVisitorCheckedIn();
+          }
+        }]);
+
+        return FrequentVisitorListComponent;
+      }();
+
+      FrequentVisitorListComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
+        }, {
+          type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_5__["VisitorService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        }];
+      };
+
+      FrequentVisitorListComponent.propDecorators = {
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }]
+      };
+      FrequentVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-frequent-visitor-list',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./frequent-visitor-list.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./frequent-visitor-list.component.scss */
+        "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_5__["VisitorService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])], FrequentVisitorListComponent);
       /***/
     },
 
@@ -1674,7 +2362,7 @@
 
       var UserVisitorListComponent = /*#__PURE__*/function () {
         function UserVisitorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
-          var _this14 = this;
+          var _this19 = this;
 
           _classCallCheck(this, UserVisitorListComponent);
 
@@ -1689,7 +2377,7 @@
           this.visitorSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
           this.activeRouter.url.subscribe(function (data) {
-            _this14.urlType = data[0].path;
+            _this19.urlType = data[0].path;
           });
         }
 
@@ -1711,7 +2399,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this15 = this;
+            var _this20 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1724,7 +2412,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1735,7 +2423,7 @@
         }, {
           key: "getVisitorCheckedIn",
           value: function getVisitorCheckedIn() {
-            var _this16 = this;
+            var _this21 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
@@ -1748,19 +2436,19 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this16.totalItems = tableData.localdata.length;
-                _this16.visitorList = new jqx.dataAdapter(tableData);
+                _this21.totalItems = tableData.localdata.length;
+                _this21.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this16.isVisitorDataLoaded = true;
+              _this21.isVisitorDataLoaded = true;
             }, function (error) {
-              _this16.isVisitorDataLoaded = true;
+              _this21.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "getVisitorHistory",
           value: function getVisitorHistory() {
-            var _this17 = this;
+            var _this22 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
@@ -1772,19 +2460,19 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this17.totalItems = tableData.localdata.length;
-                _this17.visitorList = new jqx.dataAdapter(tableData);
+                _this22.totalItems = tableData.localdata.length;
+                _this22.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this17.isVisitorDataLoaded = true;
+              _this22.isVisitorDataLoaded = true;
             }, function (error) {
-              _this17.isVisitorDataLoaded = true;
+              _this22.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this23 = this;
 
             if (this.urlType == 'expected-visitor-user-checked-in') this.getVisitorCheckedIn();else if (this.urlType == 'expected-visitor-user-history') this.getVisitorHistory();
 
@@ -1847,20 +2535,20 @@
               if (item != null && item.id) {
                 var params = {
                   expectedVisitorId: item.id,
-                  deleteBy: _this18.sessionService.userId
+                  deleteBy: _this23.sessionService.userId
                 };
 
-                _this18.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
+                _this23.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
                   if (res.message) {
-                    _this18.sharedService.setUnitListDeleteIndex(null);
+                    _this23.sharedService.setUnitListDeleteIndex(null);
 
-                    _this18.datagrid.deleterow(item.index);
+                    _this23.datagrid.deleterow(item.index);
 
-                    _this18.datagrid.refresh();
+                    _this23.datagrid.refresh();
 
-                    _this18.sharedService.openSnackBar(res.message, 'success');
+                    _this23.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this23.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
                   console.log(error);
@@ -1913,6 +2601,256 @@
         /*! ./user-visitor-list.component.scss */
         "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_2__["VisitorService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])], UserVisitorListComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.scss":
+    /*!*************************************************************************************************!*\
+      !*** ./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.scss ***!
+      \*************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsVisitorComponentsVendorPassListVendorPassListComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92ZW5kb3ItcGFzcy1saXN0L3ZlbmRvci1wYXNzLWxpc3QuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts":
+    /*!***********************************************************************************************!*\
+      !*** ./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts ***!
+      \***********************************************************************************************/
+
+    /*! exports provided: VendorPassListComponent, FrequentVisitorListComponent */
+
+    /***/
+    function srcAppModulesAmsVisitorComponentsVendorPassListVendorPassListComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "VendorPassListComponent", function () {
+        return VendorPassListComponent;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "FrequentVisitorListComponent", function () {
+        return FrequentVisitorListComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
+      "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+
+      var VendorPassListComponent = /*#__PURE__*/function () {
+        function VendorPassListComponent() {
+          _classCallCheck(this, VendorPassListComponent);
+        }
+
+        _createClass(VendorPassListComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {}
+        }]);
+
+        return VendorPassListComponent;
+      }();
+
+      VendorPassListComponent.ctorParameters = function () {
+        return [];
+      };
+
+      VendorPassListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-vendor-pass-list',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./vendor-pass-list.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./vendor-pass-list.component.scss */
+        "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], VendorPassListComponent);
+
+      var FrequentVisitorListComponent = /*#__PURE__*/function () {
+        function FrequentVisitorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
+          _classCallCheck(this, FrequentVisitorListComponent);
+
+          this.router = router;
+          this.injector = injector;
+          this.visitorService = visitorService;
+          this.sessionService = sessionService;
+          this.dialog = dialog;
+          this.sharedService = sharedService;
+          this.activeRouter = activeRouter;
+          this.visitorList = [];
+          this.visitorSearch = '';
+        }
+
+        _createClass(FrequentVisitorListComponent, [{
+          key: "getPrintParams",
+          value: function getPrintParams(event) {
+            this.datagrid.exportdata(event, 'expectedVisitorData');
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this24 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.columnData.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this24.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "navigateToCreate",
+          value: function navigateToCreate() {
+            this.router.navigate(['/ams/visitor/vendor-pass-create']);
+          }
+        }, {
+          key: "getVisitorCheckedIn",
+          value: function getVisitorCheckedIn() {
+            var _this25 = this;
+
+            this.isVisitorDataLoaded = false;
+            var param = {
+              apartmentId: this.sessionService.apartmentId,
+              BlockUnitId: this.sessionService.apartmentBlockUnitID
+            };
+            this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe(function (res) {
+              if (res.length > 0) {
+                var tableData = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this25.totalItems = tableData.localdata.length;
+                _this25.visitorList = new jqx.dataAdapter(tableData);
+              }
+
+              _this25.isVisitorDataLoaded = true;
+            }, function (error) {
+              _this25.isVisitorDataLoaded = true;
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var cellsrenderer = function cellsrenderer(row, column, value) {
+              return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+            };
+
+            var columnrenderer = function columnrenderer(value) {
+              return '<div style="padding: 14px">' + value + '</div>';
+            };
+
+            this.columnData = [{
+              text: 'Id',
+              datafield: 'serialNo',
+              width: 80,
+              pinned: true,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor Name',
+              datafield: 'visitorName',
+              minwidth: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Phone Number',
+              datafield: 'visitorPhone',
+              cellsrenderer: cellsrenderer,
+              width: 220,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor In Time',
+              datafield: 'visitorInTime',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+              },
+              width: 240,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor Out Time',
+              datafield: 'visitorOutTime',
+              cellsrenderer: function cellsrenderer(row, column, value) {
+                if (value) {
+                  return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_3__(value).format("MM/DD/YY hh:mm") + '</div>';
+                } else {
+                  return '<div class="jqx-custom-inner-cell"></div>';
+                }
+              },
+              width: 240,
+              renderer: columnrenderer
+            }, {
+              text: 'Visitor category',
+              datafield: 'visitorCategoryName',
+              cellsrenderer: cellsrenderer,
+              width: 240,
+              renderer: columnrenderer
+            }];
+            this.getVisitorCheckedIn();
+          }
+        }]);
+
+        return FrequentVisitorListComponent;
+      }();
+
+      FrequentVisitorListComponent.propDecorators = {
+        datagrid: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['datagrid', {
+            "static": false
+          }]
+        }]
+      };
       /***/
     },
 
@@ -2034,7 +2972,7 @@
 
       var VisitorCheckoutComponent = /*#__PURE__*/function () {
         function VisitorCheckoutComponent(router, route, injector, apartmentService, visitorService, lookupService, dialog, sessionService, activateRouter) {
-          var _this19 = this;
+          var _this26 = this;
 
           _classCallCheck(this, VisitorCheckoutComponent);
 
@@ -2051,7 +2989,7 @@
           this.visitorSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
           this.activateRouter.url.subscribe(function (data) {
-            _this19.urlType = data[0].path;
+            _this26.urlType = data[0].path;
           });
         }
 
@@ -2073,7 +3011,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this20 = this;
+            var _this27 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2086,7 +3024,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2097,7 +3035,7 @@
         }, {
           key: "onCheckOut",
           value: function onCheckOut(detail) {
-            var _this21 = this;
+            var _this28 = this;
 
             var message = "Are you sure, you want to Check Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
@@ -2108,9 +3046,9 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var dataRecord = _this21.datagrid.getrowdata(detail.rowId);
+                var dataRecord = _this28.datagrid.getrowdata(detail.rowId);
 
-                _this21.router.navigate(["/ams/visitor/visitor/checkout/".concat(dataRecord.visitorId)]);
+                _this28.router.navigate(["/ams/visitor/visitor/checkout/".concat(dataRecord.visitorId)]);
               }
             });
           }
@@ -2123,7 +3061,7 @@
         }, {
           key: "getCheckOutList",
           value: function getCheckOutList() {
-            var _this22 = this;
+            var _this29 = this;
 
             this.isVisitorDataLoaded = false;
             var apartmentParams = {
@@ -2135,17 +3073,17 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this22.totalItems = tableData.localdata.length;
-                _this22.visitorList = new jqx.dataAdapter(tableData);
+                _this29.totalItems = tableData.localdata.length;
+                _this29.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this22.isVisitorDataLoaded = true;
+              _this29.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "getCheckOutHistoryList",
           value: function getCheckOutHistoryList() {
-            var _this23 = this;
+            var _this30 = this;
 
             this.isVisitorDataLoaded = false;
             var apartmentParams = {
@@ -2157,11 +3095,11 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this23.totalItems = tableData.localdata.length;
-                _this23.visitorList = new jqx.dataAdapter(tableData);
+                _this30.totalItems = tableData.localdata.length;
+                _this30.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this23.isVisitorDataLoaded = true;
+              _this30.isVisitorDataLoaded = true;
             });
           }
         }, {
@@ -2349,7 +3287,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92aXNpdG9yLWNyZWF0ZS1jaGVja2luL3Zpc2l0b3ItY3JlYXRlLWNoZWNraW4uY29tcG9uZW50LnNjc3MifQ== */";
+      __webpack_exports__["default"] = ".intl-tel-input {\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvdmlzaXRvci9jb21wb25lbnRzL3Zpc2l0b3ItY3JlYXRlLWNoZWNraW4vdmlzaXRvci1jcmVhdGUtY2hlY2tpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFdBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92aXNpdG9yLWNyZWF0ZS1jaGVja2luL3Zpc2l0b3ItY3JlYXRlLWNoZWNraW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW50bC10ZWwtaW5wdXQge1xuICAgIHdpZHRoOiAxMDAlO1xufSJdfQ== */";
       /***/
     },
 
@@ -2451,7 +3389,7 @@
 
       var VisitorCreateCheckinComponent = /*#__PURE__*/function () {
         function VisitorCreateCheckinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router, sharedService, _changeDetectorRef) {
-          var _this24 = this;
+          var _this31 = this;
 
           _classCallCheck(this, VisitorCreateCheckinComponent);
 
@@ -2482,10 +3420,10 @@
 
           this.activateRouter.params.subscribe(function (param) {
             if (param.id && param.type) {
-              _this24.isDataLoaded = false;
-              _this24.urlType = param.type;
+              _this31.isDataLoaded = false;
+              _this31.urlType = param.type;
               var id = parseInt(param.id);
-              if (param.type == 'checkin') _this24.checkInLogic(id);else if (param.type == 'checkout' || param.type == 'edit') _this24.checkoutLogic(id);
+              if (param.type == 'checkin') _this31.checkInLogic(id);else if (param.type == 'checkout' || param.type == 'edit') _this31.checkoutLogic(id);
             }
           });
         }
@@ -2493,74 +3431,74 @@
         _createClass(VisitorCreateCheckinComponent, [{
           key: "checkInLogic",
           value: function checkInLogic(id) {
-            var _this25 = this;
+            var _this32 = this;
 
             var visitor = {
               expectedVisitorId: id
             };
             this.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
-              _this25.visitor.visitTypeId = res[0].visitTypeId;
-              _this25.visitor.apartmentUnitId = res[0].apartmentUnitId;
-              _this25.visitor.tomeetStaffId = res[0].tomeetStaffId;
-              _this25.visitor.visitorName = res[0].expectedVisitorName;
-              _this25.visitor.visitorCount = res[0].expectedVisitorCount;
-              _this25.visitor.visitorPhone = {
+              _this32.visitor.visitTypeId = res[0].visitTypeId;
+              _this32.visitor.apartmentUnitId = res[0].apartmentUnitId;
+              _this32.visitor.tomeetStaffId = res[0].tomeetStaffId;
+              _this32.visitor.visitorName = res[0].expectedVisitorName;
+              _this32.visitor.visitorCount = res[0].expectedVisitorCount;
+              _this32.visitor.visitorPhone = {
                 'number': res[0].expectedVisitorPhone,
                 'countryCode': res[0].phonecountrycode
               };
-              _this25.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
-              _this25.visitor.visitorOutTime = res[0].expectedVisitorOutTime;
-              _this25.visitor.expectedDuration = res[0].expectedDuration;
-              _this25.visitor.expectedVisitorInTime = res[0].expectedVisitorInTime;
-              _this25.visitor.expectedVisitorOutTime = res[0].expectedVisitorOutTime;
-              _this25.visitor.passNumber = res[0].passNumber;
-              _this25.visitor.visitorCategoryId = res[0].visitorCategoryId;
-              _this25.visitor.purpose = res[0].purpose;
-              _this25.visitor.expectedVisitorId = id;
+              _this32.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
+              _this32.visitor.visitorOutTime = res[0].expectedVisitorOutTime;
+              _this32.visitor.expectedDuration = res[0].expectedDuration;
+              _this32.visitor.expectedVisitorInTime = res[0].expectedVisitorInTime;
+              _this32.visitor.expectedVisitorOutTime = res[0].expectedVisitorOutTime;
+              _this32.visitor.passNumber = res[0].passNumber;
+              _this32.visitor.visitorCategoryId = res[0].visitorCategoryId;
+              _this32.visitor.purpose = res[0].purpose;
+              _this32.visitor.expectedVisitorId = id;
 
-              _this25.expectedDurationChange();
+              _this32.expectedDurationChange();
 
-              if (_this25.visitor.apartmentUnitId) {
-                _this25.getTowers().then(function (res) {
+              if (_this32.visitor.apartmentUnitId) {
+                _this32.getTowers().then(function (res) {
                   if (res.length > 0) {
-                    _this25.towerList = res;
+                    _this32.towerList = res;
 
-                    _this25.getUnits('edit');
+                    _this32.getUnits('edit');
                   }
                 });
               } else {
-                _this25.isDataLoaded = true;
+                _this32.isDataLoaded = true;
               }
             });
           }
         }, {
           key: "checkoutLogic",
           value: function checkoutLogic(id) {
-            var _this26 = this;
+            var _this33 = this;
 
             var visitor = {
               visitorId: id
             };
             this.visitorService.getVisitorById(visitor).subscribe(function (res) {
-              _this26.visitor = res[0];
-              _this26.visitor.visitorPhone = {
-                'countryCode': _this26.visitor.phonecountrycode,
-                'number': _this26.visitor.visitorPhone
+              _this33.visitor = res[0];
+              _this33.visitor.visitorPhone = {
+                'countryCode': _this33.visitor.phonecountrycode,
+                'number': _this33.visitor.visitorPhone
               };
-              if (_this26.urlType == 'checkout') _this26.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).toISOString();
+              if (_this33.urlType == 'checkout') _this33.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).toISOString();
 
-              _this26.expectedDurationChange();
+              _this33.expectedDurationChange();
 
-              if (_this26.visitor.apartmentUnitId) {
-                _this26.getTowers().then(function (res) {
+              if (_this33.visitor.apartmentUnitId) {
+                _this33.getTowers().then(function (res) {
                   if (res.length > 0) {
-                    _this26.towerList = res;
+                    _this33.towerList = res;
 
-                    _this26.getUnits('edit');
+                    _this33.getUnits('edit');
                   }
                 });
               } else {
-                _this26.isDataLoaded = true;
+                _this33.isDataLoaded = true;
               }
             });
           }
@@ -2599,7 +3537,7 @@
           key: "getUnits",
           value: function getUnits(type) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              var tower, _iterator3, _step3, data;
+              var tower, _iterator5, _step5, data;
 
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
@@ -2624,18 +3562,18 @@
                       if (tower.length > 0) this.block.blockId = tower[0].apartmentBlockId;
 
                     case 9:
-                      _iterator3 = _createForOfIteratorHelper(this.towerList);
+                      _iterator5 = _createForOfIteratorHelper(this.towerList);
                       _context2.prev = 10;
 
-                      _iterator3.s();
+                      _iterator5.s();
 
                     case 12:
-                      if ((_step3 = _iterator3.n()).done) {
+                      if ((_step5 = _iterator5.n()).done) {
                         _context2.next = 20;
                         break;
                       }
 
-                      data = _step3.value;
+                      data = _step5.value;
 
                       if (!(this.block.blockId == data.block_Id)) {
                         _context2.next = 18;
@@ -2663,12 +3601,12 @@
                       _context2.prev = 22;
                       _context2.t0 = _context2["catch"](10);
 
-                      _iterator3.e(_context2.t0);
+                      _iterator5.e(_context2.t0);
 
                     case 25:
                       _context2.prev = 25;
 
-                      _iterator3.f();
+                      _iterator5.f();
 
                       return _context2.finish(25);
 
@@ -2683,12 +3621,12 @@
         }, {
           key: "getPrimaryName",
           value: function getPrimaryName() {
-            var _iterator4 = _createForOfIteratorHelper(this.unitList),
-                _step4;
+            var _iterator6 = _createForOfIteratorHelper(this.unitList),
+                _step6;
 
             try {
-              for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-                var data = _step4.value;
+              for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+                var data = _step6.value;
 
                 if (this.visitor.apartmentUnitId == data.buId) {
                   this.block.primaryName = data.il_Label;
@@ -2696,9 +3634,9 @@
                 }
               }
             } catch (err) {
-              _iterator4.e(err);
+              _iterator6.e(err);
             } finally {
-              _iterator4.f();
+              _iterator6.f();
             }
           }
         }, {
@@ -2736,7 +3674,7 @@
         }, {
           key: "createCheckIn",
           value: function createCheckIn() {
-            var _this27 = this;
+            var _this34 = this;
 
             this.message = null;
 
@@ -2785,14 +3723,14 @@
                 })
               };
               this.visitorService.addVisitor(params).subscribe(function (res) {
-                _this27.isDataLoaded = true;
+                _this34.isDataLoaded = true;
 
                 if (res.message) {
-                  _this27.sharedService.openSnackBar('Visitor Checked IN', 'success');
+                  _this34.sharedService.openSnackBar('Visitor Checked IN', 'success');
 
-                  _this27.router.navigate(['/ams/visitor/checkout']);
+                  _this34.router.navigate(['/ams/visitor/checkout']);
                 } else {
-                  _this27.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this34.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -2800,7 +3738,7 @@
         }, {
           key: "updateCheckIn",
           value: function updateCheckIn() {
-            var _this28 = this;
+            var _this35 = this;
 
             this.message = null;
 
@@ -2828,14 +3766,14 @@
                 })
               };
               this.visitorService.updateVisitor(params).subscribe(function (res) {
-                _this28.isDataLoaded = true;
+                _this35.isDataLoaded = true;
 
                 if (res.message) {
-                  _this28.sharedService.openSnackBar(res.message, 'success');
+                  _this35.sharedService.openSnackBar(res.message, 'success');
 
-                  _this28.router.navigate(['/ams/visitor/checkout']);
+                  _this35.router.navigate(['/ams/visitor/checkout']);
                 } else {
-                  _this28.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this35.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -2843,7 +3781,7 @@
         }, {
           key: "createCheckOut",
           value: function createCheckOut() {
-            var _this29 = this;
+            var _this36 = this;
 
             this.isDataLoaded = true;
             var visitorDetails = {
@@ -2853,20 +3791,20 @@
             };
             this.visitorService.checkOutVisitor(visitorDetails).subscribe(function (res) {
               if (res.message) {
-                _this29.sharedService.openSnackBar(res.message, 'success');
+                _this36.sharedService.openSnackBar(res.message, 'success');
 
-                _this29.router.navigate(['/ams/visitor/history']);
+                _this36.router.navigate(['/ams/visitor/history']);
               } else {
-                _this29.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this36.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this29.isDataLoaded = false;
+              _this36.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this37 = this;
 
             //visit type
             var visitParams = {
@@ -2874,14 +3812,14 @@
               LookupTypeId: 15
             };
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this30.visitTypeList = res;
+              _this37.visitTypeList = res;
             }); //TowerList
 
             if (this.urlType == 'create') {
               this.resetField();
               this.getTowers().then(function (res) {
                 if (res.length > 0) {
-                  _this30.towerList = res;
+                  _this37.towerList = res;
                 }
               });
             } // Staffs List
@@ -2892,7 +3830,7 @@
               RoleTypeId: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this30.staffsList = res;
+              _this37.staffsList = res;
               ;
             }); //Visit Category
 
@@ -2901,7 +3839,7 @@
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this30.visitCategoryList = res;
+              _this37.visitCategoryList = res;
             });
           }
         }]);
@@ -3111,7 +4049,7 @@
         }, {
           key: "getDetails",
           value: function getDetails(params) {
-            var _this31 = this;
+            var _this38 = this;
 
             var serviceName;
             var id = parseInt(this.route.params['value'].id);
@@ -3130,21 +4068,21 @@
 
             serviceName.subscribe(function (res) {
               if (res.errorMessage) {
-                _this31.reportsDataList = [];
+                _this38.reportsDataList = [];
               } else {
-                _this31.reportsDataList = res;
-                _this31.totalItems = _this31.reportsDataList.length;
-                _this31.gridSourceData = {
-                  localdata: _this31.reportsDataList,
+                _this38.reportsDataList = res;
+                _this38.totalItems = _this38.reportsDataList.length;
+                _this38.gridSourceData = {
+                  localdata: _this38.reportsDataList,
                   datatype: "array"
                 };
-                _this31.listData = new jqx.dataAdapter(_this31.gridSourceData);
-                _this31.isReportSubmitted = true;
-                _this31.isDataLoaded = true;
+                _this38.listData = new jqx.dataAdapter(_this38.gridSourceData);
+                _this38.isReportSubmitted = true;
+                _this38.isDataLoaded = true;
               }
             }, function (error) {
-              _this31.isReportSubmitted = true;
-              _this31.isDataLoaded = true;
+              _this38.isReportSubmitted = true;
+              _this38.isDataLoaded = true;
             });
           }
         }, {
@@ -3159,7 +4097,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this32 = this;
+            var _this39 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3172,7 +4110,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this32.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this39.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3239,14 +4177,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this33 = this;
+            var _this40 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this33.unitBlocksData = res;
+              _this40.unitBlocksData = res;
             });
             var visitParams = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3254,7 +4192,7 @@
             }; //visit type
 
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this33.visitByData = res;
+              _this40.visitByData = res;
             }, function (error) {});
             this.isDataLoaded = true;
 
@@ -3289,7 +4227,7 @@
               text: 'Date/Time of Visit',
               datafield: 'visitorInTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this33.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this40.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3297,7 +4235,7 @@
               text: 'Time-out',
               datafield: 'visitorOutTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this33.getDateTime(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this40.getDateTime(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3461,7 +4399,7 @@
         _createClass(VisitorReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this41 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -3469,13 +4407,13 @@
               MenuName: 'VisitorManagement'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this34.reportDataList = res; // this.reportDataList = [
+              _this41.reportDataList = res; // this.reportDataList = [
               //   { lookupValueName: 'List of Checked In Visitors', description: 'Provides the list of visitors checked-in for the specified duration', lookupValueId: 365 },
               //   { lookupValueName: 'List of Checked out Visitors', description: 'Provides the list of visitors checked-out for the specified duration', lookupValueId: 366 },
               //   { lookupValueName: 'List of Expected Visitors', description: 'Gives the list of visitors who are expected to check-in during the mentioned duration', lookupValueId: 367 }
               //   ]
 
-              _this34.isDataLoaded = true;
+              _this41.isDataLoaded = true;
             });
           }
         }]);
@@ -3640,7 +4578,7 @@
         }, {
           key: "submitVisitorCategoryForm",
           value: function submitVisitorCategoryForm() {
-            var _this35 = this;
+            var _this42 = this;
 
             this.isDrawerLoader = false;
 
@@ -3659,21 +4597,21 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this35.isDrawerLoader = true;
+                _this42.isDrawerLoader = true;
 
                 if (res.code == 200) {
-                  _this35.closeDrawer();
+                  _this42.closeDrawer();
 
-                  _this35.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
+                  _this42.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
 
-                  _this35.getVisitorList();
+                  _this42.getVisitorList();
                 } else {
-                  _this35.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this42.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
-                _this35.isDrawerLoader = true;
+                _this42.isDrawerLoader = true;
 
-                _this35.sharedService.openSnackBar('Network Error', 'error');
+                _this42.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               var _params = {
@@ -3691,68 +4629,68 @@
                 }
               };
               this.lookupService.updateLookupValue(_params).subscribe(function (res) {
-                _this35.isDrawerLoader = true;
+                _this42.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this35.closeDrawer();
+                  _this42.closeDrawer();
 
-                  _this35.getVisitorList();
+                  _this42.getVisitorList();
 
-                  _this35.sharedService.openSnackBar(res.message, 'success');
+                  _this42.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this42.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this35.isDrawerLoader = true;
+                _this42.isDrawerLoader = true;
 
-                _this35.sharedService.openSnackBar('Network Error', 'error');
+                _this42.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this36 = this;
+            var _this43 = this;
 
             this.isDataLoaded = false;
             var params = {
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this36.isDataLoaded = true;
-              _this36.visitorCategoryList = res;
-              _this36.totalItems = res.length;
+              _this43.isDataLoaded = true;
+              _this43.visitorCategoryList = res;
+              _this43.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this37 = this;
+            var _this44 = this;
 
             this.getVisitorList(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this37.isDataLoaded = false;
+                _this44.isDataLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this37.sessionService.userId)
+                  updateUserId: parseInt(_this44.sessionService.userId)
                 };
 
-                _this37.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this37.sharedService.setUnitListDeleteIndex(null);
+                _this44.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this44.sharedService.setUnitListDeleteIndex(null);
 
-                  _this37.isDataLoaded = true;
+                  _this44.isDataLoaded = true;
 
                   if (res.message) {
-                    _this37.visitorCategoryList.splice(item.index, 1);
+                    _this44.visitorCategoryList.splice(item.index, 1);
 
-                    _this37.totalItems -= 1;
-                    _this37.clickMode = ''; //close input box
+                    _this44.totalItems -= 1;
+                    _this44.clickMode = ''; //close input box
 
-                    _this37.sharedService.openSnackBar(res.message, 'success');
+                    _this44.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this37.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this44.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -3898,6 +4836,18 @@
       var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */
       "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
+      /* harmony import */
+
+
+      var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */
+      "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
+      /* harmony import */
+
+
+      var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! ./components/frequent-visitor-list/frequent-visitor-list.component */
+      "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
 
       var routes = [{
         path: '',
@@ -3954,6 +4904,22 @@
       }, {
         path: 'reports/:name/:id',
         component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["VisitorReportsDataComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'frequent-visitor-list',
+        component: _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["FrequentVisitorListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'frequent-visitor-create',
+        component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CreateVendorFrquentVisitorComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'vendor-pass-list',
+        component: _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["FrequentVisitorListComponent"],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
+      }, {
+        path: 'vendor-pass-create',
+        component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CreateVendorFrquentVisitorComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',
@@ -4192,13 +5158,31 @@
       var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
+      /* harmony import */
+
+
+      var _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      /*! ./components/vendor-pass-list/vendor-pass-list.component */
+      "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts");
+      /* harmony import */
+
+
+      var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
+      /*! ./components/frequent-visitor-list/frequent-visitor-list.component */
+      "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
+      /* harmony import */
+
+
+      var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(
+      /*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */
+      "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
 
       var VisitorModule = function VisitorModule() {
         _classCallCheck(this, VisitorModule);
       };
 
       VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"], _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_6__["VisitorSetupComponent"], _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCheckoutComponent"], _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_8__["VisitorReportsComponent"], _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"], _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_11__["VisitorCreateCheckinComponent"], _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_12__["ExpVisitorCreateChekinComponent"], _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_13__["ExpVisitorListComponent"], _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["UserVisitorListComponent"], _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__["ExpUserVisitorListComponent"]],
+        declarations: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"], _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_6__["VisitorSetupComponent"], _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCheckoutComponent"], _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_8__["VisitorReportsComponent"], _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"], _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_11__["VisitorCreateCheckinComponent"], _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_12__["ExpVisitorCreateChekinComponent"], _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_13__["ExpVisitorListComponent"], _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["UserVisitorListComponent"], _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__["ExpUserVisitorListComponent"], _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_20__["VendorPassListComponent"], _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_21__["FrequentVisitorListComponent"], _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_22__["CreateVendorFrquentVisitorComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _visitor_routing_module__WEBPACK_IMPORTED_MODULE_3__["VisitorRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_10__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_15__["ListModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_17__["NgxIntlTelInputModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_19__["CondoMessageModule"]],
         bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"]]
       })], VisitorModule);
