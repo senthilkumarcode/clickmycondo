@@ -176,54 +176,61 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/api/controllers/Screen */
+      "./src/app/api/controllers/Screen.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/@condo/services/config/config.service */
       "./src/@condo/services/config/config.service.ts");
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
       /* harmony import */
 
 
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! rxjs/operators */
       "./node_modules/rxjs/_esm2015/operators/index.js");
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/api/controllers/User */
       "./src/app/api/controllers/User.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
 
       var ApartmentsComponent = /*#__PURE__*/function () {
-        function ApartmentsComponent(_router, authService, apartmentService, staffService, sessionService, _document, _condoConfigService, userService, sharedService) {
+        function ApartmentsComponent(_router, authService, apartmentService, staffService, screenService, sessionService, _document, _condoConfigService, userService, sharedService) {
           _classCallCheck(this, ApartmentsComponent);
 
           this._router = _router;
           this.authService = authService;
           this.apartmentService = apartmentService;
           this.staffService = staffService;
+          this.screenService = screenService;
           this.sessionService = sessionService;
           this._document = _document;
           this._condoConfigService = _condoConfigService;
@@ -235,7 +242,7 @@
           this.isUnitSelected = false;
           this.selectedCondo = []; // Set the private default
 
-          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_10__["Subject"](); // Set the defaults
+          this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_11__["Subject"](); // Set the defaults
 
           this.message = null;
         }
@@ -258,7 +265,8 @@
             this.authService.logout().subscribe(function (res) {
               _this._router.navigate(['/login']);
             });
-          }
+          } //its for admin
+
         }, {
           key: "selectCondo",
           value: function selectCondo(condo) {
@@ -273,16 +281,31 @@
               apartmentId: this.sessionService.apartmentId,
               userId: this.sessionService.userId
             };
+            this.isRouting = true;
             this.staffService.getStaffByUserId(params).subscribe(function (res) {
               _this2.sessionService.secLevelId = res[0].secLevelId;
-              _this2.isRouting = true;
 
               if (!isNaN(_this2.sessionService.secLevelId)) {
                 // Hide the message
                 _this2.message = null;
+                var _params = {
+                  ApartmentId: _this2.sessionService.apartmentId,
+                  RoleId: _this2.sessionService.roleId,
+                  secLevelId: _this2.sessionService.secLevelId
+                };
 
-                _this2._router.navigate(['/ams']).then(function () {
-                  _this2.isRouting = false;
+                _this2.screenService.getMenuFunctionByRoleIdMultiFilter(_params).subscribe(function (res) {
+                  if (res.length == 0) {
+                    _this2.isRouting = false;
+
+                    _this2.sharedService.setMenuEmptyMessage('Contact your admin to provide necessary security roles to access your account');
+                  } else {
+                    _this2._router.navigate(['/ams']).then(function () {
+                      _this2.isRouting = false;
+
+                      _this2.sharedService.setMenuEmptyMessage('');
+                    });
+                  }
                 });
               } else {
                 _this2.isRouting = false; // Show the error message
@@ -314,7 +337,9 @@
           key: "onTabSelect",
           value: function onTabSelect(event) {
             this.goBack();
-          }
+            this.message = null;
+          } //its for user
+
         }, {
           key: "selectCondoUnit",
           value: function selectCondoUnit(condo, block) {
@@ -352,7 +377,7 @@
             var _this4 = this;
 
             // Subscribe to config changes
-            this._condoConfigService.config$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["takeUntil"])(this._unsubscribeAll)).subscribe(function (config) {
+            this._condoConfigService.config$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["takeUntil"])(this._unsubscribeAll)).subscribe(function (config) {
               // Store the config
               _this4.config = config; // Store the theme
 
@@ -388,6 +413,20 @@
             }, function (err) {
               _this4.isDataLoaded = true;
             });
+            this.sharedService.menuemptymessagecast.subscribe(function (menuMessage) {
+              if (menuMessage != '') {
+                // Show the error message
+                _this4.message = {
+                  appearance: 'outline',
+                  content: menuMessage,
+                  shake: true,
+                  showIcon: true,
+                  type: 'error'
+                };
+              } else {
+                _this4.message = null;
+              }
+            });
           }
         }]);
 
@@ -404,7 +443,9 @@
         }, {
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+          type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_7__["ScreenService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
           type: undefined,
           decorators: [{
@@ -412,11 +453,11 @@
             args: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DOCUMENT"]]
           }]
         }, {
-          type: src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_8__["CondoConfigService"]
+          type: src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_9__["CondoConfigService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_12__["UserService"]
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"]
         }];
       };
 
@@ -426,11 +467,11 @@
         /*! raw-loader!./apartments.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/pages/apartments/apartments.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_10__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./apartments.component.scss */
         "./src/app/modules/ui/pages/apartments/apartments.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], Object, src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_8__["CondoConfigService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_12__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"]])], ApartmentsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_7__["ScreenService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], Object, src_condo_services_config_config_service__WEBPACK_IMPORTED_MODULE_9__["CondoConfigService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"]])], ApartmentsComponent);
       /***/
     },
 
