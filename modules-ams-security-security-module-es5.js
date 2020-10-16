@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"security-reports-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"blockData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"report.apartmentBlockID\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Emergency Category\" fieldPlaceholder=\"Emergency Category\" [fieldRequired]=\"'required'\" [fieldList]=\"securityCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.emergencyCategoryTypeID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedEmergency($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Alert Type\" fieldPlaceholder=\"Alert Type\" [fieldRequired]=\"'required'\" [fieldList]=\"alertTypeStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.alertTypeStatusID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedAlert($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\"> \n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\"  class=\"ml-auto my-auto\"\n\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>View All Report Types\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\n\t\t\n\n\t\t\t<condo-card *ngIf=\"!isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n\n";
+      __webpack_exports__["default"] = "<div class=\"security-reports-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"blockData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"report.apartmentBlockID\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Emergency Category\" fieldPlaceholder=\"Emergency Category\" [fieldRequired]=\"'required'\" [fieldList]=\"securityCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.emergencyCategoryTypeID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedEmergency($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Alert Type\" fieldPlaceholder=\"Alert Type\" [fieldRequired]=\"'required'\" [fieldList]=\"alertTypeStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.alertTypeStatusID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedAlert($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\"> \n\t\t\t\t\n\t\t\n\t\t\n\n\t\t\t<condo-card *ngIf=\"!isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\"  class=\"ml-auto my-auto\"\n\t\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>View All Report\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n\n";
       /***/
     },
 
@@ -1292,6 +1292,8 @@
           this.unitOrder = false;
           this.isReportSubmitted = true;
           this.isDataLoaded = true;
+          this.filterSelected = "all";
+          this.singleBlock = "Select Tower";
         }
 
         _createClass(SecurityReportsDataComponent, [{
@@ -1610,8 +1612,8 @@
             }];
             var details = {
               ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-              StartDate: this.getDateFormat(this.report.startDate),
-              EndDate: this.getDateFormat(this.report.endDate),
+              StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateFormat(this.report.startDate),
+              EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_7__(new Date()).format("YYYY-MM-DD") : this.getDateFormat(this.report.endDate),
               ApartmentID: parseInt(this.sessionService.apartmentId),
               EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1642,6 +1644,37 @@
               _this8.isDataLoaded = true;
               _this8.isReportSubmitted = false;
             });
+          }
+        }, {
+          key: "getAllBlockData",
+          value: function getAllBlockData() {
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower";
+            this.report.apartmentBlockID = "";
+            this.datagrid.clearfilters();
+          }
+        }, {
+          key: "getSingleBlock",
+          value: function getSingleBlock(block) {
+            var _this9 = this;
+
+            this.filterSelected = 'single';
+            this.singleBlock = block.apartmentBlockNumber;
+            this.report.apartmentBlockID = block.apartmentBlockId;
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.singleBlock;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this9.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
           }
         }]);
 
@@ -1773,7 +1806,7 @@
         _createClass(SecurityReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this10 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1782,11 +1815,11 @@
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
               //this.reportDataList = res;
-              _this9.reportDataList = [{
+              _this10.reportDataList = [{
                 lookupValueName: 'List of Panic Alerts',
                 description: 'Provides the list of panic alerts for the specified duration'
               }];
-              _this9.isDataLoaded = true;
+              _this10.isDataLoaded = true;
             });
           }
         }]);
@@ -2043,7 +2076,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm(form) {
-            var _this10 = this;
+            var _this11 = this;
 
             this.isSecurityCategorySubmitted = false;
 
@@ -2063,21 +2096,21 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(add_param).subscribe(function (res) {
-                _this10.isSecurityCategorySubmitted = true;
+                _this11.isSecurityCategorySubmitted = true;
 
                 if (res.code == 200) {
-                  _this10.sharedService.openSnackBar('Security Type Created Successfully', 'success');
+                  _this11.sharedService.openSnackBar('Security Type Created Successfully', 'success');
 
-                  _this10.closeDrawer();
+                  _this11.closeDrawer();
 
-                  _this10._securitySetupListComponent.getCategoryData();
+                  _this11._securitySetupListComponent.getCategoryData();
                 } else {
-                  _this10.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this11.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
-                _this10.isSecurityCategorySubmitted = true;
+                _this11.isSecurityCategorySubmitted = true;
 
-                _this10.sharedService.openSnackBar('Server Error', 'error');
+                _this11.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               var _details = {
@@ -2096,37 +2129,37 @@
                 lookupvalue: _details
               };
               this.lookupService.updateLookupValue(update_param).subscribe(function (res) {
-                _this10.isSecurityCategorySubmitted = true;
+                _this11.isSecurityCategorySubmitted = true;
 
                 if (res.message) {
-                  _this10.sharedService.openSnackBar(res.message, 'success');
+                  _this11.sharedService.openSnackBar(res.message, 'success');
 
-                  _this10.closeDrawer();
+                  _this11.closeDrawer();
 
-                  _this10._securitySetupListComponent.getCategoryData();
+                  _this11._securitySetupListComponent.getCategoryData();
                 } else {
-                  _this10.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this11.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this10.isSecurityCategorySubmitted = true;
+                _this11.isSecurityCategorySubmitted = true;
 
-                _this10.sharedService.openSnackBar('Network Error', 'error');
+                _this11.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             //Open the drawer
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this11._activatedRoute.params['value'].id) {
-                _this11._securitySetupListComponent.matDrawer.open();
+              if (id != null && id == _this12._activatedRoute.params['value'].id) {
+                _this12._securitySetupListComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this11._changeDetectorRef.markForCheck();
+              _this12._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type != 'new') {
@@ -2136,13 +2169,13 @@
                 LookupTypeId: 29
               };
               this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                _this11.isSecurityCategorySubmitted = true;
-                _this11.securityCategory = res.filter(function (item) {
-                  return item.lookupValueId == _this11._activatedRoute.params['value'].id;
+                _this12.isSecurityCategorySubmitted = true;
+                _this12.securityCategory = res.filter(function (item) {
+                  return item.lookupValueId == _this12._activatedRoute.params['value'].id;
                 });
-                _this11.securityCategoryName = _this11.securityCategory[0].lookupValueName; //Mark for check
+                _this12.securityCategoryName = _this12.securityCategory[0].lookupValueName; //Mark for check
 
-                _this11._changeDetectorRef.markForCheck();
+                _this12._changeDetectorRef.markForCheck();
               });
             } else {
               this.isSecurityCategorySubmitted = true;
@@ -2387,17 +2420,17 @@
         }, {
           key: "getCategoryData",
           value: function getCategoryData() {
-            var _this12 = this;
+            var _this13 = this;
 
             var param = {
               LookupTypeId: 29
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
-              _this12.isSecurityCategoryLoaded = true;
-              _this12.securityCategoryData = res;
-              _this12.totalItems = _this12.securityCategoryData.length; // Mark for check
+              _this13.isSecurityCategoryLoaded = true;
+              _this13.securityCategoryData = res;
+              _this13.totalItems = _this13.securityCategoryData.length; // Mark for check
 
-              _this12._changeDetectorRef.markForCheck();
+              _this13._changeDetectorRef.markForCheck();
             });
           }
         }, {
@@ -2411,31 +2444,31 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.getCategoryData(); //delete item
 
             this.sharedService.unitlistdeleteindexcast.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (item) {
               if (item != null) {
-                _this13.isSecurityCategoryLoaded = false;
+                _this14.isSecurityCategoryLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this13.sessionService.userId)
+                  updateUserId: parseInt(_this14.sessionService.userId)
                 };
 
-                _this13.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this13.sharedService.setUnitListDeleteIndex(null);
+                _this14.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this14.sharedService.setUnitListDeleteIndex(null);
 
-                  _this13.isSecurityCategoryLoaded = true;
+                  _this14.isSecurityCategoryLoaded = true;
 
                   if (res.message) {
-                    _this13.securityCategoryData.splice(item.index, 1);
+                    _this14.securityCategoryData.splice(item.index, 1);
 
-                    _this13.totalItems -= 1;
+                    _this14.totalItems -= 1;
 
-                    _this13.sharedService.openSnackBar(res.message, 'success');
+                    _this14.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this13.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this14.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }

@@ -168,7 +168,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-card>\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\n\t\t\t\t\t\t<form>\n\t\t\n\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"row\">\n\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/moveinout-tracker/reports\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t</div>\n\t\n\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</ng-container>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-card>\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\n\t\t\t\t\t\t<form>\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\n\t\n\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/moveinout-tracker/reports\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</ng-container>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>";
       /***/
     },
 
@@ -2984,6 +2984,8 @@
           this.visitTypeId = null;
           this.reportData = "";
           this.isReportSubmitted = false;
+          this.filterSelected = "all";
+          this.singleBlock = "Select Tower";
         }
 
         _createClass(MoveinReportDataComponent, [{
@@ -3243,10 +3245,41 @@
             var params = {
               ApartmentID: parseInt(this.sessionService.apartmentId),
               ApartmentBlockID: parseInt(this.blockId),
-              StartDate: this.getDate(this.start_date),
-              EndDate: this.getDate(this.end_date)
+              StartDate: this.start_date === "" ? "2020-01-01" : this.getDate(this.start_date),
+              EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).format("YYYY-MM-DD") : this.getDate(this.end_date)
             };
             this.getDetails(params);
+          }
+        }, {
+          key: "getAllBlockData",
+          value: function getAllBlockData() {
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower";
+            this.blockId = "";
+            this.datagrid.clearfilters();
+          }
+        }, {
+          key: "getSingleBlock",
+          value: function getSingleBlock(block) {
+            var _this29 = this;
+
+            this.filterSelected = 'single';
+            this.singleBlock = block.apartmentBlockNumber;
+            this.blockId = block.apartmentBlockId;
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.singleBlock;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this29.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
           }
         }]);
 
@@ -3572,7 +3605,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this29 = this;
+            var _this30 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3585,7 +3618,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this30.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3632,7 +3665,7 @@
         }, {
           key: "documentCreate",
           value: function documentCreate() {
-            var _this30 = this;
+            var _this31 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3646,27 +3679,27 @@
               })
             };
             this.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
-              _this30.isDataLoaded = true;
+              _this31.isDataLoaded = true;
 
               if (res.message) {
-                _this30.goBack();
+                _this31.goBack();
 
-                _this30.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
+                _this31.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
 
-                _this30.getMoveInMoveOutConfigList();
+                _this31.getMoveInMoveOutConfigList();
               } else {
-                _this30.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this31.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this30.isDataLoaded = true;
+              _this31.isDataLoaded = true;
 
-              _this30.sharedService.openSnackBar('Server Error', 'error');
+              _this31.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "documentUpdate",
           value: function documentUpdate(document) {
-            var _this31 = this;
+            var _this32 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3688,27 +3721,27 @@
               }
             };
             this.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
-              _this31.isDataLoaded = true;
+              _this32.isDataLoaded = true;
 
               if (res.message) {
-                _this31.goBack();
+                _this32.goBack();
 
-                _this31.getMoveInMoveOutConfigList();
+                _this32.getMoveInMoveOutConfigList();
 
-                _this31.sharedService.openSnackBar('Category Updated', 'success');
+                _this32.sharedService.openSnackBar('Category Updated', 'success');
               } else {
-                _this31.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this32.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this31.isDataLoaded = true;
+              _this32.isDataLoaded = true;
 
-              _this31.sharedService.openSnackBar('Server Error', 'error');
+              _this32.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getMoveInMoveOutConfigList",
           value: function getMoveInMoveOutConfigList() {
-            var _this32 = this;
+            var _this33 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3720,9 +3753,9 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this32.totalItems = tableData.localdata.length;
-                _this32.documentDataList = new jqx.dataAdapter(tableData);
-                _this32.isDataLoaded = true;
+                _this33.totalItems = tableData.localdata.length;
+                _this33.documentDataList = new jqx.dataAdapter(tableData);
+                _this33.isDataLoaded = true;
               }
             }, function (error) {
               console.log(error);
@@ -3731,7 +3764,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this33 = this;
+            var _this34 = this;
 
             this.getMoveInMoveOutConfigList();
 
@@ -3814,16 +3847,16 @@
               if (item != null && item.id) {
                 var params = {
                   Id: parseInt(item.id),
-                  deleteBy: _this33.sessionService.userId
+                  deleteBy: _this34.sessionService.userId
                 };
 
-                _this33.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
+                _this34.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
                   if (res.message) {
-                    _this33.sharedService.setUnitListDeleteIndex(null);
+                    _this34.sharedService.setUnitListDeleteIndex(null);
 
-                    _this33.datagrid.deleterow(item.index);
+                    _this34.datagrid.deleterow(item.index);
 
-                    _this33.datagrid.refresh();
+                    _this34.datagrid.refresh();
                   }
                 }, function (error) {
                   console.log(error);
@@ -3835,7 +3868,7 @@
               LookupTypeId: 72
             };
             this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
-              _this33.documentTypeDataList = res;
+              _this34.documentTypeDataList = res;
             });
           }
         }, {
@@ -4055,7 +4088,7 @@
 
       var MoveoutMaintainComponent = /*#__PURE__*/function () {
         function MoveoutMaintainComponent(router, moveInOutService, apartmentService, sharedService, sessionService, dialog, activateRouter) {
-          var _this34 = this;
+          var _this35 = this;
 
           _classCallCheck(this, MoveoutMaintainComponent);
 
@@ -4069,7 +4102,7 @@
           this.totalItems = 0;
           this.moveOutSearch = '';
           this.activateRouter.url.subscribe(function (data) {
-            _this34.urlType = data[0].path;
+            _this35.urlType = data[0].path;
           });
         }
 
@@ -4091,7 +4124,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this35 = this;
+            var _this36 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -4104,7 +4137,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this35.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this36.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4115,7 +4148,7 @@
         }, {
           key: "showMoveOutDetails",
           value: function showMoveOutDetails(detail) {
-            var _this36 = this;
+            var _this37 = this;
 
             var details = this.datagrid.getrowdata(detail.rowId);
             var dialogRef = this.dialog.open(_movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_11__["MoveinMoveoutEditViewComponent"], {
@@ -4128,14 +4161,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this36.userBasedList();
+                _this37.userBasedList();
               }
             });
           }
         }, {
           key: "checkOutUser",
           value: function checkOutUser(detail) {
-            var _this37 = this;
+            var _this38 = this;
 
             var message = "Do you want to Move Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
@@ -4146,7 +4179,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var data = _this37.datagrid.getrowdata(detail.rowId);
+                var data = _this38.datagrid.getrowdata(detail.rowId);
 
                 var moveOutData = data;
                 var details = {
@@ -4160,11 +4193,11 @@
                   "reqUserId": moveOutData.reqUserId,
                   "statusId": 379,
                   "noDue": moveOutData.noDue,
-                  "approvedBy": parseInt(_this37.sessionService.userId),
+                  "approvedBy": parseInt(_this38.sessionService.userId),
                   "approvedDate": new Date().toISOString(),
                   "insertedBy": moveOutData.insertedBy,
                   "insertedOn": moveOutData.insertedOn,
-                  "updatedBy": parseInt(_this37.sessionService.userId),
+                  "updatedBy": parseInt(_this38.sessionService.userId),
                   "updatedOn": new Date().toISOString(),
                   "apartmentId": moveOutData.apartmentId,
                   "userName": moveOutData.userName,
@@ -4179,13 +4212,13 @@
                   moveOut: details
                 };
 
-                _this37.moveInOutService.updateMoveOut(params).subscribe(function (res) {
+                _this38.moveInOutService.updateMoveOut(params).subscribe(function (res) {
                   if (res.message) {
-                    _this37.sharedService.openSnackBar('Successfully Moved Out', 'success');
+                    _this38.sharedService.openSnackBar('Successfully Moved Out', 'success');
 
-                    _this37.userBasedList();
+                    _this38.userBasedList();
                   } else {
-                    _this37.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this38.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -4194,7 +4227,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(detail) {
-            var _this38 = this;
+            var _this39 = this;
 
             var moveOutData = this.datagrid.getrowdata(detail.rowId);
             var statusId;
@@ -4229,11 +4262,11 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                if (statusId == 377) _this38.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this38.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this38.sharedService.openSnackBar('Cancelled Moveout', 'success');
+                if (statusId == 377) _this39.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this39.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this39.sharedService.openSnackBar('Cancelled Moveout', 'success');
 
-                _this38.userBasedList();
+                _this39.userBasedList();
               } else {
-                _this38.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this39.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
@@ -4247,7 +4280,7 @@
         }, {
           key: "getMoveOutListByAdmin",
           value: function getMoveOutListByAdmin() {
-            var _this39 = this;
+            var _this40 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4256,21 +4289,21 @@
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this39.totalItems = res.length;
+                _this40.totalItems = res.length;
                 var tableData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this39.moveOutDataList = new jqx.dataAdapter(tableData);
+                _this40.moveOutDataList = new jqx.dataAdapter(tableData);
               }
 
-              _this39.isDataLoaded = true;
+              _this40.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveOutListByUser",
           value: function getMoveOutListByUser() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4280,16 +4313,16 @@
             this.moveInOutService.getMoveOutByBlockUnitId(params).subscribe(function (res) {
               if (res.code == 200) {
                 if (res.responseData.value.length > 0) {
-                  _this40.totalItems = res.responseData.value.length;
+                  _this41.totalItems = res.responseData.value.length;
                   var tableData = {
                     localdata: res.responseData.value.reverse(),
                     datatype: "array"
                   };
-                  _this40.moveOutDataList = new jqx.dataAdapter(tableData);
+                  _this41.moveOutDataList = new jqx.dataAdapter(tableData);
                 }
               }
 
-              _this40.isDataLoaded = true;
+              _this41.isDataLoaded = true;
             });
           }
         }, {
@@ -4304,7 +4337,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this41 = this;
+            var _this42 = this;
 
             this.userBasedList();
 
@@ -4402,9 +4435,9 @@
                     approved_ = '',
                     rejected_ = '',
                     cancelled_ = '';
-                id_ = _this41.moveOutDataList.loadedData[row].statusId;
+                id_ = _this42.moveOutDataList.loadedData[row].statusId;
 
-                if (_this41.isAdmin()) {
+                if (_this42.isAdmin()) {
                   approved_ = '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'approve\')" >Approve</a>';
                   rejected_ = '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'reject\')" >Reject</a>';
                 } else {
@@ -4429,7 +4462,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this41.moveOutDataList.loadedData[row].statusId;
+                var id_ = _this42.moveOutDataList.loadedData[row].statusId;
                 return '<div class="icon-wrapper simple-actions link"  onClick="checkOutUser(' + row + ')">' + '<img src="assets/images/checkout-icon.svg" class="svg" width="17" height="17" alt="Check Out">' + '</div>';
               },
               renderer: columnrenderer,

@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t\t<div class=\"main\">\n\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isDataLoaded && (isListOfTickets())\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"userReportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t  </div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- De Activated Users -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofAgedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\n\t\t<!-- vehicle info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofUnassignedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control mt-4\" placeholder=\"Search...\" [(ngModel)]=\"userReportData\" (ngModelChange)=\"onSearchFilter()\">\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t\n\t\n\t\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\t</div>";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t<!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t\t<div class=\"main\">\n\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<condo-card *ngIf=\"isDataLoaded && (isListOfTickets())\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/helpdesk/reports\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>List of Open and closed tickets</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t  </div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t<!-- De Activated Users -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofAgedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\n\t\t<!-- vehicle info -->\n\t\t<condo-card *ngIf=\"isDataLoaded && isListofUnassignedtickets()\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block my-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\n\t\t\t\t  </div>\n\t\t\t\t  \n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-none d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n\t\t\t\t\t[enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t\n\t\n\t\t\n\t\n\t\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\t</div>";
       /***/
     },
 
@@ -922,6 +922,9 @@
           this.blockNo = "";
           this.end_date = null;
           this.start_date = null;
+          this.reportData = "";
+          this.filterSelected = "all";
+          this.singleBlock = "Select Tower";
         }
 
         _createClass(HelpdeskReportsDataComponent, [{
@@ -947,7 +950,7 @@
         }, {
           key: "isListOfTickets",
           value: function isListOfTickets() {
-            return this.pageName == "List of tickets";
+            return this.pageName = "List of Open and closed tickets";
           }
         }, {
           key: "isListofAgedtickets",
@@ -1064,7 +1067,7 @@
           }
         }, {
           key: "getBlockDetails",
-          value: function getBlockDetails(details) {
+          value: function getBlockDetails() {
             var _this11 = this;
 
             //jqx column generating
@@ -1082,19 +1085,19 @@
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'userName',
-                width: 100,
+                width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 130,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Unit Number',
                 datafield: 'unitNo',
-                minwidth: 100,
+                minwidth: 140,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -1121,7 +1124,25 @@
                 width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
+              }, {
+                text: 'Ticket Status',
+                datafield: 'ticketStatus',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
               }];
+              var details = {
+                ApartmentID: this.sessionService.apartmentId,
+                ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+                StartDate: this.getDate(this.start_date),
+                EndDate: this.getDate(this.end_date),
+                TicketStatus: this.TicketStatus,
+                TicketType: this.TicketType,
+                TicketRaisedBy: this.TicketRaisedBy,
+                AssignedToStaffId: this.AssignedToStaffId,
+                StaffCategoryType: this.StaffCategoryType,
+                StaffSubCategoryType: this.StaffSubCategoryType
+              };
               this.ticketService.getReportsForListofOpenCloseTicketsMultiFilter(details).subscribe(function (res) {
                 var gridSourceData = {
                   localdata: res,
@@ -1143,13 +1164,13 @@
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                minwidth: 100,
+                minwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Unit Number',
                 datafield: 'unitNo',
-                minwidth: 100,
+                minwidth: 120,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
@@ -1176,7 +1197,31 @@
                 width: 200,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
+              }, {
+                text: 'Ticket Age',
+                datafield: 'ticketAge',
+                width: 100,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+              }, {
+                text: 'Ticket Status',
+                datafield: 'ticketStatus',
+                width: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
               }];
+              var details = {
+                ApartmentID: this.sessionService.apartmentId,
+                ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+                StartDate: this.start_date === null ? "2020-01-01" : this.getDate(this.start_date),
+                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).format('YYYY-MM-DD') : this.getDate(this.end_date),
+                TicketStatus: this.TicketStatus,
+                TicketType: this.TicketType,
+                TicketRaisedBy: this.TicketRaisedBy,
+                AssignedToStaffId: this.AssignedToStaffId,
+                StaffCategoryType: this.StaffCategoryType,
+                StaffSubCategoryType: this.StaffSubCategoryType
+              };
               this.ticketService.getReportsForListofAgedTicketsMultiFilter(details).subscribe(function (res) {
                 var gridSourceData = {
                   localdata: res,
@@ -1231,6 +1276,18 @@
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }];
+              var details = {
+                ApartmentID: this.sessionService.apartmentId,
+                ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
+                StartDate: this.start_date === null ? "2020-01-01" : this.getDate(this.start_date),
+                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).format('YYYY-MM-DD') : this.getDate(this.end_date),
+                TicketStatus: this.TicketStatus,
+                TicketType: this.TicketType,
+                TicketRaisedBy: this.TicketRaisedBy,
+                AssignedToStaffId: this.AssignedToStaffId,
+                StaffCategoryType: this.StaffCategoryType,
+                StaffSubCategoryType: this.StaffSubCategoryType
+              };
               this.ticketService.getReportsForListofUnAssignedTicketsMultiFilter(details).subscribe(function (res) {
                 var gridSourceData = {
                   localdata: res,
@@ -1269,40 +1326,18 @@
           value: function filterApply() {
             this.goBack();
             this.isDataLoaded = false;
-            var details = {
-              ApartmentID: this.sessionService.apartmentId,
-              ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
-              StartDate: this.getDate(this.start_date),
-              EndDate: this.getDate(this.end_date),
-              TicketStatus: this.TicketStatus,
-              TicketType: this.TicketType,
-              TicketRaisedBy: this.TicketRaisedBy,
-              AssignedToStaffId: this.AssignedToStaffId,
-              StaffCategoryType: this.StaffCategoryType,
-              StaffSubCategoryType: this.StaffSubCategoryType
-            };
-            this.getBlockDetails(details);
+            this.getBlockDetails();
           }
         }, {
           key: "clearFilter",
           value: function clearFilter() {
-            this.blockId = null;
+            this.blockId = "";
             this.start_date = null;
-            this.end_date = null; // =this.getTicketByAdmin();
+            this.end_date = null;
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower"; // =this.getTicketByAdmin();
 
-            var details = {
-              ApartmentID: this.sessionService.apartmentId,
-              ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
-              StartDate: this.getDate(this.start_date),
-              EndDate: this.getDate(this.end_date),
-              TicketStatus: this.TicketStatus,
-              TicketType: this.TicketType,
-              TicketRaisedBy: this.TicketRaisedBy,
-              AssignedToStaffId: this.AssignedToStaffId,
-              StaffCategoryType: this.StaffCategoryType,
-              StaffSubCategoryType: this.StaffSubCategoryType
-            };
-            this.getBlockDetails(details);
+            this.getBlockDetails();
             this.goBack();
           }
         }, {
@@ -1327,19 +1362,38 @@
               _this12.pageName = data[0].lookupValueName.replace('/', '');
               _this12.pageDesp = data[0].description;
             });
-            var details = {
-              ApartmentID: this.sessionService.apartmentId,
-              ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
-              StartDate: this.getDate(this.start_date),
-              EndDate: this.getDate(this.end_date),
-              TicketStatus: this.TicketStatus,
-              TicketType: this.TicketType,
-              TicketRaisedBy: this.TicketRaisedBy,
-              AssignedToStaffId: this.AssignedToStaffId,
-              StaffCategoryType: this.StaffCategoryType,
-              StaffSubCategoryType: this.StaffSubCategoryType
-            };
-            this.getBlockDetails(details);
+            this.getBlockDetails();
+          }
+        }, {
+          key: "getAllBlockData",
+          value: function getAllBlockData() {
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower";
+            this.blockId = "";
+            this.datagrid.clearfilters();
+          }
+        }, {
+          key: "getSingleBlock",
+          value: function getSingleBlock(block) {
+            var _this13 = this;
+
+            this.filterSelected = 'single';
+            this.singleBlock = block.apartmentBlockNumber;
+            this.blockId = block.apartmentBlockId;
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.singleBlock;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
           }
         }]);
 
@@ -1474,7 +1528,7 @@
         _createClass(HelpdeskReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -1486,8 +1540,8 @@
             //  this.isDataLoaded = true;
 
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this13.reportDataList = res;
-              _this13.isDataLoaded = true;
+              _this14.reportDataList = res;
+              _this14.isDataLoaded = true;
             });
           }
         }, {
@@ -1743,7 +1797,7 @@
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this14 = this;
+            var _this15 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1815,10 +1869,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfApprovedUsers()) {
               this.columnData = [{
@@ -1875,10 +1929,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfDeactivatedUsers()) {
               this.columnData = [{
@@ -1923,10 +1977,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfResidentsVehicleInfo()) {
               this.columnData = [{
@@ -1977,10 +2031,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfExpiringRental()) {
               this.columnData = [{
@@ -2031,10 +2085,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfUsersWithPets()) {
               this.columnData = [{
@@ -2085,10 +2139,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfUnits()) {
               this.columnData = [{
@@ -2130,10 +2184,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfBlocks()) {
               this.columnData = [{
@@ -2181,10 +2235,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfTenants()) {
               this.columnData = [{
@@ -2227,10 +2281,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfOwners()) {
               this.columnData = [{
@@ -2273,10 +2327,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             } else if (this.isListOfAdmins()) {
               this.columnData = [{
@@ -2319,10 +2373,10 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this14.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this14.isDataLoaded = true;
+                _this15.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this15.isDataLoaded = true;
 
-                _this14.showItems();
+                _this15.showItems();
               });
             }
           }
@@ -2340,24 +2394,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this15.unitBlocksData = res;
+              _this16.unitBlocksData = res;
             });
             var params = {
               LookupTypeId: 87
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
-                return item.lookupValueId == _this15.route.params['value'].id;
+                return item.lookupValueId == _this16.route.params['value'].id;
               });
-              _this15.pageName = data[0].lookupValueName.replace('/', '');
-              _this15.pageDesp = data[0].description;
+              _this16.pageName = data[0].lookupValueName.replace('/', '');
+              _this16.pageDesp = data[0].description;
             });
             this.getBlockDetails();
           }
@@ -2525,7 +2579,7 @@
         }, {
           key: "createCategory",
           value: function createCategory() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.message = null;
 
@@ -2562,25 +2616,25 @@
               };
               this.lookupService.addLookupValue(lookupvalue).subscribe(function (res) {
                 if (res.code == 200) {
-                  _this16.sharedService.openSnackBar(res.statusMessage, 'success');
+                  _this17.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                  _this16.createEsclation(parseInt(res.message));
+                  _this17.createEsclation(parseInt(res.message));
                 } else {
-                  _this16.isTicketSubmitted = false;
+                  _this17.isTicketSubmitted = false;
 
-                  _this16.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this17.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
-                _this16.isTicketSubmitted = false;
+                _this17.isTicketSubmitted = false;
 
-                _this16.sharedService.openSnackBar('Network Error', 'error');
+                _this17.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "createEsclation",
           value: function createEsclation(ticketCategoryId) {
-            var _this17 = this;
+            var _this18 = this;
 
             var addTicket = [];
             var esclator = {
@@ -2628,26 +2682,26 @@
             };
             this.ticketService.addTicketManagerMultiple(params).subscribe(function (res) {
               if (res.code == 200) {
-                _this17.isTicketSubmitted = false;
+                _this18.isTicketSubmitted = false;
 
-                _this17.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this18.sharedService.openSnackBar(res.statusMessage, 'success');
 
-                _this17.dialogRef.close(true);
+                _this18.dialogRef.close(true);
               } else {
-                _this17.isTicketSubmitted = false;
+                _this18.isTicketSubmitted = false;
 
-                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this18.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this17.isTicketSubmitted = false;
+              _this18.isTicketSubmitted = false;
 
-              _this17.sharedService.openSnackBar('Server Error', 'error');
+              _this18.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateCategory",
           value: function updateCategory() {
-            var _this18 = this;
+            var _this19 = this;
 
             this.message = null;
 
@@ -2687,18 +2741,18 @@
                 };
                 this.lookupService.updateLookupValue(lookupvalue).subscribe(function (res) {
                   if (res.message) {
-                    _this18.sharedService.openSnackBar(res.message, 'success');
+                    _this19.sharedService.openSnackBar(res.message, 'success');
 
-                    _this18.createEsclation(_this18.editData.ticketCategoryId);
+                    _this19.createEsclation(_this19.editData.ticketCategoryId);
                   } else {
-                    _this18.isTicketSubmitted = false;
+                    _this19.isTicketSubmitted = false;
 
-                    _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this19.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this18.isTicketSubmitted = false;
+                  _this19.isTicketSubmitted = false;
 
-                  _this18.sharedService.openSnackBar('Server Error', 'error');
+                  _this19.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
                 this.createEsclation(this.editData.ticketCategoryId);
@@ -2708,7 +2762,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this20 = this;
 
             var staffParms = {
               apartmentId: this.sessionService.apartmentId,
@@ -2719,7 +2773,7 @@
                 res.forEach(function (ele) {
                   ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                 });
-                _this19.staffsList = res;
+                _this20.staffsList = res;
               }
             }, function (error) {
               console.log(error);
@@ -2732,21 +2786,21 @@
                 ticketTypeId: this.data.type == 'private' ? 27 : 24
               };
               this.ticketService.getTicketManagerByTicketCategoryId(queryParamBase).subscribe(function (res) {
-                _this19.editData = res[0];
-                _this19.ticketCategoryData.categoryName = res[0].ticketCategoryName;
-                _this19.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
-                _this19.ticketCategoryData.staffOne = res[0].escalationLevelId0.userId;
+                _this20.editData = res[0];
+                _this20.ticketCategoryData.categoryName = res[0].ticketCategoryName;
+                _this20.ticketCategoryData.ticketManagerId = res[0].escalationLevelId0.ticketManagerId;
+                _this20.ticketCategoryData.staffOne = res[0].escalationLevelId0.userId;
 
                 if (res[0].escalationLevelId1) {
-                  _this19.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
-                  _this19.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
-                  _this19.ticketCategoryData.staffTwo = res[0].escalationLevelId1.userId;
+                  _this20.ticketCategoryData.escalationDaysOne = res[0].escalationLevelId1.escalationDays;
+                  _this20.ticketCategoryData.ticketManagerIdOne = res[0].escalationLevelId1.ticketManagerId;
+                  _this20.ticketCategoryData.staffTwo = res[0].escalationLevelId1.userId;
                 }
 
                 if (res[0].escalationLevelId2) {
-                  _this19.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
-                  _this19.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
-                  _this19.ticketCategoryData.staffThree = res[0].escalationLevelId2.userId;
+                  _this20.ticketCategoryData.escalationDaysTwo = res[0].escalationLevelId2.escalationDays;
+                  _this20.ticketCategoryData.ticketManagerIdTwo = res[0].escalationLevelId2.ticketManagerId;
+                  _this20.ticketCategoryData.staffThree = res[0].escalationLevelId2.userId;
                 }
               });
             }
@@ -2912,7 +2966,7 @@
         _createClass(CommonCategoryComponent, [{
           key: "addTicket",
           value: function addTicket(mode, categoryId) {
-            var _this20 = this;
+            var _this21 = this;
 
             var data = {
               type: 'common',
@@ -2925,7 +2979,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this20.getCommonCategoryList();
+                _this21.getCommonCategoryList();
               }
             });
           }
@@ -2947,7 +3001,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this21 = this;
+            var _this22 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2960,7 +3014,7 @@
               this.commondatagrid.showfiltercolumnbackground(false);
               this.commonColumns.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this21.commondatagrid.addfilter(item.datafield, filtergroup, true);
+                  _this22.commondatagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.commondatagrid.applyfilters();
@@ -2971,7 +3025,7 @@
         }, {
           key: "getCommonCategoryList",
           value: function getCommonCategoryList() {
-            var _this22 = this;
+            var _this23 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -2980,25 +3034,25 @@
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this22.totalItems = res.length;
+                _this23.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this22.commonListData = new jqx.dataAdapter(data);
+                _this23.commonListData = new jqx.dataAdapter(data);
               }
 
-              _this22.isDataLoaded = false;
+              _this23.isDataLoaded = false;
             }, function (error) {
-              _this22.isDataLoaded = false;
+              _this23.isDataLoaded = false;
 
-              _this22.sharedService.openSnackBar('Server Error', 'error');
+              _this23.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this24 = this;
 
             this.getCommonCategoryList();
 
@@ -3021,7 +3075,7 @@
               text: 'Supervisor',
               datafield: "escalationLevelId0",
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId0;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId0;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3031,7 +3085,7 @@
               text: 'Level-1',
               datafield: 'escalationLevelId1',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId1;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId1;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3040,7 +3094,7 @@
             }, {
               text: 'L1 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId1;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId1;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3050,7 +3104,7 @@
               text: 'Level-2',
               datafield: 'escalationLevelId2',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId2;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId2;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3059,7 +3113,7 @@
             }, {
               text: 'L2 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this23.commonListData.loadedData[row].escalationLevelId2;
+                var field = _this24.commonListData.loadedData[row].escalationLevelId2;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3079,16 +3133,16 @@
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
                 var params = {
-                  apartmentId: _this23.sessionService.apartmentId,
+                  apartmentId: _this24.sessionService.apartmentId,
                   ticketCategoryId: item.id,
-                  deleteBy: _this23.sessionService.userId
+                  deleteBy: _this24.sessionService.userId
                 };
 
-                _this23.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this24.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this23.sharedService.setUnitListDeleteIndex(null);
+                    _this24.sharedService.setUnitListDeleteIndex(null);
 
-                    _this23.commondatagrid.deleterow(item.index);
+                    _this24.commondatagrid.deleterow(item.index);
                   }
                 });
               }
@@ -3369,7 +3423,7 @@
         _createClass(PrivateCategoryComponent, [{
           key: "addTicket",
           value: function addTicket(mode, categoryId) {
-            var _this24 = this;
+            var _this25 = this;
 
             var data = {
               type: 'private',
@@ -3382,7 +3436,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this24.getPrivateCategoryList();
+                _this25.getPrivateCategoryList();
               }
             });
           }
@@ -3404,7 +3458,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this25 = this;
+            var _this26 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3417,7 +3471,7 @@
               this.privatedatagrid.showfiltercolumnbackground(false);
               this.privateColumns.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this25.privatedatagrid.addfilter(item.datafield, filtergroup, true);
+                  _this26.privatedatagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.privatedatagrid.applyfilters();
@@ -3428,7 +3482,7 @@
         }, {
           key: "getPrivateCategoryList",
           value: function getPrivateCategoryList() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.isDataLoaded = true;
             var params = {
@@ -3437,25 +3491,25 @@
             };
             this.ticketService.getAllTicketManagerByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this26.totalItems = res.length;
+                _this27.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this26.privateListData = new jqx.dataAdapter(data);
+                _this27.privateListData = new jqx.dataAdapter(data);
               }
 
-              _this26.isDataLoaded = false;
+              _this27.isDataLoaded = false;
             }, function (error) {
-              _this26.isDataLoaded = false;
+              _this27.isDataLoaded = false;
 
-              _this26.sharedService.openSnackBar('Server Error', 'error');
+              _this27.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this28 = this;
 
             this.getPrivateCategoryList();
 
@@ -3478,7 +3532,7 @@
               text: 'Supervisor',
               datafield: "escalationLevelId0",
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId0;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId0;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3488,7 +3542,7 @@
               text: 'Level-1',
               datafield: 'escalationLevelId1',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId1;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId1;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3497,7 +3551,7 @@
             }, {
               text: 'L1 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId1;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId1;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3507,7 +3561,7 @@
               text: 'Level-2',
               datafield: 'escalationLevelId2',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId2;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId2;
                 if (field && field.userName) value = field.userName;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3516,7 +3570,7 @@
             }, {
               text: 'L2 escdays',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this27.privateListData.loadedData[row].escalationLevelId2;
+                var field = _this28.privateListData.loadedData[row].escalationLevelId2;
                 if (field && field.escalationDays) value = field.escalationDays;else value = '';
                 return '<div class="jqx-custom-inner-cell">' + value + '</div>';
               },
@@ -3536,16 +3590,16 @@
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
                 var params = {
-                  apartmentId: _this27.sessionService.apartmentId,
+                  apartmentId: _this28.sessionService.apartmentId,
                   ticketCategoryId: item.id,
-                  deleteBy: _this27.sessionService.userId
+                  deleteBy: _this28.sessionService.userId
                 };
 
-                _this27.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this28.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                   if (res.message) {
-                    _this27.sharedService.setUnitListDeleteIndex(null);
+                    _this28.sharedService.setUnitListDeleteIndex(null);
 
-                    _this27.privatedatagrid.deleterow(item.index);
+                    _this28.privatedatagrid.deleterow(item.index);
                   }
                 });
               }
@@ -3804,7 +3858,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this28 = this;
+            var _this29 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3817,7 +3871,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this28.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3828,7 +3882,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this29 = this;
+            var _this30 = this;
 
             this.goBack();
             this.isTicketDataLoaded = false;
@@ -3838,61 +3892,6 @@
               assigntoSupervisorId: this.filterData.supervisor,
               assigntoStaffId: this.filterData.staff
             };
-            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
-              _this29.isTicketDataLoaded = true;
-
-              if (res.length > 0) {
-                res.sort(function (a, b) {
-                  return b.serialNo - a.serialNo;
-                });
-                var ticketInfo = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this29.totalItems = ticketInfo.localdata.length;
-                _this29.ticketListData = new jqx.dataAdapter(ticketInfo);
-              }
-            }, function (error) {
-              _this29.isTicketDataLoaded = true;
-
-              _this29.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "clearFilter",
-          value: function clearFilter() {
-            this.filterData.ticketStatus = null;
-            this.filterData.staff = null;
-            this.filterData.supervisor = null;
-            this.getTicketByAdmin();
-            this.goBack();
-          }
-        }, {
-          key: "goBack",
-          value: function goBack() {
-            this.matDrawer.close();
-          }
-        }, {
-          key: "getTicketByAdmin",
-          value: function getTicketByAdmin() {
-            var _this30 = this;
-
-            this.isTicketDataLoaded = false;
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-
-            if (this.urlType == 'open-tickets') {
-              params.ticketStatusIds = "32,33,46";
-            } else if (this.urlType == 'closed-tickets') {
-              params.ticketStatusIds = "34";
-            } else if (this.urlType == 'unassigned') {
-              params.isStaffassigned = false;
-            } else if (this.urlType == 'assigned-to-me') {
-              this.getTicketByAssignedUser();
-              return;
-            }
-
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this30.isTicketDataLoaded = true;
 
@@ -3914,15 +3913,41 @@
             });
           }
         }, {
-          key: "getTicketByAssignedUser",
-          value: function getTicketByAssignedUser() {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.filterData.ticketStatus = null;
+            this.filterData.staff = null;
+            this.filterData.supervisor = null;
+            this.getTicketByAdmin();
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getTicketByAdmin",
+          value: function getTicketByAdmin() {
             var _this31 = this;
 
+            this.isTicketDataLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId
+              apartmentId: this.sessionService.apartmentId
             };
-            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
+
+            if (this.urlType == 'open-tickets') {
+              params.ticketStatusIds = "32,33,46";
+            } else if (this.urlType == 'closed-tickets') {
+              params.ticketStatusIds = "34";
+            } else if (this.urlType == 'unassigned') {
+              params.isStaffassigned = false;
+            } else if (this.urlType == 'assigned-to-me') {
+              this.getTicketByAssignedUser();
+              return;
+            }
+
+            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this31.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -3930,7 +3955,7 @@
                   return b.serialNo - a.serialNo;
                 });
                 var ticketInfo = {
-                  localdata: res.reverse(),
+                  localdata: res,
                   datatype: "array"
                 };
                 _this31.totalItems = ticketInfo.localdata.length;
@@ -3943,15 +3968,15 @@
             });
           }
         }, {
-          key: "getTicketsByUser",
-          value: function getTicketsByUser() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this32 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+              userId: this.sessionService.userId
             };
-            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this32.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -3972,12 +3997,41 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this33 = this;
 
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+            };
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+              _this33.isTicketDataLoaded = true;
+
+              if (res.length > 0) {
+                res.sort(function (a, b) {
+                  return b.serialNo - a.serialNo;
+                });
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this33.totalItems = ticketInfo.localdata.length;
+                _this33.ticketListData = new jqx.dataAdapter(ticketInfo);
+              }
+            }, function (error) {
+              _this33.isTicketDataLoaded = true;
+
+              _this33.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this34 = this;
+
             this.activateRouter.url.subscribe(function (data) {
-              _this33.urlType = data[0].path;
+              _this34.urlType = data[0].path;
             });
 
             if (this.isAdmin()) {
@@ -4116,7 +4170,7 @@
                   res.forEach(function (ele) {
                     ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-                  _this33.staffsList = res;
+                  _this34.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -4126,7 +4180,7 @@
                 LookupTypeId: 9
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this33.ticketStatusList = res;
+                _this34.ticketStatusList = res;
               });
             }
           }
@@ -4596,6 +4650,12 @@
       var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      /*! src/app/modules/ui/list/list.module */
+      "./src/app/modules/ui/list/list.module.ts");
 
       var HelpdeskModule = function HelpdeskModule() {
         _classCallCheck(this, HelpdeskModule);
@@ -4603,7 +4663,7 @@
 
       HelpdeskModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_helpdesk_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskComponent"], _components_helpdesk_setup_helpdesk_setup_component__WEBPACK_IMPORTED_MODULE_7__["HelpdeskSetupComponent"], _components_helpdesk_reports_helpdesk_reports_component__WEBPACK_IMPORTED_MODULE_8__["HelpdeskReportsComponent"], _components_helpdesk_reports_open_tickets_report_open_tickets_report_component__WEBPACK_IMPORTED_MODULE_9__["OpenTicketsReportComponent"], _components_helpdesk_setup_add_ticket_category_add_ticket_category_component__WEBPACK_IMPORTED_MODULE_10__["AddTicketCategoryComponent"], _components_helpdesk_setup_common_category_common_category_component__WEBPACK_IMPORTED_MODULE_11__["CommonCategoryComponent"], _components_helpdesk_setup_private_category_private_category_component__WEBPACK_IMPORTED_MODULE_12__["PrivateCategoryComponent"], _components_helpdesk_ticket_filter_helpdesk_ticket_filter_component__WEBPACK_IMPORTED_MODULE_13__["HelpdeskTicketFilterComponent"], _components_helpdesk_reports_helpdesk_reports_data_helpdesk_reports_data_component__WEBPACK_IMPORTED_MODULE_15__["HelpdeskReportsDataComponent"], _components_helpdesk_create_ticket_helpdesk_create_ticket_component__WEBPACK_IMPORTED_MODULE_16__["HelpdeskCreateTicketComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _helpdesk_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_17__["UploadModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__["CondoMessageModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _helpdesk_routing_module__WEBPACK_IMPORTED_MODULE_3__["HelpdeskRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_5__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_17__["UploadModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__["CondoMessageModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_19__["ListModule"]],
         bootstrap: [_helpdesk_component__WEBPACK_IMPORTED_MODULE_6__["HelpdeskComponent"]]
       })], HelpdeskModule);
       /***/

@@ -208,7 +208,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Status </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"start_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Visit Type\" fieldPlaceholder=\"Select Visit Type\" [fieldRequired]=\"''\" [fieldList]=\"visitByData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"lookupValueName\" [fieldModel]=\"visitTypeId\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedVisit($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t    <div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isReportSubmitted\">\n\t\n\t\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n\t\t\t        <div class=\"float-right\">\n\t\t\t\t\t\t\t\n\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/visitor/reports\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\n\t\t\t\t</a>\n\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t\t\n\n\t\t\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t  <div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t</div>\n\n\t\t<!-- </div> -->\n\n\t</condo-card>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Status </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\t\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"start_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Visit Type\" fieldPlaceholder=\"Select Visit Type\" [fieldRequired]=\"''\" [fieldList]=\"visitByData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"lookupValueName\" [fieldModel]=\"visitTypeId\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedVisit($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t    <div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isReportSubmitted\">\n\t\n\t\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n\t\t\t        <div class=\"float-right\">\n\t\t\t\t\t\t\t\n\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/visitor/reports\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\n\t\t\t\t</a>\n\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t\t\n\n\t\t\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t  <div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t</div>\n\n\t\t<!-- </div> -->\n\n\t</condo-card>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>\n";
       /***/
     },
 
@@ -4041,6 +4041,8 @@
             staff: null,
             supervisor: null
           };
+          this.filterSelected = "all";
+          this.singleBlock = "Select Tower";
         }
 
         _createClass(VisitorReportsDataComponent, [{
@@ -4293,6 +4295,37 @@
             };
             this.getDetails(params);
           }
+        }, {
+          key: "getAllBlockData",
+          value: function getAllBlockData() {
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower";
+            this.blockId = "";
+            this.datagrid.clearfilters();
+          }
+        }, {
+          key: "getSingleBlock",
+          value: function getSingleBlock(block) {
+            var _this41 = this;
+
+            this.filterSelected = 'single';
+            this.singleBlock = block.apartmentBlockNumber;
+            this.blockId = block.apartmentBlockId;
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.singleBlock;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this41.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
+          }
         }]);
 
         return VisitorReportsDataComponent;
@@ -4423,7 +4456,7 @@
         _createClass(VisitorReportsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this41 = this;
+            var _this42 = this;
 
             var details = {
               ApartmentId: this.sessionService.apartmentId,
@@ -4431,13 +4464,13 @@
               MenuName: 'VisitorManagement'
             };
             this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe(function (res) {
-              _this41.reportDataList = res; // this.reportDataList = [
+              _this42.reportDataList = res; // this.reportDataList = [
               //   { lookupValueName: 'List of Checked In Visitors', description: 'Provides the list of visitors checked-in for the specified duration', lookupValueId: 365 },
               //   { lookupValueName: 'List of Checked out Visitors', description: 'Provides the list of visitors checked-out for the specified duration', lookupValueId: 366 },
               //   { lookupValueName: 'List of Expected Visitors', description: 'Gives the list of visitors who are expected to check-in during the mentioned duration', lookupValueId: 367 }
               //   ]
 
-              _this41.isDataLoaded = true;
+              _this42.isDataLoaded = true;
             });
           }
         }]);
@@ -4602,7 +4635,7 @@
         }, {
           key: "submitVisitorCategoryForm",
           value: function submitVisitorCategoryForm() {
-            var _this42 = this;
+            var _this43 = this;
 
             this.isDrawerLoader = false;
 
@@ -4621,21 +4654,21 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this42.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
                 if (res.code == 200) {
-                  _this42.closeDrawer();
+                  _this43.closeDrawer();
 
-                  _this42.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
+                  _this43.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
 
-                  _this42.getVisitorList();
+                  _this43.getVisitorList();
                 } else {
-                  _this42.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this43.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
-                _this42.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
-                _this42.sharedService.openSnackBar('Network Error', 'error');
+                _this43.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               var _params = {
@@ -4653,68 +4686,68 @@
                 }
               };
               this.lookupService.updateLookupValue(_params).subscribe(function (res) {
-                _this42.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this42.closeDrawer();
+                  _this43.closeDrawer();
 
-                  _this42.getVisitorList();
+                  _this43.getVisitorList();
 
-                  _this42.sharedService.openSnackBar(res.message, 'success');
+                  _this43.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this42.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this43.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this42.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
-                _this42.sharedService.openSnackBar('Network Error', 'error');
+                _this43.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this43 = this;
+            var _this44 = this;
 
             this.isDataLoaded = false;
             var params = {
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this43.isDataLoaded = true;
-              _this43.visitorCategoryList = res;
-              _this43.totalItems = res.length;
+              _this44.isDataLoaded = true;
+              _this44.visitorCategoryList = res;
+              _this44.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this44 = this;
+            var _this45 = this;
 
             this.getVisitorList(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this44.isDataLoaded = false;
+                _this45.isDataLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this44.sessionService.userId)
+                  updateUserId: parseInt(_this45.sessionService.userId)
                 };
 
-                _this44.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this44.sharedService.setUnitListDeleteIndex(null);
+                _this45.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this45.sharedService.setUnitListDeleteIndex(null);
 
-                  _this44.isDataLoaded = true;
+                  _this45.isDataLoaded = true;
 
                   if (res.message) {
-                    _this44.visitorCategoryList.splice(item.index, 1);
+                    _this45.visitorCategoryList.splice(item.index, 1);
 
-                    _this44.totalItems -= 1;
-                    _this44.clickMode = ''; //close input box
+                    _this45.totalItems -= 1;
+                    _this45.clickMode = ''; //close input box
 
-                    _this44.sharedService.openSnackBar(res.message, 'success');
+                    _this45.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this44.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this45.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }

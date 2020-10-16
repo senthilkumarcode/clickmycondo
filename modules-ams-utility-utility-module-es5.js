@@ -208,7 +208,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                \n                                    <div class=\"row\">\n                \n                                        <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div>\n                                       \n                                    </div>\n                                    <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div>\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isDataLoaded && isListofElectricity()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                    <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListofWater()\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n                \n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\n\n</div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"user-report-data-wrapper\">\n\n    \t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n                <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n                    <div class=\"helpdesk-filter-drawer p-5\">\n                        <div class=\"title row\">\n                            <h4> Filter By </h4>\n                            <div class=\"ml-auto\">\n                                <button mat-icon-button (click)=\"goBack()\">\n                                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                                </button>\n                            </div>\n                        </div>\n                        <condo-card>\n                            <div CondoCardHeader>\n                \n                                <form>\n                \n                                        <div class=\"filter-box cleafix\">\n                                                <div class=\"d-flex align-items-center mb-4\">\n                                                    \n                                            \n                                                        <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                            Towers</button>\n                                                        <button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n                                                        <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                            <ng-container *ngFor=\"let block of unitBlocksData\">\n                                                                <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                                    {{block.apartmentBlockNumber}}\n                                                                </button>\n                                                            </ng-container>\n                                                        </mat-menu>\n                                            \n                                                        <!-- <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n                                                                                             [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select> -->\n                                                    \n                                                </div>\n                                            </div>\n                \n                                    <!-- <div class=\"row\">\n                \n                                        <div class=\"col-sm-12\">\n                                                <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n                                         fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n                                        \n                                        </div>\n                                       \n                                    </div>\n                                    <div class=\"row\">\n                                            <div class=\"col-sm-12\">\n                                                    <div class=\"text-right mt-4\">\n                                                            <button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n                                                            <button mat-button (click)=\"clearFilter()\">Cancel</button>\n                                                        </div>\n                                                \n                                            </div>\n                                        \n                                    </div> -->\n                \n                                </form>\n                            </div>\n                        </condo-card>\n                    \n                    </div>\n                </mat-drawer>\n                <mat-drawer-content>\n\t<div class=\"main\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n    \n   \n\n\t<condo-card *ngIf=\"isDataLoaded && isListofElectricity()\">\n          \n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/utility/reports\"  class=\"ml-auto my-auto\"\n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>View All Report \n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                    <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\t<!-- De Activated Users -->\n\t<condo-card *ngIf=\"isDataLoaded && isListofWater()\">\n           \n        <div CondoCardHeader>\n                <div class=\"row\">\n                        <div class=\"float-right\">\n                                    \n                                <a href=\"javascript:void(0)\" routerLink=\"/ams/utility/reports\"  class=\"ml-auto my-auto\"\n                                    routerLinkActive=\"active\"\n                                    [routerLinkActiveOptions] = \"{exact:true}\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports \n                                    \n                                </a>\n                            \n                            </div>\n                </div>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>{{pageName}}</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto my-auto\">\n                        <app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3 my-auto ml-3\">\n                            <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                        </div>\n                        <div class=\"mr-3 my-auto ml-3\">\n                            <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n                                <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n                            </button>\n                            <button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n                                    <mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n                                  </button>\n                        </div>\n                \n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"userReportDataList\" [columns]=\"columnData\"\n                [enablehover]=\"false\"[columnsresize]=\"true\"   #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n\n\n\n\n</div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -3178,6 +3178,8 @@
           this.blockNo = "";
           this.end_date = null;
           this.start_date = null;
+          this.filterSelected = "all";
+          this.singleBlock = "Select Tower";
         }
 
         _createClass(UtilityReportDataComponent, [{
@@ -3474,6 +3476,37 @@
             // });
 
             this.getBlockDetails();
+          }
+        }, {
+          key: "getAllBlockData",
+          value: function getAllBlockData() {
+            this.filterSelected = 'all';
+            this.singleBlock = "Select Tower";
+            this.blockId = "";
+            this.datagrid.clearfilters();
+          }
+        }, {
+          key: "getSingleBlock",
+          value: function getSingleBlock(block) {
+            var _this25 = this;
+
+            this.filterSelected = 'single';
+            this.singleBlock = block.apartmentBlockNumber;
+            this.blockId = block.apartmentBlockId;
+            var filtergroup = new jqx.filter();
+            var filter_or_operator = 1;
+            var filtervalue = this.singleBlock;
+            var filtercondition = 'contains';
+            var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+            filtergroup.operator = 'or';
+            filtergroup.addfilter(filter_or_operator, filterData);
+            this.datagrid.showfiltercolumnbackground(false);
+            this.columnData.forEach(function (item) {
+              if (item.datafield != 'Actions') {
+                _this25.datagrid.addfilter(item.datafield, filtergroup, true);
+              }
+            });
+            this.datagrid.applyfilters();
           }
         }]);
 
@@ -3802,7 +3835,7 @@
         }, {
           key: "getSelectedDeliveryType",
           value: function getSelectedDeliveryType(event) {
-            var _this25 = this;
+            var _this26 = this;
 
             this.blockId = event[0].apartmentBlockId; //   if(this.selectedTower == null){
             //     this.filteredUtilityWaterListData= this.utilityWaterListData;
@@ -3822,7 +3855,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield === 'block') {
-                  _this25.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this26.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3833,7 +3866,7 @@
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this26 = this;
+            var _this27 = this;
 
             if (this.utilitySearch != "") {
               var filtergroup = new jqx.filter();
@@ -3846,7 +3879,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this26.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3857,7 +3890,7 @@
         }, {
           key: "onFilterByTowerChange",
           value: function onFilterByTowerChange() {
-            var _this27 = this;
+            var _this28 = this;
 
             this.selectedTower = event[0].apartmentBlockId;
 
@@ -3865,7 +3898,7 @@
               this.filteredUtilityWaterListData = this.utilityWaterListData;
             } else {
               this.filteredUtilityWaterListData = this.utilityWaterListData.filter(function (x) {
-                return x.block == _this27.selectedTower;
+                return x.block == _this28.selectedTower;
               });
             }
 
@@ -3906,7 +3939,7 @@
         }, {
           key: "getAllWaterUtiliy",
           value: function getAllWaterUtiliy() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.selectedTower = '';
             this.isReportLoaded = false; // jqx column generating
@@ -3937,7 +3970,7 @@
               // datafield: 'waterCharge[0].connectionNo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this28.waterReportDataList.records[row].waterCharge.length > 0 ? _this28.waterReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this28.waterReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
+                var content = _this29.waterReportDataList.records[row].waterCharge.length > 0 ? _this29.waterReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this29.waterReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -3946,7 +3979,7 @@
               // datafield: 'waterCharge[0].prevReading',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this28.waterReportDataList.records[row].waterCharge.length > 0 ? _this28.waterReportDataList.records[row].waterCharge[0]["prevReading"] : '';
+                var content = _this29.waterReportDataList.records[row].waterCharge.length > 0 ? _this29.waterReportDataList.records[row].waterCharge[0]["prevReading"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -3955,7 +3988,7 @@
               // datafield: 'currReading',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this28.waterReportDataList.records[row].waterCharge.length > 0 ? _this28.waterReportDataList.records[row].waterCharge[0]["currReading"] : '';
+                var content = _this29.waterReportDataList.records[row].waterCharge.length > 0 ? _this29.waterReportDataList.records[row].waterCharge[0]["currReading"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -3968,22 +4001,22 @@
                 localdata: res,
                 datatype: "array"
               };
-              _this28.waterReportDataList = new jqx.dataAdapter(gridSourceData);
-              _this28.isReportLoaded = true;
+              _this29.waterReportDataList = new jqx.dataAdapter(gridSourceData);
+              _this29.isReportLoaded = true;
 
-              _this28.showItems();
+              _this29.showItems();
 
-              _this28.utilityWaterListData = res;
-              _this28.filteredUtilityWaterListData = _this28.utilityWaterListData;
-              _this28.totalItems = _this28.filteredUtilityWaterListData.length;
+              _this29.utilityWaterListData = res;
+              _this29.filteredUtilityWaterListData = _this29.utilityWaterListData;
+              _this29.totalItems = _this29.filteredUtilityWaterListData.length;
 
-              if (_this28.totalItems > _this28.itemLimit) {
-                _this28.ItemEndIndex = _this28.itemLimit;
+              if (_this29.totalItems > _this29.itemLimit) {
+                _this29.ItemEndIndex = _this29.itemLimit;
               } else {
-                _this28.ItemEndIndex = _this28.totalItems;
+                _this29.ItemEndIndex = _this29.totalItems;
               }
 
-              _this28.isReportLoaded = true;
+              _this29.isReportLoaded = true;
             });
           }
         }, {
@@ -4000,7 +4033,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this29 = this;
+            var _this30 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -4013,7 +4046,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this30.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4050,14 +4083,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this31 = this;
 
             this["package"].deliveryTypeId = '';
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this30.propertyTowerData = res;
+              _this31.propertyTowerData = res;
             });
             this.getAllWaterUtiliy();
           }
@@ -4250,7 +4283,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this31 = this;
+            var _this32 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -4258,7 +4291,7 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this31.loadUtilityCategory();
+              _this32.loadUtilityCategory();
             });
           }
         }, {
@@ -4307,7 +4340,7 @@
         }, {
           key: "addOrUpdateUtilityCategoryForm",
           value: function addOrUpdateUtilityCategoryForm(form) {
-            var _this32 = this;
+            var _this33 = this;
 
             this.isUtilityCategorySubmitted = false;
             this.isError = false;
@@ -4330,24 +4363,24 @@
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: _this32.sessionService.apartmentId
+                    apartmentId: _this33.sessionService.apartmentId
                   };
 
-                  _this32.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                    _this32.isUtilityCategorySubmitted = true;
+                  _this33.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                    _this33.isUtilityCategorySubmitted = true;
 
-                    _this32.sharedService.openSnackBar("Category added Successfully!", 'success');
+                    _this33.sharedService.openSnackBar("Category added Successfully!", 'success');
 
-                    _this32.matDrawer.toggle();
+                    _this33.matDrawer.toggle();
 
-                    _this32.utilityCategoryData = res.filter(function (item) {
+                    _this33.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this32.isUtilityCategorySubmitted = true;
-                  _this32.isError = true;
-                  _this32.alertMessage = res.errorMessage;
+                  _this33.isUtilityCategorySubmitted = true;
+                  _this33.isError = true;
+                  _this33.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -4369,26 +4402,26 @@
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: _this32.sessionService.apartmentId
+                    apartmentId: _this33.sessionService.apartmentId
                   };
 
-                  _this32.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                    _this32.isUtilityCategorySubmitted = true;
+                  _this33.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                    _this33.isUtilityCategorySubmitted = true;
 
-                    _this32.sharedService.openSnackBar("Category updated Successfully!", 'success');
+                    _this33.sharedService.openSnackBar("Category updated Successfully!", 'success');
 
-                    _this32.matDrawer.toggle();
+                    _this33.matDrawer.toggle();
 
-                    _this32.utilityCategoryData = res.filter(function (item) {
+                    _this33.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this32.isUtilityCategoryNew = false;
-                    _this32.isUtilityCategoryUpdate = false;
+                    _this33.isUtilityCategoryNew = false;
+                    _this33.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this32.isUtilityCategorySubmitted = true;
-                  _this32.isError = true;
-                  _this32.alertMessage = res.errorMessage;
+                  _this33.isUtilityCategorySubmitted = true;
+                  _this33.isError = true;
+                  _this33.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -4396,33 +4429,33 @@
         }, {
           key: "loadUtilityCategory",
           value: function loadUtilityCategory() {
-            var _this33 = this;
+            var _this34 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this33.utilityCategoryData = res.filter(function (item) {
+              _this34.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this33.isUtilityCategoryLoaded = true;
+              _this34.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this35 = this;
 
             this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this34.submitUtilityCategoryForm(is_category_form);
+                _this35.submitUtilityCategoryForm(is_category_form);
               }
             });
             this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this34.deleteUtilityCategory(item_id);
+                _this35.deleteUtilityCategory(item_id);
               }
             });
           }
