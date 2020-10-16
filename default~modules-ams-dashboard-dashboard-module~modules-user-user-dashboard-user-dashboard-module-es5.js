@@ -11689,7 +11689,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"dripicons:broadcast\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Announcements</h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <div class=\"text-right\">\n                    <a href=\"javascript:void(0)\" (click)=\"calenderPopUp('broadcast')\">Filter</a>\n                </div>\n                <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of broadCastList;let odd = odd\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-md-9\">\n                            <div class=\"d-flex\">\n                                <div class=\"dash-circle primary-text font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{data.subject | slice:0:1  | uppercase}}</div>\n                                <div class=\"sub-width\">\n                                    <p>{{data.subject }}</p>\n                                    <p class=\"text-secondary\">{{data.description}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-md-3\">\n                            <p>{{getDateFormat(data.insertedOn)}}</p>\n                            <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                        </div>\n                    </div>\n                </div>\n                <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"broadCastList?.length == 0\">No Data Found</p>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
+      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"dripicons:broadcast\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Announcements\n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"text-right\" >\n                        <a href=\"javascript:void(0)\" (click)=\"calenderPopUp('broadcast')\">Filter</a>\n                    </div>\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of broadCastList;let odd = odd\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-9\">\n                                <div class=\"d-flex\">\n                                    <div class=\"dash-circle primary-text font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{data.subject | slice:0:1  | uppercase}}</div>\n                                    <div class=\"sub-width\">\n                                        <p>{{data.subject }}</p>\n                                        <p class=\"text-secondary\">{{data.description}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <p>{{getDateFormat(data.insertedOn)}}</p>\n                                <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"broadCastList?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
       /***/
     },
 
@@ -11729,7 +11729,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:calendar\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Meeting Schedules</h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <div class=\"text-right\">\n                    <a href=\"javascript:void(0)\" (click)=\"calenderPopUp('meeting')\">Filter</a>\n                </div>\n                <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of meetingList;let odd = odd\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-md-8\">\n                            <div class=\"d-flex\">\n                                <div class=\"dash-circle primary-text font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{data.comments | slice:0:1  | uppercase}}</div>\n                                <div>\n                                    <p>{{data.subject}}</p>\n                                    <p class=\"text-highlight-base\">{{data.comments}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-md-4\">\n                            <p class=\"float-md-right\">{{data.fromTime}}-{{data.toTime}}</p>\n                            <p class=\"float-md-right text-hint\">{{getDateTimeFormat(data.meetingDate)}}</p>\n                        </div>\n                    </div>\n                </div>\n                <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"meetingList?.length == 0\">No Data Found</p>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>\n\n";
+      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:calendar\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Meeting Schedules\n                        <span *ngIf=\"totalItems > 0\">{{totalItems}}</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"text-right\">\n                        <a href=\"javascript:void(0)\" (click)=\"calenderPopUp('meeting')\">Filter</a>\n                    </div>\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of meetingList;let odd = odd\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-8\">\n                                <div class=\"d-flex\">\n                                    <div class=\"dash-circle primary-text font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{data.comments | slice:0:1  | uppercase}}</div>\n                                    <div>\n                                        <p>{{data.subject}}</p>\n                                        <p class=\"text-highlight-base\">{{data.comments}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-xs-12 col-md-4\">\n                                <p class=\"float-md-right\">{{data.fromTime}}-{{data.toTime}}</p>\n                                <p class=\"float-md-right text-hint\">{{getDateTimeFormat(data.meetingDate)}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"meetingList?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>\n\n";
       /***/
     },
 
@@ -11789,7 +11789,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:shield-check\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Emergency Alerts</h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"mini-main-content-widget\">\n                <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of emergencyAlert\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-md-9\">\n                            <p>{{data.notes}}</p> \n                            <p class=\"font-medium text-highlight-base\">{{data.apartmentBlockUnitId}}</p>\n                        </div>\n                        <div class=\"col-xs-12 col-md-3\">\n                            <p>{{getDateFormat(data.insertedOn)}}</p>\n                            <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                        </div>\n                    </div>\n                </div>\n                <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"emergencyAlert?.length == 0\">No Data Found</p>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
+      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:shield-check\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Emergency Alerts\n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"mini-main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of emergencyAlert\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-9\">\n                                <p>{{data.notes}}</p> \n                                <p class=\"font-medium text-highlight-base\">{{data.apartmentBlockUnitId}}</p>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <p>{{getDateFormat(data.insertedOn)}}</p>\n                                <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"emergencyAlert?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
       /***/
     },
 
@@ -11809,7 +11809,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Facility Bookings</h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of facility\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-md-6\">\n                            <p class=\"more\">{{data.facilityName}}</p> \n                            <p>\n                                <span class=\"text-highlight-base\">{{data.residentName}}</span>\n                                <span class=\"text-hint\"> {{data.location}} {{data.apartmentBlockUnitId}}</span>\n                            </p>\n                        </div>\n                        <div class=\"col-xs-12 col-md-3\">\n                            <div class=\"status-badge\" [ngClass]=\"getFacilityBgStatus(data.facilityBookingStatusId)\">\n                                <span class=\"font-bold text-uppercase\" [ngClass]=\"getFacilityTextStatus(data.facilityBookingStatusId)\">{{data.facilityBookingStatusId_Label}}</span>\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-md-3\">\n                            <p>{{getDateFormat(data.bookedForDate)}}</p>\n                            <p class=\"text-hint\">{{data.bookedFromTime | slice:0:5 }} - {{data.bookedToTime | slice:0:5}}</p>\n                        </div>\n                    </div>\n                </div>\n                <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"facility?.length == 0\">No Data Found</p>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
+      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Facility Bookings \n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of facility\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-6\">\n                                <p class=\"more\">{{data.facilityName}}</p> \n                                <p>\n                                    <span class=\"text-highlight-base\">{{data.residentName}}</span>\n                                    <span class=\"text-hint\"> {{data.location}} {{data.apartmentBlockUnitId}}</span>\n                                </p>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <div class=\"status-badge\" [ngClass]=\"getFacilityBgStatus(data.facilityBookingStatusId)\">\n                                    <span class=\"font-bold text-uppercase\" [ngClass]=\"getFacilityTextStatus(data.facilityBookingStatusId)\">{{data.facilityBookingStatusId_Label}}</span>\n                                </div>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <p>{{getDateFormat(data.bookedForDate)}}</p>\n                                <p class=\"text-hint\">{{data.bookedFromTime | slice:0:5 }} - {{data.bookedToTime | slice:0:5}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"facility?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
       /***/
     },
 
@@ -11829,7 +11829,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:exclamation-circle\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Recent Violations</h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"mini-main-content-widget\">\n                <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of violation\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-md-9\">\n                            <p>{{data.violationCategory}}</p> \n                            <p>\n                                <span class=\"text-highlight-base\">{{data.securityPerson}}</span> \n                                <span class=\"text-hint\"> {{data.tower_unitname}}</span>\n                            </p>\n                        </div>\n                        <div class=\"col-xs-12 col-md-3\">\n                            <p>{{getDateFormat(data.insertedOn)}}</p>\n                            <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                        </div>\n                    </div>\n                </div>\n                <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"violation?.length == 0\">No Data Found</p>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
+      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:exclamation-circle\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Recent Violations \n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"mini-main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of violation\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-9\">\n                                <p>{{data.violationCategory}}</p> \n                                <p>\n                                    <span class=\"text-highlight-base\">{{data.securityPerson}}</span> \n                                    <span class=\"text-hint\"> {{data.tower_unitname}}</span>\n                                </p>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <p>{{getDateFormat(data.insertedOn)}}</p>\n                                <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"violation?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
       /***/
     },
 
@@ -11849,7 +11849,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"feather:user-check\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Work Permit(On Going)</h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of workPermit;let odd = odd\">\n                    <div class=\"row\">\n                        <div class=\"col-xs-12 col-md-8\">\n                            <div class=\"d-flex\">\n                                <div class=\"dash-circle primary-text font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{data.status | slice:0:1  | uppercase}}</div>\n                                <div>\n                                    <p class=\"d-inline-block\">{{data.wptitle}}</p> \n                                    <p>\n                                        <span class=\"text-highlight-base\">{{data.residentName}}</span>\n                                        <span class=\"text-hint\"> {{data.apartmentBlockNumber}}/{{data.apartmentBlockUnitNumber}}</span>\n                                    </p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-xs-12 col-md-4\">\n                            <p class=\"text-hint\">{{getDateFormat(data.startDate)}} {{data.startTime | slice:0:5}} </p>\n                            <p class=\"text-hint\">{{getDateFormat(data.endDate)}} {{data.endTime | slice:0:5}}</p>\n                        </div>\n                    </div>\n                </div>\n                <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"workPermit?.length == 0\">No Data Found</p>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
+      __webpack_exports__["default"] = "<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"feather:user-check\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Work Permit(On Going)\n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of workPermit;let odd = odd\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-8\">\n                                <div class=\"d-flex\">\n                                    <div class=\"dash-circle primary-text font-bold mr-3\" [ngClass]=\"odd ? 'text-primary': 'text-danger'\">{{data.status | slice:0:1  | uppercase}}</div>\n                                    <div>\n                                        <p class=\"d-inline-block\">{{data.wptitle}}</p> \n                                        <p>\n                                            <span class=\"text-highlight-base\">{{data.residentName}}</span>\n                                            <span class=\"text-hint\"> {{data.apartmentBlockNumber}}/{{data.apartmentBlockUnitNumber}}</span>\n                                        </p>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-xs-12 col-md-4\">\n                                <p class=\"text-hint\">{{getDateFormat(data.startDate)}} {{data.startTime | slice:0:5}} </p>\n                                <p class=\"text-hint\">{{getDateFormat(data.endDate)}} {{data.endTime | slice:0:5}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"workPermit?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>";
       /***/
     },
 
@@ -15246,6 +15246,7 @@
           this.dashboardService = dashboardService;
           this.sessionService = sessionService;
           this.broadCastList = [];
+          this.totalItems = 0;
         }
 
         _createClass(DashBroadCastComponent, [{
@@ -15279,10 +15280,14 @@
           value: function announcementList(entity) {
             var _this90 = this;
 
+            this.isDataLoaded = true;
             this.dashboardService.getDashlistBroadcastsentbyApartmentId(entity).subscribe(function (res) {
               if (res.length > 0) {
                 _this90.broadCastList = res.reverse().slice(0, 9);
+                _this90.totalItems = _this90.broadCastList.length;
               }
+
+              _this90.isDataLoaded = false;
             });
           }
         }, {
@@ -15583,6 +15588,7 @@
           this.dashboardService = dashboardService;
           this.sessionService = sessionService;
           this.meetingList = [];
+          this.totalItems = 0;
         }
 
         _createClass(DashMeetingComponent, [{
@@ -15611,6 +15617,7 @@
           value: function scheduledMeeting(entity) {
             var _this92 = this;
 
+            this.isDataLoaded = true;
             this.dashboardService.getDashlistupcomingmeetingbyApartmentId(entity).subscribe(function (res) {
               if (res.length > 0) {
                 _this92.meetingList = res.reverse().slice(0, 9);
@@ -15619,7 +15626,11 @@
                   data.fromTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.fromTime, 'HH:mm').format('hh:mm A');
                   data.toTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.toTime, 'HH:mm').format('hh:mm A');
                 });
+
+                _this92.totalItems = _this92.meetingList.length;
               }
+
+              _this92.isDataLoaded = false;
             });
           }
         }, {
@@ -16056,6 +16067,7 @@
           this.alertService = alertService;
           this.sessionService = sessionService;
           this.emergencyAlert = [];
+          this.totalItems = 0;
         }
 
         _createClass(EmergencyAlertsWidgetComponent, [{
@@ -16073,6 +16085,7 @@
           value: function ngOnInit() {
             var _this94 = this;
 
+            this.isDataLoaded = true;
             this.role = this.sessionService.roleTypeName;
             var entity = {
               apartmentId: this.sessionService.apartmentId,
@@ -16083,7 +16096,10 @@
               this.alertService.getAllApartmentBlockUnitAlertByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
                   _this94.emergencyAlert = res.reverse().slice(0, 5);
+                  _this94.totalItems = _this94.emergencyAlert.length;
                 }
+
+                _this94.isDataLoaded = false;
               });
             } else if (this.role == 'Owner' || this.role == 'Tenant') {
               var params = {
@@ -16092,7 +16108,10 @@
               this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe(function (res) {
                 if (res.length > 0) {
                   _this94.emergencyAlert = res.reverse().slice(0, 5);
+                  _this94.totalItems = _this94.emergencyAlert.length;
                 }
+
+                _this94.isDataLoaded = false;
               });
             }
           }
@@ -16202,6 +16221,7 @@
           this.facilityService = facilityService;
           this.sessionService = sessionService;
           this.facility = [];
+          this.totalItems = 0;
         }
 
         _createClass(FacilityWidgetComponent, [{
@@ -16247,6 +16267,7 @@
           value: function ngOnInit() {
             var _this95 = this;
 
+            this.isDataLoaded = true;
             var entity = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
@@ -16254,7 +16275,10 @@
             this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(entity).subscribe(function (res) {
               if (res.length > 0) {
                 _this95.facility = res.reverse().slice(0, 9);
+                _this95.totalItems = _this95.facility.length;
               }
+
+              _this95.isDataLoaded = false;
             });
           }
         }]);
@@ -16363,6 +16387,7 @@
           this.violationService = violationService;
           this.sessionService = sessionService;
           this.violation = [];
+          this.totalItems = 0;
         }
 
         _createClass(RecentViolationWidgetComponent, [{
@@ -16380,6 +16405,7 @@
           value: function ngOnInit() {
             var _this96 = this;
 
+            this.isDataLoaded = true;
             var entity = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
@@ -16387,7 +16413,10 @@
             this.violationService.getAllViolationsByStatus(entity).subscribe(function (res) {
               if (res.length > 0) {
                 _this96.violation = res.reverse().slice(0, 5);
+                _this96.totalItems = _this96.violation.length;
               }
+
+              _this96.isDataLoaded = false;
             });
           }
         }]);
@@ -16496,6 +16525,7 @@
           this.sessionService = sessionService;
           this.workpermitService = workpermitService;
           this.workPermit = [];
+          this.totalItems = 0;
         }
 
         _createClass(WorkpermitWidgetComponent, [{
@@ -16513,6 +16543,7 @@
           value: function ngOnInit() {
             var _this97 = this;
 
+            this.isDataLoaded = true;
             var entity = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
@@ -16522,7 +16553,10 @@
               this.workpermitService.getWorkPermitsByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
                   _this97.workPermit = res.reverse().slice(0, 9);
+                  _this97.totalItems = _this97.workPermit.length;
                 }
+
+                _this97.isDataLoaded = false;
               });
             } else if (this.role == 'Owner' || this.role == 'Tenant') {
               var params = {
@@ -16532,7 +16566,10 @@
               this.workpermitService.getWorkPermitsByApartmentIdUnitId(params).subscribe(function (res) {
                 if (res.length > 0) {
                   _this97.workPermit = res.reverse().slice(0, 9);
+                  _this97.totalItems = _this97.workPermit.length;
                 }
+
+                _this97.isDataLoaded = false;
               });
             }
           }
@@ -16638,7 +16675,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~f3feba88"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~85d55680"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7dde0477"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~842d029e"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~8981b15b"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7dde0477"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */
               "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(function (m) {
                 return m.UnitUsersReportModule;

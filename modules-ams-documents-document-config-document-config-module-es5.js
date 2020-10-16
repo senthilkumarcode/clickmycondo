@@ -167,26 +167,6 @@
     },
 
     /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.html":
-    /*!********************************************************************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.html ***!
-      \********************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsDocumentsDocumentConfigMyDocumentUserListMyDocumentUserListComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<div class=\"my-documents-wrapper\">\n    <div class=\"main\">\n        <!-- Loader -->\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n        <!-- My Documents Header -->\n        <div class=\"d-flex mb-4\">\n            <div>\n                <h4>My Documents</h4>\n                <p class=\"text-secondary\">{{totalItems}} Items</p>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"documentSearch\">\n            </div>\n            <div>\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"openUploadModal()\">Upload Documents</button>\n            </div>\n        </div>\n        <!-- Documents List -->\n        <div *ngIf=\"isDataLoaded\">\n            <div class=\"bg-card shadow\" *ngFor=\"let data of documentViewList\">\n                <form>\n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Document Name</label>\n                                <p>{{data.userDocumentName}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Document Category</label>\n                                <p>{{data.userDocumentCatName}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Inserted On</label>\n                                <p>{{getDateFormat(data.insertedOn)}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Description</label>\n                                <p>{{data.userDocDesc}}</p>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>Document</label>\n                                <p #url>\n                                    <a *ngIf=\"data.fileUrl\" [href]=\"data.fileUrl\" target=\"_blank\">{{data.fileName}}</a>\n                                    <a href=\"javascript:void(0)\" *ngIf=\"!data.fileUrl\" (click)=\"downloadFile(data,url)\">{{data.fileName}}</a>\n                                </p>\n                            </div>\n                        </div>\n                    </div>\n                </form>\n            </div>\n        </div>\n    </div>\n</div>";
-      /***/
-    },
-
-    /***/
     "./src/app/modules/ams/documents/document-config/document-config-routing.module.ts":
     /*!*****************************************************************************************!*\
       !*** ./src/app/modules/ams/documents/document-config/document-config-routing.module.ts ***!
@@ -262,13 +242,7 @@
       /* harmony import */
 
 
-      var _my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ./my-document-user-list/my-document-user-list.component */
-      "./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.ts");
-      /* harmony import */
-
-
-      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/auth/guards/auth.guard */
       "./src/app/core/auth/guards/auth.guard.ts");
 
@@ -279,7 +253,7 @@
       }, {
         path: 'settings',
         component: _document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_3__["DocumentSetupComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]],
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]],
         children: [{
           path: '',
           redirectTo: 'public',
@@ -287,15 +261,15 @@
         }, {
           path: 'public',
           component: _document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_4__["DocumentSetupCategoryComponent"],
-          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
         }, {
           path: 'private',
           component: _document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_4__["DocumentSetupCategoryComponent"],
-          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
         }, {
           path: 'accessible',
           component: _document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_5__["DocumentSetupAccessibleComponent"],
-          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+          canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
         }, {
           path: '**',
           redirectTo: 'public',
@@ -304,19 +278,15 @@
       }, {
         path: 'common',
         component: _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_6__["FolderListsComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
       }, {
         path: 'common-download/:id',
         component: _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_7__["DocumentDownloadComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
       }, {
         path: 'reports',
         component: _documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_8__["DocumentsReportsComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
-      }, {
-        path: 'my-documents',
-        component: _my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_9__["MyDocumentUserListComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_10__["AuthGuard"]]
+        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_9__["AuthGuard"]]
       }, {
         path: '**',
         redirectTo: 'settings',
@@ -449,19 +419,13 @@
       var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ./document-create/document-create.component */
       "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
-      /* harmony import */
-
-
-      var _my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
-      /*! ./my-document-user-list/my-document-user-list.component */
-      "./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.ts");
 
       var DocumentConfigModule = function DocumentConfigModule() {
         _classCallCheck(this, DocumentConfigModule);
       };
 
       DocumentConfigModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupComponent"], _document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_9__["DocumentSetupCategoryComponent"], _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_10__["FolderListsComponent"], _documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_11__["DocumentsReportsComponent"], _document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_12__["DocumentSetupAccessibleComponent"], _documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_13__["DocumentsReportsDataComponent"], _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_14__["DocumentDownloadComponent"], _my_document_user_list_my_document_user_list_component__WEBPACK_IMPORTED_MODULE_16__["MyDocumentUserListComponent"], _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_15__["DocumentCreateComponent"]],
+        declarations: [_document_setup_document_setup_component__WEBPACK_IMPORTED_MODULE_8__["DocumentSetupComponent"], _document_setup_document_setup_category_document_setup_category_component__WEBPACK_IMPORTED_MODULE_9__["DocumentSetupCategoryComponent"], _folder_lists_folder_lists_component__WEBPACK_IMPORTED_MODULE_10__["FolderListsComponent"], _documents_reports_documents_reports_component__WEBPACK_IMPORTED_MODULE_11__["DocumentsReportsComponent"], _document_setup_document_setup_accessible_document_setup_accessible_component__WEBPACK_IMPORTED_MODULE_12__["DocumentSetupAccessibleComponent"], _documents_reports_documents_reports_data_documents_reports_data_component__WEBPACK_IMPORTED_MODULE_13__["DocumentsReportsDataComponent"], _folder_lists_document_download_document_download_component__WEBPACK_IMPORTED_MODULE_14__["DocumentDownloadComponent"], _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_15__["DocumentCreateComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_6__["UploadModule"], _document_config_routing_module__WEBPACK_IMPORTED_MODULE_7__["DocumentConfigRoutingModule"]]
       })], DocumentConfigModule);
       /***/
@@ -580,7 +544,7 @@
 
             var uploadDetails = {
               "ApartmentId": this.sessionService.apartmentId,
-              "ApartmentBlockUnitId": this.sessionService.apartmentBlockUnitID,
+              "ApartmentBlockUnitId": this.data.apartmentBlockUnitId,
               "UserDocumentCategoryId": this.document.userDocumentCategoryId,
               "UserDocumentTypeId": 1,
               "UserDocumentAccessibleToId": 1,
@@ -2593,226 +2557,6 @@
         /*! ./folder-lists.component.scss */
         "./src/app/modules/ams/documents/document-config/folder-lists/folder-lists.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], FolderListsComponent);
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.scss":
-    /*!******************************************************************************************************************!*\
-      !*** ./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.scss ***!
-      \******************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesAmsDocumentsDocumentConfigMyDocumentUserListMyDocumentUserListComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RvY3VtZW50cy9kb2N1bWVudC1jb25maWcvbXktZG9jdW1lbnQtdXNlci1saXN0L215LWRvY3VtZW50LXVzZXItbGlzdC5jb21wb25lbnQuc2NzcyJ9 */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.ts":
-    /*!****************************************************************************************************************!*\
-      !*** ./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.ts ***!
-      \****************************************************************************************************************/
-
-    /*! exports provided: MyDocumentUserListComponent */
-
-    /***/
-    function srcAppModulesAmsDocumentsDocumentConfigMyDocumentUserListMyDocumentUserListComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "MyDocumentUserListComponent", function () {
-        return MyDocumentUserListComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-      /* harmony import */
-
-
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/shared/services/file-download.service */
-      "./src/app/shared/services/file-download.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/Document */
-      "./src/app/api/controllers/Document.ts");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-      /* harmony import */
-
-
-      var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ../document-create/document-create.component */
-      "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! @angular/material/dialog */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-
-      var MyDocumentUserListComponent = /*#__PURE__*/function () {
-        function MyDocumentUserListComponent(sessionService, documentService, fileDownloadService, sanitizer, dialog, changeDetection) {
-          _classCallCheck(this, MyDocumentUserListComponent);
-
-          this.sessionService = sessionService;
-          this.documentService = documentService;
-          this.fileDownloadService = fileDownloadService;
-          this.sanitizer = sanitizer;
-          this.dialog = dialog;
-          this.changeDetection = changeDetection;
-          this.documentViewList = [];
-        }
-
-        _createClass(MyDocumentUserListComponent, [{
-          key: "getDateFormat",
-          value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format('ddd MMM D YYYY hh:mm A');
-          }
-        }, {
-          key: "openUploadModal",
-          value: function openUploadModal() {
-            var _this15 = this;
-
-            var dialogRef = this.dialog.open(_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_7__["DocumentCreateComponent"], {
-              panelClass: 'material-dialog-medium',
-              data: {
-                from: 'private'
-              }
-            });
-            dialogRef.afterClosed().subscribe(function (result) {
-              if (result) {
-                _this15.getDocumetList();
-              }
-            });
-          }
-        }, {
-          key: "downloadFile",
-          value: function downloadFile(data, url) {
-            var _this16 = this;
-
-            if (data.filePath && !data.fileUrl) {
-              this.fileDownloadService.downloadFile(data.filePath).subscribe(function (down) {
-                var blob = down.body;
-                var objectURL, sanitizeUrl, trigger;
-                objectURL = URL.createObjectURL(blob);
-                sanitizeUrl = _this16.sanitizer.bypassSecurityTrustUrl(objectURL);
-                data.fileUrl = sanitizeUrl;
-
-                _this16.changeDetection.detectChanges();
-
-                trigger = url.firstElementChild;
-                trigger.click();
-              });
-            }
-          }
-        }, {
-          key: "getDocumetList",
-          value: function getDocumetList() {
-            var _this17 = this;
-
-            this.isDataLoaded = false;
-            var params = {
-              ApartmentBlockUnitId: this.sessionService.apartmentBlockUnitID,
-              ApartmentId: this.sessionService.apartmentId
-            };
-            this.documentService.getAllDocByApartmentBlockUnitId(params).subscribe(function (res) {
-              _this17.isDataLoaded = true;
-
-              if (res.length > 0) {
-                _this17.documentViewList = res; // this.documentViewList.forEach((data)=>{
-                //   if(data.filePath) {
-                //     this.fileDownloadService.downloadFile(data.filePath).subscribe((down:any) => {
-                //       const blob = down.body;
-                //       let objectURL = URL.createObjectURL(blob); 
-                //       let sanitizeUrl:any = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-                //       data.fileUrl = sanitizeUrl
-                //     })
-                //   }
-                // })
-              }
-
-              _this17.totalItems = res.length;
-            });
-          }
-        }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            this.getDocumetList();
-          }
-        }]);
-
-        return MyDocumentUserListComponent;
-      }();
-
-      MyDocumentUserListComponent.ctorParameters = function () {
-        return [{
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
-        }, {
-          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"]
-        }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"]
-        }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]
-        }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }];
-      };
-
-      MyDocumentUserListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-my-document-user-list',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./my-document-user-list.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./my-document-user-list.component.scss */
-        "./src/app/modules/ams/documents/document-config/my-document-user-list/my-document-user-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MyDocumentUserListComponent);
       /***/
     }
   }]);

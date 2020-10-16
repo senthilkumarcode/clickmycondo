@@ -1,5 +1,18 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module"],{
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/document-create/document-create.component.html":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/document-create/document-create.component.html ***!
+  \********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"document-create-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4> Upload Documents</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Document Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.userDocumentName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-12\" *ngIf=\"data.from == 'private'\">\n                    <condo-select \n                        labelText=\"Document Category\"\n                        fieldPlaceholder=\"Document Category\"\n                        [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                        fieldValue=\"lookupValueName\"\n                        [fieldModel]=\"document.userDocumentCategoryId\"\n                        fieldId=\"lookupValueId\"\n                        (fieldParams)=\"setDocCategory($event)\" \n                    ></condo-select>  \n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <app-upload [fileIds]=\"document.fileDetailsIds\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                        [multiple]=\"true\"\n                    ></app-upload>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button  *ngIf=\"data.from == 'private'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPrivateDocument()\">Submit</button>\n                    <button  *ngIf=\"data.from == 'public'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPublicDocument()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-area-basic/profile-area-basic.component.html":
 /*!****************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-area-basic/profile-area-basic.component.html ***!
@@ -23,6 +36,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-area\">\n    \n\n    <mat-drawer-container>\n\n        <mat-drawer [mode]=\"drawerMode\"\n                    [opened]=\"drawerOpened\"\n                    #ProfileDrawer>\n\n            <!-- Mailbox sidebar -->\n            <profile-sidebar></profile-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <div class=\"navs\">\n                <div>\n                    <button mat-icon-button\n                        (click)=\"toggleSideBar()\">\n                    <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                    </button>\n                </div>\n                <div class=\"ml-auto\" *ngIf=\"isProfile\">\n                    <button mat-icon-button\n                        (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <router-outlet></router-outlet>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-document/profile-document.component.html":
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-document/profile-document.component.html ***!
+  \************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"my-documents-wrapper p-5\">\n     <!-- Loader -->\n     <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n     <!-- My Documents Header -->\n     <div class=\"d-flex mb-4\">\n         <div>\n             <h4>My Documents</h4>\n             <p class=\"text-secondary\">{{totalItems}} Items</p>\n         </div>\n         <div class=\"ml-auto d-none d-md-block mr-3\">\n             <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"documentSearch\">\n         </div>\n         <div>\n             <button mat-flat-button [color]=\"'primary'\" (click)=\"openUploadModal()\">Upload Documents</button>\n         </div>\n     </div>\n     <!-- Documents List -->\n     <div *ngIf=\"isDataLoaded\">\n         <div class=\"bg-card shadow\" *ngFor=\"let data of documentViewList\">\n             <form>\n                 <div class=\"row\">\n                     <div class=\"col-sm-4\">\n                         <div class=\"input-box\">\n                             <label>Document Name</label>\n                             <p>{{data.userDocumentName}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-4\">\n                         <div class=\"input-box\">\n                             <label>Document Category</label>\n                             <p>{{data.userDocumentCatName}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-4\">\n                         <div class=\"input-box\">\n                             <label>Inserted On</label>\n                             <p>{{getDateFormat(data.insertedOn)}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-12\">\n                         <div class=\"input-box\">\n                             <label>Description</label>\n                             <p>{{data.userDocDesc}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-12\">\n                         <div class=\"input-box\">\n                             <label>Document</label>\n                             <p #url>\n                                 <a *ngIf=\"data.fileUrl\" [href]=\"data.fileUrl\" target=\"_blank\">{{data.fileName}}</a>\n                                 <a href=\"javascript:void(0)\" *ngIf=\"!data.fileUrl\" (click)=\"downloadFile(data,url)\">{{data.fileName}}</a>\n                             </p>\n                         </div>\n                     </div>\n                 </div>\n             </form>\n         </div>\n     </div>\n</div>");
 
 /***/ }),
 
@@ -393,6 +419,159 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.scss":
+/*!******************************************************************************************************!*\
+  !*** ./src/app/modules/ams/documents/document-config/document-create/document-create.component.scss ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RvY3VtZW50cy9kb2N1bWVudC1jb25maWcvZG9jdW1lbnQtY3JlYXRlL2RvY3VtZW50LWNyZWF0ZS5jb21wb25lbnQuc2NzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts ***!
+  \****************************************************************************************************/
+/*! exports provided: DocumentCreateComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocumentCreateComponent", function() { return DocumentCreateComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+
+
+
+
+
+
+
+let DocumentCreateComponent = class DocumentCreateComponent {
+    constructor(documentService, sharedService, sessionService, lookupService, dialogRef, data) {
+        this.documentService = documentService;
+        this.sharedService = sharedService;
+        this.sessionService = sessionService;
+        this.lookupService = lookupService;
+        this.dialogRef = dialogRef;
+        this.data = data;
+        this.document = {};
+        this.documentCategoryList = [];
+    }
+    setDocCategory(event) {
+        this.document.userDocumentCategoryId = event[0].lookupValueId;
+    }
+    getFileIds(event) {
+        this.document.fileDetailsIds = event.join();
+    }
+    createPrivateDocument() {
+        let uploadDetails = {
+            "ApartmentId": this.sessionService.apartmentId,
+            "ApartmentBlockUnitId": this.data.apartmentBlockUnitId,
+            "UserDocumentCategoryId": this.document.userDocumentCategoryId,
+            "UserDocumentTypeId": 1,
+            "UserDocumentAccessibleToId": 1,
+            "UserDocumentName": this.document.userDocumentName,
+            "Description": this.document.description,
+            "IsActive": true,
+            "InsertedBy": this.sessionService.userId,
+            "InsertedOn": new Date().toISOString(),
+            "UpdatedBy": null,
+            "UpdatedOn": null,
+            "FileDetailsId": null,
+            "IsPublic": false,
+            "files": null,
+            "FileDetailsIds": this.document.fileDetailsIds,
+        };
+        this.documentService.addUserDocument(uploadDetails).subscribe((res) => {
+            if (res.message) {
+                this.dialogRef.close(true);
+                this.sharedService.openSnackBar('Document Created Successfully', 'success');
+            }
+            else {
+                this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+            }
+        }, error => {
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    createPublicDocument() {
+        let params = {
+            document: {
+                "apartmentId": this.sessionService.apartmentId,
+                "documentCategoryId": this.data.userDocumentCategoryId,
+                "documentTypeId": 1,
+                "documentAccessibleToId": 1,
+                "documentName": this.document.userDocumentName,
+                "description": this.document.description,
+                "fileDetailsId": this.document.fileDetailsId,
+                "uploadedBy": this.sessionService.userId,
+                "uploadedOn": new Date().toISOString(),
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "files": null
+            }
+        };
+        this.documentService.addDocument(params).subscribe((res) => {
+            if (res.message) {
+                this.dialogRef.close(true);
+                this.sharedService.openSnackBar('Document Created Successfully', 'success');
+            }
+            else {
+                this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+            }
+        }, error => {
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    ngOnInit() {
+        if (this.data.from == 'private') {
+            let params = {
+                LookupTypeId: 200
+            };
+            this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
+                this.documentCategoryList = res;
+            });
+        }
+    }
+};
+DocumentCreateComponent.ctorParameters = () => [
+    { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_2__["DocumentService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MAT_DIALOG_DATA"],] }] }
+];
+DocumentCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-document-create',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./document-create.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/document-create/document-create.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./document-create.component.scss */ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_2__["DocumentService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"], Object])
+], DocumentCreateComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/modules/profile/profile-area-basic/profile-area-basic.component.scss":
 /*!**************************************************************************************!*\
   !*** ./src/app/modules/profile/profile-area-basic/profile-area-basic.component.scss ***!
@@ -660,6 +839,12 @@ const userFolders = [
         title: 'Out of Condo/Prolonged Absence',
         slug: 'absence',
         icon: 'heroicons_solid:logout'
+    },
+    {
+        id: 'b2d1e4e7-7cfd-4b51-ae59-217a093df754',
+        title: 'Documents',
+        slug: 'document',
+        icon: 'dripicons:folder-open'
     }
 ];
 const amsFolders = [
@@ -716,6 +901,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./profile-user-absence/profile-user-absence.component */ "./src/app/modules/profile/profile-user-absence/profile-user-absence.component.ts");
 /* harmony import */ var _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./property-manager/property-manager-create/property-manager-create.component */ "./src/app/modules/profile/property-manager/property-manager-create/property-manager-create.component.ts");
 /* harmony import */ var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./profile-timezone/profile-timezone.component */ "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
+/* harmony import */ var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./profile-document/profile-document.component */ "./src/app/modules/profile/profile-document/profile-document.component.ts");
+
 
 
 
@@ -749,6 +936,7 @@ const routes = [
             { path: 'lease', component: _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_12__["ProfileLeaseInfoComponent"] },
             { path: 'interest', component: _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_13__["ProfileInterestGroupComponent"] },
             { path: 'absence', component: _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_14__["ProfileUserAbsenceComponent"] },
+            { path: 'document', component: _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__["ProfileDocumentComponent"] },
             { path: 'timezone', component: _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__["ProfileTimezoneComponent"] },
             { path: '**', redirectTo: 'basic', pathMatch: 'full' },
             { path: 'basic/:id', component: _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_4__["ProfileAreaBasicComponent"] },
@@ -930,6 +1118,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./profile-user-absence-history/profile-user-absence-history.component */ "./src/app/modules/profile/profile-user-absence-history/profile-user-absence-history.component.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 /* harmony import */ var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./profile-timezone/profile-timezone.component */ "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
+/* harmony import */ var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./profile-document/profile-document.component */ "./src/app/modules/profile/profile-document/profile-document.component.ts");
+
 
 
 
@@ -990,7 +1180,8 @@ ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_29__["ProfileUserAbsenceComponent"],
             _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_30__["PropertyManagerCreateComponent"],
             _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_31__["ProfileUserAbsenceHistoryComponent"],
-            _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__["ProfileTimezoneComponent"]
+            _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__["ProfileTimezoneComponent"],
+            _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_34__["ProfileDocumentComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -1008,6 +1199,147 @@ ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         bootstrap: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"]]
     })
 ], ProfileAreaModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/profile/profile-document/profile-document.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/modules/profile/profile-document/profile-document.component.scss ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLWRvY3VtZW50L3Byb2ZpbGUtZG9jdW1lbnQuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/modules/profile/profile-document/profile-document.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/modules/profile/profile-document/profile-document.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: ProfileDocumentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileDocumentComponent", function() { return ProfileDocumentComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_modules_ams_documents_document_config_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ams/documents/document-config/document-create/document-create.component */ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+
+
+
+
+
+
+
+
+
+let ProfileDocumentComponent = class ProfileDocumentComponent {
+    constructor(_activatedRoute, sessionService, documentService, fileDownloadService, sanitizer, dialog, changeDetection) {
+        this._activatedRoute = _activatedRoute;
+        this.sessionService = sessionService;
+        this.documentService = documentService;
+        this.fileDownloadService = fileDownloadService;
+        this.sanitizer = sanitizer;
+        this.dialog = dialog;
+        this.changeDetection = changeDetection;
+        this.documentViewList = [];
+    }
+    getDateFormat(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format('ddd MMM D YYYY hh:mm A');
+    }
+    get isAdmin() {
+        return this.sessionService.isAdmin();
+    }
+    openUploadModal() {
+        const dialogRef = this.dialog.open(src_app_modules_ams_documents_document_config_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_8__["DocumentCreateComponent"], {
+            panelClass: 'material-dialog-medium',
+            data: { from: 'private', apartmentBlockUnitId: this.apartmentBlockUnitId }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+                this.getDocumetList(this.apartmentBlockUnitId);
+            }
+        });
+    }
+    downloadFile(data, url) {
+        if (data.filePath && !data.fileUrl) {
+            this.fileDownloadService.downloadFile(data.filePath).subscribe((down) => {
+                const blob = down.body;
+                let objectURL, sanitizeUrl, trigger;
+                objectURL = URL.createObjectURL(blob);
+                sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+                data.fileUrl = sanitizeUrl;
+                this.changeDetection.detectChanges();
+                trigger = url.firstElementChild;
+                trigger.click();
+            });
+        }
+    }
+    getDocumetList(unitId) {
+        this.isDataLoaded = false;
+        let params = {
+            ApartmentBlockUnitId: unitId,
+            ApartmentId: this.sessionService.apartmentId
+        };
+        this.documentService.getAllDocByApartmentBlockUnitId(params).subscribe((res) => {
+            this.isDataLoaded = true;
+            if (res.length > 0) {
+                this.documentViewList = res;
+            }
+            this.totalItems = res.length;
+        });
+    }
+    ngOnInit() {
+        if (!this.isAdmin) {
+            this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+            this.getDocumetList(this.apartmentBlockUnitId);
+        }
+        this._activatedRoute.queryParams.subscribe(params => {
+            if (params && params.unitId) {
+                this.apartmentBlockUnitId = Number(params.unitId);
+                this.getDocumetList(this.apartmentBlockUnitId);
+            }
+        });
+    }
+};
+ProfileDocumentComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
+    { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"] },
+    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+];
+ProfileDocumentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile-document',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile-document.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-document/profile-document.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-document.component.scss */ "./src/app/modules/profile/profile-document/profile-document.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
+        src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"],
+        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+], ProfileDocumentComponent);
 
 
 

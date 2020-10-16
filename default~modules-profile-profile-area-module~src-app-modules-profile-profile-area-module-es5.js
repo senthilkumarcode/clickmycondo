@@ -19,6 +19,26 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module"], {
     /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/document-create/document-create.component.html":
+    /*!********************************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/document-create/document-create.component.html ***!
+      \********************************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesAmsDocumentsDocumentConfigDocumentCreateDocumentCreateComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"document-create-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4> Upload Documents</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Document Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"documentName\" [(ngModel)]=\"document.userDocumentName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-12\" *ngIf=\"data.from == 'private'\">\n                    <condo-select \n                        labelText=\"Document Category\"\n                        fieldPlaceholder=\"Document Category\"\n                        [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                        fieldValue=\"lookupValueName\"\n                        [fieldModel]=\"document.userDocumentCategoryId\"\n                        fieldId=\"lookupValueId\"\n                        (fieldParams)=\"setDocCategory($event)\" \n                    ></condo-select>  \n                </div>\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <textarea placeholder=\"Enter Description\" name=\"description\" [(ngModel)]=\"document.description\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <app-upload [fileIds]=\"document.fileDetailsIds\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"\n                        [multiple]=\"true\"\n                    ></app-upload>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button  *ngIf=\"data.from == 'private'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPrivateDocument()\">Submit</button>\n                    <button  *ngIf=\"data.from == 'public'\" class=\"float-right mt-4\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPublicDocument()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>";
+      /***/
+    },
+
+    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-area-basic/profile-area-basic.component.html":
     /*!****************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-area-basic/profile-area-basic.component.html ***!
@@ -55,6 +75,26 @@
 
 
       __webpack_exports__["default"] = "<div class=\"profile-area\">\n    \n\n    <mat-drawer-container>\n\n        <mat-drawer [mode]=\"drawerMode\"\n                    [opened]=\"drawerOpened\"\n                    #ProfileDrawer>\n\n            <!-- Mailbox sidebar -->\n            <profile-sidebar></profile-sidebar>\n\n        </mat-drawer>\n\n        <mat-drawer-content>\n\n            <div class=\"navs\">\n                <div>\n                    <button mat-icon-button\n                        (click)=\"toggleSideBar()\">\n                    <mat-icon [svgIcon]=\"'menu'\"></mat-icon>\n                    </button>\n                </div>\n                <div class=\"ml-auto\" *ngIf=\"isProfile\">\n                    <button mat-icon-button\n                        (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n\n            <!-- Main -->\n            <div class=\"main\">\n\n                <router-outlet></router-outlet>\n\n            </div>\n\n        </mat-drawer-content>\n\n    </mat-drawer-container>\n\n</div>";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-document/profile-document.component.html":
+    /*!************************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-document/profile-document.component.html ***!
+      \************************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesProfileProfileDocumentProfileDocumentComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"my-documents-wrapper p-5\">\n     <!-- Loader -->\n     <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n     <!-- My Documents Header -->\n     <div class=\"d-flex mb-4\">\n         <div>\n             <h4>My Documents</h4>\n             <p class=\"text-secondary\">{{totalItems}} Items</p>\n         </div>\n         <div class=\"ml-auto d-none d-md-block mr-3\">\n             <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"documentSearch\">\n         </div>\n         <div>\n             <button mat-flat-button [color]=\"'primary'\" (click)=\"openUploadModal()\">Upload Documents</button>\n         </div>\n     </div>\n     <!-- Documents List -->\n     <div *ngIf=\"isDataLoaded\">\n         <div class=\"bg-card shadow\" *ngFor=\"let data of documentViewList\">\n             <form>\n                 <div class=\"row\">\n                     <div class=\"col-sm-4\">\n                         <div class=\"input-box\">\n                             <label>Document Name</label>\n                             <p>{{data.userDocumentName}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-4\">\n                         <div class=\"input-box\">\n                             <label>Document Category</label>\n                             <p>{{data.userDocumentCatName}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-4\">\n                         <div class=\"input-box\">\n                             <label>Inserted On</label>\n                             <p>{{getDateFormat(data.insertedOn)}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-12\">\n                         <div class=\"input-box\">\n                             <label>Description</label>\n                             <p>{{data.userDocDesc}}</p>\n                         </div>\n                     </div>\n                     <div class=\"col-sm-12\">\n                         <div class=\"input-box\">\n                             <label>Document</label>\n                             <p #url>\n                                 <a *ngIf=\"data.fileUrl\" [href]=\"data.fileUrl\" target=\"_blank\">{{data.fileName}}</a>\n                                 <a href=\"javascript:void(0)\" *ngIf=\"!data.fileUrl\" (click)=\"downloadFile(data,url)\">{{data.fileName}}</a>\n                             </p>\n                         </div>\n                     </div>\n                 </div>\n             </form>\n         </div>\n     </div>\n</div>";
       /***/
     },
 
@@ -644,6 +684,234 @@
     },
 
     /***/
+    "./src/app/modules/ams/documents/document-config/document-create/document-create.component.scss":
+    /*!******************************************************************************************************!*\
+      !*** ./src/app/modules/ams/documents/document-config/document-create/document-create.component.scss ***!
+      \******************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesAmsDocumentsDocumentConfigDocumentCreateDocumentCreateComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL2RvY3VtZW50cy9kb2N1bWVudC1jb25maWcvZG9jdW1lbnQtY3JlYXRlL2RvY3VtZW50LWNyZWF0ZS5jb21wb25lbnQuc2NzcyJ9 */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts":
+    /*!****************************************************************************************************!*\
+      !*** ./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts ***!
+      \****************************************************************************************************/
+
+    /*! exports provided: DocumentCreateComponent */
+
+    /***/
+    function srcAppModulesAmsDocumentsDocumentConfigDocumentCreateDocumentCreateComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DocumentCreateComponent", function () {
+        return DocumentCreateComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/api/controllers/Document */
+      "./src/app/api/controllers/Document.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
+
+      var DocumentCreateComponent = /*#__PURE__*/function () {
+        function DocumentCreateComponent(documentService, sharedService, sessionService, lookupService, dialogRef, data) {
+          _classCallCheck(this, DocumentCreateComponent);
+
+          this.documentService = documentService;
+          this.sharedService = sharedService;
+          this.sessionService = sessionService;
+          this.lookupService = lookupService;
+          this.dialogRef = dialogRef;
+          this.data = data;
+          this.document = {};
+          this.documentCategoryList = [];
+        }
+
+        _createClass(DocumentCreateComponent, [{
+          key: "setDocCategory",
+          value: function setDocCategory(event) {
+            this.document.userDocumentCategoryId = event[0].lookupValueId;
+          }
+        }, {
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            this.document.fileDetailsIds = event.join();
+          }
+        }, {
+          key: "createPrivateDocument",
+          value: function createPrivateDocument() {
+            var _this = this;
+
+            var uploadDetails = {
+              "ApartmentId": this.sessionService.apartmentId,
+              "ApartmentBlockUnitId": this.data.apartmentBlockUnitId,
+              "UserDocumentCategoryId": this.document.userDocumentCategoryId,
+              "UserDocumentTypeId": 1,
+              "UserDocumentAccessibleToId": 1,
+              "UserDocumentName": this.document.userDocumentName,
+              "Description": this.document.description,
+              "IsActive": true,
+              "InsertedBy": this.sessionService.userId,
+              "InsertedOn": new Date().toISOString(),
+              "UpdatedBy": null,
+              "UpdatedOn": null,
+              "FileDetailsId": null,
+              "IsPublic": false,
+              "files": null,
+              "FileDetailsIds": this.document.fileDetailsIds
+            };
+            this.documentService.addUserDocument(uploadDetails).subscribe(function (res) {
+              if (res.message) {
+                _this.dialogRef.close(true);
+
+                _this.sharedService.openSnackBar('Document Created Successfully', 'success');
+              } else {
+                _this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "createPublicDocument",
+          value: function createPublicDocument() {
+            var _this2 = this;
+
+            var params = {
+              document: {
+                "apartmentId": this.sessionService.apartmentId,
+                "documentCategoryId": this.data.userDocumentCategoryId,
+                "documentTypeId": 1,
+                "documentAccessibleToId": 1,
+                "documentName": this.document.userDocumentName,
+                "description": this.document.description,
+                "fileDetailsId": this.document.fileDetailsId,
+                "uploadedBy": this.sessionService.userId,
+                "uploadedOn": new Date().toISOString(),
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": new Date().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "files": null
+              }
+            };
+            this.documentService.addDocument(params).subscribe(function (res) {
+              if (res.message) {
+                _this2.dialogRef.close(true);
+
+                _this2.sharedService.openSnackBar('Document Created Successfully', 'success');
+              } else {
+                _this2.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this2.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this3 = this;
+
+            if (this.data.from == 'private') {
+              var params = {
+                LookupTypeId: 200
+              };
+              this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
+                _this3.documentCategoryList = res;
+              });
+            }
+          }
+        }]);
+
+        return DocumentCreateComponent;
+      }();
+
+      DocumentCreateComponent.ctorParameters = function () {
+        return [{
+          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_2__["DocumentService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"]
+        }, {
+          type: undefined,
+          decorators: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"],
+            args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MAT_DIALOG_DATA"]]
+          }]
+        }];
+      };
+
+      DocumentCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-document-create',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./document-create.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/document-create/document-create.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./document-create.component.scss */
+        "./src/app/modules/ams/documents/document-config/document-create/document-create.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_2__["DocumentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"], Object])], DocumentCreateComponent);
+      /***/
+    },
+
+    /***/
     "./src/app/modules/profile/profile-area-basic/profile-area-basic.component.scss":
     /*!**************************************************************************************!*\
       !*** ./src/app/modules/profile/profile-area-basic/profile-area-basic.component.scss ***!
@@ -780,7 +1048,7 @@
         }, {
           key: "activateBlock",
           value: function activateBlock() {
-            var _this = this;
+            var _this4 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -789,23 +1057,23 @@
               deleteBy: this.sessionService.userId
             };
             this.apartmentService.activateBlockUnitUser(params).subscribe(function (res) {
-              _this.isDataLoaded = true;
+              _this4.isDataLoaded = true;
 
               if (res.message) {
-                _this.sharedService.openSnackBar(res.message, 'success');
+                _this4.sharedService.openSnackBar(res.message, 'success');
               } else {
-                _this.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this4.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this.isDataLoaded = true;
+              _this4.isDataLoaded = true;
 
-              _this.sharedService.openSnackBar("Server Error", 'error');
+              _this4.sharedService.openSnackBar("Server Error", 'error');
             });
           }
         }, {
           key: "deActivateBlock",
           value: function deActivateBlock() {
-            var _this2 = this;
+            var _this5 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -814,23 +1082,23 @@
               deleteBy: this.sessionService.userId
             };
             this.apartmentService.deActivateBlockUnitUser(params).subscribe(function (res) {
-              _this2.isDataLoaded = true;
+              _this5.isDataLoaded = true;
 
               if (res.message) {
-                _this2.sharedService.openSnackBar(res.message, 'success');
+                _this5.sharedService.openSnackBar(res.message, 'success');
               } else {
-                _this2.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this5.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this2.isDataLoaded = true;
+              _this5.isDataLoaded = true;
 
-              _this2.sharedService.openSnackBar("Server Error", 'error');
+              _this5.sharedService.openSnackBar("Server Error", 'error');
             });
           }
         }, {
           key: "submitProfileBasicForm",
           value: function submitProfileBasicForm(form) {
-            var _this3 = this;
+            var _this6 = this;
 
             if (!this.IsValidEmail(this.user.emailId)) return true;
             this.isDataLoaded = false;
@@ -842,40 +1110,40 @@
             };
             this.userService.updateUser(params).subscribe(function (res) {
               if (res.message) {
-                _this3.sharedService.openSnackBar("User updated successfully", 'success');
+                _this6.sharedService.openSnackBar("User updated successfully", 'success');
 
-                _this3.isDataLoaded = true;
-                _this3.isEdit = false;
+                _this6.isDataLoaded = true;
+                _this6.isEdit = false;
               } else {
-                _this3.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this6.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this3.isDataLoaded = true;
+              _this6.isDataLoaded = true;
             }, function (error) {
-              _this3.isDataLoaded = true;
+              _this6.isDataLoaded = true;
 
-              _this3.sharedService.openSnackBar("Server Error", 'error');
+              _this6.sharedService.openSnackBar("Server Error", 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this4 = this;
+            var _this7 = this;
 
             this.user = {}; // Show Radio Button
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.type && params.unituserid) {
-                _this4.isProfile = true;
-                _this4.apartmentBlockUnitUserId = Number(params['unituserid']);
+                _this7.isProfile = true;
+                _this7.apartmentBlockUnitUserId = Number(params['unituserid']);
                 var userparams = {
-                  apartmentId: _this4.sessionService.apartmentId,
-                  apartmentBlockUnitUserId: _this4.apartmentBlockUnitUserId
+                  apartmentId: _this7.sessionService.apartmentId,
+                  apartmentBlockUnitUserId: _this7.apartmentBlockUnitUserId
                 };
 
-                _this4.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
-                  if (res.length > 0) _this4.isActivate = res[0].isActive;else {
-                    _this4.isActivate = false;
+                _this7.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
+                  if (res.length > 0) _this7.isActivate = res[0].isActive;else {
+                    _this7.isActivate = false;
                   }
                 });
               }
@@ -883,12 +1151,12 @@
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this4.user = data.initialData.profileUser;
-              _this4.user.phoneNumber = {
-                'number': _this4.user.phoneNumber,
-                'countryCode': _this4.user.phonecountrycode
+              _this7.user = data.initialData.profileUser;
+              _this7.user.phoneNumber = {
+                'number': _this7.user.phoneNumber,
+                'countryCode': _this7.user.phonecountrycode
               };
-              _this4.isDataLoaded = true;
+              _this7.isDataLoaded = true;
             }); //Blood Group
 
 
@@ -896,7 +1164,7 @@
               LookupTypeId: 24
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this4.bloodGroupData = res;
+              _this7.bloodGroupData = res;
             });
           }
         }, {
@@ -1014,6 +1282,11 @@
         title: 'Out of Condo/Prolonged Absence',
         slug: 'absence',
         icon: 'heroicons_solid:logout'
+      }, {
+        id: 'b2d1e4e7-7cfd-4b51-ae59-217a093df754',
+        title: 'Documents',
+        slug: 'document',
+        icon: 'dripicons:folder-open'
       }];
       var amsFolders = [{
         id: '7c004a19-4506-48ef-93ab-f16381302e3b',
@@ -1162,6 +1435,12 @@
       var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./profile-timezone/profile-timezone.component */
       "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
+      /* harmony import */
+
+
+      var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      /*! ./profile-document/profile-document.component */
+      "./src/app/modules/profile/profile-document/profile-document.component.ts");
 
       var routes = [{
         path: '',
@@ -1206,6 +1485,9 @@
         }, {
           path: 'absence',
           component: _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_14__["ProfileUserAbsenceComponent"]
+        }, {
+          path: 'document',
+          component: _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_17__["ProfileDocumentComponent"]
         }, {
           path: 'timezone',
           component: _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_16__["ProfileTimezoneComponent"]
@@ -1348,13 +1630,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this8 = this;
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['type'] != undefined) {
-                _this5.isProfile = true;
+                _this8.isProfile = true;
               } else {
-                _this5.isProfile = false;
+                _this8.isProfile = false;
               }
             }); // Subscribe to media changes
 
@@ -1364,11 +1646,11 @@
 
               // Set the drawerMode and drawerOpened if the given breakpoint is active
               if (matchingAliases.includes('lt-lg')) {
-                _this5.drawerMode = 'over';
-                _this5.drawerOpened = false;
+                _this8.drawerMode = 'over';
+                _this8.drawerOpened = false;
               } else {
-                _this5.drawerMode = 'side';
-                _this5.drawerOpened = true;
+                _this8.drawerMode = 'side';
+                _this8.drawerOpened = true;
               }
             });
           }
@@ -1639,16 +1921,261 @@
       var _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(
       /*! ./profile-timezone/profile-timezone.component */
       "./src/app/modules/profile/profile-timezone/profile-timezone.component.ts");
+      /* harmony import */
+
+
+      var _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(
+      /*! ./profile-document/profile-document.component */
+      "./src/app/modules/profile/profile-document/profile-document.component.ts");
 
       var ProfileAreaModule = function ProfileAreaModule() {
         _classCallCheck(this, ProfileAreaModule);
       };
 
       ProfileAreaModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_15__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_17__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_19__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_21__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_23__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_24__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_26__["ProfileLeaseInfoComponent"], _create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_27__["CreateLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_28__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_29__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_30__["PropertyManagerCreateComponent"], _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_31__["ProfileUserAbsenceHistoryComponent"], _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__["ProfileTimezoneComponent"]],
+        declarations: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"], _profile_area_basic_profile_area_basic_component__WEBPACK_IMPORTED_MODULE_13__["ProfileAreaBasicComponent"], _profile_sidebar_profile_sidebar_component__WEBPACK_IMPORTED_MODULE_14__["ProfileSidebarComponent"], _profile_pic_profile_pic_component__WEBPACK_IMPORTED_MODULE_15__["ProfilePicComponent"], _profile_password_profile_password_component__WEBPACK_IMPORTED_MODULE_16__["ProfilePasswordComponent"], _profile_vehicles_profile_vehicles_component__WEBPACK_IMPORTED_MODULE_17__["ProfileVehiclesComponent"], _profile_vehicle_details_profile_vehicle_details_component__WEBPACK_IMPORTED_MODULE_18__["ProfileVehicleDetailsComponent"], _profile_family_members_profile_family_members_component__WEBPACK_IMPORTED_MODULE_19__["ProfileFamilyMembersComponent"], _profile_family_members_details_profile_family_members_details_component__WEBPACK_IMPORTED_MODULE_20__["ProfileFamilyMembersDetailsComponent"], _profile_pet_profile_pet_component__WEBPACK_IMPORTED_MODULE_21__["ProfilePetComponent"], _profile_pet_details_profile_pet_details_component__WEBPACK_IMPORTED_MODULE_22__["ProfilePetDetailsComponent"], _property_manager_property_manager_component__WEBPACK_IMPORTED_MODULE_23__["PropertyManagerComponent"], _profile_unit_details_profile_unit_details_component__WEBPACK_IMPORTED_MODULE_24__["ProfileUnitDetailsComponent"], _profile_unit_staffs_profile_unit_staffs_component__WEBPACK_IMPORTED_MODULE_25__["ProfileUnitStaffsComponent"], _profile_lease_info_profile_lease_info_component__WEBPACK_IMPORTED_MODULE_26__["ProfileLeaseInfoComponent"], _create_lease_info_create_lease_info_component__WEBPACK_IMPORTED_MODULE_27__["CreateLeaseInfoComponent"], _profile_interest_group_profile_interest_group_component__WEBPACK_IMPORTED_MODULE_28__["ProfileInterestGroupComponent"], _profile_user_absence_profile_user_absence_component__WEBPACK_IMPORTED_MODULE_29__["ProfileUserAbsenceComponent"], _property_manager_property_manager_create_property_manager_create_component__WEBPACK_IMPORTED_MODULE_30__["PropertyManagerCreateComponent"], _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_31__["ProfileUserAbsenceHistoryComponent"], _profile_timezone_profile_timezone_component__WEBPACK_IMPORTED_MODULE_33__["ProfileTimezoneComponent"], _profile_document_profile_document_component__WEBPACK_IMPORTED_MODULE_34__["ProfileDocumentComponent"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]), _profile_area_routing_module__WEBPACK_IMPORTED_MODULE_5__["ProfileAreaRoutingModule"], src_condo_pipes_find_by_key__WEBPACK_IMPORTED_MODULE_6__["CondoFindByKeyPipeModule"], src_app_layout_regulars_regulars_module__WEBPACK_IMPORTED_MODULE_7__["RegularsModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_11__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_9__["SelectModule"], src_condo_directives_scrollbar__WEBPACK_IMPORTED_MODULE_10__["CondoScrollbarModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_32__["NgxIntlTelInputModule"]],
         bootstrap: [_profile_area_component__WEBPACK_IMPORTED_MODULE_12__["ProfileAreaComponent"]]
       })], ProfileAreaModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-document/profile-document.component.scss":
+    /*!**********************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-document/profile-document.component.scss ***!
+      \**********************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesProfileProfileDocumentProfileDocumentComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvcHJvZmlsZS9wcm9maWxlLWRvY3VtZW50L3Byb2ZpbGUtZG9jdW1lbnQuY29tcG9uZW50LnNjc3MifQ== */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/profile/profile-document/profile-document.component.ts":
+    /*!********************************************************************************!*\
+      !*** ./src/app/modules/profile/profile-document/profile-document.component.ts ***!
+      \********************************************************************************/
+
+    /*! exports provided: ProfileDocumentComponent */
+
+    /***/
+    function srcAppModulesProfileProfileDocumentProfileDocumentComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "ProfileDocumentComponent", function () {
+        return ProfileDocumentComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/api/controllers/Document */
+      "./src/app/api/controllers/Document.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/file-download.service */
+      "./src/app/shared/services/file-download.service.ts");
+      /* harmony import */
+
+
+      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/platform-browser */
+      "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var src_app_modules_ams_documents_document_config_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/modules/ams/documents/document-config/document-create/document-create.component */
+      "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+
+      var ProfileDocumentComponent = /*#__PURE__*/function () {
+        function ProfileDocumentComponent(_activatedRoute, sessionService, documentService, fileDownloadService, sanitizer, dialog, changeDetection) {
+          _classCallCheck(this, ProfileDocumentComponent);
+
+          this._activatedRoute = _activatedRoute;
+          this.sessionService = sessionService;
+          this.documentService = documentService;
+          this.fileDownloadService = fileDownloadService;
+          this.sanitizer = sanitizer;
+          this.dialog = dialog;
+          this.changeDetection = changeDetection;
+          this.documentViewList = [];
+        }
+
+        _createClass(ProfileDocumentComponent, [{
+          key: "getDateFormat",
+          value: function getDateFormat(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format('ddd MMM D YYYY hh:mm A');
+          }
+        }, {
+          key: "openUploadModal",
+          value: function openUploadModal() {
+            var _this9 = this;
+
+            var dialogRef = this.dialog.open(src_app_modules_ams_documents_document_config_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_8__["DocumentCreateComponent"], {
+              panelClass: 'material-dialog-medium',
+              data: {
+                from: 'private',
+                apartmentBlockUnitId: this.apartmentBlockUnitId
+              }
+            });
+            dialogRef.afterClosed().subscribe(function (result) {
+              if (result) {
+                _this9.getDocumetList(_this9.apartmentBlockUnitId);
+              }
+            });
+          }
+        }, {
+          key: "downloadFile",
+          value: function downloadFile(data, url) {
+            var _this10 = this;
+
+            if (data.filePath && !data.fileUrl) {
+              this.fileDownloadService.downloadFile(data.filePath).subscribe(function (down) {
+                var blob = down.body;
+                var objectURL, sanitizeUrl, trigger;
+                objectURL = URL.createObjectURL(blob);
+                sanitizeUrl = _this10.sanitizer.bypassSecurityTrustUrl(objectURL);
+                data.fileUrl = sanitizeUrl;
+
+                _this10.changeDetection.detectChanges();
+
+                trigger = url.firstElementChild;
+                trigger.click();
+              });
+            }
+          }
+        }, {
+          key: "getDocumetList",
+          value: function getDocumetList(unitId) {
+            var _this11 = this;
+
+            this.isDataLoaded = false;
+            var params = {
+              ApartmentBlockUnitId: unitId,
+              ApartmentId: this.sessionService.apartmentId
+            };
+            this.documentService.getAllDocByApartmentBlockUnitId(params).subscribe(function (res) {
+              _this11.isDataLoaded = true;
+
+              if (res.length > 0) {
+                _this11.documentViewList = res;
+              }
+
+              _this11.totalItems = res.length;
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this12 = this;
+
+            if (!this.isAdmin) {
+              this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
+              this.getDocumetList(this.apartmentBlockUnitId);
+            }
+
+            this._activatedRoute.queryParams.subscribe(function (params) {
+              if (params && params.unitId) {
+                _this12.apartmentBlockUnitId = Number(params.unitId);
+
+                _this12.getDocumetList(_this12.apartmentBlockUnitId);
+              }
+            });
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
+          }
+        }]);
+
+        return ProfileDocumentComponent;
+      }();
+
+      ProfileDocumentComponent.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"]
+        }, {
+          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"]
+        }, {
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }];
+      };
+
+      ProfileDocumentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile-document',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./profile-document.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/profile-document/profile-document.component.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./profile-document.component.scss */
+        "./src/app/modules/profile/profile-document/profile-document.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_3__["DocumentService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], ProfileDocumentComponent);
       /***/
     },
 
@@ -1801,7 +2328,7 @@
         }, {
           key: "deleteMember",
           value: function deleteMember() {
-            var _this6 = this;
+            var _this13 = this;
 
             var params = {
               userFamilyMemberId: parseInt(this.userFormData.userFamilyMemberId),
@@ -1809,20 +2336,20 @@
             };
             this.userService.deleteUserFamilyMember(params).subscribe(function (res) {
               if (res.message) {
-                _this6.isDataLoaded = true;
+                _this13.isDataLoaded = true;
 
-                _this6.sharedService.openSnackBar("Member deleted", 'success');
+                _this13.sharedService.openSnackBar("Member deleted", 'success');
 
-                _this6.outputParams.emit(true);
+                _this13.outputParams.emit(true);
               } else {
-                _this6.isDataLoaded = true;
+                _this13.isDataLoaded = true;
               }
             });
           }
         }, {
           key: "submitProfileFamilyForm",
           value: function submitProfileFamilyForm(form) {
-            var _this7 = this;
+            var _this14 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -1849,19 +2376,19 @@
                 userFamilyMember: details
               };
               this.userService.addUserFamilyMember(params).subscribe(function (res) {
-                _this7.isDataLoaded = true;
+                _this14.isDataLoaded = true;
 
                 if (res.message) {
-                  _this7.sharedService.openSnackBar("Family Member added successfully", 'success');
+                  _this14.sharedService.openSnackBar("Family Member added successfully", 'success');
 
-                  _this7.userFormData = {};
+                  _this14.userFormData = {};
 
-                  _this7.outputParams.emit(true);
+                  _this14.outputParams.emit(true);
                 } else {
-                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this14.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this7.sharedService.openSnackBar("Server Error", 'error');
+                _this14.sharedService.openSnackBar("Server Error", 'error');
               });
             } else {
               var _details = {
@@ -1889,24 +2416,24 @@
                 userFamilyMember: _details
               };
               this.userService.updateUserFamilyMember(_params).subscribe(function (res) {
-                _this7.isDataLoaded = true;
+                _this14.isDataLoaded = true;
 
                 if (res.message) {
-                  _this7.sharedService.openSnackBar("Family Member updated successfully", 'success');
+                  _this14.sharedService.openSnackBar("Family Member updated successfully", 'success');
 
-                  _this7.outputParams.emit(true);
+                  _this14.outputParams.emit(true);
                 } else {
-                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this14.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this7.sharedService.openSnackBar("Server Error", 'error');
+                _this14.sharedService.openSnackBar("Server Error", 'error');
               });
             }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this15 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitUserId = this.sessionService.apartmentBlockUnitUserId;
@@ -1914,14 +2441,14 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid) {
-                _this8.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this15.apartmentBlockUnitUserId = Number(params.unituserid);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this8.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
+                _this15.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
               }
             });
 
@@ -2108,23 +2635,23 @@
         }, {
           key: "getFamilyList",
           value: function getFamilyList(id) {
-            var _this9 = this;
+            var _this16 = this;
 
             this.isDataLoaded = false;
             var getFamilyMember = {
               apartmentBlockUnitUserId: id
             };
             this.userService.getUserFamilyMembersByUserId(getFamilyMember).subscribe(function (res) {
-              _this9.familyDataList = res;
-              _this9.isDataLoaded = true;
+              _this16.familyDataList = res;
+              _this16.isDataLoaded = true;
             }, function (error) {
-              _this9.sharedService.openSnackBar('Server Error', 'error');
+              _this16.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this17 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -2134,9 +2661,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid) {
-                _this10.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this17.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this10.getFamilyList(_this10.apartmentBlockUnitUserId);
+                _this17.getFamilyList(_this17.apartmentBlockUnitUserId);
               }
             });
 
@@ -2144,12 +2671,12 @@
               LookupTypeId: 24
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this10.bloodGroupList = res;
+              _this17.bloodGroupList = res;
             }); // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this10.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
+                _this17.isUserEdit = data.initialData.userIndicator[0].isUserProfileFamilyMember;
               }
             });
           }
@@ -2297,7 +2824,7 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this11 = this;
+            var _this18 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -2305,59 +2832,59 @@
             this.broadcastService.getAllBroadCastGroupCategories(queryParamBase).subscribe(function (res) {
               var allBroadcastGroupCategory = res; //filter active true items
 
-              _this11.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              _this18.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
                 return data.isActive;
               });
-              _this11.adminInterestGroupCategory = _this11.allBroadcastGroupCategory.filter(function (data) {
+              _this18.adminInterestGroupCategory = _this18.allBroadcastGroupCategory.filter(function (data) {
                 return data.privilege == "Admin";
               });
-              _this11.userInterestGroupCategory = _this11.allBroadcastGroupCategory.filter(function (data) {
+              _this18.userInterestGroupCategory = _this18.allBroadcastGroupCategory.filter(function (data) {
                 return data.privilege.includes("All");
               });
 
-              _this11.getAllGoupUsers();
+              _this18.getAllGoupUsers();
             });
           }
         }, {
           key: "getAllGoupUsers",
           value: function getAllGoupUsers() {
-            var _this12 = this;
+            var _this19 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getBroadCastGroupCategoryUser(queryParamBase).subscribe(function (res) {
-              _this12.interestGroupUsers = res;
-              _this12.assignedInterestGroupUsers = _this12.interestGroupUsers.filter(function (data) {
-                return data.userId == _this12.userId && data.isActive;
+              _this19.interestGroupUsers = res;
+              _this19.assignedInterestGroupUsers = _this19.interestGroupUsers.filter(function (data) {
+                return data.userId == _this19.userId && data.isActive;
               });
-              _this12.assignedInterestGroupsToUser = [];
+              _this19.assignedInterestGroupsToUser = [];
 
-              _this12.assignedInterestGroupUsers.forEach(function (element) {
-                _this12.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
-              });
-
-              _this12.adminInterestGroupCategory.forEach(function (element) {
-                element.IsAssigned = _this12.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+              _this19.assignedInterestGroupUsers.forEach(function (element) {
+                _this19.assignedInterestGroupsToUser.push(element.broadCastGroupCategoryId);
               });
 
-              _this12.userInterestGroupCategory.forEach(function (element) {
-                element.IsAssigned = _this12.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+              _this19.adminInterestGroupCategory.forEach(function (element) {
+                element.IsAssigned = _this19.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
               });
 
-              _this12.isDataLoaded = true;
+              _this19.userInterestGroupCategory.forEach(function (element) {
+                element.IsAssigned = _this19.assignedInterestGroupsToUser.includes(element.broadCastGroupCategoryId);
+              });
+
+              _this19.isDataLoaded = true;
             });
           }
         }, {
           key: "getUserDetails",
           value: function getUserDetails() {
-            var _this13 = this;
+            var _this20 = this;
 
             var queryParamBase = {
               userId: this.userId
             };
             this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
-              _this13.userDetails = res.filter(function (obj) {
+              _this20.userDetails = res.filter(function (obj) {
                 return obj.apartmentId == this.apartmentId && obj.userid == this.userId;
               });
             });
@@ -2365,11 +2892,11 @@
         }, {
           key: "ChangeInterestGroup",
           value: function ChangeInterestGroup(interestGroup) {
-            var _this14 = this;
+            var _this21 = this;
 
             if (interestGroup.IsAssigned) {
               var categoryUser = this.interestGroupUsers.filter(function (obj) {
-                return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId && obj.userId == _this14.userId;
+                return obj.broadCastGroupCategoryId == interestGroup.broadCastGroupCategoryId && obj.userId == _this21.userId;
               });
               this.removeUser(categoryUser[0].broadCastGroupCategoryUserId);
             } else {
@@ -2378,13 +2905,13 @@
               };
               this.apartmentService.getApartmentBlockUnitByUserIdNew(queryParamBase).subscribe(function (res) {
                 var currentAppUserUnits = res.filter(function (obj) {
-                  return obj.apartmentId == _this14.apartmentID;
+                  return obj.apartmentId == _this21.apartmentID;
                 });
 
                 if (currentAppUserUnits != undefined && currentAppUserUnits.length > 0) {
                   var userAppUnit = currentAppUserUnits[0];
 
-                  _this14.insertGroupUser(_this14.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
+                  _this21.insertGroupUser(_this21.userId, userAppUnit.roleId, userAppUnit.apartmentBlockId, userAppUnit.apartmentBlockUnitId, interestGroup.broadCastGroupCategoryId);
                 }
               });
             } // interestGroup.IsAssigned=!interestGroup.IsAssigned;
@@ -2393,22 +2920,22 @@
         }, {
           key: "removeUser",
           value: function removeUser(broadCastGroupCategoryUserId) {
-            var _this15 = this;
+            var _this22 = this;
 
             var params = {
               broadCastGroupCategoryUserId: broadCastGroupCategoryUserId,
               deleteBy: this.userId
             };
             this.broadcastService.deleteBroadCastGroupCategoryUser(params).subscribe(function (res) {
-              _this15.sharedService.setAlertMessage("User has been removed from interest group successfully");
+              _this22.sharedService.setAlertMessage("User has been removed from interest group successfully");
 
-              _this15.getAllGoupUsers();
+              _this22.getAllGoupUsers();
             }); //}
           }
         }, {
           key: "insertGroupUser",
           value: function insertGroupUser(userId, roleId, blockId, unitId, broadCastGroupCategoryId) {
-            var _this16 = this;
+            var _this23 = this;
 
             var broadCastGroupCategoryUser = {
               'broadCastGroupCategoryUserID': 0,
@@ -2430,9 +2957,9 @@
             };
             this.broadcastService.upsertBroadCastGroupCategoryUser(params).subscribe(function (res) {
               if (res.message) {
-                _this16.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
+                _this23.sharedService.setAlertMessage("Interest groups mapping to user(s) added successfully");
 
-                _this16.getAllGoupUsers();
+                _this23.getAllGoupUsers();
               }
             });
           }
@@ -2594,7 +3121,7 @@
         }, {
           key: "createLeaseForm",
           value: function createLeaseForm() {
-            var _this17 = this;
+            var _this24 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -2619,24 +3146,24 @@
             };
             this.rentService.addApartmentBlockUnitRent(AddApartmentBlockUnitRentParams).subscribe(function (res) {
               if (res.message) {
-                _this17.sharedService.openSnackBar("Lease Info added successfully", 'success');
+                _this24.sharedService.openSnackBar("Lease Info added successfully", 'success');
 
-                _this17.getListData();
+                _this24.getListData();
               } else {
-                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this24.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this17.isDataLoaded = true;
+              _this24.isDataLoaded = true;
             }, function (error) {
-              _this17.isDataLoaded = false;
+              _this24.isDataLoaded = false;
 
-              _this17.sharedService.openSnackBar('Server Error', 'error');
+              _this24.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateLeaseForm",
           value: function updateLeaseForm() {
-            var _this18 = this;
+            var _this25 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -2650,24 +3177,24 @@
             };
             this.rentService.updateApartmentBlockUnitRent(params).subscribe(function (res) {
               if (res.message) {
-                _this18.sharedService.openSnackBar("Lease Info Updated successfully", 'success');
+                _this25.sharedService.openSnackBar("Lease Info Updated successfully", 'success');
 
-                _this18.getListData();
+                _this25.getListData();
               } else {
-                _this18.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this25.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this18.isDataLoaded = true;
+              _this25.isDataLoaded = true;
             }, function (error) {
-              _this18.isDataLoaded = false;
+              _this25.isDataLoaded = false;
 
-              _this18.sharedService.openSnackBar('Server Error', 'error');
+              _this25.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getListData",
           value: function getListData() {
-            var _this19 = this;
+            var _this26 = this;
 
             var params = {
               ApartmentBlockUnitId: this.apartmentBlockUnitId
@@ -2675,25 +3202,25 @@
             this.rentService.getApartmentBlockUnitRentByBlockunitId(params).subscribe(function (res) {
               if (res && Array.isArray(res)) {
                 if (res.length > 0) {
-                  _this19.rentListData = res.reverse();
-                  _this19.rent = _this19.rentListData[0];
+                  _this26.rentListData = res.reverse();
+                  _this26.rent = _this26.rentListData[0];
                 }
               } else {
-                _this19.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this26.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this19.clickMode = 'showAll';
-              _this19.isDataLoaded = true;
+              _this26.clickMode = 'showAll';
+              _this26.isDataLoaded = true;
             }, function (error) {
-              _this19.isDataLoaded = true;
+              _this26.isDataLoaded = true;
 
-              _this19.sharedService.openSnackBar('Server Error', 'error');
+              _this26.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this27 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID, this.getListData();
@@ -2701,16 +3228,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this20.apartmentBlockUnitId = Number(params.unitId);
+                _this27.apartmentBlockUnitId = Number(params.unitId);
 
-                _this20.getListData();
+                _this27.getListData();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this20.isUserEdit = data.initialData.userIndicator[0].isRentalInfo;
+                _this27.isUserEdit = data.initialData.userIndicator[0].isRentalInfo;
               }
             });
           }
@@ -2996,7 +3523,7 @@
         }, {
           key: "createPet",
           value: function createPet() {
-            var _this21 = this;
+            var _this28 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3014,50 +3541,50 @@
               if (res.message) {
                 var _params2 = {
                   apartmentBlockUnitPet: {
-                    "apartmentBlockUnitId": _this21.apartmentBlockUnitId,
+                    "apartmentBlockUnitId": _this28.apartmentBlockUnitId,
                     "petId": res.message,
                     "isActive": true,
-                    "insertedBy": _this21.sessionService.userId,
+                    "insertedBy": _this28.sessionService.userId,
                     "insertedOn": new Date().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": null
                   }
                 };
 
-                _this21.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
+                _this28.petService.addApartmentBlockUnitPet(_params2).subscribe(function (res) {
                   if (res.message) {
-                    _this21.isDataLoaded = true;
-                    _this21.petFormData.pet.petTypeId = '';
-                    _this21.petFormData.pet.dob = '';
+                    _this28.isDataLoaded = true;
+                    _this28.petFormData.pet.petTypeId = '';
+                    _this28.petFormData.pet.dob = '';
 
-                    _this21.sharedService.openSnackBar("Pet added successfully", 'success');
+                    _this28.sharedService.openSnackBar("Pet added successfully", 'success');
 
-                    _this21.outputParams.emit('success');
+                    _this28.outputParams.emit('success');
                   } else {
-                    _this21.isDataLoaded = true;
+                    _this28.isDataLoaded = true;
 
-                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this28.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this21.isDataLoaded = true;
+                  _this28.isDataLoaded = true;
 
-                  _this21.sharedService.openSnackBar('Server Error', 'error');
+                  _this28.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this21.isDataLoaded = true;
+                _this28.isDataLoaded = true;
 
-                _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this28.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this21.isDataLoaded = true;
+              _this28.isDataLoaded = true;
 
-              _this21.sharedService.openSnackBar('Server Error', 'error');
+              _this28.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updatePet",
           value: function updatePet() {
-            var _this22 = this;
+            var _this29 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -3077,49 +3604,49 @@
               if (res.message) {
                 var _params3 = {
                   apartmentBlockUnitPet: {
-                    "apartmentBlockUnitPetId": _this22.petFormData.apartmentBlockUnitPetId,
-                    "apartmentBlockUnitId": _this22.petFormData.apartmentBlockUnitId,
-                    "petId": _this22.petFormData.petId,
-                    "isActive": _this22.petFormData.isActive,
-                    "insertedBy": _this22.petFormData.insertedBy,
-                    "insertedOn": _this22.petFormData.insertedOn,
-                    "updatedBy": _this22.sessionService.userId,
+                    "apartmentBlockUnitPetId": _this29.petFormData.apartmentBlockUnitPetId,
+                    "apartmentBlockUnitId": _this29.petFormData.apartmentBlockUnitId,
+                    "petId": _this29.petFormData.petId,
+                    "isActive": _this29.petFormData.isActive,
+                    "insertedBy": _this29.petFormData.insertedBy,
+                    "insertedOn": _this29.petFormData.insertedOn,
+                    "updatedBy": _this29.sessionService.userId,
                     "updatedOn": new Date().toISOString()
                   }
                 };
 
-                _this22.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
+                _this29.petService.updateApartmentBlockUnitPet(_params3).subscribe(function (res) {
                   if (res.message) {
-                    _this22.isDataLoaded = true;
+                    _this29.isDataLoaded = true;
 
-                    _this22.sharedService.openSnackBar("Pet updated successfully", 'success');
+                    _this29.sharedService.openSnackBar("Pet updated successfully", 'success');
 
-                    _this22.outputParams.emit('success');
+                    _this29.outputParams.emit('success');
                   } else {
-                    _this22.isDataLoaded = true;
+                    _this29.isDataLoaded = true;
 
-                    _this22.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this29.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this22.isDataLoaded = true;
+                  _this29.isDataLoaded = true;
 
-                  _this22.sharedService.openSnackBar('Server Error', 'error');
+                  _this29.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this22.isDataLoaded = true;
+                _this29.isDataLoaded = true;
 
-                _this22.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this29.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this22.isDataLoaded = true;
+              _this29.isDataLoaded = true;
 
-              _this22.sharedService.openSnackBar('Server Error', 'error');
+              _this29.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this30 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -3127,7 +3654,7 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this23.apartmentBlockUnitId = Number(params.unitId);
+                _this30.apartmentBlockUnitId = Number(params.unitId);
               }
             });
 
@@ -3138,7 +3665,7 @@
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this23.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
+                _this30.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
               }
             });
           }
@@ -3317,33 +3844,33 @@
         }, {
           key: "getParams",
           value: function getParams(event) {
-            var _this24 = this;
+            var _this31 = this;
 
             if (event == 'delete') {
               this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
                 if (id != null) {
-                  _this24.isUserDataLoaded = false;
+                  _this31.isUserDataLoaded = false;
                   var params = {
                     petId: parseInt(id),
-                    deleteBy: _this24.sessionService.userId
+                    deleteBy: _this31.sessionService.userId
                   };
 
-                  _this24.petService.deletePet(params).subscribe(function (res) {
-                    _this24.isUserDataLoaded = true;
+                  _this31.petService.deletePet(params).subscribe(function (res) {
+                    _this31.isUserDataLoaded = true;
 
-                    _this24.sharedService.setUnitListDeleteIndex(null);
+                    _this31.sharedService.setUnitListDeleteIndex(null);
 
                     if (res.message) {
-                      _this24.sharedService.openSnackBar("Pet deleted", 'success');
+                      _this31.sharedService.openSnackBar("Pet deleted", 'success');
 
-                      _this24.showUnitPetDetails(_this24.apartmentBlockUnitId);
+                      _this31.showUnitPetDetails(_this31.apartmentBlockUnitId);
 
-                      _this24.isExpanded = false;
+                      _this31.isExpanded = false;
                     } else {
-                      _this24.sharedService.openSnackBar(res.errorMessage, 'error');
+                      _this31.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
 
-                    _this24.apiSubscribe.unsubscribe();
+                    _this31.apiSubscribe.unsubscribe();
                   });
                 }
               });
@@ -3355,7 +3882,7 @@
         }, {
           key: "showUnitPetDetails",
           value: function showUnitPetDetails(id) {
-            var _this25 = this;
+            var _this32 = this;
 
             this.isUserDataLoaded = false;
             var petListParams = {
@@ -3363,18 +3890,18 @@
             };
             this.petService.getAllPetsByApartmentBlockUnitId(petListParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this25.petDataList = res.reverse();
+                _this32.petDataList = res.reverse();
               }
 
-              _this25.isUserDataLoaded = true;
+              _this32.isUserDataLoaded = true;
             }, function (error) {
-              _this25.sharedService.openSnackBar('Server Error', 'error');
+              _this32.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this26 = this;
+            var _this33 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -3384,9 +3911,9 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this26.apartmentBlockUnitId = Number(params.unitId);
+                _this33.apartmentBlockUnitId = Number(params.unitId);
 
-                _this26.showUnitPetDetails(_this26.apartmentBlockUnitId);
+                _this33.showUnitPetDetails(_this33.apartmentBlockUnitId);
               }
             }); //Pet DropDown
 
@@ -3395,12 +3922,12 @@
               LookupTypeId: 85
             };
             this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe(function (res) {
-              _this26.petTypeList = res;
+              _this33.petTypeList = res;
             }); // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this26.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
+                _this33.isUserEdit = data.initialData.userIndicator[0].isUserProfilePet;
               }
             });
           }
@@ -3555,33 +4082,33 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this27 = this;
+            var _this34 = this;
 
             var file = event[0];
             this.profilepPicUploadService.upload(file, this.user.emailId).subscribe(function (res) {
               if (res != undefined) {
-                _this27.uploadResponse = res;
-                var offset = _this27.circumference - _this27.uploadResponse.message / 100 * _this27.circumference;
-                _this27.circle.style.strokeDashoffset = offset;
+                _this34.uploadResponse = res;
+                var offset = _this34.circumference - _this34.uploadResponse.message / 100 * _this34.circumference;
+                _this34.circle.style.strokeDashoffset = offset;
               }
 
-              if (_this27.isUploadCompleted()) {
+              if (_this34.isUploadCompleted()) {
                 var userParams = {
-                  userid: _this27.user.userId
+                  userid: _this34.user.userId
                 };
 
-                _this27.userService.getUserById(userParams).subscribe(function (res) {
+                _this34.userService.getUserById(userParams).subscribe(function (res) {
                   var imagePath = 'data:image/png;base64,' + res[0].image;
 
-                  _this27.sharedService.setProfilePic(imagePath);
+                  _this34.sharedService.setProfilePic(imagePath);
 
-                  _this27.initialiseProgressRing();
+                  _this34.initialiseProgressRing();
                 }, function (error) {
                   console.log(error);
                 });
               }
             }, function (err) {
-              _this27.error = err;
+              _this34.error = err;
             });
           }
         }, {
@@ -3595,13 +4122,13 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this35 = this;
 
             this.imageFormats = this.constantsService.imageFormats.join(',');
             this.circle = document.querySelector('.progress-ring__circle');
             this.initialiseProgressRing();
             this.sharedService.profilepiccast.subscribe(function (profilePicUrl) {
-              _this28.profilePicUrl = profilePicUrl;
+              _this35.profilePicUrl = profilePicUrl;
             });
           }
         }]);
@@ -3744,7 +4271,7 @@
          * @param {MatDialog} _matDialog
          */
         function ProfileSidebarComponent(_activatedRoute, _router, _condoNavigationService, _matDialog, apartmentService, sessionService) {
-          var _this29 = this;
+          var _this36 = this;
 
           _classCallCheck(this, ProfileSidebarComponent);
 
@@ -3769,7 +4296,7 @@
 
           this._activatedRoute.queryParams.subscribe(function (params) {
             if (params['type'] != undefined) {
-              _this29.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
+              _this36.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
             }
           });
 
@@ -3784,24 +4311,24 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this37 = this;
 
             this.user = {}; // Subscribe to the resolved route data
 
             this._activatedRoute.parent.data.subscribe(function (data) {
-              _this30.user = data.initialData.profileUser;
+              _this37.user = data.initialData.profileUser;
             }); //if profile from unapproved and approved modules
 
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params['unituserid'] != undefined) {
                 var userparams = {
-                  apartmentId: _this30.sessionService.apartmentId,
+                  apartmentId: _this37.sessionService.apartmentId,
                   apartmentBlockUnitUserId: params['unituserid']
                 };
 
-                _this30.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
-                  _this30.user.roleName = res[0].roleName;
+                _this37.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(userparams).subscribe(function (res) {
+                  _this37.user.roleName = res[0].roleName;
                 });
               }
             }); // Generate menu links
@@ -3823,7 +4350,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this31 = this;
+            var _this38 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -3836,7 +4363,7 @@
                 type: 'basic',
                 icon: folder.icon,
                 query: 'preserve',
-                link: '/' + _this31.pagePath() + '/profile/' + folder.slug
+                link: '/' + _this38.pagePath() + '/profile/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -3848,7 +4375,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this31._foldersMenuData.push(menuItem);
+              _this38._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -3856,19 +4383,19 @@
         }, {
           key: "_generateSettingsMenuLinks",
           value: function _generateSettingsMenuLinks() {
-            var _this32 = this;
+            var _this39 = this;
 
             // Reset the labels menu
             this._settingsMenuData = []; // Iterate through the labels
 
             this.settings.forEach(function (setting) {
               // Generate menu item for the label
-              _this32._settingsMenuData.push({
+              _this39._settingsMenuData.push({
                 id: setting.id,
                 title: setting.title,
                 type: 'basic',
                 icon: setting.icon,
-                link: '/' + _this32.pagePath() + '/profile/' + setting.slug
+                link: '/' + _this39.pagePath() + '/profile/' + setting.slug
               });
             }); // Update the menu data
 
@@ -4158,7 +4685,7 @@
         }, {
           key: "getBlockUnit",
           value: function getBlockUnit(event) {
-            var _this33 = this;
+            var _this40 = this;
 
             if (event) {
               this.blockFormData.apartmentBlockId = event[0].apartmentBlockId;
@@ -4170,7 +4697,7 @@
               apartmentBlockId: this.block.apartmentBlockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
-              _this33.blockUnitList = res;
+              _this40.blockUnitList = res;
             });
           }
         }, {
@@ -4186,7 +4713,7 @@
         }, {
           key: "submitProfileUnitForm",
           value: function submitProfileUnitForm(form) {
-            var _this34 = this;
+            var _this41 = this;
 
             this.isUserDataLoaded = false; // let apartmentBlockUnitUserParams = {
             //   apartmentBlockUnitUser:  {
@@ -4240,27 +4767,27 @@
               }
             };
             this.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
-              _this34.isUserDataLoaded = true;
+              _this41.isUserDataLoaded = true;
 
               if (res.code == 200) {
-                _this34.isEdit = false;
+                _this41.isEdit = false;
 
-                _this34.getBlockUnitInfo(_this34.blockFormData.apartmentBlockUnitId);
+                _this41.getBlockUnitInfo(_this41.blockFormData.apartmentBlockUnitId);
 
-                _this34.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this41.sharedService.openSnackBar(res.statusMessage, 'success');
               } else {
-                _this34.sharedService.openSnackBar(res.statusMessage, 'error');
+                _this41.sharedService.openSnackBar(res.statusMessage, 'error');
               }
             }, function (error) {
-              _this34.isUserDataLoaded = true;
+              _this41.isUserDataLoaded = true;
 
-              _this34.sharedService.openSnackBar('Server Error', 'error');
+              _this41.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getBlockUnitInfo",
           value: function getBlockUnitInfo(id) {
-            var _this35 = this;
+            var _this42 = this;
 
             this.isUserDataLoaded = false;
             var blockUnitInfo = {
@@ -4268,15 +4795,15 @@
             };
             this.apartmentService.getApartmentBlockUnitById(blockUnitInfo).subscribe(function (res) {
               if (res.length > 0) {
-                _this35.block = res[0];
-                _this35.isUserDataLoaded = true;
+                _this42.block = res[0];
+                _this42.isUserDataLoaded = true;
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this36 = this;
+            var _this43 = this;
 
             if (!this.isAdmin) {
               this.isUserEdit = false;
@@ -4288,11 +4815,11 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this36.block.apartmentBlockId = Number(params.blockId);
-                _this36.block.apartmentBlockUnitId = Number(params.unitId);
-                _this36.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this43.block.apartmentBlockId = Number(params.blockId);
+                _this43.block.apartmentBlockUnitId = Number(params.unitId);
+                _this43.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this36.getBlockUnitInfo(_this36.block.apartmentBlockUnitId);
+                _this43.getBlockUnitInfo(_this43.block.apartmentBlockUnitId);
               }
             }); // Tower
 
@@ -4301,16 +4828,16 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerInfo).subscribe(function (res) {
-              _this36.blockList = res;
+              _this43.blockList = res;
 
-              _this36.getBlockUnit(null);
+              _this43.getBlockUnit(null);
             }); //Unit Type
 
             var unitTypeInfo = {
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeInfo).subscribe(function (res) {
-              _this36.unitTypeList = res;
+              _this43.unitTypeList = res;
             });
           }
         }, {
@@ -4592,7 +5119,7 @@
         }, {
           key: "createAbsenceForm",
           value: function createAbsenceForm() {
-            var _this37 = this;
+            var _this44 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -4624,25 +5151,25 @@
               apartmentLongAbsence: details
             };
             this.apartmentService.addApartmentLongAbsence(params).subscribe(function (res) {
-              _this37.isDataLoaded = true;
+              _this44.isDataLoaded = true;
 
               if (res.message) {
-                _this37.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
+                _this44.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
 
-                _this37.getHistoryData();
+                _this44.getHistoryData();
               } else {
-                _this37.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this44.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this37.isDataLoaded = false;
+              _this44.isDataLoaded = false;
 
-              _this37.sharedService.openSnackBar('Server Error', 'error');
+              _this44.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateAbsenceForm",
           value: function updateAbsenceForm() {
-            var _this38 = this;
+            var _this45 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4661,25 +5188,25 @@
               })
             };
             this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
-              _this38.isDataLoaded = true;
+              _this45.isDataLoaded = true;
 
               if (res.message) {
-                _this38.sharedService.openSnackBar(res.message, 'success');
+                _this45.sharedService.openSnackBar(res.message, 'success');
 
-                _this38.getHistoryData();
+                _this45.getHistoryData();
               } else {
-                _this38.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this45.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this38.isDataLoaded = false;
+              _this45.isDataLoaded = false;
 
-              _this38.sharedService.openSnackBar('Server Error', 'error');
+              _this45.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getHistoryData",
           value: function getHistoryData() {
-            var _this39 = this;
+            var _this46 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4689,25 +5216,25 @@
             this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
               if (unit && Array.isArray(unit)) {
                 if (unit.length > 0) {
-                  _this39.historyListData = unit.reverse();
-                  _this39.data = _this39.historyListData[0];
+                  _this46.historyListData = unit.reverse();
+                  _this46.data = _this46.historyListData[0];
                 }
               } else {
-                _this39.sharedService.openSnackBar(unit.errorMessage, 'error');
+                _this46.sharedService.openSnackBar(unit.errorMessage, 'error');
               }
 
-              _this39.clickMode = 'showAll';
-              _this39.isDataLoaded = true;
+              _this46.clickMode = 'showAll';
+              _this46.isDataLoaded = true;
             }, function (error) {
-              _this39.isDataLoaded = true;
+              _this46.isDataLoaded = true;
 
-              _this39.sharedService.openSnackBar('Server Error', 'error');
+              _this46.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this47 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -4717,16 +5244,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this40.apartmentBlockUnitId = Number(params.unitId), _this40.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this47.apartmentBlockUnitId = Number(params.unitId), _this47.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this40.getHistoryData();
+                _this47.getHistoryData();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this40.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
+                _this47.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
               }
             });
           }
@@ -4906,7 +5433,7 @@
         }, {
           key: "createProfileVehicle",
           value: function createProfileVehicle() {
-            var _this41 = this;
+            var _this48 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -4928,18 +5455,18 @@
             this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": _this41.apartmentBlockUnitId,
+                  "apartmentBlockUnitId": _this48.apartmentBlockUnitId,
                   "vehicleId": parseInt(res.message),
-                  "userId": _this41.sessionService.userId,
+                  "userId": _this48.sessionService.userId,
                   "documentId": null,
                   "parkingSlotId": null,
-                  "stickerNumber": _this41.vehicleFormData.stickerNumber,
-                  "rfid": _this41.vehicleFormData.rfid,
-                  "fromDate": _this41.vehicleFormData.fromDate,
-                  "toDate": _this41.vehicleFormData.toDate,
+                  "stickerNumber": _this48.vehicleFormData.stickerNumber,
+                  "rfid": _this48.vehicleFormData.rfid,
+                  "fromDate": _this48.vehicleFormData.fromDate,
+                  "toDate": _this48.vehicleFormData.toDate,
                   "isPassIssued": true,
                   "isActive": true,
-                  "insertedBy": parseInt(_this41.sessionService.userId),
+                  "insertedBy": parseInt(_this48.sessionService.userId),
                   "insertedOn": new Date().toISOString(),
                   "updatedBy": 0,
                   "updatedOn": null
@@ -4948,39 +5475,39 @@
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this41.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this48.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this41.isDataLoaded = true;
-                    _this41.vehicleFormData = {};
+                    _this48.isDataLoaded = true;
+                    _this48.vehicleFormData = {};
 
-                    _this41.sharedService.openSnackBar("Vehicle added successfully", 'success');
+                    _this48.sharedService.openSnackBar("Vehicle added successfully", 'success');
 
-                    _this41.outputParams.emit(true);
+                    _this48.outputParams.emit(true);
                   } else {
-                    _this41.isDataLoaded = true;
+                    _this48.isDataLoaded = true;
 
-                    _this41.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this48.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this41.isDataLoaded = true;
+                  _this48.isDataLoaded = true;
 
-                  _this41.sharedService.openSnackBar('Server Error', 'error');
+                  _this48.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this41.isDataLoaded = true;
+                _this48.isDataLoaded = true;
 
-                _this41.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this48.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this41.isDataLoaded = true;
+              _this48.isDataLoaded = true;
 
-              _this41.sharedService.openSnackBar('Server Error', 'error');
+              _this48.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateProfileVehicle",
           value: function updateProfileVehicle() {
-            var _this42 = this;
+            var _this49 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5003,59 +5530,59 @@
             this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitVehicleId": parseInt(_this42.vehicleData.apartmentBlockUnitVehicleId),
-                  "apartmentBlockUnitId": _this42.apartmentBlockUnitId,
-                  "vehicleId": parseInt(_this42.vehicleFormData.vehicleId),
-                  "userId": _this42.sessionService.userId,
+                  "apartmentBlockUnitVehicleId": parseInt(_this49.vehicleData.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": _this49.apartmentBlockUnitId,
+                  "vehicleId": parseInt(_this49.vehicleFormData.vehicleId),
+                  "userId": _this49.sessionService.userId,
                   "documentId": null,
                   "parkingSlotId": null,
-                  "stickerNumber": _this42.vehicleFormData.stickerNumber,
-                  "rfid": _this42.vehicleFormData.rfid,
-                  "fromDate": _this42.vehicleFormData.fromDate,
-                  "toDate": _this42.vehicleFormData.toDate,
-                  "isPassIssued": _this42.vehicleFormData.isPassIssued,
-                  "isActive": _this42.vehicleFormData.isActive,
-                  "insertedBy": _this42.vehicleFormData.insertedBy,
-                  "insertedOn": _this42.vehicleFormData.insertedOn,
-                  "updatedBy": parseInt(_this42.sessionService.userId),
+                  "stickerNumber": _this49.vehicleFormData.stickerNumber,
+                  "rfid": _this49.vehicleFormData.rfid,
+                  "fromDate": _this49.vehicleFormData.fromDate,
+                  "toDate": _this49.vehicleFormData.toDate,
+                  "isPassIssued": _this49.vehicleFormData.isPassIssued,
+                  "isActive": _this49.vehicleFormData.isActive,
+                  "insertedBy": _this49.vehicleFormData.insertedBy,
+                  "insertedOn": _this49.vehicleFormData.insertedOn,
+                  "updatedBy": parseInt(_this49.sessionService.userId),
                   "updatedOn": new Date().toISOString()
                 };
                 var unitParams = {
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this42.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this49.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this42.isDataLoaded = true;
+                    _this49.isDataLoaded = true;
 
-                    _this42.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+                    _this49.sharedService.openSnackBar("Vehicle updated successfully", 'success');
 
-                    _this42.outputParams.emit(true);
+                    _this49.outputParams.emit(true);
                   } else {
-                    _this42.isDataLoaded = true;
+                    _this49.isDataLoaded = true;
 
-                    _this42.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this49.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this42.isDataLoaded = true;
+                  _this49.isDataLoaded = true;
 
-                  _this42.sharedService.openSnackBar('Server Error', 'error');
+                  _this49.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this42.isDataLoaded = true;
+                _this49.isDataLoaded = true;
 
-                _this42.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this49.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this42.isDataLoaded = true;
+              _this49.isDataLoaded = true;
 
-              _this42.sharedService.openSnackBar('Server Error', 'error');
+              _this49.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this43 = this;
+            var _this50 = this;
 
             if (!this.isAdmin) {
               this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
@@ -5063,14 +5590,14 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this43.apartmentBlockUnitId = Number(params.unitId);
+                _this50.apartmentBlockUnitId = Number(params.unitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this43.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this50.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             });
 
@@ -5241,23 +5768,23 @@
         }, {
           key: "vehicleList",
           value: function vehicleList(id) {
-            var _this44 = this;
+            var _this51 = this;
 
             this.isUserDataLoaded = false;
             var vehicleListParams = {
               apartmentBlockUnitId: id
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this44.isUserDataLoaded = true;
-              if (res.length > 0) _this44.vehicleDataList = res.reverse();
+              _this51.isUserDataLoaded = true;
+              if (res.length > 0) _this51.vehicleDataList = res.reverse();
             }, function (error) {
-              _this44.sharedService.openSnackBar('Server Error', 'error');
+              _this51.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this52 = this;
 
             //this.userId = this.sessionService.profileUserId
             if (!this.isAdmin) {
@@ -5267,16 +5794,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this45.apartmentBlockUnitId = Number(params.unitId);
+                _this52.apartmentBlockUnitId = Number(params.unitId);
 
-                _this45.vehicleList(_this45.apartmentBlockUnitId);
+                _this52.vehicleList(_this52.apartmentBlockUnitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this45.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this52.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             }); //Vehicle Type DropDown
 
@@ -5285,14 +5812,14 @@
               LookupTypeId: 2
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this45.vehicleTypeList = res;
+              _this52.vehicleTypeList = res;
             }); //parking List
 
             var parkingListParams = {
               apartmentIdBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-              _this45.parkingSlotsDataList = res;
+              _this52.parkingSlotsDataList = res;
             });
           }
         }, {
@@ -5527,7 +6054,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this46 = this;
+            var _this53 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5552,15 +6079,15 @@
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
               if (res.message) {
-                _this46.sharedService.setAlertMessage("Property Manager added successfully");
+                _this53.sharedService.setAlertMessage("Property Manager added successfully");
 
-                _this46.propertyData = {};
-                _this46.isDataLoaded = true;
+                _this53.propertyData = {};
+                _this53.isDataLoaded = true;
 
-                _this46.outputParams.emit('close');
+                _this53.outputParams.emit('close');
               }
             }, function (error) {
-              _this46.isDataLoaded = true;
+              _this53.isDataLoaded = true;
               console.log(error);
             });
           }
@@ -5807,7 +6334,7 @@
         }, {
           key: "addPropertyManager",
           value: function addPropertyManager() {
-            var _this47 = this;
+            var _this54 = this;
 
             this.isDataLoaded = false;
             var propertyManagerParams = {
@@ -5834,22 +6361,22 @@
             };
             this.propertyManagerService.addPropertyManager(propertyManagerParams).subscribe(function (res) {
               if (res.message) {
-                _this47.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this54.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this47.getPropertyList();
+                _this54.getPropertyList();
               } else {
-                _this47.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this54.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this47.isDataLoaded = false;
+              _this54.isDataLoaded = false;
 
-              _this47.sharedService.openSnackBar('Server Error', 'error');
+              _this54.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updatePropertyManagerForm",
           value: function updatePropertyManagerForm() {
-            var _this48 = this;
+            var _this55 = this;
 
             this.isDataLoaded = false;
             var propertyManagerParams = {
@@ -5877,22 +6404,22 @@
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
               if (res.message) {
-                _this48.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this55.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this48.getPropertyList();
+                _this55.getPropertyList();
               } else {
-                _this48.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this55.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this48.isDataLoaded = false;
+              _this55.isDataLoaded = false;
 
-              _this48.sharedService.openSnackBar('Server Error', 'error');
+              _this55.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this49 = this;
+            var _this56 = this;
 
             var message = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
@@ -5903,15 +6430,15 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this49.isDataLoaded = false;
+                _this56.isDataLoaded = false;
                 var details = {
-                  "propertyManagerId": _this49.propertyData.propertyManagerId,
-                  "deleteBy": _this49.userId
+                  "propertyManagerId": _this56.propertyData.propertyManagerId,
+                  "deleteBy": _this56.userId
                 };
 
-                _this49.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                _this56.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                   if (res.message) {
-                    _this49.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                    _this56.sharedService.setAlertMessage("Property Manager Deleted successfully");
                   }
                 }, function (error) {});
               }
@@ -5920,7 +6447,7 @@
         }, {
           key: "getPropertyList",
           value: function getPropertyList() {
-            var _this50 = this;
+            var _this57 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -5929,25 +6456,25 @@
             this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(params).subscribe(function (res) {
               if (res && Array.isArray(res)) {
                 if (res.length > 0) {
-                  _this50.propertyList = res.reverse();
-                  _this50.propertyData = res[0];
+                  _this57.propertyList = res.reverse();
+                  _this57.propertyData = res[0];
                 }
               } else {
-                _this50.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this57.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this50.clickMode = 'showAll';
-              _this50.isDataLoaded = true;
+              _this57.clickMode = 'showAll';
+              _this57.isDataLoaded = true;
             }, function (error) {
-              _this50.isDataLoaded = true;
+              _this57.isDataLoaded = true;
 
-              _this50.sharedService.openSnackBar('Server Error', 'error');
+              _this57.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this51 = this;
+            var _this58 = this;
 
             //this.userId =  this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -5957,16 +6484,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this51.apartmentBlockUnitId = Number(params.unitId);
+                _this58.apartmentBlockUnitId = Number(params.unitId);
 
-                _this51.getPropertyList();
+                _this58.getPropertyList();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this51.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
+                _this58.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
               }
             });
           }
