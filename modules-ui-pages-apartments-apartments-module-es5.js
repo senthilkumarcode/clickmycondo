@@ -240,7 +240,8 @@
           this.isDataLoaded = false;
           this.isRouting = false;
           this.isUnitSelected = false;
-          this.selectedCondo = []; // Set the private default
+          this.selectedCondo = [];
+          this.isApartmentNotAvailable = false; // Set the private default
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_11__["Subject"](); // Set the defaults
 
@@ -325,7 +326,6 @@
           value: function selectCondoMulti(condo) {
             this.isUnitSelected = true;
             this.selectedCondo = condo;
-            console.log(this.selectedCondo);
           }
         }, {
           key: "goBack",

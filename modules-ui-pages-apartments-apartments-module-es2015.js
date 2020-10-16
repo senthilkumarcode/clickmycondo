@@ -118,6 +118,7 @@ let ApartmentsComponent = class ApartmentsComponent {
         this.isRouting = false;
         this.isUnitSelected = false;
         this.selectedCondo = [];
+        this.isApartmentNotAvailable = false;
         // Set the private default
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_11__["Subject"]();
         // Set the defaults
@@ -185,7 +186,6 @@ let ApartmentsComponent = class ApartmentsComponent {
     selectCondoMulti(condo) {
         this.isUnitSelected = true;
         this.selectedCondo = condo;
-        console.log(this.selectedCondo);
     }
     goBack() {
         this.isUnitSelected = false;
