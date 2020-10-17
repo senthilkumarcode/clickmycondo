@@ -158,16 +158,28 @@ let ApartmentsComponent = class ApartmentsComponent {
                     secLevelId: this.sessionService.secLevelId
                 };
                 this.screenService.getMenuFunctionByRoleIdMultiFilter(params).subscribe((res) => {
-                    if (res.length == 0) {
-                        this.isRouting = false;
-                        this.sharedService.setMenuEmptyMessage('Contact your admin to provide necessary security roles to access your account');
-                    }
-                    else {
-                        this._router.navigate(['/ams']).then(() => {
+                    if (res.code = 200) {
+                        if (res.responseData.value.length == 0 || res.responseData == null) {
                             this.isRouting = false;
-                            this.sharedService.setMenuEmptyMessage('');
-                        });
+                            this.sharedService.setMenuEmptyMessage('Contact your admin to provide necessary security roles to access your account');
+                        }
+                        else {
+                            this._router.navigate(['/ams']).then(() => {
+                                this.isRouting = false;
+                                this.sharedService.setMenuEmptyMessage('');
+                            });
+                        }
                     }
+                }, error => {
+                    this.isRouting = false;
+                    // Show the error message
+                    this.message = {
+                        appearance: 'outline',
+                        content: "Some error occured",
+                        shake: true,
+                        showIcon: true,
+                        type: 'error'
+                    };
                 });
             }
             else {

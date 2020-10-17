@@ -296,17 +296,29 @@
                 };
 
                 _this2.screenService.getMenuFunctionByRoleIdMultiFilter(_params).subscribe(function (res) {
-                  if (res.length == 0) {
-                    _this2.isRouting = false;
-
-                    _this2.sharedService.setMenuEmptyMessage('Contact your admin to provide necessary security roles to access your account');
-                  } else {
-                    _this2._router.navigate(['/ams']).then(function () {
+                  if (res.code = 200) {
+                    if (res.responseData.value.length == 0 || res.responseData == null) {
                       _this2.isRouting = false;
 
-                      _this2.sharedService.setMenuEmptyMessage('');
-                    });
+                      _this2.sharedService.setMenuEmptyMessage('Contact your admin to provide necessary security roles to access your account');
+                    } else {
+                      _this2._router.navigate(['/ams']).then(function () {
+                        _this2.isRouting = false;
+
+                        _this2.sharedService.setMenuEmptyMessage('');
+                      });
+                    }
                   }
+                }, function (error) {
+                  _this2.isRouting = false; // Show the error message
+
+                  _this2.message = {
+                    appearance: 'outline',
+                    content: "Some error occured",
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                  };
                 });
               } else {
                 _this2.isRouting = false; // Show the error message
