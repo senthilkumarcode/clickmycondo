@@ -658,12 +658,14 @@
               text: 'role name',
               datafield: 'roleName',
               cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
+              renderer: columnrenderer,
+              minwidth: 120
             }, {
               text: 'description',
               datafield: 'description',
               cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
+              renderer: columnrenderer,
+              minwidth: 120
             }, {
               text: 'action',
               cellsalign: 'center',
@@ -922,12 +924,14 @@
               text: 'role name',
               datafield: 'roleName',
               cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
+              renderer: columnrenderer,
+              minwidth: 120
             }, {
               text: 'menu security name',
               datafield: 'secLevelName',
               cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
+              renderer: columnrenderer,
+              minwidth: 120
             }, {
               text: 'set permission',
               cellsalign: 'center',

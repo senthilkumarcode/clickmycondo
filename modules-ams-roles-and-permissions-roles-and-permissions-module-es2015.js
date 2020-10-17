@@ -418,12 +418,14 @@ let RoleTypeListComponent = class RoleTypeListComponent {
                 text: 'role name',
                 datafield: 'roleName',
                 cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
+                renderer: columnrenderer,
+                minwidth: 120
             }, {
                 text: 'description',
                 datafield: 'description',
                 cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
+                renderer: columnrenderer,
+                minwidth: 120
             }, {
                 text: 'action',
                 cellsalign: 'center',
@@ -590,12 +592,14 @@ let RolesAndPermissionsListComponent = class RolesAndPermissionsListComponent {
                 text: 'role name',
                 datafield: 'roleName',
                 cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
+                renderer: columnrenderer,
+                minwidth: 120
             }, {
                 text: 'menu security name',
                 datafield: 'secLevelName',
                 cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
+                renderer: columnrenderer,
+                minwidth: 120
             }, {
                 text: 'set permission',
                 cellsalign: 'center',

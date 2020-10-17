@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n    <div CondoCardHeader>\n        <div class=\"row m-0 d-flex justify-content-between align-items-center\">\n            <div class=\"col-lg-6 d-flex flex-column\">\n                <h4>Violation Rule</h4>\n            </div>\n            <div class=\"col-lg-6 text-right\">\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"addRuleRow()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add Row\n                </button>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #createViolationRule=\"ngForm\" name=\"createViolationRule\" class=\"w-100 p-5\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Category</label>\n                        <select class=\"form-control\" name=\"category\" [(ngModel)]=\"createRule.violationCategoryId\">\n                            <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">\n                                {{ item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Rule</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Rule Name\" name=\"name\"\n                            [(ngModel)]=\"createRule.name\" required>\n                    </div>\n                </div>\n            </div>\n            <div class=\"violationRuleCreate\">\n                <div class=\"row\" *ngFor=\"let rule of ruleList;let i = index;\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Penalty Amount</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Penalty Amount\"\n                                name=\"fineViolationNo{{i}}\" [(ngModel)]=\"rule.fineViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Violation Description</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Violation Description\"\n                                name=\"descViolationNo{{i}}\" [(ngModel)]=\"rule.descViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Stop Privilage</label>\n                            <select class=\"form-control\" placeholder=\"Stop Provilage\" name=\"violationPrivilegeId{{i}}\"\n                                [(ngModel)]=\"rule.violationPrivilegeId\">\n                                <option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.id\">\n                                    {{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 text-right\">\n                    <button mat-flat-button class=\"mr-3\" mat-dialog-close>\n                        Close</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"categoryRuleUpdation()\">\n                        {{isEdit ? 'Update' : 'Submit'}}</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</condo-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n    <div CondoCardHeader>\n        <div class=\"row m-0 d-flex justify-content-between align-items-center\">\n            <div class=\"col-lg-6 d-flex flex-column\">\n                <h4>Violation Rule</h4>\n            </div>\n            <div class=\"col-lg-6 text-right\">\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"addRuleRow()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add Row\n                </button>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #createViolationRule=\"ngForm\" name=\"createViolationRule\" class=\"w-100 p-5\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Category</label>\n                        <select class=\"form-control\" name=\"category\" [(ngModel)]=\"createRule.violationCategoryId\">\n                            <option *ngFor=\"let item of allViolationCategoryList\" [value]=\"item.lookupValueId\">\n                                {{ item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Rule</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Rule Name\" name=\"name\"\n                            [(ngModel)]=\"createRule.name\" required>\n                    </div>\n                </div>\n            </div>\n            <div class=\"violationRuleCreate\">\n                <div class=\"row\" *ngFor=\"let rule of ruleList;let i = index;\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Penalty Amount</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Penalty Amount\"\n                                name=\"fineViolationNo{{i}}\" [(ngModel)]=\"rule.fineViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Violation Description</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Violation Description\"\n                                name=\"descViolationNo{{i}}\" [(ngModel)]=\"rule.descViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Stop Privilage</label>\n                            <select class=\"form-control\" placeholder=\"Stop Provilage\" name=\"violationPrivilegeId{{i}}\"\n                                [(ngModel)]=\"rule.violationPrivilegeId\">\n                                <option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.id\">\n                                    {{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 text-right\">\n                    <button mat-flat-button class=\"mr-3\" mat-dialog-close>\n                        Close</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"categoryRuleUpdation()\">\n                        {{isEdit ? 'Update' : 'Submit'}}</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</condo-card>");
 
 /***/ }),
 
@@ -422,12 +422,14 @@ let ViolationRuleCreateComponent = class ViolationRuleCreateComponent {
     getViolationRule() {
         const params1 = {
             apartmentId: this.sessionService.apartmentId,
-            ViolationCategoryId: this.modalData.violationCategoryId
+            violationCategoryId: this.modalData.violationCategoryId
         };
-        this.violationService.getViolationRule(params1).subscribe((rule) => {
-            for (const key in rule) {
-                this.createRule[key] = rule[key];
+        this.violationService.getViolationRuleNew(params1).subscribe((rule) => {
+            let selectedRule = rule[0];
+            for (const key in selectedRule) {
+                this.createRule[key] = selectedRule[key];
             }
+            this.ruleList = this.createRule.rules;
         });
     }
     getViolationCategory() {
@@ -462,17 +464,21 @@ let ViolationRuleCreateComponent = class ViolationRuleCreateComponent {
             }
         });
         this.createRule.rules = this.ruleList;
-        // if (this.isEdit) {
-        //   this.violationService.updateViolationRule(this.createRule).subscribe((res: any) => {
-        //     this.sharedService.openSnackBar('Violation Rules Updated Successfully','success');
-        //     this.dialogRef.close(true);
-        //   })
-        // } else {
-        //   this.violationService.addViolationRule(this.createRule).subscribe((res: any) => {
-        //     this.sharedService.openSnackBar('Violation Rules Created Successfully','success');
-        //     this.dialogRef.close(true);
-        //   })
-        // }
+        let violationRuleParam = {
+            model: this.createRule
+        };
+        if (this.isEdit) {
+            this.violationService.updateViolationRuleNew(violationRuleParam).subscribe((res) => {
+                this.sharedService.openSnackBar('Violation Rules Updated Successfully', 'success');
+                this.dialogRef.close(true);
+            });
+        }
+        else {
+            this.violationService.addViolationRuleNew(violationRuleParam).subscribe((res) => {
+                this.sharedService.openSnackBar('Violation Rules Created Successfully', 'success');
+                this.dialogRef.close(true);
+            });
+        }
     }
 };
 ViolationRuleCreateComponent.ctorParameters = () => [
@@ -660,7 +666,7 @@ let ViolationRulesSetupComponent = class ViolationRulesSetupComponent {
                 align: 'center',
                 width: 100,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editCategory(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="deleteCategory(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
                 },
                 renderer: columnrenderer
             }];
