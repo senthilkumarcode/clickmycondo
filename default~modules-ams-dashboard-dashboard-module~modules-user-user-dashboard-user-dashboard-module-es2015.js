@@ -10043,21 +10043,21 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
                 front: 'Rental/Lease Expired',
                 back: 'Rental/Lease on Expiry',
                 frontValue: '',
-                backValue: 'emp',
+                backValue: '',
                 frontFooter: true,
                 backFooter: true,
                 type: ''
             }, {
                 front: 'Is Living',
                 back: 'Is PrimaryContact',
-                frontValue: 'e',
-                backValue: 'e',
+                frontValue: '',
+                backValue: '',
                 frontFooter: false,
                 backFooter: false,
-                type: 'unapprove'
+                type: ''
             }, {
-                front: 'empty',
-                back: 'empty',
+                front: 'No data',
+                back: 'No data',
                 frontValue: '',
                 backValue: '',
                 frontFooter: false,
@@ -10288,7 +10288,7 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
                 back: '',
                 frontFooter: false,
                 backFooter: false,
-                frontValue: 'e',
+                frontValue: '',
                 backValue: '',
                 type: 'vendor',
                 isFlip: true
@@ -11692,7 +11692,7 @@ const routes = [
     { path: '', component: _dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], children: [
             { path: '', redirectTo: 'main', pathMatch: 'full' },
             { path: 'main', component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"], children: [
-                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~842d029e"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~8981b15b"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7dde0477"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) }
+                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~6e5f4edb"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~ebba1230"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a2d1076d"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) }
                 ] },
             { path: 'custom', component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"] }
         ] }

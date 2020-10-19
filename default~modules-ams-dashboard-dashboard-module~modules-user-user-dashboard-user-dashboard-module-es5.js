@@ -14202,21 +14202,21 @@
             front: 'Rental/Lease Expired',
             back: 'Rental/Lease on Expiry',
             frontValue: '',
-            backValue: 'emp',
+            backValue: '',
             frontFooter: true,
             backFooter: true,
             type: ''
           }, {
             front: 'Is Living',
             back: 'Is PrimaryContact',
-            frontValue: 'e',
-            backValue: 'e',
+            frontValue: '',
+            backValue: '',
             frontFooter: false,
             backFooter: false,
-            type: 'unapprove'
+            type: ''
           }, {
-            front: 'empty',
-            back: 'empty',
+            front: 'No data',
+            back: 'No data',
             frontValue: '',
             backValue: '',
             frontFooter: false,
@@ -14519,7 +14519,7 @@
             back: '',
             frontFooter: false,
             backFooter: false,
-            frontValue: 'e',
+            frontValue: '',
             backValue: '',
             type: 'vendor',
             isFlip: true
@@ -16725,7 +16725,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~842d029e"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~8981b15b"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~7dde0477"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~6e5f4edb"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~ebba1230"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a2d1076d"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */
               "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(function (m) {
                 return m.UnitUsersReportModule;

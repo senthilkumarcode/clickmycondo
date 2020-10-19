@@ -117,32 +117,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.html":
-/*!***************************************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.html ***!
-  \***************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Status </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t<form>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\t\n\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"start_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Visit Type\" fieldPlaceholder=\"Select Visit Type\" [fieldRequired]=\"''\" [fieldList]=\"visitByData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"lookupValueName\" [fieldModel]=\"visitTypeId\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedVisit($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t    <div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t<condo-card *ngIf=\"isReportSubmitted\">\n\t\n\t\t\t<div CondoCardHeader>\n        <div class=\"d-flex\">\n\t\t\t        <div class=\"float-right\">\n\t\t\t\t\t\t\t\n\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/visitor/reports\" \n\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\n\t\t\t\t</a>\n\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t\t\t\n\n\t\t\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t  <div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t[theme]=\"'material'\" \n\t\t\t[width]=\"'100%'\"\n\t\t\t[rowsheight]=\"48\"\n\t\t\t[autoheight]=\"true\"\n\t\t\t[pageable]=\"true\" \n\t\t\t[filterable]=\"true\" \n\t\t\t[sortable]=\"true\" \n\t\t\t[source]=\"listData\"\n\t\t\t[columns]=\"columnData\"\n\t\t\t[columnsresize]=\"true\"\n\t\t\t[enablehover]=\"false\"\n\t\t#datagrid>\n\t\t</jqxGrid> \n\t\t\t</div>\n\n\t\t<!-- </div> -->\n\n\t</condo-card>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.html":
-/*!*************************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.html ***!
-  \*************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"reports-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4 class=\"mb-4\">Visitor Management Reports </h4>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6 mb-20\" *ngFor=\"let report of reportDataList\">\n\n\t\t\t\t\t<condo-card>\n\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/visitor/reports/{{report.lookupValueName}}/{{report.lookupValueID}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6>{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</condo-card>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</ng-container>\n\n\t</div>\n</div>");
-
-/***/ }),
-
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.html":
 /*!*********************************************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.html ***!
@@ -461,7 +435,7 @@ let ExpUserVisitorListComponent = class ExpUserVisitorListComponent {
     }
     navigateToCreate() {
         if (this.isAdmin())
-            this.router.navigate(['/ams/visitor/create-expected-visitor']);
+            this.router.navigate(['/ams/visitor/info/create-expected-visitor']);
         else
             this.router.navigate(['/user/visitor/create-expected-visitor']);
     }
@@ -883,7 +857,7 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
                 if (res.message) {
                     this.sharedService.openSnackBar('Expected Visitor Created Successfully', 'success');
                     if (this.isAdmin())
-                        this.router.navigate(['/ams/visitor/expected-visitor-list']);
+                        this.router.navigate(['/ams/visitor/info/expected-visitor-list']);
                     else
                         this.router.navigate(['/user/visitor/expected-visitor-user-list']);
                 }
@@ -921,7 +895,7 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
                 if (res.message) {
                     this.sharedService.openSnackBar(res.message, 'success');
                     if (this.isAdmin())
-                        this.router.navigate(['/ams/visitor/expected-visitor-list']);
+                        this.router.navigate(['/ams/visitor/info/expected-visitor-list']);
                     else
                         this.router.navigate(['/user/visitor/expected-visitor-user-list']);
                 }
@@ -1083,7 +1057,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
     }
     navigateToCreate() {
-        this.router.navigate(['/ams/visitor/create-expected-visitor']);
+        this.router.navigate(['/ams/visitor/info/create-expected-visitor']);
     }
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'expectedVisitorData');
@@ -1123,7 +1097,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         dialogRef.afterClosed().subscribe(dialogResult => {
             if (dialogResult) {
                 let dataRecord = this.datagrid.getrowdata(detail.rowId);
-                this.router.navigate([`/ams/visitor/visitor/checkin/${dataRecord.expectedVisitorId}`]);
+                this.router.navigate([`/ams/visitor/info/visitor/checkin/${dataRecord.expectedVisitorId}`]);
             }
         });
     }
@@ -1138,7 +1112,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         dialogRef.afterClosed().subscribe(dialogResult => {
             if (dialogResult) {
                 let dataRecord = this.datagrid.getrowdata(detail.rowId);
-                this.router.navigate([`/ams/visitor/expected-visitor/copy/${dataRecord.expectedVisitorId}`]);
+                this.router.navigate([`/ams/visitor/info/expected-visitor/copy/${dataRecord.expectedVisitorId}`]);
             }
         });
     }
@@ -1400,7 +1374,7 @@ let FrequentVisitorListComponent = class FrequentVisitorListComponent {
         }
     }
     navigateToCreate() {
-        this.router.navigate(['/ams/visitor/frequent-visitor-create']);
+        this.router.navigate(['/ams/visitor/info/frequent-visitor-create']);
     }
     getVisitorCheckedIn() {
         this.isVisitorDataLoaded = false;
@@ -1575,7 +1549,7 @@ let UserVisitorListComponent = class UserVisitorListComponent {
     }
     navigateToCreate() {
         if (this.isAdmin())
-            this.router.navigate(['/ams/visitor/create-expected-visitor']);
+            this.router.navigate(['/ams/visitor/info/create-expected-visitor']);
         else
             this.router.navigate(['/user/visitor/create-expected-visitor']);
     }
@@ -1837,7 +1811,7 @@ let VendorPassListComponent = class VendorPassListComponent {
         }
     }
     navigateToCreate() {
-        this.router.navigate(['/ams/visitor/vendor-pass-create']);
+        this.router.navigate(['/ams/visitor/info/vendor-pass-create']);
     }
     getVisitorCheckedIn() {
         this.isVisitorDataLoaded = false;
@@ -2020,7 +1994,7 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
         this.datagrid.exportdata(event, 'visitorCheckOutData');
     }
     navigateToCreate() {
-        this.router.navigate([`/ams/visitor/checkin`]);
+        this.router.navigate([`/ams/visitor/info/checkin`]);
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -2054,13 +2028,13 @@ let VisitorCheckoutComponent = class VisitorCheckoutComponent {
         dialogRef.afterClosed().subscribe(dialogResult => {
             if (dialogResult) {
                 let dataRecord = this.datagrid.getrowdata(detail.rowId);
-                this.router.navigate([`/ams/visitor/visitor/checkout/${dataRecord.visitorId}`]);
+                this.router.navigate([`/ams/visitor/info/visitor/checkout/${dataRecord.visitorId}`]);
             }
         });
     }
     onEditCheckOut(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        this.router.navigate([`/ams/visitor/visitor/edit/${dataRecord.visitorId}`]);
+        this.router.navigate([`/ams/visitor/info/visitor/edit/${dataRecord.visitorId}`]);
     }
     getCheckOutList() {
         this.isVisitorDataLoaded = false;
@@ -2513,7 +2487,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
                 this.isDataLoaded = true;
                 if (res.message) {
                     this.sharedService.openSnackBar('Visitor Checked IN', 'success');
-                    this.router.navigate(['/ams/visitor/checkout']);
+                    this.router.navigate(['/ams/visitor/info/checkout']);
                 }
                 else {
                     this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2548,7 +2522,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
                 this.isDataLoaded = true;
                 if (res.message) {
                     this.sharedService.openSnackBar(res.message, 'success');
-                    this.router.navigate(['/ams/visitor/checkout']);
+                    this.router.navigate(['/ams/visitor/info/checkout']);
                 }
                 else {
                     this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2566,7 +2540,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.visitorService.checkOutVisitor(visitorDetails).subscribe((res) => {
             if (res.message) {
                 this.sharedService.openSnackBar(res.message, 'success');
-                this.router.navigate(['/ams/visitor/history']);
+                this.router.navigate(['/ams/visitor/info/history']);
             }
             else {
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
@@ -2643,427 +2617,6 @@ VisitorCreateCheckinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], VisitorCreateCheckinComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.scss":
-/*!*************************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.scss ***!
-  \*************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("app-visitor-reports-data {\n  display: flex;\n  flex: 1 1 auto;\n}\napp-visitor-reports-data .mat-drawer-container .mat-drawer {\n  max-width: 480px !important;\n  width: 480px !important;\n}\napp-visitor-reports-data .mat-drawer-container .mat-drawer .helpdesk-filter-drawer {\n  padding: 30px 25px 30px 25px;\n}\napp-visitor-reports-data .mat-drawer-container .mat-drawer .helpdesk-filter-drawer .title {\n  display: flex;\n  margin: 0 0 30px 0;\n}\napp-visitor-reports-data .mat-drawer-container .mat-drawer .helpdesk-filter-drawer .title h4 {\n  padding: 10px 0 0 0 !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvdmlzaXRvci9jb21wb25lbnRzL3Zpc2l0b3ItcmVwb3J0cy92aXNpdG9yLXJlcG9ydHMtZGF0YS92aXNpdG9yLXJlcG9ydHMtZGF0YS5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGFBQUE7RUFDQSxjQUFBO0FBQ0o7QUFBSTtFQUNJLDJCQUFBO0VBQ0EsdUJBQUE7QUFFUjtBQURRO0VBQ0ksNEJBQUE7QUFHWjtBQUZZO0VBQ0ksYUFBQTtFQUNBLGtCQUFBO0FBSWhCO0FBSGdCO0VBQ0ksOEJBQUE7QUFLcEIiLCJmaWxlIjoic3JjL2FwcC9tb2R1bGVzL2Ftcy92aXNpdG9yL2NvbXBvbmVudHMvdmlzaXRvci1yZXBvcnRzL3Zpc2l0b3ItcmVwb3J0cy1kYXRhL3Zpc2l0b3ItcmVwb3J0cy1kYXRhLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYXBwLXZpc2l0b3ItcmVwb3J0cy1kYXRhIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXg6IDEgMSBhdXRvO1xuICAgIC5tYXQtZHJhd2VyLWNvbnRhaW5lciAubWF0LWRyYXdlciB7XG4gICAgICAgIG1heC13aWR0aDogNDgwcHggIWltcG9ydGFudDtcbiAgICAgICAgd2lkdGg6IDQ4MHB4ICFpbXBvcnRhbnQ7XG4gICAgICAgIC5oZWxwZGVzay1maWx0ZXItZHJhd2VyIHtcbiAgICAgICAgICAgIHBhZGRpbmc6IDMwcHggMjVweCAzMHB4IDI1cHg7XG4gICAgICAgICAgICAudGl0bGUge1xuICAgICAgICAgICAgICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgICAgICAgICAgICAgbWFyZ2luOiAwIDAgMzBweCAwO1xuICAgICAgICAgICAgICAgIGg0IHtcbiAgICAgICAgICAgICAgICAgICAgcGFkZGluZzogMTBweCAwIDAgMCAhaW1wb3J0YW50O1xuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbn1cblxuIl19 */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts":
-/*!***********************************************************************************************************************!*\
-  !*** ./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts ***!
-  \***********************************************************************************************************************/
-/*! exports provided: VisitorReportsDataComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorReportsDataComponent", function() { return VisitorReportsDataComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-
-
-
-
-
-
-
-
-
-
-let VisitorReportsDataComponent = class VisitorReportsDataComponent {
-    constructor(router, route, apartmentService, visitorService, lookupService, sessionService) {
-        this.router = router;
-        this.route = route;
-        this.apartmentService = apartmentService;
-        this.visitorService = visitorService;
-        this.lookupService = lookupService;
-        this.sessionService = sessionService;
-        this.pageName = "";
-        this.isDataLoaded = false;
-        this.blockId = null;
-        this.blockNo = "";
-        this.end_date = null;
-        this.start_date = null;
-        this.visitTypeId = null;
-        this.reportData = "";
-        this.isReportSubmitted = false;
-        this.filterData = {
-            ticketStatus: '',
-            staff: null,
-            supervisor: null
-        };
-        this.filterSelected = "all";
-        this.singleBlock = "Select Tower";
-    }
-    isMobileView() {
-        return window.innerWidth <= 767 ? 'table-responsive' : '';
-    }
-    getPrintParams(event) {
-        this.datagrid.exportdata(event, 'VisitorReportsData');
-    }
-    getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6___default()(date).format("MM-DD-YYYY");
-    }
-    submitReportsFilterForm() {
-        let params = {
-            ApartmentID: this.sessionService.apartmentId,
-            ApartmentBlockID: parseInt(this.blockId),
-            StartDate: this.getDate(this.start_date),
-            EndDate: this.getDate(this.end_date),
-            VisitType: parseInt(this.visitTypeId)
-        };
-        this.getDetails(params);
-    }
-    getDetails(params) {
-        let serviceName;
-        let id = parseInt(this.route.params['value'].id);
-        if (id == 365) {
-            serviceName = this.visitorService.getReportsForVisitorsCheckedInMultiFilter(params);
-        }
-        else if (id == 366) {
-            serviceName = this.visitorService.getReportsForVisitorsCheckedOutnMultiFilter(params);
-        }
-        else if (id == 367) {
-            serviceName = this.visitorService.getReportsForExpectedVisitorsMultiFilter(params);
-        }
-        else if (id == 368) {
-            serviceName = this.visitorService.getReportsForVisitorsNotCheckedOutMultiFilter(params);
-        }
-        else if (id == 369) {
-            serviceName = this.visitorService.getReportsForExpectedVisitorsNotCheckedInMultiFilter(params);
-        }
-        serviceName.subscribe((res) => {
-            if (res.errorMessage) {
-                this.reportsDataList = [];
-            }
-            else {
-                this.reportsDataList = res;
-                this.totalItems = this.reportsDataList.length;
-                this.gridSourceData = {
-                    localdata: this.reportsDataList,
-                    datatype: "array"
-                };
-                this.listData = new jqx.dataAdapter(this.gridSourceData);
-                this.isReportSubmitted = true;
-                this.isDataLoaded = true;
-            }
-        }, error => {
-            this.isReportSubmitted = true;
-            this.isDataLoaded = true;
-        });
-    }
-    getDateTime(val) {
-        if (val != '') {
-            return moment__WEBPACK_IMPORTED_MODULE_6___default()(val).format("MM/DD/YY hh:mm");
-        }
-        else {
-            return '';
-        }
-    }
-    onGlSearchFilter(event) {
-        if (event != "") {
-            let filtergroup = new jqx.filter();
-            let filter_or_operator = 1;
-            let filtervalue = event;
-            let filtercondition = 'contains';
-            let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-            filtergroup.operator = 'or';
-            filtergroup.addfilter(filter_or_operator, filterData);
-            this.datagrid.showfiltercolumnbackground(false);
-            this.columnData.forEach(item => {
-                if (item.datafield != 'Actions') {
-                    this.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-            });
-            this.datagrid.applyfilters();
-        }
-        else {
-            this.datagrid.clearfilters();
-        }
-    }
-    getSelectedBlock(event) {
-        this.blockId = event[0].apartmentBlockId;
-    }
-    getSelectedVisit(event) {
-        this.visitTypeId = event[0].lookupValueId;
-    }
-    filterApply() {
-        this.goBack();
-        this.isDataLoaded = false;
-        let params = {
-            ApartmentID: this.sessionService.apartmentId,
-            // tslint:disable-next-line:radix
-            ApartmentBlockID: parseInt(this.blockId),
-            StartDate: this.getDate(this.start_date),
-            EndDate: this.getDate(this.end_date),
-            // tslint:disable-next-line:radix
-            VisitType: parseInt(this.visitTypeId)
-        };
-        this.getDetails(params);
-    }
-    clearFilter() {
-        this.blockId = null;
-        this.start_date = null;
-        this.end_date = null;
-        this.visitTypeId = null;
-        // =this.getTicketByAdmin();
-        let params = {
-            ApartmentID: this.sessionService.apartmentId,
-            // tslint:disable-next-line:radix
-            ApartmentBlockID: parseInt(this.blockId),
-            StartDate: this.getDate(this.start_date),
-            EndDate: this.getDate(this.end_date),
-            // tslint:disable-next-line:radix
-            VisitType: parseInt(this.visitTypeId)
-        };
-        this.getDetails(params);
-        this.goBack();
-    }
-    goBack() {
-        this.matDrawer.close();
-    }
-    cancel(form) {
-        form.reset();
-    }
-    ngOnInit() {
-        this.pageName = this.route.params['value'].name;
-        let unitBlockParams = {
-            apartmentId: this.sessionService.apartmentId
-        };
-        this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe((res) => {
-            this.unitBlocksData = res;
-        });
-        let visitParams = {
-            ApartmentId: this.sessionService.apartmentId,
-            LookupTypeId: 15
-        };
-        //visit type
-        this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {
-            this.visitByData = res;
-        }, error => {
-        });
-        this.isDataLoaded = true;
-        var cellsrenderer = (row, column, value) => {
-            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-        };
-        var columnrenderer = (value) => {
-            return '<div style="padding: 14px">' + value + '</div>';
-        };
-        this.columnData = [{
-                text: 'Id',
-                datafield: 'serialNo',
-                width: 100,
-                pinned: true,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'Visitor Name',
-                datafield: 'visitorName',
-                width: 200,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'Phone Number',
-                datafield: 'visitorPhone',
-                cellsrenderer: cellsrenderer,
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'Date/Time of Visit',
-                datafield: 'visitorInTime',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getDateTime(value) + '</div>';
-                },
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Time-out',
-                datafield: 'visitorOutTime',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getDateTime(value) + '</div>';
-                },
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Visit Type',
-                datafield: 'visitType',
-                cellsrenderer: cellsrenderer,
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'Tower No',
-                datafield: 'blockNo',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
-                renderer: columnrenderer
-            }, {
-                text: 'Unit No',
-                datafield: 'unitNo',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
-                renderer: columnrenderer
-            }];
-        let params = {
-            ApartmentID: this.sessionService.apartmentId,
-            // tslint:disable-next-line:radix
-            ApartmentBlockID: parseInt(this.blockId),
-            StartDate: this.getDate(this.start_date),
-            EndDate: this.getDate(this.end_date),
-            // tslint:disable-next-line:radix
-            VisitType: parseInt(this.visitTypeId)
-        };
-        this.getDetails(params);
-    }
-    getAllBlockData() {
-        this.filterSelected = 'all';
-        this.singleBlock = "Select Tower";
-        this.blockId = "";
-        this.datagrid.clearfilters();
-    }
-    getSingleBlock(block) {
-        this.filterSelected = 'single';
-        this.singleBlock = block.apartmentBlockNumber;
-        this.blockId = block.apartmentBlockId;
-        let filtergroup = new jqx.filter();
-        let filter_or_operator = 1;
-        let filtervalue = this.singleBlock;
-        let filtercondition = 'contains';
-        let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-        filtergroup.operator = 'or';
-        filtergroup.addfilter(filter_or_operator, filterData);
-        this.datagrid.showfiltercolumnbackground(false);
-        this.columnData.forEach(item => {
-            if (item.datafield != 'Actions') {
-                this.datagrid.addfilter(item.datafield, filtergroup, true);
-            }
-        });
-        this.datagrid.applyfilters();
-    }
-};
-VisitorReportsDataComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
-];
-VisitorReportsDataComponent.propDecorators = {
-    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
-};
-VisitorReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-visitor-reports-data',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./visitor-reports-data.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-reports-data.component.scss */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
-], VisitorReportsDataComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.scss":
-/*!***********************************************************************************************!*\
-  !*** ./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.scss ***!
-  \***********************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL3Zpc2l0b3IvY29tcG9uZW50cy92aXNpdG9yLXJlcG9ydHMvdmlzaXRvci1yZXBvcnRzLmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts":
-/*!*********************************************************************************************!*\
-  !*** ./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts ***!
-  \*********************************************************************************************/
-/*! exports provided: VisitorReportsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VisitorReportsComponent", function() { return VisitorReportsComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
-
-
-
-
-let VisitorReportsComponent = class VisitorReportsComponent {
-    constructor(lookupService, sharedService, sessionService) {
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
-        this.sessionService = sessionService;
-        this.isDataLoaded = false;
-    }
-    ngOnInit() {
-        let details = {
-            ApartmentId: this.sessionService.apartmentId,
-            LookupTypeId: 87,
-            MenuName: 'VisitorManagement'
-        };
-        this.lookupService.getLookupValuesByApartmentIdLookupTypeIdMenuName(details).subscribe((res) => {
-            this.reportDataList = res;
-            // this.reportDataList = [
-            //   { lookupValueName: 'List of Checked In Visitors', description: 'Provides the list of visitors checked-in for the specified duration', lookupValueId: 365 },
-            //   { lookupValueName: 'List of Checked out Visitors', description: 'Provides the list of visitors checked-out for the specified duration', lookupValueId: 366 },
-            //   { lookupValueName: 'List of Expected Visitors', description: 'Gives the list of visitors who are expected to check-in during the mentioned duration', lookupValueId: 367 }
-            //   ]
-            this.isDataLoaded = true;
-        });
-    }
-};
-VisitorReportsComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
-];
-VisitorReportsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-visitor-reports',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./visitor-reports.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-reports.component.scss */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.scss")).default]
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
-], VisitorReportsComponent);
 
 
 
@@ -3293,18 +2846,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/auth/guards/auth.guard */ "./src/app/core/auth/guards/auth.guard.ts");
 /* harmony import */ var _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/visitor-setup/visitor-setup.component */ "./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.ts");
 /* harmony import */ var _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/visitor-checkout/visitor-checkout.component */ "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
-/* harmony import */ var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/visitor-create-checkin/visitor-create-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
-/* harmony import */ var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
-/* harmony import */ var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/exp-visitor-list/exp-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
-/* harmony import */ var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/user-visitor-list/user-visitor-list.component */ "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.ts");
-/* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
-/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
-/* harmony import */ var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/frequent-visitor-list/frequent-visitor-list.component */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
-/* harmony import */ var _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/vendor-pass-list/vendor-pass-list.component */ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts");
-
-
+/* harmony import */ var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/visitor-create-checkin/visitor-create-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
+/* harmony import */ var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
+/* harmony import */ var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/exp-visitor-list/exp-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
+/* harmony import */ var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/user-visitor-list/user-visitor-list.component */ "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.ts");
+/* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
+/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
+/* harmony import */ var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/frequent-visitor-list/frequent-visitor-list.component */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
+/* harmony import */ var _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/vendor-pass-list/vendor-pass-list.component */ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts");
 
 
 
@@ -3322,22 +2871,20 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', redirectTo: 'settings', pathMatch: 'full' },
     { path: 'settings', component: _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_4__["VisitorSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'checkin', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_8__["VisitorCreateCheckinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'visitor/:type/:id', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_8__["VisitorCreateCheckinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'expected-visitor-list', component: _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'create-expected-visitor', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_9__["ExpVisitorCreateChekinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'expected-visitor/:type/:id', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_9__["ExpVisitorCreateChekinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'checkin', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_6__["VisitorCreateCheckinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'visitor/:type/:id', component: _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_6__["VisitorCreateCheckinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'expected-visitor-list', component: _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_8__["ExpVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'create-expected-visitor', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_7__["ExpVisitorCreateChekinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'expected-visitor/:type/:id', component: _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_7__["ExpVisitorCreateChekinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'checkout', component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'history', component: _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_5__["VisitorCheckoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'expected-visitor-user-checked-in', component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["UserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'expected-visitor-user-history', component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["UserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'expected-visitor-user-list', component: _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["ExpUserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'reports', component: _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_6__["VisitorReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'reports/:name/:id', component: _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_7__["VisitorReportsDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'frequent-visitor-list', component: _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["FrequentVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'frequent-visitor-create', component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CreateVendorFrquentVisitorComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'vendor-pass-list', component: _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_15__["VendorPassListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'vendor-pass-create', component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_13__["CreateVendorFrquentVisitorComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'expected-visitor-user-checked-in', component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_9__["UserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'expected-visitor-user-history', component: _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_9__["UserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'expected-visitor-user-list', component: _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_10__["ExpUserVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'frequent-visitor-list', component: _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["FrequentVisitorListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'frequent-visitor-create', component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_11__["CreateVendorFrquentVisitorComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'vendor-pass-list', component: _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_13__["VendorPassListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'vendor-pass-create', component: _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_11__["CreateVendorFrquentVisitorComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let VisitorRoutingModule = class VisitorRoutingModule {
@@ -3417,23 +2964,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _visitor_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./visitor.component */ "./src/app/modules/ams/visitor/visitor.component.ts");
 /* harmony import */ var _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/visitor-setup/visitor-setup.component */ "./src/app/modules/ams/visitor/components/visitor-setup/visitor-setup.component.ts");
 /* harmony import */ var _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/visitor-checkout/visitor-checkout.component */ "./src/app/modules/ams/visitor/components/visitor-checkout/visitor-checkout.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports.component.ts");
-/* harmony import */ var _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/visitor-reports/visitor-reports-data/visitor-reports-data.component */ "./src/app/modules/ams/visitor/components/visitor-reports/visitor-reports-data/visitor-reports-data.component.ts");
-/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-/* harmony import */ var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/visitor-create-checkin/visitor-create-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
-/* harmony import */ var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
-/* harmony import */ var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/exp-visitor-list/exp-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
-/* harmony import */ var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/user-visitor-list/user-visitor-list.component */ "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.ts");
-/* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
-/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
-/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
-/* harmony import */ var _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/vendor-pass-list/vendor-pass-list.component */ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts");
-/* harmony import */ var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/frequent-visitor-list/frequent-visitor-list.component */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
-/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
-
-
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/visitor-create-checkin/visitor-create-checkin.component */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.ts");
+/* harmony import */ var _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/exp-visitor-create-chekin/exp-visitor-create-chekin.component */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.ts");
+/* harmony import */ var _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/exp-visitor-list/exp-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.ts");
+/* harmony import */ var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/user-visitor-list/user-visitor-list.component */ "./src/app/modules/ams/visitor/components/user-visitor-list/user-visitor-list.component.ts");
+/* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/ams/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/vendor-pass-list/vendor-pass-list.component */ "./src/app/modules/ams/visitor/components/vendor-pass-list/vendor-pass-list.component.ts");
+/* harmony import */ var _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/frequent-visitor-list/frequent-visitor-list.component */ "./src/app/modules/ams/visitor/components/frequent-visitor-list/frequent-visitor-list.component.ts");
+/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/ams/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
 
 
 
@@ -3463,26 +3006,24 @@ VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"],
             _components_visitor_setup_visitor_setup_component__WEBPACK_IMPORTED_MODULE_6__["VisitorSetupComponent"],
             _components_visitor_checkout_visitor_checkout_component__WEBPACK_IMPORTED_MODULE_7__["VisitorCheckoutComponent"],
-            _components_visitor_reports_visitor_reports_component__WEBPACK_IMPORTED_MODULE_8__["VisitorReportsComponent"],
-            _components_visitor_reports_visitor_reports_data_visitor_reports_data_component__WEBPACK_IMPORTED_MODULE_9__["VisitorReportsDataComponent"],
-            _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_11__["VisitorCreateCheckinComponent"],
-            _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_12__["ExpVisitorCreateChekinComponent"],
-            _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_13__["ExpVisitorListComponent"],
-            _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_14__["UserVisitorListComponent"],
-            _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_18__["ExpUserVisitorListComponent"],
-            _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_20__["VendorPassListComponent"],
-            _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_21__["FrequentVisitorListComponent"],
-            _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_22__["CreateVendorFrquentVisitorComponent"]
+            _components_visitor_create_checkin_visitor_create_checkin_component__WEBPACK_IMPORTED_MODULE_9__["VisitorCreateCheckinComponent"],
+            _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"],
+            _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorListComponent"],
+            _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["UserVisitorListComponent"],
+            _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_16__["ExpUserVisitorListComponent"],
+            _components_vendor_pass_list_vendor_pass_list_component__WEBPACK_IMPORTED_MODULE_18__["VendorPassListComponent"],
+            _components_frequent_visitor_list_frequent_visitor_list_component__WEBPACK_IMPORTED_MODULE_19__["FrequentVisitorListComponent"],
+            _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_20__["CreateVendorFrquentVisitorComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             _visitor_routing_module__WEBPACK_IMPORTED_MODULE_3__["VisitorRoutingModule"],
-            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_10__["CondoCardModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_16__["SelectModule"],
-            src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_15__["ListModule"],
-            ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_17__["NgxIntlTelInputModule"],
-            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_19__["CondoMessageModule"]
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"],
+            src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__["ListModule"],
+            ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_15__["NgxIntlTelInputModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__["CondoMessageModule"]
         ],
         bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_5__["VisitorComponent"]]
     })
