@@ -2764,6 +2764,16 @@
       var _dynamic_check_list_form_dynamic_check_list_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ../dynamic-check-list-form/dynamic-check-list-form.component */
       "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/dynamic-check-list-form/dynamic-check-list-form.component.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
 
       var OpMaintenanceSetupTitleComponent = /*#__PURE__*/function () {
         function OpMaintenanceSetupTitleComponent(sessionService, injector, sharedService, genMaintService, dialog) {
@@ -2963,7 +2973,7 @@
                 "comments": null,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "subCategoryId": data.subCategoryId,

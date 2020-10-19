@@ -54,6 +54,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -80,7 +83,7 @@ let PropertyTowerInfoComponent = class PropertyTowerInfoComponent {
             "insertedBy": parseInt(this.tower.insertedBy),
             "insertedOn": this.tower.insertedOn,
             "updatedBy": this.sessionService.userId,
-            "updatedOn": new Date().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
             "totalNounits": parseInt(this.totalItems),
             "blockConstructedArea": parseInt(this.tower.blockConstructedArea),
             "unitsUnderConstruction": parseInt(this.tower.unitsUnderConstruction),

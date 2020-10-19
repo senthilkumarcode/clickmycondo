@@ -1473,6 +1473,16 @@
       var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var AllocatedSlotConfirmationComponent = /*#__PURE__*/function () {
         function AllocatedSlotConfirmationComponent(dialogRef, apartmentService, vehicleService, sharedService, staffService, sessionService, data) {
@@ -1538,7 +1548,7 @@
               tempApartmentBlockUnitUserId: null,
               staffId: this.allocateSlotData.slotMainTypeId == 300 ? this.allocateSlotData.staffId : null,
               updatedBy: parseInt(this.sessionService.userId),
-              updatedOn: new Date().toISOString()
+              updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
             };
             var parkingSlot = {
               parkingSlot: entity
@@ -2127,19 +2137,29 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
 
@@ -2195,7 +2215,7 @@
               "refundAmount": 0,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "visitorId": 0,
@@ -2349,11 +2369,11 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__["StaffService"]
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__["StaffService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]
         }];
@@ -2367,7 +2387,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./parking-create-parking-booking.component.scss */
         "./src/app/modules/ams/parking-management/components/parking-create-parking-booking/parking-create-parking-booking.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_11__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])], ParkingCreateParkingBookingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])], ParkingCreateParkingBookingComponent);
       /***/
     },
 
@@ -4061,6 +4081,16 @@
       var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 
       var ParkingCreateParkingSlotComponent = /*#__PURE__*/function () {
         function ParkingCreateParkingSlotComponent(parkingService, vehicleService, lookupService, router, apartmentService, sessionService, sharedService, activatedRoute) {
@@ -4094,7 +4124,7 @@
               "comment": "",
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "parkingTypeId": 0,
@@ -6119,6 +6149,16 @@
       var src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Parking */
       "./src/app/api/controllers/Parking.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var ParkingSlotRateComponent = /*#__PURE__*/function () {
         function ParkingSlotRateComponent(parkingService, sessionService, injector, sharedService) {
@@ -6293,7 +6333,7 @@
 
             if (this.isCreateSlot) {
               this.slotRateParam.insertedBy = parseInt(this.sessionService.userId);
-              this.slotRateParam.insertedOn = new Date().toISOString();
+              this.slotRateParam.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
               var addParam = {
                 parkingAllocationTypeDto: this.slotRateParam
               };
@@ -6306,7 +6346,7 @@
               }, function (error) {});
             } else {
               this.slotRateParam.updatedBy = parseInt(this.sessionService.userId);
-              this.slotRateParam.updatedOn = new Date().toISOString();
+              this.slotRateParam.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
               var updateParam = {
                 parkingAllocationTypeDto: this.slotRateParam
               };
@@ -6817,6 +6857,16 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 
       var CreateAvailablityComponent = /*#__PURE__*/function () {
         function CreateAvailablityComponent(parkingService, sessionService, sharedService, router, activateRouter) {
@@ -6861,7 +6911,7 @@
               "endTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.endTime).format('HH:mm:ss'),
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "slotMainTypeId": this.type == 'unit' ? 299 : 300,

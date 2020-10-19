@@ -764,6 +764,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DocumentCreateComponent = /*#__PURE__*/function () {
         function DocumentCreateComponent(documentService, sharedService, sessionService, lookupService, dialogRef, data) {
@@ -804,7 +814,7 @@
               "Description": this.document.description,
               "IsActive": true,
               "InsertedBy": this.sessionService.userId,
-              "InsertedOn": new Date().toISOString(),
+              "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "UpdatedBy": null,
               "UpdatedOn": null,
               "FileDetailsId": null,
@@ -839,10 +849,10 @@
                 "description": this.document.description,
                 "fileDetailsId": this.document.fileDetailsId,
                 "uploadedBy": this.sessionService.userId,
-                "uploadedOn": new Date().toISOString(),
+                "uploadedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "files": null
@@ -2279,7 +2289,17 @@
       /* harmony import */
 
 
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 
@@ -2301,9 +2321,9 @@
           this.relationshipList = ['Children', 'Friend', 'Grandparent', 'LivingPartner', 'Parents', 'Roommate', 'Siblings', 'Spouse'];
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
-          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
         }
 
         _createClass(ProfileFamilyMembersDetailsComponent, [{
@@ -2366,7 +2386,7 @@
                 "phoneNumber": this.userFormData.phoneNumber.number,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
@@ -2408,7 +2428,7 @@
                 "insertedBy": this.userFormData.insertedBy,
                 "insertedOn": this.userFormData.insertedOn,
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
                 "phoneNumbercountrycode": this.userFormData.phoneNumber.countryCode
               };
@@ -2799,6 +2819,16 @@
       var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var ProfileInterestGroupComponent = /*#__PURE__*/function () {
         function ProfileInterestGroupComponent(_router, _activatedRoute, broadcastService, sharedService, sessionService, apartmentService) {
@@ -2946,7 +2976,7 @@
               'unitID': unitId,
               'isActive': true,
               'insertedBy': parseInt(this.sessionService.userId),
-              'insertedOn': new Date().toISOString(),
+              'insertedOn': moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               'updatedBy': null,
               'updatedOn': null,
               'apartmentID': this.apartmentID,
@@ -3068,13 +3098,23 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Rent */
       "./src/app/api/controllers/Rent.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
 
@@ -3092,7 +3132,7 @@
           this.clickMode = 'showAll';
           this.rent = {};
           this.rentListData = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
         }
 
         _createClass(ProfileLeaseInfoComponent, [{
@@ -3137,7 +3177,7 @@
               "field2": "string",
               "isActive": true,
               "insertedBy": this.sessionService.userId,
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -3172,7 +3212,7 @@
                 "advanceAmount": parseInt(this.rent.advanceAmount),
                 "leaseAmount": parseInt(this.rent.leaseAmount),
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
               })
             };
             this.rentService.updateApartmentBlockUnitRent(params).subscribe(function (res) {
@@ -3259,7 +3299,7 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_5__["RentService"]
+          type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
@@ -3275,7 +3315,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-lease-info.component.scss */
         "./src/app/modules/profile/profile-lease-info/profile-lease-info.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_5__["RentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], ProfileLeaseInfoComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], ProfileLeaseInfoComponent);
       /***/
     },
 
@@ -3459,7 +3499,17 @@
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
 
@@ -3483,7 +3533,7 @@
               petTypeId: ''
             }
           };
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         }
 
         _createClass(ProfilePetDetailsComponent, [{
@@ -3532,7 +3582,7 @@
                 "dob": this.petFormData.pet.dob,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
               }
@@ -3545,7 +3595,7 @@
                     "petId": res.message,
                     "isActive": true,
                     "insertedBy": _this28.sessionService.userId,
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                     "updatedBy": 0,
                     "updatedOn": null
                   }
@@ -3595,7 +3645,7 @@
               "insertedBy": this.petFormData.pet.insertedBy,
               "insertedOn": this.petFormData.pet.insertedOn,
               "updatedBy": this.sessionService.userId,
-              "updatedOn": new Date().toISOString()
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
             };
             var params = {
               pet: details
@@ -3611,7 +3661,7 @@
                     "insertedBy": _this29.petFormData.insertedBy,
                     "insertedOn": _this29.petFormData.insertedOn,
                     "updatedBy": _this29.sessionService.userId,
-                    "updatedOn": new Date().toISOString()
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
                   }
                 };
 
@@ -3695,7 +3745,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
-          type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]
+          type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]
         }];
       };
 
@@ -3722,7 +3772,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-pet-details.component.scss */
         "./src/app/modules/profile/profile-pet-details/profile-pet-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]])], ProfilePetDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Pet__WEBPACK_IMPORTED_MODULE_3__["PetService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]])], ProfilePetDetailsComponent);
       /***/
     },
 
@@ -4655,6 +4705,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var ProfileUnitDetailsComponent = /*#__PURE__*/function () {
         function ProfileUnitDetailsComponent(_router, _activatedRoute, userService, apartmentService, sharedService, lookupService, sessionService) {
@@ -4726,7 +4786,7 @@
             //   "insertedBy": 0,
             //   "insertedOn": "2019-12-14T07:01:44.740Z",
             //   "updatedBy": this.sessionService.userId,
-            //   "updatedOn": new Date().toISOString()
+            //   "updatedOn": _moment().toISOString()
             // }
             // }
             // this.apartmentService.updateApartmentBlockUnitUser(apartmentBlockUnitUserParams).subscribe((res:any) => {
@@ -4763,7 +4823,7 @@
                 "insertedBy": this.blockFormData.insertedBy,
                 "insertedOn": this.blockFormData.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
               }
             };
             this.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
@@ -5054,6 +5114,16 @@
       var _profile_user_absence_history_profile_user_absence_history_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ../profile-user-absence-history/profile-user-absence-history.component */
       "./src/app/modules/profile/profile-user-absence-history/profile-user-absence-history.component.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 
       var ProfileUserAbsenceComponent = /*#__PURE__*/function () {
         function ProfileUserAbsenceComponent(_activatedRoute, apartmentService, sharedService, sessionService, dialog) {
@@ -5142,7 +5212,7 @@
               "outofCondoStatusId": 5,
               "isActive": true,
               "insertedBy": this.sessionService.userId,
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId
@@ -5184,7 +5254,7 @@
                 "localContactP2alternatePhoneCountrycode": this.data.localcontactP2alternatephone.countryCode,
                 "apartmentBlockUnitUserId": this.apartmentBlockUnitUserId,
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
               })
             };
             this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
@@ -5382,7 +5452,17 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
@@ -5445,7 +5525,7 @@
               "vehicleColor": this.vehicleFormData.vehicleColor,
               "isActive": this.vehicleFormData.isActive,
               "insertedBy": this.sessionService.userId,
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -5467,7 +5547,7 @@
                   "isPassIssued": true,
                   "isActive": true,
                   "insertedBy": parseInt(_this48.sessionService.userId),
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": 0,
                   "updatedOn": null
                 };
@@ -5522,7 +5602,7 @@
               "insertedBy": this.vehicleFormData.insertedBy,
               "insertedOn": this.vehicleFormData.insertedOn,
               "updatedBy": this.sessionService.userId,
-              "updatedOn": new Date().toISOString()
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             var vehicleParams = {
               vehicle: details
@@ -5545,7 +5625,7 @@
                   "insertedBy": _this49.vehicleFormData.insertedBy,
                   "insertedOn": _this49.vehicleFormData.insertedOn,
                   "updatedBy": parseInt(_this49.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
                 var unitParams = {
                   apartmentBlockUnitVehicle: unitDetails
@@ -5629,7 +5709,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
         }];
       };
 
@@ -5656,7 +5736,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-vehicle-details.component.scss */
         "./src/app/modules/profile/profile-vehicle-details/profile-vehicle-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])], ProfileVehicleDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_2__["VehicleService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])], ProfileVehicleDetailsComponent);
       /***/
     },
 
@@ -6209,55 +6289,65 @@
       /* harmony import */
 
 
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/User */
       "./src/app/api/controllers/User.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/PropertyManager */
       "./src/app/api/controllers/PropertyManager.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Vehicle */
       "./src/app/api/controllers/Vehicle.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 
@@ -6281,10 +6371,10 @@
           this.isDataLoaded = false;
           this.clickMode = 'showAll';
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"];
-          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_13__["CountryISO"].UnitedKingdom];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__["ModalService"]);
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_14__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_14__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_14__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_14__["CountryISO"].UnitedKingdom];
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_13__["ModalService"]);
         }
 
         _createClass(PropertyManagerComponent, [{
@@ -6351,7 +6441,7 @@
                 "pin": this.propertyData.pin,
                 "isActive": this.propertyData.isActive,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "apartmentBlockUnitID": this.apartmentBlockUnitId,
@@ -6396,7 +6486,7 @@
                 "insertedBy": this.propertyData.insertedBy,
                 "insertedOn": this.propertyData.insertedOn,
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
                 "apartmentBlockUnitID": this.apartmentBlockUnitId,
                 "phone1CountryCode": this.propertyData.phone1.countryCode,
                 "phone2CountryCode": this.propertyData.phone2.countryCode
@@ -6422,8 +6512,8 @@
             var _this56 = this;
 
             var message = "Are you sure you want to delete?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
               disableClose: true,
               data: dialogData
@@ -6517,17 +6607,17 @@
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"]
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"]
         }, {
-          type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerService"]
+          type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_8__["PropertyManagerService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_9__["VehicleService"]
+          type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_10__["VehicleService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__["LookupService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
@@ -6542,7 +6632,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./property-manager.component.scss */
         "./src/app/modules/profile/property-manager/property-manager.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_9__["VehicleService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], PropertyManagerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_8__["PropertyManagerService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_10__["VehicleService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_11__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], PropertyManagerComponent);
       /***/
     }
   }]);

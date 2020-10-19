@@ -377,6 +377,16 @@
       var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var ExpenseTrackerSetupGeneralComponent = /*#__PURE__*/function () {
         function ExpenseTrackerSetupGeneralComponent(accountsService, lookupService, sharedService, injector, sessionService) {
@@ -429,7 +439,7 @@
                   "description": this.taxData.lookupValueName,
                   "isActive": true,
                   "updatedBy": parseInt(this.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
@@ -455,7 +465,7 @@
                   "description": this.taxData.lookupValueName,
                   "isActive": true,
                   "insertedBy": parseInt(this.sessionService.userId),
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 }
@@ -510,7 +520,7 @@
                 "description": this.taxHoldData.lookupValueName,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }
@@ -549,7 +559,7 @@
                 "description": this.taxHoldData.lookupValueName,
                 "isActive": true,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
               }
             };
             this.lookupService.updateLookupValue(params).subscribe(function (res) {

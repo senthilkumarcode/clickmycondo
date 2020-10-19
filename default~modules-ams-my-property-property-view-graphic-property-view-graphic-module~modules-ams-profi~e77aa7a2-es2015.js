@@ -46,6 +46,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Asset */ "./src/app/api/controllers/Asset.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -251,8 +254,8 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
         this.dialogRef.close(unitData);
     }
     addProperty() {
-        this.addPropertyParam.insertedOn = new Date().toISOString();
-        this.addPropertyParam.updatedOn = new Date().toISOString();
+        this.addPropertyParam.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
+        this.addPropertyParam.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
         this.addPropertyParam.id = Number(this.addPropertyParam.id);
         this.addPropertyParam.blockUnitId = Number(this.addPropertyParam.blockUnitId);
         this.addPropertyParam.propertyPoitype = Number(this.addPropertyParam.propertyPoitype);
@@ -267,7 +270,7 @@ let AddPropertyDialogComponent = class AddPropertyDialogComponent {
         });
     }
     updateProperty() {
-        this.addPropertyParam.updatedOn = new Date().toISOString();
+        this.addPropertyParam.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
         let addProperty = {
             propertyPoi: this.addPropertyParam
         };

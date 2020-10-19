@@ -164,6 +164,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -247,7 +250,7 @@ let CreatePackageComponent = class CreatePackageComponent {
                 packageTypeId: this.package.packageTypeId,
                 slot: this.package.slotName,
                 deliveryTypeId: parseInt(this.package.deliveryTypeId),
-                deliveryDate: new Date().toISOString(),
+                deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 assignedTo: this.package.assignedTo,
                 description: this.packageData.Comments,
                 receivedBy: this.sessionService.userId,
@@ -256,7 +259,7 @@ let CreatePackageComponent = class CreatePackageComponent {
                 attachment1: this.package.packageImageId,
                 attachment2: this.package.packageImageId,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 updatedBy: null,
                 updatedOn: null
             };
@@ -914,6 +917,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -986,9 +992,9 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1024,9 +1030,9 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1114,6 +1120,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -1186,9 +1195,9 @@ let PackageTypeComponent = class PackageTypeComponent {
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1224,9 +1233,9 @@ let PackageTypeComponent = class PackageTypeComponent {
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1314,6 +1323,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -1386,9 +1398,9 @@ let SlotTypeComponent = class SlotTypeComponent {
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1424,9 +1436,9 @@ let SlotTypeComponent = class SlotTypeComponent {
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1520,6 +1532,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
+
 
 
 
@@ -1659,14 +1674,14 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
         this.isdeliverySubmitted = false;
         const addPackageDetails = {
             packageId: this.deliveryData.packageNo,
-            deliveryDate: new Date().toISOString(),
+            deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
             description: this.deliveryData.comments,
             slot: this.deliveryData.slotNo,
             assignedTo: parseInt(this.deliveryData.assignedTo),
             receivedBy: this.sessionService.userId,
             deliveryStatusId: parseInt(this.deliveryData.deliveryStatusId),
             updatedBy: parseInt(this.deliveryData.updatedBy),
-            updatedOn: new Date().toISOString()
+            updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString()
         };
         const addPackageParams = {
             Package: addPackageDetails
@@ -1740,7 +1755,7 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
             description: this.filePath,
             isActive: true,
             insertedBy: parseInt(this.sessionService.userId),
-            insertedOn: new Date().toISOString(),
+            insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
             updatedBy: null,
             updatedOn: null,
             apartmentId: this.sessionService.apartmentId

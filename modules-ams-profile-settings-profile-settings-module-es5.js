@@ -434,6 +434,16 @@
       var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/constants.service */
       "./src/app/shared/services/constants.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
 
       var graph;
 
@@ -746,9 +756,9 @@
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 "updatedBy": 0,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedFloor
               }
             };
@@ -779,9 +789,9 @@
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedTower
               }
             };
@@ -1030,6 +1040,16 @@
       var _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/cdk/keycodes */
       "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/keycodes.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var AddBlockUnitComponent = /*#__PURE__*/function () {
         function AddBlockUnitComponent(apartmentService, injector, sharedService, sessionService) {
@@ -1064,7 +1084,7 @@
                   floorLabel: this.unitInfo.floorLabel,
                   isActive: true,
                   insertedBy: parseInt(this.sessionService.userId),
-                  insertedOn: new Date().toISOString()
+                  insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
                 }]
               };
               this.apartmentService.addApartmentBlockUnit(entity).subscribe(function (res) {
@@ -1420,6 +1440,16 @@
       var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var AddTowerComponent = /*#__PURE__*/function () {
         function AddTowerComponent(apartmentService, injector, sharedService, sessionService) {
@@ -1514,7 +1544,7 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }]

@@ -14131,25 +14131,35 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-      /* harmony import */
-
-
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/User */
       "./src/app/api/controllers/User.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 
       var AdminDashFirstRowComponent = /*#__PURE__*/function () {
         function AdminDashFirstRowComponent(dialog, _activatedRoute, _router, dashboardService, userService, sessionService) {
@@ -14253,10 +14263,10 @@
             var entity = {};
 
             if (type == 'unapprove') {
-              entity.date = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+              entity.date = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc().format();
             } else {
-              entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
-              entity.toDate = new Date().toISOString();
+              entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc().format();
+              entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
             }
 
             return entity;
@@ -14267,10 +14277,10 @@
             var entity = {};
 
             if (type == 'unapprove') {
-              entity.date = new Date().toISOString();
+              entity.date = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
             } else {
-              entity.fromDate = new Date().toISOString();
-              entity.toDate = new Date().toISOString();
+              entity.fromDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+              entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
             }
 
             return entity;
@@ -14357,13 +14367,13 @@
         return [{
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"]
         }, {
           type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"]
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
@@ -14386,7 +14396,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./admin-dash-first-row.component.scss */
         "./src/app/modules/ams/dashboard/components/shared/admin-dash-first-row/admin-dash-first-row.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AdminDashFirstRowComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], AdminDashFirstRowComponent);
       /***/
     },
 
@@ -14459,6 +14469,16 @@
       var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/WorkPermit */
       "./src/app/api/controllers/WorkPermit.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
 
       var AdminWidgetThreeComponent = /*#__PURE__*/function () {
         function AdminWidgetThreeComponent(sessionService, dashboardService, workPermitService) {
@@ -14720,8 +14740,8 @@
             var entity = {
               apartmentId: this.sessionService.apartmentId,
               statusIds: '353,354,355,356,357,358,359',
-              StartDate: new Date().toISOString(),
-              EndDate: new Date().toISOString()
+              StartDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+              EndDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
             };
             this.workPermitService.getAllWorkPermitsByStatues(entity).subscribe(function (res) {
               _this80.widgetData[7].backValue = res.length;
@@ -14732,8 +14752,8 @@
           value: function ngOnInit() {
             var entity = {
               apartmentId: this.sessionService.apartmentId,
-              startDate: new Date().toISOString(),
-              EndDate: new Date().toISOString()
+              startDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+              EndDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
             };
             this.visitorsCheckedIn(entity);
             this.visitorsCheckedOut(entity);
@@ -14744,7 +14764,7 @@
             this.facilityApproved();
             this.facilityUnApproved();
             var params = {
-              date: new Date().toISOString()
+              date: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
             };
             this.unApproveMoveIn(params);
             this.upcomingMoveIn(entity);
@@ -14853,19 +14873,29 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/api/controllers/Ticket */
+      "./src/app/api/controllers/Ticket.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
       /* harmony import */
 
 
-      var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/api/controllers/Ticket */
-      "./src/app/api/controllers/Ticket.ts");
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var AdminWidgetTwoComponent = /*#__PURE__*/function () {
         function AdminWidgetTwoComponent(dialog, dashboardService, ticketService, sessionService) {
@@ -14934,16 +14964,16 @@
           key: "yesterday",
           value: function yesterday(type) {
             var entity = {};
-            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_5___default()(new Date()).subtract(1, 'days').utc().format();
-            entity.toDate = new Date().toISOString();
+            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).subtract(1, 'days').utc().format();
+            entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
             return entity;
           }
         }, {
           key: "today",
           value: function today(type) {
             var entity = {};
-            entity.fromDate = new Date().toISOString();
-            entity.toDate = new Date().toISOString();
+            entity.fromDate = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
+            entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
             return entity;
           }
         }, {
@@ -15101,8 +15131,8 @@
           value: function ngOnInit() {
             var entity = {
               apartmentId: this.sessionService.apartmentId,
-              fromDate: new Date().toISOString(),
-              toDate: new Date().toISOString()
+              fromDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+              toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             this.unapprovedPendingAdmins(entity);
             this.unapprovedPendingUsers(entity);
@@ -15111,7 +15141,7 @@
             this.unassignedTickets();
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              date: new Date().toISOString()
+              date: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             this.inProgressPanicAlerts(params);
             this.openPanicAlerts(params);
@@ -15127,7 +15157,7 @@
         }, {
           type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"]
         }, {
-          type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"]
+          type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__["TicketService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
@@ -15148,7 +15178,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./admin-widget-two.component.scss */
         "./src/app/modules/ams/dashboard/components/shared/admin-widget-two/admin-widget-two.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], AdminWidgetTwoComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__["TicketService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], AdminWidgetTwoComponent);
       /***/
     },
 
@@ -15237,6 +15267,16 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DashBroadCastComponent = /*#__PURE__*/function () {
         function DashBroadCastComponent(dialog, dashboardService, sessionService) {
@@ -15252,12 +15292,12 @@
         _createClass(DashBroadCastComponent, [{
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6___default()(date).format('ddd MMM D YYYY');
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format('ddd MMM D YYYY');
           }
         }, {
           key: "getTimeFormat",
           value: function getTimeFormat(time) {
-            return moment__WEBPACK_IMPORTED_MODULE_6___default()(time).format('hh:mm A');
+            return moment__WEBPACK_IMPORTED_MODULE_6__(time).format('hh:mm A');
           }
         }, {
           key: "calenderPopUp",
@@ -15295,8 +15335,8 @@
           value: function ngOnInit() {
             var entity = {
               apartmentId: this.sessionService.apartmentId,
-              fromDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'month').utc().format(),
-              toDate: new Date().toISOString()
+              fromDate: moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).subtract(1, 'month').utc().format(),
+              toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             this.announcementList(entity);
           }
@@ -15579,6 +15619,16 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DashMeetingComponent = /*#__PURE__*/function () {
         function DashMeetingComponent(dialog, dashboardService, sessionService) {
@@ -15594,7 +15644,7 @@
         _createClass(DashMeetingComponent, [{
           key: "getDateTimeFormat",
           value: function getDateTimeFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6___default()(date).format('ddd MMM D YYYY');
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format('ddd MMM D YYYY');
           }
         }, {
           key: "calenderPopUp",
@@ -15623,8 +15673,8 @@
                 _this92.meetingList = res.reverse().slice(0, 9);
 
                 _this92.meetingList.forEach(function (data) {
-                  data.fromTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.fromTime, 'HH:mm').format('hh:mm A');
-                  data.toTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.toTime, 'HH:mm').format('hh:mm A');
+                  data.fromTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.fromTime, 'HH:mm').format('hh:mm A');
+                  data.toTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.toTime, 'HH:mm').format('hh:mm A');
                 });
 
                 _this92.totalItems = _this92.meetingList.length;
@@ -15638,8 +15688,8 @@
           value: function ngOnInit() {
             var entity = {
               apartmentId: this.sessionService.apartmentId,
-              fromDate: new Date().toISOString(),
-              toDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).add(1, 'month').utc().format()
+              fromDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+              toDate: moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).add(1, 'month').utc().format()
             };
             this.scheduledMeeting(entity);
           }

@@ -1077,39 +1077,49 @@
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+      /* harmony import */
+
+
+      var html2canvas__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! html2canvas */
       "./node_modules/html2canvas/dist/html2canvas.js");
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_10__);
+      var html2canvas__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_11__);
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var jspdf__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! jspdf */
       "./node_modules/jspdf/dist/jspdf.min.js");
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_11__);
+      var jspdf__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_12__);
       /* harmony import */
 
 
-      var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! @angular/material/expansion */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/expansion.js");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
 
@@ -1308,7 +1318,7 @@
                   isApproved: true,
                   description: "string",
                   insertedBy: parseInt(this.sessionService.userId),
-                  insertedOn: new Date().toISOString(),
+                  insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
                   updatedBy: null,
                   updatedOn: null
                 })
@@ -1360,7 +1370,7 @@
                   startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'),
                   endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'),
                   updatedBy: parseInt(this.sessionService.userId),
-                  updatedOn: new Date().toISOString()
+                  updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
                 })
               };
               this.workPermitService.updateWorkPermit(params).subscribe(function (res) {
@@ -1391,9 +1401,9 @@
                   "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId,
                   "isActive": true,
                   "insertedBy": createWorker ? this.sessionService.userId : this.workersList[i].insertedBy,
-                  "insertedOn": createWorker ? new Date().toISOString() : this.workersList[i].insertedOn,
+                  "insertedOn": createWorker ? moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() : this.workersList[i].insertedOn,
                   "updatedBy": createWorker ? null : this.sessionService.userId,
-                  "updatedOn": createWorker ? null : new Date().toISOString()
+                  "updatedOn": createWorker ? null : moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
                 })
               };
               if (createWorker) this.workPermitService.addWorkPermitWorkers(params).toPromise();else this.workPermitService.updateWorkPermitWorkers(params).toPromise();
@@ -1410,9 +1420,9 @@
                   "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId,
                   "isActive": true,
                   "insertedBy": createMaterial ? this.sessionService.userId : this.materialsList[i].insertedBy,
-                  "insertedOn": createMaterial ? new Date().toISOString() : this.materialsList[i].insertedOn,
+                  "insertedOn": createMaterial ? moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() : this.materialsList[i].insertedOn,
                   "updatedBy": createMaterial ? null : this.sessionService.userId,
-                  "updatedOn": createMaterial ? null : new Date().toISOString()
+                  "updatedOn": createMaterial ? null : moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
                 })
               };
               if (createMaterial) this.workPermitService.addWorkPermitMaterials(params).toPromise();else this.workPermitService.updateWorkPermitMaterials(params).toPromise();
@@ -1429,9 +1439,9 @@
                   "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId,
                   "isActive": true,
                   "insertedBy": createTool ? this.sessionService.userId : this.toolsList[i].insertedBy,
-                  "insertedOn": createTool ? new Date().toISOString() : this.toolsList[i].insertedOn,
+                  "insertedOn": createTool ? moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() : this.toolsList[i].insertedOn,
                   "updatedBy": createTool ? null : this.sessionService.userId,
-                  "updatedOn": createTool ? null : new Date().toISOString()
+                  "updatedOn": createTool ? null : moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
                 })
               };
               if (createTool) this.workPermitService.addWorkPermitTools(params).toPromise();else this.workPermitService.updateWorkPermitTools(params).toPromise();
@@ -1493,14 +1503,14 @@
             this.isPDFDow = true;
             setTimeout(function () {
               var data = document.getElementById('pdf');
-              html2canvas__WEBPACK_IMPORTED_MODULE_10___default()(data).then(function (canvas) {
+              html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(function (canvas) {
                 // Few necessary setting options  
                 var imgWidth = 208;
                 var pageHeight = 295;
                 var imgHeight = canvas.height * imgWidth / canvas.width;
                 var heightLeft = imgHeight;
                 var contentDataURL = canvas.toDataURL('image/png');
-                var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_11__('p', 'mm', 'a4'); // A4 size page of PDF  
+                var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
 
                 var position = 0;
                 pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
@@ -1648,7 +1658,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
@@ -1678,11 +1688,11 @@
         /*! raw-loader!./workpermit-create.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/work-permit/components/workpermit-create/workpermit-create.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_14__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_15__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./workpermit-create.component.scss */
         "./src/app/modules/ams/work-permit/components/workpermit-create/workpermit-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], WorkpermitCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], WorkpermitCreateComponent);
       /***/
     },
 
@@ -1773,6 +1783,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var NatureOfWorkSetupComponent = /*#__PURE__*/function () {
         function NatureOfWorkSetupComponent(lookupService, sharedService, injector, sessionService, dialog) {
@@ -1857,7 +1877,7 @@
                 "description": this.natureOfWork.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }
@@ -1886,7 +1906,7 @@
                 "description": this.natureOfWork.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }
@@ -2227,6 +2247,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var WorkpermitTypeSetupComponent = /*#__PURE__*/function () {
         function WorkpermitTypeSetupComponent(lookupService, sharedService, injector, sessionService, dialog) {
@@ -2311,7 +2341,7 @@
                 "description": this.workpermit.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }
@@ -2340,7 +2370,7 @@
                 "description": this.workpermit.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }
@@ -2578,6 +2608,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
       var WorkpermitStatusComponent = /*#__PURE__*/function () {
         function WorkpermitStatusComponent(dialogRef, data, lookupService, workPermitService, sessionService) {
@@ -2601,10 +2641,10 @@
                 workPermitStatusId: this.status,
                 workPermitId: this.data.workpermitId,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 isApproved: true,
                 approvedBy: parseInt(this.sessionService.userId),
-                approvedOn: new Date().toISOString()
+                approvedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
               }
             };
             this.workPermitService.updateWorkPermitStatusById(params).subscribe(function (data) {

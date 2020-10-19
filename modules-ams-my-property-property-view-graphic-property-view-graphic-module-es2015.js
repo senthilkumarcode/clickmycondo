@@ -86,6 +86,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/PropertyManager */ "./src/app/api/controllers/PropertyManager.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -386,9 +389,9 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": 0,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedFloor
             }
         };
@@ -413,9 +416,9 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": 0,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": parseInt(this.cookieService.get('userId')),
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedTower
             }
         };

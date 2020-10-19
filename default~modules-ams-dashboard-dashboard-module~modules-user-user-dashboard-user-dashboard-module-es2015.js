@@ -9988,10 +9988,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
@@ -10091,22 +10094,22 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
     yesterday(type) {
         let entity = {};
         if (type == 'unapprove') {
-            entity.date = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
+            entity.date = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc().format();
         }
         else {
-            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'days').utc().format();
-            entity.toDate = new Date().toISOString();
+            entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc().format();
+            entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
         }
         return entity;
     }
     today(type) {
         let entity = {};
         if (type == 'unapprove') {
-            entity.date = new Date().toISOString();
+            entity.date = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
         }
         else {
-            entity.fromDate = new Date().toISOString();
-            entity.toDate = new Date().toISOString();
+            entity.fromDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+            entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
         }
         return entity;
     }
@@ -10181,10 +10184,10 @@ let AdminDashFirstRowComponent = class AdminDashFirstRowComponent {
 };
 AdminDashFirstRowComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] },
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 AdminDashFirstRowComponent.propDecorators = {
@@ -10198,10 +10201,10 @@ AdminDashFirstRowComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./admin-dash-first-row.component.scss */ "./src/app/modules/ams/dashboard/components/shared/admin-dash-first-row/admin-dash-first-row.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
         src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_4__["DashBoardService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_7__["UserService"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], AdminDashFirstRowComponent);
 
@@ -10237,6 +10240,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
 /* harmony import */ var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/WorkPermit */ "./src/app/api/controllers/WorkPermit.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -10453,8 +10459,8 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
         let entity = {
             apartmentId: this.sessionService.apartmentId,
             statusIds: '353,354,355,356,357,358,359',
-            StartDate: new Date().toISOString(),
-            EndDate: new Date().toISOString(),
+            StartDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+            EndDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
         };
         this.workPermitService.getAllWorkPermitsByStatues(entity).subscribe((res) => {
             this.widgetData[7].backValue = res.length;
@@ -10463,8 +10469,8 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
     ngOnInit() {
         let entity = {
             apartmentId: this.sessionService.apartmentId,
-            startDate: new Date().toISOString(),
-            EndDate: new Date().toISOString()
+            startDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+            EndDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
         };
         this.visitorsCheckedIn(entity);
         this.visitorsCheckedOut(entity);
@@ -10475,7 +10481,7 @@ let AdminWidgetThreeComponent = class AdminWidgetThreeComponent {
         this.facilityApproved();
         this.facilityUnApproved();
         let params = {
-            date: new Date().toISOString(),
+            date: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
         };
         this.unApproveMoveIn(params);
         this.upcomingMoveIn(entity);
@@ -10534,9 +10540,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -10608,14 +10617,14 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
     }
     yesterday(type) {
         let entity = {};
-        entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_5___default()(new Date()).subtract(1, 'days').utc().format();
-        entity.toDate = new Date().toISOString();
+        entity.fromDate = moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).subtract(1, 'days').utc().format();
+        entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
         return entity;
     }
     today(type) {
         let entity = {};
-        entity.fromDate = new Date().toISOString();
-        entity.toDate = new Date().toISOString();
+        entity.fromDate = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
+        entity.toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
         return entity;
     }
     filter(filterMode, name, type) {
@@ -10744,8 +10753,8 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
     ngOnInit() {
         let entity = {
             apartmentId: this.sessionService.apartmentId,
-            fromDate: new Date().toISOString(),
-            toDate: new Date().toISOString()
+            fromDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
         };
         this.unapprovedPendingAdmins(entity);
         this.unapprovedPendingUsers(entity);
@@ -10754,7 +10763,7 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
         this.unassignedTickets();
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            date: new Date().toISOString()
+            date: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
         };
         this.inProgressPanicAlerts(params);
         this.openPanicAlerts(params);
@@ -10763,7 +10772,7 @@ let AdminWidgetTwoComponent = class AdminWidgetTwoComponent {
 AdminWidgetTwoComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] },
     { type: src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"] },
-    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__["TicketService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 AdminWidgetTwoComponent.propDecorators = {
@@ -10778,7 +10787,7 @@ AdminWidgetTwoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"],
         src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_3__["DashBoardService"],
-        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_5__["TicketService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], AdminWidgetTwoComponent);
 
@@ -10817,6 +10826,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _date_model_date_model_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../date-model/date-model.component */ "./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -10833,10 +10845,10 @@ let DashBroadCastComponent = class DashBroadCastComponent {
         this.totalItems = 0;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6___default()(date).format('ddd MMM D YYYY');
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format('ddd MMM D YYYY');
     }
     getTimeFormat(time) {
-        return moment__WEBPACK_IMPORTED_MODULE_6___default()(time).format('hh:mm A');
+        return moment__WEBPACK_IMPORTED_MODULE_6__(time).format('hh:mm A');
     }
     calenderPopUp(dateType) {
         const dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_5__["DateModelComponent"], {
@@ -10863,8 +10875,8 @@ let DashBroadCastComponent = class DashBroadCastComponent {
     ngOnInit() {
         let entity = {
             apartmentId: this.sessionService.apartmentId,
-            fromDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).subtract(1, 'month').utc().format(),
-            toDate: new Date().toISOString()
+            fromDate: moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).subtract(1, 'month').utc().format(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
         };
         this.announcementList(entity);
     }
@@ -11021,6 +11033,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -11037,7 +11052,7 @@ let DashMeetingComponent = class DashMeetingComponent {
         this.totalItems = 0;
     }
     getDateTimeFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6___default()(date).format('ddd MMM D YYYY');
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format('ddd MMM D YYYY');
     }
     calenderPopUp(dateType) {
         const dialogRef = this.dialog.open(_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_4__["DateModelComponent"], {
@@ -11057,8 +11072,8 @@ let DashMeetingComponent = class DashMeetingComponent {
             if (res.length > 0) {
                 this.meetingList = res.reverse().slice(0, 9);
                 this.meetingList.forEach((data) => {
-                    data.fromTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.fromTime, 'HH:mm').format('hh:mm A');
-                    data.toTime = moment__WEBPACK_IMPORTED_MODULE_6___default()(data.toTime, 'HH:mm').format('hh:mm A');
+                    data.fromTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.fromTime, 'HH:mm').format('hh:mm A');
+                    data.toTime = moment__WEBPACK_IMPORTED_MODULE_6__(data.toTime, 'HH:mm').format('hh:mm A');
                 });
                 this.totalItems = this.meetingList.length;
             }
@@ -11068,8 +11083,8 @@ let DashMeetingComponent = class DashMeetingComponent {
     ngOnInit() {
         let entity = {
             apartmentId: this.sessionService.apartmentId,
-            fromDate: new Date().toISOString(),
-            toDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(new Date()).add(1, 'month').utc().format(),
+            fromDate: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+            toDate: moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).add(1, 'month').utc().format(),
         };
         this.scheduledMeeting(entity);
     }

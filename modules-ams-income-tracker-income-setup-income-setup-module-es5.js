@@ -402,6 +402,16 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
 
       var IncomeTrackerSetupAutoInvoicingComponent = /*#__PURE__*/function () {
         function IncomeTrackerSetupAutoInvoicingComponent(accountsService, lookupService, sharedService, sessionService, apartmentService, injector) {
@@ -546,7 +556,7 @@
                 "taxId": !this.vatIndicator ? data.taxId : 0,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               })
@@ -585,7 +595,7 @@
                 "insertedBy": data.insertedBy,
                 "insertedOn": data.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
               }
             };
             this.accountsService.updateAutoinvoiceConfig(params).subscribe(function (res) {
@@ -802,6 +812,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
       var IncomeTrackerSetupGeneralComponent = /*#__PURE__*/function () {
         function IncomeTrackerSetupGeneralComponent(accountsService, lookupService, sharedService, sessionService) {
@@ -879,7 +899,7 @@
                   "description": this.paymentTerm.lookupValueName,
                   "isActive": true,
                   "updatedBy": parseInt(this.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
@@ -905,7 +925,7 @@
                   "description": this.paymentTerm.lookupValueName,
                   "isActive": true,
                   "insertedBy": parseInt(this.sessionService.userId),
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 }
@@ -955,7 +975,7 @@
                   "description": this.vatData.lookupValueName,
                   "isActive": true,
                   "updatedBy": parseInt(this.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
@@ -981,7 +1001,7 @@
                   "description": this.vatData.lookupValueName,
                   "isActive": true,
                   "insertedBy": parseInt(this.sessionService.userId),
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 }
@@ -1031,7 +1051,7 @@
                   "description": this.taxData.lookupValueName,
                   "isActive": true,
                   "updatedBy": parseInt(this.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
                 }
               };
               this.lookupService.updateLookupValue(params).subscribe(function (res) {
@@ -1057,7 +1077,7 @@
                   "description": this.taxData.lookupValueName,
                   "isActive": true,
                   "insertedBy": parseInt(this.sessionService.userId),
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 }
@@ -1131,9 +1151,9 @@
                   "comment": data[0].glaccountName,
                   "isActive": true,
                   "insertedBy": accountInfo.insertedBy ? accountInfo.insertedBy : this.sessionService.userId,
-                  "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : new Date().toISOString(),
+                  "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                   "updatedBy": accountInfo.custAccountId ? this.sessionService.userId : null,
-                  "updatedOn": accountInfo.custAccountId ? new Date().toISOString() : null,
+                  "updatedOn": accountInfo.custAccountId ? moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString() : null,
                   "gloffsetaccountId": offSetAccId
                 }
               };
@@ -1195,9 +1215,9 @@
                 "isActive": true,
                 "isDisabled": this.vatIndicator.isDisabled,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
               }
             };
             this.lookupService.updateLookupValue(params).toPromise();

@@ -54,6 +54,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_modules_ams_income_tracker_income_receipts_income_view_receipts_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component */ "./src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -83,9 +86,9 @@ let IncomeReceiptsReverseComponent = class IncomeReceiptsReverseComponent {
             "comment": this.receipt.comment,
             "isActive": true,
             "insertedBy": this.sessionService.userId,
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
             "updatedBy": this.sessionService.userId,
-            "updatedOn": new Date().toISOString()
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
         };
         let params = {
             custCollectionReversal: details

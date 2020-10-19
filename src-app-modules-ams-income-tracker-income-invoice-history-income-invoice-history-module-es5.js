@@ -141,6 +141,16 @@
       var src_app_modules_ams_income_tracker_income_invoice_history_income_invoice_history_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/modules/ams/income-tracker/income-invoice-history/income-invoice-history.component */
       "./src/app/modules/ams/income-tracker/income-invoice-history/income-invoice-history.component.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
       var IncomeHistoryReverseComponent = /*#__PURE__*/function () {
         function IncomeHistoryReverseComponent(_incomeInvoiceHistoryComponent, accountsService, sharedService, sessionService) {
@@ -177,9 +187,9 @@
               "comment": this.invoice.comment,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               "updatedBy": 0,
-              "updatedOn": new Date().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               "transReference1": "string",
               "transReference2": "string",
               "glAcctIndicator": "string"

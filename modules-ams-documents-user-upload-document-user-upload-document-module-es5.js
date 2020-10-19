@@ -635,7 +635,17 @@
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
 
@@ -663,7 +673,7 @@
             fileDetailsId: null
           }];
           this.documentViewList = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__["ModalService"]);
         }
 
         _createClass(UserUploadDrawerComponent, [{
@@ -720,7 +730,7 @@
                 "Description": this.document.description,
                 "IsActive": true,
                 "InsertedBy": this.sessionService.userId,
-                "InsertedOn": new Date().toISOString(),
+                "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "UpdatedBy": null,
                 "UpdatedOn": null,
                 "FileDetailsId": null,

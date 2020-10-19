@@ -457,6 +457,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -516,7 +519,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "comment2": "",
                 "active": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -546,7 +549,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "comment2": "",
                 "active": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -577,7 +580,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "comment2": "",
                 "active": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -632,10 +635,10 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         let collectionDetails = {
             "apartmentId": this.sessionService.apartmentId,
             "receiptNumber": 0,
-            "receiptDate": new Date().toISOString(),
+            "receiptDate": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "amount": parseInt(this.collection.amount),
             "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
-            "postOn": this.collection.postOn || new Date().toISOString(),
+            "postOn": this.collection.postOn || moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "collectionAccountTypeId": 165,
             "depositSlipNumber": 0,
             "postExcessAmountTo": 0,
@@ -646,7 +649,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             "comment": this.collection.comment || "",
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
             "invoiceId": this.invoiceIdArray[0],

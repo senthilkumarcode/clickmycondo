@@ -75,6 +75,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 /* harmony import */ var _add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./add-user-confirm-modal/add-user-confirm-modal.component */ "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
+
 
 
 
@@ -371,7 +374,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 "isBillToParty": this.user.isPrimaryContact,
                 "isActive": true,
                 "insertedBy": 1,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "isLiving": this.user.isLiving,
@@ -394,7 +397,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                         "roleId": this.towerInfo.roleId,
                         "isActive": true,
                         "insertedBy": this.sessionService.userId,
-                        "insertedOn": new Date().toISOString(),
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                         "updatedBy": null,
                         "apartmentBlockUnitUserId": res.message,
                         "updatedOn": null

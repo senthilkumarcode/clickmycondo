@@ -115,6 +115,16 @@
       var src_app_modules_ams_income_tracker_income_receipts_income_view_receipts_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component */
       "./src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
 
       var IncomeReceiptsReverseComponent = /*#__PURE__*/function () {
         function IncomeReceiptsReverseComponent(_incomeViewReceiptsComponent, accountsService, sessionService) {
@@ -149,9 +159,9 @@
               "comment": this.receipt.comment,
               "isActive": true,
               "insertedBy": this.sessionService.userId,
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
               "updatedBy": this.sessionService.userId,
-              "updatedOn": new Date().toISOString()
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
             };
             var params = {
               custCollectionReversal: details

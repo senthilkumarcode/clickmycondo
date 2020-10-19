@@ -1874,6 +1874,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/cdk/keycodes */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/keycodes.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var _dynamic_check_list_form_dynamic_check_list_form_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../dynamic-check-list-form/dynamic-check-list-form.component */ "./src/app/modules/ams/operational-maintanance/operational-maintanance-setup/dynamic-check-list-form/dynamic-check-list-form.component.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -2035,7 +2038,7 @@ let OpMaintenanceSetupTitleComponent = class OpMaintenanceSetupTitleComponent {
                 "comments": null,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "subCategoryId": data.subCategoryId,

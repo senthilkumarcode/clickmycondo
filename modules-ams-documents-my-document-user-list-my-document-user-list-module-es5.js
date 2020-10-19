@@ -127,6 +127,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DocumentCreateComponent = /*#__PURE__*/function () {
         function DocumentCreateComponent(documentService, sharedService, sessionService, lookupService, dialogRef, data) {
@@ -167,7 +177,7 @@
               "Description": this.document.description,
               "IsActive": true,
               "InsertedBy": this.sessionService.userId,
-              "InsertedOn": new Date().toISOString(),
+              "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "UpdatedBy": null,
               "UpdatedOn": null,
               "FileDetailsId": null,
@@ -202,10 +212,10 @@
                 "description": this.document.description,
                 "fileDetailsId": this.document.fileDetailsId,
                 "uploadedBy": this.sessionService.userId,
-                "uploadedOn": new Date().toISOString(),
+                "uploadedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "files": null

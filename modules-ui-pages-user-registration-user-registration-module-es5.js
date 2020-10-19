@@ -340,6 +340,16 @@
       var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/api/controllers/Document */
       "./src/app/api/controllers/Document.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
 
       var UserRegistrationFormComponent = /*#__PURE__*/function () {
         function UserRegistrationFormComponent(_condoConfigService, _document, apartmentService, authService, lookupService, sharedService, userService, router, _changeDetectorRef, documentService, sessionService) {
@@ -483,7 +493,7 @@
                   "Description": 'File',
                   "IsActive": true,
                   "InsertedBy": _this6.sessionService.userId,
-                  "InsertedOn": new Date().toISOString(),
+                  "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                   "UpdatedBy": null,
                   "UpdatedOn": null,
                   "FileDetailsId": null,
@@ -521,7 +531,7 @@
                 "isDocSubmitted": true,
                 "readyforApproval": true,
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString()
               })
             };
             this.apartmentService.updateApartmentBlockUnitUser(params).subscribe(function (res) {
@@ -561,7 +571,7 @@
                 "phoneNumber": key.phoneNumber ? key.phoneNumber.toString() : '',
                 "isActive": true,
                 "insertedBy": parseInt(_this8.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };

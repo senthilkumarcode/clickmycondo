@@ -127,6 +127,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var IncomeCreateCreditComponent = /*#__PURE__*/function () {
         function IncomeCreateCreditComponent(_changeDetectorRef, accountsService, apartmentService, sharedService, sessionService) {
@@ -219,7 +229,7 @@
                 "comment2": this.credit.comment,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -353,9 +363,9 @@
         }, {
           path: 'post-invoice',
           loadChildren: function loadChildren() {
-            return Promise.all(
+            return __webpack_require__.e(
             /*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */
-            [__webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~66d5f744"), __webpack_require__.e("default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12")]).then(__webpack_require__.bind(null,
+            "default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12").then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */
             "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(function (m) {
               return m.IncomePostInvoiceModule;

@@ -577,8 +577,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
 
 
 
@@ -601,10 +604,10 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.fileList = [];
         this.listOfFiles = [];
         this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"];
-        this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormGroup"]({
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required])
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
+        this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required])
         });
     }
     getSelectedPropertyType(event) {
@@ -677,7 +680,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             "insertedBy": 0,
             "insertedOn": "2020-02-06T16:14:17.670Z",
             "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": new Date().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "updatePersonName": this.property.updatePersonName,
             "insertPersonName": this.property.insertPersonName,
             "location": this.property.location,
@@ -729,8 +732,8 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         };
         this.apartmentService.getApartmentByApartmentId(params).subscribe((res) => {
             this.property = res[0];
-            this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormGroup"]({
-                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](this.property.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required])
+            this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
+                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"](this.property.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required])
             });
             let params = {
                 apartmentId: this.sessionService.apartmentId

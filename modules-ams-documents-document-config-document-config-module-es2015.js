@@ -264,6 +264,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -299,7 +302,7 @@ let DocumentCreateComponent = class DocumentCreateComponent {
             "Description": this.document.description,
             "IsActive": true,
             "InsertedBy": this.sessionService.userId,
-            "InsertedOn": new Date().toISOString(),
+            "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
             "UpdatedBy": null,
             "UpdatedOn": null,
             "FileDetailsId": null,
@@ -330,10 +333,10 @@ let DocumentCreateComponent = class DocumentCreateComponent {
                 "description": this.document.description,
                 "fileDetailsId": this.document.fileDetailsId,
                 "uploadedBy": this.sessionService.userId,
-                "uploadedOn": new Date().toISOString(),
+                "uploadedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "files": null
@@ -464,6 +467,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -530,7 +536,7 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
                     "description": this.document.description,
                     "isActive": true,
                     "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null
                 }
@@ -562,7 +568,7 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
                     "insertedBy": this.document.insertedBy,
                     "insertedOn": this.document.insertedOn,
                     "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": new Date().toISOString()
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {

@@ -430,19 +430,29 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/api/controllers/User */
       "./src/app/api/controllers/User.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! ngx-cookie-service */
       "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
@@ -774,7 +784,7 @@
                 apartmentBlockUnitId: this.violationData.apartmentBlockUnitId === 0 ? null : this.violationData.apartmentBlockUnitId,
 
                 /** format: date-time */
-                noticedOn: this.violationData.violationNoticedOn === "" ? new Date().toISOString() : this.violationData.violationNoticedOn,
+                noticedOn: this.violationData.violationNoticedOn === "" ? moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString() : this.violationData.violationNoticedOn,
 
                 /** format: double */
                 penaltyAmt: parseInt(this.violationData.penaltyAmt),
@@ -790,13 +800,13 @@
                 insertedBy: parseInt(this.sessionService.userId),
 
                 /** format: date-time */
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
 
                 /** format: int32 */
                 updatedBy: parseInt(this.sessionService.userId),
 
                 /** format: date-time */
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
 
                 /** format: int32 */
                 violationOccurrence: parseInt(this.violationData.violationOccurence),
@@ -862,11 +872,11 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_14__["CookieService"]
+          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_15__["CookieService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_12__["UserService"]
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
@@ -882,7 +892,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-violation.component.scss */
         "./src/app/modules/ams/violation/components/add-violation/add-violation.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_14__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_12__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_13__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddViolationComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_15__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddViolationComponent);
       /***/
     },
 
@@ -1910,6 +1920,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var StopPrivilegeComponent = /*#__PURE__*/function () {
         function StopPrivilegeComponent(lookupService, sharedService, sessionService, violationService, fb) {
@@ -2154,9 +2174,9 @@
               ViolationPrivilegeId5: control.at(4) === undefined ? 0 : parseInt(control.at(4).get('stopprivledges').value === '' ? '0' : control.at(4).get('stopprivledges').value),
               IsActive: true,
               InsertedBy: parseInt(this.sessionService.userId),
-              InsertedOn: new Date().toISOString(),
+              InsertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               UpdatedBy: parseInt(this.sessionService.userId),
-              UpdatedOn: new Date().toISOString(),
+              UpdatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               ApartmentId: this.sessionService.apartmentId
             };
 
@@ -2274,13 +2294,13 @@
                 insertedBy: parseInt(this.sessionService.userId),
 
                 /** format: date-time */
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
 
                 /** format: int32 */
                 updatedBy: parseInt(this.sessionService.userId),
 
                 /** format: date-time */
-                updatedOn: new Date().toISOString()
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
               }
             };
             this.violationService.addStopPrevileges(statusparams).subscribe(function (res) {
@@ -2611,6 +2631,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DisputeComponent = /*#__PURE__*/function () {
         function DisputeComponent(dialogRef, data, cookieService, sharedService, violationService, lookupService) {
@@ -2646,9 +2676,9 @@
                 disputeComments: this.dispute.disputeComments,
                 isActive: true,
                 insertedBy: parseInt(this.cookieService.get('userId')),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.cookieService.get('userId')),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 apartmentId: parseInt(this.cookieService.get('apartmentId')),
                 apartmentBlockUnitId: this.violation.apartmentBlockUnitId === null ? 1 : this.violation.apartmentBlockUnitId,
                 apartmentBlockId: this.violation.apartmentBlockId === null ? 1 : this.violation.apartmentBlockId
@@ -3284,6 +3314,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var CreateDisputeComponent = /*#__PURE__*/function () {
         function CreateDisputeComponent(dialogRef, data, sessionService, sharedService, violationService, lookupService) {
@@ -3319,9 +3359,9 @@
                 disputeComments: this.dispute.disputeComments,
                 isActive: this.dispute.disputeStatus,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 apartmentId: this.sessionService.apartmentId,
                 apartmentBlockUnitId: this.violation.apartmentBlockUnitId === null ? 1 : this.violation.apartmentBlockUnitId,
                 apartmentBlockId: this.violation.apartmentBlockId === null ? 1 : this.violation.apartmentBlockId
@@ -3505,6 +3545,16 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 
       var EditViolationComponent = /*#__PURE__*/function () {
         function EditViolationComponent(violationService, lookupService, sharedService, sessionService, alertService, cdr, dialogRef, data) {
@@ -3672,9 +3722,9 @@
                 invoiceNo: parseInt(this.violationData.invoiceNo == '' ? '0' : this.violationData.invoiceNo),
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 violationOccurrence: parseInt(this.violationData.violationOccurence),
                 primaryContact: this.violationData.primaryContactName === "" ? null : this.violationData.primaryContactName,
                 unitOwnerName: this.violationData.unitOwnerName === "" ? null : this.violationData.unitOwnerName,
@@ -4359,6 +4409,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var EditCategoryComponent = /*#__PURE__*/function () {
         function EditCategoryComponent(dialogRef, data, sessionService, sharedService, violationService, lookupService) {
@@ -4407,9 +4467,9 @@
                 description: this.category.Description,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 notes: '',
                 isCommon: false,
                 module: '',
@@ -4554,6 +4614,16 @@
       var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Screen */
       "./src/app/api/controllers/Screen.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var EditPrivilegeComponent = /*#__PURE__*/function () {
         function EditPrivilegeComponent(dialogRef, data, sessionService, sharedService, violationService, screenService) {
@@ -4626,9 +4696,9 @@
               StopPriveldgeDays: this.privledge.PeriodOfPrivledges,
               IsActive: true,
               InsertedBy: parseInt(this.sessionService.userId),
-              InsertedOn: new Date().toISOString(),
+              InsertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               UpdatedBy: parseInt(this.sessionService.userId),
-              UpdatedOn: new Date().toISOString(),
+              UpdatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               ApartmentId: this.sessionService.apartmentId
             };
             this.violationService.updateViolationPrivilege(lookupparams).subscribe(function (res) {
@@ -4867,55 +4937,65 @@
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
       /* harmony import */
 
 
-      var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/Violation */
       "./src/app/api/controllers/Violation.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Screen */
       "./src/app/api/controllers/Screen.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var _edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./edit-privilege/edit-privilege.component */
       "./src/app/modules/ams/violation/components/violation-setup/edit-privilege/edit-privilege.component.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! src/app/shared/components/confirm-modal/confirm-modal.component */
       "./src/app/shared/components/confirm-modal/confirm-modal.component.ts");
       /* harmony import */
 
 
-      var _edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./edit-category/edit-category.component */
       "./src/app/modules/ams/violation/components/violation-setup/edit-category/edit-category.component.ts");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
@@ -4958,7 +5038,7 @@
           this.PunitOrder = false;
           this.options = ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5"];
           this.selected = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_12__["ModalService"]);
         }
 
         _createClass(ViolationSetupComponent, [{
@@ -5130,9 +5210,9 @@
                 description: this.category.Description,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 notes: '',
                 isCommon: false,
                 module: '',
@@ -5266,9 +5346,9 @@
               StopPriveldgeDays: this.privledge.PeriodOfPrivledges,
               IsActive: true,
               InsertedBy: parseInt(this.sessionService.userId),
-              InsertedOn: new Date().toISOString(),
+              InsertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               UpdatedBy: parseInt(this.sessionService.userId),
-              UpdatedOn: new Date().toISOString(),
+              UpdatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               ApartmentId: this.sessionService.apartmentId
             };
 
@@ -5309,7 +5389,7 @@
           value: function openEditViolationCategory(violationCategory) {
             var _this60 = this;
 
-            var dialogRef = this.dialog.open(_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_13__["EditCategoryComponent"], {
+            var dialogRef = this.dialog.open(_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_14__["EditCategoryComponent"], {
               width: '900px',
               data: {
                 type: 'Edit Violation Category',
@@ -5328,7 +5408,7 @@
             var _this61 = this;
 
             // this.modalService.showConfirmModal(id);
-            var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
+            var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmModalComponent"], {
               panelClass: 'material',
               disableClose: true,
               data: id
@@ -5344,7 +5424,7 @@
           value: function openEditStopPrivilege(privledge) {
             var _this62 = this;
 
-            var dialogRef = this.dialog.open(_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_10__["EditPrivilegeComponent"], {
+            var dialogRef = this.dialog.open(_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_11__["EditPrivilegeComponent"], {
               // width: '900px',
               data: {
                 type: 'Edit Privilege',
@@ -5363,7 +5443,7 @@
             var _this63 = this;
 
             // this.modalService.showConfirmModal(id);
-            var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
+            var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmModalComponent"], {
               panelClass: 'material',
               disableClose: true,
               data: id
@@ -5469,9 +5549,9 @@
               ViolationPrivilegeId5: control.at(4) === undefined ? 0 : parseInt(control.at(4).get('stopprivledges').value === '' ? 0 : control.at(4).get('stopprivledges').value),
               IsActive: true,
               InsertedBy: parseInt(this.sessionService.userId),
-              InsertedOn: new Date().toISOString(),
+              InsertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               UpdatedBy: parseInt(this.sessionService.userId),
-              UpdatedOn: new Date().toISOString(),
+              UpdatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               ApartmentId: this.sessionService.apartmentId
             };
 
@@ -5514,7 +5594,7 @@
             var _this66 = this;
 
             // this.modalService.showConfirmModal(id);
-            var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmModalComponent"], {
+            var dialogRef = this.dialog.open(src_app_shared_components_confirm_modal_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmModalComponent"], {
               panelClass: 'material',
               disableClose: true,
               data: id
@@ -5619,8 +5699,8 @@
           value: function initiateForm() {
             return this.fb.group({
               ruleId: ['0'],
-              category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-              ruleno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+              category: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+              ruleno: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
               violationTable: this.fb.array([]),
               isEditable: [true]
             });
@@ -5629,9 +5709,9 @@
           key: "initiateViolationForm",
           value: function initiateViolationForm() {
             return this.fb.group({
-              fineViolationNo: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-              descViolationNo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-              stopprivledges: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
+              fineViolationNo: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+              descViolationNo: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+              stopprivledges: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]]
             });
           } //  //Get Work Type
           //  getDirectoryType(){
@@ -5670,10 +5750,10 @@
 
                 formcontrol.push(_this68.fb.group({
                   directoryRecordId: [element.directoryRecordId],
-                  serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                  email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-                  contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                  phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].maxLength(10)]],
+                  serviceType: [element.serviceName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+                  email: [element.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].email, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+                  contactperson: [element.contactPersonName, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+                  phone: [element.phone, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(10)]],
                   isEditable: [false]
                 }));
               });
@@ -5722,8 +5802,8 @@
 
                     formcontrol.push(_this69.fb.group({
                       ruleId: [element.id],
-                      category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                      ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
+                      category: [element.violationCategoryId, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+                      ruleno: [element.name, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
                       violationTable: _this69.fb.array([]),
                       isEditable: [false]
                     }));
@@ -5748,9 +5828,9 @@
                       var _descViolation = element['descViolationNo' + _index];
                       var _violationPrivilege = element['violationPrivilegeId' + _index];
                       violation.push(_this69.fb.group({
-                        fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required],
-                        descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]],
-                        stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required]]
+                        fineViolationNo: [_fineViolation, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required],
+                        descViolationNo: [_descViolation, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]],
+                        stopprivledges: [_violationPrivilege, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]]
                       }));
                     });
                   }); // // tslint:disable-next-line:no-shadowed-variable
@@ -5813,9 +5893,9 @@
               ViolationPrivilegeId5: 0,
               IsActive: true,
               InsertedBy: parseInt(this.sessionService.userId),
-              InsertedOn: new Date().toISOString(),
+              InsertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               UpdatedBy: parseInt(this.sessionService.userId),
-              UpdatedOn: new Date().toISOString(),
+              UpdatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               ApartmentId: this.sessionService.apartmentId
             };
 
@@ -5874,13 +5954,13 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__["ViolationService"]
+          type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__["ViolationService"]
         }, {
-          type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_8__["ScreenService"]
+          type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_9__["ScreenService"]
         }, {
-          type: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"]
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
@@ -5902,7 +5982,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./violation-setup.component.scss */
         "./src/app/modules/ams/violation/components/violation-setup/violation-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__["ViolationService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_8__["ScreenService"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormBuilder"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], ViolationSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__["ViolationService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_9__["ScreenService"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], ViolationSetupComponent);
       /***/
     },
 

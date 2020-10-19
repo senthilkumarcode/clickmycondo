@@ -79,6 +79,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
 /* harmony import */ var src_app_modules_ams_dashboard_components_shared_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ams/dashboard/components/shared/date-model/date-model.component */ "./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -231,8 +234,8 @@ let UserDashboardComponent = class UserDashboardComponent {
         };
         let params = {
             apartmentId: this.sessionService.apartmentId,
-            fromDate: new Date().toISOString(),
-            toDate: new Date().toISOString()
+            fromDate: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
         };
         let visNot = {
             apartmentId: this.sessionService.apartmentId,

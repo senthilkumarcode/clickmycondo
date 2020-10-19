@@ -823,6 +823,16 @@
 
 
       var moment__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_12__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
 
       var AddAssetMaintenanceComponent = /*#__PURE__*/function () {
         function AddAssetMaintenanceComponent(injector, dialog, router, route, assetService, vendorService, lookupService, sharedService, sessionService) {
@@ -876,9 +886,9 @@
                 "maintenanceStatusId": parseInt(this.assetMaintenance.maintenanceStatusId),
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "updatedBy": 0,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "actualMaintDate": this.assetMaintenance.actualMaintDate,
                 "lastMaintenanceDate": this.assetMaintenance.lastMaintenanceDate,
                 "nextPlannedMaintenance": this.assetMaintenance.nextPlannedMaintenance
@@ -912,9 +922,9 @@
                 "maintenanceStatusId": parseInt(this.assetMaintenance.maintenanceStatusId),
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "actualMaintDate": this.assetMaintenance.actualMaintDate,
                 "lastMaintenanceDate": this.assetMaintenance.lastMaintenanceDate,
                 "nextPlannedMaintenance": this.assetMaintenance.nextPlannedMaintenance
@@ -1534,13 +1544,23 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
 
@@ -1631,7 +1651,7 @@
                 "comments": this.asset.comments,
                 "isActive": this.asset.isActive,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "serialNo": this.asset.serialNo,
@@ -1713,7 +1733,7 @@
                 "insertedBy": this.asset.insertedBy,
                 "insertedOn": this.asset.insertedOn,
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "serialNo": this.asset.serialNo,
                 "assetDescription1": this.asset.assetDescription1,
                 "assetDescription2": this.asset.assetDescription2,
@@ -1859,9 +1879,9 @@
               "insuranceStatus": this.insurance.insuranceStatus,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date().toISOString()
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
             };
             var params = {};
             params.assetInsurancePlan = reqObj;
@@ -1891,9 +1911,9 @@
               "insuranceStatus": parseInt(this.insurance.insuranceStatus),
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatedBy": 0,
-              "updatedOn": new Date().toISOString()
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
             };
             var params = {};
             params.assetInsurancePlan = reqObj;
@@ -2007,9 +2027,9 @@
         }, {
           type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]
         }];
       };
 
@@ -2022,7 +2042,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./assets-create.component.scss */
         "./src/app/modules/ams/assets/components/assets-create/assets-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_10__["ApartmentService"]])], AssetsCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Asset__WEBPACK_IMPORTED_MODULE_3__["AssetService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_4__["VendorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_7__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"]])], AssetsCreateComponent);
       /***/
     },
 

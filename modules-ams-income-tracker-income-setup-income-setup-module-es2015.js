@@ -197,6 +197,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -319,7 +322,7 @@ let IncomeTrackerSetupAutoInvoicingComponent = class IncomeTrackerSetupAutoInvoi
     }
     addAutoinvoiceConfig(data) {
         let params = {
-            autoinvoiceConfig: Object.assign(Object.assign({}, data), { "apartmentId": this.sessionService.apartmentId, "glaccountId": data.glaccountId, "feeperSqftpermonth": parseInt(data.feeperSqftpermonth), "fixedFee": parseInt(data.fixedFee), "vatId": this.vatIndicator ? data.vatId : 0, "taxId": !this.vatIndicator ? data.taxId : 0, "active": true, "insertedBy": parseInt(this.sessionService.userId), "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null })
+            autoinvoiceConfig: Object.assign(Object.assign({}, data), { "apartmentId": this.sessionService.apartmentId, "glaccountId": data.glaccountId, "feeperSqftpermonth": parseInt(data.feeperSqftpermonth), "fixedFee": parseInt(data.fixedFee), "vatId": this.vatIndicator ? data.vatId : 0, "taxId": !this.vatIndicator ? data.taxId : 0, "active": true, "insertedBy": parseInt(this.sessionService.userId), "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(), "updatedBy": null, "updatedOn": null })
         };
         this.accountsService.addAutoinvoiceConfig(params).subscribe((res) => {
             if (res.code == 200) {
@@ -350,7 +353,7 @@ let IncomeTrackerSetupAutoInvoicingComponent = class IncomeTrackerSetupAutoInvoi
                 "insertedBy": data.insertedBy,
                 "insertedOn": data.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
             }
         };
         this.accountsService.updateAutoinvoiceConfig(params).subscribe((res) => {
@@ -503,6 +506,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -572,7 +578,7 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "description": this.paymentTerm.lookupValueName,
                     "isActive": true,
                     "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": new Date().toISOString(),
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
@@ -598,7 +604,7 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "description": this.paymentTerm.lookupValueName,
                     "isActive": true,
                     "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null,
                 }
@@ -640,7 +646,7 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "description": this.vatData.lookupValueName,
                     "isActive": true,
                     "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": new Date().toISOString(),
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
@@ -666,7 +672,7 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "description": this.vatData.lookupValueName,
                     "isActive": true,
                     "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null,
                 }
@@ -708,7 +714,7 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "description": this.taxData.lookupValueName,
                     "isActive": true,
                     "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": new Date().toISOString(),
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {
@@ -734,7 +740,7 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "description": this.taxData.lookupValueName,
                     "isActive": true,
                     "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null,
                 }
@@ -791,9 +797,9 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                     "comment": data[0].glaccountName,
                     "isActive": true,
                     "insertedBy": accountInfo.insertedBy ? accountInfo.insertedBy : this.sessionService.userId,
-                    "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : new Date().toISOString(),
+                    "insertedOn": accountInfo.insertedOn ? accountInfo.insertedOn : moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                     "updatedBy": accountInfo.custAccountId ? this.sessionService.userId : null,
-                    "updatedOn": accountInfo.custAccountId ? new Date().toISOString() : null,
+                    "updatedOn": accountInfo.custAccountId ? moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString() : null,
                     "gloffsetaccountId": offSetAccId
                 }
             };
@@ -864,9 +870,9 @@ let IncomeTrackerSetupGeneralComponent = class IncomeTrackerSetupGeneralComponen
                 "isActive": true,
                 "isDisabled": this.vatIndicator.isDisabled,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
             }
         };
         this.lookupService.updateLookupValue(params).toPromise();

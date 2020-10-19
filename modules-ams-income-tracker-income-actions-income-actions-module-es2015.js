@@ -186,7 +186,7 @@ const routes = [
         },
         children: [
             { path: '', redirectTo: 'customer-advances/:id', pathMatch: 'full' },
-            { path: 'add-invoice', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */[__webpack_require__.e("default~modules-ams-income-tracker-income-all-invoices-income-all-invoices-module~modules-ams-income~66d5f744"), __webpack_require__.e("default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */ "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(m => m.IncomePostInvoiceModule) },
+            { path: 'add-invoice', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */ "default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12").then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */ "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(m => m.IncomePostInvoiceModule) },
             { path: 'pay-invoice', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-income-tracker-income-pay-invoice-income-pay-invoice-module */ "src-app-modules-ams-income-tracker-income-pay-invoice-income-pay-invoice-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-pay-invoice/income-pay-invoice.module */ "./src/app/modules/ams/income-tracker/income-pay-invoice/income-pay-invoice.module.ts")).then(m => m.IncomePayInvoiceModule) },
             { path: 'account-history', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-income-tracker-income-invoice-history-income-invoice-history-module */ "src-app-modules-ams-income-tracker-income-invoice-history-income-invoice-history-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-invoice-history/income-invoice-history.module */ "./src/app/modules/ams/income-tracker/income-invoice-history/income-invoice-history.module.ts")).then(m => m.IncomeInvoiceHistoryModule) },
             { path: 'credits', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-income-tracker-income-actions-income-action-credits-income-action-credits-module */ "src-app-modules-ams-income-tracker-income-actions-income-action-credits-income-action-credits-module").then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-actions/income-action-credits/income-action-credits.module */ "./src/app/modules/ams/income-tracker/income-actions/income-action-credits/income-action-credits.module.ts")).then(m => m.IncomeActionCreditsModule) },
@@ -378,6 +378,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -431,7 +434,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 "comment2": this.advance.comment2,
                 "active": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -470,7 +473,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 "insertedBy": this.advance.insertedBy,
                 "insertedOn": this.advance.insertedOn,
                 "updatedBy": this.sessionService.userId,
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             let params = {
                 custAdvance: details
@@ -563,6 +566,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -606,7 +612,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "comment2": this.deposit.comment,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -644,7 +650,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             let params = {
                 custSecurity: details

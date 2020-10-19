@@ -202,6 +202,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -311,7 +314,7 @@ let CreateVendorFrquentVisitorComponent = class CreateVendorFrquentVisitorCompon
         else {
             this.isDataLoaded = false;
             let params = {
-                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
+                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
             };
             this.visitorService.addExpectedVisitor(params).subscribe((res) => {
                 this.isDataLoaded = true;
@@ -689,11 +692,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -728,9 +734,9 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
         this.isDataLoaded = true;
         this.urlType = 'create';
         this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedKingdom];
         this.message = null;
         //check in and checkout edit
         this.activateRouter.params.subscribe((param) => {
@@ -870,7 +876,7 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
         else {
             this.isDataLoaded = false;
             let params = {
-                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
+                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.visitor.apartmentUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
             };
             this.visitorService.addExpectedVisitor(params).subscribe((res) => {
                 this.isDataLoaded = true;
@@ -980,10 +986,10 @@ ExpVisitorCreateChekinComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 ExpVisitorCreateChekinComponent.propDecorators = {
@@ -994,17 +1000,17 @@ ExpVisitorCreateChekinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__d
         selector: 'app-exp-visitor-create-chekin',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./exp-visitor-create-chekin.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_12__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./exp-visitor-create-chekin.component.scss */ "./src/app/modules/ams/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], ExpVisitorCreateChekinComponent);
 
@@ -1041,12 +1047,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+
 
 
 
@@ -1069,7 +1078,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.visitorSearch = '';
         this.filterField = {
             fromDate: moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).subtract(1, 'days').format(),
-            toDate: new Date().toISOString(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
         };
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
     }
@@ -1105,8 +1114,8 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
     }
     onCheckIn(detail) {
         const message = `Are you sure you want to Check In?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
             panelClass: 'material-dialog-medium',
             disableClose: true,
             data: dialogData
@@ -1120,8 +1129,8 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
     }
     onCopyWith(detail) {
         const message = `Are you sure, you want to copy the details?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_5__["CommonConfirmModalComponent"], {
+        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
+        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["CommonConfirmModalComponent"], {
             panelClass: 'material-dialog-medium',
             disableClose: true,
             data: dialogData
@@ -1144,7 +1153,7 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
     clearFilter() {
         this.filterField = {
             fromDate: moment__WEBPACK_IMPORTED_MODULE_4__(new Date()).subtract(1, 'days').format(),
-            toDate: new Date().toISOString(),
+            toDate: moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
         };
         this.getVisitorList();
     }
@@ -1264,11 +1273,11 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
     }
 };
 ExpVisitorListComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_2__["VisitorService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] }
 ];
 ExpVisitorListComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -1283,11 +1292,11 @@ ExpVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./exp-visitor-list.component.scss */ "./src/app/modules/ams/visitor/components/exp-visitor-list/exp-visitor-list.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_2__["VisitorService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])
 ], ExpVisitorListComponent);
 
 function checkIn(row) {
@@ -2269,11 +2278,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
 
 
 
@@ -2308,9 +2320,9 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         this.isDataLoaded = true;
         this.urlType = 'create';
         this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
         this.message = null;
         //check in and checkout edit
         this.activateRouter.params.subscribe((param) => {
@@ -2495,7 +2507,7 @@ let VisitorCreateCheckinComponent = class VisitorCreateCheckinComponent {
         else {
             this.isDataLoaded = false;
             let params = {
-                visitor: Object.assign(Object.assign({}, this.visitor), { "apartmentId": this.sessionService.apartmentId, "visitorPhone": this.visitor.visitorPhone.number, "phonecountrycode": this.visitor.visitorPhone.countryCode, "isCheckedIn": true, "isCheckedOut": false, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "expectedVisitorId": this.visitor.expectedVisitorId, "expectedVisitorInTime": this.visitor.expectedVisitorInTime, "expectedVisitorOutTime": this.visitor.expectedVisitorOutTime, "expectedVisitorDuration": null, "enteredBy": parseInt(this.sessionService.userId), "visitorVehicleTypeId": null, "visitorVehicleNumber": "string", "visitingPlaceId": null, "meetingPersonId": 1, "meetingPersonName": "string", "visitorsOrg": "string", "entryGateId": null, "exitGateId": null })
+                visitor: Object.assign(Object.assign({}, this.visitor), { "apartmentId": this.sessionService.apartmentId, "visitorPhone": this.visitor.visitorPhone.number, "phonecountrycode": this.visitor.visitorPhone.countryCode, "isCheckedIn": true, "isCheckedOut": false, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(), "updatedBy": null, "updatedOn": null, "expectedVisitorId": this.visitor.expectedVisitorId, "expectedVisitorInTime": this.visitor.expectedVisitorInTime, "expectedVisitorOutTime": this.visitor.expectedVisitorOutTime, "expectedVisitorDuration": null, "enteredBy": parseInt(this.sessionService.userId), "visitorVehicleTypeId": null, "visitorVehicleNumber": "string", "visitingPlaceId": null, "meetingPersonId": 1, "meetingPersonName": "string", "visitorsOrg": "string", "entryGateId": null, "exitGateId": null })
             };
             this.visitorService.addVisitor(params).subscribe((res) => {
                 this.isDataLoaded = true;
@@ -2604,10 +2616,10 @@ VisitorCreateCheckinComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 VisitorCreateCheckinComponent.propDecorators = {
@@ -2618,17 +2630,17 @@ VisitorCreateCheckinComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         selector: 'app-visitor-create-checkin',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./visitor-create-checkin.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_10__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./visitor-create-checkin.component.scss */ "./src/app/modules/ams/visitor/components/visitor-create-checkin/visitor-create-checkin.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_7__["StaffService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_8__["Router"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"],
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], VisitorCreateCheckinComponent);
 
@@ -3087,6 +3099,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -3144,7 +3159,7 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                     "description": this.visitor.description,
                     "isActive": true,
                     "insertedBy": parseInt(this.sessionService.userId),
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null
                 }
@@ -3176,7 +3191,7 @@ let VisitorSetupComponent = class VisitorSetupComponent {
                     "insertedBy": this.visitor.insertedBy,
                     "insertedOn": this.visitor.insertedOn,
                     "updatedBy": parseInt(this.sessionService.userId),
-                    "updatedOn": new Date().toISOString()
+                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 }
             };
             this.lookupService.updateLookupValue(params).subscribe((res) => {

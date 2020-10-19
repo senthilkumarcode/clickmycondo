@@ -355,43 +355,53 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Staff */
       "./src/app/api/controllers/Staff.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Meeting */
       "./src/app/api/controllers/Meeting.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
       /* harmony import */
 
 
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
@@ -831,7 +841,7 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -864,7 +874,7 @@
                         comments: "string",
                         isActive: true,
                         insertedBy: parseInt(_this9.sessionService.userId),
-                        insertedOn: new Date().toISOString(),
+                        insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                         updatedBy: null,
                         updatedOn: null,
                         meetingStatusId: 308,
@@ -875,7 +885,7 @@
                       }
                     };
                     meetingApi.push(_this9.meetingService.addMeeting(_params));
-                    Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["forkJoin"]).apply(void 0, meetingApi).subscribe(function (res) {
+                    Object(rxjs__WEBPACK_IMPORTED_MODULE_13__["forkJoin"]).apply(void 0, meetingApi).subscribe(function (res) {
                       if (res.length > 0) {
                         res.forEach(function (data) {
                           if (data.message) _this9.sharedService.openSnackBar("Meeting Created successfully", "succes");else _this9.sharedService.openSnackBar(data.errorMessage, "error");
@@ -966,7 +976,7 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -999,7 +1009,7 @@
                   insertedBy: this.meeting.insertedBy,
                   insertedOn: this.meeting.insertedOn,
                   updatedBy: this.sessionService.userId,
-                  updatedOn: new Date().toISOString(),
+                  updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                   meetingStatusId: this.meeting.meetingStatusId,
                   meetingAttendees: "string",
                   meetingminutes: "string",
@@ -1028,8 +1038,8 @@
             var _this11 = this;
 
             var message = "All records will be removed. Do you wish to continue ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_14__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
               disableClose: true,
               data: dialogData
@@ -1198,17 +1208,17 @@
         }, {
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"]
+          type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"]
         }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
         }, {
-          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_9__["MeetingService"]
+          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_10__["MeetingService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
@@ -1235,11 +1245,11 @@
         /*! raw-loader!./meetings-create.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/meetings/components/meetings-create/meetings-create.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_12__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./meetings-create.component.scss */
         "./src/app/modules/ams/meetings/components/meetings-create/meetings-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_9__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MeetingsCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_9__["StaffService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_10__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_15__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], MeetingsCreateComponent);
       /***/
     },
 
@@ -1313,43 +1323,53 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_4__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Meeting */
       "./src/app/api/controllers/Meeting.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
       "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 
@@ -1365,7 +1385,7 @@
           this.dialog = dialog;
           this.isMeetingDataLoaded = false;
           this.meetingSearch = '';
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(MeetingsListComponent, [{
@@ -1381,8 +1401,8 @@
 
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var message = "Are you sure you want to cancel ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Meeting Cancellation", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["CommonConfirmModalComponent"], {
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["ConfirmDialogModel"]("Confirm Meeting Cancellation", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_11__["CommonConfirmModalComponent"], {
               panelClass: 'material-dialog-medium',
               disableClose: true,
               data: dialogData
@@ -1407,7 +1427,7 @@
                     insertedBy: dataRecord.insertedBy,
                     insertedOn: dataRecord.insertedOn,
                     updatedBy: _this13.sessionService.userId,
-                    updatedOn: new Date().toISOString(),
+                    updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_4___default()().toISOString(),
                     meetingStatusId: 315,
                     meetingAttendees: "string",
                     meetingminutes: "string",
@@ -1585,15 +1605,15 @@
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
-          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"]
+          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
         }];
       };
 
@@ -1621,7 +1641,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./meetings-list.component.scss */
         "./src/app/modules/ams/meetings/components/meetings-list/meetings-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])], MeetingsListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_5__["MeetingService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]])], MeetingsListComponent);
 
       function editMeeting(row) {
         var event = new CustomEvent('oneditMeeting', {
@@ -2021,6 +2041,16 @@
       var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var MeetingsSetupComponent = /*#__PURE__*/function () {
         function MeetingsSetupComponent(lookupService, injector, sharedService, sessionService) {
@@ -2088,7 +2118,7 @@
                   "description": this.meeting.description,
                   "isActive": true,
                   "insertedBy": parseInt(this.sessionService.userId),
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 }
@@ -2122,7 +2152,7 @@
                   "insertedBy": this.meeting.insertedBy,
                   "insertedOn": this.meeting.insertedOn,
                   "updatedBy": parseInt(this.sessionService.userId),
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 }
               };
               this.lookupService.updateLookupValue(_params3).subscribe(function (res) {

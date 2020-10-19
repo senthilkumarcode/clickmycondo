@@ -231,37 +231,47 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_3__);
+      /* harmony import */
+
+
+      var src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/ForumTopics */
       "./src/app/api/controllers/ForumTopics.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/ForumPosts */
       "./src/app/api/controllers/ForumPosts.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
 
@@ -316,7 +326,7 @@
                 "categoryId": 1,
                 "active": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               }
@@ -366,7 +376,7 @@
                   "img": null,
                   "active": true,
                   "insertedBy": this.sessionService.userId,
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 }
@@ -439,15 +449,15 @@
 
       ForumComponent.ctorParameters = function () {
         return [{
-          type: src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_4__["ForumPostsService"]
+          type: src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_5__["ForumPostsService"]
         }, {
-          type: src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_3__["ForumTopicsService"]
+          type: src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__["ForumTopicsService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }];
       };
 
@@ -463,11 +473,11 @@
         /*! raw-loader!./forum.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/user/social-chat/components/forum/forum.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_7__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./forum.component.scss */
         "./src/app/modules/user/social-chat/components/forum/forum.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_4__["ForumPostsService"], src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_3__["ForumTopicsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], ForumComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_5__["ForumPostsService"], src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__["ForumTopicsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ForumComponent);
       /***/
     },
 

@@ -213,6 +213,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -254,7 +257,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
             "comments": this.insuranceCharge.Comments,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null
         };
@@ -293,7 +296,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
     }
     ngOnInit() {
         this.insuranceCharge = {};
-        this.insuranceCharge.DateEntered = new Date().toISOString();
+        this.insuranceCharge.DateEntered = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
         let params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -368,6 +371,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -405,7 +411,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
             "periodTo": this.electricReading.toDate,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "updatedBy": 0,
             "updatedOn": null
         };
@@ -432,7 +438,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
                 "comments": this.electricReading.comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
             };
@@ -470,7 +476,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
                 "comments": this.electricReading.Comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
             };
@@ -525,7 +531,7 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
     }
     ngOnInit() {
         this.electricReading = {};
-        this.electricReading.dateTaken = new Date().toISOString();
+        this.electricReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
         let params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -830,6 +836,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -883,7 +892,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
             "comments": this.waterReading.comments,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null
         };
@@ -931,7 +940,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
         }
         this.waterReading.prevReading = this.unit.water_charge.prevReading;
         this.waterReading.currReading = this.unit.water_charge.currReading;
-        this.waterReading.dateTaken = new Date().toISOString();
+        this.waterReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
         this.unitTypeId = "";
         //get unit type
         let params = {
@@ -1006,6 +1015,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -1041,7 +1053,7 @@ let WaterReadingComponent = class WaterReadingComponent {
             "periodTo": this.waterReadingToDate,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
             "updatedBy": 0,
             "updatedOn": null
         };
@@ -2926,7 +2938,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+
 
 
 
@@ -3030,7 +3045,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
                 "comments": "",
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
             };
@@ -3069,7 +3084,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
                 "insertedBy": this.selectedItem.insertedBy,
                 "insertedOn": this.selectedItem.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
             };
             let params = {
                 utilityTrackerCategory: details

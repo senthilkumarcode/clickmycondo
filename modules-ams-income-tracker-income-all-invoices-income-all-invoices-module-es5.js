@@ -238,33 +238,43 @@
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_14__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_14__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var html2canvas__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! html2canvas */
       "./node_modules/html2canvas/dist/html2canvas.js");
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_15__);
+      var html2canvas__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_16__);
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var jspdf__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! jspdf */
       "./node_modules/jspdf/dist/jspdf.min.js");
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_16__);
+      var jspdf__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_17__);
 
       var IncomeAllInvoicesComponent = /*#__PURE__*/function () {
         function IncomeAllInvoicesComponent(_overlay, _viewContainerRef, dialog, router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
@@ -305,7 +315,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_14__(date).format(this.timeZone.date);
           }
         }, {
           key: "isMobileView",
@@ -316,13 +326,13 @@
           key: "printInvoice",
           value: function printInvoice() {
             var data = document.getElementById('InvoiceElement');
-            html2canvas__WEBPACK_IMPORTED_MODULE_15___default()(data).then(function (canvas) {
+            html2canvas__WEBPACK_IMPORTED_MODULE_16___default()(data).then(function (canvas) {
               var imgWidth = 208;
               var pageHeight = 295;
               var imgHeight = canvas.height * imgWidth / canvas.width;
               var heightLeft = imgHeight;
               var contentDataURL = canvas.toDataURL('image/png');
-              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_16__('p', 'mm', 'a4'); // A4 size page of PDF  
+              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_17__('p', 'mm', 'a4'); // A4 size page of PDF  
 
               var position = 0;
               pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
@@ -479,8 +489,8 @@
               "apartmentId": this.sessionService.apartmentId,
               "apartmentBlockUnitId": invoice.apartmentBlockUnitId,
               "custInvoiceAmount": parseInt(invoice.custInvoiceAmount),
-              "custInvoiceDate": new Date().toISOString(),
-              "dueDate": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(invoice.dueDate).tz(this.timeZone).toISOString(),
+              "custInvoiceDate": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+              "dueDate": moment__WEBPACK_IMPORTED_MODULE_14__(invoice.dueDate).tz(this.timeZone).toISOString(),
               "tax1": 0,
               "tax2": 0,
               "tax3": 0,
@@ -490,16 +500,16 @@
               "isSmssent": invoice.isSmssent,
               "custInvoiceStatusId": 1,
               "postedBy": parseInt(this.sessionService.userId),
-              "postedOn": new Date().toISOString(),
+              "postedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
               "billToPay": "string",
               "comments": invoice.comments || "",
               "penaltyAmount": 0,
               "penaltyComment": "string",
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
               "transReference1": "string",
               "transReference2": "string",
               "invoiceGLAccounts": [{
@@ -510,9 +520,9 @@
                 "comments": "string",
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "amount": invoice.custInvoiceAmount
               }]
             };
@@ -566,7 +576,7 @@
               datafield: 'insertedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).format(_this5.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).format(_this5.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -609,7 +619,7 @@
               minwidth: 120,
               renderer: columnrenderer,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.time) + '</div>';
               }
             }, {
               text: 'Actions',
@@ -650,8 +660,8 @@
         }, {
           key: "submitIncomeInvoicesFilterForm",
           value: function submitIncomeInvoicesFilterForm() {
-            var fromDate = moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(this.fromDate).format('YYYY-MM-DD');
-            var toDate = moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()(this.toDate).format('YYYY-MM-DD');
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format('YYYY-MM-DD');
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format('YYYY-MM-DD');
             this.getAllInvoicesData(fromDate, toDate);
           }
         }, {
@@ -979,6 +989,16 @@
       var src_app_modules_ams_income_tracker_income_all_invoices_income_all_invoices_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/modules/ams/income-tracker/income-all-invoices/income-all-invoices.component */
       "./src/app/modules/ams/income-tracker/income-all-invoices/income-all-invoices.component.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
 
       var IncomeInvoiceReverseComponent = /*#__PURE__*/function () {
         function IncomeInvoiceReverseComponent(_incomeAllInvoicesComponent, accountsService, sessionService) {
@@ -1012,9 +1032,9 @@
               "comment": this.invoice.comment,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
               "transReference1": "string",
               "transReference2": "string",
               "glAcctIndicator": "Income"

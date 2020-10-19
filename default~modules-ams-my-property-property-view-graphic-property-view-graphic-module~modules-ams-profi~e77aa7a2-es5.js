@@ -125,6 +125,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
 
       var AddPropertyDialogComponent = /*#__PURE__*/function () {
         function AddPropertyDialogComponent(lookupService, apartmentService, facilityService, sessionService, propertyService, assetService, sharedService, dialogRef, data) {
@@ -381,8 +391,8 @@
           value: function addProperty() {
             var _this10 = this;
 
-            this.addPropertyParam.insertedOn = new Date().toISOString();
-            this.addPropertyParam.updatedOn = new Date().toISOString();
+            this.addPropertyParam.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
+            this.addPropertyParam.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
             this.addPropertyParam.id = Number(this.addPropertyParam.id);
             this.addPropertyParam.blockUnitId = Number(this.addPropertyParam.blockUnitId);
             this.addPropertyParam.propertyPoitype = Number(this.addPropertyParam.propertyPoitype);
@@ -402,7 +412,7 @@
           value: function updateProperty() {
             var _this11 = this;
 
-            this.addPropertyParam.updatedOn = new Date().toISOString();
+            this.addPropertyParam.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
             var addProperty = {
               propertyPoi: this.addPropertyParam
             };

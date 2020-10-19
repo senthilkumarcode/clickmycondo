@@ -379,6 +379,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var AddInsuranceComponent = /*#__PURE__*/function () {
         function AddInsuranceComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
@@ -422,7 +432,7 @@
               "comments": this.insuranceCharge.Comments,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -471,7 +481,7 @@
             var _this2 = this;
 
             this.insuranceCharge = {};
-            this.insuranceCharge.DateEntered = new Date().toISOString();
+            this.insuranceCharge.DateEntered = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -609,6 +619,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var ElectricityReadingComponent = /*#__PURE__*/function () {
         function ElectricityReadingComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
@@ -648,7 +668,7 @@
               "periodTo": this.electricReading.toDate,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatedBy": 0,
               "updatedOn": null
             };
@@ -681,7 +701,7 @@
                 "comments": this.electricReading.comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
               };
@@ -720,7 +740,7 @@
                 "comments": this.electricReading.Comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": 0,
                 "updatedOn": null
               };
@@ -787,7 +807,7 @@
             var _this5 = this;
 
             this.electricReading = {};
-            this.electricReading.dateTaken = new Date().toISOString();
+            this.electricReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -1310,6 +1330,16 @@
       var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var UnitReadingInfoComponent = /*#__PURE__*/function () {
         function UnitReadingInfoComponent(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
@@ -1368,7 +1398,7 @@
               "comments": this.waterReading.comments,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -1425,7 +1455,7 @@
 
             this.waterReading.prevReading = this.unit.water_charge.prevReading;
             this.waterReading.currReading = this.unit.water_charge.currReading;
-            this.waterReading.dateTaken = new Date().toISOString();
+            this.waterReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             this.unitTypeId = ""; //get unit type
 
             var params = {
@@ -1564,6 +1594,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var WaterReadingComponent = /*#__PURE__*/function () {
         function WaterReadingComponent(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
@@ -1602,7 +1642,7 @@
               "periodTo": this.waterReadingToDate,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "updatedBy": 0,
               "updatedOn": null
             };
@@ -4235,7 +4275,17 @@
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 
@@ -4359,7 +4409,7 @@
                 "comments": "",
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -4400,7 +4450,7 @@
                 "insertedBy": this.selectedItem.insertedBy,
                 "insertedOn": this.selectedItem.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
               };
               var _params3 = {
                 utilityTrackerCategory: _details2

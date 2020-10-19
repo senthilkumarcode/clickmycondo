@@ -120,6 +120,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -156,8 +159,8 @@ let TodoCreateCategoryComponent = class TodoCreateCategoryComponent {
     createCategory() {
         if (this.addTodoCategory.valid) {
             this.category.insertedBy = parseInt(this.sessionService.userId);
-            this.category.insertedOn = new Date().toISOString();
-            this.category.updatedOn = new Date().toISOString();
+            this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
+            this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
             this.category.updatedBy = 0;
             let createCategoryParam = {
                 todoListCategoryModel: this.category
@@ -175,8 +178,8 @@ let TodoCreateCategoryComponent = class TodoCreateCategoryComponent {
     updateCategory() {
         if (this.addTodoCategory.valid) {
             this.category.insertedBy = 0;
-            this.category.insertedOn = new Date().toISOString();
-            this.category.updatedOn = new Date().toISOString();
+            this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
+            this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
             this.category.updatedBy = parseInt(this.sessionService.userId);
             let updateCategory = {
                 todoListCategoryModel: this.category
@@ -247,7 +250,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
 
 
 
@@ -345,8 +351,8 @@ let TodoCreateDialogComponent = class TodoCreateDialogComponent {
     createTODO() {
         let createTodo = this.todoParam;
         createTodo.insertedBy = parseInt(this.sessionService.userId);
-        createTodo.insertedOn = new Date().toISOString();
-        createTodo.updatedOn = new Date().toISOString();
+        createTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
+        createTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
         createTodo.updatedBy = 0;
         // createTodo.beginOn = this.setTime(this.todoParam.beginOn,moment(this.startTime,'HH:mm'));
         // createTodo.finishOn = this.setTime(this.todoParam.finishOn,moment(this.endTime,'HH:mm'));
@@ -363,8 +369,8 @@ let TodoCreateDialogComponent = class TodoCreateDialogComponent {
     editTODO() {
         let updateTodo = this.todoParam;
         updateTodo.insertedBy = 0;
-        updateTodo.insertedOn = new Date().toISOString();
-        updateTodo.updatedOn = new Date().toISOString();
+        updateTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
+        updateTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
         updateTodo.updatedBy = parseInt(this.sessionService.userId);
         // updateTodo.beginOn = this.setTime(moment(this.todoParam.beginOn),moment(this.startTime,'HH:mm'));
         // updateTodo.finishOn = this.setTime(moment(this.todoParam.finishOn),moment(this.endTime,'HH:mm'));
@@ -389,7 +395,7 @@ let TodoCreateDialogComponent = class TodoCreateDialogComponent {
 TodoCreateDialogComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"] }
@@ -400,7 +406,7 @@ TodoCreateDialogComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./todo-create-dialog.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./todo-create-dialog.component.scss */ "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"]])
 ], TodoCreateDialogComponent);
 
@@ -783,6 +789,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -886,8 +895,8 @@ let TodoListComponent = class TodoListComponent {
             updateTodo.todoStatusId = 218;
         }
         updateTodo.insertedBy = 0;
-        updateTodo.insertedOn = new Date().toISOString();
-        updateTodo.updatedOn = new Date().toISOString();
+        updateTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+        updateTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
         updateTodo.updatedBy = parseInt(this.sessionService.userId);
         let updateTodoParam = {
             todoListModel: updateTodo
@@ -975,6 +984,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -1049,8 +1061,8 @@ let TodoReminderComponent = class TodoReminderComponent {
             updateTodo.todoStatusId = 218;
         }
         updateTodo.insertedBy = 0;
-        updateTodo.insertedOn = new Date().toISOString();
-        updateTodo.updatedOn = new Date().toISOString();
+        updateTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_4___default()().toISOString();
+        updateTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_4___default()().toISOString();
         updateTodo.updatedBy = parseInt(this.sessionService.userId);
         let updateTodoParam = {
             todoListModel: updateTodo
@@ -1184,6 +1196,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -1265,8 +1280,8 @@ let TodoSetupComponent = class TodoSetupComponent {
         if (this.addTodoCategory.valid) {
             if (this.isEdit) {
                 this.category.insertedBy = 0;
-                this.category.insertedOn = new Date().toISOString();
-                this.category.updatedOn = new Date().toISOString();
+                this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+                this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
                 this.category.updatedBy = parseInt(this.sessionService.userId);
                 let updateCategory = {
                     todoListCategoryModel: this.category
@@ -1279,8 +1294,8 @@ let TodoSetupComponent = class TodoSetupComponent {
             }
             else {
                 this.category.insertedBy = parseInt(this.sessionService.userId);
-                this.category.insertedOn = new Date().toISOString();
-                this.category.updatedOn = new Date().toISOString();
+                this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+                this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
                 this.category.updatedBy = 0;
                 let createCategoryParam = {
                     todoListCategoryModel: this.category

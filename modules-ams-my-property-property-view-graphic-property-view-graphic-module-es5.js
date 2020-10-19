@@ -221,6 +221,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
 
       var graph;
 
@@ -570,9 +580,9 @@
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": 0,
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedFloor
               }
             };
@@ -601,9 +611,9 @@
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": 0,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": parseInt(this.cookieService.get('userId')),
-                "updatedOn": new Date().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedTower
               }
             };

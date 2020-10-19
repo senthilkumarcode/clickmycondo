@@ -189,6 +189,16 @@
       var _add_user_confirm_modal_add_user_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./add-user-confirm-modal/add-user-confirm-modal.component */
       "./src/app/modules/ams/unit-users/components/add-users-resident/add-user-confirm-modal/add-user-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
 
       var AddUsersResidentComponent = /*#__PURE__*/function () {
         function AddUsersResidentComponent(dialog, router, userService, emailSendService, apartmentService, sharedService, sessionService, constantsService, cd) {
@@ -533,7 +543,7 @@
                 "isBillToParty": this.user.isPrimaryContact,
                 "isActive": true,
                 "insertedBy": 1,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 "isLiving": this.user.isLiving,
@@ -556,7 +566,7 @@
                     "roleId": _this6.towerInfo.roleId,
                     "isActive": true,
                     "insertedBy": _this6.sessionService.userId,
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                     "updatedBy": null,
                     "apartmentBlockUnitUserId": res.message,
                     "updatedOn": null

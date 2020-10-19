@@ -983,13 +983,23 @@
       /* harmony import */
 
 
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
       /* harmony import */
 
 
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/forms */
       "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
 
@@ -1007,10 +1017,10 @@
           this.fileList = [];
           this.listOfFiles = [];
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_8__["CountryISO"];
-          this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormGroup"]({
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required])
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
+          this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required])
           });
         }
 
@@ -1102,7 +1112,7 @@
               "insertedBy": 0,
               "insertedOn": "2020-02-06T16:14:17.670Z",
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": new Date().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatePersonName": this.property.updatePersonName,
               "insertPersonName": this.property.insertPersonName,
               "location": this.property.location,
@@ -1158,8 +1168,8 @@
             };
             this.apartmentService.getApartmentByApartmentId(params).subscribe(function (res) {
               _this7.property = res[0];
-              _this7.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormGroup"]({
-                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormControl"](_this7.property.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_9__["Validators"].required])
+              _this7.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
+                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"](_this7.property.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required])
               });
               var params = {
                 apartmentId: _this7.sessionService.apartmentId

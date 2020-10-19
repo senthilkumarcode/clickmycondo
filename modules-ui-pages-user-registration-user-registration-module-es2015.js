@@ -155,6 +155,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_auth_auth_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/core/auth/auth.service */ "./src/app/core/auth/auth.service.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
 /* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+
 
 
 
@@ -276,7 +279,7 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
                     "Description": 'File',
                     "IsActive": true,
                     "InsertedBy": this.sessionService.userId,
-                    "InsertedOn": new Date().toISOString(),
+                    "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                     "UpdatedBy": null,
                     "UpdatedOn": null,
                     "FileDetailsId": null,
@@ -304,7 +307,7 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
     updateBlockUnitUser() {
         this.isDataLoaded = false;
         let params = {
-            apartmentBlockUnitUser: Object.assign(Object.assign({}, this.blockUnitInfo), { "isDocSubmitted": true, "readyforApproval": true, "updatedBy": this.sessionService.userId, "updatedOn": new Date().toISOString() })
+            apartmentBlockUnitUser: Object.assign(Object.assign({}, this.blockUnitInfo), { "isDocSubmitted": true, "readyforApproval": true, "updatedBy": this.sessionService.userId, "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString() })
         };
         this.apartmentService.updateApartmentBlockUnitUser(params).subscribe((res) => {
             this.isDataLoaded = true;
@@ -337,7 +340,7 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
                 "phoneNumber": key.phoneNumber ? key.phoneNumber.toString() : '',
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };

@@ -165,6 +165,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
 
       var PropertyAddUnitComponent = /*#__PURE__*/function () {
         function PropertyAddUnitComponent(_activatedRoute, _router, el, _changeDetectorRef, _propertyUnitsListComponent, accountsService, apartmentService, lookupService, sharedService, sessionService) {
@@ -243,7 +253,7 @@
                 "insertedBy": parseInt(this.unit.insertedBy),
                 "insertedOn": this.unit.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
               };
               var params = {
                 apartmentBlockUnit: details

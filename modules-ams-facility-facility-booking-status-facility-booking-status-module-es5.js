@@ -133,6 +133,16 @@
       var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var FacilityBookingConfirmationComponent = /*#__PURE__*/function () {
         function FacilityBookingConfirmationComponent(sharedService, activeRouter, sessionService, facilityService, changeDetectorRef, lookupService, router, facilityBookingListComponent) {
@@ -172,7 +182,7 @@
               "bookedToTime": this.facility.bookedToTime
             }];
             this.facility.updatedBy = parseInt(this.sessionService.userId);
-            this.facility.updatedOn = new Date().toISOString();
+            this.facility.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             var params = {
               apartmentFacilityBooking: this.facility
             };

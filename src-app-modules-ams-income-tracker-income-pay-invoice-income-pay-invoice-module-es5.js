@@ -700,6 +700,16 @@
       var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var IncomePostCollectionComponent = /*#__PURE__*/function () {
         function IncomePostCollectionComponent(_activatedRoute, _router, accountsService, lookupService, sharedService, sessionService) {
@@ -771,7 +781,7 @@
                 "comment2": "",
                 "active": true,
                 "insertedBy": _this7.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -805,7 +815,7 @@
                 "comment2": "",
                 "active": true,
                 "insertedBy": _this8.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -840,7 +850,7 @@
                 "comment2": "",
                 "active": true,
                 "insertedBy": _this9.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -902,10 +912,10 @@
             var collectionDetails = {
               "apartmentId": this.sessionService.apartmentId,
               "receiptNumber": 0,
-              "receiptDate": new Date().toISOString(),
+              "receiptDate": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "amount": parseInt(this.collection.amount),
               "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
-              "postOn": this.collection.postOn || new Date().toISOString(),
+              "postOn": this.collection.postOn || moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "collectionAccountTypeId": 165,
               "depositSlipNumber": 0,
               "postExcessAmountTo": 0,
@@ -916,7 +926,7 @@
               "comment": this.collection.comment || "",
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": new Date().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "invoiceId": this.invoiceIdArray[0],

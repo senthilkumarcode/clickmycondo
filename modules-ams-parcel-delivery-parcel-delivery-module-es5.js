@@ -311,6 +311,16 @@
       var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/api/controllers/Accounts */
       "./src/app/api/controllers/Accounts.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
 
       var CreatePackageComponent = /*#__PURE__*/function () {
         function CreatePackageComponent(router, route, staffService, packageService, lookupService, apartmentService, sessionService, constantsService, sharedService, accountsService) {
@@ -414,7 +424,7 @@
                 packageTypeId: this["package"].packageTypeId,
                 slot: this["package"].slotName,
                 deliveryTypeId: parseInt(this["package"].deliveryTypeId),
-                deliveryDate: new Date().toISOString(),
+                deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 assignedTo: this["package"].assignedTo,
                 description: this.packageData.Comments,
                 receivedBy: this.sessionService.userId,
@@ -423,7 +433,7 @@
                 attachment1: this["package"].packageImageId,
                 attachment2: this["package"].packageImageId,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 updatedBy: null,
                 updatedOn: null
               };
@@ -1384,6 +1394,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DeliveryTypeComponent = /*#__PURE__*/function () {
         function DeliveryTypeComponent(lookupService, sharedService, modalService, sessionService) {
@@ -1471,9 +1491,9 @@
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1507,9 +1527,9 @@
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1662,6 +1682,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var PackageTypeComponent = /*#__PURE__*/function () {
         function PackageTypeComponent(lookupService, sharedService, modalService, sessionService) {
@@ -1749,9 +1779,9 @@
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1785,9 +1815,9 @@
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -1940,6 +1970,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var SlotTypeComponent = /*#__PURE__*/function () {
         function SlotTypeComponent(lookupService, sharedService, modalService, sessionService) {
@@ -2027,9 +2067,9 @@
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -2063,9 +2103,9 @@
                 description: this.categoryDescription,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: new Date().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 menuName: '',
                 notes: '',
                 isCommon: true,
@@ -2254,6 +2294,16 @@
       var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/platform-browser */
       "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
 
       var PendingDeliveryEditComponent = /*#__PURE__*/function () {
         function PendingDeliveryEditComponent(_activatedRoute, _router, el, _changeDetectorRef, apartmentService, sharedService, sessionService, packageService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sanitizer) {
@@ -2412,14 +2462,14 @@
             this.isdeliverySubmitted = false;
             var addPackageDetails = {
               packageId: this.deliveryData.packageNo,
-              deliveryDate: new Date().toISOString(),
+              deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
               description: this.deliveryData.comments,
               slot: this.deliveryData.slotNo,
               assignedTo: parseInt(this.deliveryData.assignedTo),
               receivedBy: this.sessionService.userId,
               deliveryStatusId: parseInt(this.deliveryData.deliveryStatusId),
               updatedBy: parseInt(this.deliveryData.updatedBy),
-              updatedOn: new Date().toISOString()
+              updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString()
             };
             var addPackageParams = {
               Package: addPackageDetails
@@ -2518,7 +2568,7 @@
               description: this.filePath,
               isActive: true,
               insertedBy: parseInt(this.sessionService.userId),
-              insertedOn: new Date().toISOString(),
+              insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
               updatedBy: null,
               updatedOn: null,
               apartmentId: this.sessionService.apartmentId

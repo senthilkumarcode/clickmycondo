@@ -398,9 +398,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
-/* harmony import */ var _facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../facility-modal/facility-modal.component */ "./src/app/modules/ams/facility/facility-create-booking/facility-modal/facility-modal.component.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var _facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../facility-modal/facility-modal.component */ "./src/app/modules/ams/facility/facility-create-booking/facility-modal/facility-modal.component.ts");
+
 
 
 
@@ -513,7 +516,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
         }
     }
     viewBookingDetails() {
-        this.dialog.open(_facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_13__["FacilityModalComponent"], {
+        this.dialog.open(_facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_14__["FacilityModalComponent"], {
             panelClass: 'material-dialog-big',
             data: {
                 type: 'view-calendar-booking',
@@ -603,7 +606,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
         }
     }
     createVisitor() {
-        const dialogRef = this.dialog.open(_facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_13__["FacilityModalComponent"], {
+        const dialogRef = this.dialog.open(_facility_modal_facility_modal_component__WEBPACK_IMPORTED_MODULE_14__["FacilityModalComponent"], {
             panelClass: 'material-dialog-big',
             data: {
                 type: 'create-visitor',
@@ -731,7 +734,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
             this.isBookingSubmitted = false;
             this.setSlotStructure();
             let params = {
-                apartmentFacilityBooking: Object.assign(Object.assign({}, this.booking), { isCancelled: false, cancelledBy: null, cancelledOn: '', cancelledAmount: 0, rateBaseIdName: this.booking.rateBaseId == 138 ? 'Hour' : 'Day', isApproved: false, apartmentId: this.sessionService.apartmentId, bookedOn: new Date().toISOString(), isActive: true, insertedBy: this.sessionService.userId, insertedOn: new Date().toISOString(), updatedBy: null, updatedOn: null })
+                apartmentFacilityBooking: Object.assign(Object.assign({}, this.booking), { isCancelled: false, cancelledBy: null, cancelledOn: '', cancelledAmount: 0, rateBaseIdName: this.booking.rateBaseId == 138 ? 'Hour' : 'Day', isApproved: false, apartmentId: this.sessionService.apartmentId, bookedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(), isActive: true, insertedBy: this.sessionService.userId, insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(), updatedBy: null, updatedOn: null })
             };
             this.facilityService.addApartmentFacilityBooking(params).subscribe((res) => {
                 this.isBookingSubmitted = true;
@@ -764,7 +767,7 @@ let FacilityCreateBookingComponent = class FacilityCreateBookingComponent {
             this.isBookingSubmitted = false;
             this.setSlotStructure();
             let params = {
-                apartmentFacilityBooking: Object.assign(Object.assign({}, this.booking), { rateBaseIdName: this.booking.rateBaseId == 138 ? 'Hour' : 'Day', updatedBy: this.sessionService.userId, updatedOn: new Date().toISOString() })
+                apartmentFacilityBooking: Object.assign(Object.assign({}, this.booking), { rateBaseIdName: this.booking.rateBaseId == 138 ? 'Hour' : 'Day', updatedBy: this.sessionService.userId, updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString() })
             };
             this.facilityService.updateApartmentFacilityBooking(params).subscribe((res) => {
                 this.isBookingSubmitted = true;
@@ -885,7 +888,7 @@ FacilityCreateBookingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
-    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_11__["VisitorService"] }
+    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__["VisitorService"] }
 ];
 FacilityCreateBookingComponent.propDecorators = {
     info: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['popUpInfo',] }],
@@ -897,7 +900,7 @@ FacilityCreateBookingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         selector: 'app-facility-create-booking',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./facility-create-booking.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/facility/facility-create-booking/facility-create-booking/facility-create-booking.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_12__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_13__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./facility-create-booking.component.scss */ "./src/app/modules/ams/facility/facility-create-booking/facility-create-booking/facility-create-booking.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
@@ -910,7 +913,7 @@ FacilityCreateBookingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
-        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_11__["VisitorService"]])
+        src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_12__["VisitorService"]])
 ], FacilityCreateBookingComponent);
 
 
@@ -946,9 +949,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
-/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Visitor */ "./src/app/api/controllers/Visitor.ts");
+
 
 
 
@@ -970,9 +976,9 @@ let FacilityExpectedVisitorComponent = class FacilityExpectedVisitorComponent {
         this.visitTypeList = [];
         this.visitCategoryList = [];
         this.isDataLoaded = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_5__["CountryISO"].UnitedKingdom];
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_6__["CountryISO"].UnitedKingdom];
         this.message = null;
     }
     expectedDurationChange() {
@@ -1022,7 +1028,7 @@ let FacilityExpectedVisitorComponent = class FacilityExpectedVisitorComponent {
         else {
             this.isDataLoaded = false;
             let params = {
-                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.info.apartmentBlockUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": new Date().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
+                expectedVisitor: Object.assign(Object.assign({}, this.visitor), { "apartmentUnitId": this.info.apartmentBlockUnitId, "apartmentId": this.sessionService.apartmentId, "expectedVisitorPhone": this.visitor.expectedVisitorPhone.number, "isActive": true, "insertedBy": this.sessionService.userId, "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(), "updatedBy": null, "updatedOn": null, "enteredBy": parseInt(this.sessionService.userId), "meetingPersonId": 1, "visitorsOrg": "string", "entryGateId": null, "exitGateId": null, "tomeetStaffId": this.visitor.tomeetStaffId, "phonecountrycode": this.visitor.expectedVisitorPhone.countryCode })
             };
             this.visitorService.addExpectedVisitor(params).subscribe((res) => {
                 this.isDataLoaded = true;
@@ -1053,7 +1059,7 @@ let FacilityExpectedVisitorComponent = class FacilityExpectedVisitorComponent {
     }
 };
 FacilityExpectedVisitorComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"] },
+    { type: src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_8__["VisitorService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
@@ -1068,10 +1074,10 @@ FacilityExpectedVisitorComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__
         selector: 'app-facility-expected-visitor',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./facility-expected-visitor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/facility/facility-create-booking/facility-expected-visitor/facility-expected-visitor.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_6__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_7__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./facility-expected-visitor.component.scss */ "./src/app/modules/ams/facility/facility-create-booking/facility-expected-visitor/facility-expected-visitor.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_7__["VisitorService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_8__["VisitorService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])

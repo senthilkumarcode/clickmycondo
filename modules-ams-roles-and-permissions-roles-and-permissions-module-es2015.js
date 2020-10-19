@@ -95,6 +95,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -152,7 +155,7 @@ let AddRoleComponent = class AddRoleComponent {
             "description": this.description,
             "isActive": true,
             "insertedBy": this.sessionService.userId,
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
             "updatedBy": this.sessionService.userId,
             "updatedOn": "2020-08-09T06:22:21.539Z",
             "roleTypeId": this.roleTypeId
@@ -223,6 +226,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
 /* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -277,7 +283,7 @@ let ConfigureRolesComponent = class ConfigureRolesComponent {
             "name": this.roleName,
             "isActive": true,
             "insertedBy": this.sessionService.userId,
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
             "updatedBy": this.sessionService.userId,
             "updatedOn": "2020-08-09T06:22:21.539Z"
         };
@@ -293,7 +299,7 @@ let ConfigureRolesComponent = class ConfigureRolesComponent {
                     "secLevelId": resp.message,
                     "isActive": true,
                     "insertedBy": this.sessionService.userId,
-                    "insertedOn": new Date().toISOString(),
+                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                     "updatedBy": this.sessionService.userId,
                     "updatedOn": "2020-08-09T06:22:21.539Z"
                 };
@@ -313,9 +319,9 @@ let ConfigureRolesComponent = class ConfigureRolesComponent {
             "name": this.roleName,
             "isActive": true,
             "insertedBy": 0,
-            "insertedOn": new Date().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
             "updatedBy": this.sessionService.userId,
-            "updatedOn": new Date().toISOString()
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
         };
         let updateRoleParam = {
             menuSecLevel: updataParam

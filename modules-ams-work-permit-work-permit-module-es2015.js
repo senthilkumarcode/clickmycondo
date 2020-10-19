@@ -725,13 +725,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/expansion.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _angular_material_expansion__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/expansion */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/expansion.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -906,7 +909,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         }
         else {
             let params = {
-                workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, workPermitStatusId: this.isAdmin() ? this.workPermit.workPermitStatusId : 354, startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'), isApproved: true, description: "string", insertedBy: parseInt(this.sessionService.userId), insertedOn: new Date().toISOString(), updatedBy: null, updatedOn: null })
+                workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, workPermitStatusId: this.isAdmin() ? this.workPermit.workPermitStatusId : 354, startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'), isApproved: true, description: "string", insertedBy: parseInt(this.sessionService.userId), insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(), updatedBy: null, updatedOn: null })
             };
             this.workPermitService.addWorkPermit(params).subscribe((res) => {
                 if (res.message) {
@@ -942,7 +945,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         }
         else {
             let params = {
-                workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'), updatedBy: parseInt(this.sessionService.userId), updatedOn: new Date().toISOString() })
+                workPermit: Object.assign(Object.assign({}, this.workPermit), { apartmentId: this.sessionService.apartmentId, userId: this.sessionService.userId, startTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.startTime).format('HH:mm'), endTime: moment__WEBPACK_IMPORTED_MODULE_9__(this.workPermit.endTime).format('HH:mm'), updatedBy: parseInt(this.sessionService.userId), updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() })
             };
             this.workPermitService.updateWorkPermit(params).subscribe((res) => {
                 if (res.message) {
@@ -962,7 +965,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         for (var i = 0; i < this.workersList.length; i++) {
             let createWorker = this.workersList[i].workPermitWorkersId == 0;
             let params = {
-                workPermit: Object.assign(Object.assign({}, this.workersList[i]), { "apartmentId": this.sessionService.apartmentId, "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId, "isActive": true, "insertedBy": createWorker ? this.sessionService.userId : this.workersList[i].insertedBy, "insertedOn": createWorker ? new Date().toISOString() : this.workersList[i].insertedOn, "updatedBy": createWorker ? null : this.sessionService.userId, "updatedOn": createWorker ? null : new Date().toISOString() })
+                workPermit: Object.assign(Object.assign({}, this.workersList[i]), { "apartmentId": this.sessionService.apartmentId, "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId, "isActive": true, "insertedBy": createWorker ? this.sessionService.userId : this.workersList[i].insertedBy, "insertedOn": createWorker ? moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() : this.workersList[i].insertedOn, "updatedBy": createWorker ? null : this.sessionService.userId, "updatedOn": createWorker ? null : moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() })
             };
             if (createWorker)
                 this.workPermitService.addWorkPermitWorkers(params).toPromise();
@@ -974,7 +977,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         for (var i = 0; i < this.materialsList.length; i++) {
             let createMaterial = this.materialsList[i].workPermitMaterialsId == 0;
             let params = {
-                workPermit: Object.assign(Object.assign({}, this.materialsList[i]), { "apartmentId": this.sessionService.apartmentId, "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId, "isActive": true, "insertedBy": createMaterial ? this.sessionService.userId : this.materialsList[i].insertedBy, "insertedOn": createMaterial ? new Date().toISOString() : this.materialsList[i].insertedOn, "updatedBy": createMaterial ? null : this.sessionService.userId, "updatedOn": createMaterial ? null : new Date().toISOString() })
+                workPermit: Object.assign(Object.assign({}, this.materialsList[i]), { "apartmentId": this.sessionService.apartmentId, "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId, "isActive": true, "insertedBy": createMaterial ? this.sessionService.userId : this.materialsList[i].insertedBy, "insertedOn": createMaterial ? moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() : this.materialsList[i].insertedOn, "updatedBy": createMaterial ? null : this.sessionService.userId, "updatedOn": createMaterial ? null : moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() })
             };
             if (createMaterial)
                 this.workPermitService.addWorkPermitMaterials(params).toPromise();
@@ -986,7 +989,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         for (var i = 0; i < this.toolsList.length; i++) {
             let createTool = this.toolsList[i].workPermitToolsId == 0;
             let params = {
-                workPermit: Object.assign(Object.assign({}, this.toolsList[i]), { "apartmentId": this.sessionService.apartmentId, "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId, "isActive": true, "insertedBy": createTool ? this.sessionService.userId : this.toolsList[i].insertedBy, "insertedOn": createTool ? new Date().toISOString() : this.toolsList[i].insertedOn, "updatedBy": createTool ? null : this.sessionService.userId, "updatedOn": createTool ? null : new Date().toISOString() })
+                workPermit: Object.assign(Object.assign({}, this.toolsList[i]), { "apartmentId": this.sessionService.apartmentId, "workPermitId": this.pageType == 'create' ? workPermitId : this.workPermit.workPermitId, "isActive": true, "insertedBy": createTool ? this.sessionService.userId : this.toolsList[i].insertedBy, "insertedOn": createTool ? moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() : this.toolsList[i].insertedOn, "updatedBy": createTool ? null : this.sessionService.userId, "updatedOn": createTool ? null : moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString() })
             };
             if (createTool)
                 this.workPermitService.addWorkPermitTools(params).toPromise();
@@ -1031,14 +1034,14 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         this.isPDFDow = true;
         setTimeout(() => {
             var data = document.getElementById('pdf');
-            html2canvas__WEBPACK_IMPORTED_MODULE_10___default()(data).then(canvas => {
+            html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(canvas => {
                 // Few necessary setting options  
                 var imgWidth = 208;
                 var pageHeight = 295;
                 var imgHeight = canvas.height * imgWidth / canvas.width;
                 var heightLeft = imgHeight;
                 const contentDataURL = canvas.toDataURL('image/png');
-                let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_11__('p', 'mm', 'a4'); // A4 size page of PDF  
+                let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
                 var position = 0;
                 pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
                 pdf.save('work-permit.pdf');
@@ -1162,7 +1165,7 @@ WorkpermitCreateComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 WorkpermitCreateComponent.propDecorators = {
@@ -1176,7 +1179,7 @@ WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         selector: 'app-workpermit-create',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./workpermit-create.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/work-permit/components/workpermit-create/workpermit-create.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_14__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_15__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./workpermit-create.component.scss */ "./src/app/modules/ams/work-permit/components/workpermit-create/workpermit-create.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
@@ -1187,7 +1190,7 @@ WorkpermitCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], WorkpermitCreateComponent);
 
@@ -1226,6 +1229,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -1299,7 +1305,7 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
                 "description": this.natureOfWork.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             }
@@ -1322,7 +1328,7 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
                 "description": this.natureOfWork.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             }
@@ -1535,6 +1541,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -1608,7 +1617,7 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
                 "description": this.workpermit.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             }
@@ -1631,7 +1640,7 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
                 "description": this.workpermit.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             }
@@ -1790,6 +1799,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/WorkPermit */ "./src/app/api/controllers/WorkPermit.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -1811,10 +1823,10 @@ let WorkpermitStatusComponent = class WorkpermitStatusComponent {
                 workPermitStatusId: this.status,
                 workPermitId: this.data.workpermitId,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: new Date().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 isApproved: true,
                 approvedBy: parseInt(this.sessionService.userId),
-                approvedOn: new Date().toISOString(),
+                approvedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
             }
         };
         this.workPermitService.updateWorkPermitStatusById(params).subscribe((data) => {

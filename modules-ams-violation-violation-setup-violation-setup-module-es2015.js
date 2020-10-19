@@ -96,6 +96,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 
@@ -173,7 +176,7 @@ let ViolationCategorySetupComponent = class ViolationCategorySetupComponent {
                 "description": this.category.description,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": new Date().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             }
@@ -206,7 +209,7 @@ let ViolationCategorySetupComponent = class ViolationCategorySetupComponent {
                 "insertedBy": this.category.insertedBy,
                 "insertedOn": this.category.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": new Date().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
             }
         };
         this.lookupService.updateLookupValue(params).subscribe((res) => {
@@ -1012,7 +1015,7 @@ let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComp
             // StopPriveldgeDays : ,
             // IsActive: true,
             // InsertedBy: this.sessionService.userId,
-            // InsertedOn: new Date().toISOString(),
+            // InsertedOn: _moment().toISOString(),
             // UpdatedBy: null,
             // UpdatedOn: null,
             // ApartmentId: this.sessionService.apartmentId

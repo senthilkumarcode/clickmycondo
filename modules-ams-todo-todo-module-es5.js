@@ -221,6 +221,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
       var TodoCreateCategoryComponent = /*#__PURE__*/function () {
         function TodoCreateCategoryComponent(sessionService, dialogRef, todoService, sharedService, data) {
@@ -260,8 +270,8 @@
 
             if (this.addTodoCategory.valid) {
               this.category.insertedBy = parseInt(this.sessionService.userId);
-              this.category.insertedOn = new Date().toISOString();
-              this.category.updatedOn = new Date().toISOString();
+              this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
+              this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
               this.category.updatedBy = 0;
               var createCategoryParam = {
                 todoListCategoryModel: this.category
@@ -282,8 +292,8 @@
 
             if (this.addTodoCategory.valid) {
               this.category.insertedBy = 0;
-              this.category.insertedOn = new Date().toISOString();
-              this.category.updatedOn = new Date().toISOString();
+              this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
+              this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString();
               this.category.updatedBy = parseInt(this.sessionService.userId);
               var updateCategory = {
                 todoListCategoryModel: this.category
@@ -426,7 +436,17 @@
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
 
@@ -537,8 +557,8 @@
 
             var createTodo = this.todoParam;
             createTodo.insertedBy = parseInt(this.sessionService.userId);
-            createTodo.insertedOn = new Date().toISOString();
-            createTodo.updatedOn = new Date().toISOString();
+            createTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
+            createTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
             createTodo.updatedBy = 0; // createTodo.beginOn = this.setTime(this.todoParam.beginOn,moment(this.startTime,'HH:mm'));
             // createTodo.finishOn = this.setTime(this.todoParam.finishOn,moment(this.endTime,'HH:mm'));
 
@@ -560,8 +580,8 @@
 
             var updateTodo = this.todoParam;
             updateTodo.insertedBy = 0;
-            updateTodo.insertedOn = new Date().toISOString();
-            updateTodo.updatedOn = new Date().toISOString();
+            updateTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
+            updateTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
             updateTodo.updatedBy = parseInt(this.sessionService.userId); // updateTodo.beginOn = this.setTime(moment(this.todoParam.beginOn),moment(this.startTime,'HH:mm'));
             // updateTodo.finishOn = this.setTime(moment(this.todoParam.finishOn),moment(this.endTime,'HH:mm'));
 
@@ -600,7 +620,7 @@
             args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
           }]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"]
         }, {
@@ -618,7 +638,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./todo-create-dialog.component.scss */
         "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"]])], TodoCreateDialogComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_5__["TodoListService"]])], TodoCreateDialogComponent);
       /***/
     },
 
@@ -1207,6 +1227,16 @@
       var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var TodoListComponent = /*#__PURE__*/function () {
         function TodoListComponent(injector, sharedService, todoService, sessionService, dialog) {
@@ -1323,8 +1353,8 @@
             }
 
             updateTodo.insertedBy = 0;
-            updateTodo.insertedOn = new Date().toISOString();
-            updateTodo.updatedOn = new Date().toISOString();
+            updateTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+            updateTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             updateTodo.updatedBy = parseInt(this.sessionService.userId);
             var updateTodoParam = {
               todoListModel: updateTodo
@@ -1459,6 +1489,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_4__);
 
       var TodoReminderComponent = /*#__PURE__*/function () {
         function TodoReminderComponent(todoService, sessionService) {
@@ -1547,8 +1587,8 @@
             }
 
             updateTodo.insertedBy = 0;
-            updateTodo.insertedOn = new Date().toISOString();
-            updateTodo.updatedOn = new Date().toISOString();
+            updateTodo.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_4___default()().toISOString();
+            updateTodo.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_4___default()().toISOString();
             updateTodo.updatedBy = parseInt(this.sessionService.userId);
             var updateTodoParam = {
               todoListModel: updateTodo
@@ -1817,6 +1857,16 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var TodoSetupComponent = /*#__PURE__*/function () {
         function TodoSetupComponent(sessionService, sharedService, todoService, dialog, modalService) {
@@ -1916,8 +1966,8 @@
             if (this.addTodoCategory.valid) {
               if (this.isEdit) {
                 this.category.insertedBy = 0;
-                this.category.insertedOn = new Date().toISOString();
-                this.category.updatedOn = new Date().toISOString();
+                this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+                this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
                 this.category.updatedBy = parseInt(this.sessionService.userId);
                 var updateCategory = {
                   todoListCategoryModel: this.category
@@ -1929,8 +1979,8 @@
                 }, function (errro) {});
               } else {
                 this.category.insertedBy = parseInt(this.sessionService.userId);
-                this.category.insertedOn = new Date().toISOString();
-                this.category.updatedOn = new Date().toISOString();
+                this.category.insertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+                this.category.updatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
                 this.category.updatedBy = 0;
                 var createCategoryParam = {
                   todoListCategoryModel: this.category

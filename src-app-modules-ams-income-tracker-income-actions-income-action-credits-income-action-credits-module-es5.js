@@ -147,6 +147,16 @@
       var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var IncomeActionAddCreditComponent = /*#__PURE__*/function () {
         function IncomeActionAddCreditComponent(_activatedRoute, _router, el, _changeDetectorRef, _incomeActionCreditListComponent, accountsService, sharedService, sessionService) {
@@ -230,7 +240,7 @@
                   "comment2": this.credit.comment,
                   "active": true,
                   "insertedBy": this.sessionService.userId,
-                  "insertedOn": new Date().toISOString(),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
                 };
@@ -272,7 +282,7 @@
                   "insertedBy": this.credit.insertedBy,
                   "insertedOn": this.credit.insertedOn,
                   "updatedBy": this.sessionService.userId,
-                  "updatedOn": new Date().toISOString()
+                  "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
                 var _params = {
                   custCreditNote: _details
