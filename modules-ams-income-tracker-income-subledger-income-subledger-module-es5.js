@@ -399,7 +399,7 @@
               menu: false,
               cellclassname: 'action-cell',
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions simple-action-index' + row + '">' + '<a href="javascript:void(0)" class="mat-flat-button mat-accent button-md n-text mr-2" onClick="invoiceDropDownEvent(' + row + ')" id="invoiceDropDown">' + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>' + '</a>' + '<a href="javascript:void(0)" class="mat-flat-button button-md text-smr bg-gray-500 text-gray-100 n-text" onClick="actionEvent(' + row + ')">' + 'Action' + '</a>' + '</div>';
+                return '<div class="simple-actions simple-action-index' + row + '">' + '<a href="javascript:void(0)" class="mat-flat-button button-md n-text bg-pink-800 text-gray-200 mr-2" onClick="invoiceDropDownEvent(' + row + ')" id="invoiceDropDown">' + '<div class="text-smr"><span class="text-sm mr-2">+</span>Invoice</div>' + '</a>' + '<a href="javascript:void(0)" class="mat-flat-button button-md n-text bg-gray-500 text-gray-100" onClick="actionEvent(' + row + ')">' + '<div class="text-smr">Action</div>' + '</a>' + '</div>';
               },
               renderer: columnrenderer
             }];
