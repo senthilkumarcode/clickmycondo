@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"facility-booking-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n        <!-- Drawer -->\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" [disableClose]=\"true\" #matDrawer>\n            <router-outlet></router-outlet>\n        </mat-drawer>\n\n        <mat-drawer-content>\n            <div class=\"main\">\n                <!-- Filter -->\n                <div class=\"bg-card shadow p-0\">\n                    <mat-accordion>\n                        <mat-expansion-panel>\n                            <mat-expansion-panel-header>\n                                <mat-panel-title>\n                                    <span><i-feather class=\"icon mr-2 text-danger\" name=\"filter\"></i-feather>Filter By</span>\n                                </mat-panel-title>\n                            </mat-expansion-panel-header>\n                            <mat-panel-description>\n                                <form>\n                                    <div class=\"row\">\n                                        <div class=\"col-sm-3\">\n                                            <div class=\"input-box\" >\n                                                <label>Facility Name</label>\n                                                <select name=\"facilityName\" id=\"facilityName\" class=\"form-control\" [(ngModel)]=\"filterFacility.apartmentFacilityID\">\n                                                    <option value=\"\" disabled selected hidden>Select</option>\n                                                    <option *ngFor=\"let item of facilityListData\" [ngValue]=\"item.apartmentFacilityId\">{{ item.facilityName }}</option>\n                                                </select>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\">\n                                            <div class=\"input-box\">\n                                                <label>Event From</label>\n                                                <input class=\"form-control\" name=\"eventDateFrom\" [owlDateTime]=\"eventDateFrom\" [owlDateTimeTrigger]=\"eventDateFrom\" placeholder=\"Event From\" \n                                                [(ngModel)]=\"filterFacility.eventDate_From\" autocomplete=\"off\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateFrom></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateFrom\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\">\n                                            <div class=\"input-box\">\n                                                <label>Event To</label>\n                                                <input class=\"form-control\" name=\"eventDateTo\" [owlDateTime]=\"eventDateTo\" [owlDateTimeTrigger]=\"eventDateTo\" placeholder=\"Event To\" \n                                                [(ngModel)]=\"filterFacility.eventDate_To\" autocomplete=\"off\" [disabled]=\"urlType == 'history' ? true : false\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateTo></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateTo\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType != 'history'\"></div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType != 'history'\">\n                                            <div class=\"input-box\" >\n                                                <label>Request Creation Date (From)</label>\n                                                <input class=\"form-control\" name=\"bookingDateFrom\" [owlDateTime]=\"bookingDateFrom\" [owlDateTimeTrigger]=\"bookingDateFrom\" placeholder=\"Booked From\" \n                                                [(ngModel)]=\"filterFacility.bookedOn_From\" autocomplete=\"off\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #bookingDateFrom></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDateFrom\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType != 'history'\">\n                                            <div class=\"input-box\" >\n                                                <label>Request Creation Date (To)</label>\n                                                <input class=\"form-control\" name=\"bookingDateTo\" [owlDateTime]=\"bookingDateTo\" [owlDateTimeTrigger]=\"bookingDateTo\" placeholder=\"Booked To\" \n                                                [(ngModel)]=\"filterFacility.bookedOn_To\" autocomplete=\"off\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #bookingDateTo></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDateTo\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType == 'history'\">\n                                            <div class=\"input-box\">\n                                                <label>Status</label>\n                                                <select name=\"facilityBookingStatusId\" id=\"statusId\" class=\"form-control\" [(ngModel)]=\"filterFacility.facilityBookingStatusID\">\n                                                    <option value=\"\" disabled selected hidden>Select</option>\n                                                    <option *ngFor=\"let item of statusTypeData\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                                                </select>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                            <div class=\"float-right\">\n                                                <button mat-flat-button class=\"mr-3\" [color]=\"'primary'\" (click)=\"getBookingList()\">Filter</button>\n                                                <button mat-button (click)=\"resetField()\">Clear</button>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </form>\n                            </mat-panel-description>\n                        </mat-expansion-panel>\n                    </mat-accordion>\n                </div>\n\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\n                <!-- Table -->\n                <condo-card *ngIf=\"isBookingDataLoaded\">\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4 *ngIf=\"urlType == 'history'\">Bookings History ({{filterFacility.eventDate_From | date: 'MMM d, y'}} - {{filterFacility.eventDate_To | date: 'MMM d, y'}})</h4>\n                                <h4 *ngIf=\"urlType == 'pending'\">Pending Bookings</h4>\n                                <h4 *ngIf=\"urlType == 'confirmed'\">Confirmed Bookings</h4>\n                                <h4 *ngIf=\"urlType == 'cancelled'\">Cancelled Bookings</h4>\n                                <h4 *ngIf=\"urlType == 'rejected'\">Rejected Bookings</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"bookingSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/facility/bookings/create-booking\" routerLinkActive=\"active\">Create Booking</button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <jqxGrid \n                            [theme]=\"'material'\" \n                            [width]=\"'100%'\"\n                            [rowsheight]=\"48\"\n                            [autoheight]=\"true\"\n                            [pageable]=\"true\" \n                            [filterable]=\"true\" \n                            [sortable]=\"true\" \n                            [source]=\"bookingListData\"\n                            [columns]=\"columnData\"\n                            [columnsresize]=\"true\"\n                            [enablehover]=\"false\" #datagrid>\n                        </jqxGrid> \n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n    ";
+      __webpack_exports__["default"] = "<div class=\"facility-booking-list-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n        <!-- Drawer -->\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" [disableClose]=\"true\" #matDrawer>\n            <router-outlet></router-outlet>\n        </mat-drawer>\n\n        <mat-drawer-content>\n            <div class=\"main\">\n                <!-- Filter -->\n                <div class=\"bg-card shadow p-0\">\n                    <mat-accordion>\n                        <mat-expansion-panel>\n                            <mat-expansion-panel-header>\n                                <mat-panel-title>\n                                    <span><i-feather class=\"icon mr-2 text-danger\" name=\"filter\"></i-feather>Filter By</span>\n                                </mat-panel-title>\n                            </mat-expansion-panel-header>\n                            <mat-panel-description>\n                                <form>\n                                    <div class=\"row\">\n                                        <div class=\"col-sm-3\">\n                                            <div class=\"input-box\" >\n                                                <label>Facility Name</label>\n                                                <select name=\"facilityName\" id=\"facilityName\" class=\"form-control\" [(ngModel)]=\"filterFacility.apartmentFacilityID\">\n                                                    <option value=\"\" disabled selected hidden>Select</option>\n                                                    <option *ngFor=\"let item of facilityListData\" [ngValue]=\"item.apartmentFacilityId\">{{ item.facilityName }}</option>\n                                                </select>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\">\n                                            <div class=\"input-box\">\n                                                <label>Event From</label>\n                                                <input class=\"form-control\" name=\"eventDateFrom\" [owlDateTime]=\"eventDateFrom\" [owlDateTimeTrigger]=\"eventDateFrom\" placeholder=\"Event From\" \n                                                [(ngModel)]=\"filterFacility.eventDate_From\" autocomplete=\"off\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateFrom></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateFrom\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\">\n                                            <div class=\"input-box\">\n                                                <label>Event To</label>\n                                                <input class=\"form-control\" name=\"eventDateTo\" [owlDateTime]=\"eventDateTo\" [owlDateTimeTrigger]=\"eventDateTo\" placeholder=\"Event To\" \n                                                [(ngModel)]=\"filterFacility.eventDate_To\" autocomplete=\"off\" [disabled]=\"urlType == 'history' ? true : false\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateTo></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateTo\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType != 'history'\"></div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType != 'history'\">\n                                            <div class=\"input-box\" >\n                                                <label>Request Creation Date (From)</label>\n                                                <input class=\"form-control\" name=\"bookingDateFrom\" [owlDateTime]=\"bookingDateFrom\" [owlDateTimeTrigger]=\"bookingDateFrom\" placeholder=\"Booked From\" \n                                                [(ngModel)]=\"filterFacility.bookedOn_From\" autocomplete=\"off\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #bookingDateFrom></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDateFrom\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType != 'history'\">\n                                            <div class=\"input-box\" >\n                                                <label>Request Creation Date (To)</label>\n                                                <input class=\"form-control\" name=\"bookingDateTo\" [owlDateTime]=\"bookingDateTo\" [owlDateTimeTrigger]=\"bookingDateTo\" placeholder=\"Booked To\" \n                                                [(ngModel)]=\"filterFacility.bookedOn_To\" autocomplete=\"off\">\n                                                <owl-date-time [pickerType]=\"'calendar'\" #bookingDateTo></owl-date-time>\n                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDateTo\">\n                                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                                </div>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-3\" *ngIf=\"urlType == 'history'\">\n                                            <div class=\"input-box\">\n                                                <label>Status</label>\n                                                <select name=\"facilityBookingStatusId\" id=\"statusId\" class=\"form-control\" [(ngModel)]=\"filterFacility.facilityBookingStatusID\">\n                                                    <option value=\"\" disabled selected hidden>Select</option>\n                                                    <option *ngFor=\"let item of statusTypeData\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n                                                </select>\n                                            </div>\n                                        </div>\n                                        <div class=\"col-sm-12\">\n                                            <div class=\"float-right\">\n                                                <button mat-flat-button class=\"mr-3\" [color]=\"'primary'\" (click)=\"getBookingList()\">Filter</button>\n                                                <button mat-button (click)=\"resetField()\">Clear</button>\n                                            </div>\n                                        </div>\n                                    </div>\n                                </form>\n                            </mat-panel-description>\n                        </mat-expansion-panel>\n                    </mat-accordion>\n                </div>\n\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isBookingDataLoaded\"></app-loader>\n\n                <!-- Table -->\n                <condo-card *ngIf=\"isBookingDataLoaded\">\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4 *ngIf=\"urlType == 'history'\">Bookings History ({{getDate(filterFacility.eventDate_From)}} - {{getDate(filterFacility.eventDate_To)}})</h4>\n                                <h4 *ngIf=\"urlType == 'pending'\">Pending Bookings</h4>\n                                <h4 *ngIf=\"urlType == 'confirmed'\">Confirmed Bookings</h4>\n                                <h4 *ngIf=\"urlType == 'cancelled'\">Cancelled Bookings</h4>\n                                <h4 *ngIf=\"urlType == 'rejected'\">Rejected Bookings</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"bookingSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/facility/bookings/create-booking\" routerLinkActive=\"active\">Create Booking</button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <jqxGrid \n                            [theme]=\"'material'\" \n                            [width]=\"'100%'\"\n                            [rowsheight]=\"48\"\n                            [autoheight]=\"true\"\n                            [pageable]=\"true\" \n                            [filterable]=\"true\" \n                            [sortable]=\"true\" \n                            [source]=\"bookingListData\"\n                            [columns]=\"columnData\"\n                            [columnsresize]=\"true\"\n                            [enablehover]=\"false\" #datagrid>\n                        </jqxGrid> \n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n    ";
       /***/
     },
 
@@ -362,31 +362,31 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-      /* harmony import */
-
-
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
 
       var FacilityBookingListComponent = /*#__PURE__*/function () {
         function FacilityBookingListComponent(facilityService, sessionService, lookupService, router, injector, activeRouter, sharedService, changeDetectorRef, dialog) {
@@ -416,7 +416,7 @@
           this.isBookingDataLoaded = false;
           this.isAdminLogin = false;
           this.totalItems = 0;
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
         }
 
         _createClass(FacilityBookingListComponent, [{
@@ -436,6 +436,11 @@
             this.matDrawer.close(); // Mark for check
 
             this.changeDetectorRef.markForCheck();
+          }
+        }, {
+          key: "getDate",
+          value: function getDate(value) {
+            return moment__WEBPACK_IMPORTED_MODULE_11__(value).format(this.timeZone.time);
           }
         }, {
           key: "changeStatus",
@@ -483,8 +488,8 @@
             }
 
             if (this.urlType == 'history') {
-              var yesterday = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc().format();
-              this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_8__(yesterday).subtract(2, 'month').utc().format();
+              var yesterday = moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(1, 'days').utc().format();
+              this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_11__(yesterday).subtract(2, 'month').utc().format();
             }
 
             this.getBookingList();
@@ -535,7 +540,7 @@
             };
 
             if (this.urlType == 'history') {
-              this.filterFacility.eventDate_To = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc();
+              this.filterFacility.eventDate_To = moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(1, 'days').utc();
               bookingListParams.eventDate_To = this.filterFacility.eventDate_To;
               bookingListParams.facilityBookingStatusID = this.filterFacility.facilityBookingStatusID;
             } else if (this.urlType == 'confirmed') {
@@ -566,6 +571,9 @@
           value: function ngOnInit() {
             var _this5 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this5.timeZone = timeZone;
+            });
             this.activeRouter.url.subscribe(function (data) {
               _this5.urlType = data[0].path;
             }); //facility List
@@ -578,8 +586,8 @@
             }); //facility status
 
             if (this.urlType == 'history') {
-              var yesterday = moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).subtract(1, 'days').utc().format();
-              this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_8__(yesterday).subtract(2, 'month').utc().format();
+              var yesterday = moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(1, 'days').utc().format();
+              this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_11__(yesterday).subtract(2, 'month').utc().format();
               var statusParams = {
                 LookupTypeId: 40
               };
@@ -614,7 +622,7 @@
               text: 'Event Date',
               datafield: 'bookedForDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).format("DD-MM-YYYY") + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).format("DD-MM-YYYY") + '</div>';
               },
               minwidth: 80,
               renderer: columnrenderer
@@ -627,8 +635,8 @@
                     toTime = _this5.bookingListData.loadedData[row].bookedToTime;
 
                 if (value && toTime) {
-                  fromTime = moment__WEBPACK_IMPORTED_MODULE_8__(value, 'HH:mm:ss').format('hh:mm A');
-                  toTime = moment__WEBPACK_IMPORTED_MODULE_8__(toTime, 'HH:mm:ss').format('hh:mm A');
+                  fromTime = moment__WEBPACK_IMPORTED_MODULE_11__(value, 'HH:mm:ss').format('hh:mm A');
+                  toTime = moment__WEBPACK_IMPORTED_MODULE_11__(toTime, 'HH:mm:ss').format('hh:mm A');
                   time = "".concat(fromTime, " - ").concat(toTime);
                 } else {
                   time = '-';
@@ -649,9 +657,9 @@
                     fromTime = _this5.bookingListData.loadedData[row].bookedFromTime;
 
                 if (fromTime && value) {
-                  fromTime = moment__WEBPACK_IMPORTED_MODULE_8__(fromTime, 'HH:mm:ss').format();
-                  toTime = moment__WEBPACK_IMPORTED_MODULE_8__(value, 'HH:mm:ss').format();
-                  time = moment__WEBPACK_IMPORTED_MODULE_8__["duration"](moment__WEBPACK_IMPORTED_MODULE_8__(toTime).diff(moment__WEBPACK_IMPORTED_MODULE_8__(fromTime)));
+                  fromTime = moment__WEBPACK_IMPORTED_MODULE_11__(fromTime, 'HH:mm:ss').format();
+                  toTime = moment__WEBPACK_IMPORTED_MODULE_11__(value, 'HH:mm:ss').format();
+                  time = moment__WEBPACK_IMPORTED_MODULE_11__["duration"](moment__WEBPACK_IMPORTED_MODULE_11__(toTime).diff(moment__WEBPACK_IMPORTED_MODULE_11__(fromTime)));
 
                   if (time.minutes() == 0) {
                     time = "".concat(time.hours(), "hrs");
@@ -799,7 +807,7 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
         }];
       };
 
@@ -842,7 +850,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./facility-booking-list.component.scss */
         "./src/app/modules/ams/facility/facility-booking-status/facility-booking-list/facility-booking-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], FacilityBookingListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])], FacilityBookingListComponent);
 
       function statusFacilityBooking(row) {
         var event = new CustomEvent('onStatusFacilityBooking', {

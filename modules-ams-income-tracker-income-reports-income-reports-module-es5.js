@@ -326,27 +326,34 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
       var IncomeTrackerReportsCustomerComponent = /*#__PURE__*/function () {
-        function IncomeTrackerReportsCustomerComponent(apartmentService, accountsService, lookupService, sessionService) {
+        function IncomeTrackerReportsCustomerComponent(apartmentService, accountsService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, IncomeTrackerReportsCustomerComponent);
 
           this.apartmentService = apartmentService;
           this.accountsService = accountsService;
           this.lookupService = lookupService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.glAccountIndicator = "Cust_Invoice";
           this.isBlockSelected = false;
@@ -426,17 +433,17 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
           }
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("YYYY-MM-DD");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
           }
         }, {
           key: "getTimeFormat",
           value: function getTimeFormat(dateTime) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(dateTime).format("YYYY-MM-DD HH:mm");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(dateTime).format("YYYY-MM-DD HH:mm");
           }
         }, {
           key: "submitIncomeReportsCustomerForm",
@@ -475,6 +482,9 @@
           value: function ngOnInit() {
             var _this3 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this3.timeZone = timeZone;
+            });
             this.report = {};
             this.report.apartmentBlockId = "";
             this.report.apartmentBlockUnitId = "";
@@ -512,7 +522,9 @@
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -525,7 +537,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-tracker-reports-customer.component.scss */
         "./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], IncomeTrackerReportsCustomerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], IncomeTrackerReportsCustomerComponent);
       /***/
     },
 
@@ -671,7 +683,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            if (date != null) return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");else return "";
+            if (date != null) return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);else return "";
           }
         }, {
           key: "isMobileView",
@@ -691,7 +703,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("YYYY-MM-DD");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
           }
         }, {
           key: "getTimeFormat",
@@ -735,6 +747,9 @@
           value: function ngOnInit() {
             var _this5 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this5.timeZone = timeZone;
+            });
             this.report = {};
             this.report.apartmentBlockId = "";
             this.report.vendorId = "";

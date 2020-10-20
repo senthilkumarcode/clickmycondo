@@ -71,9 +71,10 @@ let PropertyAlertsInfoComponent = class PropertyAlertsInfoComponent {
         this.isNoItemsAvailable = false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
     }
     ngOnChanges(changes) {
         if (this.alertData != undefined) {

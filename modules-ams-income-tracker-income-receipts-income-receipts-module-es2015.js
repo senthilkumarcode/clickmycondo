@@ -326,7 +326,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -495,7 +495,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
                 datafield: 'paymentDate',
                 minwidth: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {

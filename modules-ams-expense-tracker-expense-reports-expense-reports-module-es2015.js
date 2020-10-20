@@ -142,7 +142,7 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
     }
     getDate(date) {
         if (date != null)
-            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.time);
         else
             return "";
     }
@@ -162,10 +162,10 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_3__(date).format("YYYY-MM-DD");
+        return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.date);
     }
     getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_3__(dateTime).format("YYYY-MM-DD HH:mm");
+        return moment__WEBPACK_IMPORTED_MODULE_3__(dateTime).format(this.timeZone.date);
     }
     submitExpenseReportsVendorForm(form) {
         this.isReportSubmitted = true;
@@ -196,6 +196,7 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.report = {};
         this.report.apartmentBlockId = "";
         this.report.vendorId = "";

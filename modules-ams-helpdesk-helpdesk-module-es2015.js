@@ -609,17 +609,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -632,10 +630,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
-    constructor(router, route, userService, apartmentService, lookupService, sharedService, sessionService, ticketService) {
-        this.router = router;
+    constructor(route, apartmentService, lookupService, sharedService, sessionService, ticketService) {
         this.route = route;
-        this.userService = userService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -709,30 +705,10 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
     }
     getSelectedType(event) {
         this.blockId = event[0].apartmentBlockId;
-        //this.blockNo = event[0].apartmentBlockId;
-        //    if(this.blockId != "" && this.blockId != null){
-        // 	let filterGroup = new jqx.filter();
-        // 	let filterOperator = 1;
-        // 	let filterValue = event[0].apartmentBlockNumber;
-        // 	let filterCondition = 'contains';
-        // 	let filterData = filterGroup.createfilter('stringfilter', filterValue, filterCondition);
-        // 	filterGroup.operator = 'or';
-        // 	filterGroup.addfilter(filterOperator, filterData);
-        // 	this.datagrid.showfiltercolumnbackground(false);
-        // 	this.columnData.forEach(item => {
-        // 	  if(item.datafield === 'blockNo') {
-        // 		this.datagrid.addfilter(item.datafield, filterGroup, true);
-        // 	  }
-        // 	})
-        // 	this.datagrid.applyfilters();
-        //   }
-        //   else {
-        // 	this.datagrid.clearfilters();
-        //   }
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -914,7 +890,7 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
                 ApartmentID: this.sessionService.apartmentId,
                 ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
                 StartDate: this.start_date === null ? "2020-01-01" : this.getDate(this.start_date),
-                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).format('YYYY-MM-DD') : this.getDate(this.end_date),
+                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date),
                 TicketStatus: this.TicketStatus,
                 TicketType: this.TicketType,
                 TicketRaisedBy: this.TicketRaisedBy,
@@ -987,7 +963,7 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
                 ApartmentID: this.sessionService.apartmentId,
                 ApartmentBlockID: this.blockId === "" ? 1 : parseInt(this.blockId),
                 StartDate: this.start_date === null ? "2020-01-01" : this.getDate(this.start_date),
-                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_8__(new Date()).format('YYYY-MM-DD') : this.getDate(this.end_date),
+                EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date),
                 TicketStatus: this.TicketStatus,
                 TicketType: this.TicketType,
                 TicketRaisedBy: this.TicketRaisedBy,
@@ -1037,6 +1013,7 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
         this.goBack();
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].name;
         let unitBlockParams = {
             apartmentId: this.sessionService.apartmentId
@@ -1083,14 +1060,12 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
     }
 };
 HelpdeskReportsDataComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
-    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"] }
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
+    { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_8__["TicketService"] }
 ];
 HelpdeskReportsDataComponent.propDecorators = {
     gridResident: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['gridResident', { static: false },] }],
@@ -1103,14 +1078,12 @@ HelpdeskReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./helpdesk-reports-data.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./helpdesk-reports-data.component.scss */ "./src/app/modules/ams/helpdesk/components/helpdesk-reports/helpdesk-reports-data/helpdesk-reports-data.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
-        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_10__["TicketService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
+        src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_8__["TicketService"]])
 ], HelpdeskReportsDataComponent);
 
 
@@ -1313,7 +1286,7 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
     }
     getBlockDetails() {
         //jqx column generating
@@ -1972,6 +1945,7 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].name;
         let unitBlockParams = {
             apartmentId: this.sessionService.apartmentId

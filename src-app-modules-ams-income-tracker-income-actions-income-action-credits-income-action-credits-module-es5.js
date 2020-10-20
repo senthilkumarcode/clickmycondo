@@ -660,10 +660,15 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this7 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this7.timeZone = timeZone;
+            });
             this.apartmentBlockUnitId = this._activatedRoute.params['value'].unitid;
             this.credit = {};
-            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format('YYYY-MM-DD');
-            this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format('YYYY-MM-DD');
+            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format(this.timeZone.time);
+            this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format(this.timeZone.time);
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';

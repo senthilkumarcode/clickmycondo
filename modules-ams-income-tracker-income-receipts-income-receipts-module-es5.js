@@ -567,7 +567,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -767,7 +767,7 @@
               datafield: 'paymentDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this6.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this6.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"approved-user-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<div class=\"userList\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>De-Activated Users</h4>\n\t\t\t\t\t\t\t<p class=\"\">Total {{totalUnits}} Units and {{totalItems}} Users</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3\">\n\n\t\t\t\t\t\t\t<form novalidate>\n\n\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\" [fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\" [isLabel]=\"'false'\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\n\t\t\t\t\t\t\t</form>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<div class=\"users\">\n\n\t\t\t\t\t\t<mat-list class=\"border-bottom\"\n\t\t\t\t\t\t\t*ngFor=\"let item of deActivatedUsersData | slice:ItemStartIndex:ItemEndIndex | approvedUserPipe:unitData\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<mat-list-item class=\"h-auto\">\n\t\t\t\t\t\t\t\t<div class=\"w-100 pt-4 pb-4 link\">\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-2\">\n\t\t\t\t\t\t\t\t\t\t\t{{item?.apartmentBlockNumber}} {{item.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let user of item.userInfo\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Owner'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person_pin\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Tenant'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"user.roleName != 'Admin'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-sm\">{{user.userName}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-orange-900 text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isPrimaryContact\">(Primary)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"text-primary text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isLiving\">(Living)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.phone}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"!user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isLiving\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tLiving\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle  *ngIf=\"!user.isLiving\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon (click)=\"showApprovedUserDetails(item,user)\" svgIcon=\"mat_outline:remove_red_eye\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-list-item>\n\t\t\t\t\t\t</mat-list>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"approved-user-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<div class=\"userList\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>De-Activated Users</h4>\n\t\t\t\t\t\t\t<p class=\"\">Total {{totalUnits}} Units and {{totalItems}} Users</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (keyup)=\"searchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3\">\n\n\t\t\t\t\t\t\t<form novalidate>\n\n\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\" [fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\" [isLabel]=\"'false'\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\n\t\t\t\t\t\t\t</form>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<div class=\"users\">\n\n\t\t\t\t\t\t<mat-list class=\"border-bottom\" *ngFor=\"let item of deActivateList() | slice:ItemStartIndex:ItemEndIndex\">\n\t\t\t\t\t\t\t<mat-list-item class=\"h-auto\">\n\t\t\t\t\t\t\t\t<div class=\"w-100 pt-4 pb-4 link\">\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-2\">\n\t\t\t\t\t\t\t\t\t\t\t{{item?.apartmentBlockNumber}} {{item.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let user of item.userInfo\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Owner'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person_pin\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Tenant'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"user.roleName != 'Admin'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-sm\">{{user.userName}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-orange-900 text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isPrimaryContact\">(Primary)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"text-primary text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isLiving\">(Living)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.phone}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"!user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isLiving\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tLiving\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle  *ngIf=\"!user.isLiving\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon (click)=\"showApprovedUserDetails(item,user)\" svgIcon=\"mat_outline:remove_red_eye\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-list-item>\n\t\t\t\t\t\t</mat-list>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -232,6 +232,39 @@
             });
           }
         }, {
+          key: "searchFilter",
+          value: function searchFilter() {
+            this.deActivateList();
+            this.totalItems = this.deActivateList().length;
+
+            if (this.totalItems > this.itemLimit) {
+              this.ItemEndIndex = this.itemLimit;
+            } else {
+              this.ItemEndIndex = this.totalItems;
+            }
+          }
+        }, {
+          key: "deActivateList",
+          value: function deActivateList() {
+            var _this = this;
+
+            if (this.unitData && this.unitData.length > 0) {
+              var filterItems = [];
+              this.deActivatedUsersData.forEach(function (approveData) {
+                if (approveData.userInfo && approveData.userInfo.length > 0) {
+                  approveData.userInfo.forEach(function (user) {
+                    if (user.userName.toLowerCase().includes(_this.unitData.toLowerCase())) {
+                      filterItems.push(approveData);
+                    }
+                  });
+                }
+              });
+              return filterItems;
+            } else {
+              return this.deActivatedUsersData;
+            }
+          }
+        }, {
           key: "getIndexParams",
           value: function getIndexParams(event) {
             this.ItemStartIndex = event.ItemStartIndex;
@@ -247,11 +280,11 @@
         }, {
           key: "filterApprovedUserData",
           value: function filterApprovedUserData() {
-            var _this = this;
+            var _this2 = this;
 
             if (this.apartmentBlockId != null) {
               this.deActivatedUsersData = this.approvedUsersNormalData.filter(function (item) {
-                return item.apartmentBlockId == _this.apartmentBlockId;
+                return item.apartmentBlockId == _this2.apartmentBlockId;
               });
             } else {
               this.deActivatedUsersData = this.approvedUsersNormalData;
@@ -268,13 +301,13 @@
         }, {
           key: "getDeActivatedUsers",
           value: function getDeActivatedUsers() {
-            var _this2 = this;
+            var _this3 = this;
 
             var approvedUsersParam = {
               apartmentId: this.sessionService.apartmentId
             };
             this.userService.getAllDeactivateduserprofiles(approvedUsersParam).subscribe(function (res) {
-              _this2.deActivatedUsersData = res.filter(function (item) {
+              _this3.deActivatedUsersData = res.filter(function (item) {
                 return item.userInfo.length != 0 && item.apartmentBlockUnitId != null;
               }); // this.deActivatedUsersData.map(item => {
               //   item.userName = item.userInfo[0].userName
@@ -285,16 +318,16 @@
               //   item.userId = item.userInfo[0].userId
               // })
 
-              _this2.approvedUsersNormalData = _this2.deActivatedUsersData;
-              _this2.totalItems = _this2.deActivatedUsersData.length;
+              _this3.approvedUsersNormalData = _this3.deActivatedUsersData;
+              _this3.totalItems = _this3.deActivatedUsersData.length;
 
-              if (_this2.totalItems > _this2.itemLimit) {
-                _this2.ItemEndIndex = _this2.itemLimit;
+              if (_this3.totalItems > _this3.itemLimit) {
+                _this3.ItemEndIndex = _this3.itemLimit;
               } else {
-                _this2.ItemEndIndex = _this2.totalItems;
+                _this3.ItemEndIndex = _this3.totalItems;
               }
 
-              _this2.isUserDataLoaded = true;
+              _this3.isUserDataLoaded = true;
             }, function (error) {
               console.log(error);
             });
@@ -302,7 +335,7 @@
         }, {
           key: "changePrimayContact",
           value: function changePrimayContact(apartmentBlockUnitUserId, user) {
-            var _this3 = this;
+            var _this4 = this;
 
             var message = "Do you want to Change as Primary Contact ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
@@ -314,24 +347,24 @@
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
                 var apartmentBlockUnitUser = {
-                  "apartmentId": _this3.sessionService.apartmentId,
+                  "apartmentId": _this4.sessionService.apartmentId,
                   "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
                   "isPrimaryContact": !user.isPrimaryContact,
                   "isLiving": user.isLiving,
-                  "updatedBy": _this3.sessionService.userId,
+                  "updatedBy": _this4.sessionService.userId,
                   "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
                 var updateParam = {
                   apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
 
-                _this3.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
-                  _this3.sharedService.openSnackBar('Primary Contact Updated', 'success');
+                _this4.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+                  _this4.sharedService.openSnackBar('Primary Contact Updated', 'success');
 
-                  _this3.getDeActivatedUsers();
+                  _this4.getDeActivatedUsers();
                 });
               } else {
-                _this3.deActivatedUsersData.filter(function (key) {
+                _this4.deActivatedUsersData.filter(function (key) {
                   if (key.apartmentBlockUnitUserId == apartmentBlockUnitUserId) {
                     key.userInfo.filter(function (item) {
                       if (item.userId == user.userId) {
@@ -346,7 +379,7 @@
         }, {
           key: "changeLiving",
           value: function changeLiving(apartmentBlockUnitUserId, user) {
-            var _this4 = this;
+            var _this5 = this;
 
             var message = "Do you want to Change as Living ?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
@@ -358,24 +391,24 @@
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
                 var apartmentBlockUnitUser = {
-                  "apartmentId": _this4.sessionService.apartmentId,
+                  "apartmentId": _this5.sessionService.apartmentId,
                   "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
                   "isPrimaryContact": user.isPrimaryContact,
                   "isLiving": !user.isLiving,
-                  "updatedBy": _this4.sessionService.userId,
+                  "updatedBy": _this5.sessionService.userId,
                   "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
                 var updateParam = {
                   apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
 
-                _this4.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
-                  _this4.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                _this5.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(function (resp) {
+                  _this5.sharedService.openSnackBar('Living Updated Successfully', 'success');
 
-                  _this4.getDeActivatedUsers();
+                  _this5.getDeActivatedUsers();
                 });
               } else {
-                _this4.deActivatedUsersData.filter(function (key) {
+                _this5.deActivatedUsersData.filter(function (key) {
                   if (key.apartmentBlockUnitUserId == apartmentBlockUnitUserId) {
                     key.userInfo.filter(function (item) {
                       if (item.userId == user.userId) {
@@ -390,7 +423,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.getDeActivatedUsers();
             var getTowerParam = {
@@ -398,13 +431,13 @@
             }; //get apartment blocks
 
             this.apartmentService.getApartmentBlockByApartmentId(getTowerParam).subscribe(function (res) {
-              _this5.towerList = res;
+              _this6.towerList = res;
             });
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-              _this5.totalUnits = res.length;
+              _this6.totalUnits = res.length;
             }, function (error) {
               console.log(error);
             });

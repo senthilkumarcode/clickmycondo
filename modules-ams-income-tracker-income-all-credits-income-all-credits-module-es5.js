@@ -1096,8 +1096,8 @@
           key: "submitIncomeCreditFilterForm",
           value: function submitIncomeCreditFilterForm() {
             this.isCreditNoteFilterTableLoaded = false;
-            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format('YYYY-MM-DD');
-            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format('YYYY-MM-DD');
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
             this.getCreditNotesData(fromDate, toDate); //Mark for check
 
             this._changeDetectorRef.markForCheck();
@@ -1106,8 +1106,8 @@
           key: "isCreditAdded",
           value: function isCreditAdded() {
             this.isCreditNoteFilterTableLoaded = false;
-            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format('YYYY-MM-DD');
-            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format('YYYY-MM-DD');
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
             this.getCreditNotesData(fromDate, toDate); //Mark for check
 
             this._changeDetectorRef.markForCheck();
@@ -1152,9 +1152,12 @@
           value: function ngOnInit() {
             var _this9 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this9.timeZone = timeZone;
+            });
             this.credit = {};
-            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format('YYYY-MM-DD');
-            this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format('YYYY-MM-DD');
+            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format(this.timeZone.time);
+            this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format(this.timeZone.time);
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';

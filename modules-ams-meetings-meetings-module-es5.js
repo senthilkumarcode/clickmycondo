@@ -503,7 +503,7 @@
             year = fullDate.getFullYear();
             month = fullDate.getMonth();
             date = fullDate.getDate();
-            if (this.data.type == 'create' && params == 'min') return new Date(year, month, date);else if (params == 'max') return new Date(year, month, date, 23, 59, 59);
+            if (params == 'min') return new Date(year, month, date);else if (params == 'max') return new Date(year, month, date, 23, 59, 59);
           }
         }, {
           key: "getApartmentRole",
@@ -1075,7 +1075,7 @@
             this.apartmentService.getApartmentBlockByApartmentId(apartmentBlock).subscribe(function (res) {
               _this12.apartmentBlock.dropdownList = res;
             });
-            if (this.data.type == 'create') this.addDateTimeSlot(); //Meeting Create From Calendar
+            if (this.data.type == 'create' && this.data.from != 'calendar') this.addDateTimeSlot(); //Meeting Create From Calendar
 
             if (this.data.type == 'create' && this.data.from == 'calendar') {
               var calendar = this.data.event;
@@ -1802,43 +1802,50 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Meeting */
       "./src/app/api/controllers/Meeting.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../meeting-edit-display/meeting-edit-display.component */
       "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
 
       var MeetingsScheduledListComponent = /*#__PURE__*/function () {
-        function MeetingsScheduledListComponent(meetingService, sessionService, dialog) {
+        function MeetingsScheduledListComponent(meetingService, sharedService, sessionService, dialog) {
           _classCallCheck(this, MeetingsScheduledListComponent);
 
           this.meetingService = meetingService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.dialog = dialog;
           this.loadingData = false;
@@ -1869,7 +1876,7 @@
                 type: 'edit',
                 from: 'calendar'
               };
-              var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+              var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 panelClass: 'material-dialog-big',
                 height: 'inherit',
                 width: 'auto',
@@ -1893,7 +1900,7 @@
                 from: 'calendar',
                 event: event
               };
-              var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+              var dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 panelClass: 'material-dialog-big',
                 height: 'inherit',
                 width: 'auto',
@@ -1918,8 +1925,8 @@
               if (res.length > 0) {
                 res.forEach(function (data) {
                   // data.resourceId = data.apartmentFacilityId;
-                  data.title = data.subject, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_4__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.fromTime);
-                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_4__(data.meetingDate).format('YYYY-MM-DD'), " ").concat(data.toTime);
+                  data.title = data.subject, data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).format(_this19.timeZone.time), " ").concat(data.fromTime);
+                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).format(_this19.timeZone.time), " ").concat(data.toTime);
                   data.color = 'red';
                 });
                 _this19.calendarOptions.events = res;
@@ -1931,6 +1938,11 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this20 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this20.timeZone = timeZone;
+            });
             this.getMeetingList();
           }
         }]);
@@ -1940,11 +1952,13 @@
 
       MeetingsScheduledListComponent.ctorParameters = function () {
         return [{
-          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"]
+          type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]
         }];
       };
 
@@ -1956,7 +1970,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./meetings-scheduled-list.component.scss */
         "./src/app/modules/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], MeetingsScheduledListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])], MeetingsScheduledListComponent);
       /***/
     },
 
@@ -2105,7 +2119,7 @@
         }, {
           key: "submitMeetingCategoryForm",
           value: function submitMeetingCategoryForm() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.isDrawerLoader = false;
 
@@ -2124,21 +2138,21 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this20.isDrawerLoader = true;
+                _this21.isDrawerLoader = true;
 
                 if (res.code == 200) {
-                  _this20.closeDrawer();
+                  _this21.closeDrawer();
 
-                  _this20.sharedService.openSnackBar('Meeting Category Created Successfully', 'success');
+                  _this21.sharedService.openSnackBar('Meeting Category Created Successfully', 'success');
 
-                  _this20.getMeetingCategoryList();
+                  _this21.getMeetingCategoryList();
                 } else {
-                  _this20.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this21.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
-                _this20.isDrawerLoader = true;
+                _this21.isDrawerLoader = true;
 
-                _this20.sharedService.openSnackBar('Network Error', 'error');
+                _this21.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               var _params3 = {
@@ -2156,68 +2170,68 @@
                 }
               };
               this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
-                _this20.isDrawerLoader = true;
+                _this21.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this20.closeDrawer();
+                  _this21.closeDrawer();
 
-                  _this20.getMeetingCategoryList();
+                  _this21.getMeetingCategoryList();
 
-                  _this20.sharedService.openSnackBar(res.message, 'success');
+                  _this21.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this20.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this21.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this20.isDrawerLoader = true;
+                _this21.isDrawerLoader = true;
 
-                _this20.sharedService.openSnackBar('Network Error', 'error');
+                _this21.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "getMeetingCategoryList",
           value: function getMeetingCategoryList() {
-            var _this21 = this;
+            var _this22 = this;
 
             this.isMeetingCategoryLoaded = false;
             var params = {
               LookupTypeId: 21
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this21.isMeetingCategoryLoaded = true;
-              _this21.meetingCategoryList = res;
-              _this21.totalItems = res.length;
+              _this22.isMeetingCategoryLoaded = true;
+              _this22.meetingCategoryList = res;
+              _this22.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this22 = this;
+            var _this23 = this;
 
             this.getMeetingCategoryList(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this22.isMeetingCategoryLoaded = false;
+                _this23.isMeetingCategoryLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this22.sessionService.userId)
+                  updateUserId: parseInt(_this23.sessionService.userId)
                 };
 
-                _this22.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this22.sharedService.setUnitListDeleteIndex(null);
+                _this23.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this23.sharedService.setUnitListDeleteIndex(null);
 
-                  _this22.isMeetingCategoryLoaded = true;
+                  _this23.isMeetingCategoryLoaded = true;
 
                   if (res.message) {
-                    _this22.meetingCategoryList.splice(item.index, 1);
+                    _this23.meetingCategoryList.splice(item.index, 1);
 
-                    _this22.totalItems -= 1;
-                    _this22.clickMode = ''; //close input box
+                    _this23.totalItems -= 1;
+                    _this23.clickMode = ''; //close input box
 
-                    _this22.sharedService.openSnackBar(res.message, 'success');
+                    _this23.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this22.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this23.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }

@@ -824,7 +824,7 @@ let DocumentsReportsDataComponent = class DocumentsReportsDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
     }
     getBlockDetails() {
         //jqx column generating
@@ -1483,6 +1483,7 @@ let DocumentsReportsDataComponent = class DocumentsReportsDataComponent {
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].name;
         let unitBlockParams = {
             apartmentId: this.sessionService.apartmentId
@@ -1634,16 +1635,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
-/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../document-create/document-create.component */ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
-
+/* harmony import */ var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Document */ "./src/app/api/controllers/Document.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../document-create/document-create.component */ "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
 
 
 
@@ -1656,12 +1655,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DocumentDownloadComponent = class DocumentDownloadComponent {
-    constructor(router, route, lookupService, documentService, fileDetailsService, sessionService, sanitizer, fileDownloadService, dialog, changeDetection) {
-        this.router = router;
+    constructor(route, documentService, sharedService, sessionService, sanitizer, fileDownloadService, dialog, changeDetection) {
         this.route = route;
-        this.lookupService = lookupService;
         this.documentService = documentService;
-        this.fileDetailsService = fileDetailsService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.sanitizer = sanitizer;
         this.fileDownloadService = fileDownloadService;
@@ -1679,14 +1676,14 @@ let DocumentDownloadComponent = class DocumentDownloadComponent {
             return this.selectedTab != -1 ? 'show' : '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format('YYYY-MM-DD');
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
     }
     isAdmin() {
         return this.sessionService.isAdmin();
     }
     //popup
     openUploadModal() {
-        const dialogRef = this.dialog.open(_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_11__["DocumentCreateComponent"], {
+        const dialogRef = this.dialog.open(_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_10__["DocumentCreateComponent"], {
             panelClass: 'material-dialog-medium',
             data: { from: 'public', userDocumentCategoryId: this.selectedTab }
         });
@@ -1722,6 +1719,7 @@ let DocumentDownloadComponent = class DocumentDownloadComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         if (this.route.params['value'].id != undefined && this.isMobileView()) {
             this.selectedTab = this.route.params['value'].id;
             this.getDocumentList();
@@ -1732,15 +1730,13 @@ let DocumentDownloadComponent = class DocumentDownloadComponent {
     }
 };
 DocumentDownloadComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"] },
-    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
     { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"] },
-    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__["FileDownloadService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] },
+    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 DocumentDownloadComponent.propDecorators = {
@@ -1752,15 +1748,13 @@ DocumentDownloadComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./document-download.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/documents/document-config/folder-lists/document-download/document-download.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./document-download.component.scss */ "./src/app/modules/ams/documents/document-config/folder-lists/document-download/document-download.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"],
-        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"],
-        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__["FileDownloadService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
+        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], DocumentDownloadComponent);
 

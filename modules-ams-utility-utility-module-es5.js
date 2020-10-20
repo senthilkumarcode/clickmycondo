@@ -28,7 +28,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"vendor-create-wrapper\">\n  <h4 class=\"mb-4\">Add Insurance</h4>\n  <form #createInsuranceChargeForm=\"ngForm\" name=\"createInsuranceChargeForm\"\n    (ngSubmit)=\"submitInsuranceChargeForm(createInsuranceChargeForm)\" novalidate>\n    <div class=\"bg-card shadow\">\n      <app-loader *ngIf=\"!isInsuranceSubmitted\"></app-loader>\n      <ng-container *ngIf=\"isInsuranceSubmitted\">\n        <div class=\"row\">\n\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Condo Unit count<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"aptunitCount\"\n                [(ngModel)]=\"insuranceCharge.AptunitCount\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Insurance Number<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"insuranceNo\"\n                [(ngModel)]=\"insuranceCharge.InsuranceNo\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Total Cost<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" (keyup)=\"calculateCostPerAptFrmTotalCost($event)\"\n                placeholder=\"Enter\" name=\"totalUnit\" [(ngModel)]=\"insuranceCharge.TotalCost\" required>\n            </div>\n          </div>\n\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Cost per Condo<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"costPerUnit\"\n                [(ngModel)]=\"insuranceCharge.CostPerApt\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>Date Entered<span class=\"mandatory\">*</span></label>\n              <input class=\"form-control\" name=\"dateTaken\" [owlDateTime]=\"dateTaken\" [owlDateTimeTrigger]=\"dateTaken\"\n                placeholder=\"Date\" [(ngModel)]=\"insuranceCharge.DateEntered\" required>\n              <owl-date-time #dateTaken [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateTaken\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Comments</label>\n              <textarea placeholder=\"some text here\" name=\"insuranceComments\"\n                [(ngModel)]=\"insuranceCharge.Comments\"></textarea>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"list-inline float-right mt-4\">\n              <button type=\"button\" mat-flat-button class=\"mr-4\" (click)=\"Cancel()\">Cancel</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createInsuranceChargeForm.invalid\"\n                *ngIf=\"!isEdit\">Submit</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createInsuranceChargeForm.invalid\"\n                *ngIf=\"isEdit\">Update</button>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"vendor-create-wrapper\">\n  <h4 class=\"mb-4\">Add Insurance</h4>\n  <form #createInsuranceChargeForm=\"ngForm\" name=\"createInsuranceChargeForm\"\n    (ngSubmit)=\"submitInsuranceChargeForm(createInsuranceChargeForm)\" novalidate>\n    <div class=\"bg-card shadow\">\n      <app-loader *ngIf=\"!isInsuranceSubmitted\"></app-loader>\n      <ng-container *ngIf=\"isInsuranceSubmitted\">\n        <div class=\"row\">\n\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Condo Unit count<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"aptunitCount\"\n                [(ngModel)]=\"insuranceCharge.AptunitCount\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Insurance Number<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"insuranceNo\"\n                [(ngModel)]=\"insuranceCharge.InsuranceNo\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Total Cost<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" (keyup)=\"calculateCostPerAptFrmTotalCost($event)\"\n                placeholder=\"Enter\" name=\"totalUnit\" [(ngModel)]=\"insuranceCharge.TotalCost\" required>\n            </div>\n          </div>\n\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Cost per Units<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"costPerUnit\"\n                [(ngModel)]=\"insuranceCharge.CostPerApt\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>Date Taken<span class=\"mandatory\">*</span></label>\n              <input readonly class=\"form-control\" name=\"dateTaken\" [owlDateTime]=\"dateTaken\" [owlDateTimeTrigger]=\"dateTaken\"\n                placeholder=\"Date\" [(ngModel)]=\"insuranceCharge.DateEntered\" required>\n              <owl-date-time #dateTaken [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateTaken\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Comments</label>\n              <textarea placeholder=\"some text here\" name=\"insuranceComments\"\n                [(ngModel)]=\"insuranceCharge.Comments\"></textarea>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"list-inline float-right mt-4\">\n              <button type=\"button\" mat-flat-button class=\"mr-4\" (click)=\"resetData()\">Clear</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createInsuranceChargeForm.invalid\"\n                *ngIf=\"!isEdit\">Submit</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createInsuranceChargeForm.invalid\"\n                *ngIf=\"isEdit\">Update</button>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </form>\n</div>";
       /***/
     },
 
@@ -48,7 +48,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"vendor-create-wrapper\">\n  <h4 class=\"mb-4\">Add Electricity Reading</h4>\n  <form #createElectricityReadingForm=\"ngForm\" name=\"createElectricityReadingForm\"\n    (ngSubmit)=\"submitReadingForm(createElectricityReadingForm)\" novalidate>\n    <div class=\"bg-card shadow\">\n      <app-loader *ngIf=\"!isReadingSubmitted\"></app-loader>\n      <ng-container *ngIf=\"isReadingSubmitted\">\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>From<span class=\"mandatory\">*</span></label>\n              <input class=\"form-control\" name=\"reportFrom\" [owlDateTime]=\"reportFrom\" [owlDateTimeTrigger]=\"reportFrom\"\n                placeholder=\"Date\" [(ngModel)]=\"electricReading.fromDate\" required>\n              <owl-date-time #reportFrom [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportFrom\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>To<span class=\"mandatory\">*</span></label>\n              <input class=\"form-control\" name=\"reportTo\" [owlDateTime]=\"reportTo\" [owlDateTimeTrigger]=\"reportTo\"\n                placeholder=\"Date\" [(ngModel)]=\"electricReading.toDate\" required>\n              <owl-date-time #reportTo [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportTo\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Condo Unit count<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"aptunitCount\"\n                [(ngModel)]=\"electricReading.AptunitCount\" required>\n            </div>\n          </div>\n\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Previous Reading<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" (keyup)=\"calculateUnitPerAptFrmPreReading($event)\"\n                placeholder=\"Enter\" name=\"prevReading\" [(ngModel)]=\"electricReading.PrevReading\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Current Reading<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" (keyup)=\"calculateUnitPerAptFrmCurReading($event)\"\n                placeholder=\"Enter\" name=\"currReading\" [(ngModel)]=\"electricReading.CurrReading\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>Date Taken<span class=\"mandatory\">*</span></label>\n              <input class=\"form-control\" name=\"dateTaken\" [owlDateTime]=\"dateTaken\" [owlDateTimeTrigger]=\"dateTaken\"\n                placeholder=\"Date\" [(ngModel)]=\"electricReading.dateTaken\" required>\n              <owl-date-time #dateTaken [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateTaken\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Electrical Units per Condo<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"electricUnit\"\n                [(ngModel)]=\"electricReading.ElectricalUnitPerApT\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Cost per Condo Unit<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"electricCost\"\n                [(ngModel)]=\"electricReading.CostPerApt\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n\n            <div class=\"input-box\">\n              <label>Comments</label>\n              <textarea placeholder=\"some text here\" name=\"UtilityReadingComments\"\n                [(ngModel)]=\"electricReading.Comments\"></textarea>\n            </div>\n\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"list-inline float-right mt-4\">\n              <button type=\"button\" mat-flat-button class=\"mr-4\" (click)=\"Cancel()\">Cancel</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createElectricityReadingForm.invalid\"\n                *ngIf=\"!isEdit\">Submit</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createElectricityReadingForm.invalid\"\n                *ngIf=\"isEdit\">Update</button>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"vendor-create-wrapper\">\n  <h4 class=\"mb-4\">Add Electricity Reading</h4>\n  <form #createElectricityReadingForm=\"ngForm\" name=\"createElectricityReadingForm\"\n    (ngSubmit)=\"submitReadingForm(createElectricityReadingForm)\" novalidate>\n    <div class=\"bg-card shadow\">\n      <app-loader *ngIf=\"!isReadingSubmitted\"></app-loader>\n      <ng-container *ngIf=\"isReadingSubmitted\">\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>From<span class=\"mandatory\">*</span></label>\n              <input class=\"form-control\" name=\"reportFrom\" [owlDateTime]=\"reportFrom\" [owlDateTimeTrigger]=\"reportFrom\"\n                placeholder=\"Date\" [(ngModel)]=\"electricReading.fromDate\" required>\n              <owl-date-time #reportFrom [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportFrom\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>To<span class=\"mandatory\">*</span></label>\n              <input class=\"form-control\" name=\"reportTo\" [owlDateTime]=\"reportTo\" [owlDateTimeTrigger]=\"reportTo\"\n                placeholder=\"Date\" [(ngModel)]=\"electricReading.toDate\" required>\n              <owl-date-time #reportTo [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportTo\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Condo Unit count<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"aptunitCount\"\n                [(ngModel)]=\"electricReading.AptunitCount\" required>\n            </div>\n          </div>\n\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Previous Reading<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" (keyup)=\"calculateUnitPerAptFrmPreReading($event)\"\n                placeholder=\"Enter\" name=\"prevReading\" [(ngModel)]=\"electricReading.PrevReading\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Current Reading<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" class=\"form-control\" (keyup)=\"calculateUnitPerAptFrmCurReading($event)\"\n                placeholder=\"Enter\" name=\"currReading\" [(ngModel)]=\"electricReading.CurrReading\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box mb-3\">\n              <label>Date Taken<span class=\"mandatory\">*</span></label>\n              <input readonly class=\"form-control\" name=\"dateTaken\" [owlDateTime]=\"dateTaken\" [owlDateTimeTrigger]=\"dateTaken\"\n                placeholder=\"Date\" [(ngModel)]=\"electricReading.dateTaken\" required>\n              <owl-date-time #dateTaken [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateTaken\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Electrical Units per Condo<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"electricUnit\"\n                [(ngModel)]=\"electricReading.ElectricalUnitPerApT\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Cost per Condo Unit<span class=\"mandatory\">*</span></label>\n              <input type=\"text\" [disabled]=true class=\"form-control\" placeholder=\"Enter\" name=\"electricCost\"\n                [(ngModel)]=\"electricReading.CostPerApt\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n\n            <div class=\"input-box\">\n              <label>Comments</label>\n              <textarea placeholder=\"some text here\" name=\"UtilityReadingComments\"\n                [(ngModel)]=\"electricReading.Comments\"></textarea>\n            </div>\n\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"list-inline float-right mt-4\">\n              <button type=\"button\" mat-flat-button class=\"mr-4\" (click)=\"resetData()\">Clear</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createElectricityReadingForm.invalid\"\n                *ngIf=\"!isEdit\">Submit</button>\n              <button mat-flat-button [color]=\"'primary'\" [disabled]=\"createElectricityReadingForm.invalid\"\n                *ngIf=\"isEdit\">Update</button>\n            </div>\n          </div>\n        </div>\n      </ng-container>\n    </div>\n  </form>\n</div>";
       /***/
     },
 
@@ -88,7 +88,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-tower-wrapper\">\n\n\t<ng-container>\n\n\t\t<form #propertyDetailsForm=\"ngForm\" name=\"propertyDetailsForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Total Units: {{totalItems}}</label>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<app-loader *ngIf=\"!isTowersLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isTowersLoaded\">\n\n\t\t<div id=\"propertyUnitDetailsAccordion\">\n\n\t\t\t<!-- <h4 class=\"main-title-mini float-left mb-3\">Units</h4> -->\n\n\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Block Unit<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Previous reading<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Current Reading<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Units this month<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Date Taken<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<ng-container\n\t\t\t\t\t*ngFor=\"let unit of towerUnitData | slice:ItemStartIndex:ItemEndIndex; let i = index; first as isFirst\">\n\t\t\t\t\t<app-unit-reading-info [unit]=\"unit\" [tower]=\"tower\" [waterReadingPeriodID]=\"waterReadingPeriodID\"\n\t\t\t\t\t\t[utility_selected_category]=\"utility_selected_category\"></app-unit-reading-info>\n\t\t\t\t</ng-container>\n\n\t\t\t</ul>\n\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"property-tower-wrapper\">\n\n\t<ng-container>\n\n\t\t<form #propertyDetailsForm=\"ngForm\" name=\"propertyDetailsForm\" novalidate>\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Total Units: {{totalItems}}</label>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\n\t<app-loader *ngIf=\"!isTowersLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isTowersLoaded\">\n\n\t\t<div id=\"propertyUnitDetailsAccordion\">\n\n\t\t\t<!-- <h4 class=\"main-title-mini float-left mb-3\">Units</h4> -->\n\n\t\t\t<ul class=\"list-group tabs clear\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Block Unit<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Previous reading<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Current Reading<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Units this month<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-2\">\n\t\t\t\t\t\t<label>Date Taken<span class=\"mandatory\">*</span></label>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<ng-container\n\t\t\t\t\t*ngFor=\"let unit of towerUnitData | slice:ItemStartIndex:ItemEndIndex; let i = index; first as isFirst\">\n\t\t\t\t\t<app-unit-reading-info [unit]=\"unit\" [tower]=\"tower\" (refreshEmitList)=\"getWaterReadingCharges()\" [waterReadingPeriodID]=\"waterReadingPeriodID\"\n\t\t\t\t\t\t[utility_selected_category]=\"utility_selected_category\"></app-unit-reading-info>\n\t\t\t\t</ng-container>\n\n\t\t\t</ul>\n\n\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n\t\t\t\t[itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t</app-pagination>\n\n\t\t</div>\n\n\t</ng-container>\n\n</div>";
       /***/
     },
 
@@ -108,7 +108,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-tower-unit-wrapper\">\n\n  <form  #waterReadingDetailsForm = \"ngForm\" name=\"waterReadingDetailsForm\" (ngSubmit)=\"submitWaterMeterReading(waterReadingDetailsForm)\" novalidate>\n\n  <div class=\"data-wrapper\">\n  <div class=\"row\">\n    <div  class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=true placeholder=\"Enter\" name=\"blockUnitNo\" [(ngModel)]=\"unit.apartmentBlockUnitNumber\" required>\n        </div>\n    </div>\n    <div  class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=\"unit.water_charge.prevReading || !isEdit\"  placeholder=\"Enter\" (keyup)=\"calculateUnitPerAptFrmPreReading($event)\" name=\"prevReading\" [(ngModel)]=\"waterReading.prevReading\" required>\n        </div>\n    </div>\n    <div class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=!isEdit placeholder=\"Enter\" (keyup)=\"calculateUnitPerAptFrmCurReading($event)\" name=\"currReading\" [(ngModel)]=\"waterReading.currReading\" required>\n        </div>\n    </div>\n    <div class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=true placeholder=\"Enter\" name=\"currUnit\" [(ngModel)]=\"waterReading.units\" required>\n        </div>\n    </div>\n    <div class=\"col-sm-2\">\n      <div class=\"input-box mb-3\">\n                  <input class=\"form-control\" name=\"dateTaken\" [disabled]=!isEdit [owlDateTime]=\"dateTaken\" [owlDateTimeTrigger]=\"dateTaken\" placeholder=\"Date\" [(ngModel)]=\"waterReading.dateTaken\" required>\n        <owl-date-time #dateTaken [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateTaken\">\n            <!-- <mat-icon svgIcon=\"feather:calendar\"></mat-icon> -->\n          </div>\n          </div>\n    </div>\n    <div class=\"col-sm-2\">\n\n      <div *ngIf=\"isEdit\" class=\"list-inline float-right\">\n        <button class=\"btn blue\" [disabled]=\"waterReadingDetailsForm.invalid\">Submit</button>\n        <!-- <button class=\"btn blue\" [disabled]=\"waterReadingDetailsForm.invalid\">Update</button> -->\n      </div>\n\n      <div class=\"icon-wrapper  mb-2\" *ngIf=\"!isEdit\">\n        <i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n      </div>\n\n      <div class=\"icon-wrapper  mb-2\" *ngIf=\"isEdit\">\n        <i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n      </div>\n\n    </div>\n    </div>\n </div>\n\n</form>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"property-tower-unit-wrapper\">\n\n  <form  #waterReadingDetailsForm = \"ngForm\" name=\"waterReadingDetailsForm\" (ngSubmit)=\"submitWaterMeterReading(waterReadingDetailsForm)\" novalidate>\n\n  <div class=\"data-wrapper\">\n  <div class=\"row\">\n    <div  class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=true placeholder=\"Enter\" name=\"blockUnitNo\" [(ngModel)]=\"unit.apartmentBlockUnitNumber\" required>\n        </div>\n    </div>\n    <div  class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=\"unit.water_charge.prevReading || !isEdit\"  placeholder=\"Enter\" (keyup)=\"calculateUnitPerAptFrmPreReading($event)\" name=\"prevReading\" [(ngModel)]=\"waterReading.prevReading\" required>\n        </div>\n    </div>\n    <div class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=!isEdit placeholder=\"Enter\" (ngModelChange)=\"calculateSubject.next($event)\" name=\"currReading\" [(ngModel)]=\"waterReading.currReading\" required>\n        </div>\n    </div>\n    <div class=\"col-sm-2\">\n        <div class=\"input-box\">\n            <input type=\"number\" class=\"form-control\" [disabled]=true placeholder=\"Enter\" name=\"currUnit\" [(ngModel)]=\"waterReading.units\" required>\n        </div>\n    </div>\n    <div class=\"col-sm-2\">\n      <div class=\"input-box mb-3\">\n                  <input class=\"form-control\" name=\"dateTaken\" [disabled]=!isEdit [owlDateTime]=\"dateTaken\" [owlDateTimeTrigger]=\"dateTaken\" placeholder=\"Date\" [(ngModel)]=\"waterReading.dateTaken\" required>\n        <owl-date-time #dateTaken [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateTaken\">\n            <!-- <mat-icon svgIcon=\"feather:calendar\"></mat-icon> -->\n          </div>\n          </div>\n    </div>\n    <div class=\"col-sm-2\">\n\n      <div *ngIf=\"isEdit\" class=\"list-inline float-right\">\n        <button class=\"btn blue\" [disabled]=\"waterReadingDetailsForm.invalid\">Submit</button>\n        <!-- <button class=\"btn blue\" [disabled]=\"waterReadingDetailsForm.invalid\">Update</button> -->\n      </div>\n\n      <div class=\"icon-wrapper  mb-2\" *ngIf=\"!isEdit\">\n        <i-feather class=\"icon edit\" name=\"edit\" (click)=\"showEditForm()\"></i-feather>\n      </div>\n\n      <div class=\"icon-wrapper  mb-2\" *ngIf=\"isEdit\">\n        <i-feather class=\"icon back\" name=\"chevron-left\" (click)=\"showEditForm()\"></i-feather>\n      </div>\n\n    </div>\n    </div>\n </div>\n\n</form>\n</div>\n";
       /***/
     },
 
@@ -128,7 +128,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"property-details-wrapper profile-section\">\n\n  <h4 class=\"mb-4\">Select Tower & Reading Period</h4>\n\n  <div class=\"bg-card shadow\">\n    <form #setWaterReadingPeriodForm=\"ngForm\" name=\"setWaterReadingPeriodForm\" novalidate>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">\n          <div class=\"input-box mb-3\">\n            <condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'null'\"\n              [fieldList]=\"propertyTowerData\" fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n              fieldId=\"apartmentBlockId\" (fieldParams)=\"selectedTower($event)\"></condo-select>\n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"input-box mb-3\">\n            <label>From<span class=\"mandatory\">*</span></label>\n            <input class=\"form-control\" name=\"reportFrom\" [owlDateTime]=\"reportFrom\" [owlDateTimeTrigger]=\"reportFrom\"\n              placeholder=\"Date\" [(ngModel)]=\"waterReadingFromDate\" required>\n            <owl-date-time #reportFrom [pickerType]=\"'calendar'\"></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportFrom\">\n              <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"input-box mb-3\">\n            <label>To<span class=\"mandatory\">*</span></label>\n            <input class=\"form-control\" name=\"reportTo\" [owlDateTime]=\"reportTo\" [owlDateTimeTrigger]=\"reportTo\"\n              placeholder=\"Date\" [(ngModel)]=\"waterReadingToDate\" required>\n            <owl-date-time #reportTo [pickerType]=\"'calendar'\"></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportTo\">\n              <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"list-inline mt-5\">\n            <button mat-flat-button class=\"mr-4\" (click)=\"clear()\">Clear</button>\n            <button mat-flat-button [color]=\"'primary'\" (click)=\"submitReadingPeriodForm(setWaterReadingPeriodForm)\"\n              [disabled]=\"setWaterReadingPeriodForm.invalid\">Submit</button>\n          </div>\n        </div>\n      </div>\n    </form>\n  </div>\n\n  <app-loader *ngIf=\"!isSetPeriod\"></app-loader>\n\n\n  <h4 *ngIf=\"waterReadingPeriodID\" class=\"mb-3\">Tower</h4>\n\n  <div class=\"bg-card shadow\" *ngIf=\"waterReadingPeriodID\">\n\n    <app-tower-reading-info [tower]=\"selectedBlock\" [waterReadingPeriodID]=\"waterReadingPeriodID\"\n      [allApartmentWaterCharge]=\"allApartmentWaterCharge\" [utility_selected_category]=\"utility_selected_category\">\n    </app-tower-reading-info>\n\n  </div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"property-details-wrapper profile-section\">\n\n  <h4 class=\"mb-4\">Select Tower & Reading Period</h4>\n\n  <div class=\"bg-card shadow\">\n    <form #setWaterReadingPeriodForm=\"ngForm\" name=\"setWaterReadingPeriodForm\" novalidate>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">\n          <div class=\"input-box mb-3\">\n            <condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'null'\"\n              [fieldList]=\"propertyTowerData\" fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n              fieldId=\"apartmentBlockId\" (fieldParams)=\"selectedTower($event)\"></condo-select>\n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"input-box mb-3\">\n            <label>From<span class=\"mandatory\">*</span></label>\n            <input readonly class=\"form-control\" name=\"reportFrom\" [owlDateTime]=\"reportFrom\" [owlDateTimeTrigger]=\"reportFrom\"\n              placeholder=\"Date\" [(ngModel)]=\"waterReadingFromDate\" required>\n            <owl-date-time #reportFrom [pickerType]=\"'calendar'\"></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportFrom\">\n              <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"input-box mb-3\">\n            <label>To<span class=\"mandatory\">*</span></label>\n            <input readonly class=\"form-control\" name=\"reportTo\" [owlDateTime]=\"reportTo\" [owlDateTimeTrigger]=\"reportTo\"\n             [(ngModel)]=\"waterReadingToDate\" required>\n            <owl-date-time #reportTo [pickerType]=\"'calendar'\"></owl-date-time>\n            <div class=\"date-btn\" [owlDateTimeTrigger]=\"reportTo\">\n              <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"list-inline mt-5\">\n            <button mat-flat-button class=\"mr-4\" (click)=\"clear()\">Clear</button>\n            <button mat-flat-button [color]=\"'primary'\" (click)=\"submitReadingPeriodForm(setWaterReadingPeriodForm)\"\n              [disabled]=\"setWaterReadingPeriodForm.invalid\">Submit</button>\n          </div>\n        </div>\n      </div>\n    </form>\n  </div>\n\n  <app-loader *ngIf=\"!isSetPeriod\"></app-loader>\n\n\n  <h4 *ngIf=\"waterReadingPeriodID\" class=\"mb-3\">Tower</h4>\n\n  <div class=\"bg-card shadow\" *ngIf=\"waterReadingPeriodID\">\n\n    <app-tower-reading-info [tower]=\"selectedBlock\" [waterReadingPeriodID]=\"waterReadingPeriodID\"  [utility_selected_category]=\"utility_selected_category\">\n    </app-tower-reading-info>\n\n  </div>\n\n</div>";
       /***/
     },
 
@@ -148,7 +148,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<!-- <div class=\"inventory-view-wrapper\">\n\n\n  <form #viewUtilityCategoryForm=\"ngForm\" name=\"viewUtilityCategoryForm\" novalidate>\n\n    <div class=\"card ov mb-5\">\n\n      <div class=\"card-header\">\n        <div class=\"float-left\">\n          <h5>Select Category</h5>\n        </div>\n      </div>\n      <div class=\"card-body ov\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Utility Category<span class=\"mandatory\">*</span></label>\n              <select (change)=\"onUtilityCatregoryChange()\" name=\"utilityCategory\" id=\"utilityCategory\"\n                class=\"form-control\" [(ngModel)]=\"selectedUtilityCategory\" required>\n                <option value=\"undefined\" selected>Select</option>\n                <option *ngFor=\"let item of utilityCategoryData\" [value]=\"item.category\">{{ item.category }}</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </form>\n\n\n\n  <div *ngIf=\"selectedUtilityCategory\" class=\"card table-card\">\n\n    <div class=\"card-header\">\n      <div class=\"float-left\">\n        <h5>All {{selectedUtilityCategory}} <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n      </div>\n      <ul class=\"list-inline\">\n        <li *ngIf=\"isWaterHistory()\" class=\"list-inline-item search d-none d-md-inline-block\">\n          <select (change)=\"onFilterByTowerChange()\" name=\"utilityTowerFilter\" id=\"utilityTowerFilter\"\n            class=\"form-control filter-width\" [(ngModel)]=\"selectedTower\" required>\n            <option value=\"All\" selected>Select Tower</option>\n            <option *ngFor=\"let tower of propertyTowerData\" [value]=\"tower.apartmentBlockNumber\">\n              {{ tower.apartmentBlockNumber }}</option>\n          </select>\n        </li>\n        <li class=\"list-inline-item search d-none d-md-inline-block\">\n          <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\">\n        </li>\n        <li class=\"list-inline-item\">\n          <a class=\"btn trans-white \">\n            <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n            <span>Print</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n    <app-loader *ngIf=\"!isUltilityInsuranceHisLoaded && !isUltilityWaterHisLoaded && !isUltilityElectricHisLoaded\">\n    </app-loader>\n\n    <div class=\"card-body p-0\">\n\n      <ng-container *ngIf=\"selectedUtilityCategory == 'Common Electricity Charges' && isUltilityElectricHisLoaded\">\n\n        <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\">From\n                <span (click)=\"sortUnitData('fromDate')\" [ngClass]=\"getFieldOrderBy('fromDate')\"></span>\n              </th>\n              <th scope=\"col\">To\n                <span (click)=\"sortUnitData('toDate')\" [ngClass]=\"getFieldOrderBy('toDate')\"></span>\n              </th>\n              <th scope=\"col\">Pre Reading\n                <span (click)=\"sortUnitData('preReading')\" [ngClass]=\"getFieldOrderBy('preReading')\"></span>\n              </th>\n              <th scope=\"col\">Curr Reading\n                <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n              </th>\n              <th scope=\"col\">Condo unit\n                <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n              </th>\n              <th scope=\"col\">Cost Per Unit\n                <span (click)=\"sortUnitData('costPerUnit')\" [ngClass]=\"getFieldOrderBy('costPerUnit')\"></span>\n              </th>\n              <th scope=\"col\">Added By\n                <span (click)=\"sortUnitData('addedBy')\" [ngClass]=\"getFieldOrderBy('addedBy')\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr\n              *ngFor=\"let utility of utilityElecteicalListData | simpleSearch: utilitySearch | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\"\n              [ngClass]=\"utility.isActive ? '' : 'notactive'\">\n              <td class=\"name\">{{getUtilityFromPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n              <td class=\"grey\">{{getUtilityToPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n              <td class=\"grey\">{{utility.prevReading}}</td>\n              <td class=\"grey\">{{utility.currReading}}</td>\n              <td class=\"grey\">{{utility.electricalUnitPerAptUnit}}</td>\n              <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n              <td class=\"grey\">{{utility.insertedByUser}}</td>\n              <td>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n          <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n          [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n        </app-pagination>\n\n      </ng-container>\n\n\n      <ng-container *ngIf=\"this.selectedUtilityCategory == 'Water Meter Charges' && isUltilityWaterHisLoaded\">\n\n        <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\">Tower\n                <span (click)=\"sortUnitData('block')\" [ngClass]=\"getFieldOrderBy('block')\"></span>\n              </th>\n              <th scope=\"col\">Condo Unit\n                <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n              </th>\n              <th scope=\"col\">Connection No\n                <span (click)=\"sortUnitData('connectionNo')\" [ngClass]=\"getFieldOrderBy('connectionNo')\"></span>\n              </th>\n              <th scope=\"col\">Previous Reading\n                <span (click)=\"sortUnitData('prevReading')\" [ngClass]=\"getFieldOrderBy('prevReading')\"></span>\n              </th>\n              <th scope=\"col\">Current Reading\n                <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr\n              *ngFor=\"let utility of filteredUtilityWaterListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n              <td class=\"grey\">{{utility.block}}</td>\n              <td class=\"grey\">{{utility.aptUnit}}</td>\n              <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].connectionNo}}</span>\n              </td>\n              <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].prevReading}}</span>\n              </td>\n              <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].currReading}}</span>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n          <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n          [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n        </app-pagination>\n\n      </ng-container>\n\n      <ng-container *ngIf=\"this.selectedUtilityCategory == 'Common Insurance' && isUltilityInsuranceHisLoaded\">\n\n        <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\">Insurance Number\n                <span (click)=\"sortUnitData('insuranceNo')\" [ngClass]=\"getFieldOrderBy('insuranceNo')\"></span>\n              </th>\n              <th scope=\"col\">Condo Unit Count\n                <span (click)=\"sortUnitData('aptUnitCount')\" [ngClass]=\"getFieldOrderBy('aptUnitCount')\"></span>\n              </th>\n              <th scope=\"col\">Total Cost\n                <span (click)=\"sortUnitData('totalCost')\" [ngClass]=\"getFieldOrderBy('totalCost')\"></span>\n              </th>\n              <th scope=\"col\">Cost Per Condo\n                <span (click)=\"sortUnitData('costPerApt')\" [ngClass]=\"getFieldOrderBy('costPerApt')\"></span>\n              </th>\n              <th scope=\"col\">Date Entered\n                <span (click)=\"sortUnitData('dateEntered')\" [ngClass]=\"getFieldOrderBy('dateEntered')\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr\n              *ngFor=\"let utility of utilityInsuranceListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n              <td class=\"grey\">{{utility.insuranceNumber}}</td>\n              <td class=\"grey\">{{utility.apartmentUnitCount}}</td>\n              <td class=\"grey\">{{utility.totalCost}}</td>\n              <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n              <td class=\"grey\">{{utility.dateEntered}}</td>\n            </tr>\n          </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n          <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n          [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n        </app-pagination>\n\n      </ng-container>\n\n    </div>\n\n  </div>\n\n\n</div> -->\n\n<div class=\"main\">\n  <div class=\"d-flex mb-4\">\n    <div>\n        <h4>Utility History</h4>\n    </div>\n    <div class=\"ml-auto\">\n      <select (change)=\"onUtilityCatregoryChange()\" name=\"utilityCategory\" id=\"utilityCategory\"\n      class=\"form-control\" [(ngModel)]=\"selectedUtilityCategory\" required>\n      <option value=\"undefined\" selected>Select</option>\n      <option *ngFor=\"let item of utilityCategoryData\" [value]=\"item.category\">{{ item.category }}</option>\n    </select>   \n   </div>\n</div>\n<condo-card *ngIf=\"selectedUtilityCategory\">\n  <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div>\n        <h4>All {{selectedUtilityCategory}}</h4>\n        <p class=\"text-secondary\">{{totalItems}} results</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\"\n          (ngModelChange)=\"onGlSearchFilter()\">\n      </div>\n      <div class=\"mr-3\" *ngIf=\"isWaterHistory()\">\n        <select (change)=\"onFilterByTowerChange()\" name=\"utilityTowerFilter\" id=\"utilityTowerFilter\"\n          class=\"form-control filter-width\" [(ngModel)]=\"selectedTower\" required>\n          <option value=\"All\" selected>Select Tower</option>\n          <option *ngFor=\"let tower of propertyTowerData\" [value]=\"tower.apartmentBlockNumber\">\n            {{ tower.apartmentBlockNumber }}</option>\n        </select>\n      </div>\n      <div class=\"mr-3\">\n        <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n      </div>\n    </div>\n  </div>\n  <div CondoCardBody>\n    <app-loader *ngIf=\"!isUltilityInsuranceHisLoaded && !isUltilityWaterHisLoaded && !isUltilityElectricHisLoaded\">\n    </app-loader>\n    <div *ngIf=\"selectedUtilityCategory == 'Common Electricity Charges' && isUltilityElectricHisLoaded\">\n      <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n        [filterable]=\"true\" [sortable]=\"true\" [source]=\"utilityElecteicalListData\" [columns]=\"utilityElecteicalHeader\"\n        [enablehover]=\"false\" #datagrid>\n      </jqxGrid>\n    </div>\n    <div *ngIf=\"selectedUtilityCategory == 'Water Meter Charges' && isUltilityWaterHisLoaded\">\n      <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n        [filterable]=\"true\" [sortable]=\"true\" [source]=\"filteredUtilityWaterListData\"\n        [columns]=\"filteredUtilityHeader\" [enablehover]=\"false\" #datagrid>\n      </jqxGrid>\n    </div>\n    <div *ngIf=\"selectedUtilityCategory == 'Common Insurance' && isUltilityInsuranceHisLoaded\">\n      <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n        [filterable]=\"true\" [sortable]=\"true\" [source]=\"utilityInsuranceListData\" [columns]=\"utilityInsuranceHeader\"\n        [enablehover]=\"false\" #datagrid>\n      </jqxGrid>\n    </div>\n  </div>\n</condo-card>\n\n</div>";
+      __webpack_exports__["default"] = "<!-- <div class=\"inventory-view-wrapper\">\n\n\n  <form #viewUtilityCategoryForm=\"ngForm\" name=\"viewUtilityCategoryForm\" novalidate>\n\n    <div class=\"card ov mb-5\">\n\n      <div class=\"card-header\">\n        <div class=\"float-left\">\n          <h5>Select Category</h5>\n        </div>\n      </div>\n      <div class=\"card-body ov\">\n\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Utility Category<span class=\"mandatory\">*</span></label>\n              <select (change)=\"onUtilityCatregoryChange()\" name=\"utilityCategory\" id=\"utilityCategory\"\n                class=\"form-control\" [(ngModel)]=\"selectedUtilityCategory\" required>\n                <option value=\"undefined\" selected>Select</option>\n                <option *ngFor=\"let item of utilityCategoryData\" [value]=\"item.category\">{{ item.category }}</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </form>\n\n\n\n  <div *ngIf=\"selectedUtilityCategory\" class=\"card table-card\">\n\n    <div class=\"card-header\">\n      <div class=\"float-left\">\n        <h5>All {{selectedUtilityCategory}} <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n      </div>\n      <ul class=\"list-inline\">\n        <li *ngIf=\"isWaterHistory()\" class=\"list-inline-item search d-none d-md-inline-block\">\n          <select (change)=\"onFilterByTowerChange()\" name=\"utilityTowerFilter\" id=\"utilityTowerFilter\"\n            class=\"form-control filter-width\" [(ngModel)]=\"selectedTower\" required>\n            <option value=\"All\" selected>Select Tower</option>\n            <option *ngFor=\"let tower of propertyTowerData\" [value]=\"tower.apartmentBlockNumber\">\n              {{ tower.apartmentBlockNumber }}</option>\n          </select>\n        </li>\n        <li class=\"list-inline-item search d-none d-md-inline-block\">\n          <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\">\n        </li>\n        <li class=\"list-inline-item\">\n          <a class=\"btn trans-white \">\n            <i-feather class=\"icon print\" name=\"printer\"></i-feather>\n            <span>Print</span>\n          </a>\n        </li>\n      </ul>\n    </div>\n\n    <app-loader *ngIf=\"!isUltilityInsuranceHisLoaded && !isUltilityWaterHisLoaded && !isUltilityElectricHisLoaded\">\n    </app-loader>\n\n    <div class=\"card-body p-0\">\n\n      <ng-container *ngIf=\"selectedUtilityCategory == 'Common Electricity Charges' && isUltilityElectricHisLoaded\">\n\n        <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\">From\n                <span (click)=\"sortUnitData('fromDate')\" [ngClass]=\"getFieldOrderBy('fromDate')\"></span>\n              </th>\n              <th scope=\"col\">To\n                <span (click)=\"sortUnitData('toDate')\" [ngClass]=\"getFieldOrderBy('toDate')\"></span>\n              </th>\n              <th scope=\"col\">Pre Reading\n                <span (click)=\"sortUnitData('preReading')\" [ngClass]=\"getFieldOrderBy('preReading')\"></span>\n              </th>\n              <th scope=\"col\">Curr Reading\n                <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n              </th>\n              <th scope=\"col\">Condo unit\n                <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n              </th>\n              <th scope=\"col\">Cost Per Unit\n                <span (click)=\"sortUnitData('costPerUnit')\" [ngClass]=\"getFieldOrderBy('costPerUnit')\"></span>\n              </th>\n              <th scope=\"col\">Added By\n                <span (click)=\"sortUnitData('addedBy')\" [ngClass]=\"getFieldOrderBy('addedBy')\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr\n              *ngFor=\"let utility of utilityElecteicalListData | simpleSearch: utilitySearch | columnSearch: columnField:selectedInput | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\"\n              [ngClass]=\"utility.isActive ? '' : 'notactive'\">\n              <td class=\"name\">{{getUtilityFromPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n              <td class=\"grey\">{{getUtilityToPeriod(utility.utilityTrackerElectricityChargeId)}}</td>\n              <td class=\"grey\">{{utility.prevReading}}</td>\n              <td class=\"grey\">{{utility.currReading}}</td>\n              <td class=\"grey\">{{utility.electricalUnitPerAptUnit}}</td>\n              <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n              <td class=\"grey\">{{utility.insertedByUser}}</td>\n              <td>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n          <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n          [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n        </app-pagination>\n\n      </ng-container>\n\n\n      <ng-container *ngIf=\"this.selectedUtilityCategory == 'Water Meter Charges' && isUltilityWaterHisLoaded\">\n\n        <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\">Tower\n                <span (click)=\"sortUnitData('block')\" [ngClass]=\"getFieldOrderBy('block')\"></span>\n              </th>\n              <th scope=\"col\">Condo Unit\n                <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n              </th>\n              <th scope=\"col\">Connection No\n                <span (click)=\"sortUnitData('connectionNo')\" [ngClass]=\"getFieldOrderBy('connectionNo')\"></span>\n              </th>\n              <th scope=\"col\">Previous Reading\n                <span (click)=\"sortUnitData('prevReading')\" [ngClass]=\"getFieldOrderBy('prevReading')\"></span>\n              </th>\n              <th scope=\"col\">Current Reading\n                <span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr\n              *ngFor=\"let utility of filteredUtilityWaterListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n              <td class=\"grey\">{{utility.block}}</td>\n              <td class=\"grey\">{{utility.aptUnit}}</td>\n              <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].connectionNo}}</span>\n              </td>\n              <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].prevReading}}</span>\n              </td>\n              <td class=\"grey\"><span *ngIf=\"utility.waterCharge.length>0\">{{utility.waterCharge[0].currReading}}</span>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n          <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n          [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n        </app-pagination>\n\n      </ng-container>\n\n      <ng-container *ngIf=\"this.selectedUtilityCategory == 'Common Insurance' && isUltilityInsuranceHisLoaded\">\n\n        <table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\">Insurance Number\n                <span (click)=\"sortUnitData('insuranceNo')\" [ngClass]=\"getFieldOrderBy('insuranceNo')\"></span>\n              </th>\n              <th scope=\"col\">Condo Unit Count\n                <span (click)=\"sortUnitData('aptUnitCount')\" [ngClass]=\"getFieldOrderBy('aptUnitCount')\"></span>\n              </th>\n              <th scope=\"col\">Total Cost\n                <span (click)=\"sortUnitData('totalCost')\" [ngClass]=\"getFieldOrderBy('totalCost')\"></span>\n              </th>\n              <th scope=\"col\">Cost Per Condo\n                <span (click)=\"sortUnitData('costPerApt')\" [ngClass]=\"getFieldOrderBy('costPerApt')\"></span>\n              </th>\n              <th scope=\"col\">Date Entered\n                <span (click)=\"sortUnitData('dateEntered')\" [ngClass]=\"getFieldOrderBy('dateEntered')\"></span>\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr\n              *ngFor=\"let utility of utilityInsuranceListData | simpleSearch: utilitySearch | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n              <td class=\"grey\">{{utility.insuranceNumber}}</td>\n              <td class=\"grey\">{{utility.apartmentUnitCount}}</td>\n              <td class=\"grey\">{{utility.totalCost}}</td>\n              <td class=\"grey\">{{utility.costPerAptUnit}}</td>\n              <td class=\"grey\">{{utility.dateEntered}}</td>\n            </tr>\n          </tbody>\n        </table>\n        <div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n          <p class=\"snippet\">No Records Found</p>\n        </div>\n        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\"\n          [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n        </app-pagination>\n\n      </ng-container>\n\n    </div>\n\n  </div>\n\n\n</div> -->\n\n<div class=\"main\">\n  <div class=\"d-flex mb-4\">\n    <div>\n        <h4>Utility History</h4>\n    </div>\n      <div class=\"ml-auto w-50 d-none d-md-block mr-3\">\n      <select (change)=\"onUtilityCatregoryChange()\" name=\"utilityCategory\" id=\"utilityCategory\"\n      class=\"form-control\" [(ngModel)]=\"selectedUtilityCategory\" required>\n      <option value=\"undefined\" selected>Select</option>\n      <option *ngFor=\"let item of utilityCategoryData\" [value]=\"item.category\">{{ item.category }}</option>\n    </select>   \n   </div>\n</div>\n<condo-card *ngIf=\"selectedUtilityCategory\">\n  <div CondoCardHeader>\n    <div class=\"d-flex\">\n      <div>\n        <h4>All {{selectedUtilityCategory}}</h4>\n        <p class=\"text-secondary\">{{totalItems}} results</p>\n      </div>\n      <div class=\"ml-auto d-none d-md-block mr-3\">\n          <app-table-search [input]=\"utilitySearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n      </div>\n      <div class=\"mr-3\" *ngIf=\"isWaterHistory()\">\n        <select (change)=\"onFilterByTowerChange()\" name=\"utilityTowerFilter\" id=\"utilityTowerFilter\"\n          class=\"form-control filter-width\" [(ngModel)]=\"selectedTower\" required>\n          <option value=\"All\" selected>Select Tower</option>\n          <option *ngFor=\"let tower of propertyTowerData\" [value]=\"tower.apartmentBlockNumber\">\n            {{ tower.apartmentBlockNumber }}</option>\n        </select>\n      </div>\n      <div class=\"mr-3\">\n        <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n      </div>\n    </div>\n  </div>\n  <div CondoCardBody>\n    <app-loader *ngIf=\"!isUltilityInsuranceHisLoaded && !isUltilityWaterHisLoaded && !isUltilityElectricHisLoaded\">\n    </app-loader>\n    <div *ngIf=\"selectedUtilityCategory == 'Common Electricity Charges' && isUltilityElectricHisLoaded\">\n      <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n        [filterable]=\"true\" [sortable]=\"true\" [source]=\"utilityElecteicalListData\" [columns]=\"utilityElecteicalHeader\"\n        [enablehover]=\"false\" #datagrid>\n      </jqxGrid>\n    </div>\n    <div *ngIf=\"selectedUtilityCategory == 'Water Meter Charges' && isUltilityWaterHisLoaded\">\n      <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n        [filterable]=\"true\" [sortable]=\"true\" [source]=\"filteredUtilityWaterListData\"\n        [columns]=\"filteredUtilityHeader\" [enablehover]=\"false\" #datagrid>\n      </jqxGrid>\n    </div>\n    <div *ngIf=\"selectedUtilityCategory == 'Common Insurance' && isUltilityInsuranceHisLoaded\">\n      <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n        [filterable]=\"true\" [sortable]=\"true\" [source]=\"utilityInsuranceListData\" [columns]=\"utilityInsuranceHeader\"\n        [enablehover]=\"false\" #datagrid>\n      </jqxGrid>\n    </div>\n  </div>\n</condo-card>\n\n</div>";
       /***/
     },
 
@@ -1152,30 +1152,49 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            this.waterReading = {};
+            this.getWaterReadingCharges();
+          }
+        }, {
+          key: "getWaterReadingCharges",
+          value: function getWaterReadingCharges() {
             var _this7 = this;
 
-            this.waterReading = {};
+            var params = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
+              _this7.allApartmentWaterCharge = res;
+
+              _this7.getApartmentBlockDetails();
+            });
+          }
+        }, {
+          key: "getApartmentBlockDetails",
+          value: function getApartmentBlockDetails() {
+            var _this8 = this;
+
             var params = {
               apartmentBlockId: parseInt(this.tower.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this7.towerUnitData = res;
-              _this7.totalItems = _this7.towerUnitData.length;
+              _this8.towerUnitData = res;
+              _this8.totalItems = _this8.towerUnitData.length;
 
-              if (_this7.totalItems > _this7.itemLimit) {
-                _this7.ItemEndIndex = _this7.itemLimit;
+              if (_this8.totalItems > _this8.itemLimit) {
+                _this8.ItemEndIndex = _this8.itemLimit;
               } else {
-                _this7.ItemEndIndex = _this7.totalItems;
+                _this8.ItemEndIndex = _this8.totalItems;
               }
 
-              var _iterator = _createForOfIteratorHelper(_this7.towerUnitData),
+              var _iterator = _createForOfIteratorHelper(_this8.towerUnitData),
                   _step;
 
               try {
                 var _loop = function _loop() {
                   var unit = _step.value;
 
-                  var block_unit = _this7.allApartmentWaterCharge.find(function (x) {
+                  var block_unit = _this8.allApartmentWaterCharge.find(function (x) {
                     return x.aptUnit == unit.apartmentBlockUnitNumber;
                   });
 
@@ -1195,7 +1214,7 @@
                 _iterator.f();
               }
 
-              _this7.isTowersLoaded = true;
+              _this8.isTowersLoaded = true;
             });
           }
         }]);
@@ -1222,9 +1241,6 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         waterReadingPeriodID: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        allApartmentWaterCharge: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
         }],
         utility_selected_category: [{
@@ -1340,6 +1356,18 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
 
       var UnitReadingInfoComponent = /*#__PURE__*/function () {
         function UnitReadingInfoComponent(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
@@ -1350,6 +1378,8 @@
           this.utilityTrackerService = utilityTrackerService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.refreshEmitList = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          this.calculateSubject = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
           this.isError = false;
           this.alertMessage = "";
           this.isEdit = false;
@@ -1381,7 +1411,7 @@
         }, {
           key: "submitWaterMeterReading",
           value: function submitWaterMeterReading(form) {
-            var _this8 = this;
+            var _this9 = this;
 
             var details = {
               "apartmentId": this.sessionService.apartmentId,
@@ -1407,24 +1437,30 @@
             };
             this.utilityTrackerService.addUtilityTrackerWaterCharge(params).subscribe(function (res) {
               if (res.message) {
-                _this8.isEdit = false;
+                _this9.isEdit = false;
 
-                _this8.sharedService.setAlertMessage("Water reading added successfully");
+                _this9.sharedService.openSnackBar("Water reading added successfully", 'success');
+
+                _this9.refreshEmitList.emit();
               } else {
-                _this8.isError = true;
-                _this8.alertMessage = res.errorMessage;
+                _this9.isError = true;
+                _this9.alertMessage = res.errorMessage;
               }
             }, function (error) {
-              _this8.isError = true;
-              _this8.alertMessage = "Some error occured";
+              _this9.isError = true;
+              _this9.alertMessage = "Some error occured";
             });
           }
         }, {
           key: "calculateUnitPerAptFrmCurReading",
-          value: function calculateUnitPerAptFrmCurReading(e) {
+          value: function calculateUnitPerAptFrmCurReading() {
             if (this.waterReading.currReading && this.waterReading.prevReading) {
-              this.waterReading.units = this.waterReading.currReading - this.waterReading.prevReading;
-              this.waterReading.cost = (this.waterReading.units * this.utility_selected_category.ratePerUnit).toFixed(2);
+              if (this.waterReading.currReading > this.waterReading.prevReading) {
+                this.waterReading.units = this.waterReading.currReading - this.waterReading.prevReading;
+                this.waterReading.cost = (this.waterReading.units * this.utility_selected_category.ratePerUnit).toFixed(2);
+              } else {
+                this.sharedService.openSnackBar('Current Reading Should Greater than Previous Reading !', 'error');
+              }
             }
           }
         }, {
@@ -1438,7 +1474,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this10 = this;
 
             this.waterReading = {}; //let apartment_id = this.sessionService.apartmentId;
 
@@ -1462,11 +1498,14 @@
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this9.unitTypeData = res;
+              _this10.unitTypeData = res;
               setTimeout(function () {
-                _this9.getUnitType(_this9.unit.unitType);
+                _this10.getUnitType(_this10.unit.unitType);
               }, 1000);
             }, function (error) {});
+            this.calculateSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["debounceTime"])(500)).subscribe(function (searchTextValue) {
+              _this10.calculateUnitPerAptFrmCurReading();
+            });
           }
         }]);
 
@@ -1499,6 +1538,9 @@
         }],
         utility_selected_category: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        refreshEmitList: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
         }]
       };
       UnitReadingInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1632,7 +1674,7 @@
         }, {
           key: "submitReadingPeriodForm",
           value: function submitReadingPeriodForm(form) {
-            var _this10 = this;
+            var _this11 = this;
 
             this.isSetPeriod = false;
             this.waterReadingPeriodID = null;
@@ -1650,8 +1692,8 @@
               utilityTrackerWaterChargePeriod: water_reading_period
             };
             this.utilityTrackerService.addUtilityTrackerWaterChargePeriod(params).subscribe(function (period_res) {
-              _this10.waterReadingPeriodID = period_res.message;
-              _this10.isSetPeriod = true;
+              _this11.waterReadingPeriodID = period_res.message;
+              _this11.isSetPeriod = true;
             });
           }
         }, {
@@ -1663,18 +1705,15 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             this.waterReadingPeriodID = undefined;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this11.propertyTowerData = res;
-              _this11.isDataLoaded = true;
-            });
-            this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
-              _this11.allApartmentWaterCharge = res;
+              _this12.propertyTowerData = res;
+              _this12.isDataLoaded = true;
             });
           }
         }]);
@@ -1887,13 +1926,13 @@
         }, {
           key: "onFilterByTowerChange",
           value: function onFilterByTowerChange() {
-            var _this12 = this;
+            var _this13 = this;
 
             if (this.selectedTower == 'All') {
               this.filteredUtilityWaterListData = this.utilityWaterListData;
             } else {
               this.filteredUtilityWaterListData = this.utilityWaterListData.filter(function (x) {
-                return x.block == _this12.selectedTower;
+                return x.block == _this13.selectedTower;
               });
             }
 
@@ -1955,7 +1994,7 @@
         }, {
           key: "getAllElectricalUtiliy",
           value: function getAllElectricalUtiliy() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.isUltilityElectricHisLoaded = false;
             var params = {
@@ -1969,8 +2008,8 @@
                 localdata: utilityElecteicalList,
                 datatype: "array"
               };
-              _this13.totalItems = utilityElecteicalList.length;
-              _this13.utilityElecteicalListData = new jqx.dataAdapter(utilityElecteicalSourceData); // this.utilityElecteicalListPeriods = []
+              _this14.totalItems = utilityElecteicalList.length;
+              _this14.utilityElecteicalListData = new jqx.dataAdapter(utilityElecteicalSourceData); // this.utilityElecteicalListPeriods = []
               // for (let electrical_list of this.utilityElecteicalListData) {
               //   let period_param = { "apartmentId": this.sessionService.apartmentId, "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId }
               //   this.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe((res: any) => {
@@ -1986,13 +2025,13 @@
               //   this.ItemEndIndex = this.totalItems;
               // }
 
-              _this13.isUltilityElectricHisLoaded = true;
+              _this14.isUltilityElectricHisLoaded = true;
             });
           }
         }, {
           key: "getAllWaterUtiliy",
           value: function getAllWaterUtiliy() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.selectedTower = 'All';
             this.isUltilityWaterHisLoaded = false;
@@ -2000,31 +2039,20 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerWaterChargesByApartmentId(params).subscribe(function (res) {
-              // this.utilityWaterListData = res;
-              // this.filteredUtilityWaterListData = this.utilityWaterListData;
-              // this.totalItems = this.filteredUtilityWaterListData.length;
-              // if (this.totalItems > this.itemLimit) {
-              //   this.ItemEndIndex = this.itemLimit;
-              // }
-              // else {
-              //   this.ItemEndIndex = this.totalItems;
-              // }
-              var filteredUtilityWaterList = res.filter(function (item) {
-                return item.isActive;
-              });
-              _this14.totalItems = filteredUtilityWaterList.length;
+              var filteredUtilityWaterList = res;
               var filteredUtilityWaterSourceData = {
                 localdata: filteredUtilityWaterList,
                 datatype: "array"
               };
-              _this14.filteredUtilityWaterListData = new jqx.dataAdapter(filteredUtilityWaterSourceData);
-              _this14.isUltilityWaterHisLoaded = true;
+              _this15.filteredUtilityWaterListData = new jqx.dataAdapter(filteredUtilityWaterSourceData);
+              _this15.totalItems = filteredUtilityWaterList.length;
+              _this15.isUltilityWaterHisLoaded = true;
             });
           }
         }, {
           key: "getAllInsuranceUtiliy",
           value: function getAllInsuranceUtiliy() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isUltilityInsuranceHisLoaded = false;
             var params = {
@@ -2034,12 +2062,12 @@
               var utilityInsuranceList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this15.totalItems = utilityInsuranceList.length;
+              _this16.totalItems = utilityInsuranceList.length;
               var utilityInsuranceSourceData = {
                 localdata: utilityInsuranceList,
                 datatype: "array"
               };
-              _this15.utilityInsuranceListData = new jqx.dataAdapter(utilityInsuranceSourceData); // this.utilityInsuranceListData.sort(function (a, b) {
+              _this16.utilityInsuranceListData = new jqx.dataAdapter(utilityInsuranceSourceData); // this.utilityInsuranceListData.sort(function (a, b) {
               //   a = new Date(a.dateEntered);
               //   b = new Date(b.dateEntered);
               //   return a > b ? -1 : a < b ? 1 : 0;
@@ -2052,16 +2080,56 @@
               //   this.ItemEndIndex = this.totalItems;
               // }
 
-              _this15.isUltilityInsuranceHisLoaded = true;
+              _this16.isUltilityInsuranceHisLoaded = true;
             });
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this17 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+
+              if (this.selectedUtilityCategory == 'Common Electricity Charges') {
+                this.utilityElecteicalHeader.forEach(function (item) {
+                  if (item.datafield != 'Actions') {
+                    _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                  }
+                });
+              } else if (this.selectedUtilityCategory == 'Water Meter Charges') {
+                this.filteredUtilityHeader.forEach(function (item) {
+                  if (item.datafield != 'Actions') {
+                    _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                  }
+                });
+              } else {
+                this.utilityInsuranceHeader.forEach(function (item) {
+                  if (item.datafield != 'Actions') {
+                    _this17.datagrid.addfilter(item.datafield, filtergroup, true);
+                  }
+                });
+              }
+
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this16 = this;
+            var _this18 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this16.timeZone = timeZone;
+              return _this18.timeZone = timeZone;
             });
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -2073,11 +2141,17 @@
             };
 
             this.utilityElecteicalHeader = [{
+              text: 'Condo unit',
+              datafield: 'apartmentUnitCount',
+              width: 250,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
               text: 'from',
               datafield: 'periodFrom',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2085,7 +2159,7 @@
               datafield: 'periodTo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2097,12 +2171,6 @@
             }, {
               text: 'Curr Reading',
               datafield: 'currReading',
-              width: 250,
-              cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
-            }, {
-              text: 'Condo unit',
-              datafield: 'apartmentUnitCount',
               width: 250,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
@@ -2121,36 +2189,39 @@
             }]; //TODO array of object assign 
 
             this.filteredUtilityHeader = [{
-              text: 'Tower',
-              datafield: 'block',
-              width: 200,
-              cellsrenderer: cellsrenderer,
-              renderer: columnrenderer
-            }, {
               text: 'Condo Unit',
               datafield: 'aptUnit',
               width: 250,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
+              text: 'Tower',
+              datafield: 'block',
+              width: 200,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
               text: 'Connection No',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + value[0].connectionNo + '</div>';
+                var content = _this18.filteredUtilityWaterListData.records[row].waterCharge.length > 0 ? _this18.filteredUtilityWaterListData.records[row].waterCharge[0]["connectionNo"] : '';
+                return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'Previous Reading',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + value[0].prevReading + '</div>';
+                var content = _this18.filteredUtilityWaterListData.records[row].waterCharge.length > 0 ? _this18.filteredUtilityWaterListData.records[row].waterCharge[0]["prevReading"] : '';
+                return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'Current Reading',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + value[0].currReading + '</div>';
+                var content = _this18.filteredUtilityWaterListData.records[row].waterCharge.length > 0 ? _this18.filteredUtilityWaterListData.records[row].waterCharge[0]["currReading"] : '';
+                return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
             }];
@@ -2183,7 +2254,7 @@
               datafield: 'dateEntered',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this16.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }];
@@ -2191,13 +2262,13 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this16.utilityCategoryData = res.filter(function (item) {
+              _this18.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this16.isUtilityCategoryLoaded = true;
+              _this18.isUtilityCategoryLoaded = true;
             }, function (error) {});
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this16.propertyTowerData = res;
+              _this18.propertyTowerData = res;
             });
           }
         }]);
@@ -2431,7 +2502,7 @@
         }, {
           key: "getAllElectricalUtiliy",
           value: function getAllElectricalUtiliy() {
-            var _this17 = this;
+            var _this19 = this;
 
             this.isReportLoaded = false;
             this.selectedTower = '';
@@ -2497,29 +2568,29 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getElectricityChargesByApartmentId(params).subscribe(function (res) {
-              _this17.utilityElecteicalListData = res.filter(function (item) {
+              _this19.utilityElecteicalListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this17.utilityElecteicalListPeriods = [];
+              _this19.utilityElecteicalListPeriods = [];
 
-              var _iterator2 = _createForOfIteratorHelper(_this17.utilityElecteicalListData),
+              var _iterator2 = _createForOfIteratorHelper(_this19.utilityElecteicalListData),
                   _step2;
 
               try {
                 var _loop2 = function _loop2() {
                   var electrical_list = _step2.value;
                   var period_param = {
-                    "apartmentId": _this17.sessionService.apartmentId,
+                    "apartmentId": _this19.sessionService.apartmentId,
                     "utilityTrackerElectricityPeriodId": electrical_list.utilityTrackerElectricityPeriodId
                   };
 
-                  _this17.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe(function (res) {
+                  _this19.utilityTrackerService.getUtilityTrackerElectricityPeriodsById(period_param).subscribe(function (res) {
                     var period_data = {
                       "periods": res,
                       "period_id": electrical_list.utilityTrackerElectricityPeriodId
                     };
 
-                    _this17.utilityElecteicalListPeriods.push(period_data);
+                    _this19.utilityElecteicalListPeriods.push(period_data);
                   });
                 };
 
@@ -2533,23 +2604,23 @@
               }
 
               var gridSourceData = {
-                localdata: _this17.utilityElecteicalListData,
+                localdata: _this19.utilityElecteicalListData,
                 datatype: "array"
               };
-              _this17.electricityReportDataList = new jqx.dataAdapter(gridSourceData);
-              _this17.isReportLoaded = true;
+              _this19.electricityReportDataList = new jqx.dataAdapter(gridSourceData);
+              _this19.isReportLoaded = true;
 
-              _this17.showItems();
+              _this19.showItems();
 
-              _this17.totalItems = _this17.utilityElecteicalListData.length;
+              _this19.totalItems = _this19.utilityElecteicalListData.length;
 
-              if (_this17.totalItems > _this17.itemLimit) {
-                _this17.ItemEndIndex = _this17.itemLimit;
+              if (_this19.totalItems > _this19.itemLimit) {
+                _this19.ItemEndIndex = _this19.itemLimit;
               } else {
-                _this17.ItemEndIndex = _this17.totalItems;
+                _this19.ItemEndIndex = _this19.totalItems;
               }
 
-              _this17.isReportLoaded = true;
+              _this19.isReportLoaded = true;
             });
           }
         }, {
@@ -2566,7 +2637,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this18 = this;
+            var _this20 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2579,7 +2650,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this18.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2859,7 +2930,7 @@
         }, {
           key: "getAllInsuranceUtiliy",
           value: function getAllInsuranceUtiliy() {
-            var _this19 = this;
+            var _this21 = this;
 
             this.selectedTower = '';
             this.isReportLoaded = false; // jqx column generating
@@ -2910,33 +2981,33 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerInsuranceChargesByApartmentId(params).subscribe(function (res) {
-              _this19.utilityInsuranceListData = res.filter(function (item) {
+              _this21.utilityInsuranceListData = res.filter(function (item) {
                 return item.isActive;
               });
 
-              _this19.utilityInsuranceListData.sort(function (a, b) {
+              _this21.utilityInsuranceListData.sort(function (a, b) {
                 a = new Date(a.dateEntered);
                 b = new Date(b.dateEntered);
                 return a > b ? -1 : a < b ? 1 : 0;
               });
 
               var gridSourceData = {
-                localdata: _this19.utilityInsuranceListData,
+                localdata: _this21.utilityInsuranceListData,
                 datatype: "array"
               };
-              _this19.insuranceReportDataList = new jqx.dataAdapter(gridSourceData);
-              _this19.isReportLoaded = true;
+              _this21.insuranceReportDataList = new jqx.dataAdapter(gridSourceData);
+              _this21.isReportLoaded = true;
 
-              _this19.showItems();
+              _this21.showItems();
 
-              _this19.totalItems = _this19.utilityInsuranceListData.length; // if (this.totalItems > this.itemLimit) {
+              _this21.totalItems = _this21.utilityInsuranceListData.length; // if (this.totalItems > this.itemLimit) {
               //   this.ItemEndIndex = this.itemLimit;
               // }
               // else {
               //   this.ItemEndIndex = this.totalItems;
               // }
 
-              _this19.isReportLoaded = true;
+              _this21.isReportLoaded = true;
             });
           }
         }, {
@@ -2981,7 +3052,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this20 = this;
+            var _this22 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2994,7 +3065,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3144,71 +3215,56 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
       /* harmony import */
 
 
-      var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/UtilityTracker */
       "./src/app/api/controllers/UtilityTracker.ts");
 
       var UtilityReportDataComponent = /*#__PURE__*/function () {
-        function UtilityReportDataComponent(router, route, userService, apartmentService, lookupService, sharedService, sessionService, utilityService) {
+        function UtilityReportDataComponent(route, apartmentService, sharedService, sessionService, utilityService) {
           _classCallCheck(this, UtilityReportDataComponent);
 
-          this.router = router;
           this.route = route;
-          this.userService = userService;
           this.apartmentService = apartmentService;
-          this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.utilityService = utilityService;
@@ -3231,7 +3287,7 @@
         _createClass(UtilityReportDataComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this21 = this;
+            var _this23 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3244,7 +3300,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this21.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this23.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3255,7 +3311,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this22 = this;
+            var _this24 = this;
 
             this.goBack();
             var filtergroup = new jqx.filter();
@@ -3268,7 +3324,7 @@
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield == 'block') {
-                _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this24.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters(); //this.isDataLoaded = false;
@@ -3360,12 +3416,12 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
           }
         }, {
           key: "getBlockDetails",
           value: function getBlockDetails() {
-            var _this23 = this;
+            var _this25 = this;
 
             //jqx column generating
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -3399,7 +3455,7 @@
                 // datafield: 'waterCharge[0].connectionNo',
                 width: 200,
                 cellsrenderer: function cellsrenderer(row, column, value) {
-                  var content = _this23.userReportDataList.records[row].electCharge.length > 0 ? _this23.userReportDataList.records[row].electCharge[0]["connectionNo"] === null ? '' : _this23.userReportDataList.records[row].electCharge[0]["connectionNo"] : '';
+                  var content = _this25.userReportDataList.records[row].electCharge.length > 0 ? _this25.userReportDataList.records[row].electCharge[0]["connectionNo"] === null ? '' : _this25.userReportDataList.records[row].electCharge[0]["connectionNo"] : '';
                   return '<div class="jqx-custom-inner-cell">' + content + '</div>';
                 },
                 renderer: columnrenderer
@@ -3408,7 +3464,7 @@
                 // datafield: 'waterCharge[0].prevReading',
                 width: 200,
                 cellsrenderer: function cellsrenderer(row, column, value) {
-                  var content = _this23.userReportDataList.records[row].electCharge.length > 0 ? _this23.userReportDataList.records[row].electCharge[0]["prevReading"] : '';
+                  var content = _this25.userReportDataList.records[row].electCharge.length > 0 ? _this25.userReportDataList.records[row].electCharge[0]["prevReading"] : '';
                   return '<div class="jqx-custom-inner-cell">' + content + '</div>';
                 },
                 renderer: columnrenderer
@@ -3417,7 +3473,7 @@
                 // datafield: 'currReading',
                 width: 200,
                 cellsrenderer: function cellsrenderer(row, column, value) {
-                  var content = _this23.userReportDataList.records[row].electCharge.length > 0 ? _this23.userReportDataList.records[row].electCharge[0]["currReading"] : '';
+                  var content = _this25.userReportDataList.records[row].electCharge.length > 0 ? _this25.userReportDataList.records[row].electCharge[0]["currReading"] : '';
                   return '<div class="jqx-custom-inner-cell">' + content + '</div>';
                 },
                 renderer: columnrenderer
@@ -3427,11 +3483,11 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.totalItems = _this23.userReportDataList.length;
-                _this23.isDataLoaded = true;
+                _this25.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this25.totalItems = _this25.userReportDataList.length;
+                _this25.isDataLoaded = true;
 
-                _this23.showItems();
+                _this25.showItems();
               });
             } else if (this.isListofWater()) {
               this.columnData = [{
@@ -3451,7 +3507,7 @@
                 // datafield: 'waterCharge[0].connectionNo',
                 width: 200,
                 cellsrenderer: function cellsrenderer(row, column, value) {
-                  var content = _this23.userReportDataList.records[row].waterCharge.length > 0 ? _this23.userReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this23.userReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
+                  var content = _this25.userReportDataList.records[row].waterCharge.length > 0 ? _this25.userReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this25.userReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
                   return '<div class="jqx-custom-inner-cell">' + content + '</div>';
                 },
                 renderer: columnrenderer
@@ -3460,7 +3516,7 @@
                 // datafield: 'waterCharge[0].prevReading',
                 width: 200,
                 cellsrenderer: function cellsrenderer(row, column, value) {
-                  var content = _this23.userReportDataList.records[row].waterCharge.length > 0 ? _this23.userReportDataList.records[row].waterCharge[0]["prevReading"] : '';
+                  var content = _this25.userReportDataList.records[row].waterCharge.length > 0 ? _this25.userReportDataList.records[row].waterCharge[0]["prevReading"] : '';
                   return '<div class="jqx-custom-inner-cell">' + content + '</div>';
                 },
                 renderer: columnrenderer
@@ -3469,7 +3525,7 @@
                 // datafield: 'currReading',
                 width: 200,
                 cellsrenderer: function cellsrenderer(row, column, value) {
-                  var content = _this23.userReportDataList.records[row].waterCharge.length > 0 ? _this23.userReportDataList.records[row].waterCharge[0]["currReading"] : '';
+                  var content = _this25.userReportDataList.records[row].waterCharge.length > 0 ? _this25.userReportDataList.records[row].waterCharge[0]["currReading"] : '';
                   return '<div class="jqx-custom-inner-cell">' + content + '</div>';
                 },
                 renderer: columnrenderer
@@ -3479,11 +3535,11 @@
                   localdata: res,
                   datatype: "array"
                 };
-                _this23.userReportDataList = new jqx.dataAdapter(gridSourceData);
-                _this23.totalItems = _this23.userReportDataList.length;
-                _this23.isDataLoaded = true;
+                _this25.userReportDataList = new jqx.dataAdapter(gridSourceData);
+                _this25.totalItems = _this25.userReportDataList.length;
+                _this25.isDataLoaded = true;
 
-                _this23.showItems();
+                _this25.showItems();
               });
             }
           }
@@ -3501,14 +3557,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this26 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this26.timeZone = timeZone;
+            });
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: parseInt(this.sessionService.apartmentId)
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this24.unitBlocksData = res;
+              _this26.unitBlocksData = res;
             }); // let params = {
             // 	LookupTypeId: 87
             // }
@@ -3534,7 +3593,7 @@
         }, {
           key: "getSingleBlock",
           value: function getSingleBlock(block) {
-            var _this25 = this;
+            var _this27 = this;
 
             this.filterSelected = 'single';
             this.singleBlock = block.apartmentBlockNumber;
@@ -3549,7 +3608,7 @@
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this25.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this27.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3561,21 +3620,15 @@
 
       UtilityReportDataComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
-        }, {
-          type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_11__["UtilityTrackerService"]
+          type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_9__["UtilityTrackerService"]
         }];
       };
 
@@ -3601,7 +3654,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./utility-report-data.component.scss */
         "./src/app/modules/ams/utility/components/utility-reports/utility-report-data/utility-report-data.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_11__["UtilityTrackerService"]])], UtilityReportDataComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_9__["UtilityTrackerService"]])], UtilityReportDataComponent);
       /***/
     },
 
@@ -3881,7 +3934,7 @@
         }, {
           key: "getSelectedDeliveryType",
           value: function getSelectedDeliveryType(event) {
-            var _this26 = this;
+            var _this28 = this;
 
             this.blockId = event[0].apartmentBlockId; //   if(this.selectedTower == null){
             //     this.filteredUtilityWaterListData= this.utilityWaterListData;
@@ -3901,7 +3954,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield === 'block') {
-                  _this26.datagrid.addfilter(item.datafield, filterGroup, true);
+                  _this28.datagrid.addfilter(item.datafield, filterGroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3912,7 +3965,7 @@
         }, {
           key: "onSearchFilter",
           value: function onSearchFilter() {
-            var _this27 = this;
+            var _this29 = this;
 
             if (this.utilitySearch != "") {
               var filtergroup = new jqx.filter();
@@ -3925,7 +3978,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3936,7 +3989,7 @@
         }, {
           key: "onFilterByTowerChange",
           value: function onFilterByTowerChange() {
-            var _this28 = this;
+            var _this30 = this;
 
             this.selectedTower = event[0].apartmentBlockId;
 
@@ -3944,7 +3997,7 @@
               this.filteredUtilityWaterListData = this.utilityWaterListData;
             } else {
               this.filteredUtilityWaterListData = this.utilityWaterListData.filter(function (x) {
-                return x.block == _this28.selectedTower;
+                return x.block == _this30.selectedTower;
               });
             }
 
@@ -3985,7 +4038,7 @@
         }, {
           key: "getAllWaterUtiliy",
           value: function getAllWaterUtiliy() {
-            var _this29 = this;
+            var _this31 = this;
 
             this.selectedTower = '';
             this.isReportLoaded = false; // jqx column generating
@@ -4016,7 +4069,7 @@
               // datafield: 'waterCharge[0].connectionNo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this29.waterReportDataList.records[row].waterCharge.length > 0 ? _this29.waterReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this29.waterReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
+                var content = _this31.waterReportDataList.records[row].waterCharge.length > 0 ? _this31.waterReportDataList.records[row].waterCharge[0]["connectionNo"] === null ? '' : _this31.waterReportDataList.records[row].waterCharge[0]["connectionNo"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -4025,7 +4078,7 @@
               // datafield: 'waterCharge[0].prevReading',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this29.waterReportDataList.records[row].waterCharge.length > 0 ? _this29.waterReportDataList.records[row].waterCharge[0]["prevReading"] : '';
+                var content = _this31.waterReportDataList.records[row].waterCharge.length > 0 ? _this31.waterReportDataList.records[row].waterCharge[0]["prevReading"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -4034,7 +4087,7 @@
               // datafield: 'currReading',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var content = _this29.waterReportDataList.records[row].waterCharge.length > 0 ? _this29.waterReportDataList.records[row].waterCharge[0]["currReading"] : '';
+                var content = _this31.waterReportDataList.records[row].waterCharge.length > 0 ? _this31.waterReportDataList.records[row].waterCharge[0]["currReading"] : '';
                 return '<div class="jqx-custom-inner-cell">' + content + '</div>';
               },
               renderer: columnrenderer
@@ -4047,22 +4100,22 @@
                 localdata: res,
                 datatype: "array"
               };
-              _this29.waterReportDataList = new jqx.dataAdapter(gridSourceData);
-              _this29.isReportLoaded = true;
+              _this31.waterReportDataList = new jqx.dataAdapter(gridSourceData);
+              _this31.isReportLoaded = true;
 
-              _this29.showItems();
+              _this31.showItems();
 
-              _this29.utilityWaterListData = res;
-              _this29.filteredUtilityWaterListData = _this29.utilityWaterListData;
-              _this29.totalItems = _this29.filteredUtilityWaterListData.length;
+              _this31.utilityWaterListData = res;
+              _this31.filteredUtilityWaterListData = _this31.utilityWaterListData;
+              _this31.totalItems = _this31.filteredUtilityWaterListData.length;
 
-              if (_this29.totalItems > _this29.itemLimit) {
-                _this29.ItemEndIndex = _this29.itemLimit;
+              if (_this31.totalItems > _this31.itemLimit) {
+                _this31.ItemEndIndex = _this31.itemLimit;
               } else {
-                _this29.ItemEndIndex = _this29.totalItems;
+                _this31.ItemEndIndex = _this31.totalItems;
               }
 
-              _this29.isReportLoaded = true;
+              _this31.isReportLoaded = true;
             });
           }
         }, {
@@ -4079,7 +4132,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this30 = this;
+            var _this32 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -4092,7 +4145,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this30.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this32.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4129,14 +4182,14 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this33 = this;
 
             this["package"].deliveryTypeId = '';
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-              _this31.propertyTowerData = res;
+              _this33.propertyTowerData = res;
             });
             this.getAllWaterUtiliy();
           }
@@ -4339,7 +4392,7 @@
         }, {
           key: "deleteUtilityCategory",
           value: function deleteUtilityCategory(item) {
-            var _this32 = this;
+            var _this34 = this;
 
             this.isUtilityCategoryLoaded = false;
             var params = {
@@ -4347,7 +4400,7 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
-              _this32.loadUtilityCategory();
+              _this34.loadUtilityCategory();
             });
           }
         }, {
@@ -4396,7 +4449,7 @@
         }, {
           key: "addOrUpdateUtilityCategoryForm",
           value: function addOrUpdateUtilityCategoryForm(form) {
-            var _this33 = this;
+            var _this35 = this;
 
             this.isUtilityCategorySubmitted = false;
             this.isError = false;
@@ -4419,24 +4472,24 @@
               this.utilityTrackerService.addUtilityTrackerCategory(params).subscribe(function (res) {
                 if (res.message) {
                   var _params2 = {
-                    apartmentId: _this33.sessionService.apartmentId
+                    apartmentId: _this35.sessionService.apartmentId
                   };
 
-                  _this33.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
-                    _this33.isUtilityCategorySubmitted = true;
+                  _this35.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params2).subscribe(function (res) {
+                    _this35.isUtilityCategorySubmitted = true;
 
-                    _this33.sharedService.openSnackBar("Category added Successfully!", 'success');
+                    _this35.sharedService.openSnackBar("Category added Successfully!", 'success');
 
-                    _this33.matDrawer.toggle();
+                    _this35.matDrawer.toggle();
 
-                    _this33.utilityCategoryData = res.filter(function (item) {
+                    _this35.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
                   });
                 } else {
-                  _this33.isUtilityCategorySubmitted = true;
-                  _this33.isError = true;
-                  _this33.alertMessage = res.errorMessage;
+                  _this35.isUtilityCategorySubmitted = true;
+                  _this35.isError = true;
+                  _this35.alertMessage = res.errorMessage;
                 }
               });
             } else {
@@ -4458,26 +4511,26 @@
               this.utilityTrackerService.updateUtilityTrackerCategory(_params3).subscribe(function (res) {
                 if (res.message) {
                   var _params4 = {
-                    apartmentId: _this33.sessionService.apartmentId
+                    apartmentId: _this35.sessionService.apartmentId
                   };
 
-                  _this33.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
-                    _this33.isUtilityCategorySubmitted = true;
+                  _this35.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(_params4).subscribe(function (res) {
+                    _this35.isUtilityCategorySubmitted = true;
 
-                    _this33.sharedService.openSnackBar("Category updated Successfully!", 'success');
+                    _this35.sharedService.openSnackBar("Category updated Successfully!", 'success');
 
-                    _this33.matDrawer.toggle();
+                    _this35.matDrawer.toggle();
 
-                    _this33.utilityCategoryData = res.filter(function (item) {
+                    _this35.utilityCategoryData = res.filter(function (item) {
                       return item.isActive;
                     });
-                    _this33.isUtilityCategoryNew = false;
-                    _this33.isUtilityCategoryUpdate = false;
+                    _this35.isUtilityCategoryNew = false;
+                    _this35.isUtilityCategoryUpdate = false;
                   });
                 } else {
-                  _this33.isUtilityCategorySubmitted = true;
-                  _this33.isError = true;
-                  _this33.alertMessage = res.errorMessage;
+                  _this35.isUtilityCategorySubmitted = true;
+                  _this35.isError = true;
+                  _this35.alertMessage = res.errorMessage;
                 }
               });
             }
@@ -4485,33 +4538,33 @@
         }, {
           key: "loadUtilityCategory",
           value: function loadUtilityCategory() {
-            var _this34 = this;
+            var _this36 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(params).subscribe(function (res) {
-              _this34.utilityCategoryData = res.filter(function (item) {
+              _this36.utilityCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this34.isUtilityCategoryLoaded = true;
+              _this36.isUtilityCategoryLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this37 = this;
 
             this.apartment_id = this.sessionService.apartmentId;
             this.loadUtilityCategory();
             this.sharedService.newcategoryadd.subscribe(function (is_category_form) {
               if (is_category_form) {
-                _this35.submitUtilityCategoryForm(is_category_form);
+                _this37.submitUtilityCategoryForm(is_category_form);
               }
             });
             this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
-                _this35.deleteUtilityCategory(item_id);
+                _this37.deleteUtilityCategory(item_id);
               }
             });
           }

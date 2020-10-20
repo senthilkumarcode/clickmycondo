@@ -483,8 +483,8 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
         });
     }
     submitIncomeInvoicesFilterForm() {
-        let fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format('YYYY-MM-DD');
-        let toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format('YYYY-MM-DD');
+        let fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format(this.timeZone.time);
+        let toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format(this.timeZone.time);
         this.getAllInvoicesData(fromDate, toDate);
     }
     getAllInvoicesData(fromDate, toDate) {

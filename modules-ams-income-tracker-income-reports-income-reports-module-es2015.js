@@ -167,9 +167,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -178,10 +180,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerComponent {
-    constructor(apartmentService, accountsService, lookupService, sessionService) {
+    constructor(apartmentService, accountsService, lookupService, sharedService, sessionService) {
         this.apartmentService = apartmentService;
         this.accountsService = accountsService;
         this.lookupService = lookupService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.glAccountIndicator = "Cust_Invoice";
         this.isBlockSelected = false;
@@ -239,13 +242,13 @@ let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerCo
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("YYYY-MM-DD");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
     }
     getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(dateTime).format("YYYY-MM-DD HH:mm");
+        return moment__WEBPACK_IMPORTED_MODULE_7__(dateTime).format("YYYY-MM-DD HH:mm");
     }
     submitIncomeReportsCustomerForm(form) {
         this.isReportSubmitted = true;
@@ -276,6 +279,7 @@ let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerCo
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.report = {};
         this.report.apartmentBlockId = "";
         this.report.apartmentBlockUnitId = "";
@@ -306,7 +310,8 @@ IncomeTrackerReportsCustomerComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 IncomeTrackerReportsCustomerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -318,7 +323,8 @@ IncomeTrackerReportsCustomerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0_
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], IncomeTrackerReportsCustomerComponent);
 
 
@@ -403,7 +409,7 @@ let IncomeTrackerReportsVendorComponent = class IncomeTrackerReportsVendorCompon
     }
     getDate(date) {
         if (date != null)
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
         else
             return "";
     }
@@ -417,7 +423,7 @@ let IncomeTrackerReportsVendorComponent = class IncomeTrackerReportsVendorCompon
         return this.totalItems == 0 ? true : false;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("YYYY-MM-DD");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
     }
     getTimeFormat(dateTime) {
         return moment__WEBPACK_IMPORTED_MODULE_8__(dateTime).format("YYYY-MM-DD HH:mm");
@@ -451,6 +457,7 @@ let IncomeTrackerReportsVendorComponent = class IncomeTrackerReportsVendorCompon
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.report = {};
         this.report.apartmentBlockId = "";
         this.report.vendorId = "";

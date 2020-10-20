@@ -263,7 +263,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            if (date != null) return moment__WEBPACK_IMPORTED_MODULE_3__(date).format("MM-DD-YYYY");else return "";
+            if (date != null) return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.time);else return "";
           }
         }, {
           key: "getSelectedGlAccount",
@@ -293,12 +293,12 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format("YYYY-MM-DD");
+            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.date);
           }
         }, {
           key: "getTimeFormat",
           value: function getTimeFormat(dateTime) {
-            return moment__WEBPACK_IMPORTED_MODULE_3__(dateTime).format("YYYY-MM-DD HH:mm");
+            return moment__WEBPACK_IMPORTED_MODULE_3__(dateTime).format(this.timeZone.date);
           }
         }, {
           key: "submitExpenseReportsVendorForm",
@@ -337,6 +337,9 @@
           value: function ngOnInit() {
             var _this2 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this2.timeZone = timeZone;
+            });
             this.report = {};
             this.report.apartmentBlockId = "";
             this.report.vendorId = "";

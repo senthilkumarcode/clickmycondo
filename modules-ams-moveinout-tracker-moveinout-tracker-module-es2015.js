@@ -126,7 +126,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"movein-moveout-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"movein-moveout-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!documentData.id\"> Create Document</h4>\n\t\t\t\t\t<h4 *ngIf=\"documentData.id\"> Edit Document</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form #documentForm=\"ngForm\" name=\"documentForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t\t<input  type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentData.description\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentTypeId\" id=\"documentTypeId\" class=\"form-control\" [(ngModel)]=\"documentData.documentTypeId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentTypeDataList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block\">\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"ownerField\" name=\"ownerField\" [(ngModel)]=\"documentData.owner\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"ownerField\">Required for Owner</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"tenantField\" name=\"tenantField\" [(ngModel)]=\"documentData.tenant\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"tenantField\">Required for Tenant</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  <label>Category</label>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"general\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"false\"\n\t\t\t\t\t\t\t\t type=\"radio\">\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"general\">General</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"foreign\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"true\"\n\t\t\t\t\t\t\t\t type=\"radio\">\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreign\">Foreign</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t \t<textarea class=\"form-control\" rows=\"2\" placeholder=\"Enter Comments\" name=\"comment\" [(ngModel)]=\"documentData.comments\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"!documentData.id\" mat-flat-button [color]=\"'primary'\" [disabled]=\"documentForm.disabled\" (click)=\"documentCreate()\">Create</button>\n\t\t\t\t\t\t\t\t<button *ngIf=\"documentData.id\" mat-flat-button [color]=\"'primary'\" [disabled]=\"documentForm.disabled\" (click)=\"documentUpdate(documentData)\">Update</button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"goBack()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>Documents required</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDrawer()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon> Document Criteria\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\" [filterable]=\"true\" \n\t\t\t\t\t\t\t[sortable]=\"true\" [source]=\"documentDataList\" [columns]=\"columnData\" [columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"movein-moveout-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"movein-moveout-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!documentData.id\"> Create Document</h4>\n\t\t\t\t\t<h4 *ngIf=\"documentData.id\"> Edit Document</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<form #documentForm=\"ngForm\" name=\"documentForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t\t<input  type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentData.description\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentTypeId\" id=\"documentTypeId\" class=\"form-control\" [(ngModel)]=\"documentData.documentTypeId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentTypeDataList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block\">\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"ownerField\" name=\"ownerField\" [(ngModel)]=\"documentData.owner\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"ownerField\">Required for Owner</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"tenantField\" name=\"tenantField\" [(ngModel)]=\"documentData.tenant\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"tenantField\">Required for Tenant</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  <label>Category*</label>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"general\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"false\"\n\t\t\t\t\t\t\t\t type=\"radio\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"general\">General</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"foreign\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"true\"\n\t\t\t\t\t\t\t\t type=\"radio\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreign\">Foreign</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t \t<textarea class=\"form-control\" rows=\"2\" placeholder=\"Enter Comments\" name=\"comment\" [(ngModel)]=\"documentData.comments\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<submit-button class=\"float-right\" [isSubmit]=\"isMoveInSubmitted\" *ngIf=\"!documentData.id\" (click)=\"documentCreate()\">Create</submit-button>\n\t\t\t\t\t\t\t\t<submit-button class=\"float-right\" [isSubmit]=\"isMoveInSubmitted\" *ngIf=\"documentData.id\" (click)=\"documentUpdate(documentData)\">Update</submit-button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"goBack()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>Documents required</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDrawer()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon> Document Criteria\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\" [filterable]=\"true\" \n\t\t\t\t\t\t\t[sortable]=\"true\" [source]=\"documentDataList\" [columns]=\"columnData\" [columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -1866,11 +1866,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/MoveInOut */ "./src/app/api/controllers/MoveInOut.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
 
 
@@ -1889,10 +1889,10 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         this.formField = {};
     }
     getDateFormat(data) {
-        return moment__WEBPACK_IMPORTED_MODULE_5__(data).format('YYYY-MM-DD');
+        return moment__WEBPACK_IMPORTED_MODULE_6__(data).format(this.timeZone.time);
     }
     getTimeFormat(data) {
-        return moment__WEBPACK_IMPORTED_MODULE_5__(data).format('hh:mm A');
+        return moment__WEBPACK_IMPORTED_MODULE_6__(data).format('hh:mm A');
     }
     updateForm() {
         if (this.data.method == 'movein')
@@ -1904,7 +1904,7 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         let details = {
             "id": this.formField.id,
             "inDate": this.formField.comDate,
-            "inTime": moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.comTime).format('HH:mm:ss'),
+            "inTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.comTime).format('HH:mm:ss'),
             "familyCount": this.formField.familyCount,
             "comments": this.formField.comments,
             "isActive": this.formField.isActive,
@@ -1916,7 +1916,7 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
             "insertedBy": this.formField.insertedBy,
             "insertedOn": this.formField.insertedOn,
             "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
             "apartmentId": this.formField.apartmentId,
             "userName": this.formField.userName,
             "mobile": this.formField.mobile,
@@ -1940,7 +1940,7 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         let details = {
             "id": this.formField.id,
             "outDate": this.formField.comDate,
-            "outTime": moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.comTime).format('HH:mm:ss'),
+            "outTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.comTime).format('HH:mm:ss'),
             "comments": this.formField.comments,
             "familyCount": this.formField.familyCount,
             "isActive": this.formField.isActive,
@@ -1953,7 +1953,7 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
             "insertedBy": this.formField.insertedBy,
             "insertedOn": this.formField.insertedOn,
             "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
             "apartmentId": this.formField.apartmentId,
             "userName": this.formField.userName,
             "mobile": this.formField.mobile,
@@ -1974,14 +1974,15 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.formField = this.data.field;
         if (this.data.method == 'movein') {
             this.formField.comDate = this.formField.inDate;
-            this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.inTime, 'HH:mm:ss').format();
+            this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.inTime, 'HH:mm:ss').format();
         }
         else {
             this.formField.comDate = this.formField.outDate;
-            this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.outTime, 'HH:mm:ss').format();
+            this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.outTime, 'HH:mm:ss').format();
         }
     }
 };
@@ -1989,7 +1990,7 @@ MoveinMoveoutEditViewComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] }
 ];
 MoveinMoveoutEditViewComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -2001,7 +2002,7 @@ MoveinMoveoutEditViewComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"],
         src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], Object])
 ], MoveinMoveoutEditViewComponent);
 
 
@@ -2035,14 +2036,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/MoveInOut */ "./src/app/api/controllers/MoveInOut.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/MoveInOut */ "./src/app/api/controllers/MoveInOut.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
 
 
@@ -2055,12 +2056,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinReportDataComponent = class MoveinReportDataComponent {
-    constructor(router, route, apartmentService, moveInOutService, lookupService, cookieService, sessionService) {
-        this.router = router;
+    constructor(route, apartmentService, moveInOutService, sharedService, cookieService, sessionService) {
         this.route = route;
         this.apartmentService = apartmentService;
         this.moveInOutService = moveInOutService;
-        this.lookupService = lookupService;
+        this.sharedService = sharedService;
         this.cookieService = cookieService;
         this.sessionService = sessionService;
         this.pageName = "";
@@ -2085,7 +2085,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
         this.matDrawer.close();
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
     }
     submitReportsFilterForm() {
         let params = {
@@ -2145,7 +2145,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
     }
     getExpectedDate(val) {
         if (val != '') {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(val).format("MM/DD/YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_10__(val).format("MM/DD/YYYY");
         }
         else {
             return '';
@@ -2207,6 +2207,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
         this.goBack();
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].title;
         let unitBlockParams = {
             apartmentId: parseInt(this.sessionService.apartmentId)
@@ -2300,7 +2301,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             ApartmentID: parseInt(this.sessionService.apartmentId),
             ApartmentBlockID: parseInt(this.blockId),
             StartDate: this.start_date === "" ? "2020-01-01" : this.getDate(this.start_date),
-            EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).format("YYYY-MM-DD") : this.getDate(this.end_date)
+            EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
         };
         this.getDetails(params);
     }
@@ -2331,13 +2332,12 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
     }
 };
 MoveinReportDataComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_8__["MoveInOutService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
 ];
 MoveinReportDataComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -2349,13 +2349,12 @@ MoveinReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./movein-report-data.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./movein-report-data.component.scss */ "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_8__["MoveInOutService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
 ], MoveinReportDataComponent);
 
 
@@ -2467,6 +2466,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
+
 
 
 
@@ -2479,16 +2480,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinSetupComponent = class MoveinSetupComponent {
-    constructor(moveInOutService, lookupService, sharedService, sessionService, dialog, injector) {
+    constructor(moveInOutService, lookupService, sharedService, sessionService, changeDetector, dialog, injector) {
         this.moveInOutService = moveInOutService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.changeDetector = changeDetector;
         this.dialog = dialog;
         this.injector = injector;
         this.search = '';
         this.isDataLoaded = false;
+        this.isMoveInSubmitted = false;
         this.documentData = {};
+        this.message = null;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
     }
     goBack() {
@@ -2548,27 +2552,46 @@ let MoveinSetupComponent = class MoveinSetupComponent {
         this.documentUpdate(tableData);
     }
     documentCreate() {
-        this.isDataLoaded = false;
-        let params = {
-            moveInOutConfig: Object.assign(Object.assign({}, this.documentData), { "isActive": true, "insertedBy": parseInt(this.sessionService.userId), "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(), "updatedBy": null, "updatedOn": null, "apartmentId": this.sessionService.apartmentId })
-        };
-        this.moveInOutService.addMoveInOutConfig(params).subscribe((res) => {
-            this.isDataLoaded = true;
-            if (res.message) {
-                this.goBack();
-                this.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
-                this.getMoveInMoveOutConfigList();
-            }
-            else {
-                this.sharedService.openSnackBar(res.errorMessage, 'error');
-            }
-        }, (error) => {
-            this.isDataLoaded = true;
-            this.sharedService.openSnackBar('Server Error', 'error');
-        });
+        this.message = null;
+        if (!this.form.valid) {
+            window.scroll({
+                top: 0,
+                behavior: 'smooth'
+            });
+            // Show the validation message
+            this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
+            //Mark for check
+            this.changeDetector.markForCheck();
+        }
+        else {
+            this.isMoveInSubmitted = true;
+            let params = {
+                moveInOutConfig: Object.assign(Object.assign({}, this.documentData), { "isActive": true, "insertedBy": parseInt(this.sessionService.userId), "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(), "updatedBy": null, "updatedOn": null, "apartmentId": this.sessionService.apartmentId })
+            };
+            this.moveInOutService.addMoveInOutConfig(params).subscribe((res) => {
+                this.isMoveInSubmitted = false;
+                if (res.message) {
+                    this.goBack();
+                    this.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
+                    this.getMoveInMoveOutConfigList();
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+            }, (error) => {
+                this.isDataLoaded = false;
+                this.sharedService.openSnackBar('Server Error', 'error');
+            });
+        }
     }
     documentUpdate(document) {
-        this.isDataLoaded = false;
+        this.isMoveInSubmitted = true;
         let params = {
             moveInOutConfig: {
                 "id": document.id,
@@ -2588,7 +2611,7 @@ let MoveinSetupComponent = class MoveinSetupComponent {
             }
         };
         this.moveInOutService.updateMoveInOutConfig(params).subscribe((res) => {
-            this.isDataLoaded = true;
+            this.isMoveInSubmitted = false;
             if (res.message) {
                 this.goBack();
                 this.getMoveInMoveOutConfigList();
@@ -2598,7 +2621,7 @@ let MoveinSetupComponent = class MoveinSetupComponent {
                 this.sharedService.openSnackBar(res.errorMessage, 'error');
             }
         }, error => {
-            this.isDataLoaded = true;
+            this.isMoveInSubmitted = false;
             this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
@@ -2741,12 +2764,14 @@ MoveinSetupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 MoveinSetupComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
     matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
+    form: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['documentForm',] }],
     deleteMoveIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onDeleteMoveIn', ['$event.detail'],] }],
     editMoveIn: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditMoveIn', ['$event.detail'],] }],
     onUpdateOwnerOrTenant: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onUpdateOwnerOrTenant', ['$event.detail'],] }]
@@ -2756,12 +2781,14 @@ MoveinSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
         selector: 'app-movein-setup',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./movein-setup.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./movein-setup.component.scss */ "./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], MoveinSetupComponent);

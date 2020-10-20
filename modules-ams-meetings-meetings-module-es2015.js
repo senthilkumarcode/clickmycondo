@@ -283,7 +283,7 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
         year = fullDate.getFullYear();
         month = fullDate.getMonth();
         date = fullDate.getDate();
-        if (this.data.type == 'create' && params == 'min')
+        if (params == 'min')
             return new Date(year, month, date);
         else if (params == 'max')
             return new Date(year, month, date, 23, 59, 59);
@@ -809,7 +809,7 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
         this.apartmentService.getApartmentBlockByApartmentId(apartmentBlock).subscribe((res) => {
             this.apartmentBlock.dropdownList = res;
         });
-        if (this.data.type == 'create')
+        if (this.data.type == 'create' && this.data.from != 'calendar')
             this.addDateTimeSlot();
         //Meeting Create From Calendar
         if (this.data.type == 'create' && this.data.from == 'calendar') {
@@ -1331,12 +1331,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeetingsScheduledListComponent", function() { return MeetingsScheduledListComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../meeting-edit-display/meeting-edit-display.component */ "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../meeting-edit-display/meeting-edit-display.component */ "./src/app/modules/ams/meetings/components/meeting-edit-display/meeting-edit-display.component.ts");
+
 
 
 
@@ -1345,8 +1347,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
-    constructor(meetingService, sessionService, dialog) {
+    constructor(meetingService, sharedService, sessionService, dialog) {
         this.meetingService = meetingService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.dialog = dialog;
         this.loadingData = false;
@@ -1368,7 +1371,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
     appointmentClick(info) {
         if (this.sessionService.roleTypeName == 'Admin') {
             let data = { id: info.event.extendedProps.meetingId, type: 'edit', from: 'calendar' };
-            const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+            const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 panelClass: 'material-dialog-big',
                 height: 'inherit',
                 width: 'auto',
@@ -1384,7 +1387,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
     appointmentAdd(event) {
         if (this.sessionService.roleTypeName == 'Admin') {
             let data = { type: 'create', from: 'calendar', event: event };
-            const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_6__["MeetingEditDisplayComponent"], {
+            const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 panelClass: 'material-dialog-big',
                 height: 'inherit',
                 width: 'auto',
@@ -1406,8 +1409,8 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
                 res.forEach((data) => {
                     // data.resourceId = data.apartmentFacilityId;
                     data.title = data.subject,
-                        data.start = `${moment__WEBPACK_IMPORTED_MODULE_4__(data.meetingDate).format('YYYY-MM-DD')} ${data.fromTime}`;
-                    data.end = `${moment__WEBPACK_IMPORTED_MODULE_4__(data.meetingDate).format('YYYY-MM-DD')} ${data.toTime}`;
+                        data.start = `${moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).format(this.timeZone.time)} ${data.fromTime}`;
+                    data.end = `${moment__WEBPACK_IMPORTED_MODULE_5__(data.meetingDate).format(this.timeZone.time)} ${data.toTime}`;
                     data.color = 'red';
                 });
                 this.calendarOptions.events = res;
@@ -1416,13 +1419,15 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.getMeetingList();
     }
 };
 MeetingsScheduledListComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] }
+    { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"] }
 ];
 MeetingsScheduledListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1430,9 +1435,10 @@ MeetingsScheduledListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./meetings-scheduled-list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./meetings-scheduled-list.component.scss */ "./src/app/modules/ams/meetings/components/meetings-scheduled-list/meetings-scheduled-list.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_4__["MeetingService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_6__["MatDialog"]])
 ], MeetingsScheduledListComponent);
 
 

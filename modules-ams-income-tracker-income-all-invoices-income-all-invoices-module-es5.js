@@ -660,8 +660,8 @@
         }, {
           key: "submitIncomeInvoicesFilterForm",
           value: function submitIncomeInvoicesFilterForm() {
-            var fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format('YYYY-MM-DD');
-            var toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format('YYYY-MM-DD');
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format(this.timeZone.time);
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format(this.timeZone.time);
             this.getAllInvoicesData(fromDate, toDate);
           }
         }, {

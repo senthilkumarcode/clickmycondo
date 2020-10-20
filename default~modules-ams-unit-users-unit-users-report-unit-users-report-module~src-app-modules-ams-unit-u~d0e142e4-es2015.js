@@ -214,7 +214,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
     }
     getBlockDetails() {
         //jqx column generating
@@ -852,6 +852,7 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].name;
         let unitBlockParams = {
             apartmentId: parseInt(localStorage.getItem('apartmentId'))

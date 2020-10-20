@@ -208,7 +208,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"movein-moveout-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"movein-moveout-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!documentData.id\"> Create Document</h4>\n\t\t\t\t\t<h4 *ngIf=\"documentData.id\"> Edit Document</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form #documentForm=\"ngForm\" name=\"documentForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t\t<input  type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentData.description\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentTypeId\" id=\"documentTypeId\" class=\"form-control\" [(ngModel)]=\"documentData.documentTypeId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentTypeDataList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block\">\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"ownerField\" name=\"ownerField\" [(ngModel)]=\"documentData.owner\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"ownerField\">Required for Owner</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"tenantField\" name=\"tenantField\" [(ngModel)]=\"documentData.tenant\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"tenantField\">Required for Tenant</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  <label>Category</label>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"general\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"false\"\n\t\t\t\t\t\t\t\t type=\"radio\">\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"general\">General</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"foreign\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"true\"\n\t\t\t\t\t\t\t\t type=\"radio\">\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreign\">Foreign</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t \t<textarea class=\"form-control\" rows=\"2\" placeholder=\"Enter Comments\" name=\"comment\" [(ngModel)]=\"documentData.comments\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button *ngIf=\"!documentData.id\" mat-flat-button [color]=\"'primary'\" [disabled]=\"documentForm.disabled\" (click)=\"documentCreate()\">Create</button>\n\t\t\t\t\t\t\t\t<button *ngIf=\"documentData.id\" mat-flat-button [color]=\"'primary'\" [disabled]=\"documentForm.disabled\" (click)=\"documentUpdate(documentData)\">Update</button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"goBack()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>Documents required</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDrawer()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon> Document Criteria\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\" [filterable]=\"true\" \n\t\t\t\t\t\t\t[sortable]=\"true\" [source]=\"documentDataList\" [columns]=\"columnData\" [columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"movein-moveout-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"movein-moveout-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 *ngIf=\"!documentData.id\"> Create Document</h4>\n\t\t\t\t\t<h4 *ngIf=\"documentData.id\"> Edit Document</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t\t[type]=\"message.type\"\n\t\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t{{message.content}}\n\t\t\t\t</condo-message>\n\t\t\t\t<form #documentForm=\"ngForm\" name=\"documentForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Name*</label>\n\t\t\t\t\t\t\t\t<input  type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" \n\t\t\t\t\t\t\t\t[(ngModel)]=\"documentData.description\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t  <label>Document Type</label>\n\t\t\t\t\t\t\t  <select name=\"documentTypeId\" id=\"documentTypeId\" class=\"form-control\" [(ngModel)]=\"documentData.documentTypeId\" required>\n\t\t\t\t\t\t\t\t<option [ngValue]=\"null\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t<option *ngFor=\"let item of documentTypeDataList\" [ngValue]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t  </select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box d-inline-block\">\n\t\t\t\t\t\t\t\t<div class=\"form-group checker-group\">\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left mr-4\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"ownerField\" name=\"ownerField\" [(ngModel)]=\"documentData.owner\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"ownerField\">Required for Owner</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-check recur-check float-left\">\n\t\t\t\t\t\t\t\t\t    <input type=\"checkbox\" class=\"form-check-input\" id=\"tenantField\" name=\"tenantField\" [(ngModel)]=\"documentData.tenant\">\n\t\t\t\t\t\t\t\t\t    <label class=\"form-check-label tiny\" for=\"tenantField\">Required for Tenant</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t  <label>Category*</label>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"general\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"false\"\n\t\t\t\t\t\t\t\t type=\"radio\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"general\">General</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t  <div class=\"form-group\">\n\t\t\t\t\t\t\t\t<input name=\"category\" id=\"foreign\" [(ngModel)]=\"documentData.isForeignNational\" [value]=\"true\"\n\t\t\t\t\t\t\t\t type=\"radio\" required>\n\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"foreign\">Foreign</label>\n\t\t\t\t\t\t\t  </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t \t<textarea class=\"form-control\" rows=\"2\" placeholder=\"Enter Comments\" name=\"comment\" [(ngModel)]=\"documentData.comments\"></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<submit-button class=\"float-right\" [isSubmit]=\"isMoveInSubmitted\" *ngIf=\"!documentData.id\" (click)=\"documentCreate()\">Create</submit-button>\n\t\t\t\t\t\t\t\t<submit-button class=\"float-right\" [isSubmit]=\"isMoveInSubmitted\" *ngIf=\"documentData.id\" (click)=\"documentUpdate(documentData)\">Update</submit-button>\n\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"goBack()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>Documents required</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"search\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"openDrawer()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon> Document Criteria\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\" [filterable]=\"true\" \n\t\t\t\t\t\t\t[sortable]=\"true\" [source]=\"documentDataList\" [columns]=\"columnData\" [columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -2712,29 +2712,29 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var MoveinMoveoutEditViewComponent = /*#__PURE__*/function () {
         function MoveinMoveoutEditViewComponent(dialogRef, moveInOutService, sessionService, sharedService, data) {
@@ -2751,12 +2751,12 @@
         _createClass(MoveinMoveoutEditViewComponent, [{
           key: "getDateFormat",
           value: function getDateFormat(data) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(data).format('YYYY-MM-DD');
+            return moment__WEBPACK_IMPORTED_MODULE_6__(data).format(this.timeZone.time);
           }
         }, {
           key: "getTimeFormat",
           value: function getTimeFormat(data) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(data).format('hh:mm A');
+            return moment__WEBPACK_IMPORTED_MODULE_6__(data).format('hh:mm A');
           }
         }, {
           key: "updateForm",
@@ -2771,7 +2771,7 @@
             var details = {
               "id": this.formField.id,
               "inDate": this.formField.comDate,
-              "inTime": moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.comTime).format('HH:mm:ss'),
+              "inTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.comTime).format('HH:mm:ss'),
               "familyCount": this.formField.familyCount,
               "comments": this.formField.comments,
               "isActive": this.formField.isActive,
@@ -2783,7 +2783,7 @@
               "insertedBy": this.formField.insertedBy,
               "insertedOn": this.formField.insertedOn,
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "apartmentId": this.formField.apartmentId,
               "userName": this.formField.userName,
               "mobile": this.formField.mobile,
@@ -2812,7 +2812,7 @@
             var details = {
               "id": this.formField.id,
               "outDate": this.formField.comDate,
-              "outTime": moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.comTime).format('HH:mm:ss'),
+              "outTime": moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.comTime).format('HH:mm:ss'),
               "comments": this.formField.comments,
               "familyCount": this.formField.familyCount,
               "isActive": this.formField.isActive,
@@ -2825,7 +2825,7 @@
               "insertedBy": this.formField.insertedBy,
               "insertedOn": this.formField.insertedOn,
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "apartmentId": this.formField.apartmentId,
               "userName": this.formField.userName,
               "mobile": this.formField.mobile,
@@ -2849,14 +2849,19 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this26 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this26.timeZone = timeZone;
+            });
             this.formField = this.data.field;
 
             if (this.data.method == 'movein') {
               this.formField.comDate = this.formField.inDate;
-              this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.inTime, 'HH:mm:ss').format();
+              this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.inTime, 'HH:mm:ss').format();
             } else {
               this.formField.comDate = this.formField.outDate;
-              this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_5__(this.formField.outTime, 'HH:mm:ss').format();
+              this.formField.comTime = moment__WEBPACK_IMPORTED_MODULE_6__(this.formField.outTime, 'HH:mm:ss').format();
             }
           }
         }]);
@@ -2872,7 +2877,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: undefined,
           decorators: [{
@@ -2890,7 +2895,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./movein-moveout-edit-view.component.scss */
         "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-edit-view/movein-moveout-edit-view.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], Object])], MoveinMoveoutEditViewComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_3__["MoveInOutService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], Object])], MoveinMoveoutEditViewComponent);
       /***/
     },
 
@@ -2960,9 +2965,9 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
@@ -2972,47 +2977,46 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-      /* harmony import */
-
-
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/MoveInOut */
       "./src/app/api/controllers/MoveInOut.ts");
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
 
       var MoveinReportDataComponent = /*#__PURE__*/function () {
-        function MoveinReportDataComponent(router, route, apartmentService, moveInOutService, lookupService, cookieService, sessionService) {
+        function MoveinReportDataComponent(route, apartmentService, moveInOutService, sharedService, cookieService, sessionService) {
           _classCallCheck(this, MoveinReportDataComponent);
 
-          this.router = router;
           this.route = route;
           this.apartmentService = apartmentService;
           this.moveInOutService = moveInOutService;
-          this.lookupService = lookupService;
+          this.sharedService = sharedService;
           this.cookieService = cookieService;
           this.sessionService = sessionService;
           this.pageName = "";
@@ -3046,7 +3050,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
           }
         }, {
           key: "submitReportsFilterForm",
@@ -3062,7 +3066,7 @@
         }, {
           key: "getDetails",
           value: function getDetails(params) {
-            var _this26 = this;
+            var _this27 = this;
 
             var serviceName;
             var id = parseInt(this.route.params['value'].id);
@@ -3088,29 +3092,29 @@
 
             serviceName.subscribe(function (res) {
               if (res.errorMessage) {
-                _this26.reportsDataList = [];
-                _this26.totalItems = _this26.reportsDataList.length;
+                _this27.reportsDataList = [];
+                _this27.totalItems = _this27.reportsDataList.length;
               } else {
-                _this26.reportsDataList = res;
-                _this26.totalItems = _this26.reportsDataList.length;
-                _this26.gridSourceData = {
-                  localdata: _this26.reportsDataList,
+                _this27.reportsDataList = res;
+                _this27.totalItems = _this27.reportsDataList.length;
+                _this27.gridSourceData = {
+                  localdata: _this27.reportsDataList,
                   datatype: "array"
                 };
-                _this26.listData = new jqx.dataAdapter(_this26.gridSourceData);
-                _this26.isReportSubmitted = true;
-                _this26.isDataLoaded = true;
+                _this27.listData = new jqx.dataAdapter(_this27.gridSourceData);
+                _this27.isReportSubmitted = true;
+                _this27.isDataLoaded = true;
               }
             }, function (error) {
-              _this26.isReportSubmitted = true;
-              _this26.isDataLoaded = true;
+              _this27.isReportSubmitted = true;
+              _this27.isDataLoaded = true;
             });
           }
         }, {
           key: "getExpectedDate",
           value: function getExpectedDate(val) {
             if (val != '') {
-              return moment__WEBPACK_IMPORTED_MODULE_6__(val).format("MM/DD/YYYY");
+              return moment__WEBPACK_IMPORTED_MODULE_10__(val).format("MM/DD/YYYY");
             } else {
               return '';
             }
@@ -3118,7 +3122,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this27 = this;
+            var _this28 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3131,7 +3135,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this28.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3186,14 +3190,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this29 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this29.timeZone = timeZone;
+            });
             this.pageName = this.route.params['value'].title;
             var unitBlockParams = {
               apartmentId: parseInt(this.sessionService.apartmentId)
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this28.unitBlocksData = res;
+              _this29.unitBlocksData = res;
             });
             var visitParams = {
               ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -3259,7 +3266,7 @@
               text: 'Expected Date',
               datafield: 'expectedDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this28.getExpectedDate(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this29.getExpectedDate(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3286,7 +3293,7 @@
               ApartmentID: parseInt(this.sessionService.apartmentId),
               ApartmentBlockID: parseInt(this.blockId),
               StartDate: this.start_date === "" ? "2020-01-01" : this.getDate(this.start_date),
-              EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).format("YYYY-MM-DD") : this.getDate(this.end_date)
+              EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
             };
             this.getDetails(params);
           }
@@ -3301,7 +3308,7 @@
         }, {
           key: "getSingleBlock",
           value: function getSingleBlock(block) {
-            var _this29 = this;
+            var _this30 = this;
 
             this.filterSelected = 'single';
             this.singleBlock = block.apartmentBlockNumber;
@@ -3316,7 +3323,7 @@
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this29.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this30.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3328,19 +3335,17 @@
 
       MoveinReportDataComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_8__["MoveInOutService"]
+          type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
           type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }];
       };
 
@@ -3366,7 +3371,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./movein-report-data.component.scss */
         "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_8__["MoveInOutService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])], MoveinReportDataComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], MoveinReportDataComponent);
       /***/
     },
 
@@ -3623,20 +3628,29 @@
       var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var MoveinSetupComponent = /*#__PURE__*/function () {
-        function MoveinSetupComponent(moveInOutService, lookupService, sharedService, sessionService, dialog, injector) {
+        function MoveinSetupComponent(moveInOutService, lookupService, sharedService, sessionService, changeDetector, dialog, injector) {
           _classCallCheck(this, MoveinSetupComponent);
 
           this.moveInOutService = moveInOutService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.changeDetector = changeDetector;
           this.dialog = dialog;
           this.injector = injector;
           this.search = '';
           this.isDataLoaded = false;
+          this.isMoveInSubmitted = false;
           this.documentData = {};
+          this.message = null;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_9__["ModalService"]);
         }
 
@@ -3655,7 +3669,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this30 = this;
+            var _this31 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3668,7 +3682,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this30.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this31.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3715,43 +3729,62 @@
         }, {
           key: "documentCreate",
           value: function documentCreate() {
-            var _this31 = this;
+            var _this32 = this;
 
-            this.isDataLoaded = false;
-            var params = {
-              moveInOutConfig: Object.assign(Object.assign({}, this.documentData), {
-                "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null,
-                "apartmentId": this.sessionService.apartmentId
-              })
-            };
-            this.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
-              _this31.isDataLoaded = true;
+            this.message = null;
 
-              if (res.message) {
-                _this31.goBack();
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
 
-                _this31.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
 
-                _this31.getMoveInMoveOutConfigList();
-              } else {
-                _this31.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this31.isDataLoaded = true;
+              this.changeDetector.markForCheck();
+            } else {
+              this.isMoveInSubmitted = true;
+              var params = {
+                moveInOutConfig: Object.assign(Object.assign({}, this.documentData), {
+                  "isActive": true,
+                  "insertedBy": parseInt(this.sessionService.userId),
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                  "updatedBy": null,
+                  "updatedOn": null,
+                  "apartmentId": this.sessionService.apartmentId
+                })
+              };
+              this.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
+                _this32.isMoveInSubmitted = false;
 
-              _this31.sharedService.openSnackBar('Server Error', 'error');
-            });
+                if (res.message) {
+                  _this32.goBack();
+
+                  _this32.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
+
+                  _this32.getMoveInMoveOutConfigList();
+                } else {
+                  _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this32.isDataLoaded = false;
+
+                _this32.sharedService.openSnackBar('Server Error', 'error');
+              });
+            }
           }
         }, {
           key: "documentUpdate",
           value: function documentUpdate(document) {
-            var _this32 = this;
+            var _this33 = this;
 
-            this.isDataLoaded = false;
+            this.isMoveInSubmitted = true;
             var params = {
               moveInOutConfig: {
                 "id": document.id,
@@ -3771,27 +3804,27 @@
               }
             };
             this.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
-              _this32.isDataLoaded = true;
+              _this33.isMoveInSubmitted = false;
 
               if (res.message) {
-                _this32.goBack();
+                _this33.goBack();
 
-                _this32.getMoveInMoveOutConfigList();
+                _this33.getMoveInMoveOutConfigList();
 
-                _this32.sharedService.openSnackBar('Category Updated', 'success');
+                _this33.sharedService.openSnackBar('Category Updated', 'success');
               } else {
-                _this32.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this33.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this32.isDataLoaded = true;
+              _this33.isMoveInSubmitted = false;
 
-              _this32.sharedService.openSnackBar('Server Error', 'error');
+              _this33.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getMoveInMoveOutConfigList",
           value: function getMoveInMoveOutConfigList() {
-            var _this33 = this;
+            var _this34 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3803,9 +3836,9 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this33.totalItems = tableData.localdata.length;
-                _this33.documentDataList = new jqx.dataAdapter(tableData);
-                _this33.isDataLoaded = true;
+                _this34.totalItems = tableData.localdata.length;
+                _this34.documentDataList = new jqx.dataAdapter(tableData);
+                _this34.isDataLoaded = true;
               }
             }, function (error) {
               console.log(error);
@@ -3814,7 +3847,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this34 = this;
+            var _this35 = this;
 
             this.getMoveInMoveOutConfigList();
 
@@ -3897,16 +3930,16 @@
               if (item != null && item.id) {
                 var params = {
                   Id: parseInt(item.id),
-                  deleteBy: _this34.sessionService.userId
+                  deleteBy: _this35.sessionService.userId
                 };
 
-                _this34.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
+                _this35.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
                   if (res.message) {
-                    _this34.sharedService.setUnitListDeleteIndex(null);
+                    _this35.sharedService.setUnitListDeleteIndex(null);
 
-                    _this34.datagrid.deleterow(item.index);
+                    _this35.datagrid.deleterow(item.index);
 
-                    _this34.datagrid.refresh();
+                    _this35.datagrid.refresh();
                   }
                 }, function (error) {
                   console.log(error);
@@ -3918,7 +3951,7 @@
               LookupTypeId: 72
             };
             this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
-              _this34.documentTypeDataList = res;
+              _this35.documentTypeDataList = res;
             });
           }
         }, {
@@ -3941,6 +3974,8 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
@@ -3959,6 +3994,10 @@
           args: ['matDrawer', {
             "static": true
           }]
+        }],
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['documentForm']
         }],
         deleteMoveIn: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
@@ -3979,10 +4018,11 @@
         /*! raw-loader!./movein-setup.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_11__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./movein-setup.component.scss */
         "./src/app/modules/ams/moveinout-tracker/components/movein-setup/movein-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], MoveinSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_2__["MoveInOutService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], MoveinSetupComponent);
 
       function deleteMoveIn(row) {
         var event = new CustomEvent('onDeleteMoveIn', {
@@ -4148,7 +4188,7 @@
 
       var MoveoutMaintainComponent = /*#__PURE__*/function () {
         function MoveoutMaintainComponent(router, moveInOutService, apartmentService, sharedService, sessionService, dialog, activateRouter) {
-          var _this35 = this;
+          var _this36 = this;
 
           _classCallCheck(this, MoveoutMaintainComponent);
 
@@ -4162,7 +4202,7 @@
           this.totalItems = 0;
           this.moveOutSearch = '';
           this.activateRouter.url.subscribe(function (data) {
-            _this35.urlType = data[0].path;
+            _this36.urlType = data[0].path;
           });
         }
 
@@ -4184,7 +4224,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this36 = this;
+            var _this37 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -4197,7 +4237,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this36.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this37.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4208,7 +4248,7 @@
         }, {
           key: "showMoveOutDetails",
           value: function showMoveOutDetails(detail) {
-            var _this37 = this;
+            var _this38 = this;
 
             var details = this.datagrid.getrowdata(detail.rowId);
             var dialogRef = this.dialog.open(_movein_moveout_edit_view_movein_moveout_edit_view_component__WEBPACK_IMPORTED_MODULE_12__["MoveinMoveoutEditViewComponent"], {
@@ -4221,14 +4261,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this37.userBasedList();
+                _this38.userBasedList();
               }
             });
           }
         }, {
           key: "checkOutUser",
           value: function checkOutUser(detail) {
-            var _this38 = this;
+            var _this39 = this;
 
             var message = "Do you want to Move Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
@@ -4239,7 +4279,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var data = _this38.datagrid.getrowdata(detail.rowId);
+                var data = _this39.datagrid.getrowdata(detail.rowId);
 
                 var moveOutData = data;
                 var details = {
@@ -4253,11 +4293,11 @@
                   "reqUserId": moveOutData.reqUserId,
                   "statusId": 379,
                   "noDue": moveOutData.noDue,
-                  "approvedBy": parseInt(_this38.sessionService.userId),
+                  "approvedBy": parseInt(_this39.sessionService.userId),
                   "approvedDate": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "insertedBy": moveOutData.insertedBy,
                   "insertedOn": moveOutData.insertedOn,
-                  "updatedBy": parseInt(_this38.sessionService.userId),
+                  "updatedBy": parseInt(_this39.sessionService.userId),
                   "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "apartmentId": moveOutData.apartmentId,
                   "userName": moveOutData.userName,
@@ -4272,13 +4312,13 @@
                   moveOut: details
                 };
 
-                _this38.moveInOutService.updateMoveOut(params).subscribe(function (res) {
+                _this39.moveInOutService.updateMoveOut(params).subscribe(function (res) {
                   if (res.message) {
-                    _this38.sharedService.openSnackBar('Successfully Moved Out', 'success');
+                    _this39.sharedService.openSnackBar('Successfully Moved Out', 'success');
 
-                    _this38.userBasedList();
+                    _this39.userBasedList();
                   } else {
-                    _this38.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this39.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -4287,7 +4327,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(detail) {
-            var _this39 = this;
+            var _this40 = this;
 
             var moveOutData = this.datagrid.getrowdata(detail.rowId);
             var statusId;
@@ -4322,11 +4362,11 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                if (statusId == 377) _this39.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this39.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this39.sharedService.openSnackBar('Cancelled Moveout', 'success');
+                if (statusId == 377) _this40.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this40.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this40.sharedService.openSnackBar('Cancelled Moveout', 'success');
 
-                _this39.userBasedList();
+                _this40.userBasedList();
               } else {
-                _this39.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this40.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
@@ -4340,7 +4380,7 @@
         }, {
           key: "getMoveOutListByAdmin",
           value: function getMoveOutListByAdmin() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4349,21 +4389,21 @@
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this40.totalItems = res.length;
+                _this41.totalItems = res.length;
                 var tableData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this40.moveOutDataList = new jqx.dataAdapter(tableData);
+                _this41.moveOutDataList = new jqx.dataAdapter(tableData);
               }
 
-              _this40.isDataLoaded = true;
+              _this41.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveOutListByUser",
           value: function getMoveOutListByUser() {
-            var _this41 = this;
+            var _this42 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4373,16 +4413,16 @@
             this.moveInOutService.getMoveOutByBlockUnitId(params).subscribe(function (res) {
               if (res.code == 200) {
                 if (res.responseData.value.length > 0) {
-                  _this41.totalItems = res.responseData.value.length;
+                  _this42.totalItems = res.responseData.value.length;
                   var tableData = {
                     localdata: res.responseData.value.reverse(),
                     datatype: "array"
                   };
-                  _this41.moveOutDataList = new jqx.dataAdapter(tableData);
+                  _this42.moveOutDataList = new jqx.dataAdapter(tableData);
                 }
               }
 
-              _this41.isDataLoaded = true;
+              _this42.isDataLoaded = true;
             });
           }
         }, {
@@ -4397,7 +4437,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this42 = this;
+            var _this43 = this;
 
             this.userBasedList();
 
@@ -4495,9 +4535,9 @@
                     approved_ = '',
                     rejected_ = '',
                     cancelled_ = '';
-                id_ = _this42.moveOutDataList.loadedData[row].statusId;
+                id_ = _this43.moveOutDataList.loadedData[row].statusId;
 
-                if (_this42.isAdmin()) {
+                if (_this43.isAdmin()) {
                   approved_ = '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'approve\')" >Approve</a>';
                   rejected_ = '<a href="javascript:void(0)" onClick="approveMoveOut(' + row + ', \'reject\')" >Reject</a>';
                 } else {
@@ -4522,7 +4562,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this42.moveOutDataList.loadedData[row].statusId;
+                var id_ = _this43.moveOutDataList.loadedData[row].statusId;
                 return '<div class="icon-wrapper simple-actions link"  onClick="checkOutUser(' + row + ')">' + '<img src="assets/images/checkout-icon.svg" class="svg" width="17" height="17" alt="Check Out">' + '</div>';
               },
               renderer: columnrenderer,

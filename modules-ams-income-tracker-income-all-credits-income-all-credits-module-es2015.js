@@ -695,16 +695,16 @@ let IncomeCreditListComponent = class IncomeCreditListComponent {
     }
     submitIncomeCreditFilterForm() {
         this.isCreditNoteFilterTableLoaded = false;
-        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format('YYYY-MM-DD');
-        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format('YYYY-MM-DD');
+        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
+        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
         this.getCreditNotesData(fromDate, toDate);
         //Mark for check
         this._changeDetectorRef.markForCheck();
     }
     isCreditAdded() {
         this.isCreditNoteFilterTableLoaded = false;
-        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format('YYYY-MM-DD');
-        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format('YYYY-MM-DD');
+        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
+        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
         this.getCreditNotesData(fromDate, toDate);
         //Mark for check
         this._changeDetectorRef.markForCheck();
@@ -738,9 +738,10 @@ let IncomeCreditListComponent = class IncomeCreditListComponent {
         this._unsubscribeAll.complete();
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.credit = {};
-        this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format('YYYY-MM-DD');
-        this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format('YYYY-MM-DD');
+        this.fromDate = moment__WEBPACK_IMPORTED_MODULE_8__().subtract(3, 'months').endOf('month').format(this.timeZone.time);
+        this.toDate = moment__WEBPACK_IMPORTED_MODULE_8__().format(this.timeZone.time);
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };

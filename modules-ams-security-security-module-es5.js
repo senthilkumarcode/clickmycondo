@@ -1237,25 +1237,21 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ngx-cookie-service */
       "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
       /* harmony import */
 
 
@@ -1274,9 +1270,19 @@
       var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
 
       var SecurityReportsDataComponent = /*#__PURE__*/function () {
-        function SecurityReportsDataComponent(apartmentService, route, alertService, lookupService, cookieService, sessionService) {
+        function SecurityReportsDataComponent(apartmentService, route, alertService, lookupService, cookieService, sharedService, sessionService) {
           _classCallCheck(this, SecurityReportsDataComponent);
 
           this.apartmentService = apartmentService;
@@ -1284,6 +1290,7 @@
           this.alertService = alertService;
           this.lookupService = lookupService;
           this.cookieService = cookieService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.pageName = "";
           this.ItemStartIndex = 0;
@@ -1358,17 +1365,17 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
           }
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
           }
         }, {
           key: "getTimeFormat",
           value: function getTimeFormat(dateTime) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(dateTime).format("YYYY-MM-DD HH:mm");
+            return moment__WEBPACK_IMPORTED_MODULE_11__(dateTime).format("YYYY-MM-DD HH:mm");
           }
         }, {
           key: "submitSecurityAlertReports",
@@ -1523,6 +1530,9 @@
           value: function ngOnInit() {
             var _this8 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this8.timeZone = timeZone;
+            });
             this.pageName = this.route.params['value'].name;
             this.report = {};
             this.report.apartmentID = "";
@@ -1613,7 +1623,7 @@
             var details = {
               ApartmentBlockID: parseInt(this.report.apartmentBlockID),
               StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateFormat(this.report.startDate),
-              EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_7__(new Date()).format("YYYY-MM-DD") : this.getDateFormat(this.report.endDate),
+              EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).format(this.timeZone.time) : this.getDateFormat(this.report.endDate),
               ApartmentID: parseInt(this.sessionService.apartmentId),
               EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1685,13 +1695,15 @@
         return [{
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]
         }, {
           type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"]
         }, {
           type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
+          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }];
@@ -1719,7 +1731,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./security-reports-data.component.scss */
         "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], SecurityReportsDataComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], SecurityReportsDataComponent);
       /***/
     },
 

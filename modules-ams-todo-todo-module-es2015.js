@@ -441,13 +441,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Meeting */ "./src/app/api/controllers/Meeting.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../todo-create-dialog/todo-create-dialog.component */ "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.ts");
-/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../todo-create-dialog/todo-create-dialog.component */ "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.ts");
+/* harmony import */ var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/TodoList */ "./src/app/api/controllers/TodoList.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -485,12 +485,10 @@ let TodoCreateComponent = class TodoCreateComponent {
         this.categoryList = [];
     }
     getWidth() {
-        // if (document.body.offsetWidth < 800) {
-        //   return '90%';
-        // }
         return '100%';
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.getCategoryList();
         this.getMeetingList();
     }
@@ -507,7 +505,7 @@ let TodoCreateComponent = class TodoCreateComponent {
         if (info.event && info.event.extendedProps) {
             let data = JSON.parse(JSON.stringify(info.event.extendedProps));
             data['type'] = 'edit';
-            const dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__["TodoCreateDialogComponent"], {
+            const dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateDialogComponent"], {
                 width: 'auto',
                 height: 'auto',
                 data: data
@@ -525,7 +523,7 @@ let TodoCreateComponent = class TodoCreateComponent {
     appointmentAdd(event) {
         // this.myScheduler.closeDialog();
         let data = { type: 'create' };
-        const dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__["TodoCreateDialogComponent"], {
+        const dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateDialogComponent"], {
             width: 'auto',
             height: 'auto',
             data: data
@@ -546,8 +544,8 @@ let TodoCreateComponent = class TodoCreateComponent {
         this.todoService.getTodoListByStaffId(params).subscribe((resp) => {
             if (resp.length > 0) {
                 resp.forEach((data, i) => {
-                    data.start = `${moment__WEBPACK_IMPORTED_MODULE_4__(data.beginOn).format('YYYY-MM-DD')} ${data.fromTime}`;
-                    data.end = `${moment__WEBPACK_IMPORTED_MODULE_4__(data.finishOn).format('YYYY-MM-DD')} ${data.toTime}`;
+                    data.start = `${moment__WEBPACK_IMPORTED_MODULE_9__(data.beginOn).format(this.timeZone.time)} ${data.fromTime}`;
+                    data.end = `${moment__WEBPACK_IMPORTED_MODULE_9__(data.finishOn).format(this.timeZone.time)} ${data.toTime}`;
                     data.color = 'red';
                 });
                 this.calendarOptions.events = resp;
@@ -555,33 +553,16 @@ let TodoCreateComponent = class TodoCreateComponent {
             }
         });
     }
-    // formStartDate(data){
-    //   let year  = moment(data).year();
-    //   let month  = moment(data).month();
-    //   let date  = moment(data).date();
-    //   let startHours  = moment(data,'HH:mm').hour();
-    //   let startMin  = moment(data,'HH:mm').minute();
-    //   return new Date(year,month,date,startHours,startMin)
-    // }
-    // formEndDate(data){
-    //   let year  = moment(data).year();
-    //   let month  = moment(data).month();
-    //   let date  = moment(data).date();
-    //   let endHours  = moment(data,'HH:mm').hour();
-    //   let endMin  = moment(data,'HH:mm').minute();
-    //   return new Date(year,month,date,endHours,endMin);
-    // }
     ngAfterViewInit() {
-        // this.myScheduler.ensureAppointmentVisible('id1');
     }
 };
 TodoCreateComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
-    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__["TodoListService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
-    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] },
+    { type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__["TodoListService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
+    { type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"] }
 ];
 TodoCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -591,10 +572,10 @@ TodoCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
-        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__["TodoListService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
-        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"],
+        src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__["TodoListService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
+        src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])
 ], TodoCreateComponent);
 
 

@@ -207,25 +207,32 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
+      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
 
       var PaymentDuesComponent = /*#__PURE__*/function () {
-        function PaymentDuesComponent(accountsService, sessionService) {
+        function PaymentDuesComponent(accountsService, sharedService, sessionService) {
           _classCallCheck(this, PaymentDuesComponent);
 
           this.accountsService = accountsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isDataLoaded = false;
           this.isDueSelected = false;
@@ -276,13 +283,16 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_4__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this2 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this2.timeZone = timeZone;
+            });
             var params = {
               ApartmentBlockUnitID: this.sessionService.apartmentBlockUnitID
             };
@@ -314,7 +324,9 @@
         return [{
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
 
@@ -327,7 +339,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./payment-dues.component.scss */
         "./src/app/modules/user/user-payment/components/payment-dues/payment-dues.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], PaymentDuesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], PaymentDuesComponent);
       /***/
     },
 

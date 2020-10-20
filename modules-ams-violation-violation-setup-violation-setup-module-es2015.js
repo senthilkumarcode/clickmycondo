@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n    <div CondoCardHeader>\n        <div class=\"row m-0 d-flex justify-content-between align-items-center\">\n            <div class=\"col-lg-6 d-flex flex-column\">\n                <h4>Violation Rule</h4>\n            </div>\n            <div class=\"col-lg-6 text-right\">\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"addRuleRow()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add Row\n                </button>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #createViolationRule=\"ngForm\" name=\"createViolationRule\" class=\"w-100 p-5\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Category</label>\n                        <select class=\"form-control\" name=\"category\" [(ngModel)]=\"createRule.violationCategoryId\">\n                            <option *ngFor=\"let item of allViolationCategoryList\" [value]=\"item.lookupValueId\">\n                                {{ item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Rule</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Rule Name\" name=\"name\"\n                            [(ngModel)]=\"createRule.name\" required>\n                    </div>\n                </div>\n            </div>\n            <div class=\"violationRuleCreate\">\n                <div class=\"row\" *ngFor=\"let rule of ruleList;let i = index;\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Penalty Amount</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Penalty Amount\"\n                                name=\"fineViolationNo{{i}}\" [(ngModel)]=\"rule.fineViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Violation Description</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Violation Description\"\n                                name=\"descViolationNo{{i}}\" [(ngModel)]=\"rule.descViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Stop Privilage</label>\n                            <select class=\"form-control\" placeholder=\"Stop Provilage\" name=\"violationPrivilegeId{{i}}\"\n                                [(ngModel)]=\"rule.violationPrivilegeId\">\n                                <option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.id\">\n                                    {{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 text-right\">\n                    <button mat-flat-button class=\"mr-3\" mat-dialog-close>\n                        Close</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"categoryRuleUpdation()\">\n                        {{isEdit ? 'Update' : 'Submit'}}</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</condo-card>");
+/* harmony default export */ __webpack_exports__["default"] = ("<condo-card>\n    <div CondoCardHeader>\n        <div class=\"row m-0 d-flex justify-content-between align-items-center\">\n            <div class=\"col-lg-6 d-flex flex-column\">\n                <h4>Violation Rule</h4>\n            </div>\n            <div class=\"col-lg-6 text-right\">\n                <button mat-flat-button [color]=\"'primary'\" (click)=\"addRuleRow()\" *ngIf=\"!isView\" >\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add Row\n                </button>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #createViolationRule=\"ngForm\" name=\"createViolationRule\" class=\"w-100 p-5\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Category</label>\n                        <select class=\"form-control\" [disabled]=\"isView\" name=\"category\" [(ngModel)]=\"createRule.violationCategoryId\">\n                            <option *ngFor=\"let item of allViolationCategoryList\" [value]=\"item.lookupValueId\">\n                                {{ item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Rule</label>\n                        <input type=\"text\" class=\"form-control\" [disabled]=\"isView\" placeholder=\"Rule Name\" name=\"name\"\n                            [(ngModel)]=\"createRule.name\" required>\n                    </div>\n                </div>\n            </div>\n            <div class=\"violationRuleCreate\">\n                <div class=\"row\" *ngFor=\"let rule of ruleList;let i = index;\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Penalty Amount</label>\n                            <input type=\"text\" class=\"form-control\" [disabled]=\"isView\" placeholder=\"Penalty Amount\"\n                                name=\"fineViolationNo{{i}}\" [(ngModel)]=\"rule.fineViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Violation Description</label>\n                            <input type=\"text\" class=\"form-control\" [disabled]=\"isView\" placeholder=\"Violation Description\"\n                                name=\"descViolationNo{{i}}\" [(ngModel)]=\"rule.descViolationNo\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Stop Privilage</label>\n                            <select class=\"form-control\" [disabled]=\"isView\" placeholder=\"Stop Provilage\" name=\"violationPrivilegeId{{i}}\"\n                                [(ngModel)]=\"rule.violationPrivilegeId\">\n                                <option *ngFor=\"let item of allViolationPrivilege\" [value]=\"item.id\">\n                                    {{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12 text-right\">\n                    <button mat-flat-button class=\"mr-3\" mat-dialog-close>\n                        Close</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"categoryRuleUpdation()\" *ngIf=\"!isView\">\n                        {{isEdit == 'edit' ? 'Update' : 'Submit'}}</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</condo-card>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-rule\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Violation Rules</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n                        <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory(false,0)\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Category\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                <div *ngIf=\"isViolationCategoryLoaded\">\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                        [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationRuleList\"\n                        [columns]=\"violationRuleHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                    </jqxGrid>\n                </div>\n            </div>\n        </condo-card>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-rule\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Violation Rules</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n                        <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory('add',0)\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Category\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                <div *ngIf=\"isViolationCategoryLoaded\">\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                        [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationRuleList\"\n                        [columns]=\"violationRuleHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                    </jqxGrid>\n                </div>\n            </div>\n        </condo-card>\n    </div>");
 
 /***/ }),
 
@@ -412,14 +412,21 @@ let ViolationRuleCreateComponent = class ViolationRuleCreateComponent {
             "rules": []
         };
         this.ruleList = [];
-        this.isEdit = false;
+        this.isEdit = 'add';
+        this.isView = false;
     }
     ngOnInit() {
         this.getViolationCategory();
         this.getViolationPrivilage();
         this.isEdit = this.modalData.isEdit;
-        if (this.isEdit) {
+        if (this.isEdit != 'add') {
             this.getViolationRule();
+        }
+        if (this.isEdit == 'view') {
+            this.isView = true;
+        }
+        else {
+            this.isView = false;
         }
     }
     getViolationRule() {
@@ -470,7 +477,7 @@ let ViolationRuleCreateComponent = class ViolationRuleCreateComponent {
         let violationRuleParam = {
             model: this.createRule
         };
-        if (this.isEdit) {
+        if (this.isEdit == 'edit') {
             this.violationService.updateViolationRuleNew(violationRuleParam).subscribe((res) => {
                 this.sharedService.openSnackBar('Violation Rules Updated Successfully', 'success');
                 this.dialogRef.close(true);
@@ -543,6 +550,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Violation */ "./src/app/api/controllers/Violation.ts");
 /* harmony import */ var _violation_rule_create_violation_rule_create_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./violation-rule-create/violation-rule-create.component */ "./src/app/modules/ams/violation/violation-setup/violation-rules-setup/violation-rule-create/violation-rule-create.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+
 
 
 
@@ -569,7 +579,11 @@ let ViolationRulesSetupComponent = class ViolationRulesSetupComponent {
     }
     editViolation(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
-        this.addViolationCategory(true, dataRecord.violationCategoryId);
+        this.addViolationCategory('edit', dataRecord.violationCategoryId);
+    }
+    viewViolation(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.addViolationCategory('view', dataRecord.violationCategoryId);
     }
     onGlSearchFilter(event) {
         if (event != "") {
@@ -647,21 +661,17 @@ let ViolationRulesSetupComponent = class ViolationRulesSetupComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.violationRuleHeader = [{
-                text: 'violation category id',
-                datafield: 'violationCategoryId',
-                width: 250,
-                cellsrenderer: cellsrenderer,
-                renderer: columnrenderer
-            }, {
-                text: 'name',
+                text: 'category name',
                 datafield: 'name',
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'inserted on',
                 datafield: 'insertedOn',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                },
                 width: 250,
-                cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Actions',
@@ -669,7 +679,7 @@ let ViolationRulesSetupComponent = class ViolationRulesSetupComponent {
                 align: 'center',
                 width: 100,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editCategory(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="deleteCategory(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+                    return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2 text-secondary" onClick="viewViolation(' + row + ')" ><i class="icon fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void(0)" class="mr-2" onClick="editCategory(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="deleteCategory(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
                 },
                 renderer: columnrenderer
             }];
@@ -710,6 +720,7 @@ ViolationRulesSetupComponent.ctorParameters = () => [
 ViolationRulesSetupComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
     editViolation: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditViolation', ['$event.detail'],] }],
+    viewViolation: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onViewViolation', ['$event.detail'],] }],
     deleteViolation: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onDeleteViolation', ['$event.detail'],] }]
 };
 ViolationRulesSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -735,6 +746,15 @@ function editCategory(row) {
     window.dispatchEvent(event);
 }
 window.editCategory = editCategory;
+function viewViolation(row) {
+    var event = new CustomEvent('onViewViolation', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.viewViolation = viewViolation;
 function deleteCategory(row) {
     var event = new CustomEvent('onDeleteViolation', {
         detail: {

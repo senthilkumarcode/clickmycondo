@@ -1424,7 +1424,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -1477,6 +1477,9 @@
           value: function ngOnInit() {
             var _this7 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this7.timeZone = timeZone;
+            });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
               _this7.glGroupsDataList = res.filter(function (item) {
@@ -1743,7 +1746,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -1796,6 +1799,9 @@
           value: function ngOnInit() {
             var _this9 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this9.timeZone = timeZone;
+            });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
               _this9.glGroupsDataList = res.filter(function (item) {
@@ -2066,7 +2072,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -2119,6 +2125,9 @@
           value: function ngOnInit() {
             var _this11 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this11.timeZone = timeZone;
+            });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
               _this11.glGroupsDataList = res.filter(function (item) {
@@ -3795,9 +3804,7 @@
                 if (obj.glaccountId == account.glaccountId) {
                   obj.glGroupName = data[0].name;
                 }
-              }); //sorting
-              //this.sortUnitData('glGroupName');
-
+              });
               return data[0].name;
             }
           }
@@ -3817,7 +3824,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -3870,6 +3877,9 @@
           value: function ngOnInit() {
             var _this23 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this23.timeZone = timeZone;
+            });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
               _this23.glGroupsDataList = res.filter(function (item) {
@@ -4092,7 +4102,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -4117,7 +4127,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
           }
         }, {
           key: "showConfirmModal",
@@ -4156,9 +4166,12 @@
           value: function ngOnInit() {
             var _this25 = this;
 
-            // fetch data for past one week by default
-            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_7__().subtract(1, 'week').format("YYYY-MM-DD");
-            this.toDate = moment__WEBPACK_IMPORTED_MODULE_7__().add(1, 'days').format("YYYY-MM-DD");
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this25.timeZone = timeZone;
+            }); // fetch data for past one week by default
+
+            this.fromDate = moment__WEBPACK_IMPORTED_MODULE_7__().subtract(1, 'week').format(this.timeZone.time);
+            this.toDate = moment__WEBPACK_IMPORTED_MODULE_7__().add(1, 'days').format(this.timeZone.time);
             this.getJournals(); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
@@ -4628,6 +4641,11 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this30 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this30.timeZone = timeZone;
+            });
             this.journal = {};
             this.journal.debitAmount = 0;
             this.journal.creditAmount = 0;
@@ -4636,7 +4654,7 @@
             this.journal.glaccountId = "";
             this.journal.gldocumentTypeId = 193; // id for journal
 
-            this.journal.fiscalYear = parseInt(moment__WEBPACK_IMPORTED_MODULE_7__().format("YYYY"));
+            this.journal.fiscalYear = moment__WEBPACK_IMPORTED_MODULE_7__().format(this.timeZone.time);
 
             if (this.route.params['value'].id != undefined) {
               this.isEditJournal = true;
@@ -5130,7 +5148,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -5160,68 +5178,71 @@
         }, {
           key: "getAccounts",
           value: function getAccounts() {
-            var _this30 = this;
+            var _this31 = this;
 
             this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this30.glAccountsDataList = res.filter(function (item) {
-                return item.isActive && _this30.sessionService.apartmentId && item.indicator == _this30.glAccountIndicator;
+              _this31.glAccountsDataList = res.filter(function (item) {
+                return item.isActive && _this31.sessionService.apartmentId && item.indicator == _this31.glAccountIndicator;
               });
-              _this30.isDataLoaded = true;
-              _this30.totalItems = _this30.glAccountsDataList.length;
+              _this31.isDataLoaded = true;
+              _this31.totalItems = _this31.glAccountsDataList.length;
 
-              if (_this30.totalItems > _this30.itemLimit) {
-                _this30.ItemEndIndex = _this30.itemLimit;
+              if (_this31.totalItems > _this31.itemLimit) {
+                _this31.ItemEndIndex = _this31.itemLimit;
               } else {
-                _this30.ItemEndIndex = _this30.totalItems;
+                _this31.ItemEndIndex = _this31.totalItems;
               }
 
-              _this30.sharedService.setGlAccountAdded(false);
+              _this31.sharedService.setGlAccountAdded(false);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this32 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this32.timeZone = timeZone;
+            });
             this.getAccounts();
             this.accountsService.getAllGlGroups().subscribe(function (res) {
-              _this31.glGroupsDataList = res.filter(function (item) {
+              _this32.glGroupsDataList = res.filter(function (item) {
                 return item.isActive;
               });
             });
             this.sharedService.glaccountaddedcast.subscribe(function (accountAdded) {
               if (accountAdded) {
-                _this31.getAccounts();
+                _this32.getAccounts();
               }
             }); // delete item
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
-                  apartmentId: _this31.sessionService.apartmentId,
+                  apartmentId: _this32.sessionService.apartmentId,
                   glAccountId: id,
-                  deleteBy: parseInt(_this31.sessionService.userId)
+                  deleteBy: parseInt(_this32.sessionService.userId)
                 };
 
-                _this31.accountsService.deleteGlAccount(params).subscribe(function (res) {
+                _this32.accountsService.deleteGlAccount(params).subscribe(function (res) {
                   if (res.message) {
-                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this31.glAccountsDataList, function (type) {
+                    underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this32.glAccountsDataList, function (type) {
                       if (type.glaccountId == id) {
                         type.isActive = false;
                       }
                     });
                     setTimeout(function () {
-                      _this31.glAccountsDataList = _this31.glAccountsDataList.filter(function (type) {
+                      _this32.glAccountsDataList = _this32.glAccountsDataList.filter(function (type) {
                         return type.glaccountId !== id;
                       });
-                      _this31.totalItems = _this31.glAccountsDataList.length;
+                      _this32.totalItems = _this32.glAccountsDataList.length;
 
-                      _this31.sharedService.setAlertMessage("Gl Account deleted");
+                      _this32.sharedService.setAlertMessage("Gl Account deleted");
 
-                      _this31.sharedService.setUnitListDeleteIndex(null);
+                      _this32.sharedService.setUnitListDeleteIndex(null);
                     }, 500);
                   } else {
-                    _this31.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this32.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
                   console.log(error);
@@ -5326,26 +5347,33 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
       var GlFinancialStatementsComponent = /*#__PURE__*/function () {
-        function GlFinancialStatementsComponent(route, accountsService, sessionService) {
+        function GlFinancialStatementsComponent(route, accountsService, sharedService, sessionService) {
           _classCallCheck(this, GlFinancialStatementsComponent);
 
           this.route = route;
           this.accountsService = accountsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.ItemStartIndex = 0;
           this.itemLimit = 8;
@@ -5397,12 +5425,12 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
           }
         }, {
           key: "submitGlreportsFinancialForm",
           value: function submitGlreportsFinancialForm(form) {
-            var _this32 = this;
+            var _this33 = this;
 
             var details = {
               FromDate: this.getDateFormat(this.reports.fromDate),
@@ -5412,12 +5440,12 @@
             this.isDataLoaded = false;
             this.isFormGenerated = false;
             this.accountsService.getTrialBalanceByDate(details).subscribe(function (res) {
-              _this32.isDataLoaded = true;
-              _this32.isFormGenerated = true;
-              _this32.glReportsDataList = res;
+              _this33.isDataLoaded = true;
+              _this33.isFormGenerated = true;
+              _this33.glReportsDataList = res;
             }, function (error) {
-              _this32.isDataLoaded = true;
-              _this32.isFormGenerated = true;
+              _this33.isDataLoaded = true;
+              _this33.isFormGenerated = true;
             });
           }
         }, {
@@ -5438,33 +5466,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this34 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this34.timeZone = timeZone;
+            });
             this.reports = {};
 
             if (this.route.params['value'].subtype != undefined) {
               this.reportSubType = this.route.params['value'].subtype;
             }
-            /*this.statementsLiabilitiesDataList = [
-                {
-                    type:'Reserve & Surplus',
-                    data : [{name: 'Repair and Maintenance Fund', debit:'156', credit: '26'}]
-                },
-                {
-                    type:'Current liabilities',
-                    data : [
-                        {name: 'Payables', debit:'576,981.00', credit: '250,990.00'},
-                        {name: 'TDS Payable', debit:'18,828.00', credit: '10.00'},
-                        {name: 'Input State GST', debit:'42,576.00', credit: '0'}
-                    ]
-                }
-            ];
-                 this.totalItems = this.statementsLiabilitiesDataList.length;
-                 _.each(this.statementsLiabilitiesDataList, (item, index) => {
-                     _.each(item.data, (snippet, index) => {
-                    this.totalDebitAmount = this.totalDebitAmount + parseInt(snippet.debit);
-                    this.totalCreditAmount = this.totalCreditAmount + parseInt(snippet.credit);
-                });
-                 });*/
-
           }
         }]);
 
@@ -5477,7 +5488,9 @@
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -5489,7 +5502,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-financial-statements.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-other-reports/gl-financial-statements/gl-financial-statements.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], GlFinancialStatementsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], GlFinancialStatementsComponent);
       /***/
     },
 
@@ -5675,31 +5688,38 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 
       var GlOtherReprotsTransactionsComponent = /*#__PURE__*/function () {
-        function GlOtherReprotsTransactionsComponent(accountsService, sessionService) {
+        function GlOtherReprotsTransactionsComponent(accountsService, sharedService, sessionService) {
           _classCallCheck(this, GlOtherReprotsTransactionsComponent);
 
           this.accountsService = accountsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.glTypes = [];
           this.glGroups = [];
@@ -5754,7 +5774,7 @@
         }, {
           key: "getGlGroups",
           value: function getGlGroups(id) {
-            var _this33 = this;
+            var _this35 = this;
 
             this.isGlGroupsLoaded = false;
             var params = {
@@ -5762,15 +5782,15 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getAllGlGroupsByAccountTypeId(params).subscribe(function (res) {
-              _this33.isGlGroupsLoaded = true;
-              _this33.glGroups = res;
-              _this33.glTypeSelectedIndex = id;
+              _this35.isGlGroupsLoaded = true;
+              _this35.glGroups = res;
+              _this35.glTypeSelectedIndex = id;
             });
           }
         }, {
           key: "getGlAccount",
           value: function getGlAccount(id) {
-            var _this34 = this;
+            var _this36 = this;
 
             this.isGlAccountsLoaded = false;
             var params = {
@@ -5778,9 +5798,9 @@
               groupId: id
             };
             this.accountsService.getGlAccountsByGroupId(params).subscribe(function (res) {
-              _this34.isGlAccountsLoaded = true;
-              _this34.glAccounts = res;
-              _this34.glGroupSelectedIndex = id;
+              _this36.isGlAccountsLoaded = true;
+              _this36.glAccounts = res;
+              _this36.glGroupSelectedIndex = id;
             });
           }
         }, {
@@ -5811,7 +5831,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -5831,43 +5851,48 @@
         }, {
           key: "submitGlreportsTransactionForm",
           value: function submitGlreportsTransactionForm(form) {
-            var _this35 = this;
+            var _this37 = this;
 
             this.isDataSubmitted = true;
             this.isDataLoaded = false;
             var params = {
-              FromDate: moment__WEBPACK_IMPORTED_MODULE_5__(this.reports.fromDate).format("YYYY-MM-DD"),
-              Todate: moment__WEBPACK_IMPORTED_MODULE_5__(this.reports.toDate).format("YYYY-MM-DD"),
+              FromDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.reports.fromDate).format(this.timeZone.time),
+              Todate: moment__WEBPACK_IMPORTED_MODULE_6__(this.reports.toDate).format(this.timeZone.time),
               ApartmentId: this.sessionService.apartmentId,
               //GlAccountTypeID: this.glTypeSelectedIndex,
               //GLGroupID: this.glGroupSelectedIndex,
               GLAccountId: this.glAccountSelectedIndex
             };
             this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
-              _this35.totalDebitAmount = 0;
-              _this35.totalCreditAmount = 0;
-              _this35.isDataLoaded = true;
-              _this35.reportsTransactionsDataList = res;
-              _this35.totalItems = _this35.reportsTransactionsDataList.length;
+              _this37.totalDebitAmount = 0;
+              _this37.totalCreditAmount = 0;
+              _this37.isDataLoaded = true;
+              _this37.reportsTransactionsDataList = res;
+              _this37.totalItems = _this37.reportsTransactionsDataList.length;
 
-              if (_this35.totalItems > _this35.itemLimit) {
-                _this35.ItemEndIndex = _this35.itemLimit;
+              if (_this37.totalItems > _this37.itemLimit) {
+                _this37.ItemEndIndex = _this37.itemLimit;
               } else {
-                _this35.ItemEndIndex = _this35.totalItems;
+                _this37.ItemEndIndex = _this37.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_4__["each"](_this35.reportsTransactionsDataList, function (item, index) {
-                _this35.totalDebitAmount = _this35.totalDebitAmount + item.debit;
-                _this35.totalCreditAmount = _this35.totalCreditAmount + item.credit;
+              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this37.reportsTransactionsDataList, function (item, index) {
+                _this37.totalDebitAmount = _this37.totalDebitAmount + item.debit;
+                _this37.totalCreditAmount = _this37.totalCreditAmount + item.credit;
               });
-              _this35.glTypeSelectedIndex = null;
-              _this35.glGroupSelectedIndex = null;
-              _this35.glAccountSelectedIndex = null;
+              _this37.glTypeSelectedIndex = null;
+              _this37.glGroupSelectedIndex = null;
+              _this37.glAccountSelectedIndex = null;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this38 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this38.timeZone = timeZone;
+            });
             this.reports = {};
             this.glTypes = [{
               name: 'Assets',
@@ -5897,7 +5922,9 @@
         return [{
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
 
@@ -5910,7 +5937,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-other-reprots-transactions.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-other-reports/gl-other-reprots-transactions/gl-other-reprots-transactions.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], GlOtherReprotsTransactionsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], GlOtherReprotsTransactionsComponent);
       /***/
     },
 
@@ -5980,32 +6007,39 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 
       var GlReportTransactionsComponent = /*#__PURE__*/function () {
-        function GlReportTransactionsComponent(route, accountsService, sessionService) {
+        function GlReportTransactionsComponent(route, accountsService, sharedService, sessionService) {
           _classCallCheck(this, GlReportTransactionsComponent);
 
           this.route = route;
           this.accountsService = accountsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isDataLoaded = false;
           this.reportsTransactionsData = "";
@@ -6041,7 +6075,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -6065,36 +6099,41 @@
             var params = {
               GLAccountId: this.route.params['value'].id,
               ApartmentId: this.sessionService.apartmentId,
-              FromDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.fromDate).format("YYYY-MM-DD"),
-              Todate: moment__WEBPACK_IMPORTED_MODULE_6__(this.toDate).format("YYYY-MM-DD")
+              FromDate: moment__WEBPACK_IMPORTED_MODULE_7__(this.fromDate).format(this.timeZone.time),
+              Todate: moment__WEBPACK_IMPORTED_MODULE_7__(this.toDate).format(this.timeZone.time)
             };
             this.getTransactions(params);
           }
         }, {
           key: "getTransactions",
           value: function getTransactions(params) {
-            var _this36 = this;
+            var _this39 = this;
 
             this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
-              _this36.isDataLoaded = true;
-              _this36.reportsTransactionsDataList = res;
-              _this36.totalItems = _this36.reportsTransactionsDataList.length;
+              _this39.isDataLoaded = true;
+              _this39.reportsTransactionsDataList = res;
+              _this39.totalItems = _this39.reportsTransactionsDataList.length;
 
-              if (_this36.totalItems > _this36.itemLimit) {
-                _this36.ItemEndIndex = _this36.itemLimit;
+              if (_this39.totalItems > _this39.itemLimit) {
+                _this39.ItemEndIndex = _this39.itemLimit;
               } else {
-                _this36.ItemEndIndex = _this36.totalItems;
+                _this39.ItemEndIndex = _this39.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this36.reportsTransactionsDataList, function (item, index) {
-                _this36.totalDebitAmount = _this36.totalDebitAmount + item.debit;
-                _this36.totalCreditAmount = _this36.totalCreditAmount + item.credit;
+              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this39.reportsTransactionsDataList, function (item, index) {
+                _this39.totalDebitAmount = _this39.totalDebitAmount + item.debit;
+                _this39.totalCreditAmount = _this39.totalCreditAmount + item.credit;
               });
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this40 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this40.timeZone = timeZone;
+            });
             this.fromDate = this.route.params['value'].fromdate;
             this.toDate = this.route.params['value'].todate;
             this.type = this.route.params['value'].type;
@@ -6117,7 +6156,9 @@
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -6129,7 +6170,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./gl-report-transactions.component.scss */
         "./src/app/modules/ams/general-ledger/components/gl-reports/gl-report-transactions/gl-report-transactions.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], GlReportTransactionsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_3__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], GlReportTransactionsComponent);
       /***/
     },
 
@@ -6217,15 +6258,15 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this37 = this;
+            var _this41 = this;
 
             this.glReportsDataList = this.glReportsDataList.filter(function (item) {
-              return item.description.indexOf(_this37.group) != -1;
+              return item.description.indexOf(_this41.group) != -1;
             });
             this.totalItems = this.glReportsDataList.length;
             underscore__WEBPACK_IMPORTED_MODULE_2__["each"](this.glReportsDataList, function (item, index) {
-              _this37.totalDebitAmount = _this37.totalDebitAmount + item.debit;
-              _this37.totalCreditAmount = _this37.totalCreditAmount + item.credit;
+              _this41.totalDebitAmount = _this41.totalDebitAmount + item.debit;
+              _this41.totalCreditAmount = _this41.totalCreditAmount + item.credit;
             });
           }
         }]);
@@ -6357,12 +6398,12 @@
         _createClass(GlReportsComponent, [{
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
           }
         }, {
           key: "submitGlTrialBalanceForm",
           value: function submitGlTrialBalanceForm(form) {
-            var _this38 = this;
+            var _this42 = this;
 
             this.isDataLoaded = false;
             this.isTrialGenerated = false;
@@ -6372,17 +6413,22 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.accountsService.getTrialBalanceByDate(details).subscribe(function (res) {
-              _this38.isDataLoaded = true;
-              _this38.isTrialGenerated = true;
-              _this38.glReportsDataList = res;
+              _this42.isDataLoaded = true;
+              _this42.isTrialGenerated = true;
+              _this42.glReportsDataList = res;
             }, function (error) {
-              _this38.isDataLoaded = true;
-              _this38.isTrialGenerated = true;
+              _this42.isDataLoaded = true;
+              _this42.isTrialGenerated = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this43 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this43.timeZone = timeZone;
+            });
             this.reports = {};
           }
         }]);

@@ -918,7 +918,7 @@ let SetPermissionsComponent = class SetPermissionsComponent {
             secLevelId: parseInt(this.secLevelId)
         };
         this.screenService.getMenuFunctionByRoleIdMultiFilter(queryParamBase).subscribe((resp) => {
-            this.menuList = resp;
+            this.menuList = resp.responseData.value;
             if (this.menuList && this.menuList.length) {
                 this.selectedMenuName = this.menuList[0].menuName;
                 this.changeMenu('');

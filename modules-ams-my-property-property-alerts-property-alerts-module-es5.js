@@ -140,15 +140,21 @@
         _createClass(PropertyAlertsInfoComponent, [{
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            var _this = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this.timeZone = timeZone;
+            });
+          }
         }, {
           key: "ngOnChanges",
           value: function ngOnChanges(changes) {
-            var _this = this;
+            var _this2 = this;
 
             if (this.alertData != undefined) {
               this.isDataLoaded = false;
@@ -159,16 +165,16 @@
               };
               this.assetService.getAssetMasterDetail(params).subscribe(function (res) {
                 if (res == undefined || res.length == 0) {
-                  _this.isNoItemsAvailable = true;
+                  _this2.isNoItemsAvailable = true;
                 } else {
-                  _this.alerts = res;
-                  _this.isNoItemsAvailable = false;
+                  _this2.alerts = res;
+                  _this2.isNoItemsAvailable = false;
                 }
 
-                _this.isDataLoaded = true;
+                _this2.isDataLoaded = true;
               }, function (error) {
-                _this.isDataLoaded = true;
-                _this.isNoItemsAvailable = true;
+                _this2.isDataLoaded = true;
+                _this2.isNoItemsAvailable = true;
               });
             }
           }
@@ -415,7 +421,7 @@
         }, {
           key: "widthOfList",
           value: function widthOfList() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.itemPositions = [];
             var marginWidth = 60;
@@ -427,7 +433,7 @@
               itemsWidth += itemWidth;
 
               if (itemsWidth > wrapperWidth) {
-                _this2.itemPositions.push(itemsWidth - wrapperWidth);
+                _this3.itemPositions.push(itemsWidth - wrapperWidth);
               }
             });
             return itemsWidth;
@@ -470,7 +476,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.alertTypes = [{
               'label': 'Maintenance in 30 days',
@@ -495,24 +501,24 @@
             }];
             underscore__WEBPACK_IMPORTED_MODULE_4__["each"](this.alertTypes, function (item, index) {
               var params = {
-                ApartmentId: _this3.sessionService.apartmentId,
+                ApartmentId: _this4.sessionService.apartmentId,
                 InputType: item.type,
                 days: item.count
               };
 
-              _this3.assetService.getAssetMasterDetail(params).subscribe(function (res) {
+              _this4.assetService.getAssetMasterDetail(params).subscribe(function (res) {
                 if (res == undefined || res.length == 0) {
                   item.assetCount = 0;
                 } else {
                   item.assetCount = res.length;
                 }
 
-                if (index == _this3.alertTypes.length - 1) {
-                  _this3.isDataLoaded = true;
+                if (index == _this4.alertTypes.length - 1) {
+                  _this4.isDataLoaded = true;
                 }
 
                 if (index == 0) {
-                  _this3.alertData = item;
+                  _this4.alertData = item;
                 }
               });
             });
@@ -520,14 +526,14 @@
         }, {
           key: "ngAfterViewInit",
           value: function ngAfterViewInit() {
-            var _this4 = this;
+            var _this5 = this;
 
             setTimeout(function () {
-              _this4.tab = document.getElementById('alerts-tabs');
-              _this4.tabItems = _this4.tab.getElementsByTagName("li");
-              _this4.totalTabItems = _this4.tabItems.length;
+              _this5.tab = document.getElementById('alerts-tabs');
+              _this5.tabItems = _this5.tab.getElementsByTagName("li");
+              _this5.totalTabItems = _this5.tabItems.length;
 
-              _this4.widthOfList();
+              _this5.widthOfList();
             }, 1000);
           }
         }]);

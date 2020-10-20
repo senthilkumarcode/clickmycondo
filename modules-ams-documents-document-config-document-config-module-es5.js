@@ -1374,7 +1374,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
           }
         }, {
           key: "getBlockDetails",
@@ -1978,6 +1978,9 @@
           value: function ngOnInit() {
             var _this9 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this9.timeZone = timeZone;
+            });
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: this.sessionService.apartmentId
@@ -2229,65 +2232,57 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Document */
       "./src/app/api/controllers/Document.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/api/controllers/FileDetails */
-      "./src/app/api/controllers/FileDetails.ts");
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/file-download.service */
       "./src/app/shared/services/file-download.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _document_create_document_create_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ../../document-create/document-create.component */
       "./src/app/modules/ams/documents/document-config/document-create/document-create.component.ts");
 
       var DocumentDownloadComponent = /*#__PURE__*/function () {
-        function DocumentDownloadComponent(router, route, lookupService, documentService, fileDetailsService, sessionService, sanitizer, fileDownloadService, dialog, changeDetection) {
+        function DocumentDownloadComponent(route, documentService, sharedService, sessionService, sanitizer, fileDownloadService, dialog, changeDetection) {
           _classCallCheck(this, DocumentDownloadComponent);
 
-          this.router = router;
           this.route = route;
-          this.lookupService = lookupService;
           this.documentService = documentService;
-          this.fileDetailsService = fileDetailsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.sanitizer = sanitizer;
           this.fileDownloadService = fileDownloadService;
@@ -2309,7 +2304,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format('YYYY-MM-DD');
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
           }
         }, {
           key: "isAdmin",
@@ -2322,7 +2317,7 @@
           value: function openUploadModal() {
             var _this11 = this;
 
-            var dialogRef = this.dialog.open(_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_11__["DocumentCreateComponent"], {
+            var dialogRef = this.dialog.open(_document_create_document_create_component__WEBPACK_IMPORTED_MODULE_10__["DocumentCreateComponent"], {
               panelClass: 'material-dialog-medium',
               data: {
                 from: 'public',
@@ -2375,6 +2370,12 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this14 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this14.timeZone = timeZone;
+            });
+
             if (this.route.params['value'].id != undefined && this.isMobileView()) {
               this.selectedTab = this.route.params['value'].id;
               this.getDocumentList();
@@ -2392,23 +2393,19 @@
 
       DocumentDownloadComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"]
         }, {
-          type: src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]
         }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__["FileDownloadService"]
+          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
@@ -2427,7 +2424,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./document-download.component.scss */
         "./src/app/modules/ams/documents/document-config/folder-lists/document-download/document-download.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_5__["DocumentService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_6__["FileDetailsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_8__["FileDownloadService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], DocumentDownloadComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Document__WEBPACK_IMPORTED_MODULE_4__["DocumentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_7__["FileDownloadService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], DocumentDownloadComponent);
       /***/
     },
 
@@ -2535,7 +2532,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.isCommmonDataLoaded = false; //Folder Upload List
 
@@ -2543,11 +2540,11 @@
               "ApartmentId": this.sessionService.apartmentId
             };
             this.documentService.getAllDocCountByCategory(adminCategory).subscribe(function (res) {
-              _this14.folderList = res;
-              _this14.totalItems = res.length;
-              _this14.isCommmonDataLoaded = true;
+              _this15.folderList = res;
+              _this15.totalItems = res.length;
+              _this15.isCommmonDataLoaded = true;
             }, function (error) {
-              _this14.isCommmonDataLoaded = true;
+              _this15.isCommmonDataLoaded = true;
             });
           }
         }]);

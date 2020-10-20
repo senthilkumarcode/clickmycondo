@@ -262,12 +262,6 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
         this.isAccountDataLoaded = false;
         this.isReverseSubmitted = true;
     }
-    getInvoiceDate(itr, date) {
-        underscore__WEBPACK_IMPORTED_MODULE_8__["each"](this.invoiceDataList, (obj, index) => {
-            obj.postedOn = moment__WEBPACK_IMPORTED_MODULE_9__(obj.custInvoiceDate).format("MM-DD-YYYY");
-        });
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format("MM-DD-YYYY");
-    }
     getAccountName(account) {
         var accountDetails = {
             glaccountId: 0
@@ -304,8 +298,8 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
     }
     getFieldParams(event) {
         this.isInvoiceDataFilterLoaded = false;
-        var postStartDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostStartDate).format('MM-DD-YYYY');
-        var postEndDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostEndDate).format('MM-DD-YYYY');
+        var postStartDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostStartDate).format(this.timeZone.date);
+        var postEndDate = moment__WEBPACK_IMPORTED_MODULE_9__(event.PostEndDate).format(this.timeZone.date);
         var params = {
             ApartmentBlockUnitID: this.route.params['value'].id,
             PostStartDate: postStartDate,
@@ -678,13 +672,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeTrackerFilterComponent", function() { return IncomeTrackerFilterComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
-    constructor() {
+    constructor(sharedService) {
+        this.sharedService = sharedService;
         this.Object = Object;
         this.labelColors = ['indigo', 'red', 'teal', 'purple', 'green', 'indigo'];
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -735,7 +732,7 @@ let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
         return true;
     }
     getInvoiceDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_2__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.time);
     }
     clearFilterItems() {
         this.resetFilter();
@@ -760,10 +757,13 @@ let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
         this.filter.receiptNo = null;
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.resetFilter();
     }
 };
-IncomeTrackerFilterComponent.ctorParameters = () => [];
+IncomeTrackerFilterComponent.ctorParameters = () => [
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"] }
+];
 IncomeTrackerFilterComponent.propDecorators = {
     fieldParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
 };
@@ -774,7 +774,7 @@ IncomeTrackerFilterComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-tracker-filter.component.scss */ "./src/app/modules/ams/income-tracker/income-invoice-history/income-tracker-filter/income-tracker-filter.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_2__["SharedService"]])
 ], IncomeTrackerFilterComponent);
 
 

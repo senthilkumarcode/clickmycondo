@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-ageing-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4>Account Ageing</h4>\n\t\t\t<h6 class=\"text-hint mt-1 mb-4\">{{totalInvoices}} Invoices</h6>\n\t\n\t\t\t<div class=\"bg-card shadow filter-box\">\n\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t\tclass=\"mr-3\" \n\t\t\t\t\t\t\t[ngClass]=\"dataType == 'DueAge' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t\t(click)=\"setDataType('DueAge')\">Due Age</button>\n\t\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t[ngClass]=\"dataType == 'InvoiceAge' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t(click)=\"setDataType('InvoiceAge')\">Invoice Age</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"account-chart-card d-md-flex m-2\">\n\t\t\t\t\t<div class=\"chart-box\" [ngClass]=\"!isChartLoaded ? 'hide-chart' : ''\">\n\t\t\t\t\t\t<canvas #incomePieChart></canvas>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"legends-list mt-md-3 mt-5\">\n\t\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-green-900 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">0 - 30 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem1 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-others-500 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">31 - 60 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem3 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-blue-900 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">61 - 90 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem4 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-red-900 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">Over 90 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem5 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\n\t\t\t<condo-card>\n\t\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Collection on each Unit</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t\t<p class=\"pt-3 text-hint\">Data as of Today ( {{asOfDate}} )</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ageingData\" >\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t\t<div class=\"table-accordion\" id=\"agingAccordion\">\n\t\t\t\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('towerUnit')\">Tower Unit Name <span [ngClass]=\"getFieldOrderBy('towerUnit')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('billToParty')\">0 - 30 Days<span [ngClass]=\"getFieldOrderBy('billToParty')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlockNumber')\">31 - 60 Days<span [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlockNumber')\">61 - 90 Days<span [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('due')\">Over 90 Days<span [ngClass]=\"getFieldOrderBy('due')\"></span></th>\n\t\t\t\t\t\t\t\t<th class=\"max-50 text-center\" scope=\"col\" (click)=\"sortUnitData('status')\">Total<span [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let ageing of ageingDataDataList | simpleSearch: ageingData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t\t\t\t\t<tr data-toggle=\"collapse\" attr.data-target=\"#collapse{{ageing.unitID}}\" aria-expanded=\"true\" attr.aria-controls=\"collapse{{ageing.unitID}}\" class=\"collapsed\">\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"toggle-icon\"></div>\n\t\t\t\t\t\t\t\t\t\t<span>{{ageing.towerUnit}}</span>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt1 + ageing.bucketAmt2}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount1 + ageing.bucketCount2}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt3}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount3}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt4}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount4}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt5}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount5}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt6 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr id=\"collapse{{ageing.unitID}}\" class=\"collapse\" attr.aria-labelledby=\"collapse{{ageing.unitID}}\" data-parent=\"#agingAccordion\">\n\t\t\t\t\t\t\t\t\t\t<td class=\"collapse-cell\" colspan=\"6\">\n\t\t\t\t\t\t\t\t\t\t\t<table class=\"table\">\n\t\t\t\t\t\t\t\t\t\t\t\t<tr class=\"details-wrapper\" *ngFor=\"let invoice of ageing.invoiceDetails\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"dots small low\"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Invoice ID</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"\">{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Invoice Amount</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.invoiceAmt | number: '1.2-2'}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Collection Amount</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.collectionAmt | number: '1.2-2'}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Due Date</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{getDate(invoice.dueDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\" *ngIf=\"dateType == 'DueAge'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Due Age</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.dueAge}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\" *ngIf=\"dateType != 'DueAge'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Invoice Age</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.invoiceAge}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Balance Amount</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.balanceAmt | number: '1.2-2'}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t\t\t</td> \n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t<tr class=\"bg-cool-gray-50\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">Total</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem1 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem3 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem4 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem5 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmount | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t\t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t\t</app-pagination>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\t\n\t\t</ng-container>\n\n\t</div>\n\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-ageing-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4>Account Ageing</h4>\n\t\t\t<h6 class=\"text-hint mt-1 mb-4\">{{totalInvoices}} Invoices</h6>\n\t\n\t\t\t<div class=\"bg-card shadow filter-box\">\n\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h6><mat-icon svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter By</h6>\n\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t<div class=\"ml-3\">\n\t\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t\tclass=\"mr-3\" \n\t\t\t\t\t\t\t[ngClass]=\"dataType == 'DueAge' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t\t(click)=\"setDataType('DueAge')\">Due Age</button>\n\t\t\t\t\t\t<button mat-flat-button \n\t\t\t\t\t\t[ngClass]=\"dataType == 'InvoiceAge' ? 'mat-primary' : 'mat-lined'\"  \n\t\t\t\t\t\t(click)=\"setDataType('InvoiceAge')\">Invoice Age</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t<div class=\"account-chart-card d-md-flex m-2\">\n\t\t\t\t\t<div class=\"chart-box\" [ngClass]=\"!isChartLoaded ? 'hide-chart' : ''\">\n\t\t\t\t\t\t<canvas #incomePieChart></canvas>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"legends-list mt-md-3 mt-5\">\n\t\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-green-900 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">0 - 30 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem1 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-others-500 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">31 - 60 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem3 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-blue-900 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">61 - 90 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem4 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div class=\"title\">\n\t\t\t\t\t\t\t\t<span class=\"dots small bg-red-900 mr-2\"></span>\n\t\t\t\t\t\t\t\t<span class=\"mr-5\">Over 90 days</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"text-secondary ml-auto\">{{totalAmountItem5 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\n\t\t\t<condo-card>\n\t\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Collection on each Unit</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t\t<p class=\"pt-3 text-hint\">Data as of Today ( {{getDate(asOfDate)}} )</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ageingData\" >\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div CondoCardBody>\n\t\n\t\t\t\t\t<div class=\"table-accordion\" id=\"agingAccordion\">\n\t\t\t\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t\t\t<thead>\n\t\t\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('towerUnit')\">Tower Unit Name <span [ngClass]=\"getFieldOrderBy('towerUnit')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('billToParty')\">0 - 30 Days<span [ngClass]=\"getFieldOrderBy('billToParty')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlockNumber')\">31 - 60 Days<span [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlockNumber')\">61 - 90 Days<span [ngClass]=\"getFieldOrderBy('apartmentBlockNumber')\"></span></th>\n\t\t\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('due')\">Over 90 Days<span [ngClass]=\"getFieldOrderBy('due')\"></span></th>\n\t\t\t\t\t\t\t\t<th class=\"max-50 text-center\" scope=\"col\" (click)=\"sortUnitData('status')\">Total<span [ngClass]=\"getFieldOrderBy('status')\"></span></th>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</thead>\n\t\t\t\t\t\t\t<tbody>\n\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let ageing of ageingDataDataList | simpleSearch: ageingData | sort : unitFieldType: unitOrder | slice:ItemStartIndex:ItemEndIndex ; let i = index\">\n\t\t\t\t\t\t\t\t\t<tr data-toggle=\"collapse\" attr.data-target=\"#collapse{{ageing.unitID}}\" aria-expanded=\"true\" attr.aria-controls=\"collapse{{ageing.unitID}}\" class=\"collapsed\">\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"toggle-icon\"></div>\n\t\t\t\t\t\t\t\t\t\t<span>{{ageing.towerUnit}}</span>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt1 + ageing.bucketAmt2}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount1 + ageing.bucketCount2}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt3}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount3}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt4}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount4}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt5}}</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"\">{{ageing.bucketCount5}} Invoices</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t<td class=\"name\">\n\t\t\t\t\t\t\t\t\t\t\t<div>{{ageing.bucketAmt6 | number: '1.2-2'}}</div>\n\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t<tr id=\"collapse{{ageing.unitID}}\" class=\"collapse\" attr.aria-labelledby=\"collapse{{ageing.unitID}}\" data-parent=\"#agingAccordion\">\n\t\t\t\t\t\t\t\t\t\t<td class=\"collapse-cell\" colspan=\"6\">\n\t\t\t\t\t\t\t\t\t\t\t<table class=\"table\">\n\t\t\t\t\t\t\t\t\t\t\t\t<tr class=\"details-wrapper\" *ngFor=\"let invoice of ageing.invoiceDetails\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"media\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-center\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"dots small low\"></span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"media-body\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Invoice ID</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"\">{{invoice.custInvoiceId}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Invoice Amount</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.invoiceAmt | number: '1.2-2'}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Collection Amount</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.collectionAmt | number: '1.2-2'}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Due Date</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{getDateTime(invoice.dueDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\" *ngIf=\"dateType == 'DueAge'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Due Age</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.dueAge}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\" *ngIf=\"dateType != 'DueAge'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Invoice Age</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.invoiceAge}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<td class=\"details-info\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"head\">Balance Amount</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\" desp\">{{invoice.balanceAmt | number: '1.2-2'}}</p>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t\t\t\t</table>\n\t\t\t\t\t\t\t\t\t\t</td> \n\t\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t<tr class=\"bg-cool-gray-50\" *ngIf=\"isItemsAvailable()\">\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">Total</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem1 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem3 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem4 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmountItem5 | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t\t<td class=\"font-medium text-secondary\">{{totalAmount | number: '1.2-2'}}</td>\n\t\t\t\t\t\t\t\t</tr>\n\t\t\t\t\t\t\t</tbody>\n\t\t\t\t\t\t</table>\n\t\n\t\t\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t\t\t\t<p class=\"text-secondary p-4\">No Records Found</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<app-pagination \n\t\t\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t\t\t</app-pagination>\n\t\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</div>\n\t\n\t\t\t</condo-card>\n\t\n\t\t</ng-container>\n\n\t</div>\n\n\n</div>";
       /***/
     },
 
@@ -232,41 +232,58 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var chart_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var chart_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! chart.js */
       "./node_modules/chart.js/dist/Chart.js");
       /* harmony import */
 
 
-      var chart_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_4__);
+      var chart_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_5__);
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var IncomeTrackerAgeingComponent = /*#__PURE__*/function () {
-        function IncomeTrackerAgeingComponent(accountsService, sessionService) {
+        function IncomeTrackerAgeingComponent(accountsService, sharedService, sessionService) {
           _classCallCheck(this, IncomeTrackerAgeingComponent);
 
           this.accountsService = accountsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isDataLoaded = false;
           this.isChartLoaded = false;
@@ -303,7 +320,12 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.date);
+          }
+        }, {
+          key: "getDateTime",
+          value: function getDateTime(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -342,7 +364,7 @@
                   borderWidth: 0
                 }]
               };
-              _this.chart = new chart_js__WEBPACK_IMPORTED_MODULE_4__["Chart"](_this.chartRef.nativeElement, {
+              _this.chart = new chart_js__WEBPACK_IMPORTED_MODULE_5__["Chart"](_this.chartRef.nativeElement, {
                 type: 'doughnut',
                 data: data,
                 options: {
@@ -374,7 +396,7 @@
             this.totalAmountItem4Percent = 0;
             this.totalAmountItem5Percent = 0;
             this.totalInvoices = 0;
-            this.asOfDate = moment__WEBPACK_IMPORTED_MODULE_6__().format('MM-DD-YYYY'); // todays date
+            this.asOfDate = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(); // todays date
 
             var ageingParams = {
               ApartmentID: this.sessionService.apartmentId,
@@ -396,7 +418,7 @@
             this.accountsService.getArAgingCollectionDueSummary(ageingParams).subscribe(function (res) {
               _this2.isDataLoaded = true;
               _this2.ageingDataDataList = res;
-              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this2.ageingDataDataList, function (item) {
+              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this2.ageingDataDataList, function (item) {
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
               });
               _this2.totalItems = _this2.ageingDataDataList.length;
@@ -407,7 +429,7 @@
                 _this2.ItemEndIndex = _this2.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this2.ageingDataDataList, function (item, index) {
+              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this2.ageingDataDataList, function (item, index) {
                 _this2.totalInvoices = _this2.totalInvoices + item.bucketCount1 + item.bucketCount2 + item.bucketCount3 + item.bucketCount4 + item.bucketCount5;
                 _this2.totalAmountItem1 = _this2.totalAmountItem1 + item.bucketAmt1 + item.bucketAmt2;
                 _this2.totalAmountItem3 = _this2.totalAmountItem3 + item.bucketAmt3;
@@ -438,7 +460,12 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this3 = this;
+
             this.getAgeingData();
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this3.timeZone = timeZone;
+            });
           }
         }, {
           key: "ngAfterViewInit",
@@ -452,7 +479,9 @@
         return [{
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }];
       };
 
@@ -473,7 +502,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-tracker-ageing.component.scss */
         "./src/app/modules/ams/income-tracker/income-ageing/income-tracker-ageing.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])], IncomeTrackerAgeingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_2__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], IncomeTrackerAgeingComponent);
       /***/
     }
   }]);

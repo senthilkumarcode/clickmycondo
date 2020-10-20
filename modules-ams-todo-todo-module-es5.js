@@ -708,43 +708,43 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ../todo-create-dialog/todo-create-dialog.component */
       "./src/app/modules/ams/todo/todo-create-dialog/todo-create-dialog.component.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/TodoList */
       "./src/app/api/controllers/TodoList.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
       var TodoCreateComponent = /*#__PURE__*/function () {
         function TodoCreateComponent(meetingService, sessionService, sharedService, todoService, dialog, modalService) {
@@ -778,45 +778,47 @@
         _createClass(TodoCreateComponent, [{
           key: "getWidth",
           value: function getWidth() {
-            // if (document.body.offsetWidth < 800) {
-            //   return '90%';
-            // }
             return '100%';
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this7 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this7.timeZone = timeZone;
+            });
             this.getCategoryList();
             this.getMeetingList();
           }
         }, {
           key: "getCategoryList",
           value: function getCategoryList() {
-            var _this7 = this;
+            var _this8 = this;
 
             var getCategoryParam = {
               apartmentId: this.sessionService.apartmentId
             };
             this.todoService.getAllTodoListCategorysByApartmentId(getCategoryParam).subscribe(function (resp) {
-              _this7.categoryList = resp;
+              _this8.categoryList = resp;
             }, function (error) {});
           }
         }, {
           key: "appointmentClick",
           value: function appointmentClick(info) {
-            var _this8 = this;
+            var _this9 = this;
 
             if (info.event && info.event.extendedProps) {
               var data = JSON.parse(JSON.stringify(info.event.extendedProps));
               data['type'] = 'edit';
-              var dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__["TodoCreateDialogComponent"], {
+              var dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateDialogComponent"], {
                 width: 'auto',
                 height: 'auto',
                 data: data
               });
               dialogRef.afterClosed().subscribe(function (result) {
                 if (result) {
-                  _this8.getMeetingList();
+                  _this9.getMeetingList();
                 }
               });
             } else {
@@ -826,20 +828,20 @@
         }, {
           key: "appointmentAdd",
           value: function appointmentAdd(event) {
-            var _this9 = this;
+            var _this10 = this;
 
             // this.myScheduler.closeDialog();
             var data = {
               type: 'create'
             };
-            var dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_6__["TodoCreateDialogComponent"], {
+            var dialogRef = this.dialog.open(_todo_create_dialog_todo_create_dialog_component__WEBPACK_IMPORTED_MODULE_5__["TodoCreateDialogComponent"], {
               width: 'auto',
               height: 'auto',
               data: data
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this9.getMeetingList();
+                _this10.getMeetingList();
               }
             });
           }
@@ -849,7 +851,7 @@
         }, {
           key: "getMeetingList",
           value: function getMeetingList() {
-            var _this10 = this;
+            var _this11 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
@@ -858,34 +860,17 @@
             this.todoService.getTodoListByStaffId(params).subscribe(function (resp) {
               if (resp.length > 0) {
                 resp.forEach(function (data, i) {
-                  data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_4__(data.beginOn).format('YYYY-MM-DD'), " ").concat(data.fromTime);
-                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_4__(data.finishOn).format('YYYY-MM-DD'), " ").concat(data.toTime);
+                  data.start = "".concat(moment__WEBPACK_IMPORTED_MODULE_9__(data.beginOn).format(_this11.timeZone.time), " ").concat(data.fromTime);
+                  data.end = "".concat(moment__WEBPACK_IMPORTED_MODULE_9__(data.finishOn).format(_this11.timeZone.time), " ").concat(data.toTime);
                   data.color = 'red';
                 });
-                _this10.calendarOptions.events = resp; //this.resources.source = new jqx.dataAdapter(this.source);
+                _this11.calendarOptions.events = resp; //this.resources.source = new jqx.dataAdapter(this.source);
               }
             });
-          } // formStartDate(data){
-          //   let year  = moment(data).year();
-          //   let month  = moment(data).month();
-          //   let date  = moment(data).date();
-          //   let startHours  = moment(data,'HH:mm').hour();
-          //   let startMin  = moment(data,'HH:mm').minute();
-          //   return new Date(year,month,date,startHours,startMin)
-          // }
-          // formEndDate(data){
-          //   let year  = moment(data).year();
-          //   let month  = moment(data).month();
-          //   let date  = moment(data).date();
-          //   let endHours  = moment(data,'HH:mm').hour();
-          //   let endMin  = moment(data,'HH:mm').minute();
-          //   return new Date(year,month,date,endHours,endMin);
-          // }
-
+          }
         }, {
           key: "ngAfterViewInit",
-          value: function ngAfterViewInit() {// this.myScheduler.ensureAppointmentVisible('id1');
-          }
+          value: function ngAfterViewInit() {}
         }]);
 
         return TodoCreateComponent;
@@ -897,13 +882,13 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }, {
-          type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__["TodoListService"]
+          type: src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__["TodoListService"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]
         }, {
-          type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]
+          type: src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]
         }];
       };
 
@@ -915,7 +900,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./todo-create.component.scss */
         "./src/app/modules/ams/todo/todo-create/todo-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_7__["TodoListService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]])], TodoCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Meeting__WEBPACK_IMPORTED_MODULE_3__["MeetingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_api_controllers_TodoList__WEBPACK_IMPORTED_MODULE_6__["TodoListService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]])], TodoCreateComponent);
       /***/
     },
 
@@ -1064,7 +1049,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this11 = this;
+            var _this12 = this;
 
             if (this.todoHistorySearch != "") {
               var filtergroup = new jqx.filter();
@@ -1077,7 +1062,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.todoListHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1088,7 +1073,7 @@
         }, {
           key: "getTodoHistory",
           value: function getTodoHistory() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.isDataLoaded = false;
             var getTodoParam = {
@@ -1098,13 +1083,13 @@
               var localData = resp.filter(function (data) {
                 return data.isActive;
               });
-              _this12.gridSourceData = {
+              _this13.gridSourceData = {
                 localdata: localData,
                 datatype: "array"
               };
-              _this12.todoList = new jqx.dataAdapter(_this12.gridSourceData);
-              _this12.totalItems = localData.length;
-              _this12.isDataLoaded = true;
+              _this13.todoList = new jqx.dataAdapter(_this13.gridSourceData);
+              _this13.totalItems = localData.length;
+              _this13.isDataLoaded = true;
             }, function (error) {});
           }
         }]);
@@ -1256,7 +1241,7 @@
         _createClass(TodoListComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.stepperList = [{
               id: 216,
@@ -1279,15 +1264,15 @@
               if (item != null) {
                 var deleteParam = {
                   todoListId: item,
-                  deleteBy: parseInt(_this13.sessionService.userId)
+                  deleteBy: parseInt(_this14.sessionService.userId)
                 };
 
-                _this13.todoService.deleteTodoList(deleteParam).subscribe(function (resp) {
-                  _this13.sharedService.setAlertMessage("Todo Deleted successfully");
+                _this14.todoService.deleteTodoList(deleteParam).subscribe(function (resp) {
+                  _this14.sharedService.setAlertMessage("Todo Deleted successfully");
 
-                  _this13.sharedService.setUnitListDeleteIndex(null);
+                  _this14.sharedService.setUnitListDeleteIndex(null);
 
-                  _this13.getTodoList();
+                  _this14.getTodoList();
                 }, function (error) {});
               }
             });
@@ -1296,26 +1281,26 @@
         }, {
           key: "getTodoList",
           value: function getTodoList() {
-            var _this14 = this;
+            var _this15 = this;
 
             var getList = {
               apartmentId: this.sessionService.apartmentId,
               staffId: 1
             };
             this.todoService.getTodoListByStaffId(getList).subscribe(function (resp) {
-              _this14.todoList = resp.filter(function (data) {
+              _this15.todoList = resp.filter(function (data) {
                 return data.isActive;
               });
-              _this14.rawTodoList = resp.filter(function (data) {
+              _this15.rawTodoList = resp.filter(function (data) {
                 return data.isActive;
               });
-              _this14.todoList = _this14.todoList.reverse();
+              _this15.todoList = _this15.todoList.reverse();
             }, function (error) {});
           }
         }, {
           key: "openEdit",
           value: function openEdit(id) {
-            var _this15 = this;
+            var _this16 = this;
 
             var data = {
               id: id,
@@ -1328,9 +1313,9 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this15.sharedService.setAlertMessage("Todo Updated successfully");
+                _this16.sharedService.setAlertMessage("Todo Updated successfully");
 
-                _this15.getTodoList();
+                _this16.getTodoList();
               }
             });
           }
@@ -1342,7 +1327,7 @@
         }, {
           key: "changeStatus",
           value: function changeStatus(obj, category) {
-            var _this16 = this;
+            var _this17 = this;
 
             var updateTodo = obj;
 
@@ -1360,9 +1345,9 @@
               todoListModel: updateTodo
             };
             this.todoService.updateTodoList(updateTodoParam).subscribe(function (resp) {
-              _this16.sharedService.setAlertMessage("Todo Status Changed successfully");
+              _this17.sharedService.setAlertMessage("Todo Status Changed successfully");
 
-              _this16.getTodoList();
+              _this17.getTodoList();
             });
           }
         }, {
@@ -1522,13 +1507,13 @@
         }, {
           key: "getCategory",
           value: function getCategory() {
-            var _this17 = this;
+            var _this18 = this;
 
             var getCategoryParam = {
               apartmentId: this.sessionService.apartmentId
             };
             this.todoService.getAllTodoListCategorysByApartmentId(getCategoryParam).subscribe(function (resp) {
-              _this17.categoryList = resp.filter(function (key) {
+              _this18.categoryList = resp.filter(function (key) {
                 return key.isActive;
               });
             }, function (error) {});
@@ -1556,27 +1541,27 @@
         }, {
           key: "getTodoHistory",
           value: function getTodoHistory() {
-            var _this18 = this;
+            var _this19 = this;
 
             this.isTodoLoaded = false;
             var getTodoParam = {
               apartmentId: this.sessionService.apartmentId
             };
             this.todoService.getAllTodoLists(getTodoParam).subscribe(function (resp) {
-              _this18.todoReminderList = resp.filter(function (data) {
+              _this19.todoReminderList = resp.filter(function (data) {
                 return data.isActive && data.priorityId === 205;
               });
-              _this18.rawTodoReminderList = resp.filter(function (data) {
+              _this19.rawTodoReminderList = resp.filter(function (data) {
                 return data.isActive;
               });
-              _this18.isTodoLoaded = true;
-              _this18.totalItems = _this18.todoReminderList.length;
+              _this19.isTodoLoaded = true;
+              _this19.totalItems = _this19.todoReminderList.length;
             }, function (error) {});
           }
         }, {
           key: "changeStatus",
           value: function changeStatus(obj, category) {
-            var _this19 = this;
+            var _this20 = this;
 
             var updateTodo = obj;
 
@@ -1594,7 +1579,7 @@
               todoListModel: updateTodo
             };
             this.todoService.updateTodoList(updateTodoParam).subscribe(function (resp) {
-              _this19.getTodoHistory();
+              _this20.getTodoHistory();
             });
           }
         }, {
@@ -1895,20 +1880,20 @@
         _createClass(TodoSetupComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.getCategoryList();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var deleteCategoryParam = {
                   todoListCategoryId: id,
-                  deleteBy: _this20.sessionService.userId
+                  deleteBy: _this21.sessionService.userId
                 };
 
-                _this20.todoService.deleteTodoListCategory(deleteCategoryParam).subscribe(function (resp) {
-                  _this20.sharedService.openSnackBar('Todo Category Deleted Successfully', 'success');
+                _this21.todoService.deleteTodoListCategory(deleteCategoryParam).subscribe(function (resp) {
+                  _this21.sharedService.openSnackBar('Todo Category Deleted Successfully', 'success');
 
-                  _this20.getCategoryList();
+                  _this21.getCategoryList();
                 });
               }
             });
@@ -1921,13 +1906,13 @@
         }, {
           key: "getCategoryList",
           value: function getCategoryList() {
-            var _this21 = this;
+            var _this22 = this;
 
             var getCategoryParam = {
               apartmentId: this.sessionService.apartmentId
             };
             this.todoService.getAllTodoListCategorysByApartmentId(getCategoryParam).subscribe(function (resp) {
-              _this21.categoryList = resp;
+              _this22.categoryList = resp;
             }, function (error) {});
           }
         }, {
@@ -1940,7 +1925,7 @@
         }, {
           key: "editCategory",
           value: function editCategory(id) {
-            var _this22 = this;
+            var _this23 = this;
 
             var getCategoryParam = {
               apartmentId: this.sessionService.apartmentId,
@@ -1950,18 +1935,18 @@
               var data = resp[0];
 
               for (var key in data) {
-                _this22.category[key] = data[key];
+                _this23.category[key] = data[key];
               }
 
-              _this22.isEdit = true;
+              _this23.isEdit = true;
 
-              _this22.addTodoCategory.toggle();
+              _this23.addTodoCategory.toggle();
             }, function (error) {});
           }
         }, {
           key: "submitCategory",
           value: function submitCategory() {
-            var _this23 = this;
+            var _this24 = this;
 
             if (this.addTodoCategory.valid) {
               if (this.isEdit) {
@@ -1973,9 +1958,9 @@
                   todoListCategoryModel: this.category
                 };
                 this.todoService.updateTodoListCategory(updateCategory).subscribe(function (resp) {
-                  _this23.sharedService.openSnackBar('Category Updated Successfully', 'success');
+                  _this24.sharedService.openSnackBar('Category Updated Successfully', 'success');
 
-                  _this23.getCategoryList();
+                  _this24.getCategoryList();
                 }, function (errro) {});
               } else {
                 this.category.insertedBy = parseInt(this.sessionService.userId);
@@ -1986,9 +1971,9 @@
                   todoListCategoryModel: this.category
                 };
                 this.todoService.addTodoListCategory(createCategoryParam).subscribe(function (resp) {
-                  _this23.sharedService.openSnackBar('Category Created Successfully', 'success');
+                  _this24.sharedService.openSnackBar('Category Created Successfully', 'success');
 
-                  _this23.getCategoryList();
+                  _this24.getCategoryList();
                 }, function (errro) {});
               }
             } else {

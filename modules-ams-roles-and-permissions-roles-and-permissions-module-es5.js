@@ -1451,7 +1451,7 @@
               secLevelId: parseInt(this.secLevelId)
             };
             this.screenService.getMenuFunctionByRoleIdMultiFilter(queryParamBase).subscribe(function (resp) {
-              _this14.menuList = resp;
+              _this14.menuList = resp.responseData.value;
 
               if (_this14.menuList && _this14.menuList.length) {
                 _this14.selectedMenuName = _this14.menuList[0].menuName;

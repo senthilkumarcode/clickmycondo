@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div class=\"d-flex align-items-center\">\n                    <h4>Add Violation</h4>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <select class=\"form-control\" name=\"selectedCategory\" placeholder=\"Search Category\" [(ngModel)]=\"selectedCategory\" >\n                        <option *ngFor=\"let item of categoryList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                    </select>\n                </div>\n                <div class=\"mr-2\">\n                    <button mat-flat-button [disabled]=\"!selectedCategory\" (click)=\"openCategory()\" [color]=\"'primary'\">Open</button>\n                </div>\n            </div>\n            <!-- <div class=\"row\">\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchWorkPermit()\" role=\"button\" data-toggle=\"dropdown\" id=\"addWorkPermits\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search WorkPermits</span>\n                </a>        \n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchFacility()\" role=\"button\" data-toggle=\"dropdown\" id=\"addFacility\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Facility Booking</span>\n                </a>\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchparkingSlot()\" role=\"button\" data-toggle=\"dropdown\" id=\"addParking\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Parking Slots</span>\n                </a>\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchBlockUnit()\" role=\"button\" data-toggle=\"dropdown\" id=\"addBlockUnit\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Block/Unit</span>\n                </a>\n            </div> -->\n        </div>\n        <div CondoCardBody>\n            <form #createDirectoryTypeForm=\"ngForm\" class=\"p-5\" name=\"createDirectoryTypeForm\" novalidate>\n\n                <div class=\"row\">\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Primary Contact Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"primaryContactName\"\n                                [(ngModel)]=\"violationData.primaryContactName\"\n                                value=\"{{violationData.primaryContactName}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Unit / Tower</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"UnitTower\"\n                                [(ngModel)]=\"violationData.UnitTower\" value=\"{{violationData.UnitTower}}\">\n                        </div>\n                    </div>\n                </div>\n                <!-- <mat-divider></mat-divider> -->\n                <div class=\"row\">\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Violation Category</label>\n                            <select name=\"violationCategory\" id=\"violationCategory\" class=\"form-control\" required\n                                [(ngModel)]=\"violationData.violationCategory\" (change)=\"onChangeCategoryID($event)\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                                item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Violation Rule No</label>\n                            <select name=\"violationRuleNo\" id=\"violationRuleNo\" class=\"form-control\" required\n                                [(ngModel)]=\"violationData.violationRuleNo\" (change)=\"onChangeCategoryID($event)\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ruleListData\" [value]=\"item.id\">{{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationComments\"\n                                [(ngModel)]=\"violationData.violationComments\"\n                                value=\"{{violationData.violationComments}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Notice On</label>\n                            <app-simple-date-box [(ngModel)]=\"violationData.violationNoticedOn\"\n                                [dateModel]=\"violationNoticedOn\"\n                                (inputChange)=\"onDateChange($event, 'violationNoticedOn')\"></app-simple-date-box>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Occurence</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationOccurence\"\n                                [(ngModel)]=\"violationData.violationOccurence\"\n                                value=\"{{violationData.violationOccurence}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Unit Owner Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitOwnerName\"\n                                [(ngModel)]=\"violationData.unitOwnerName\" value=\"{{violationData.unitOwnerName}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Penality Amount</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"penaltyAmt\"\n                                [(ngModel)]=\"violationData.penaltyAmt\" value=\"{{violationData.penaltyAmt}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Raised By</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"raisedBy\"\n                                [(ngModel)]=\"violationData.raisedBy\" value=\"{{violationData.raisedBy}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Invoice No</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceNo\"\n                                [(ngModel)]=\"violationData.invoiceNo\" value=\"{{violationData.invoiceNo}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Invoice Trigger</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceTrigger\" readonly\n                                [(ngModel)]=\"violationData.invoiceTrigger\" value=\"{{violationData.invoiceTrigger}}\">\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-md-12 col-xs-12 col-sm-12 d-flex justify-content-end\">\n                        <button [disabled]=\"createDirectoryTypeForm.invalid\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"onSubmit()\">Submit</button>\n                    </div>\n                </div>\n\n            </form>\n        </div>\n    </condo-card>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div class=\"d-flex align-items-center\">\n                    <h4>Add Violation</h4>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <select class=\"form-control\" name=\"selectedCategory\" placeholder=\"Search Category\" [(ngModel)]=\"selectedCategory\" >\n                        <option *ngFor=\"let item of categoryList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                    </select>\n                </div>\n                <div class=\"mr-2\">\n                    <button mat-flat-button [disabled]=\"!selectedCategory\" (click)=\"openCategory()\" [color]=\"'primary'\">Open</button>\n                </div>\n            </div>\n            <!-- <div class=\"row\">\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchWorkPermit()\" role=\"button\" data-toggle=\"dropdown\" id=\"addWorkPermits\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search WorkPermits</span>\n                </a>        \n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchFacility()\" role=\"button\" data-toggle=\"dropdown\" id=\"addFacility\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Facility Booking</span>\n                </a>\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchparkingSlot()\" role=\"button\" data-toggle=\"dropdown\" id=\"addParking\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Parking Slots</span>\n                </a>\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchBlockUnit()\" role=\"button\" data-toggle=\"dropdown\" id=\"addBlockUnit\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Block/Unit</span>\n                </a>\n            </div> -->\n        </div>\n        <div CondoCardBody>\n            <form #createDirectoryTypeForm=\"ngForm\" class=\"p-5\" name=\"createDirectoryTypeForm\" novalidate>\n\n                <div class=\"row\">\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Primary Contact Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"primaryContactName\"\n                                [(ngModel)]=\"violationData.primaryContactName\"\n                                value=\"{{violationData.primaryContactName}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Unit / Tower</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"UnitTower\"\n                                [(ngModel)]=\"violationData.UnitTower\" value=\"{{violationData.UnitTower}}\">\n                        </div>\n                    </div>\n                </div>\n                <!-- <mat-divider></mat-divider> -->\n                <div class=\"row\">\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Violation Category</label>\n                            <select name=\"violationCategory\" id=\"violationCategory\" class=\"form-control\" required\n                                [(ngModel)]=\"violationData.violationCategory\" (change)=\"onChangeCategoryID($event)\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                                item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Violation Rule No</label>\n                            <select name=\"violationRuleNo\" id=\"violationRuleNo\" class=\"form-control\" required\n                                [(ngModel)]=\"violationData.violationRuleNo\" (change)=\"onChangeCategoryID($event)\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ruleListData\" [value]=\"item.id\">{{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationComments\"\n                                [(ngModel)]=\"violationData.violationComments\"\n                                value=\"{{violationData.violationComments}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Notice On</label>\n                            <!-- <app-simple-date-box [(ngModel)]=\"violationData.violationNoticedOn\" name=\"violationNotice\"\n                                [dateModel]=\"violationNoticedOn\"\n                                (inputChange)=\"onDateChange($event, 'violationNoticedOn')\"></app-simple-date-box> -->\n                                    <input class=\"form-control\" name=\"violationNotice\" [owlDateTime]=\"violationNotice\" [owlDateTimeTrigger]=\"violationNotice\"\n                                      placeholder=\"Date\" [(ngModel)]=\"violationData.violationNoticedOn\" required>\n                                    <owl-date-time #violationNotice [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"violationNotice\">\n                                      <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                    </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Occurence</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationOccurence\"\n                                [(ngModel)]=\"violationData.violationOccurence\"\n                                value=\"{{violationData.violationOccurence}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Unit Owner Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitOwnerName\"\n                                [(ngModel)]=\"violationData.unitOwnerName\" value=\"{{violationData.unitOwnerName}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Penality Amount</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"penaltyAmt\"\n                                [(ngModel)]=\"violationData.penaltyAmt\" value=\"{{violationData.penaltyAmt}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Raised By</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"raisedBy\"\n                                [(ngModel)]=\"violationData.raisedBy\" value=\"{{violationData.raisedBy}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Invoice No</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceNo\"\n                                [(ngModel)]=\"violationData.invoiceNo\" value=\"{{violationData.invoiceNo}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Invoice Trigger</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceTrigger\" readonly\n                                [(ngModel)]=\"violationData.invoiceTrigger\" value=\"{{violationData.invoiceTrigger}}\">\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-md-12 col-xs-12 col-sm-12 d-flex justify-content-end\">\n                        <button [disabled]=\"createDirectoryTypeForm.invalid\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"onSubmit()\">Submit</button>\n                    </div>\n                </div>\n\n            </form>\n        </div>\n    </condo-card>\n</div>");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-5\">\n  <div class=\"card-header\">\n    <div mat-dialog-content>\n\n      <div class=\"row d-flex justify-content-between\">\n        <h2 mat-dialog-title>Search WorkPermits</h2>\n        <button mat-icon-button color=\"primary\" mat-dialog-close class=\"pull-right lh0 h0 w20\">\n          <mat-icon>close</mat-icon>\n        </button>\n      </div>\n\n\n      <form #searchForm = \"ngForm\" name=\"searchForm\" (ngSubmit)=\"submitsearchForm(searchForm)\"  novalidate>\n\n        <div class=\"row p-category\">\n       \n          <div class=\"col-sm-6\">\n            <div class=\"select-box\">\n              <label>Tower No</label>\n              <select name=\"blockNo\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"workPermit.blockId\">\n                <option value=\"\" disabled selected>Select</option>\n                <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n              </select>\n            </div>\n\n          </div>\n\n          <div class=\"col-sm-2\">\n            <div class=\"input-box p-4  mt-5\">\n              <button class=\"btn blue mr-2\">Submit</button>\n            </div>\n          </div>\n        </div>\n      </form>\n      <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n      <ng-container *ngIf=\"allWorkPermit != null\">\n\n        <table class=\"table shrink-table-facility\" [ngClass]=\"isMobileView()\">\n          <thead>\n            <tr>\n              <th scope=\"col\" class=\"p-4\">ID<span></span></th>\n              <th scope=\"col\" class=\"p-4\">WPCategory <span></span></th>\n              <th scope=\"col\" class=\"p-4\">WpTitle <span></span></th>\n              <th scope=\"col\" class=\"p-4\">Resident Name<span></span></th>\n              <th scope=\"col\" class=\"p-4\">Tower-Unit<span></span></th>\n              <th scope=\"col\" class=\"p-4\">Start date<span></span></th>\n              <th scope=\"col\" class=\"p-4\">End date<span></span></th>\n              <th scope=\"col\" class=\"p-4\">Status<span></span></th>\n              <th scope=\"col\" class=\"p-4\">Action</th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let facility of allWorkPermit | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n              <td class=\"name p-4\">{{facility.workPermitId}}</td>\n              <td class=\"grey p-4\">{{facility.workPermitType}}</td>\n              <td class=\"grey p-4\">{{facility.wptitle}}</td>\n              <td class=\"grey p-4\">{{facility.residentName}}</td>\n              <td class=\"grey p-4\">{{facility.apartmentBlockNumber}}{{facility.apartmentBlockUnitNumber}}</td>\n              <td class=\"grey p-4\">{{facility.startDate | date: 'dd-MM-yyyy'}}</td>\n              <td class=\"grey p-4\">{{facility.endDate | date: 'dd-MM-yyyy' }}</td>\n              <td class=\"grey p-4\">{{facility.status }}</td>\n              <td class=\"grey p-4\">\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\" (click)=\"onSelect(facility)\"\n                  role=\"button\" id=\"addWorkPermits\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                  <span>Select</span>\n                </a>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n\n\n\n      </ng-container>\n\n\n\n    </div>\n\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n  <condo-card>\n      <div CondoCardHeader>\n          <div class=\"d-flex\">\n              <div>\n                  <h4>Search WorkPermits</h4>\n                  <p>{{totalItems}} results</p>\n              </div>\n              <div class=\"ml-auto mr-3\">\n                  <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n              </div>\n              <div class=\"mr-3\">\n                <select name=\"blockNo\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"workPermit.blockId\">\n                  <option value=\"\" disabled selected>Select</option>\n                  <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                </select>\n              </div>\n              <div>\n                  <button mat-flat-button [color]=\"'primary'\" (click)=\"submitsearchForm()\">\n                     Submit\n                  </button>\n              </div>\n          </div>\n      </div>\n      <div CondoCardBody>\n          <!-- Loader -->\n          <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n          <div *ngIf=\"!isDataLoaded\">\n              <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                  [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\"\n                  [columns]=\"workPermitHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n              </jqxGrid>\n          </div>\n      </div>\n  </condo-card>\n</div>\n\n");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mb-5\">\n  <div class=\"card-header\">\n\n    <div mat-dialog-content>\n\n      <div class=\"row d-flex justify-content-between\">\n        <h2 mat-dialog-title>Search BlockUnits</h2>\n        <button mat-icon-button color=\"primary\" mat-dialog-close class=\"pull-right lh0 h0 w20\">\n          <mat-icon>close</mat-icon>\n        </button>\n      </div>\n\n      <form #searchForm=\"ngForm\" name=\"searchForm\" (ngSubmit)=\"submitsearchForm(searchForm)\" novalidate>\n\n        <div class=\"row p-category\">\n          <div class=\"\n            col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name/Unit</label>\n\n\n              <ul class=\"list-inline\">\n                <li class=\"list-inline-item search d-none d-md-inline-block\">\n                  <i class=\"fa fa-search\" aria-hidden=\"true\"></i>\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" name=\"keywords\" [(ngModel)]=\"blockunit.keywords\"\n                    value=\"{{blockunit.keywords}}\" >\n                </li>\n              </ul>\n\n\n            </div>\n          </div>\n\n          <div class=\"col-sm-6\">\n            <div class=\"select-box\">\n              <label>Tower No</label>\n              <select name=\"blockNo\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockunit.blockId\">\n                <option value=\"\" disabled selected>Select</option>\n                <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n              </select>\n            </div>\n            <!-- <div class=\"input-box\">\n              <label>BlockNo</label>\n              \n            \n              <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"vehicleNo\" [(ngModel)]=\"parkingSlot.vehicleNo\"\n              value=\"{{parkingSlot.vehicleNo}}\" required>\n            </div> -->\n          </div>\n\n          <div class=\"col-sm-2\">\n            <div class=\"input-box p-4  mt-5\">\n              <button class=\"btn blue mr-2\">Submit</button>\n            </div>\n          </div>\n        </div>\n      </form>\n      <div class=\"card-body p-0\">\n        <div class=\"scrolling outer\">\n          \t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n          <ng-container *ngIf=\"allBlockUnit !=null\">\n            <div class=\"inner\">\n\n              <table class=\"table\" *ngIf=\"!isDataLoaded\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th scope=\"col\" class=\"p-4\">ID<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Name <span></span></th>\n\n                    <th scope=\"col\" class=\"p-4\">Unit/Tower<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Action</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let block of allBlockUnit; let i = index\">\n                    <td class=\"name GREY\">{{i+1}}</td>\n                    <!-- <td class=\"grey p-4\">{{block.userName}}</td> -->\n                    <td class=\"grey\">{{block.userName}}</td>\n                    <td class=\"grey\">{{block.apartmentBlockUnitNumber}}/{{block.apartmentBlockNumber}}</td>\n                    <td class=\"grey\">\n                      <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\" (click)=\"onSelect(block)\"\n                        role=\"button\" id=\"addWorkPermits\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span>Select</span>\n                      </a>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n\n            </div>\n            <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"1\" [ItemEndIndex]=\"10\" [itemLimit]=\"5\"\n              (outputParams)=\"1\">\n            </app-pagination>\n          </ng-container>\n        </div>\n      </div>\n\n\n\n\n\n\n\n\n    </div>\n\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n  <condo-card>\n      <div CondoCardHeader>\n          <div class=\"d-flex\">\n              <div>\n                  <h4>Search BlockUnits</h4>\n                  <p>{{totalItems}} results</p>\n              </div>\n              <div class=\"ml-auto mr-3\">\n                  <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n              </div>\n              <div class=\"mr-3\">\n                <select name=\"blockNo\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"blockunit.blockId\">\n                  <option value=\"\" disabled selected>Select</option>\n                  <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                </select>\n              </div>\n              <div>\n                  <button mat-flat-button [color]=\"'primary'\" (click)=\"submitsearchForm()\">\n                     Submit\n                  </button>\n              </div>\n          </div>\n      </div>\n      <div CondoCardBody>\n          <!-- Loader -->\n          <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n          <div *ngIf=\"!isDataLoaded\">\n              <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                  [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"blockUnitList\"\n                  [columns]=\"bloackUnitHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n              </jqxGrid>\n          </div>\n      </div>\n  </condo-card>\n</div>\n\n\n\n");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"card mb-5\">\n    <div class=\"card-header\">\n\n\n<div mat-dialog-content>\n    <div class=\"row d-flex justify-content-between\">\n        <h2 mat-dialog-title>Search Facility</h2>\n    <button mat-icon-button color=\"primary\" mat-dialog-close class=\"pull-right lh0 h0 w20\">\n        <mat-icon>close</mat-icon>\n      </button>\n      </div>\n  <form #searchForm = \"ngForm\" name=\"searchForm\" (ngSubmit)=\"submitsearchForm(searchForm)\"  novalidate>\n\n      <div class=\"row p-category\">\n\n      \n          <div class=\"col-sm-6\">\n              <div class=\"select-box\">\n                <label>Tower No</label>\n                <select name=\"blockNo\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"facilitybook.blockId\">\n                  <option value=\"\" disabled selected>Select</option>\n                  <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                </select>\n              </div>\n\n            </div>\n      \n          <div class=\"col-sm-2\">\n            <div class=\"input-box p-4  mt-5\">\n              <button class=\"btn blue mr-2\">Submit</button>\n            </div>\n          </div>\n        </div>\n      </form>\n      <div class=\"card-body p-0\">\n        <!-- <div class=\"scrolling outer\"> -->\n          \t<app-loader *ngIf=\"isDataLoaded\"></app-loader>\n          <ng-container *ngIf=\"allFacility != null\">\n            <!-- <div class=\"inner\"> -->\n              <table class=\"table shrink-table-facility\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th scope=\"col\" class=\"p-4\">FacilityName<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Location <span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Resident Name <span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Block Unit <span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Event Name <span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Date<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Start time<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">End time<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Booked For Guest Name<span></span></th>\n                    <th scope=\"col\" class=\"p-4\">Action</th>\n                  </tr>\n                </thead>\n                <tbody>\n                  <tr *ngFor=\"let facility of allFacility | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                    <td class=\"name p-4\">{{facility.facilityName}}</td>\n                    <td class=\"grey p-4\">{{facility.location}}</td>\n                    <td class=\"grey p-4\">{{facility.residentName}}</td>\n                    <td class=\"grey p-4\">{{facility.residentName}}</td>\n                    <td class=\"grey p-4\">{{facility.eventName}}</td>\n                    <td class=\"grey p-4\">{{facility.bookedForDate | date: 'dd-MM-yyyy'}}</td>\n                    <td class=\"grey p-4\">{{facility.bookedFromTime  }}</td>\n                    <td class=\"grey p-4\">{{facility.bookedToTime  }}</td>\n                    <td class=\"grey p-4\">{{facility.guestName}}</td>\n                    <td class=\"grey p-4\">\n                      <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\" (click)=\"onSelect(facility)\"\n                        role=\"button\" id=\"addWorkPermits\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        <span>Select</span>\n                      </a>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n      \n            <!-- </div> -->\n            <app-pagination  [totalItems]=\"totalItems\"  \n                    [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex] = \"ItemEndIndex\"\n                    [itemLimit] = \"itemLimit\"\n                    (outputParams) = \"getIndexParams($event)\">\n                  </app-pagination>\n         \n          </ng-container>\n      \n        <!-- </div> -->\n      </div>\n    \n\n\n</div>\n\n</div>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n\n\n<div class=\"main\">\n  <condo-card>\n      <div CondoCardHeader>\n          <div class=\"d-flex\">\n              <div>\n                  <h4>Search Facility</h4>\n                  <p>{{totalItems}} results</p>\n              </div>\n              <div class=\"ml-auto mr-3\">\n                  <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n              </div>\n              <div class=\"mr-3\">\n                <select name=\"blockNo\" id=\"blockId\" class=\"form-control\" [(ngModel)]=\"facilitybook.blockId\">\n                  <option value=\"\" disabled selected>Select</option>\n                  <option *ngFor=\"let item of blockData\" [value]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                </select>\n              </div>\n              <div>\n                  <button mat-flat-button [color]=\"'primary'\" (click)=\"submitsearchForm()\">\n                     Submit\n                  </button>\n              </div>\n          </div>\n      </div>\n      <div CondoCardBody>\n          <!-- Loader -->\n          <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n          <div *ngIf=\"!isDataLoaded\">\n              <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                  [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"facilityList\"\n                  [columns]=\"facilityHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n              </jqxGrid>\n          </div>\n      </div>\n  </condo-card>\n</div>\n\n\n\n");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"workpermit-setup-wrapper\">\n\n    <div *ngIf=\"!isDataLoaded\" class=\"card clear form-group\" id=\"accordion\">\n        <div class=\"card-body p-0\">\n            <table class=\"table\" [ngClass]=\"isMobileView()\">\n                <tbody *ngFor=\"let item of allViolationListData; let i = index\">\n                    <tr class=\"accordion-toggle collapsed\" id=\"accordion1\" data-toggle=\"collapse\"\n                        data-parent=\"#accordion1\" [attr.href]=\"item.id\">\n\n                        <td colspan=\"8\">\n\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Violation Category & Occurence</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.violationCategory}} -\n                                        {{item.violationOccurrence}}</label>\n                                </div>\n                            </div>\n                            <div class='col-12 row table-row-2'>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Violation Rule No:</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.violationRuleId}}</label>\n                                </div>\n                            </div>\n                            <div class='col-12 row table-row-3'>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Violation Noticed No:</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.noticedOn | date: 'dd/MM/yyyy'}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Security Comments</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.tower_unitname}}</label>\n                                </div>\n                            </div>\n\n                        </td>\n                        <td colspan=\"2\">\n\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Raised by</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{item.raisedby}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row-2\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Raised on</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{item.insertedOn}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row-3\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Status</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{getdata(item.violationStatusId)}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Penalty Amount</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{item.penaltyAmt}}</label>\n                                </div>\n                            </div>\n                        </td>\n\n                        <td class=\"expand-button\">\n                            <div class=\"col-2 row table-row\">\n                       \n\n\n                            </div>\n                            <div class=\"col-2 row table-row-2\">\n                                <i class=\"fa fa-fw fa-chevron-down\"></i>\n                                <i class=\"fa fa-fw fa-chevron-up\"></i>\n                            </div>\n\n                        </td>\n                    </tr>\n                    <tr class=\"hide-table-padding\">\n                        <td colspan=\"5\">\n                            <div id=\"{{item.expand_id}}\" class=\"collapse in p-3\">\n\n                                <div class=\"row p-4 ml-2 mr-2\">\n\n                                    <a class=\"btn lime-green  col-12 btn-srch mr-2 btn-detail\" href=\"javascript:void(0)\"\n                                        (click)=\"openDispute(item)\" role=\"button\" data-toggle=\"dropdown\"\n                                        id=\"addParking\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                        <span>DISPUTE(Create Ticket)</span>\n                                    </a>\n\n\n\n                                    <div class=\"row clearfix col-12 mt-4\">\n                                        <div class=\"col-12\">\n                                            <label>Ticket ID</label><label>{{item.disputeId}}</label>\n                                        </div>\n                                        <div class=\"col-12\">\n                                            <label>Status</label><label>{{item.disputeStatus}}</label>\n                                        </div>\n                                        <div class=\"col-12\">\n                                            <label>Comments By\n                                                Admin:</label><label>{{item.disputeComments}}</label>\n                                        </div>\n\n\n\n\n                                    </div>\n\n\n\n                                </div>\n\n\n\n\n\n                            </div>\n                        </td>\n\n                    </tr>\n\n                </tbody>\n            </table>\n\n        </div>\n    </div>\n</div> -->\n<div class=\"payment-dues-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-3\">User Violation</h4>\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <ng-container *ngIf=\"!isDataLoaded\">\n            <ng-container *ngFor=\"let item of allViolationListData; let i = index\">\n                <div class=\"bg-card shadow mb-4\">\n                    <div class=\"dues d-flex align-items-center\">\n                        <div class=\"details\">\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Violation Category & Occurence</p>\n                                    <p class=\"text-secondary\">{{item.violationCategory}} -\n                                        {{item.violationOccurrence}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Tower / Unit</p>\n                                    <p class=\"text-secondary\">{{item.tower_unitname}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Raised on</p>\n                                    <p class=\"text-secondary\">{{item.insertedOn}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{getdata(item.violationStatusId)}}</p>\n                                </div>\n                            </div>\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Penalty Amount</p>\n                                    <p class=\"text-secondary\">{{item.penaltyAmt}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Violation Rule No</p>\n                                    <p class=\"text-secondary\">{{item.violationRuleId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Raised by</p>\n                                    <p class=\"text-secondary\">{{item.raisedby}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Violation Noticed No</p>\n                                    <p class=\"text-secondary\">{{item.noticedOn | date: 'dd/MM/yyyy'}}</p>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Ticket ID</p>\n                                    <p class=\"text-secondary\">{{item.disputeId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{item.disputeStatus}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Comments By</p>\n                                    <p class=\"text-secondary\">{{item.disputeComments}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <button mat-flat-button [color]=\"'primary'\"\n                                        (click)=\"openDispute(item)\">DISPUTE(Create\n                                        Ticket)</button>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </ng-container>\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </ng-container>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"workpermit-setup-wrapper\">\n\n    <div *ngIf=\"!isDataLoaded\" class=\"card clear form-group\" id=\"accordion\">\n        <div class=\"card-body p-0\">\n            <table class=\"table\" [ngClass]=\"isMobileView()\">\n                <tbody *ngFor=\"let item of allViolationListData; let i = index\">\n                    <tr class=\"accordion-toggle collapsed\" id=\"accordion1\" data-toggle=\"collapse\"\n                        data-parent=\"#accordion1\" [attr.href]=\"item.id\">\n\n                        <td colspan=\"8\">\n\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Violation Category & Occurence</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.violationCategory}} -\n                                        {{item.violationOccurrence}}</label>\n                                </div>\n                            </div>\n                            <div class='col-12 row table-row-2'>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Violation Rule No:</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.violationRuleId}}</label>\n                                </div>\n                            </div>\n                            <div class='col-12 row table-row-3'>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Violation Noticed No:</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.noticedOn | date: 'dd/MM/yyyy'}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Security Comments</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12 row-value\">{{item.tower_unitname}}</label>\n                                </div>\n                            </div>\n\n                        </td>\n                        <td colspan=\"2\">\n\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Raised by</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{item.raisedby}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row-2\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Raised on</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{item.insertedOn}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row-3\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Status</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{getdata(item.violationStatusId)}}</label>\n                                </div>\n                            </div>\n                            <div class=\"col-12 row table-row\">\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">Penalty Amount</label>\n                                </div>\n                                <div class=\"col-6 p-0\">\n                                    <label class=\"f12\">{{item.penaltyAmt}}</label>\n                                </div>\n                            </div>\n                        </td>\n\n                        <td class=\"expand-button\">\n                            <div class=\"col-2 row table-row\">\n                       \n\n\n                            </div>\n                            <div class=\"col-2 row table-row-2\">\n                                <i class=\"fa fa-fw fa-chevron-down\"></i>\n                                <i class=\"fa fa-fw fa-chevron-up\"></i>\n                            </div>\n\n                        </td>\n                    </tr>\n                    <tr class=\"hide-table-padding\">\n                        <td colspan=\"5\">\n                            <div id=\"{{item.expand_id}}\" class=\"collapse in p-3\">\n\n                                <div class=\"row p-4 ml-2 mr-2\">\n\n                                    <a class=\"btn lime-green  col-12 btn-srch mr-2 btn-detail\" href=\"javascript:void(0)\"\n                                        (click)=\"openDispute(item)\" role=\"button\" data-toggle=\"dropdown\"\n                                        id=\"addParking\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                                        <span>DISPUTE(Create Ticket)</span>\n                                    </a>\n\n\n\n                                    <div class=\"row clearfix col-12 mt-4\">\n                                        <div class=\"col-12\">\n                                            <label>Ticket ID</label><label>{{item.disputeId}}</label>\n                                        </div>\n                                        <div class=\"col-12\">\n                                            <label>Status</label><label>{{item.disputeStatus}}</label>\n                                        </div>\n                                        <div class=\"col-12\">\n                                            <label>Comments By\n                                                Admin:</label><label>{{item.disputeComments}}</label>\n                                        </div>\n\n\n\n\n                                    </div>\n\n\n\n                                </div>\n\n\n\n\n\n                            </div>\n                        </td>\n\n                    </tr>\n\n                </tbody>\n            </table>\n\n        </div>\n    </div>\n</div> -->\n<div class=\"payment-dues-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-3\">User Violation</h4>\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <ng-container *ngIf=\"!isDataLoaded\">\n            <ng-container *ngFor=\"let item of allViolationListData; let i = index\">\n                <div class=\"bg-card shadow mb-4\">\n                    <div class=\"dues d-flex align-items-center\">\n                        <div class=\"details\">\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Violation Category & Occurence</p>\n                                    <p class=\"text-secondary\">{{item.violationCategory}} -\n                                        {{item.violationOccurrence}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Tower / Unit</p>\n                                    <p class=\"text-secondary\">{{item.tower_unitname}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Raised on</p>\n                                    <p class=\"text-secondary\">{{item.insertedOn}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{getdata(item.violationStatusId)}}</p>\n                                </div>\n                            </div>\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Penalty Amount</p>\n                                    <p class=\"text-secondary\">{{item.penaltyAmt}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Violation Rule No</p>\n                                    <p class=\"text-secondary\">{{item.violationRuleId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Raised by</p>\n                                    <p class=\"text-secondary\">{{item.raisedby}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Violation Noticed No</p>\n                                    <p class=\"text-secondary\">{{getDate(item.noticedOn)}}</p>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Ticket ID</p>\n                                    <p class=\"text-secondary\">{{item.disputeId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{item.disputeStatus}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Comments By</p>\n                                    <p class=\"text-secondary\">{{item.disputeComments}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <button mat-flat-button [color]=\"'primary'\"\n                                        (click)=\"openDispute(item)\">DISPUTE(Create\n                                        Ticket)</button>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </ng-container>\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </ng-container>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -377,7 +377,7 @@ let AddViolationComponent = class AddViolationComponent {
     }
     openSearchFacility() {
         const dialogRef = this.dialog.open(_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_3__["SearchFacilityComponent"], {
-            width: '900px',
+            width: '80%',
             data: {
                 type: 'search-facility'
             }
@@ -391,7 +391,7 @@ let AddViolationComponent = class AddViolationComponent {
     }
     openSearchWorkPermit() {
         const dialogRef = this.dialog.open(_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_8__["SearcWorkpermitsComponent"], {
-            width: '900px',
+            width: '80%',
             data: {
                 type: 'search-workpermit'
             }
@@ -405,7 +405,7 @@ let AddViolationComponent = class AddViolationComponent {
     }
     openSearchparkingSlot() {
         const dialogRef = this.dialog.open(_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_9__["SearchParkingslotsComponent"], {
-            width: '900px',
+            width: '80%',
             data: {
                 type: 'search-facility'
             }
@@ -418,7 +418,7 @@ let AddViolationComponent = class AddViolationComponent {
     }
     openSearchBlockUnit() {
         const dialogRef = this.dialog.open(_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_10__["SearchBlockunitComponent"], {
-            width: '900px',
+            width: '80%',
             data: {
                 type: 'search-BlockUnit'
             }
@@ -553,7 +553,7 @@ let AddViolationComponent = class AddViolationComponent {
         };
         this.violationService.addViolations(params).subscribe((res) => {
             if (res) {
-                this.sharedService.setAlertMessage(res.message);
+                this.sharedService.openSnackBar(res.message, 'success');
                 this.violationData = {
                     primaryContactName: '',
                     UnitTower: '',
@@ -637,9 +637,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/WorkPermit */ "./src/app/api/controllers/WorkPermit.ts");
 /* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../../api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
 
 
 
@@ -649,10 +656,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
-    constructor(dialogRef, data, facilityService, sessionService, workpermitService, cookieService, apartmentService) {
+    constructor(dialogRef, data, facilityService, sharedService, sessionService, workpermitService, cookieService, apartmentService) {
         this.dialogRef = dialogRef;
         this.data = data;
         this.facilityService = facilityService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.workpermitService = workpermitService;
         this.cookieService = cookieService;
@@ -665,37 +673,113 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
         this.isDataLoaded = false;
         this.config = data;
     }
+    selectRow(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.outputEvent.emit(dataRecord);
+        this.dialogRef.close();
+    }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         // this.getWorkPermit();
         this.workPermit = {};
         this.workPermit.blockId = "";
         this.workPermit.keywords = "";
         let apartment_params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe((res) => {
             this.blockData = res;
         });
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.workPermitHeader = [
+            {
+                text: 'id',
+                datafield: 'workPermitId',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'WPCategory',
+                datafield: 'workPermitType',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'WpTitle',
+                datafield: 'wptitle',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Resident Name',
+                datafield: 'residentName',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Tower-Unit',
+                datafield: 'apartmentBlockNumber',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Start date',
+                datafield: 'startDate',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'End date',
+                datafield: 'endDate',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'Status',
+                datafield: 'status',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 100,
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions"><a href="javascript:void(0)" onClick="selectRow(' + row + ')" class="btn mat-primary">Select</a></div>';
+                },
+                renderer: columnrenderer
+            }
+        ];
     }
     close() {
         this.dialogRef.close(false);
     }
-    getWorkPermit() {
-        const params = {
-            apartmentId: this.sessionService.apartmentId,
-            active: 1
-        };
-        this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe((res) => {
-            this.allFacility = res;
-            this.totalItems = this.allFacility.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
-        });
-    }
+    // getWorkPermit(){
+    //   const params = {
+    //     apartmentId: this.sessionService.apartmentId,
+    //     active: 1
+    //   }
+    //   this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe((res:any) => {
+    //     this.allFacility = res;
+    //     this.totalItems = this.allFacility.length;
+    //     if(this.totalItems>this.itemLimit){
+    //       this.ItemEndIndex = this.itemLimit;
+    //     }
+    //     else {
+    //       this.ItemEndIndex = this.totalItems;
+    //     }
+    //   })
+    // }
     getFacilityName(id) {
         this.facilityService.getApartmentFacilityByFacilityId(id).subscribe((res) => {
             this.allFacility = res;
@@ -708,22 +792,21 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
         this.outputEvent.emit(facility);
         this.dialogRef.close();
     }
-    submitsearchForm(form) {
+    submitsearchForm() {
         this.isDataLoaded = true;
         const params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.sessionService.apartmentId,
             active: 1
         };
         this.workpermitService.getWorkPermitsByApartmentIdStatus(params).subscribe((res) => {
             this.allWorkPermit = res;
+            let gridSourceData = {
+                localdata: this.allWorkPermit,
+                datatype: "array"
+            };
+            this.workPermitList = new jqx.dataAdapter(gridSourceData);
             this.isDataLoaded = false;
-            this.totalItems = this.allFacility.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
+            this.totalItems = this.allWorkPermit.length;
         });
     }
     getIndexParams(event) {
@@ -746,13 +829,16 @@ SearcWorkpermitsComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
     { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
     { type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
-    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] }
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"] },
+    { type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] }
 ];
 SearcWorkpermitsComponent.propDecorators = {
-    outputEvent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+    outputEvent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    selectRow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:selectRow', ['$event.detail'],] }]
 };
 SearcWorkpermitsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -761,12 +847,22 @@ SearcWorkpermitsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./searc-workpermits.component.scss */ "./src/app/modules/ams/violation/components/add-violation/searc-workpermits/searc-workpermits.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
         src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
-        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]])
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"],
+        _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]])
 ], SearcWorkpermitsComponent);
 
+function selectRow(row) {
+    var event = new CustomEvent('selectRow', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.selectRow = selectRow;
 
 
 /***/ }),
@@ -798,12 +894,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
-/* harmony import */ var src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/WorkPermit */ "./src/app/api/controllers/WorkPermit.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 
 
 
@@ -813,15 +907,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SearchBlockunitComponent = class SearchBlockunitComponent {
-    constructor(dialogRef, data, facilityService, cookieService, userService, apartmentService, sessionService, workpermitService) {
+    constructor(dialogRef, data, facilityService, userService, apartmentService, sessionService) {
         this.dialogRef = dialogRef;
         this.data = data;
         this.facilityService = facilityService;
-        this.cookieService = cookieService;
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.sessionService = sessionService;
-        this.workpermitService = workpermitService;
         this.ItemStartIndex = 0;
         this.itemLimit = 20;
         this.unitFieldType = 'unitno';
@@ -829,6 +921,11 @@ let SearchBlockunitComponent = class SearchBlockunitComponent {
         this.outputEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isDataLoaded = false;
         this.config = data;
+    }
+    selectRow(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.outputEvent.emit(dataRecord);
+        this.dialogRef.close();
     }
     ngOnInit() {
         this.blockunit = {};
@@ -838,11 +935,47 @@ let SearchBlockunitComponent = class SearchBlockunitComponent {
         this.blockunit.keywords = "";
         // tslint:disable-next-line:variable-name
         let apartment_params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId'))
+            apartmentId: this.sessionService.apartmentId
         };
         this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe((res) => {
             this.blockData = res;
         });
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.blockUnitHeader = [
+            {
+                text: 'Name',
+                datafield: 'userName',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Unit',
+                datafield: 'apartmentBlockUnitNumber',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Tower',
+                datafield: 'apartmentBlockNumber',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 100,
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions"><a href="javascript:void(0)" onClick="selectRow(' + row + ')" class="btn mat-primary">Select</a></div>';
+                },
+                renderer: columnrenderer
+            }
+        ];
     }
     close() {
         this.dialogRef.close(false);
@@ -876,24 +1009,22 @@ let SearchBlockunitComponent = class SearchBlockunitComponent {
         this.outputEvent.emit(facility);
         this.dialogRef.close();
     }
-    submitsearchForm(form) {
+    submitsearchForm() {
         this.isDataLoaded = true;
         let params = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
-            roleids: this.cookieService.get('userId'),
+            ApartmentId: this.sessionService.apartmentId,
             blockids: this.blockunit.blockId,
             keyword: this.blockunit.keywords
         };
         this.userService.getUsersByKeyword(params).subscribe((res) => {
             this.allBlockUnit = res;
+            let gridSourceData = {
+                localdata: this.allBlockUnit,
+                datatype: "array"
+            };
+            this.blockUnitList = new jqx.dataAdapter(gridSourceData);
             this.isDataLoaded = false;
             this.totalItems = this.allBlockUnit.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
         });
     }
 };
@@ -901,14 +1032,14 @@ SearchBlockunitComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
     { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
-    { type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"] }
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 SearchBlockunitComponent.propDecorators = {
-    outputEvent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+    outputEvent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    selectRow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:selectRow', ['$event.detail'],] }]
 };
 SearchBlockunitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -917,13 +1048,20 @@ SearchBlockunitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./search-blockunit.component.scss */ "./src/app/modules/ams/violation/components/add-violation/search-blockunit/search-blockunit.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
-        src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"]])
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_5__["ApartmentService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], SearchBlockunitComponent);
 
+function selectRow(row) {
+    var event = new CustomEvent('selectRow', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.selectRow = selectRow;
 
 
 /***/ }),
@@ -955,8 +1093,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Facility */ "./src/app/api/controllers/Facility.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+
+
+
 
 
 
@@ -964,24 +1109,115 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SearchFacilityComponent = class SearchFacilityComponent {
-    constructor(dialogRef, data, facilityService, sessionService, cookieService) {
+    constructor(dialogRef, data, facilityService, sharedService, sessionService, apartmentService) {
         this.dialogRef = dialogRef;
         this.data = data;
         this.facilityService = facilityService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
-        this.cookieService = cookieService;
+        this.apartmentService = apartmentService;
         this.ItemStartIndex = 0;
         this.itemLimit = 5;
         this.unitFieldType = 'unitno';
         this.unitOrder = false;
         this.outputEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isDataLoaded = false;
+        this.blockData = [];
         this.config = data;
     }
+    selectRow(detail) {
+        let dataRecord = this.datagrid.getrowdata(detail.rowId);
+        this.outputEvent.emit(dataRecord);
+        this.dialogRef.close();
+    }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.facilitybook = {};
         this.facilitybook.blockId = "";
-        // this.getFacility();
+        let apartment_params = {
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe((res) => {
+            this.blockData = res;
+        });
+        var cellsrenderer = (row, column, value) => {
+            return '<div class="jqx-custom-inner-cell">' + value + '</div>';
+        };
+        var columnrenderer = (value) => {
+            return '<div style="padding: 14px">' + value + '</div>';
+        };
+        this.facilityHeader = [
+            {
+                text: 'FacilityName',
+                datafield: 'facilityName',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Location',
+                datafield: 'location',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Resident Name',
+                datafield: 'residentName',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            // {
+            //   text: 'Block Unit',
+            //   datafield: 'residentName',
+            //   cellsrenderer: cellsrenderer,
+            //   renderer: columnrenderer
+            // }, 
+            {
+                text: 'Event Name',
+                datafield: 'eventName',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Date',
+                datafield: 'bookedForDate',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'Start time',
+                datafield: 'bookedFromTime',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'End time',
+                datafield: 'bookedToTime',
+                cellsrenderer: (row, column, value) => {
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                },
+                renderer: columnrenderer
+            },
+            {
+                text: 'Booked For Guest Name',
+                datafield: 'guestName',
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Actions',
+                cellsalign: 'center',
+                align: 'center',
+                width: 100,
+                cellsrenderer: (row) => {
+                    return '<div class="simple-actions"><a href="javascript:void(0)" onClick="selectRow(' + row + ')" class="btn mat-primary">Select</a></div>';
+                },
+                renderer: columnrenderer
+            }
+        ];
     }
     close() {
         this.dialogRef.close(false);
@@ -991,6 +1227,9 @@ let SearchFacilityComponent = class SearchFacilityComponent {
             apartmentId: this.sessionService.apartmentId,
             active: 1
         };
+    }
+    getDate(value) {
+        return moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time);
     }
     getFacilityName(id) {
         this.facilityService.getApartmentFacilityByFacilityId(id).subscribe((res) => {
@@ -1007,19 +1246,18 @@ let SearchFacilityComponent = class SearchFacilityComponent {
     submitsearchForm(form) {
         this.isDataLoaded = true;
         const params = {
-            apartmentId: parseInt(this.cookieService.get('apartmentId')),
+            apartmentId: this.facilitybook.blockId,
             active: 1
         };
         this.facilityService.getApartmentFacilityBookingsByApartmentIdStatus(params).subscribe((res) => {
             this.allFacility = res;
+            let gridSourceData = {
+                localdata: this.allFacility,
+                datatype: "array"
+            };
+            this.facilityList = new jqx.dataAdapter(gridSourceData);
             this.isDataLoaded = false;
             this.totalItems = this.allFacility.length;
-            if (this.totalItems > this.itemLimit) {
-                this.ItemEndIndex = this.itemLimit;
-            }
-            else {
-                this.ItemEndIndex = this.totalItems;
-            }
         });
     }
     getIndexParams(event) {
@@ -1042,11 +1280,14 @@ SearchFacilityComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"] },
     { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"],] }] },
     { type: src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] }
 ];
 SearchFacilityComponent.propDecorators = {
-    outputEvent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
+    outputEvent: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
+    selectRow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:selectRow', ['$event.detail'],] }]
 };
 SearchFacilityComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1055,10 +1296,20 @@ SearchFacilityComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./search-facility.component.scss */ "./src/app/modules/ams/violation/components/add-violation/search-facility/search-facility.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]])
 ], SearchFacilityComponent);
 
+function selectRow(row) {
+    var event = new CustomEvent('selectRow', {
+        detail: {
+            rowId: row
+        }
+    });
+    window.dispatchEvent(event);
+}
+window.selectRow = selectRow;
 
 
 /***/ }),
@@ -1953,7 +2204,11 @@ let UserViolationComponent = class UserViolationComponent {
         this.unitFieldType = 'unitno';
         this.unitOrder = false;
     }
+    getDate(value) {
+        return moment__WEBPACK_IMPORTED_MODULE_3__(value).format(this.timeZone.time);
+    }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.category = {
             categoryId: 0,
             categoryname: '',

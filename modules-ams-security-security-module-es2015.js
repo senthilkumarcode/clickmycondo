@@ -898,13 +898,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Alert */ "./src/app/api/controllers/Alert.ts");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../../core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+
 
 
 
@@ -917,12 +919,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SecurityReportsDataComponent = class SecurityReportsDataComponent {
-    constructor(apartmentService, route, alertService, lookupService, cookieService, sessionService) {
+    constructor(apartmentService, route, alertService, lookupService, cookieService, sharedService, sessionService) {
         this.apartmentService = apartmentService;
         this.route = route;
         this.alertService = alertService;
         this.lookupService = lookupService;
         this.cookieService = cookieService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.pageName = "";
         this.ItemStartIndex = 0;
@@ -981,13 +984,13 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("MM-DD-YYYY");
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("YYYY-MM-DD");
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
     }
     getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(dateTime).format("YYYY-MM-DD HH:mm");
+        return moment__WEBPACK_IMPORTED_MODULE_11__(dateTime).format("YYYY-MM-DD HH:mm");
     }
     submitSecurityAlertReports(form) {
         this.isReportSubmitted = true;
@@ -1110,6 +1113,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.matDrawer.close();
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].name;
         this.report = {};
         this.report.apartmentID = "";
@@ -1197,7 +1201,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
             StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateFormat(this.report.startDate),
-            EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_7__(new Date()).format("YYYY-MM-DD") : this.getDateFormat(this.report.endDate),
+            EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).format(this.timeZone.time) : this.getDateFormat(this.report.endDate),
             ApartmentID: parseInt(this.sessionService.apartmentId),
             EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
             AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1254,10 +1258,11 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
 };
 SecurityReportsDataComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"] },
     { type: src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"] },
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
+    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
 ];
 SecurityReportsDataComponent.propDecorators = {
@@ -1271,10 +1276,11 @@ SecurityReportsDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./security-reports-data.component.scss */ "./src/app/modules/ams/security/components/security-reports/security-reports-data/security-reports-data.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_6__["ActivatedRoute"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"],
         src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_3__["AlertService"],
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
+        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         _core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
 ], SecurityReportsDataComponent);
 

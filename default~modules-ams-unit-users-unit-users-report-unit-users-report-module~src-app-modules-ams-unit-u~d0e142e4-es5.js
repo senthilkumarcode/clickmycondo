@@ -350,7 +350,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format("MM-DD-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
           }
         }, {
           key: "getBlockDetails",
@@ -936,6 +936,9 @@
           value: function ngOnInit() {
             var _this4 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this4.timeZone = timeZone;
+            });
             this.pageName = this.route.params['value'].name;
             var unitBlockParams = {
               apartmentId: parseInt(localStorage.getItem('apartmentId'))

@@ -810,38 +810,44 @@
       /* harmony import */
 
 
-      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
+      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
 
       var UserGroupAnnouncementListComponent = /*#__PURE__*/function () {
-        // @ViewChild('announcementDetails',{static:false}) announcementDetails : AnnouncementDetailsComponent;
-        function UserGroupAnnouncementListComponent(broadcastService, injector, _changeDetectorRef, _activatedRoute, _router, sessionService) {
+        function UserGroupAnnouncementListComponent(broadcastService, sharedService, injector, _changeDetectorRef, _activatedRoute, _router, sessionService) {
           _classCallCheck(this, UserGroupAnnouncementListComponent);
 
           this.broadcastService = broadcastService;
+          this.sharedService = sharedService;
           this.injector = injector;
           this._changeDetectorRef = _changeDetectorRef;
           this._activatedRoute = _activatedRoute;
@@ -856,7 +862,7 @@
           };
           this.broadCastMessages = [];
           this.messageIds = [];
-          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
+          this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(UserGroupAnnouncementListComponent, [{
@@ -879,6 +885,9 @@
           value: function ngOnInit() {
             var _this3 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this3.timeZone = timeZone;
+            });
             this.apartmentID = this.sessionService.apartmentId;
             this.getAllCategory();
             this.getAllGroupCategory();
@@ -969,7 +978,7 @@
         }, {
           key: "getCategoryName",
           value: function getCategoryName(name) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.allCategory, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_8__["filter"](this.allCategory, function (item) {
               if (item.broadCastMessageCategoryId === name) return item;
             });
 
@@ -1001,8 +1010,8 @@
               UnituserId: this.sessionService.apartmentBlockUnitUserId,
               staffId: this.sessionService.userId,
               RoleTypeId: this.sessionService.roleTypeId,
-              fromDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(moment__WEBPACK_IMPORTED_MODULE_6___default()().subtract(160, 'days')).format('YYYY-MM-DD'),
-              toDate: moment__WEBPACK_IMPORTED_MODULE_6___default()().format('YYYY-MM-DD'),
+              fromDate: moment__WEBPACK_IMPORTED_MODULE_7___default()(moment__WEBPACK_IMPORTED_MODULE_7___default()().subtract(160, 'days')).format(this.timeZone.time),
+              toDate: moment__WEBPACK_IMPORTED_MODULE_7___default()().format(this.timeZone.time),
               PageNo: this.pagination.currentPage,
               recordsNo: 10
             };
@@ -1012,7 +1021,7 @@
 
                 (_this6$broadCastMessa = _this6.broadCastMessages).push.apply(_this6$broadCastMessa, _toConsumableArray(resp[0].broadCastMessageResult));
 
-                var messageIds = underscore__WEBPACK_IMPORTED_MODULE_7__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
+                var messageIds = underscore__WEBPACK_IMPORTED_MODULE_8__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
 
                 (_this6$messageIds = _this6.messageIds).push.apply(_this6$messageIds, _toConsumableArray(messageIds));
 
@@ -1033,8 +1042,8 @@
               UnituserId: this.sessionService.apartmentBlockUnitUserId,
               staffId: this.sessionService.userId,
               RoleTypeId: this.sessionService.roleTypeId,
-              fromDate: moment__WEBPACK_IMPORTED_MODULE_6___default()(moment__WEBPACK_IMPORTED_MODULE_6___default()().subtract(160, 'days')).format('YYYY-MM-DD'),
-              toDate: moment__WEBPACK_IMPORTED_MODULE_6___default()().format('YYYY-MM-DD'),
+              fromDate: moment__WEBPACK_IMPORTED_MODULE_7___default()(moment__WEBPACK_IMPORTED_MODULE_7___default()().subtract(160, 'days')).format(this.timeZone.time),
+              toDate: moment__WEBPACK_IMPORTED_MODULE_7___default()().format(this.timeZone.time),
               PageNo: this.pagination.currentPage,
               recordsNo: 10
             };
@@ -1044,7 +1053,7 @@
 
                 (_this7$broadCastMessa = _this7.broadCastMessages).push.apply(_this7$broadCastMessa, _toConsumableArray(resp[0].broadCastMessageResult));
 
-                var messageIds = underscore__WEBPACK_IMPORTED_MODULE_7__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
+                var messageIds = underscore__WEBPACK_IMPORTED_MODULE_8__["pluck"](resp[0].broadCastMessageResult, 'broadCastMessageId');
 
                 (_this7$messageIds = _this7.messageIds).push.apply(_this7$messageIds, _toConsumableArray(messageIds));
 
@@ -1062,7 +1071,7 @@
             //   today.getMonth(),
             //   today.getDate() + (inDays * -1));
 
-            return moment__WEBPACK_IMPORTED_MODULE_6___default()().subtract(inDays, 'days');
+            return moment__WEBPACK_IMPORTED_MODULE_7___default()().subtract(inDays, 'days');
           }
         }, {
           key: "filterMessages",
@@ -1074,15 +1083,15 @@
             if (item.value == 0) {
               this.broadCastBased = this.broadCastMessages.filter(function (obj) {
                 // return current == new Date(Date.parse(obj.broadcastOn))
-                return moment__WEBPACK_IMPORTED_MODULE_6___default()().format('DD-MM-YYYY') <= moment__WEBPACK_IMPORTED_MODULE_6___default()(obj.broadcastOn).format('DD-MM-YYYY');
+                return moment__WEBPACK_IMPORTED_MODULE_7___default()().format(this.timeZone.time) <= moment__WEBPACK_IMPORTED_MODULE_7___default()(obj.broadcastOn).format(this.timeZone.time);
               });
             } else if (item.value == 1) {
               this.broadCastBased = this.broadCastMessages.filter(function (obj) {
-                return moment__WEBPACK_IMPORTED_MODULE_6___default()(previousDate).format('DD-MM-YYYY') == moment__WEBPACK_IMPORTED_MODULE_6___default()(obj.broadcastOn).format('DD-MM-YYYY');
+                return moment__WEBPACK_IMPORTED_MODULE_7___default()(previousDate).format(this.timeZone.time) == moment__WEBPACK_IMPORTED_MODULE_7___default()(obj.broadcastOn).format(this.timeZone.time);
               });
             } else if (item.value == 7 || item.value == 14) {
               this.broadCastBased = this.broadCastMessages.filter(function (obj) {
-                return moment__WEBPACK_IMPORTED_MODULE_6___default()(previousDate).format('DD-MM-YYYY') <= moment__WEBPACK_IMPORTED_MODULE_6___default()(obj.broadcastOn).format('DD-MM-YYYY');
+                return moment__WEBPACK_IMPORTED_MODULE_7___default()(previousDate).format(this.timeZone.time) <= moment__WEBPACK_IMPORTED_MODULE_7___default()(obj.broadcastOn).format(this.timeZone.time);
               });
             } else {
               this.broadCastBased = this.broadCastMessages;
@@ -1091,7 +1100,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6___default()(date).format('LLL');
+            return moment__WEBPACK_IMPORTED_MODULE_7___default()(date).format(this.timeZone.time);
           }
         }, {
           key: "openAnnouncement",
@@ -1145,6 +1154,8 @@
         return [{
           type: src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"]
         }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
@@ -1153,7 +1164,7 @@
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }];
       };
 
@@ -1178,7 +1189,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./user-group-announcement-list.component.scss */
         "./src/app/modules/user/announcements/user-group-announcement-list/user-group-announcement-list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], UserGroupAnnouncementListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], UserGroupAnnouncementListComponent);
       /***/
     }
   }]);
