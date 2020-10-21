@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"create-lease-info-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      \t\t</div>\n\t\t</div>\n \t </ng-container>\n\n  \t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{rent.startDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{rent.expiryDate | date : 'mediumDate'}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t  <!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"rent.startDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitLeaseInfoForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"create-lease-info-wrapper p-5\">\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Rental/Lease Information</h4>\n\t\t\t<div class=\"ml-auto\" *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" class=\"mr-2\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('add')\">Add</button>\n\t\t\t\t<button *ngIf=\"clickMode=='showAll'\" mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm('edit')\">Edit</button>\n\t\t\t\t<button *ngIf=\"clickMode=='edit' || clickMode=='add'\" mat-flat-button [color]=\"'accent'\" (click)=\"showHistory()\">History</button>\n      \t\t</div>\n\t\t</div>\n \t </ng-container>\n\n  \t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<form #leaseInfoForm = \"ngForm\" name=\"leaseInfoForm\" novalidate>\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<!-- View Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='showAll'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t<p>{{getDate(rent.startDate)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date</label>\n\t\t\t\t\t\t\t<p>{{getDate(rent.expiryDate)}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.advanceAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.rentAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<p>{{rent.leaseAmount}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\n\t\t\t  <!-- Create Mode and Edit Mode -->\n\t\t\t<ng-container *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Start Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"rent.startDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Expiry Date*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"rent.expiryDate\"\n\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Advance Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Amount\" name=\"advance\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.advanceAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Rent Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Rent Amount\" name=\"rent\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.rentAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Lease Amount</label>\n\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Lease Amount\" name=\"lease\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"rent.leaseAmount\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"clickMode=='edit' || clickMode=='add'\">\n\t\t\t<button class=\"mr-2\" (click)=\"submitLeaseInfoForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"showEditForm('showAll')\">Back</button>\n\t\t</div>\n\n\t</form>\n\n</div>");
 
 /***/ }),
 
@@ -1999,10 +1999,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Rent */ "./src/app/api/controllers/Rent.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Rent */ "./src/app/api/controllers/Rent.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+
 
 
 
@@ -2023,7 +2026,7 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
         this.clickMode = 'showAll';
         this.rent = {};
         this.rentListData = [];
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     get isAdmin() {
         return this.sessionService.isAdmin();
@@ -2049,12 +2052,15 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
         else if (this.clickMode == 'edit')
             this.updateLeaseForm();
     }
+    getDate(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
+    }
     createLeaseForm() {
         this.isDataLoaded = false;
         let details = {
             "apartmentBlockUnitId": this.apartmentBlockUnitId,
-            "startDate": this.rent.startDate,
-            "expiryDate": this.rent.expiryDate,
+            "startDate": moment__WEBPACK_IMPORTED_MODULE_5__(this.rent.startDate).utcOffset(this.timeZone.offset).format(),
+            "expiryDate": moment__WEBPACK_IMPORTED_MODULE_5__(this.rent.expiryDate).utcOffset(this.timeZone.offset).format(),
             "rentAmount": parseInt(this.rent.rentAmount),
             "advanceAmount": parseInt(this.rent.advanceAmount),
             "leaseAmount": parseInt(this.rent.leaseAmount),
@@ -2064,7 +2070,7 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
             "field2": "string",
             "isActive": true,
             "insertedBy": this.sessionService.userId,
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null
         };
@@ -2088,7 +2094,7 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
     updateLeaseForm() {
         this.isDataLoaded = false;
         let params = {
-            apartmentBlockUnitRent: Object.assign(Object.assign({}, this.rent), { "rentAmount": parseInt(this.rent.rentAmount), "advanceAmount": parseInt(this.rent.advanceAmount), "leaseAmount": parseInt(this.rent.leaseAmount), "updatedBy": this.sessionService.userId, "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString() })
+            apartmentBlockUnitRent: Object.assign(Object.assign({}, this.rent), { "rentAmount": parseInt(this.rent.rentAmount), "advanceAmount": parseInt(this.rent.advanceAmount), "leaseAmount": parseInt(this.rent.leaseAmount), "updatedBy": this.sessionService.userId, "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString() })
         };
         this.rentService.updateApartmentBlockUnitRent(params).subscribe((res) => {
             if (res.message) {
@@ -2126,6 +2132,7 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         if (!this.isAdmin) {
             this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID,
                 this.getListData();
@@ -2148,7 +2155,7 @@ ProfileLeaseInfoComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"] },
+    { type: src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__["RentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
@@ -2161,7 +2168,7 @@ ProfileLeaseInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_6__["RentService"],
+        src_app_api_controllers_Rent__WEBPACK_IMPORTED_MODULE_7__["RentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], ProfileLeaseInfoComponent);
@@ -3640,13 +3647,13 @@ let ProfileVehicleDetailsComponent = class ProfileVehicleDetailsComponent {
                     "parkingSlotId": null,
                     "stickerNumber": this.vehicleFormData.stickerNumber,
                     "rfid": this.vehicleFormData.rfid,
-                    "fromDate": this.vehicleFormData.fromDate,
-                    "toDate": this.vehicleFormData.toDate,
+                    "fromDate": moment__WEBPACK_IMPORTED_MODULE_6__(this.vehicleFormData.fromDate).utcOffset(this.timeZone.offset).format(),
+                    "toDate": moment__WEBPACK_IMPORTED_MODULE_6__(this.vehicleFormData.toDate).utcOffset(this.timeZone.offset).format(),
                     "isPassIssued": true,
                     "isActive": true,
                     "insertedBy": parseInt(this.sessionService.userId),
                     "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                    "updatedBy": 0,
+                    "updatedBy": null,
                     "updatedOn": null
                 };
                 let unitParams = {
@@ -3707,8 +3714,8 @@ let ProfileVehicleDetailsComponent = class ProfileVehicleDetailsComponent {
                     "parkingSlotId": null,
                     "stickerNumber": this.vehicleFormData.stickerNumber,
                     "rfid": this.vehicleFormData.rfid,
-                    "fromDate": this.vehicleFormData.fromDate,
-                    "toDate": this.vehicleFormData.toDate,
+                    "fromDate": moment__WEBPACK_IMPORTED_MODULE_6__(this.vehicleFormData.fromDate).utcOffset(this.timeZone.offset).format(),
+                    "toDate": moment__WEBPACK_IMPORTED_MODULE_6__(this.vehicleFormData.toDate).utcOffset(this.timeZone.offset).format(),
                     "isPassIssued": this.vehicleFormData.isPassIssued,
                     "isActive": this.vehicleFormData.isActive,
                     "insertedBy": this.vehicleFormData.insertedBy,
@@ -3744,6 +3751,7 @@ let ProfileVehicleDetailsComponent = class ProfileVehicleDetailsComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         if (!this.isAdmin) {
             this.apartmentBlockUnitId = this.sessionService.apartmentBlockUnitID;
         }
@@ -3954,17 +3962,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/PropertyManager */ "./src/app/api/controllers/PropertyManager.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-
-
-
+/* harmony import */ var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/PropertyManager */ "./src/app/api/controllers/PropertyManager.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
 
 
@@ -3975,22 +3977,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PropertyManagerCreateComponent = class PropertyManagerCreateComponent {
-    constructor(router, route, injector, dialog, userService, propertyManagerService, apartmentService, lookupService, sharedService, sessionService) {
-        this.router = router;
+    constructor(route, injector, dialog, propertyManagerService, sharedService, sessionService) {
         this.route = route;
         this.injector = injector;
         this.dialog = dialog;
-        this.userService = userService;
         this.propertyManagerService = propertyManagerService;
-        this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isDataLoaded = true;
         this.isError = false;
         this.errorMessage = false;
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_11__["ModalService"]);
+        this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     ngOnInit() {
         this.propertyData = {};
@@ -4049,10 +4047,10 @@ let PropertyManagerCreateComponent = class PropertyManagerCreateComponent {
             "state": this.propertyData.state,
             "pin": this.propertyData.pin,
             "isActive": true,
-            "insertedBy": this.userId,
-            "insertedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString(),
-            "updatedBy": this.userId,
-            "updatedOn": moment__WEBPACK_IMPORTED_MODULE_5__(new Date()).utc().format().toString()
+            "insertedBy": this.sessionService.userId,
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null
         };
         let params = {
             propertyManager: details
@@ -4071,15 +4069,11 @@ let PropertyManagerCreateComponent = class PropertyManagerCreateComponent {
     }
 };
 PropertyManagerCreateComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"] },
-    { type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"] },
+    { type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_5__["PropertyManagerService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
 PropertyManagerCreateComponent.propDecorators = {
@@ -4091,15 +4085,11 @@ PropertyManagerCreateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__de
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-manager-create.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/profile/property-manager/property-manager-create/property-manager-create.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-manager-create.component.scss */ "./src/app/modules/profile/property-manager/property-manager-create/property-manager-create.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_6__["UserService"],
-        src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_7__["PropertyManagerService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"],
+        src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_5__["PropertyManagerService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], PropertyManagerCreateComponent);
 

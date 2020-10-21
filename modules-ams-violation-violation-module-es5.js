@@ -1090,14 +1090,14 @@
               text: 'Start date',
               datafield: 'startDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this9.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'End date',
               datafield: 'endDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this9.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1738,21 +1738,21 @@
               text: 'Date',
               datafield: 'bookedForDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this15.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'Start time',
               datafield: 'bookedFromTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this15.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'End time',
               datafield: 'bookedToTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this15.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2512,8 +2512,7 @@
                   };
                 } else {}
               });
-            } // this.submitCreatesViolationPrivledgeForm(id);
-
+            }
           }
         }, {
           key: "deleteviolationRow",
@@ -2930,9 +2929,9 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/api/controllers/Lookup */
-      "./src/app/api/controllers/Lookup.ts");
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
@@ -2945,7 +2944,7 @@
       var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var DisputeComponent = /*#__PURE__*/function () {
-        function DisputeComponent(dialogRef, data, cookieService, sharedService, violationService, lookupService) {
+        function DisputeComponent(dialogRef, data, cookieService, sharedService, violationService, sessionService) {
           _classCallCheck(this, DisputeComponent);
 
           this.dialogRef = dialogRef;
@@ -2953,7 +2952,7 @@
           this.cookieService = cookieService;
           this.sharedService = sharedService;
           this.violationService = violationService;
-          this.lookupService = lookupService;
+          this.sessionService = sessionService;
           this.outputEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.config = data;
         }
@@ -2977,11 +2976,11 @@
                 disputeId: 0,
                 disputeComments: this.dispute.disputeComments,
                 isActive: true,
-                insertedBy: parseInt(this.cookieService.get('userId')),
+                insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                updatedBy: parseInt(this.cookieService.get('userId')),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                updatedBy: null,
+                updatedOn: null,
+                apartmentId: parseInt(this.sessionService.apartmentId),
                 apartmentBlockUnitId: this.violation.apartmentBlockUnitId === null ? 1 : this.violation.apartmentBlockUnitId,
                 apartmentBlockId: this.violation.apartmentBlockId === null ? 1 : this.violation.apartmentBlockId
               }
@@ -3041,7 +3040,7 @@
         }, {
           type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -3064,7 +3063,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./dispute.component.scss */
         "./src/app/modules/ams/violation/components/user-violation/dispute/dispute.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]])], DisputeComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], DisputeComponent);
       /***/
     },
 
@@ -3670,8 +3669,8 @@
                 isActive: this.dispute.disputeStatus,
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                updatedBy: null,
+                updatedOn: null,
                 apartmentId: this.sessionService.apartmentId,
                 apartmentBlockUnitId: this.violation.apartmentBlockUnitId === null ? 1 : this.violation.apartmentBlockUnitId,
                 apartmentBlockId: this.violation.apartmentBlockId === null ? 1 : this.violation.apartmentBlockId

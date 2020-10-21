@@ -1365,17 +1365,12 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.date);
           }
         }, {
-          key: "getDateFormat",
-          value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
-          }
-        }, {
-          key: "getTimeFormat",
-          value: function getTimeFormat(dateTime) {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(dateTime).format("YYYY-MM-DD HH:mm");
+          key: "getDateTime",
+          value: function getDateTime(date) {
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time24);
           }
         }, {
           key: "submitSecurityAlertReports",
@@ -1386,9 +1381,9 @@
             this.isDataLoaded = false;
             var details = {
               ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-              StartDate: this.getDateFormat(this.report.startDate),
-              EndDate: this.getDateFormat(this.report.endDate),
-              ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+              StartDate: this.getDateTime(this.report.startDate),
+              EndDate: this.getDateTime(this.report.endDate),
+              ApartmentID: this.sessionService.apartmentId,
               EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
             };
@@ -1440,8 +1435,8 @@
             this.isDataLoaded = false;
             var details = {
               ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-              StartDate: this.getDateFormat(this.report.startDate),
-              EndDate: this.getDateFormat(this.report.endDate),
+              StartDate: this.getDateTime(this.report.startDate),
+              EndDate: this.getDateTime(this.report.endDate),
               ApartmentID: parseInt(this.sessionService.apartmentId),
               EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1486,8 +1481,8 @@
 
             var details = {
               ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-              StartDate: this.getDateFormat(this.report.startDate),
-              EndDate: this.getDateFormat(this.report.endDate),
+              StartDate: this.getDateTime(this.report.startDate),
+              EndDate: this.getDateTime(this.report.endDate),
               ApartmentID: parseInt(this.sessionService.apartmentId),
               EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1584,7 +1579,7 @@
               datafield: 'creationDate',
               width: 100,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this8.getDateFormat(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this8.getDate(value) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1597,7 +1592,7 @@
               text: 'Tower No',
               datafield: 'blockNo',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this8.getDateFormat(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this8.getDate(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1622,8 +1617,8 @@
             }];
             var details = {
               ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-              StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateFormat(this.report.startDate),
-              EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).format(this.timeZone.time) : this.getDateFormat(this.report.endDate),
+              StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateTime(this.report.startDate),
+              EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).format(this.timeZone.time) : this.getDateTime(this.report.endDate),
               ApartmentID: parseInt(this.sessionService.apartmentId),
               EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
               AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -2112,7 +2107,7 @@
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+                "updatedOn": null
               };
               var add_param = {
                 lookupvalue: details

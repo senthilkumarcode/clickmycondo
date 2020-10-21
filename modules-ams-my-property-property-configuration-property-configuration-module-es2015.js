@@ -616,8 +616,6 @@ let PropertyProfileComponent = class PropertyProfileComponent {
     getSelectedPropertyCategory(event) {
         this.property.propertyCategoryId = event[0].lookupValueId;
     }
-    getProperty(event) {
-    }
     getPropertyType(id) {
         var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.propertyTypeData, function (item) {
             if (item.lookupValueId === id)
@@ -647,7 +645,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             return "NA";
         }
         else {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format("DD-MM-YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.date);
         }
     }
     showEditForm() {
@@ -676,17 +674,17 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             "pincode": this.property.pincode,
             "landmark": this.property.landmark,
             "logoImageId": 0,
-            "isActive": true,
-            "insertedBy": 0,
-            "insertedOn": "2020-02-06T16:14:17.670Z",
+            "isActive": this.property.isActive,
+            "insertedBy": this.property.insertedBy,
+            "insertedOn": this.property.insertedOn,
             "updatedBy": parseInt(this.sessionService.userId),
             "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "updatePersonName": this.property.updatePersonName,
             "insertPersonName": this.property.insertPersonName,
             "location": this.property.location,
-            "constructionStartDate": this.property.constructionStartDate,
-            "constructionEndDate": this.property.constructionEndDate,
-            "occupanyDate": this.property.occupanyDate,
+            "constructionStartDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.constructionStartDate).utcOffset(this.timeZone.offset).format(),
+            "constructionEndDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.constructionEndDate).utcOffset(this.timeZone.offset).format(),
+            "occupanyDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.occupanyDate).utcOffset(this.timeZone.offset).format(),
             "propertyTypeId": parseInt(this.property.propertyTypeId),
             "propertyCategoryId": parseInt(this.property.propertyCategoryId),
             "imageId": this.property.imageId,

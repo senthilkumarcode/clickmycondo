@@ -292,16 +292,15 @@ let AddEntryComponent = class AddEntryComponent {
                 "apartmentId": this.sessionService.apartmentId,
                 "staffId": parseInt(this.entry.staffId),
                 "inTime": this.entry.inTime,
-                "inGateId": parseInt(this.entry.inGateId),
+                "inGateId": this.entry.inGateId,
                 "outTime": this.entry.outTime,
                 "outGateId": parseInt(this.entry.outGateId),
                 "shiftId": parseInt(this.entry.shiftId),
                 "notes": this.entryComments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-12-04T05:43:41.299Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-12-04T05:43:41.299Z"
+                "insertedOn": null,
+                "updatedOn": null
             };
             let params = {
                 attendance: details
@@ -362,6 +361,7 @@ let AddEntryComponent = class AddEntryComponent {
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.entry = {};
         this.entry.staffId = "";
         this.entry.inGateId = "";
@@ -1563,8 +1563,8 @@ let StaffGatesComponent = class StaffGatesComponent {
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 gate: details
@@ -1585,8 +1585,8 @@ let StaffGatesComponent = class StaffGatesComponent {
                 "gateName": this.gate.gateName,
                 "comments": this.gate.comments,
                 "isActive": this.gate.isActive,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "insertedBy": this.gate.insertedBy,
+                "insertedOn": this.gate.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
@@ -2516,6 +2516,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -2537,6 +2540,7 @@ let AssociateStaffComponent = class AssociateStaffComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.getAssociateStaff();
         this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
             if (lookupValueId != null) {
@@ -2590,9 +2594,9 @@ let AssociateStaffComponent = class AssociateStaffComponent {
                 "description": this.staffCategory,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-16T14:50:08.217Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-16T14:50:08.217Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 lookupvalue: details
@@ -2684,6 +2688,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -2705,6 +2712,7 @@ let PersonalStaffComponent = class PersonalStaffComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.getAssociateStaff();
         this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
             if (lookupValueId != null) {
@@ -2758,9 +2766,9 @@ let PersonalStaffComponent = class PersonalStaffComponent {
                 "description": this.staffCategory,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-16T14:50:08.217Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-16T14:50:08.217Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 lookupvalue: details
@@ -2781,9 +2789,9 @@ let PersonalStaffComponent = class PersonalStaffComponent {
                 "description": this.staffCategory,
                 "isActive": true,
                 "insertedBy": 0,
-                "insertedOn": "2019-11-16T14:50:08.217Z",
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": "2019-11-16T14:50:08.217Z"
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             let params = {
                 lookupvalue: details
@@ -2985,8 +2993,8 @@ let StaffShiftsComponent = class StaffShiftsComponent {
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2019-12-03T06:11:51.972Z"
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 shift: details

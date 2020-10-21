@@ -2085,7 +2085,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
         this.matDrawer.close();
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
     }
     submitReportsFilterForm() {
         let params = {

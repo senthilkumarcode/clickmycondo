@@ -2162,7 +2162,7 @@
                   "lookupTypeId": 21,
                   "lookupValueName": this.meeting.lookupValueName,
                   "description": this.meeting.description,
-                  "isActive": true,
+                  "isActive": this.meeting.isActive,
                   "insertedBy": this.meeting.insertedBy,
                   "insertedOn": this.meeting.insertedOn,
                   "updatedBy": parseInt(this.sessionService.userId),

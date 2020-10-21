@@ -980,35 +980,27 @@
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
       var IncomeAddSecurityDepositComponent = /*#__PURE__*/function () {
-        function IncomeAddSecurityDepositComponent(router, route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService) {
+        function IncomeAddSecurityDepositComponent(route, _incomeSecurityDepositComponent, accountsService, sessionService) {
           _classCallCheck(this, IncomeAddSecurityDepositComponent);
 
-          this.router = router;
           this.route = route;
           this._incomeSecurityDepositComponent = _incomeSecurityDepositComponent;
           this.accountsService = accountsService;
-          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isDepositSubmitted = false;
           this.glAccountIndicator = "Cust_Invoice";
@@ -1047,7 +1039,7 @@
                 "comment2": this.deposit.comment,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -1085,7 +1077,7 @@
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
               };
               var _params2 = {
                 custSecurity: _details2
@@ -1134,17 +1126,13 @@
 
       IncomeAddSecurityDepositComponent.ctorParameters = function () {
         return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
           type: src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"]
         }, {
           type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -1171,7 +1159,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-add-security-deposit.component.scss */
         "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], IncomeAddSecurityDepositComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], IncomeAddSecurityDepositComponent);
       /***/
     },
 
@@ -1841,7 +1829,7 @@
               datafield: 'documentDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1855,7 +1843,7 @@
               datafield: 'entryDateTime',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1863,7 +1851,7 @@
               datafield: 'postingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1871,7 +1859,7 @@
               datafield: 'clearingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

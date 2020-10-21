@@ -172,8 +172,8 @@ let DirectorySetupComponent = class DirectorySetupComponent {
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                updatedBy: null,
+                updatedOn: null,
                 directoryRecords: []
             }
         };
@@ -284,8 +284,8 @@ let DirectorySetupComponent = class DirectorySetupComponent {
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                updatedBy: null,
+                updatedOn: null,
                 directoryRecords: []
             }
         };
@@ -313,8 +313,8 @@ let DirectorySetupComponent = class DirectorySetupComponent {
                 directoryTypeName: data.directoryTypeName,
                 description: data.description,
                 isActive: true,
-                insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                insertedBy: data.insertedBy,
+                insertedOn: data.insertedOn,
                 updatedBy: parseInt(this.sessionService.userId),
                 updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 directoryRecords: []
@@ -978,8 +978,8 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                updatedBy: null,
+                updatedOn: null
             }
         };
         this.apartmentService.addDirectoryRecords(params).subscribe((res) => {
@@ -1011,8 +1011,8 @@ let ExternalDirectoryComponent = class ExternalDirectoryComponent {
                 comment1: '',
                 comment2: '',
                 isActive: true,
-                insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                insertedBy: data.insertedBy,
+                insertedOn: data.insertedOn,
                 updatedBy: parseInt(this.sessionService.userId),
                 updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             }
@@ -1312,8 +1312,8 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                updatedBy: null,
+                updatedOn: null
             }
         };
         this.apartmentService.addDirectoryRecords(params).subscribe((res) => {
@@ -1345,8 +1345,8 @@ let InternalDirectoryComponent = class InternalDirectoryComponent {
                 comment1: '',
                 comment2: '',
                 isActive: true,
-                insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                insertedBy: data.insertedBy,
+                insertedOn: data.insertedOn,
                 updatedBy: parseInt(this.sessionService.userId),
                 updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             }

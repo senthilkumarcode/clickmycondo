@@ -648,13 +648,23 @@
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! moment */
+      "./node_modules/moment/moment.js");
+      /* harmony import */
+
+
+      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_10__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
 
       var AddGlAccountComponent = /*#__PURE__*/function () {
         function AddGlAccountComponent(_overlay, _viewContainerRef, injector, accountsService, lookupService, sharedService, sessionService) {
@@ -760,13 +770,13 @@
                 "glaccountNumber": this.gl.glaccountNumber,
                 "glaccountName": this.gl.glaccountName,
                 "openingBalance": this.gl.openingBalance,
-                "openingBalanceDate": this.gl.openingBalanceDate,
+                "openingBalanceDate": moment__WEBPACK_IMPORTED_MODULE_10__(this.gl.openingBalanceDate).utcOffset(this.timeZone.offset).format(),
                 "defaultBankDetailsId": null,
                 "notes": this.gl.notes,
                 "indicator": this.group,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -799,14 +809,14 @@
                 "glaccountName": this.gl.glaccountName,
                 "openingBalance": this.gl.openingBalance,
                 "openingBalanceDate": this.gl.openingBalanceDate,
-                "defaultBankDetailsId": null,
+                "defaultBankDetailsId": this.gl.defaultBankDetailsId,
                 "notes": this.gl.notes,
                 "indicator": this.group,
-                "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
+                "isActive": this.gl.isActive,
+                "insertedBy": this.gl.insertedBy,
+                "insertedOn": this.gl.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString()
               };
               var _params = {
                 glAccount: _details
@@ -835,6 +845,9 @@
           value: function ngOnInit() {
             var _this3 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this3.timeZone = timeZone;
+            });
             this.gl = {};
             this.gl.glgroupId = "";
             this.gl.defaultBankDetailsId = "";
@@ -1112,8 +1125,8 @@
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 glGroup: details
@@ -1144,9 +1157,9 @@
                 "glnumber": parseInt(this.gl.glnumber),
                 "name": this.gl.name,
                 "glaccountTypeId": this.accountTypeId,
-                "isActive": true,
-                "insertedBy": 0,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                "isActive": this.gl.isActive,
+                "insertedBy": this.gl.insertedBy,
+                "insertedOn": this.gl.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString()
               };
@@ -1191,20 +1204,6 @@
             this.gl = {};
             this.gl.glnumber = "";
             this.gl.name = "";
-
-            if (!this.isCreateGroup()) {
-              var params = {
-                apartmentId: this.sessionService.apartmentId,
-                glGroupId: this.glgroupId
-              };
-              this.accountsService.getGlGroupById(params).subscribe(function (res) {
-                /*this.gl = res[0];
-                          if(this.gl == undefined || this.gl.length == 0){
-                 this.gl.glnumber = "";
-                 this.gl.name = "";
-                }*/
-              });
-            }
           }
         }]);
 
@@ -4665,7 +4664,7 @@
               "fiscalYear": this.journal.fiscalYear,
               "gldocumentTypeId": this.journal.gldocumentTypeId,
               "documentNumber": this.journal.documentNumber,
-              "documentDate": "2020-01-21T11:38:00.932Z",
+              "documentDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.journal.dueDate).utcOffset(this.timeZone.offset).format(),
               "comment": this.journal.comment,
               "reference1": "",
               "reference2": "",
@@ -4673,16 +4672,16 @@
               "creditAmount": this.journal.creditAmount,
               "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-              "active": true,
+              "updatedBy": null,
+              "updatedOn": null,
+              "active": this.journal.active,
               "apartmentId": this.sessionService.apartmentId
             }, {
               "glaccountId": this.journal.glaccountId,
               "fiscalYear": this.journal.fiscalYear,
               "gldocumentTypeId": this.journal.gldocumentTypeId,
               "documentNumber": this.journal.documentNumber,
-              "documentDate": "2020-01-21T11:38:00.932Z",
+              "documentDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.journal.dueDate).utcOffset(this.timeZone.offset).format(),
               "comment": this.journal.comment,
               "reference1": "",
               "reference2": "",
@@ -4690,8 +4689,8 @@
               "creditAmount": this.journal.creditAmount,
               "insertedBy": parseInt(this.sessionService.userId),
               "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-              "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null,
               "active": true,
               "apartmentId": this.sessionService.apartmentId
             }];
@@ -5859,8 +5858,6 @@
               FromDate: moment__WEBPACK_IMPORTED_MODULE_6__(this.reports.fromDate).format(this.timeZone.time),
               Todate: moment__WEBPACK_IMPORTED_MODULE_6__(this.reports.toDate).format(this.timeZone.time),
               ApartmentId: this.sessionService.apartmentId,
-              //GlAccountTypeID: this.glTypeSelectedIndex,
-              //GLGroupID: this.glGroupSelectedIndex,
               GLAccountId: this.glAccountSelectedIndex
             };
             this.accountsService.getGlAccountTransactionsById(params).subscribe(function (res) {
@@ -5876,7 +5873,7 @@
                 _this37.ItemEndIndex = _this37.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this37.reportsTransactionsDataList, function (item, index) {
+              underscore__WEBPACK_IMPORTED_MODULE_5__["each"](_this37.reportsTransactionsDataList, function (item) {
                 _this37.totalDebitAmount = _this37.totalDebitAmount + item.debit;
                 _this37.totalCreditAmount = _this37.totalCreditAmount + item.credit;
               });
@@ -6120,7 +6117,7 @@
                 _this39.ItemEndIndex = _this39.totalItems;
               }
 
-              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this39.reportsTransactionsDataList, function (item, index) {
+              underscore__WEBPACK_IMPORTED_MODULE_6__["each"](_this39.reportsTransactionsDataList, function (item) {
                 _this39.totalDebitAmount = _this39.totalDebitAmount + item.debit;
                 _this39.totalCreditAmount = _this39.totalCreditAmount + item.credit;
               });

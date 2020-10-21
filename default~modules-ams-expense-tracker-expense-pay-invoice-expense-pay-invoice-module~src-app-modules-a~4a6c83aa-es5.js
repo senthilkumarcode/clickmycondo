@@ -714,6 +714,16 @@
       var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var ExpensePostPaymentComponent = /*#__PURE__*/function () {
         function ExpensePostPaymentComponent(accountsService, lookupService, sharedService, sessionService) {
@@ -748,9 +758,9 @@
                 "comment": "",
                 "isActive": true,
                 "insertedBy": parseInt(_this5.sessionService.userId),
-                "insertedOn": "2020-01-10T06:59:54.422Z",
-                "updatedBy": 0,
-                "updatedOn": "2020-01-10T06:59:54.422Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
               };
               custInvoiceObjArray.push(details);
             });

@@ -890,10 +890,10 @@
                 "ifsc": this.vendor.bankCode,
                 "isPrimary": true,
                 "isActive": true,
-                "insertedBy": 0,
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 bankAccountDetails: bank_details
@@ -932,7 +932,7 @@
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
                 "updatedBy": null,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
+                "updatedOn": null
               };
               var vendorParams = {
                 vendor: details
@@ -964,9 +964,9 @@
                 "ifsc": this.vendor.bankCode,
                 "isPrimary": true,
                 "isActive": true,
-                "insertedBy": 0,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString(),
-                "updatedBy": 0,
+                "insertedBy": this.vendor.insertedBy,
+                "insertedOn": this.vendor.insertedOn,
+                "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString()
               };
               var bankAccParams = {
@@ -2102,6 +2102,16 @@
       var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var VendorSetupComponent = /*#__PURE__*/function () {
         function VendorSetupComponent(injector, vendorService, lookupService, sharedService, sessionService) {
@@ -2202,9 +2212,9 @@
                 "description": this.VendorCategory,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-20T16:51:24.105Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-20T16:51:24.105Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 lookupvalue: details
@@ -2244,7 +2254,7 @@
                 "insertedBy": 0,
                 "insertedOn": "2019-11-20T16:51:24.105Z",
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": "2019-11-20T16:51:24.105Z"
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
               };
               var _params = {
                 lookupvalue: _details2

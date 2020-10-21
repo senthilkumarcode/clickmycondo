@@ -1096,8 +1096,8 @@
           key: "submitIncomeCreditFilterForm",
           value: function submitIncomeCreditFilterForm() {
             this.isCreditNoteFilterTableLoaded = false;
-            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
-            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.date);
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.date);
             this.getCreditNotesData(fromDate, toDate); //Mark for check
 
             this._changeDetectorRef.markForCheck();
@@ -1106,8 +1106,8 @@
           key: "isCreditAdded",
           value: function isCreditAdded() {
             this.isCreditNoteFilterTableLoaded = false;
-            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
-            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
+            var fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.date);
+            var toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.date);
             this.getCreditNotesData(fromDate, toDate); //Mark for check
 
             this._changeDetectorRef.markForCheck();

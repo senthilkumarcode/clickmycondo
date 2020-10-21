@@ -87,8 +87,8 @@ let IncomeReceiptsReverseComponent = class IncomeReceiptsReverseComponent {
             "isActive": true,
             "insertedBy": this.sessionService.userId,
             "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
-            "updatedBy": this.sessionService.userId,
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
+            "updatedBy": null,
+            "updatedOn": null
         };
         let params = {
             custCollectionReversal: details

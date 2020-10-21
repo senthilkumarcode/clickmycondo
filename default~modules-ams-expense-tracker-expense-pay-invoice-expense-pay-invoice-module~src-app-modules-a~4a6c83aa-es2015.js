@@ -469,6 +469,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -502,9 +505,9 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
                 "comment": "",
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2020-01-10T06:59:54.422Z",
-                "updatedBy": 0,
-                "updatedOn": "2020-01-10T06:59:54.422Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             custInvoiceObjArray.push(details);
         });

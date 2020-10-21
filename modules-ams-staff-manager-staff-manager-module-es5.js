@@ -460,16 +460,15 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "staffId": parseInt(this.entry.staffId),
                 "inTime": this.entry.inTime,
-                "inGateId": parseInt(this.entry.inGateId),
+                "inGateId": this.entry.inGateId,
                 "outTime": this.entry.outTime,
                 "outGateId": parseInt(this.entry.outGateId),
                 "shiftId": parseInt(this.entry.shiftId),
                 "notes": this.entryComments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-12-04T05:43:41.299Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-12-04T05:43:41.299Z"
+                "insertedOn": null,
+                "updatedOn": null
               };
               var params = {
                 attendance: details
@@ -535,6 +534,9 @@
           value: function ngOnInit() {
             var _this4 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this4.timeZone = timeZone;
+            });
             this.entry = {};
             this.entry.staffId = "";
             this.entry.inGateId = "";
@@ -2044,8 +2046,8 @@
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 gate: details
@@ -2066,8 +2068,8 @@
                 "gateName": this.gate.gateName,
                 "comments": this.gate.comments,
                 "isActive": this.gate.isActive,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "insertedBy": this.gate.insertedBy,
+                "insertedOn": this.gate.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
               };
@@ -3391,6 +3393,16 @@
       var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var AssociateStaffComponent = /*#__PURE__*/function () {
         function AssociateStaffComponent(lookupService, sessionService, injector, sharedService) {
@@ -3413,6 +3425,9 @@
           value: function ngOnInit() {
             var _this22 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this22.timeZone = timeZone;
+            });
             this.getAssociateStaff();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
@@ -3481,9 +3496,9 @@
                 "description": this.staffCategory,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-16T14:50:08.217Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-16T14:50:08.217Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 lookupvalue: details
@@ -3642,6 +3657,16 @@
       var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! moment-timezone */
+      "./node_modules/moment-timezone/index.js");
+      /* harmony import */
+
+
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var PersonalStaffComponent = /*#__PURE__*/function () {
         function PersonalStaffComponent(lookupService, sessionService, injector, sharedService) {
@@ -3664,6 +3689,9 @@
           value: function ngOnInit() {
             var _this25 = this;
 
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this25.timeZone = timeZone;
+            });
             this.getAssociateStaff();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
@@ -3732,9 +3760,9 @@
                 "description": this.staffCategory,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-16T14:50:08.217Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-16T14:50:08.217Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 lookupvalue: details
@@ -3757,9 +3785,9 @@
                 "description": this.staffCategory,
                 "isActive": true,
                 "insertedBy": 0,
-                "insertedOn": "2019-11-16T14:50:08.217Z",
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": "2019-11-16T14:50:08.217Z"
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
               };
               var _params5 = {
                 lookupvalue: _details4
@@ -4094,8 +4122,8 @@
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2019-12-03T06:11:51.972Z"
+                "updatedBy": null,
+                "updatedOn": null
               };
               var params = {
                 shift: details

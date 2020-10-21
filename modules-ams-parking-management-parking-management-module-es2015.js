@@ -552,10 +552,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Vehicle */ "./src/app/api/controllers/Vehicle.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -564,13 +563,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddSlotComponent = class AddSlotComponent {
-    constructor(router, route, vehicleService, apartmentService, lookupService, sharedService, sessionService) {
-        this.router = router;
+    constructor(route, vehicleService, apartmentService, sessionService) {
         this.route = route;
         this.vehicleService = vehicleService;
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.slotType = null;
         this.apartmentBlockId = "";
@@ -614,9 +610,9 @@ let AddSlotComponent = class AddSlotComponent {
                 "comment": this.slot.comment,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-19T19:53:19.815Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-19T19:53:19.815Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 parkingSlot: details
@@ -642,11 +638,11 @@ let AddSlotComponent = class AddSlotComponent {
                 "slotName": this.slot.slotName,
                 "slotTypeId": parseInt(this.slotType),
                 "comment": this.slot.comment,
-                "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-19T19:53:19.815Z",
+                "isActive": this.slot.isActive,
+                "insertedBy": this.slot.insertedBy,
+                "insertedOn": this.slot.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": "2019-11-19T19:53:19.815Z"
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
             };
             let params = {
                 parkingSlot: details
@@ -702,13 +698,10 @@ let AddSlotComponent = class AddSlotComponent {
     }
 };
 AddSlotComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 AddSlotComponent.propDecorators = {
     index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['index',] }],
@@ -721,13 +714,10 @@ AddSlotComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-slot.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/parking-management/components/add-slot/add-slot.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-slot.component.scss */ "./src/app/modules/ams/parking-management/components/add-slot/add-slot.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], AddSlotComponent);
 
 
@@ -761,11 +751,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Vehicle */ "./src/app/api/controllers/Vehicle.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -774,13 +763,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddVehicleComponent = class AddVehicleComponent {
-    constructor(router, route, vehicleService, apartmentService, lookupService, sharedService, sessionService) {
-        this.router = router;
+    constructor(route, vehicleService, lookupService, sessionService) {
         this.route = route;
         this.vehicleService = vehicleService;
-        this.apartmentService = apartmentService;
         this.lookupService = lookupService;
-        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isEditVehicle = false;
         this.isVehicleSubmitted = false;
@@ -802,9 +788,9 @@ let AddVehicleComponent = class AddVehicleComponent {
                 "vehicleColor": this.vehicle.vehicleColor,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-20T06:34:51.891Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-20T06:34:51.891Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 vehicle: details
@@ -820,14 +806,14 @@ let AddVehicleComponent = class AddVehicleComponent {
                         "parkingSlotId": parseInt(this.route.params['value'].slotid),
                         "stickerNumber": "string",
                         "rfid": "string",
-                        "fromDate": "2019-11-20T07:23:30.495Z",
-                        "toDate": "2019-11-20T07:23:30.495Z",
+                        "fromDate": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                        "toDate": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                         "isPassIssued": true,
                         "isActive": true,
                         "insertedBy": parseInt(this.sessionService.userId),
-                        "insertedOn": "2019-11-20T07:23:30.495Z",
-                        "updatedBy": 0,
-                        "updatedOn": "2019-11-20T07:23:30.495Z"
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                        "updatedBy": null,
+                        "updatedOn": null
                     };
                     let params = {
                         apartmentBlockUnitVehicle: mapVehicleDetails
@@ -856,11 +842,11 @@ let AddVehicleComponent = class AddVehicleComponent {
                 "vehicleModel": this.vehicle.vehicleModel,
                 "vehicleDriverNumber": this.vehicle.vehicleDriverNumber,
                 "vehicleColor": this.vehicle.vehicleColor,
-                "isActive": true,
-                "insertedBy": 3,
-                "insertedOn": "2019-11-20T06:34:51.891Z",
+                "isActive": this.vehicle.isActive,
+                "insertedBy": this.vehicle.insertedBy,
+                "insertedOn": this.vehicle.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": "2019-11-20T06:34:51.891Z"
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
             };
             let params = {
                 vehicle: details
@@ -902,13 +888,10 @@ let AddVehicleComponent = class AddVehicleComponent {
     }
 };
 AddVehicleComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 AddVehicleComponent.propDecorators = {
     outputParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
@@ -919,13 +902,10 @@ AddVehicleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./add-vehicle.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/parking-management/components/add-vehicle/add-vehicle.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-vehicle.component.scss */ "./src/app/modules/ams/parking-management/components/add-vehicle/add-vehicle.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Vehicle__WEBPACK_IMPORTED_MODULE_3__["VehicleService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], AddVehicleComponent);
 
 
@@ -1365,13 +1345,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
 
 
 
@@ -1419,16 +1399,16 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
             "id": 0,
             "availabelParkingId": this.parkingAvailable.availabelParkingId,
             "rentedParkingAllocationTypeId": this.parkingAvailable.rentedParkingAllocationTypeId,
-            "startDate": this.parkingAvailable.startDate,
-            "endDate": this.parkingAvailable.endDate,
-            "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingAvailable.startTime).format('HH:mm:ss'),
-            "endTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingAvailable.endTime).format('HH:mm:ss'),
+            "startDate": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.startDate).utcOffset(this.timeZone.offset).format(),
+            "endDate": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.endDate).utcOffset(this.timeZone.offset).format(),
+            "startTime": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.startTime).format(this.timeZone.time24),
+            "endTime": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.endTime).format(this.timeZone.time24),
             "totalFee": this.parkingAvailable.totalFee,
             "isCancelled": true,
             "refundAmount": 0,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
             "visitorId": 0,
@@ -1478,6 +1458,7 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.activateRouter.params.subscribe(param => this.type = param['type']);
         this.slotData$ = this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(data => data.length > 2), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(term => {
             let entity = {
@@ -1558,9 +1539,9 @@ ParkingCreateParkingBookingComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__["StaffService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"] }
 ];
 ParkingCreateParkingBookingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1571,9 +1552,9 @@ ParkingCreateParkingBookingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_4__["ParkingService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_10__["LookupService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_11__["ApartmentService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_12__["StaffService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__["LookupService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"],
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__["StaffService"],
         _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])
 ], ParkingCreateParkingBookingComponent);
 
@@ -3383,6 +3364,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -3491,9 +3475,9 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
                 "description": this.slot.slotType,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-20T16:51:24.105Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-20T16:51:24.105Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 lookupvalue: details
@@ -3519,10 +3503,10 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
                 "lookupValueName": this.slot.slotMainType,
                 "description": this.slot.slotType,
                 "isActive": true,
-                "insertedBy": 0,
-                "insertedOn": "2019-11-20T16:51:24.105Z",
+                "insertedBy": this.slot.insertedBy,
+                "insertedOn": this.slot.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": "2019-11-20T16:51:24.105Z"
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString()
             };
             let params = {
                 lookupvalue: details
@@ -3670,6 +3654,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -3767,9 +3754,9 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
                 "description": this.vehicleType,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": "2019-11-20T16:51:24.105Z",
-                "updatedBy": 0,
-                "updatedOn": "2019-11-20T16:51:24.105Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
             };
             let params = {
                 lookupvalue: details
@@ -3780,11 +3767,6 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
                     this.sharedService.setAlertMessage("Vehicle Type added successfully");
                     this.isVehicleTypeNew = !this.isVehicleTypeNew;
                     this.getVehicleTypeList();
-                    // this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res:any) => {
-                    //   this.vehicleDataList = res.filter(item => {
-                    //       return item.isActive;
-                    //   });  
-                    // });
                 }
                 else {
                     this.isVehicleTypeSubmitted = true;
@@ -3814,11 +3796,6 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
                     this.isVehicleTypeUpdate = !this.isVehicleTypeUpdate;
                     this.sharedService.setAlertMessage("Vehicle Type updated successfully");
                     this.getVehicleTypeList();
-                    // this.lookupService.getLookupValueByLookupTypeId(2).subscribe((res:any) => {
-                    //   this.vehicleDataList = res.filter(item => {
-                    //       return item.isActive;
-                    //   });   
-                    // });
                 }
                 else {
                     this.isVehicleTypeSubmitted = true;
@@ -3842,14 +3819,10 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
                     this.vehicleDataList = this.vehicleDataList.filter((type) => type.lookupValueId !== item.lookupValueId);
                     this.sharedService.setUnitListDeleteIndex(null);
                     this.getVehicleTypeList();
-                    // this.isDataLoaded = true;
                 });
             }
         });
     }
-    /**
-     * Get Vehilce Type List
-     */
     getVehicleTypeList() {
         let vehicleDataListParams = {
             LookupTypeId: 2
@@ -4627,7 +4600,6 @@ let CreateAvailablityComponent = class CreateAvailablityComponent {
         this.parkingSlotData.parkingSlotID = selectedValue.parkingSlotID; // Slot Name Id
         this.parkingSlotData.slotTypeName = selectedValue.slotTypeName;
         this.parkingSlotData.permOwner = selectedValue.permOwner;
-        //this.parkingSlotData.slotTypeId =  selectedValue.slotTypeId;
         this.parkingSlotData.parkingSlotBlockNumber = selectedValue.parkingSlotBlockNumber; //Slot Location
         this.parkingSlotData.parkingSlotBlockID = selectedValue.parkingSlotBlockID; //Slot Location Id
     }
@@ -4637,8 +4609,8 @@ let CreateAvailablityComponent = class CreateAvailablityComponent {
             "parkingId": this.parkingSlotData.parkingSlotID,
             "startDate": this.parkingSlotData.startDate,
             "endDate": this.parkingSlotData.endDate,
-            "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.startTime).format('HH:mm:ss'),
-            "endTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.endTime).format('HH:mm:ss'),
+            "startTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.startTime).format(this.timeZone.time24),
+            "endTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.parkingSlotData.endTime).format(this.timeZone.time24),
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
@@ -4672,6 +4644,7 @@ let CreateAvailablityComponent = class CreateAvailablityComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.activateRouter.params.subscribe(param => this.type = param['type']);
         this.slotData$ = this.slotSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(data => data.length > 2), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(term => {
             let entity = {

@@ -381,7 +381,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 "isPrimaryContact": this.user.isPrimaryContact,
                 "isBillToParty": this.user.isPrimaryContact,
                 "isActive": true,
-                "insertedBy": 1,
+                "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,

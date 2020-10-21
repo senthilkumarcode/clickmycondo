@@ -104,8 +104,8 @@ let IncomeHistoryReverseComponent = class IncomeHistoryReverseComponent {
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
-            "updatedBy": 0,
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
             "transReference1": "string",
             "transReference2": "string",
             "glAcctIndicator": "string"

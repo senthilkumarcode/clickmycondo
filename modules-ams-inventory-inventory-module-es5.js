@@ -1164,7 +1164,7 @@
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": 0,
+                "updatedBy": null,
                 "updatedOn": null
               };
               var params = {

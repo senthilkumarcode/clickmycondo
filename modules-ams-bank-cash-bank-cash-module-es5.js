@@ -438,8 +438,8 @@
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": 0,
-                "updatedOn": "2020-03-13T09:38:46.772Z"
+                "updatedBy": null,
+                "updatedOn": null
               };
               var bankAccountDetails = {
                 bankAccountDetails: details
@@ -475,8 +475,8 @@
                 "ifsc": this.bank.ifsc,
                 "isPrimary": this.bank.isPrimary,
                 "isActive": this.bank.isActive,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "insertedBy": this.bank.insertedBy,
+                "insertedOn": this.bank.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
               };

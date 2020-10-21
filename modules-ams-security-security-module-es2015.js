@@ -984,22 +984,19 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.date);
     }
-    getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
-    }
-    getTimeFormat(dateTime) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(dateTime).format("YYYY-MM-DD HH:mm");
+    getDateTime(date) {
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time24);
     }
     submitSecurityAlertReports(form) {
         this.isReportSubmitted = true;
         this.isDataLoaded = false;
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-            StartDate: this.getDateFormat(this.report.startDate),
-            EndDate: this.getDateFormat(this.report.endDate),
-            ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+            StartDate: this.getDateTime(this.report.startDate),
+            EndDate: this.getDateTime(this.report.endDate),
+            ApartmentID: this.sessionService.apartmentId,
             EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
             AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
         };
@@ -1039,8 +1036,8 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.isDataLoaded = false;
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-            StartDate: this.getDateFormat(this.report.startDate),
-            EndDate: this.getDateFormat(this.report.endDate),
+            StartDate: this.getDateTime(this.report.startDate),
+            EndDate: this.getDateTime(this.report.endDate),
             ApartmentID: parseInt(this.sessionService.apartmentId),
             EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
             AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1078,8 +1075,8 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         // =this.getTicketByAdmin();
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-            StartDate: this.getDateFormat(this.report.startDate),
-            EndDate: this.getDateFormat(this.report.endDate),
+            StartDate: this.getDateTime(this.report.startDate),
+            EndDate: this.getDateTime(this.report.endDate),
             ApartmentID: parseInt(this.sessionService.apartmentId),
             EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
             AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1162,7 +1159,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
                 datafield: 'creationDate',
                 width: 100,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getDateFormat(value) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + this.getDate(value) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -1175,7 +1172,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
                 text: 'Tower No',
                 datafield: 'blockNo',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getDateFormat(value) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + this.getDate(value) + '</div>';
                 },
                 minwidth: 170,
                 renderer: columnrenderer
@@ -1200,8 +1197,8 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
             }];
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-            StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateFormat(this.report.startDate),
-            EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).format(this.timeZone.time) : this.getDateFormat(this.report.endDate),
+            StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateTime(this.report.startDate),
+            EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).format(this.timeZone.time) : this.getDateTime(this.report.endDate),
             ApartmentID: parseInt(this.sessionService.apartmentId),
             EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
             AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1485,7 +1482,7 @@ let SecuritySetupAddCategoryComponent = class SecuritySetupAddCategoryComponent 
                 "insertedBy": parseInt(this.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedOn": null,
             };
             let add_param = {
                 lookupvalue: details

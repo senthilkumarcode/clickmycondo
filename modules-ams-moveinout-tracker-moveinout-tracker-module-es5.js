@@ -3050,7 +3050,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
           }
         }, {
           key: "submitReportsFilterForm",

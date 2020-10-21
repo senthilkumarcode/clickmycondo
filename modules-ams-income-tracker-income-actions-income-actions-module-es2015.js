@@ -564,11 +564,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
-
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
 
 
@@ -577,12 +575,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent {
-    constructor(router, route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService) {
-        this.router = router;
+    constructor(route, _incomeSecurityDepositComponent, accountsService, sessionService) {
         this.route = route;
         this._incomeSecurityDepositComponent = _incomeSecurityDepositComponent;
         this.accountsService = accountsService;
-        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isDepositSubmitted = false;
         this.glAccountIndicator = "Cust_Invoice";
@@ -612,7 +608,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "comment2": this.deposit.comment,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -650,7 +646,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
             };
             let params = {
                 custSecurity: details
@@ -687,12 +683,10 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
     }
 };
 IncomeAddSecurityDepositComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 IncomeAddSecurityDepositComponent.propDecorators = {
     deposit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -706,12 +700,10 @@ IncomeAddSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./income-add-security-deposit.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-add-security-deposit.component.scss */ "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], IncomeAddSecurityDepositComponent);
 
 
@@ -1197,7 +1189,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'documentDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -1211,7 +1203,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'entryDateTime',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1220,7 +1212,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'postingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1229,7 +1221,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'clearingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {

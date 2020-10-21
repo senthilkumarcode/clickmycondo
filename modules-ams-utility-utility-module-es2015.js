@@ -210,9 +210,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
@@ -225,11 +226,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddInsuranceComponent = class AddInsuranceComponent {
-    constructor(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
+    constructor(router, utilityTrackerService, apartmentService, sharedService, sessionService) {
         this.router = router;
-        this.route = route;
         this.utilityTrackerService = utilityTrackerService;
-        this.lookupService = lookupService;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
@@ -253,7 +252,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
             "insuranceNumber": this.insuranceCharge.InsuranceNo,
             "totalCost": this.insuranceCharge.TotalCost,
             "costPerAptUnit": this.insuranceCharge.CostPerApt,
-            "dateEntered": this.insuranceCharge.DateEntered,
+            "dateEntered": moment__WEBPACK_IMPORTED_MODULE_7__(this.insuranceCharge.DateEntered).utcOffset(this.timeZone.offset).format(),
             "comments": this.insuranceCharge.Comments,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
@@ -295,6 +294,7 @@ let AddInsuranceComponent = class AddInsuranceComponent {
         this.insuranceCharge.Comments = undefined;
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.insuranceCharge = {};
         this.insuranceCharge.DateEntered = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
         let params = {
@@ -303,20 +303,14 @@ let AddInsuranceComponent = class AddInsuranceComponent {
         this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
             this.insuranceCharge.AptunitCount = res.length;
         });
-        // this.utilityTrackerService.getUtilityTrackerCategorysByApartmentId(apartment_id).subscribe((res:any) => {
-        //     let electric_category = res.find(x=> x.category == 'Common Electricity Charges')
-        //     this.categoryCostPerApt = electric_category.ratePerUnit;
-        //   });
     }
 };
 AddInsuranceComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__["UtilityTrackerService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 AddInsuranceComponent.propDecorators = {
     onCancel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }]
@@ -328,12 +322,10 @@ AddInsuranceComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./add-insurance.component.scss */ "./src/app/modules/ams/utility/components/utility-add-reading/add-insurance/add-insurance.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_3__["UtilityTrackerService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], AddInsuranceComponent);
 
 
@@ -371,8 +363,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+
 
 
 
@@ -407,11 +402,11 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
     submitReadingForm(form) {
         let electric_period = {
             "apartmentId": this.sessionService.apartmentId,
-            "periodFrom": this.electricReading.fromDate,
-            "periodTo": this.electricReading.toDate,
+            "periodFrom": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.fromDate).utcOffset(this.timeZone.offset).format(),
+            "periodTo": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.toDate).utcOffset(this.timeZone.offset).format(),
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
             "updatedBy": 0,
             "updatedOn": null
         };
@@ -434,12 +429,12 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
                 "currReading": this.electricReading.CurrReading,
                 "electricalUnitPerAptUnit": this.electricReading.ElectricalUnit,
                 "costPerAptUnit": this.electricReading.CostPerApt,
-                "dateTaken": this.electricReading.DateTaken,
+                "dateTaken": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.DateTaken).utcOffset(this.timeZone.offset).format(),
                 "comments": this.electricReading.comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": 0,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                "updatedBy": null,
                 "updatedOn": null
             };
             let params = {
@@ -472,12 +467,12 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
                 "currReading": this.electricReading.CurrReading,
                 "electricalUnitPerAptUnit": this.electricReading.ElectricalUnitPerApT,
                 "costPerAptUnit": this.electricReading.CostPerApt,
-                "dateTaken": this.electricReading.DateTaken,
+                "dateTaken": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.DateTaken).utcOffset(this.timeZone.offset).format(),
                 "comments": this.electricReading.Comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": 0,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                "updatedBy": null,
                 "updatedOn": null
             };
             let params = {
@@ -530,8 +525,9 @@ let ElectricityReadingComponent = class ElectricityReadingComponent {
         this.electricReading.CostPerApt = undefined;
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.electricReading = {};
-        this.electricReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+        this.electricReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
         let params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -847,10 +843,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
 
 
 
@@ -870,7 +869,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.refreshEmitList = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.calculateSubject = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
+        this.calculateSubject = new rxjs__WEBPACK_IMPORTED_MODULE_10__["Subject"]();
         this.isError = false;
         this.alertMessage = "";
         this.isEdit = false;
@@ -905,11 +904,11 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
             "units": this.waterReading.units,
             "unitNumber": null,
             "cost": parseInt(this.waterReading.cost),
-            "dateTaken": this.waterReading.dateTaken,
+            "dateTaken": moment__WEBPACK_IMPORTED_MODULE_8__(this.waterReading.dateTaken).utcOffset(this.timeZone.offset).format(),
             "comments": this.waterReading.comments,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null
         };
@@ -949,6 +948,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.waterReading = {};
         //let apartment_id = this.sessionService.apartmentId;
         if (this.unit.water_charge == undefined) {
@@ -963,7 +963,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
         }
         this.waterReading.prevReading = this.unit.water_charge.prevReading;
         this.waterReading.currReading = this.unit.water_charge.currReading;
-        this.waterReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+        this.waterReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
         this.unitTypeId = "";
         //get unit type
         let params = {
@@ -976,7 +976,7 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
             }, 1000);
         }, error => {
         });
-        this.calculateSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["debounceTime"])(500)).subscribe(searchTextValue => {
+        this.calculateSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["debounceTime"])(500)).subscribe(searchTextValue => {
             this.calculateUnitPerAptFrmCurReading();
         });
     }
@@ -1039,9 +1039,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/UtilityTracker */ "./src/app/api/controllers/UtilityTracker.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
@@ -1053,9 +1054,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let WaterReadingComponent = class WaterReadingComponent {
-    constructor(apartmentService, lookupService, utilityTrackerService, sharedService, sessionService) {
+    constructor(apartmentService, utilityTrackerService, sharedService, sessionService) {
         this.apartmentService = apartmentService;
-        this.lookupService = lookupService;
         this.utilityTrackerService = utilityTrackerService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
@@ -1076,12 +1076,12 @@ let WaterReadingComponent = class WaterReadingComponent {
         this.waterReadingPeriodID = null;
         let water_reading_period = {
             "apartmentId": this.sessionService.apartmentId,
-            "periodFrom": this.waterReadingFromDate,
-            "periodTo": this.waterReadingToDate,
+            "periodFrom": moment__WEBPACK_IMPORTED_MODULE_6__(this.waterReadingFromDate).utcOffset(this.timeZone.offset).format(),
+            "periodTo": moment__WEBPACK_IMPORTED_MODULE_6__(this.waterReadingToDate).utcOffset(this.timeZone.offset).format(),
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-            "updatedBy": 0,
+            "updatedBy": null,
             "updatedOn": null
         };
         let params = {
@@ -1097,6 +1097,7 @@ let WaterReadingComponent = class WaterReadingComponent {
         this.apartmentBlockId = e[0].apartmentBlockId;
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.waterReadingPeriodID = undefined;
         let params = {
             apartmentId: this.sessionService.apartmentId
@@ -1109,10 +1110,9 @@ let WaterReadingComponent = class WaterReadingComponent {
 };
 WaterReadingComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"] },
+    { type: src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_4__["UtilityTrackerService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 WaterReadingComponent.propDecorators = {
     onCancel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
@@ -1125,10 +1125,9 @@ WaterReadingComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./water-reading.component.scss */ "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/water-reading.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_5__["UtilityTrackerService"],
+        src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_4__["UtilityTrackerService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], WaterReadingComponent);
 
 

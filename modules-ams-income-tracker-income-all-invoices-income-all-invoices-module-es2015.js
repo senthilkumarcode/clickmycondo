@@ -483,8 +483,8 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
         });
     }
     submitIncomeInvoicesFilterForm() {
-        let fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format(this.timeZone.time);
-        let toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format(this.timeZone.time);
+        let fromDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.fromDate).format(this.timeZone.date);
+        let toDate = moment__WEBPACK_IMPORTED_MODULE_14__(this.toDate).format(this.timeZone.date);
         this.getAllInvoicesData(fromDate, toDate);
     }
     getAllInvoicesData(fromDate, toDate) {
@@ -717,8 +717,8 @@ let IncomeInvoiceReverseComponent = class IncomeInvoiceReverseComponent {
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
             "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
-            "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_5___default()().toISOString(),
+            "updatedBy": null,
+            "updatedOn": null,
             "transReference1": "string",
             "transReference2": "string",
             "glAcctIndicator": "Income"

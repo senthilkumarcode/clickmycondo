@@ -731,7 +731,7 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
                 text: 'Start date',
                 datafield: 'startDate',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -739,7 +739,7 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
                 text: 'End date',
                 datafield: 'endDate',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format("DD-MM-YYYY") + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1181,7 +1181,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
                 text: 'Date',
                 datafield: 'bookedForDate',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1189,7 +1189,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
                 text: 'Start time',
                 datafield: 'bookedFromTime',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1197,7 +1197,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
                 text: 'End time',
                 datafield: 'bookedToTime',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format("DD-MM-YYYY") + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1732,7 +1732,6 @@ let StopPrivilegeComponent = class StopPrivilegeComponent {
                 }
             });
         }
-        // this.submitCreatesViolationPrivledgeForm(id);
     }
     deleteviolationRow(index, violationIndex) {
         const control = this.tableForm().at(index).get('violationTable');
@@ -2026,7 +2025,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Violation */ "./src/app/api/controllers/Violation.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
@@ -2038,13 +2037,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DisputeComponent = class DisputeComponent {
-    constructor(dialogRef, data, cookieService, sharedService, violationService, lookupService) {
+    constructor(dialogRef, data, cookieService, sharedService, violationService, sessionService) {
         this.dialogRef = dialogRef;
         this.data = data;
         this.cookieService = cookieService;
         this.sharedService = sharedService;
         this.violationService = violationService;
-        this.lookupService = lookupService;
+        this.sessionService = sessionService;
         this.outputEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.config = data;
     }
@@ -2061,11 +2060,11 @@ let DisputeComponent = class DisputeComponent {
                 disputeId: 0,
                 disputeComments: this.dispute.disputeComments,
                 isActive: true,
-                insertedBy: parseInt(this.cookieService.get('userId')),
+                insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                updatedBy: parseInt(this.cookieService.get('userId')),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                apartmentId: parseInt(this.cookieService.get('apartmentId')),
+                updatedBy: null,
+                updatedOn: null,
+                apartmentId: parseInt(this.sessionService.apartmentId),
                 apartmentBlockUnitId: this.violation.apartmentBlockUnitId === null ? 1 : this.violation.apartmentBlockUnitId,
                 apartmentBlockId: this.violation.apartmentBlockId === null ? 1 : this.violation.apartmentBlockId
             }
@@ -2104,7 +2103,7 @@ DisputeComponent.ctorParameters = () => [
     { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 DisputeComponent.propDecorators = {
     violation: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -2120,7 +2119,7 @@ DisputeComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], DisputeComponent);
 
 
@@ -2526,8 +2525,8 @@ let CreateDisputeComponent = class CreateDisputeComponent {
                 isActive: this.dispute.disputeStatus,
                 insertedBy: parseInt(this.sessionService.userId),
                 insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                updatedBy: parseInt(this.sessionService.userId),
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                updatedBy: null,
+                updatedOn: null,
                 apartmentId: this.sessionService.apartmentId,
                 apartmentBlockUnitId: this.violation.apartmentBlockUnitId === null ? 1 : this.violation.apartmentBlockUnitId,
                 apartmentBlockId: this.violation.apartmentBlockId === null ? 1 : this.violation.apartmentBlockId

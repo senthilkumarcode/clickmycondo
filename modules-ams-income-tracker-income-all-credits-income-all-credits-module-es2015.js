@@ -695,16 +695,16 @@ let IncomeCreditListComponent = class IncomeCreditListComponent {
     }
     submitIncomeCreditFilterForm() {
         this.isCreditNoteFilterTableLoaded = false;
-        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
-        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
+        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.date);
+        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.date);
         this.getCreditNotesData(fromDate, toDate);
         //Mark for check
         this._changeDetectorRef.markForCheck();
     }
     isCreditAdded() {
         this.isCreditNoteFilterTableLoaded = false;
-        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.time);
-        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.time);
+        let fromDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.fromDate).format(this.timeZone.date);
+        let toDate = moment__WEBPACK_IMPORTED_MODULE_8__(this.toDate).format(this.timeZone.date);
         this.getCreditNotesData(fromDate, toDate);
         //Mark for check
         this._changeDetectorRef.markForCheck();

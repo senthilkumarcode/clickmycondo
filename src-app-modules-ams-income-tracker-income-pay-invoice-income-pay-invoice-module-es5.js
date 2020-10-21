@@ -902,9 +902,9 @@
                 "comment": "",
                 "isActive": true,
                 "insertedBy": parseInt(_this10.sessionService.userId),
-                "insertedOn": "2020-01-10T06:59:54.422Z",
-                "updatedBy": 0,
-                "updatedOn": "2020-01-10T06:59:54.422Z"
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
               };
               custInvoiceObjArray.push(details);
             });
