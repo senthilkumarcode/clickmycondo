@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"upload-wrapper\">\n    \n    \n    <label *ngIf=\"!isFileIdNotAvailable() || !isEdit\">Image/Document</label>\n    \n    <ng-container *ngIf=\"multiple\">\n    \n        <ng-container *ngFor=\"let file of fileList\">\n            <div class=\"preview-wrapper\">\n                <div class=\"icon-wrapper ml-1\">\n                    <mat-icon class=\"icon-sm\" [color]=\"'warn'\" [svgIcon]=\"'close'\" (click)=\"deleteFile(file)\"></mat-icon>\n                </div>\n                <figure class=\"preview-img\">\n                    \n                    <ng-container *ngIf=\"file.status\">\n                        <img *ngIf=\"isImage(file.type)\" class=\"img-fluid\" [src] =\"file.binary\" id=\"imageElem\">\n                        <a [href]=\"file.binary\" target=\"_blank\" *ngIf=\"!isImage(file.type)\">\n                            <mat-icon class=\"w-100 h-100\" svgIcon=\"feather:file-text\"></mat-icon>\n                        </a>\n                    </ng-container>\n                    <div class=\"loader\" *ngIf=\"!file.status\">\n                        <svg version=\"1.1\" id=\"L9\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                        viewBox=\"0 0 100 100\" enable-background=\"new 0 0 0 0\" xml:space=\"preserve\">\n                        <path fill=\"#fff\" d=\"M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50\">\n                        <animateTransform \n                            attributeName=\"transform\" \n                            attributeType=\"XML\" \n                            type=\"rotate\"\n                            dur=\"1s\" \n                            from=\"0 50 50\"\n                            to=\"360 50 50\" \n                            repeatCount=\"indefinite\" />\n                        </path>\n                        </svg>\n                    </div>\n                </figure>\n            </div>\n        </ng-container>\n\n    </ng-container>\n\n    <label>Upload File</label>\n    <div class=\"browse-files\" [appDragAndDrop] [multiple]=\"multiple\" (onFileDropped)=\"selectFile($event)\">\n        <input hidden type=\"file\" #fileInput (change)=\"selectFile($event)\" [multiple]=\"isMultiple()\">\n        <div class=\"attachfiles-normal\">\n            <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n            <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n        </div>\n    </div>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"upload-wrapper\">\n    \n    \n    <label *ngIf=\"isFileIdAvailable()\">Image/Document</label>\n    \n    <ng-container *ngFor=\"let file of fileList\">\n        <div class=\"preview-wrapper\">\n            <div class=\"icon-wrapper ml-1\">\n                <mat-icon class=\"icon-sm\" [color]=\"'warn'\" [svgIcon]=\"'close'\" (click)=\"deleteFile(file)\"></mat-icon>\n            </div>\n            <figure class=\"preview-img\">\n                \n                <ng-container *ngIf=\"file.status\">\n                    <img *ngIf=\"isImage(file.type)\" class=\"img-fluid\" [src] =\"file.binary\" id=\"imageElem\">\n                    <a [href]=\"file.binary\" target=\"_blank\" *ngIf=\"!isImage(file.type)\">\n                        <mat-icon class=\"w-100 h-100\" svgIcon=\"feather:file-text\"></mat-icon>\n                    </a>\n                </ng-container>\n                <div class=\"loader\" *ngIf=\"!file.status\">\n                    <svg version=\"1.1\" id=\"L9\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n                    viewBox=\"0 0 100 100\" enable-background=\"new 0 0 0 0\" xml:space=\"preserve\">\n                    <path fill=\"#fff\" d=\"M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50\">\n                    <animateTransform \n                        attributeName=\"transform\" \n                        attributeType=\"XML\" \n                        type=\"rotate\"\n                        dur=\"1s\" \n                        from=\"0 50 50\"\n                        to=\"360 50 50\" \n                        repeatCount=\"indefinite\" />\n                    </path>\n                    </svg>\n                </div>\n            </figure>\n        </div>\n    </ng-container>\n    \n    <ng-container *ngIf=\"IsOneFileId()\">\n\n        <label>Upload File</label>\n\n        <div class=\"browse-files\" [appDragAndDrop] [multiple]=\"multiple\" (onFileDropped)=\"selectFile($event)\">\n            <input hidden type=\"file\" #fileInput (change)=\"selectFile($event)\" [multiple]=\"isMultiple()\">\n            <div class=\"attachfiles-normal\">\n                <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n            </div>\n        </div>\n\n    </ng-container>     \n\n</div>\n";
       /***/
     },
 
@@ -141,6 +141,7 @@
           this.selectedFiles = [];
           this.newFiles = [];
           this.isFileIdChanged = false;
+          this.fileIds = [];
           this.isEdit = false;
           this.multiple = false;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -148,14 +149,27 @@
         }
 
         _createClass(UploadComponent, [{
-          key: "isFileIdNotAvailable",
-          value: function isFileIdNotAvailable() {
-            return this.fileIds == null ? true : false;
+          key: "isFileIdAvailable",
+          value: function isFileIdAvailable() {
+            return this.fileIds == undefined || this.fileIds.length == 0 ? false : true;
           }
         }, {
           key: "isMultiple",
           value: function isMultiple() {
             return this.multiple ? 'multiple' : '';
+          }
+        }, {
+          key: "IsOneFileId",
+          value: function IsOneFileId() {
+            if (!this.multiple) {
+              if (this.fileIds == undefined || this.fileIds.length == 0) {
+                return true;
+              } else {
+                return false;
+              }
+            } else {
+              return true;
+            }
           }
         }, {
           key: "selectFile",

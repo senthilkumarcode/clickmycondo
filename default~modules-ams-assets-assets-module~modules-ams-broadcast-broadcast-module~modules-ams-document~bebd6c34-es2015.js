@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-details-panel\">\n        \n    <div class=\"select-panel-header\">\n        \n        <div class=\"new-value\">\n            <mat-icon [svgIcon]=\"'search'\"></mat-icon>\n            <input type=\"text\"\n                   placeholder=\"Enter a value\"\n                   (input)=\"filterValues($event)\"\n                   (keydown)=\"filterValuesInputKeyDown($event)\"\n                   [maxLength]=\"50\"\n                   #newValueInput>\n        </div>\n\n    </div>\n\n    <div class=\"available-values\" *ngIf=\"filteredValues.length != 0\">\n\n        <!-- Values  -->\n        <mat-selection-list #selectionList [multiple]=\"false\" [(ngModel)]=\"selectedItem\" (ngModelChange)=\"onListSelect()\">\n            <mat-list-option class=\"mat-primary\" \n            *ngFor=\"let value of filteredValues; trackBy: trackByFn\" \n            [value]=\"value\"\n            >\n              {{value[fieldValue]}}\n            </mat-list-option>\n        </mat-selection-list> \n\n    </div>\n\n    <div class=\"no-value\" *ngIf=\"filteredValues.length == 0\">\n        <div class=\"text-secondary\">No Records</div>\n    </div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"select-details-panel\">\n        \n    <div class=\"select-panel-header\">\n        \n        <div class=\"new-value\">\n            <mat-icon [svgIcon]=\"'search'\"></mat-icon>\n            <input type=\"text\"\n                   placeholder=\"Enter a value\"\n                   (input)=\"filterValues($event)\"\n                   (keydown)=\"filterValuesInputKeyDown($event)\"\n                   [maxLength]=\"50\"\n                   #newValueInput>\n        </div>\n\n    </div>\n\n    <div class=\"available-values\" *ngIf=\"filteredValues.length != 0\">\n\n        <!-- Values  -->\n        <mat-selection-list #selectionList [multiple]=\"false\" [(ngModel)]=\"selectedItem\" (selectionChange)=\"onListSelect()\">\n            <mat-list-option class=\"mat-primary\" \n            *ngFor=\"let value of filteredValues; trackBy: trackByFn\" \n            [value]=\"value\"\n            >\n              {{value[fieldValue]}}\n            </mat-list-option>\n        </mat-selection-list> \n\n    </div>\n\n    <div class=\"no-value\" *ngIf=\"filteredValues.length == 0\">\n        <div class=\"text-secondary\">No Records</div>\n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -80,7 +80,7 @@ let PanelListComponent = class PanelListComponent {
             this.filteredValues = this.fieldList;
         }
     }
-    ngOnChanges() {
+    ngOnChanges(changes) {
     }
 };
 PanelListComponent.ctorParameters = () => [];
@@ -172,6 +172,7 @@ let SelectComponent = class SelectComponent {
             return accumulator;
         }, {});
         var selectedItem = [newObj];
+        this.selectedItem = [newObj];
         this.fieldParams.emit(selectedItem);
     }
     OpenDropDown() {

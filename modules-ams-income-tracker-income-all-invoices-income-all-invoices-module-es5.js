@@ -490,7 +490,7 @@
               "apartmentBlockUnitId": invoice.apartmentBlockUnitId,
               "custInvoiceAmount": parseInt(invoice.custInvoiceAmount),
               "custInvoiceDate": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
-              "dueDate": moment__WEBPACK_IMPORTED_MODULE_14__(invoice.dueDate).tz(this.timeZone).toISOString(),
+              "dueDate": moment__WEBPACK_IMPORTED_MODULE_14__(invoice.dueDate).utcOffset(this.timeZone.offset).format(),
               "tax1": 0,
               "tax2": 0,
               "tax3": 0,
