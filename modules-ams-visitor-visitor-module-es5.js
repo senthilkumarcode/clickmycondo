@@ -2115,16 +2115,17 @@
             this.router.navigate(['/ams/visitor/info/frequent-visitor-create']);
           }
         }, {
-          key: "getVisitorCheckedIn",
-          value: function getVisitorCheckedIn() {
+          key: "getVisitorList",
+          value: function getVisitorList() {
             var _this18 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
               apartmentId: this.sessionService.apartmentId,
-              BlockUnitId: this.sessionService.apartmentBlockUnitID
+              fromDate: '',
+              toDate: ''
             };
-            this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe(function (res) {
+            this.visitorService.getAllFvYetToComeExpectedVisitorsByApartmentIdDate(param).subscribe(function (res) {
               if (res.length > 0) {
                 var tableData = {
                   localdata: res.reverse(),
@@ -2176,7 +2177,7 @@
               width: 240,
               renderer: columnrenderer
             }];
-            this.getVisitorCheckedIn();
+            this.getVisitorList();
           }
         }]);
 
@@ -2717,16 +2718,17 @@
             this.router.navigate(['/ams/visitor/info/vendor-pass-create']);
           }
         }, {
-          key: "getVisitorCheckedIn",
-          value: function getVisitorCheckedIn() {
+          key: "getVisitorList",
+          value: function getVisitorList() {
             var _this25 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
               apartmentId: this.sessionService.apartmentId,
-              BlockUnitId: this.sessionService.apartmentBlockUnitID
+              fromDate: '',
+              toDate: ''
             };
-            this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe(function (res) {
+            this.visitorService.getAllDvYetToComeExpectedVisitorsByApartmentIdDate(param).subscribe(function (res) {
               if (res.length > 0) {
                 var tableData = {
                   localdata: res.reverse(),
@@ -2798,7 +2800,7 @@
               width: 240,
               renderer: columnrenderer
             }];
-            this.getVisitorCheckedIn();
+            this.getVisitorList();
           }
         }]);
 

@@ -205,7 +205,11 @@ let ForumComponent = class ForumComponent {
         });
     }
     likesUpdate(data) {
-        this.ForumTopicsService.addLike({ TopicId: data.id, userId: this.sessionService.userId }).subscribe((res) => {
+        const queryParamBase = {
+            TopicId: data.id,
+            userId: this.sessionService.userId,
+        };
+        this.ForumTopicsService.addLike(queryParamBase).subscribe((res) => {
             data.likes++;
         });
     }

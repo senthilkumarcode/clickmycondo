@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-list-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4 *ngIf=\"urlType=='pending'\">WorkPermit Approval List</h4>\n                        <h4 *ngIf=\"urlType=='approved'\">WorkPermit Approved List </h4>\n                        <h4 *ngIf=\"urlType=='cancelled'\">WorkPermit Cancelled List </h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"workPermitSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button (click)=\"navCreatePageUrl()\" mat-flat-button [color]=\"'primary'\">Create Work Permit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-list-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<!-- Table -->\n\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4 *ngIf=\"urlType=='pending'\">WorkPermit Approval List</h4>\n                        <h4 *ngIf=\"urlType=='approved'\">WorkPermit Approved List</h4>\n\t\t\t\t\t\t<h4 *ngIf=\"urlType=='cancelled'\">WorkPermit Cancelled List</h4>\n\t\t\t\t\t\t<h4 *ngIf=\"urlType=='rejected'\">WorkPermit Rejected List</h4>\n\t\t\t\t\t\t<h4 *ngIf=\"urlType=='history'\">WorkPermit History</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"workPermitSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button (click)=\"navCreatePageUrl()\" mat-flat-button [color]=\"'primary'\">Create Work Permit</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t[filterable]=\"true\" \n\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t[source]=\"workPermitListData\"\n\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t[enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-status-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4>Status Update</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon> \n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box radio-box\">\n                        <div class=\"form-group\" *ngFor=\"let data of statusTypeData;let i=index\">\n                            <input name=\"assetConditionId\" [id]=\"i\" [(ngModel)]=\"status\" [value]=\"data.lookupValueId\" type=\"radio\">\n                            <label class=\"radio-inline\" [for]=\"i\">{{data.lookupValueName}}</label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\" *ngIf=\"status == 357\">\n                    <div class=\"input-box\">\n                        <label>Reason</label>\n                        <textarea placeholder=\"some text here\" name=\"comments\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\"  (click)=\"onConfirm()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"workpermit-status-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"d-flex mb-4\">\n            <h4>Status Update</h4>\n            <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon> \n        </div>\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"input-box radio-box\">\n                        <div class=\"form-group\" *ngFor=\"let data of statusTypeData;let i=index\">\n                            <input name=\"assetConditionId\" [id]=\"i\" [(ngModel)]=\"status\" [value]=\"data.lookupValueId\" type=\"radio\">\n                            <label class=\"radio-inline\" [for]=\"i\">{{data.lookupValueName}}</label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\" *ngIf=\"status == 353 || status == 357 || status == 359\">\n                    <div class=\"input-box\">\n                        <label>Reason</label>\n                        <textarea placeholder=\"some text here\" name=\"comments\"></textarea>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\"  (click)=\"onConfirm()\">Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1008,13 +1008,16 @@ let WorkpermitListComponent = class WorkpermitListComponent {
             apartmentId: this.sessionService.apartmentId,
         };
         if (this.urlType == 'pending') {
-            params.statusIds = '353,354,356,357,358,359';
+            params.statusIds = '354';
         }
         else if (this.urlType == 'approved') {
             params.statusIds = '355';
         }
         else if (this.urlType == 'cancelled') {
             params.statusIds = '353';
+        }
+        else if (this.urlType == 'rejected') {
+            params.statusIds = '357';
         }
         else if (this.urlType == 'history') {
             params.statusIds = '353,354,355,356,357,358,359';
@@ -1142,8 +1145,8 @@ let WorkpermitListComponent = class WorkpermitListComponent {
                     if (this.urlType == 'pending') {
                         return '<div class="simple-actions">' + edit + view + status + '</div>';
                     }
-                    else if (this.urlType == 'approved' || this.urlType == 'cancelled') {
-                        return '<div class="simple-actions">' + view + '</div>';
+                    else {
+                        return '<div class="simple-actions">' + view + status + '</div>';
                     }
                 },
                 renderer: columnrenderer,
@@ -1959,6 +1962,7 @@ const routes = [
     { path: 'pending', component: _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'approved', component: _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'cancelled', component: _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'rejected', component: _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'history', component: _components_workpermit_list_workpermit_list_component__WEBPACK_IMPORTED_MODULE_9__["WorkpermitListComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'user-history', component: _components_user_workpermit_user_workpermit_component__WEBPACK_IMPORTED_MODULE_8__["UserWorkpermitComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'setup', pathMatch: 'full' }

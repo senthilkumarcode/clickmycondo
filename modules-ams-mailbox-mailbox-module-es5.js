@@ -2508,589 +2508,6 @@
     },
 
     /***/
-    "./src/app/modules/ams/mailbox/mailbox.service.ts":
-    /*!********************************************************!*\
-      !*** ./src/app/modules/ams/mailbox/mailbox.service.ts ***!
-      \********************************************************/
-
-    /*! exports provided: MailboxService */
-
-    /***/
-    function srcAppModulesAmsMailboxMailboxServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "MailboxService", function () {
-        return MailboxService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common/http */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-      /* harmony import */
-
-
-      var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! rxjs */
-      "./node_modules/rxjs/_esm2015/index.js");
-      /* harmony import */
-
-
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! rxjs/operators */
-      "./node_modules/rxjs/_esm2015/operators/index.js");
-      /* harmony import */
-
-
-      var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! src/app/api/controllers/MessageInbox */
-      "./src/app/api/controllers/MessageInbox.ts");
-      /* harmony import */
-
-
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! src/app/core/session/session.service */
-      "./src/app/core/session/session.service.ts");
-
-      var MailboxService = /*#__PURE__*/function () {
-        /**
-         * Constructor
-         *
-         * @param {HttpClient} _httpClient
-         */
-        function MailboxService(_httpClient, messageInbox, sessionService) {
-          _classCallCheck(this, MailboxService);
-
-          this._httpClient = _httpClient;
-          this.messageInbox = messageInbox;
-          this.sessionService = sessionService; // Set the private defaults
-
-          this._category = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-          this._filters = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-          this._folders = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-          this._labels = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-          this._mails = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-          this._mailsLoading = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](false);
-          this._mail = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-          this._pagination = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null); // Set the defaults
-
-          this.selectedMailChanged = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
-        } // -----------------------------------------------------------------------------------------------------
-        // @ Accessors
-        // -----------------------------------------------------------------------------------------------------
-
-        /**
-         * Getter for category
-         */
-
-
-        _createClass(MailboxService, [{
-          key: "getFilters",
-          // -----------------------------------------------------------------------------------------------------
-          // @ Public methods
-          // -----------------------------------------------------------------------------------------------------
-
-          /**
-           * Get filters
-           */
-          value: function getFilters() {
-            var _this14 = this;
-
-            return this._httpClient.get('api/ams/mailbox/filters').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this14._filters.next(response);
-            }));
-          }
-          /**
-           * Get folders
-           */
-
-        }, {
-          key: "getFolders",
-          value: function getFolders() {
-            var _this15 = this;
-
-            return this._httpClient.get('api/ams/mailbox/folders').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this15._folders.next(response);
-            }));
-          }
-          /**
-           * Get labels
-           */
-
-        }, {
-          key: "getLabels",
-          value: function getLabels() {
-            var _this16 = this;
-
-            return this._httpClient.get('api/ams/mailbox/labels').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this16._labels.next(response);
-            }));
-          }
-          /**
-           * Get mails by filter
-           */
-
-        }, {
-          key: "getMailsByFilter",
-          value: function getMailsByFilter(filter) {
-            var _this17 = this;
-
-            var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
-
-            // Execute the mails loading with true
-            this._mailsLoading.next(true);
-
-            return this._httpClient.get('api/ams/mailbox/mails', {
-              params: {
-                filter: filter,
-                page: page
-              }
-            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-              _this17._category.next({
-                type: 'filter',
-                name: filter
-              });
-
-              _this17._mails.next(response.mails);
-
-              _this17._pagination.next(response.pagination);
-
-              _this17._mailsLoading.next(false);
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-              if (response.mails === null) {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])({
-                  message: 'Requested page is not available!',
-                  pagination: response.pagination
-                });
-              }
-
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(response);
-            }));
-          }
-          /**
-           * Get mails by folder
-           */
-
-        }, {
-          key: "getMailsByFolder",
-          value: function getMailsByFolder(folder) {
-            var _this18 = this;
-
-            var page = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '1';
-
-            // Execute the mails loading with true
-            this._mailsLoading.next(true);
-
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId,
-              RoleId: this.sessionService.roleId
-            };
-            var pagination;
-            var totalRecords;
-            var startIndex = 0;
-            var endIndex = -1;
-            var lastPage = 0;
-            var resultsPerPage = 4;
-            var results;
-
-            if (folder == 'inbox') {
-              return this.messageInbox.getMessageInboxReceivedByUserIdAndRole(params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-                _this18._category.next({
-                  type: 'folder',
-                  name: folder
-                });
-
-                if (response.message) {
-                  results = null;
-                  totalRecords = 0;
-                } else {
-                  results = response[0].inboxResult;
-                  totalRecords = results.length;
-                }
-
-                if (Number(page) > 1) {
-                  startIndex = resultsPerPage * Number(page) - resultsPerPage;
-                } else {
-                  startIndex = 0;
-                }
-
-                lastPage = Math.ceil(totalRecords / resultsPerPage);
-
-                if (totalRecords < resultsPerPage) {
-                  lastPage = 1;
-                }
-
-                endIndex = resultsPerPage * Number(page);
-                if (endIndex > totalRecords) endIndex = totalRecords;
-                pagination = {
-                  totalResults: totalRecords,
-                  startIndex: startIndex,
-                  endIndex: endIndex,
-                  currentPage: Number(page),
-                  lastPage: lastPage,
-                  resultsPerPage: resultsPerPage
-                };
-
-                _this18._mails.next(results);
-
-                _this18._pagination.next(pagination);
-
-                _this18._mailsLoading.next(false);
-              }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(response);
-              }));
-            } else if (folder == 'sent') {
-              return this.messageInbox.getMessageInboxSendByUserId(params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-                _this18._category.next({
-                  type: 'folder',
-                  name: folder
-                });
-
-                if (response.message) {
-                  results = null;
-                  totalRecords = 0;
-                } else {
-                  results = response[0].inboxResult;
-                  totalRecords = results.length;
-                }
-
-                if (Number(page) > 1) {
-                  startIndex = resultsPerPage * Number(page) - resultsPerPage;
-                } else {
-                  startIndex = 0;
-                }
-
-                lastPage = Math.ceil(totalRecords / resultsPerPage);
-
-                if (totalRecords < resultsPerPage) {
-                  lastPage = 1;
-                }
-
-                endIndex = resultsPerPage * Number(page);
-                if (endIndex > totalRecords) endIndex = totalRecords;
-                pagination = {
-                  totalResults: totalRecords,
-                  startIndex: startIndex,
-                  endIndex: endIndex,
-                  currentPage: Number(page),
-                  lastPage: lastPage,
-                  resultsPerPage: resultsPerPage
-                };
-
-                _this18._mails.next(results);
-
-                _this18._pagination.next(pagination);
-
-                _this18._mailsLoading.next(false);
-              }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(response);
-              }));
-            } else {
-              return this.messageInbox.getMessageInboxTrashedByUserIdAndRole(params).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (response) {
-                _this18._category.next({
-                  type: 'folder',
-                  name: folder
-                });
-
-                if (response.message) {
-                  results = null;
-                  totalRecords = 0;
-                } else {
-                  results = response[0].inboxResult;
-                  totalRecords = results.length;
-                }
-
-                if (Number(page) > 1) {
-                  startIndex = resultsPerPage * Number(page) - resultsPerPage;
-                } else {
-                  startIndex = 0;
-                }
-
-                lastPage = Math.ceil(totalRecords / resultsPerPage);
-
-                if (totalRecords < resultsPerPage) {
-                  lastPage = 1;
-                }
-
-                endIndex = resultsPerPage * Number(page);
-                if (endIndex > totalRecords) endIndex = totalRecords;
-                pagination = {
-                  totalResults: totalRecords,
-                  startIndex: startIndex,
-                  endIndex: endIndex,
-                  currentPage: Number(page),
-                  lastPage: lastPage,
-                  resultsPerPage: resultsPerPage
-                };
-
-                _this18._mails.next(results);
-
-                _this18._pagination.next(pagination);
-
-                _this18._mailsLoading.next(false);
-              }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (response) {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(response);
-              }));
-            }
-          }
-          /**
-           * Get mail by id
-           */
-
-        }, {
-          key: "getMailById",
-          value: function getMailById(id) {
-            var _this19 = this;
-
-            return this._mails.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (mails) {
-              // Find the mail
-              var mail = mails.filter(function (item) {
-                return item.messageId == id;
-              }); // Update the mail
-
-              if (mail == undefined || mail.length == 0) {
-                _this19._mail.next(null);
-              } else {
-                _this19._mail.next(mail[0]);
-              } // Return the mail
-
-
-              return mail;
-            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (mail) {
-              if (!mail) {
-                return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])('Could not found mail with id of ' + id + '!');
-              }
-
-              return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(mail);
-            }));
-          }
-          /**
-           * Update mail
-           *
-           * @param id
-           * @param mail
-           */
-
-        }, {
-          key: "updateMail",
-          value: function updateMail(id, mail) {
-            var _this20 = this;
-
-            return this._httpClient.patch('api/ams/mailbox/mail', {
-              id: id,
-              mail: mail
-            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
-              // Re-fetch the folders on mail update
-              // to get the updated counts on the sidebar
-              _this20.getFolders().subscribe();
-            }));
-          }
-          /**
-           * Reset the current mail
-           */
-
-        }, {
-          key: "resetMail",
-          value: function resetMail() {
-            var _this21 = this;
-
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["of"])(true).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function () {
-              _this21._mail.next(null);
-            }));
-          }
-          /**
-           * Add label
-           *
-           * @param label
-           */
-
-        }, {
-          key: "addLabel",
-          value: function addLabel(label) {
-            var _this22 = this;
-
-            return this.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (labels) {
-              return _this22._httpClient.put('api/ams/mailbox/label', {
-                label: label
-              }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (newLabel) {
-                // Update the labels with the new label
-                _this22._labels.next([].concat(_toConsumableArray(labels), [newLabel])); // Return the new label
-
-
-                return newLabel;
-              }));
-            }));
-          }
-          /**
-           * Update label
-           *
-           * @param id
-           * @param label
-           */
-
-        }, {
-          key: "updateLabel",
-          value: function updateLabel(id, label) {
-            var _this23 = this;
-
-            return this.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (labels) {
-              return _this23._httpClient.patch('api/ams/mailbox/label', {
-                id: id,
-                label: label
-              }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (updatedLabel) {
-                // Find the index of the updated label within the labels
-                var index = labels.findIndex(function (item) {
-                  return item.id === id;
-                }); // Update the label
-
-                labels[index] = updatedLabel; // Update the labels
-
-                _this23._labels.next(labels); // Return the updated label
-
-
-                return updatedLabel;
-              }));
-            }));
-          }
-          /**
-           * Delete label
-           *
-           * @param id
-           */
-
-        }, {
-          key: "deleteLabel",
-          value: function deleteLabel(id) {
-            var _this24 = this;
-
-            return this.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["take"])(1), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(function (labels) {
-              return _this24._httpClient["delete"]('api/ams/mailbox/label', {
-                params: {
-                  id: id
-                }
-              }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (isDeleted) {
-                // Find the index of the deleted label within the labels
-                var index = labels.findIndex(function (item) {
-                  return item.id === id;
-                }); // Delete the label
-
-                labels.splice(index, 1); // Update the labels
-
-                _this24._labels.next(labels); // Return the deleted status
-
-
-                return isDeleted;
-              }));
-            }));
-          }
-        }, {
-          key: "category$",
-          get: function get() {
-            return this._category.asObservable();
-          }
-          /**
-           * Getter for filters
-           */
-
-        }, {
-          key: "filters$",
-          get: function get() {
-            return this._filters.asObservable();
-          }
-          /**
-           * Getter for folders
-           */
-
-        }, {
-          key: "folders$",
-          get: function get() {
-            return this._folders.asObservable();
-          }
-          /**
-           * Getter for labels
-           */
-
-        }, {
-          key: "labels$",
-          get: function get() {
-            return this._labels.asObservable();
-          }
-          /**
-           * Getter for mails
-           */
-
-        }, {
-          key: "mails$",
-          get: function get() {
-            return this._mails.asObservable();
-          }
-          /**
-           * Getter for mails loading
-           */
-
-        }, {
-          key: "mailsLoading$",
-          get: function get() {
-            return this._mailsLoading.asObservable();
-          }
-          /**
-           * Getter for mail
-           */
-
-        }, {
-          key: "mail$",
-          get: function get() {
-            return this._mail.asObservable();
-          }
-          /**
-           * Getter for pagination
-           */
-
-        }, {
-          key: "pagination$",
-          get: function get() {
-            return this._pagination.asObservable();
-          }
-        }]);
-
-        return MailboxService;
-      }();
-
-      MailboxService.ctorParameters = function () {
-        return [{
-          type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
-        }, {
-          type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
-        }];
-      };
-
-      MailboxService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_5__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], MailboxService);
-      /***/
-    },
-
-    /***/
     "./src/app/modules/ams/mailbox/settings/label-colors.ts":
     /*!**************************************************************!*\
       !*** ./src/app/modules/ams/mailbox/settings/label-colors.ts ***!
@@ -3216,7 +2633,7 @@
         _createClass(MailboxSettingsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this14 = this;
 
             // Create the labels form
             this.labelsForm = this._formBuilder.group({
@@ -3229,11 +2646,11 @@
 
             this._mailboxService.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(function (labels) {
               // Get the labels
-              _this25.labels = labels; // Iterate through the labels
+              _this14.labels = labels; // Iterate through the labels
 
               labels.forEach(function (label) {
                 // Create a label form group
-                var labelFormGroup = _this25._formBuilder.group({
+                var labelFormGroup = _this14._formBuilder.group({
                   id: [label.id],
                   title: [label.title, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                   slug: [label.slug],
@@ -3241,13 +2658,13 @@
                 }); // Add the label form group to the labels form array
 
 
-                _this25.labelsForm.get('labels').push(labelFormGroup);
+                _this14.labelsForm.get('labels').push(labelFormGroup);
               });
             }); // Update labels when there is a value change
 
 
             this.labelsForm.get('labels').valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(500)).subscribe(function () {
-              _this25.updateLabels();
+              _this14.updateLabels();
             });
           } // -----------------------------------------------------------------------------------------------------
           // @ Public methods
@@ -3260,12 +2677,12 @@
         }, {
           key: "addLabel",
           value: function addLabel() {
-            var _this26 = this;
+            var _this15 = this;
 
             // Add label to the server
             this._mailboxService.addLabel(this.labelsForm.get('newLabel').value).subscribe(function (addedLabel) {
               // Push the new label to the labels form array
-              _this26.labelsForm.get('labels').push(_this26._formBuilder.group({
+              _this15.labelsForm.get('labels').push(_this15._formBuilder.group({
                 id: [addedLabel.id],
                 title: [addedLabel.title, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                 slug: [addedLabel.slug],
@@ -3273,15 +2690,15 @@
               })); // Reset the new label form
 
 
-              _this26.labelsForm.get('newLabel').markAsPristine();
+              _this15.labelsForm.get('newLabel').markAsPristine();
 
-              _this26.labelsForm.get('newLabel').markAsUntouched();
+              _this15.labelsForm.get('newLabel').markAsUntouched();
 
-              _this26.labelsForm.get('newLabel.title').reset();
+              _this15.labelsForm.get('newLabel.title').reset();
 
-              _this26.labelsForm.get('newLabel.title').clearValidators();
+              _this15.labelsForm.get('newLabel.title').clearValidators();
 
-              _this26.labelsForm.get('newLabel.title').updateValueAndValidity();
+              _this15.labelsForm.get('newLabel.title').updateValueAndValidity();
             });
           }
           /**
@@ -3307,14 +2724,14 @@
         }, {
           key: "updateLabels",
           value: function updateLabels() {
-            var _this27 = this;
+            var _this16 = this;
 
             // Iterate through the labels form array controls
             this.labelsForm.get('labels').controls.forEach(function (labelFormGroup) {
               // If the label has been edited...
               if (labelFormGroup.dirty) {
                 // Update the label on the server
-                _this27._mailboxService.updateLabel(labelFormGroup.value.id, labelFormGroup.value).subscribe();
+                _this16._mailboxService.updateLabel(labelFormGroup.value.id, labelFormGroup.value).subscribe();
               }
             }); // Reset the labels form array
 
@@ -3448,7 +2865,8 @@
 
           this._condoNavigationService = _condoNavigationService;
           this._mailboxService = _mailboxService;
-          this._matDialog = _matDialog; // Set the private defaults
+          this._matDialog = _matDialog;
+          this.unReadMailCount = 0; // Set the private defaults
 
           this._filtersMenuData = [];
           this._foldersMenuData = [];
@@ -3469,7 +2887,7 @@
         _createClass(MailboxSidebarComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this17 = this;
 
             // Filters
             this._mailboxService.filters$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (filters) {//this.filters = filters;
@@ -3479,12 +2897,12 @@
 
 
             this._mailboxService.folders$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (folders) {
-              _this28.folders = folders; // Generate menu links
+              _this17.folders = folders; // Generate menu links
 
-              _this28._generateFoldersMenuLinks(); // Update navigation badge
+              _this17._generateFoldersMenuLinks(); // Update navigation badge
 
 
-              _this28._updateNavigationBadge(folders);
+              _this17._updateNavigationBadge(folders);
             }); // Labels
 
 
@@ -3519,7 +2937,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this29 = this;
+            var _this18 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -3543,7 +2961,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this29._foldersMenuData.push(menuItem);
+              _this18._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -3557,14 +2975,14 @@
         }, {
           key: "_generateFiltersMenuLinks",
           value: function _generateFiltersMenuLinks() {
-            var _this30 = this;
+            var _this19 = this;
 
             // Reset the filters menu
             this._filtersMenuData = []; // Iterate through the filters
 
             this.filters.forEach(function (filter) {
               // Generate menu item for the filter
-              _this30._filtersMenuData.push({
+              _this19._filtersMenuData.push({
                 id: filter.id,
                 title: filter.title,
                 type: 'basic',
@@ -3584,14 +3002,14 @@
         }, {
           key: "_generateLabelsMenuLinks",
           value: function _generateLabelsMenuLinks() {
-            var _this31 = this;
+            var _this20 = this;
 
             // Reset the labels menu
             this._labelsMenuData = []; // Iterate through the labels
 
             this.labels.forEach(function (label) {
               // Generate menu item for the label
-              _this31._labelsMenuData.push({
+              _this20._labelsMenuData.push({
                 id: label.id,
                 title: label.title,
                 type: 'basic',

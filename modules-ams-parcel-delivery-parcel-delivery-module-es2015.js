@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n\n    <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n    <ng-container *ngIf=\"isPackageCreated\">\n\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n      <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\"\n        novalidate>\n\n        <div class=\"bg-card shadow\">\n\n          <div class=\"row\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\"\n                    [value]=\"item.lookupValueId\" type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockData\" fieldValue=\"block_Label\" [fieldModel]=\"package.apartmentBlockId\"\n                fieldId=\"block_Id\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n            </div>\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Unit No\" fieldPlaceholder=\"Select Unit\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockUnitData\" fieldValue=\"bu_Label\" [fieldModel]=\"package.apartmentBlockUnitId\"\n                fieldId=\"buId\" [isDisabled]=\"!isBlockSelected\" (fieldParams)=\"getSelectedBlockUnit($event)\">\n              </condo-select>\n\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Primary Name *</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\"\n                  [(ngModel)]=\"package.primaryName\">\n              </div>\n            </div>\n\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\"\n                fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\" [fieldList]=\"packageTypes\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\">\n              </condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\"\n                fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\" fieldValue=\"lookupValueName\"\n                (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n            </div>\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\"\n                fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\"\n                (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\"\n                [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\" [fieldList]=\"deliverySlots\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\">\n              </condo-select>\n            </div>\n\n\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-6\">\n              <app-upload [fileIds]=\"package.packageImageId\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"></app-upload>\n            </div>\n\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\"\n                  [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"d-flex justify-flex-end\">\n          <div class=\"ml-auto\">\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"!isEditPackage\">Submit</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"isEditPackage\">Update</button>\n          </div>\n        </div>\n\n      </form>\n\n    </ng-container>\n\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n\n    <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n    <ng-container *ngIf=\"isPackageCreated\">\n\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n      <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\"\n        novalidate>\n\n        <div class=\"bg-card shadow\">\n\n          <div class=\"row\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\"\n                    [value]=\"item.lookupValueId\" type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockData\" fieldValue=\"block_Label\" [fieldModel]=\"package.apartmentBlockId\"\n                fieldId=\"block_Id\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n            </div>\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Unit No\" fieldPlaceholder=\"Select Unit\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockUnitData\" fieldValue=\"bu_Label\" [fieldModel]=\"package.apartmentBlockUnitId\"\n                fieldId=\"buId\" [isDisabled]=\"!isBlockSelected\" (fieldParams)=\"getSelectedBlockUnit($event)\">\n              </condo-select>\n\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Primary Name *</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\"\n                  [(ngModel)]=\"package.primaryName\">\n              </div>\n            </div>\n\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\"\n                fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\" [fieldList]=\"packageTypes\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\">\n              </condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\"\n                fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\" fieldValue=\"lookupValueName\"\n                (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n            </div>\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\"\n                fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"staffListData\" fieldValue=\"userName\" [isDisabled]=\"false\"\n                (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\"\n                [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\" [fieldList]=\"deliverySlots\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\">\n              </condo-select>\n            </div>\n\n\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-6\">\n              <app-upload [fileIds]=\"package.packageImageId\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"\n                [multiple]=\"true\"></app-upload>\n            </div>\n\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\"\n                  [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"d-flex justify-flex-end\">\n          <div class=\"ml-auto\">\n            <button mat-flat-button (click)=\"resetAll()\" class=\"mt-2 mr-2\">Clear</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"!isEditPackage\">Submit</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"isEditPackage\">Update</button>\n          </div>\n        </div>\n\n      </form>\n\n    </ng-container>\n\n  </div>\n</div>");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inventory-view-wrapper\">\n\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n                            [disableClose]=\"true\"\n                            #matDrawer>\n\n                      <router-outlet></router-outlet>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n\n<!-- <div class=\"main\">\n\t<div class=\"bg-card shadow table-card\">\n\n\t\t<div class=\"d-flex justify-content-between\" CondoCardHeader >\n    \t\t<div class=\"float-left\">\n    \t\t\t<h5>All Delivery <span class=\"badge lime-green\">{{totalItems}}</span></h5>\n    \t\t</div>\n    \t\t<ul class=\"list-inline\">\n    \t\t\t<li class=\"list-inline-item search d-none d-md-inline-block\">\n    \t\t\t\t<i class=\"fa fa-search search-icon\" aria-hidden=\"true\"></i>\n    \t\t\t\t<input type=\"text\" class=\"form-control search-input\" placeholder=\"Search...\" [(ngModel)]=\"utilitySearch\" >\n    \t\t\t</li>\n    \t\t\t<li class=\"list-inline-item\">\n    \t\t\t\t<a class=\"btn trans-white \">\n    \t\t\t\t\t<i-feather class=\"icon print\" name=\"printer\"></i-feather>\n    \t\t\t\t\t<span>Print</span>\n    \t\t\t\t</a>\n    \t\t\t</li>\n    \t\t</ul>\n  \t\t</div>\n\n  \t\t<app-loader *ngIf=\"!isDeliveryHistoryLoaded\"></app-loader>\n\n  \t\t<div CondoCardBody>\n\t\t\t\t\n  \t\t\t<ng-container>\n\n\n\t\t\t\t\t\n\t\t\t\t  \n\n  \t\t\t\t<table class=\"table table-checker table-resizable\" [ngClass]=\"isMobileView()\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t    <tr>\n\t\t\t\t\t      <th scope=\"col\">PackageNo\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('fromDate')\" [ngClass]=\"getFieldOrderBy('fromDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">SlotNo\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('toDate')\" [ngClass]=\"getFieldOrderBy('toDate')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">BlockunitUser\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('preReading')\" [ngClass]=\"getFieldOrderBy('preReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Status\n\t\t\t\t\t      \t<span (click)=\"sortUnitData('currReading')\" [ngClass]=\"getFieldOrderBy('currReading')\"></span>\n\t\t\t\t\t      </th>\n\t\t\t\t\t      <th scope=\"col\">Last updated\n                  <span (click)=\"sortUnitData('aptUnit')\" [ngClass]=\"getFieldOrderBy('aptUnit')\"></span>\n\t\t\t\t\t\t  </th>\n\t\t\t\t\t    </tr>\n\t\t\t\t    </thead>\n\t\t\t\t    <tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let delivary of allParcelDelivey ; let i = index\">\n\t\t\t\t\t\t\t<td class=\"name\">{{delivery.packageId}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{delivery.slot}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{delivery.apartmentBlockUnitId}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{delivery.currReading}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{delivery.electricalUnitPerAptUnit}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{delivery.costPerAptUnit}}</td>\n\t\t\t\t\t\t\t<td class=\"grey\">{{delivery.insertedByUser}}</td>\n\t\t\t\t\t\t\t<td>\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t    </tbody>\n\t\t\t\t</table>\n\t\t\t\t\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t    \t\t\t<p class=\"snippet\">No Records Found</p>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination\n\t\t\t\t\t[totalItems]=\"totalItems\"\n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n\n  \t\t\t</ng-container>\n\n  \t\t</div>\n\n\t</div>\n</div> -->\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n<div class=\"inventory-view-wrapper\" *ngIf=\"isDeliveryHistoryLoaded\" >\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n                            [disableClose]=\"true\"\n                            #matDrawer>\n\n                      <router-outlet></router-outlet>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #delivery mode=\"over\" position=\"end\">\n        <div class=\"add-delivery-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Delivery</span>\n                    <span *ngIf=\"isEdit\">Update Delivery</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\" >\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Delivery Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <button mat-flat-button [color]=\"'primary'\" class=\"mr-3\" (click)=\"addCategory()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add New\n                </button>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of deliveryTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editCategory(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #delivery mode=\"over\" position=\"end\">\n        <div class=\"add-delivery-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Delivery Type</span>\n                    <span *ngIf=\"isEdit\">Update Delivery Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\" >\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Delivery Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <button mat-flat-button [color]=\"'primary'\" class=\"mr-3\" (click)=\"addCategory()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n                    Add New\n                </button>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of deliveryTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editCategory(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Packge</span>\n                    <span *ngIf=\"isEdit\">Update Package</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Packge Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"security-setup-add-category-wrapper\">\n        <div class=\"main\">\n          <div class=\"d-flex mb-4\">\n            <h4>Edit Pending Delivery</h4>\n            <div class=\"ml-auto\">\n              <!-- <button mat-stroked-button  (click)=\"downloadPdf()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span class=\"ml-2\">Export</span>\n              </button> -->\n              <!-- <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button> -->\n            </div>\n          </div>\n          <app-loader *ngIf=\"!isdeliverySubmitted\"></app-loader>\n        \n          <ng-container>\n          <div class=\"bg-card shadow\" id=\"pdf\">\n            <!-- PDF Download View -->\n\n            <form #pendingdelivery = \"ngForm\" name=\"pendingdelivery\" (ngSubmit)=\"submitAddPackageForm(pendingdelivery)\"\n            novalidate>\n              <div class=\"row\">\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Tower No*</label>\n                    <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" >\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Unit No*</label>\n                    <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"delivery.apartmentUnitId\" (change)=\"getPrimaryName()\">\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"input-box\">\n                    <label>Primary Name</label>\n                    <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\">\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n            \n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                            <label>Package No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"packageNo\" [(ngModel)]=\"deliveryData.packageNo\">\n                                <!-- <label>{{deliveryData.packageNo}}</label> -->\n                        </div> \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Type</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"type\" [(ngModel)]=\"deliveryData.type\">\n                                <!-- <label>{{deliveryData.type}}</label> -->\n                        </div>\n                           \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Comments</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"comments\" name=\"comments\" [(ngModel)]=\"deliveryData.comments\">\n                                <!-- <label>{{deliveryData.comments}}</label> -->\n                        </div>\n                            \n                    </div>\n                    <div class=\"col-sm-4\">\n                      <app-upload [fileIds]=\"deliveryData.packageImageId\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"></app-upload>\n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Slot No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"slotNo\" name=\"slotNo\" [(ngModel)]=\"deliveryData.slotNo\">\n                                <!-- <label>{{deliveryData.slotNo}}</label> -->\n                        </div>\n                            \n                    </div>\n\n\n    \n                   \n    \n                </div>\n                <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                          <div class=\"list-inline float-right mt-4\">\n                            <button mat-flat-button class=\"mr-2\" (click)=\"goBack()\">Cancel</button>\n                            <button mat-flat-button [color]=\"'primary'\" class=\"mr-2\" [disabled]=\"pendingdelivery.invalid\">Update</button>\n                          </div>\n                        </div>\n                      </div>\n            </form>\n          </div>\n        </ng-container>\n        </div>\n      </div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"security-setup-add-category-wrapper\">\n        <div class=\"main\">\n          <div class=\"d-flex mb-4\">\n            <h4>Edit Pending Delivery</h4>\n            <div class=\"ml-auto\">\n              <!-- <button mat-stroked-button  (click)=\"downloadPdf()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span class=\"ml-2\">Export</span>\n              </button> -->\n              <!-- <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button> -->\n            </div>\n          </div>\n          <app-loader *ngIf=\"!isdeliverySubmitted\"></app-loader>\n        \n          <ng-container>\n          <div class=\"bg-card shadow\" id=\"pdf\">\n            <!-- PDF Download View -->\n\n            <form #pendingdelivery = \"ngForm\" name=\"pendingdelivery\" (ngSubmit)=\"submitAddPackageForm(pendingdelivery)\"\n            novalidate>\n              <div class=\"row\">\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Tower No*</label>\n                    <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" >\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Unit No*</label>\n                    <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"delivery.apartmentUnitId\" (change)=\"getPrimaryName()\">\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"input-box\">\n                    <label>Primary Name</label>\n                    <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\">\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n            \n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                            <label>Package No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"packageNo\" [(ngModel)]=\"deliveryData.packageNo\">\n                                <!-- <label>{{deliveryData.packageNo}}</label> -->\n                        </div> \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Type</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"type\" [(ngModel)]=\"deliveryData.type\">\n                                <!-- <label>{{deliveryData.type}}</label> -->\n                        </div>\n                           \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Comments</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"comments\" name=\"comments\" [(ngModel)]=\"deliveryData.comments\">\n                                <!-- <label>{{deliveryData.comments}}</label> -->\n                        </div>\n                            \n                    </div>\n                    <div class=\"col-sm-4\">\n                                <!-- <input  type=\"text\"  class=\"form-control\" placeholder=\"image\" name=\"image\" [(ngModel)]=\"deliveryData.image\"> -->\n                                \n                                        <div class=\"input-box upload-box\">\n                                          <label *ngIf=\"isAssetImageNotAvailable()\">Upload File *</label>\n                                          <label *ngIf=\"!isAssetImageNotAvailable()\">Image/Document</label>\n                          \n                                          <ng-container *ngIf=\"isFileDetailsAvailable\">\n                          \n                                            <ng-container *ngIf=\"isImageUploaded\">\n                                              <div class=\"preview-wrapper\">\n                                                <div class=\"icon-wrapper\">\n                                                  <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                                                </div>\n                                                <figure class=\"preview-img\">\n                                                  <img class=\"img-fluid\" [src]=\"fileUrl\" id=\"assetImage\">\n                                                </figure>\n                                              </div>\n                                            </ng-container>\n                          \n                                            <ng-container *ngIf=\"!isImageUploaded\">\n                                              <div class=\"file-desp\">\n                                                <span class=\"name mr-3\">\n                                                  <a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n                                                </span>\n                                                <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                                              </div>\n                                            </ng-container>\n                          \n                                          </ng-container>\n                          \n                          \n                                          <div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n                                            <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n                                            <div class=\"attachfiles-normal\">\n                                              <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                                              <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a>\n                                              to add attachment\n                                            </div>\n                                          </div>\n                                          <div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n                                            <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\" [style.width.%]=\"uploadResponse.message\"\n                                              aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                          </div>\n                          \n                          \n                                        </div>\n                                <!-- <label>{{deliveryData.image}}</label> -->\n                        \n                            \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Slot No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"slotNo\" name=\"slotNo\" [(ngModel)]=\"deliveryData.slotNo\">\n                                <!-- <label>{{deliveryData.slotNo}}</label> -->\n                        </div>\n                            \n                    </div>\n\n\n    \n                   \n    \n                </div>\n                <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                          <div class=\"list-inline float-right mt-4\">\n                            <button mat-flat-button class=\"mr-2\" (click)=\"goBack()\">Cancel</button>\n                            <button mat-flat-button [color]=\"'primary'\" class=\"mr-2\" [disabled]=\"pendingdelivery.invalid\">Update</button>\n                          </div>\n                        </div>\n                      </div>\n            </form>\n          </div>\n        </ng-container>\n        </div>\n      </div>\n");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"pending-delivery\">\n\t<div class=\"main\">\n\t\t<form #pendingDeliveryForm=\"ngForm\" class=\"bg-card shadow\" name=\"pendingDeliveryForm\" novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>From Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"delivery.fromDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"From Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Startdate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>To Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"delivery.toDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"To Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Enddate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button (click)=\"onReset()\">Reset</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t\t<app-loader *ngIf=\"!isPendingDeliveryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isPendingDeliveryLoaded\">\n            <ng-container *ngFor=\"let item of allParcelDelivey; let i = index\">\n                <div class=\"bg-card shadow mb-4\">\n                    <div class=\"dues d-flex align-items-center\">\n                        <div class=\"details\">\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Package No</p>\n                                    <p class=\"text-secondary\">{{item.packageId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Slot No</p>\n                                    <p class=\"text-secondary\">{{item.slot}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Block Unit No</p>\n                                    <p class=\"text-secondary\">{{item.apartmentBlockUnitId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{item.deliveryStatusId}}</p>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"text\">Actions</div>\n\t\t\t\t\t\t\t\t\t<div (click)=\"editParcelDelivery(item.packageId)\" class=\"pay-btn font-medium mt-2\">Edit</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n                    </div>\n                </div>\n            </ng-container>\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </ng-container>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"pending-delivery\">\n\t<div class=\"main\">\n\t\t<form #pendingDeliveryForm=\"ngForm\" class=\"bg-card shadow\" name=\"pendingDeliveryForm\" novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>From Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"delivery.fromDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"From Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Startdate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>To Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"delivery.toDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"To Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Enddate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button (click)=\"onReset()\">Reset</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t\t<app-loader *ngIf=\"!isPendingDeliveryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isPendingDeliveryLoaded\">\n            <ng-container *ngFor=\"let item of allParcelDelivey | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                <div class=\"bg-card shadow mb-4\">\n                    <div class=\"dues d-flex align-items-center\">\n                        <div class=\"details\">\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Package No</p>\n                                    <p class=\"text-secondary\">{{item.packageId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Slot No</p>\n                                    <p class=\"text-secondary\">{{item.slot}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Block Unit No</p>\n                                    <p class=\"text-secondary\">{{item.apartmentBlockUnitId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{item.deliveryStatusId}}</p>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"text\">Actions</div>\n\t\t\t\t\t\t\t\t\t<div (click)=\"editParcelDelivery(item.packageId)\" class=\"pay-btn font-medium mt-2\">Edit</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n                    </div>\n                </div>\n            </ng-container>\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </ng-container>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -164,8 +164,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
+
 
 
 
@@ -203,7 +205,7 @@ let CreatePackageComponent = class CreatePackageComponent {
     }
     getUnits() {
         let unitData = this.blockData.filter(x => x.block_Id === this.package.apartmentBlockId);
-        this.blockUnitData = unitData[0].blockUnit;
+        this.blockUnitData = underscore__WEBPACK_IMPORTED_MODULE_11__["sortBy"](unitData[0].blockUnit, 'bu_Label');
         this.isBlockSelected = true;
         // let params = {
         //   apartmentBlockId: this.package.apartmentBlockId
@@ -237,8 +239,8 @@ let CreatePackageComponent = class CreatePackageComponent {
         this.package.slotId = event[0].lookupValueId;
         this.package.slotName = event[0].lookupValueName;
     }
-    getFileIds(event) {
-        this.package.packageImageId = event[0];
+    getFileId(event) {
+        this.package.packageImageId = event;
     }
     submitAddPackageForm(form) {
         if (!this.isEditPackage) {
@@ -250,7 +252,7 @@ let CreatePackageComponent = class CreatePackageComponent {
                 packageTypeId: this.package.packageTypeId,
                 slot: this.package.slotName,
                 deliveryTypeId: parseInt(this.package.deliveryTypeId),
-                deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+                deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 assignedTo: this.package.assignedTo,
                 description: this.packageData.Comments,
                 receivedBy: this.sessionService.userId,
@@ -259,7 +261,7 @@ let CreatePackageComponent = class CreatePackageComponent {
                 attachment1: this.package.packageImageId,
                 attachment2: this.package.packageImageId,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 updatedBy: null,
                 updatedOn: null
             };
@@ -269,6 +271,7 @@ let CreatePackageComponent = class CreatePackageComponent {
             this.packageService.addPackage(addPackageParams).subscribe((res) => {
                 if (res.message) {
                     this.sharedService.openSnackBar('package added successfully', 'success');
+                    this.router.navigateByUrl('/ams/parcel-delivery/delivery-pending');
                 }
                 else {
                 }
@@ -279,23 +282,13 @@ let CreatePackageComponent = class CreatePackageComponent {
         }
     }
     ngOnInit() {
-        this.packageData = {};
-        this.packageData.Deliverytype = '';
-        this.packageData.Staff = '';
-        this.packageData.Slot = '';
-        this.packageData.Slot = '';
-        this.package = {};
-        this.package.deliveryTypeId = '';
-        this.package.packageTypeId = '';
-        this.package.assignedTo = '';
-        this.package.slotId = '';
-        this.package.slotName = '';
         const staffParams = {
             apartmentId: this.sessionService.apartmentId
         };
         // staff type
         this.staffService.getAllStaffsByApartmentId(staffParams).subscribe((res) => {
             this.staffListData = res.filter(data => {
+                data['userName'] = data.firstName + ' ' + data.lastName;
                 return data.isActive;
             });
         });
@@ -351,6 +344,22 @@ let CreatePackageComponent = class CreatePackageComponent {
         this.apartmentService.getApartmentBlockAndBlockUnitIsLivingByApartmentId(tower).subscribe((res) => {
             this.blockData = res;
         });
+        this.resetAll();
+    }
+    resetAll() {
+        this.packageData = {};
+        this.package = {};
+        this.packageData.Deliverytype = '';
+        this.packageData.Staff = '';
+        this.packageData.Slot = '';
+        this.packageData.Slot = '';
+        this.package.slotName = '';
+        this.package.apartmentBlockId = '';
+        this.package.apartmentBlockUnitId = '';
+        this.package.packageTypeId = '';
+        this.package.deliveryTypeId = '';
+        this.package.assignedTo = '';
+        this.package.slotId = '';
     }
 };
 CreatePackageComponent.ctorParameters = () => [
@@ -598,6 +607,7 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         this._changeDetectorRef.markForCheck();
     }
     getAllPackage() {
+        this.isDeliveryHistoryLoaded = false;
         let params = {
             // tslint:disable-next-line:radix
             ApartmentId: parseInt(this.sessionService.apartmentId)
@@ -951,7 +961,6 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
                     this.sharedService.openSnackBar('Delivery Type Deleted Successfully', 'success');
-                    this.sharedService.setUnitListDeleteIndex(null);
                     this.getDeliveryTypeData();
                 }, error => {
                 });
@@ -1012,9 +1021,13 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        if (res.code == 200) {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
                         // this.isDeliveryCategorySubmitted = true;
                         /// Go to the parent route
                         this.goBack();
+                        this.getDeliveryTypeData();
                     });
                 }
                 else {
@@ -1050,8 +1063,12 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        if (res.code == 200) {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
                         /// Go to the parent route
                         this.goBack();
+                        this.getDeliveryTypeData();
                     });
                 }
                 else {
@@ -1154,7 +1171,6 @@ let PackageTypeComponent = class PackageTypeComponent {
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
                     this.sharedService.openSnackBar('Package Type Deleted Successfully', 'success');
-                    this.sharedService.setUnitListDeleteIndex(null);
                     this.getCategoryData();
                 }, error => {
                 });
@@ -1215,9 +1231,13 @@ let PackageTypeComponent = class PackageTypeComponent {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        if (res.code == 200) {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
                         // this.isDeliveryCategorySubmitted = true;
                         /// Go to the parent route
                         this.goBack();
+                        this.getCategoryData();
                     });
                 }
                 else {
@@ -1253,8 +1273,12 @@ let PackageTypeComponent = class PackageTypeComponent {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        if (res.code == 200) {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
                         /// Go to the parent route
                         this.goBack();
+                        this.getCategoryData();
                     });
                 }
                 else {
@@ -1357,7 +1381,6 @@ let SlotTypeComponent = class SlotTypeComponent {
                 };
                 this.lookupService.deleteLookupvalue(params).subscribe((res) => {
                     this.sharedService.openSnackBar('Slot Deleted Successfully', 'success');
-                    this.sharedService.setUnitListDeleteIndex(null);
                     this.getSlotData();
                 }, error => {
                 });
@@ -1418,9 +1441,13 @@ let SlotTypeComponent = class SlotTypeComponent {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        if (res.code == 200) {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
                         // this.isDeliveryCategorySubmitted = true;
                         /// Go to the parent route
                         this.goBack();
+                        this.getSlotData();
                     });
                 }
                 else {
@@ -1456,8 +1483,12 @@ let SlotTypeComponent = class SlotTypeComponent {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
+                        if (res.code == 200) {
+                            this.sharedService.openSnackBar(res.statusMessage, 'success');
+                        }
                         /// Go to the parent route
                         this.goBack();
+                        this.getSlotData();
                     });
                 }
                 else {
@@ -1528,9 +1559,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Package */ "./src/app/api/controllers/Package.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../../shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
+/* harmony import */ var _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../../shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
+/* harmony import */ var _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../../api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
+/* harmony import */ var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../../shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
+
+
+
+
 
 
 
@@ -1542,7 +1581,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
-    constructor(_activatedRoute, _router, el, _changeDetectorRef, apartmentService, sharedService, sessionService, packageService, constantsService) {
+    constructor(_activatedRoute, _router, el, _changeDetectorRef, apartmentService, sharedService, sessionService, packageService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sanitizer) {
         this._activatedRoute = _activatedRoute;
         this._router = _router;
         this.el = el;
@@ -1551,7 +1590,11 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.packageService = packageService;
+        this.fileUploadService = fileUploadService;
+        this.fileDownloadService = fileDownloadService;
+        this.fileDetailsService = fileDetailsService;
         this.constantsService = constantsService;
+        this.sanitizer = sanitizer;
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.isdeliverySubmitted = false;
         this.apartmentBlockId = null;
@@ -1569,6 +1612,12 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
         this.delivery = {
             apartmentUnitId: null
         };
+        this.isFileDetailsAvailable = false;
+        this.fileUrl = "";
+        this.isImageUploaded = false;
+        this.isFileAdded = false;
+        this.fileList = [];
+        this.listOfFiles = [];
         this.package = {};
         // Set the private defaults
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
@@ -1579,11 +1628,15 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
         this.deliveryData.packageNo = "";
         this.deliveryData.type = "";
         this.deliveryData.comments = "";
+        this.deliveryData.image = "";
         this.deliveryData.slotNo = "";
         this.deliveryData.assignedTo = "";
         this.deliveryData.receivedBy = "";
         this.deliveryData.deliveryStatusId = "";
         this.deliveryData.updatedBy = "";
+        this.uploadResponse = { status: '', message: '', fileId: null };
+        this.asset = {};
+        this.asset.assetImageId = null;
         //Open the drawer
         this._activatedRoute.queryParams.subscribe((params) => {
             this.pageType = params.type;
@@ -1598,13 +1651,21 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
                     this.deliveryData.packageNo = _deliveryData[0].packageId;
                     this.deliveryData.type = _deliveryData[0].packageTypeId;
                     this.deliveryData.comments = _deliveryData[0].description;
+                    this.deliveryData.image = _deliveryData[0].attachment1;
                     this.deliveryData.slotNo = _deliveryData[0].slot;
                     this.deliveryData.assignedTo = _deliveryData[0].assignedTo;
                     this.deliveryData.receivedBy = _deliveryData[0].receivedBy;
                     this.deliveryData.deliveryStatusId = _deliveryData[0].deliveryStatusId;
                     this.deliveryData.updatedBy = _deliveryData[0].updatedBy;
-                    if (_deliveryData[0].attachment1) {
-                        this.deliveryData.packageImageId = _deliveryData[0].attachment1.toString();
+                    if (_deliveryData[0].attachment1 !== null) {
+                        const newParams = {
+                            fileDetailsId: _deliveryData[0].attachment1,
+                            apartmentId: Number(this.sessionService.apartmentId)
+                        };
+                        this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
+                            this.filePath = res[0].filePath;
+                            this.downloadFile(this.filePath);
+                        });
                     }
                 }
             });
@@ -1641,21 +1702,18 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
     getSelectedBlockUnit(event) {
         this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
     }
-    getFileIds(event) {
-        this.deliveryData.packageImageId = event[0];
-    }
     submitAddPackageForm(form) {
         this.isdeliverySubmitted = false;
         const addPackageDetails = {
             packageId: this.deliveryData.packageNo,
-            deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+            deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
             description: this.deliveryData.comments,
             slot: this.deliveryData.slotNo,
             assignedTo: parseInt(this.deliveryData.assignedTo),
             receivedBy: this.sessionService.userId,
             deliveryStatusId: parseInt(this.deliveryData.deliveryStatusId),
             updatedBy: parseInt(this.deliveryData.updatedBy),
-            updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
+            updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString()
         };
         const addPackageParams = {
             Package: addPackageDetails
@@ -1678,6 +1736,73 @@ let PendingDeliveryEditComponent = class PendingDeliveryEditComponent {
         else
             this.block.primaryName = '';
     }
+    isUploadProgess() {
+        return this.uploadResponse.status == "progress" ? true : false;
+    }
+    isUploadCompleted() {
+        return this.uploadResponse.status == "completed" ? true : false;
+    }
+    isAssetImageNotAvailable() {
+        return this.asset.assetImageId == null ? true : false;
+    }
+    uploadFile(event) {
+        let file = event[0];
+        let userId = parseInt(this.sessionService.userId);
+        this.fileUploadService.upload(file).subscribe((res) => {
+            if (res != undefined) {
+                this.uploadResponse = res;
+            }
+            if (this.isUploadCompleted()) {
+                this.asset.assetImageId = this.uploadResponse.fileId;
+                this.package.packageImageId = this.uploadResponse.fileId;
+                const newParams = {
+                    fileDetailsId: this.uploadResponse.fileId,
+                    apartmentId: Number(this.sessionService.apartmentId)
+                };
+                this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
+                    this.filePath = res[0].filePath;
+                    this.downloadFile(this.filePath);
+                });
+            }
+        });
+    }
+    downloadFile(filePath) {
+        this.fileDownloadService.downloadFile(filePath).subscribe((res) => {
+            this.isFileDetailsAvailable = true;
+            const splitFile = filePath.split('.');
+            const ext = splitFile[1].replace(/^/, '.');
+            this.isImageUploaded = this.constantsService.imageFormats.includes(ext);
+            const blob = res.body;
+            const objectURL = URL.createObjectURL(blob);
+            const sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+            this.fileUrl = sanitizeUrl;
+        });
+    }
+    deleteFile() {
+        const details = {
+            fileDetailsId: this.asset.assetImageId,
+            fileName: this.filePath,
+            filePath: this.filePath,
+            fileSize: 0,
+            description: this.filePath,
+            isActive: true,
+            insertedBy: parseInt(this.sessionService.userId),
+            insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
+            updatedBy: null,
+            updatedOn: null,
+            apartmentId: this.sessionService.apartmentId
+        };
+        let params = {
+            FileDetailsId: this.asset.assetImageId,
+            FilePath: this.filePath,
+            updatedByUserId: this.sessionService.userId
+        };
+        // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
+        //   this.isFileDetailsAvailable = false;
+        //   this.uploadResponse = { status: '', message: '', fileId: null };
+        //   this.asset.assetImageId = this.uploadResponse.fileId
+        // })
+    }
 };
 PendingDeliveryEditComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
@@ -1688,7 +1813,11 @@ PendingDeliveryEditComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] },
     { type: src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_7__["PackageService"] },
-    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"] }
+    { type: _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"] },
+    { type: _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"] },
+    { type: _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"] },
+    { type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"] }
 ];
 PendingDeliveryEditComponent.propDecorators = {
     credit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -1711,7 +1840,11 @@ PendingDeliveryEditComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"],
         src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_7__["PackageService"],
-        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]])
+        _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"],
+        _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"],
+        _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"],
+        _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"]])
 ], PendingDeliveryEditComponent);
 
 
@@ -1980,14 +2113,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
             };
         }
         this.packageService.getAllPendingDeliveries(params).subscribe((res) => {
-            this.allParcelDelivey = res;
-            const _deliveryHistoryList = res.filter(x => x.isActive === false);
-            this.gridSourceData = {
-                localdata: _deliveryHistoryList,
-                datatype: "array"
-            };
-            this.deliveryHistoryList = new jqx.dataAdapter(this.gridSourceData);
-            this.totalItems = _deliveryHistoryList.length;
+            this.allParcelDelivey = res.filter(x => x.isActive === false);
+            this.totalItems = this.allParcelDelivey.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;
             }
@@ -2005,7 +2132,6 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
     onReset() {
         this.delivery.fromDate = null;
         this.delivery.toDate = null;
-        this.getAllPackage();
     }
     editParcelDelivery(permitId) {
         this._router.navigate(['/ams/parcel-delivery/edit'], { queryParams: { id: permitId, type: 'edit' } });

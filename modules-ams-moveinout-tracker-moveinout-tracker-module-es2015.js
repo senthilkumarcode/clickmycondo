@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"movein-moveout-edit-view-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.method=='movein' && data.type=='edit'\">Edit Move In Details</span>\n                    <span *ngIf=\"data.method=='movein' && data.type=='view'\">View Move In Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='edit'\">Edit Move Out Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='view'\">View Move Out Details</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Tower && Unit</label>\n                            <p>{{formField.block_Unit}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Name</label>\n                            <p>{{formField.userName}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='view'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count</label>\n                            <p>{{formField.familyCount}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date</label>\n                            <p>{{getDateFormat(formField.comDate)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time</label>\n                            <p>{{getTimeFormat(formField.comTime)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <p>{{formField.comments}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count*</label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Family Count\" name=\"familyCount\" [(ngModel)]=\"formField.familyCount\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date*</label>\n                            <input class=\"form-control\" name=\"dateField\" [owlDateTime]=\"dateField\"\n                                [owlDateTimeTrigger]=\"dateField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comDate\">\n                            <owl-date-time #dateField [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateField\">\n                                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time*</label>\n                            <input class=\"form-control\" name=\"timeField\" [owlDateTime]=\"timeField\"\n                                [owlDateTimeTrigger]=\"timeField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comTime\">\n                            <owl-date-time #timeField [pickerType]=\"'timer'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"timeField\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"comment\"\n                                [(ngModel)]=\"formField.comments\">\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.method=='movein' && data.type=='edit'\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-3\">\n                            <app-upload [fileIds]=\"moveInSubDetails.fileDetailsIds\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"updateForm()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"movein-moveout-edit-view-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.method=='movein' && data.type=='edit'\">Edit Move In Details</span>\n                    <span *ngIf=\"data.method=='movein' && data.type=='view'\">View Move In Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='edit'\">Edit Move Out Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='view'\">View Move Out Details</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Tower && Unit</label>\n                            <p>{{formField.block_Unit}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Name</label>\n                            <p>{{formField.userName}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='view'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count</label>\n                            <p>{{formField.familyCount}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date</label>\n                            <p>{{getDateFormat(formField.comDate)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time</label>\n                            <p>{{getTimeFormat(formField.comTime)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <p>{{formField.comments}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count*</label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Family Count\" name=\"familyCount\" [(ngModel)]=\"formField.familyCount\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date*</label>\n                            <input class=\"form-control\" name=\"dateField\" [owlDateTime]=\"dateField\"\n                                [owlDateTimeTrigger]=\"dateField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comDate\">\n                            <owl-date-time #dateField [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateField\">\n                                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time*</label>\n                            <input class=\"form-control\" name=\"timeField\" [owlDateTime]=\"timeField\"\n                                [owlDateTimeTrigger]=\"timeField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comTime\">\n                            <owl-date-time #timeField [pickerType]=\"'timer'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"timeField\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"comment\"\n                                [(ngModel)]=\"formField.comments\">\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.method=='movein'\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-3\">\n                            <app-upload [fileIds]=\"moveInSubDetails.fileDetailsIds\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-12\">\n                        <submit-button class=\"float-right\" [isSubmit]=\"isFormSubmitted\" (click)=\"updateForm()\">Update</submit-button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -313,6 +313,8 @@ let CreateMoveinComponent = class CreateMoveinComponent {
             };
             this.moveInOutService.getDocsforMoveInByApartmentBlockUnitUserId(params).subscribe((res) => {
                 this.bannerList = res;
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', error);
             });
         }
     }
@@ -1912,6 +1914,7 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         return moment__WEBPACK_IMPORTED_MODULE_6__(data).format('hh:mm A');
     }
     updateForm() {
+        this.isFormSubmitted = true;
         if (this.data.method == 'movein')
             this.updateMoveinForm();
         else
@@ -1951,11 +1954,72 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         };
         this.moveInOutService.updateMoveIn(params).subscribe((res) => {
             if (res.message) {
-                // if(this.formField.moveInDetails.length > 0) {
-                // } 
-                this.sharedService.openSnackBar(res.message, 'success');
-                this.dialogRef.close(true);
+                if (this.moveInSubDetails.id) {
+                    this.updateMoveinDetails();
+                }
+                else if (this.moveInSubDetails.fileDetailsIds) {
+                    this.createMoveInDetails();
+                }
             }
+            else {
+                this.isFormSubmitted = false;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isFormSubmitted = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    createMoveInDetails() {
+        let fileParams = {
+            moveIn: {
+                "moveInId": parseInt(this.formField.id),
+                "moveInOutConfigId": null,
+                "fileDetailsIds": this.moveInSubDetails.fileDetailsIds,
+                "comments": '',
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            },
+            file: null,
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.moveInOutService.addMoveInDetails(fileParams).subscribe((res) => {
+            if (res.message) {
+                this.isFormSubmitted = false;
+                this.dialogRef.close(true);
+                this.sharedService.openSnackBar('Movein added successfully', 'success');
+            }
+            else {
+                this.isFormSubmitted = false;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isFormSubmitted = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    updateMoveinDetails() {
+        let fileParams = {
+            moveIn: Object.assign(Object.assign({}, this.moveInSubDetails), { "updatedBy": this.sessionService.userId, "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString() }),
+            file: null,
+            apartmentId: this.sessionService.apartmentId
+        };
+        this.moveInOutService.updateMoveInDetails(fileParams).subscribe((res) => {
+            if (res.message) {
+                this.isFormSubmitted = false;
+                this.dialogRef.close(true);
+                this.sharedService.openSnackBar('Movein Updated Successfully', 'success');
+            }
+            else {
+                this.isFormSubmitted = false;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isFormSubmitted = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     updateMoveOutForm() {
@@ -1990,9 +2054,17 @@ let MoveinMoveoutEditViewComponent = class MoveinMoveoutEditViewComponent {
         };
         this.moveInOutService.updateMoveOut(params).subscribe((res) => {
             if (res.message) {
-                this.sharedService.openSnackBar(res.message, 'success');
+                this.isFormSubmitted = false;
                 this.dialogRef.close(true);
+                this.sharedService.openSnackBar('Moveout Updated Successfully', 'success');
             }
+            else {
+                this.isFormSubmitted = false;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.isFormSubmitted = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {
@@ -3389,16 +3461,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/movein-maintain/movein-maintain.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-maintain/movein-maintain.component.ts");
 /* harmony import */ var _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/moveout-maintain/moveout-maintain.component */ "./src/app/modules/ams/moveinout-tracker/components/moveout-maintain/moveout-maintain.component.ts");
 /* harmony import */ var _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/movein-reports/movein-reports.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-reports.component.ts");
-/* harmony import */ var src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/components/user-movein/user-movein.component */ "./src/app/shared/components/user-movein/user-movein.component.ts");
-/* harmony import */ var src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/user-moveout/user-moveout.component */ "./src/app/shared/components/user-moveout/user-moveout.component.ts");
-/* harmony import */ var _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/movein-moveout-cancel/movein-moveout-cancel.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/movein-moveout-cancel.component.ts");
-/* harmony import */ var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/movein-admin-history/movein-admin-history.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.ts");
-/* harmony import */ var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/create-movein/create-movein.component */ "./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.ts");
-/* harmony import */ var _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/movein-reports/movein-report-data/movein-report-data.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.ts");
-/* harmony import */ var _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/create-moveout/create-moveout.component */ "./src/app/modules/ams/moveinout-tracker/components/create-moveout/create-moveout.component.ts");
-/* harmony import */ var _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component.ts");
-
-
+/* harmony import */ var _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/movein-moveout-cancel/movein-moveout-cancel.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/movein-moveout-cancel.component.ts");
+/* harmony import */ var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/movein-admin-history/movein-admin-history.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.ts");
+/* harmony import */ var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/create-movein/create-movein.component */ "./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.ts");
+/* harmony import */ var _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/movein-reports/movein-report-data/movein-report-data.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.ts");
+/* harmony import */ var _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/create-moveout/create-moveout.component */ "./src/app/modules/ams/moveinout-tracker/components/create-moveout/create-moveout.component.ts");
+/* harmony import */ var _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component */ "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component.ts");
 
 
 
@@ -3418,26 +3486,24 @@ const routes = [
     { path: 'settings', component: _components_movein_setup_movein_setup_component__WEBPACK_IMPORTED_MODULE_4__["MoveinSetupComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'movein', component: _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_5__["MoveinMaintainComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'movein-approved', component: _components_movein_maintain_movein_maintain_component__WEBPACK_IMPORTED_MODULE_5__["MoveinMaintainComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'create-movein', component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'view-movein/:id', component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'create-movein', component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_10__["CreateMoveinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'view-movein/:id', component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_10__["CreateMoveinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'moveout', component: _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_6__["MoveoutMaintainComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'moveout-approved', component: _components_moveout_maintain_moveout_maintain_component__WEBPACK_IMPORTED_MODULE_6__["MoveoutMaintainComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'create-moveout', component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'view-moveout/:id', component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'cancelled', component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__["MoveinMoveoutCancelComponent"],
+    { path: 'create-moveout', component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'view-moveout/:id', component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'cancelled', component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_8__["MoveinMoveoutCancelComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [
             { path: '', redirectTo: 'movein', pathMatch: 'full' },
-            { path: 'movein', component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__["CancelMoveInOutDetailsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-            { path: 'moveout', component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__["CancelMoveInOutDetailsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'movein', component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_13__["CancelMoveInOutDetailsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+            { path: 'moveout', component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_13__["CancelMoveInOutDetailsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
             { path: '**', redirectTo: 'movein', pathMatch: 'full' }
         ]
     },
-    { path: 'edit-movein/:id', component: src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_8__["UserMoveinComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'edit-moveout/:id', component: src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_9__["UserMoveoutComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'reports', component: _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_7__["MoveinReportsComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'movein-history', component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_11__["MoveinAdminHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'reports/:title/:name/:id', component: _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_13__["MoveinReportDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'movein-history', component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_9__["MoveinAdminHistoryComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'reports/:title/:name/:id', component: _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__["MoveinReportDataComponent"], canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: '**', redirectTo: 'settings', pathMatch: 'full' }
 ];
 let MoveinoutTrackerRoutingModule = class MoveinoutTrackerRoutingModule {

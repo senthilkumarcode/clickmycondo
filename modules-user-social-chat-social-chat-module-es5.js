@@ -340,10 +340,11 @@
         }, {
           key: "likesUpdate",
           value: function likesUpdate(data) {
-            this.ForumTopicsService.addLike({
+            var queryParamBase = {
               TopicId: data.id,
               userId: this.sessionService.userId
-            }).subscribe(function (res) {
+            };
+            this.ForumTopicsService.addLike(queryParamBase).subscribe(function (res) {
               data.likes++;
             });
           }

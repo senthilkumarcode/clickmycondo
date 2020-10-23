@@ -148,7 +148,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"movein-moveout-edit-view-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.method=='movein' && data.type=='edit'\">Edit Move In Details</span>\n                    <span *ngIf=\"data.method=='movein' && data.type=='view'\">View Move In Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='edit'\">Edit Move Out Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='view'\">View Move Out Details</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Tower && Unit</label>\n                            <p>{{formField.block_Unit}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Name</label>\n                            <p>{{formField.userName}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='view'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count</label>\n                            <p>{{formField.familyCount}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date</label>\n                            <p>{{getDateFormat(formField.comDate)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time</label>\n                            <p>{{getTimeFormat(formField.comTime)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <p>{{formField.comments}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count*</label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Family Count\" name=\"familyCount\" [(ngModel)]=\"formField.familyCount\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date*</label>\n                            <input class=\"form-control\" name=\"dateField\" [owlDateTime]=\"dateField\"\n                                [owlDateTimeTrigger]=\"dateField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comDate\">\n                            <owl-date-time #dateField [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateField\">\n                                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time*</label>\n                            <input class=\"form-control\" name=\"timeField\" [owlDateTime]=\"timeField\"\n                                [owlDateTimeTrigger]=\"timeField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comTime\">\n                            <owl-date-time #timeField [pickerType]=\"'timer'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"timeField\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"comment\"\n                                [(ngModel)]=\"formField.comments\">\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.method=='movein' && data.type=='edit'\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-3\">\n                            <app-upload [fileIds]=\"moveInSubDetails.fileDetailsIds\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\" mat-flat-button [color]=\"'primary'\" (click)=\"updateForm()\">Update</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"movein-moveout-edit-view-wrapper\">\n    <div class=\"main\">\n        <div class=\"bg-card shadow mb-0\">\n            <div class=\"d-flex mb-4\">\n                <h4>\n                    <span *ngIf=\"data.method=='movein' && data.type=='edit'\">Edit Move In Details</span>\n                    <span *ngIf=\"data.method=='movein' && data.type=='view'\">View Move In Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='edit'\">Edit Move Out Details</span>\n                    <span *ngIf=\"data.method=='moveout' && data.type=='view'\">View Move Out Details</span>\n                </h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <form>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Tower && Unit</label>\n                            <p>{{formField.block_Unit}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Name</label>\n                            <p>{{formField.userName}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='view'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count</label>\n                            <p>{{formField.familyCount}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date</label>\n                            <p>{{getDateFormat(formField.comDate)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time</label>\n                            <p>{{getTimeFormat(formField.comTime)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <p>{{formField.comments}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>Family Count*</label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Family Count\" name=\"familyCount\" [(ngModel)]=\"formField.familyCount\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Date*</label>\n                            <input class=\"form-control\" name=\"dateField\" [owlDateTime]=\"dateField\"\n                                [owlDateTimeTrigger]=\"dateField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comDate\">\n                            <owl-date-time #dateField [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"dateField\">\n                                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box\">\n                            <label>MoveIn Time*</label>\n                            <input class=\"form-control\" name=\"timeField\" [owlDateTime]=\"timeField\"\n                                [owlDateTimeTrigger]=\"timeField\" placeholder=\"Date\"\n                                [(ngModel)]=\"formField.comTime\">\n                            <owl-date-time #timeField [pickerType]=\"'timer'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"timeField\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"comment\"\n                                [(ngModel)]=\"formField.comments\">\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.method=='movein'\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-3\">\n                            <app-upload [fileIds]=\"moveInSubDetails.fileDetailsIds\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\" *ngIf=\"data.type=='edit'\">\n                    <div class=\"col-sm-12\">\n                        <submit-button class=\"float-right\" [isSubmit]=\"isFormSubmitted\" (click)=\"updateForm()\">Update</submit-button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>";
       /***/
     },
 
@@ -566,6 +566,8 @@
               };
               this.moveInOutService.getDocsforMoveInByApartmentBlockUnitUserId(params).subscribe(function (res) {
                 _this2.bannerList = res;
+              }, function (error) {
+                _this2.sharedService.openSnackBar('Server Error', error);
               });
             }
           }
@@ -2792,6 +2794,7 @@
         }, {
           key: "updateForm",
           value: function updateForm() {
+            this.isFormSubmitted = true;
             if (this.data.method == 'movein') this.updateMoveinForm();else this.updateMoveOutForm();
           }
         }, {
@@ -2834,18 +2837,95 @@
             };
             this.moveInOutService.updateMoveIn(params).subscribe(function (res) {
               if (res.message) {
-                // if(this.formField.moveInDetails.length > 0) {
-                // } 
-                _this25.sharedService.openSnackBar(res.message, 'success');
+                if (_this25.moveInSubDetails.id) {
+                  _this25.updateMoveinDetails();
+                } else if (_this25.moveInSubDetails.fileDetailsIds) {
+                  _this25.createMoveInDetails();
+                }
+              } else {
+                _this25.isFormSubmitted = false;
 
-                _this25.dialogRef.close(true);
+                _this25.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this25.isFormSubmitted = false;
+
+              _this25.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "createMoveInDetails",
+          value: function createMoveInDetails() {
+            var _this26 = this;
+
+            var fileParams = {
+              moveIn: {
+                "moveInId": parseInt(this.formField.id),
+                "moveInOutConfigId": null,
+                "fileDetailsIds": this.moveInSubDetails.fileDetailsIds,
+                "comments": '',
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              },
+              file: null,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.moveInOutService.addMoveInDetails(fileParams).subscribe(function (res) {
+              if (res.message) {
+                _this26.isFormSubmitted = false;
+
+                _this26.dialogRef.close(true);
+
+                _this26.sharedService.openSnackBar('Movein added successfully', 'success');
+              } else {
+                _this26.isFormSubmitted = false;
+
+                _this26.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this26.isFormSubmitted = false;
+
+              _this26.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "updateMoveinDetails",
+          value: function updateMoveinDetails() {
+            var _this27 = this;
+
+            var fileParams = {
+              moveIn: Object.assign(Object.assign({}, this.moveInSubDetails), {
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+              }),
+              file: null,
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.moveInOutService.updateMoveInDetails(fileParams).subscribe(function (res) {
+              if (res.message) {
+                _this27.isFormSubmitted = false;
+
+                _this27.dialogRef.close(true);
+
+                _this27.sharedService.openSnackBar('Movein Updated Successfully', 'success');
+              } else {
+                _this27.isFormSubmitted = false;
+
+                _this27.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this27.isFormSubmitted = false;
+
+              _this27.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateMoveOutForm",
           value: function updateMoveOutForm() {
-            var _this26 = this;
+            var _this28 = this;
 
             var details = {
               "id": this.formField.id,
@@ -2878,19 +2958,29 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                _this26.sharedService.openSnackBar(res.message, 'success');
+                _this28.isFormSubmitted = false;
 
-                _this26.dialogRef.close(true);
+                _this28.dialogRef.close(true);
+
+                _this28.sharedService.openSnackBar('Moveout Updated Successfully', 'success');
+              } else {
+                _this28.isFormSubmitted = false;
+
+                _this28.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this28.isFormSubmitted = false;
+
+              _this28.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this29 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this27.timeZone = timeZone;
+              return _this29.timeZone = timeZone;
             });
             this.formField = this.data.field;
 
@@ -3105,7 +3195,7 @@
         }, {
           key: "getDetails",
           value: function getDetails(params) {
-            var _this28 = this;
+            var _this30 = this;
 
             var serviceName;
             var id = parseInt(this.route.params['value'].id);
@@ -3131,22 +3221,22 @@
 
             serviceName.subscribe(function (res) {
               if (res.errorMessage) {
-                _this28.reportsDataList = [];
-                _this28.totalItems = _this28.reportsDataList.length;
+                _this30.reportsDataList = [];
+                _this30.totalItems = _this30.reportsDataList.length;
               } else {
-                _this28.reportsDataList = res;
-                _this28.totalItems = _this28.reportsDataList.length;
-                _this28.gridSourceData = {
-                  localdata: _this28.reportsDataList,
+                _this30.reportsDataList = res;
+                _this30.totalItems = _this30.reportsDataList.length;
+                _this30.gridSourceData = {
+                  localdata: _this30.reportsDataList,
                   datatype: "array"
                 };
-                _this28.listData = new jqx.dataAdapter(_this28.gridSourceData);
-                _this28.isReportSubmitted = true;
-                _this28.isDataLoaded = true;
+                _this30.listData = new jqx.dataAdapter(_this30.gridSourceData);
+                _this30.isReportSubmitted = true;
+                _this30.isDataLoaded = true;
               }
             }, function (error) {
-              _this28.isReportSubmitted = true;
-              _this28.isDataLoaded = true;
+              _this30.isReportSubmitted = true;
+              _this30.isDataLoaded = true;
             });
           }
         }, {
@@ -3161,7 +3251,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this29 = this;
+            var _this31 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3174,7 +3264,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this29.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this31.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3229,17 +3319,17 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this32 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this30.timeZone = timeZone;
+              return _this32.timeZone = timeZone;
             });
             this.pageName = this.route.params['value'].title;
             var unitBlockParams = {
               apartmentId: parseInt(this.sessionService.apartmentId)
             };
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
-              _this30.unitBlocksData = res;
+              _this32.unitBlocksData = res;
             });
             var visitParams = {
               ApartmentId: parseInt(this.cookieService.get('apartmentId')),
@@ -3305,7 +3395,7 @@
               text: 'Expected Date',
               datafield: 'expectedDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + _this30.getExpectedDate(value) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + _this32.getExpectedDate(value) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -3347,7 +3437,7 @@
         }, {
           key: "getSingleBlock",
           value: function getSingleBlock(block) {
-            var _this31 = this;
+            var _this33 = this;
 
             this.filterSelected = 'single';
             this.singleBlock = block.apartmentBlockNumber;
@@ -3362,7 +3452,7 @@
             this.datagrid.showfiltercolumnbackground(false);
             this.columnData.forEach(function (item) {
               if (item.datafield != 'Actions') {
-                _this31.datagrid.addfilter(item.datafield, filtergroup, true);
+                _this33.datagrid.addfilter(item.datafield, filtergroup, true);
               }
             });
             this.datagrid.applyfilters();
@@ -3708,7 +3798,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this32 = this;
+            var _this34 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -3721,7 +3811,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this32.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this34.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -3768,7 +3858,7 @@
         }, {
           key: "documentCreate",
           value: function documentCreate() {
-            var _this33 = this;
+            var _this35 = this;
 
             this.message = null;
 
@@ -3800,28 +3890,28 @@
                 })
               };
               this.moveInOutService.addMoveInOutConfig(params).subscribe(function (res) {
-                _this33.isMoveInSubmitted = false;
+                _this35.isMoveInSubmitted = false;
 
                 if (res.message) {
-                  _this33.goBack();
+                  _this35.goBack();
 
-                  _this33.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
+                  _this35.sharedService.openSnackBar('Document Criteria Added successfully', 'success');
 
-                  _this33.getMoveInMoveOutConfigList();
+                  _this35.getMoveInMoveOutConfigList();
                 } else {
-                  _this33.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this35.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this33.isDataLoaded = false;
+                _this35.isDataLoaded = false;
 
-                _this33.sharedService.openSnackBar('Server Error', 'error');
+                _this35.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "documentUpdate",
           value: function documentUpdate(document) {
-            var _this34 = this;
+            var _this36 = this;
 
             this.isMoveInSubmitted = true;
             var params = {
@@ -3843,27 +3933,27 @@
               }
             };
             this.moveInOutService.updateMoveInOutConfig(params).subscribe(function (res) {
-              _this34.isMoveInSubmitted = false;
+              _this36.isMoveInSubmitted = false;
 
               if (res.message) {
-                _this34.goBack();
+                _this36.goBack();
 
-                _this34.getMoveInMoveOutConfigList();
+                _this36.getMoveInMoveOutConfigList();
 
-                _this34.sharedService.openSnackBar('Category Updated', 'success');
+                _this36.sharedService.openSnackBar('Category Updated', 'success');
               } else {
-                _this34.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this36.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this34.isMoveInSubmitted = false;
+              _this36.isMoveInSubmitted = false;
 
-              _this34.sharedService.openSnackBar('Server Error', 'error');
+              _this36.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getMoveInMoveOutConfigList",
           value: function getMoveInMoveOutConfigList() {
-            var _this35 = this;
+            var _this37 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -3875,20 +3965,20 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this35.documentDataList = new jqx.dataAdapter(tableData);
-                _this35.totalItems = tableData.localdata.length;
-                _this35.isDataLoaded = true;
+                _this37.documentDataList = new jqx.dataAdapter(tableData);
+                _this37.totalItems = tableData.localdata.length;
+                _this37.isDataLoaded = true;
               }
             }, function (error) {
-              _this35.isDataLoaded = true;
+              _this37.isDataLoaded = true;
 
-              _this35.sharedService.openSnackBar('Server Error', 'error');
+              _this37.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this36 = this;
+            var _this38 = this;
 
             this.getMoveInMoveOutConfigList();
 
@@ -3971,25 +4061,25 @@
               if (item != null && item.id) {
                 var params = {
                   Id: parseInt(item.id),
-                  deleteBy: _this36.sessionService.userId
+                  deleteBy: _this38.sessionService.userId
                 };
 
-                _this36.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
+                _this38.moveInOutService.deleteMoveInOutConfig(params).subscribe(function (res) {
                   if (res.message) {
-                    _this36.datagrid.deleterow(item.index);
+                    _this38.datagrid.deleterow(item.index);
 
-                    _this36.datagrid.refresh();
+                    _this38.datagrid.refresh();
 
-                    _this36.totalItems = _this36.documentDataList.records.length;
+                    _this38.totalItems = _this38.documentDataList.records.length;
 
-                    _this36.sharedService.openSnackBar(res.message, 'success');
+                    _this38.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this36.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this38.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
 
-                  _this36.sharedService.setUnitListDeleteIndex(null);
+                  _this38.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  _this36.sharedService.openSnackBar('Server Error', 'error');
+                  _this38.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             }); //document type
@@ -3998,7 +4088,7 @@
               LookupTypeId: 72
             };
             this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
-              _this36.documentTypeDataList = res;
+              _this38.documentTypeDataList = res;
             });
           }
         }, {
@@ -4247,7 +4337,7 @@
 
       var MoveoutMaintainComponent = /*#__PURE__*/function () {
         function MoveoutMaintainComponent(_overlay, _viewContainerRef, router, moveInOutService, apartmentService, sharedService, sessionService, dialog, activateRouter) {
-          var _this37 = this;
+          var _this39 = this;
 
           _classCallCheck(this, MoveoutMaintainComponent);
 
@@ -4264,7 +4354,7 @@
           this.moveOutSearch = '';
           this.tableRowInfo = {};
           this.activateRouter.url.subscribe(function (data) {
-            _this37.urlType = data[0].path;
+            _this39.urlType = data[0].path;
           });
         }
 
@@ -4286,7 +4376,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this38 = this;
+            var _this40 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -4299,7 +4389,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this38.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this40.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4310,7 +4400,7 @@
         }, {
           key: "checkOutUser",
           value: function checkOutUser(detail) {
-            var _this39 = this;
+            var _this41 = this;
 
             var message = "Do you want to Move Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
@@ -4321,7 +4411,7 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                var data = _this39.datagrid.getrowdata(detail.rowId);
+                var data = _this41.datagrid.getrowdata(detail.rowId);
 
                 var moveOutData = data;
                 var details = {
@@ -4335,11 +4425,11 @@
                   "reqUserId": moveOutData.reqUserId,
                   "statusId": 379,
                   "noDue": moveOutData.noDue,
-                  "approvedBy": parseInt(_this39.sessionService.userId),
+                  "approvedBy": parseInt(_this41.sessionService.userId),
                   "approvedDate": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "insertedBy": moveOutData.insertedBy,
                   "insertedOn": moveOutData.insertedOn,
-                  "updatedBy": parseInt(_this39.sessionService.userId),
+                  "updatedBy": parseInt(_this41.sessionService.userId),
                   "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "apartmentId": moveOutData.apartmentId,
                   "userName": moveOutData.userName,
@@ -4354,13 +4444,13 @@
                   moveOut: details
                 };
 
-                _this39.moveInOutService.updateMoveOut(params).subscribe(function (res) {
+                _this41.moveInOutService.updateMoveOut(params).subscribe(function (res) {
                   if (res.message) {
-                    _this39.sharedService.openSnackBar('Successfully Moved Out', 'success');
+                    _this41.sharedService.openSnackBar('Successfully Moved Out', 'success');
 
-                    _this39.userBasedList();
+                    _this41.userBasedList();
                   } else {
-                    _this39.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this41.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -4377,7 +4467,7 @@
         }, {
           key: "moveOutDropDownPopUp",
           value: function moveOutDropDownPopUp(id) {
-            var _this40 = this;
+            var _this42 = this;
 
             // Create the overlay
             this._selectPanelOverlayRef = this._overlay.create({
@@ -4399,9 +4489,9 @@
 
             this._selectPanelOverlayRef.backdropClick().subscribe(function () {
               // If overlay exists and attached...
-              if (_this40._selectPanelOverlayRef && _this40._selectPanelOverlayRef.hasAttached()) {
+              if (_this42._selectPanelOverlayRef && _this42._selectPanelOverlayRef.hasAttached()) {
                 // Detach it
-                _this40._selectPanelOverlayRef.detach();
+                _this42._selectPanelOverlayRef.detach();
               } // If template portal exists and attached...
 
 
@@ -4414,7 +4504,7 @@
         }, {
           key: "approveMoveOut",
           value: function approveMoveOut(type) {
-            var _this41 = this;
+            var _this43 = this;
 
             this._selectPanelOverlayRef.detach();
 
@@ -4451,18 +4541,18 @@
             };
             this.moveInOutService.updateMoveOut(params).subscribe(function (res) {
               if (res.message) {
-                if (statusId == 377) _this41.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this41.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this41.sharedService.openSnackBar('Cancelled Moveout', 'success');
+                if (statusId == 377) _this43.sharedService.openSnackBar('Approved Moveout', 'success');else if (statusId == 378) _this43.sharedService.openSnackBar('Rejected Moveout', 'success');else if (statusId == 381) _this43.sharedService.openSnackBar('Cancelled Moveout', 'success');
 
-                _this41.userBasedList();
+                _this43.userBasedList();
               } else {
-                _this41.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this43.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             });
           }
         }, {
           key: "showMoveOutDetails",
           value: function showMoveOutDetails(detail) {
-            var _this42 = this;
+            var _this44 = this;
 
             this._selectPanelOverlayRef.detach();
 
@@ -4476,7 +4566,7 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this42.userBasedList();
+                _this44.userBasedList();
               }
             });
           }
@@ -4490,7 +4580,7 @@
         }, {
           key: "getMoveOutListByAdmin",
           value: function getMoveOutListByAdmin() {
-            var _this43 = this;
+            var _this45 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4499,21 +4589,21 @@
             };
             this.moveInOutService.getMoveOutByStatusIds(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this43.totalItems = res.length;
+                _this45.totalItems = res.length;
                 var tableData = {
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this43.moveOutDataList = new jqx.dataAdapter(tableData);
+                _this45.moveOutDataList = new jqx.dataAdapter(tableData);
               }
 
-              _this43.isDataLoaded = true;
+              _this45.isDataLoaded = true;
             });
           }
         }, {
           key: "getMoveOutListByUser",
           value: function getMoveOutListByUser() {
-            var _this44 = this;
+            var _this46 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -4523,16 +4613,16 @@
             this.moveInOutService.getMoveOutByBlockUnitId(params).subscribe(function (res) {
               if (res.code == 200) {
                 if (res.responseData.value.length > 0) {
-                  _this44.totalItems = res.responseData.value.length;
+                  _this46.totalItems = res.responseData.value.length;
                   var tableData = {
                     localdata: res.responseData.value.reverse(),
                     datatype: "array"
                   };
-                  _this44.moveOutDataList = new jqx.dataAdapter(tableData);
+                  _this46.moveOutDataList = new jqx.dataAdapter(tableData);
                 }
               }
 
-              _this44.isDataLoaded = true;
+              _this46.isDataLoaded = true;
             });
           }
         }, {
@@ -4547,7 +4637,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this47 = this;
 
             this.userBasedList();
 
@@ -4641,7 +4731,7 @@
               width: 120,
               cellclassname: 'action-cell',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id = _this45.moveOutDataList.loadedData[row].statusId;
+                var id = _this47.moveOutDataList.loadedData[row].statusId;
 
                 if (id == 376 || id == 377 || id == 378 || id == 381) {
                   var elemId = 'moveoutAction' + row;
@@ -4657,7 +4747,7 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                var id_ = _this45.moveOutDataList.loadedData[row].statusId;
+                var id_ = _this47.moveOutDataList.loadedData[row].statusId;
                 return '<div class="icon-wrapper simple-actions link"  onClick="checkOutUser(' + row + ')">' + '<img src="assets/images/checkout-icon.svg" class="svg" width="17" height="17" alt="Check Out">' + '</div>';
               },
               renderer: columnrenderer,
@@ -4827,49 +4917,37 @@
       /* harmony import */
 
 
-      var src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/shared/components/user-movein/user-movein.component */
-      "./src/app/shared/components/user-movein/user-movein.component.ts");
-      /* harmony import */
-
-
-      var src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/shared/components/user-moveout/user-moveout.component */
-      "./src/app/shared/components/user-moveout/user-moveout.component.ts");
-      /* harmony import */
-
-
-      var _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/movein-moveout-cancel/movein-moveout-cancel.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/movein-moveout-cancel.component.ts");
       /* harmony import */
 
 
-      var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/movein-admin-history/movein-admin-history.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-admin-history/movein-admin-history.component.ts");
       /* harmony import */
 
 
-      var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/create-movein/create-movein.component */
       "./src/app/modules/ams/moveinout-tracker/components/create-movein/create-movein.component.ts");
       /* harmony import */
 
 
-      var _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/movein-reports/movein-report-data/movein-report-data.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.ts");
       /* harmony import */
 
 
-      var _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/create-moveout/create-moveout.component */
       "./src/app/modules/ams/moveinout-tracker/components/create-moveout/create-moveout.component.ts");
       /* harmony import */
 
 
-      var _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component */
       "./src/app/modules/ams/moveinout-tracker/components/movein-moveout-cancel/cancel-move-in-out-details/cancel-move-in-out-details.component.ts");
 
@@ -4891,11 +4969,11 @@
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-movein',
-        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveinComponent"],
+        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_10__["CreateMoveinComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view-movein/:id',
-        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveinComponent"],
+        component: _components_create_movein_create_movein_component__WEBPACK_IMPORTED_MODULE_10__["CreateMoveinComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'moveout',
@@ -4907,15 +4985,15 @@
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'create-moveout',
-        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveoutComponent"],
+        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveoutComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'view-moveout/:id',
-        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_14__["CreateMoveoutComponent"],
+        component: _components_create_moveout_create_moveout_component__WEBPACK_IMPORTED_MODULE_12__["CreateMoveoutComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'cancelled',
-        component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_10__["MoveinMoveoutCancelComponent"],
+        component: _components_movein_moveout_cancel_movein_moveout_cancel_component__WEBPACK_IMPORTED_MODULE_8__["MoveinMoveoutCancelComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
         children: [{
           path: '',
@@ -4923,11 +5001,11 @@
           pathMatch: 'full'
         }, {
           path: 'movein',
-          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__["CancelMoveInOutDetailsComponent"],
+          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_13__["CancelMoveInOutDetailsComponent"],
           canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: 'moveout',
-          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_15__["CancelMoveInOutDetailsComponent"],
+          component: _components_movein_moveout_cancel_cancel_move_in_out_details_cancel_move_in_out_details_component__WEBPACK_IMPORTED_MODULE_13__["CancelMoveInOutDetailsComponent"],
           canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
         }, {
           path: '**',
@@ -4935,24 +5013,16 @@
           pathMatch: 'full'
         }]
       }, {
-        path: 'edit-movein/:id',
-        component: src_app_shared_components_user_movein_user_movein_component__WEBPACK_IMPORTED_MODULE_8__["UserMoveinComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
-      }, {
-        path: 'edit-moveout/:id',
-        component: src_app_shared_components_user_moveout_user_moveout_component__WEBPACK_IMPORTED_MODULE_9__["UserMoveoutComponent"],
-        canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
-      }, {
         path: 'reports',
         component: _components_movein_reports_movein_reports_component__WEBPACK_IMPORTED_MODULE_7__["MoveinReportsComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'movein-history',
-        component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_11__["MoveinAdminHistoryComponent"],
+        component: _components_movein_admin_history_movein_admin_history_component__WEBPACK_IMPORTED_MODULE_9__["MoveinAdminHistoryComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: 'reports/:title/:name/:id',
-        component: _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_13__["MoveinReportDataComponent"],
+        component: _components_movein_reports_movein_report_data_movein_report_data_component__WEBPACK_IMPORTED_MODULE_11__["MoveinReportDataComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
         path: '**',

@@ -1374,13 +1374,14 @@ let FrequentVisitorListComponent = class FrequentVisitorListComponent {
     navigateToCreate() {
         this.router.navigate(['/ams/visitor/info/frequent-visitor-create']);
     }
-    getVisitorCheckedIn() {
+    getVisitorList() {
         this.isVisitorDataLoaded = false;
         let param = {
             apartmentId: this.sessionService.apartmentId,
-            BlockUnitId: this.sessionService.apartmentBlockUnitID,
+            fromDate: '',
+            toDate: '',
         };
-        this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe((res) => {
+        this.visitorService.getAllFvYetToComeExpectedVisitorsByApartmentIdDate(param).subscribe((res) => {
             if (res.length > 0) {
                 let tableData = {
                     localdata: res.reverse(),
@@ -1427,7 +1428,7 @@ let FrequentVisitorListComponent = class FrequentVisitorListComponent {
                 width: 240,
                 renderer: columnrenderer
             }];
-        this.getVisitorCheckedIn();
+        this.getVisitorList();
     }
 };
 FrequentVisitorListComponent.ctorParameters = () => [
@@ -1790,13 +1791,14 @@ let VendorPassListComponent = class VendorPassListComponent {
     navigateToCreate() {
         this.router.navigate(['/ams/visitor/info/vendor-pass-create']);
     }
-    getVisitorCheckedIn() {
+    getVisitorList() {
         this.isVisitorDataLoaded = false;
         let param = {
             apartmentId: this.sessionService.apartmentId,
-            BlockUnitId: this.sessionService.apartmentBlockUnitID,
+            fromDate: '',
+            toDate: '',
         };
-        this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe((res) => {
+        this.visitorService.getAllDvYetToComeExpectedVisitorsByApartmentIdDate(param).subscribe((res) => {
             if (res.length > 0) {
                 let tableData = {
                     localdata: res.reverse(),
@@ -1864,7 +1866,7 @@ let VendorPassListComponent = class VendorPassListComponent {
                 width: 240,
                 renderer: columnrenderer
             }];
-        this.getVisitorCheckedIn();
+        this.getVisitorList();
     }
 };
 VendorPassListComponent.ctorParameters = () => [
