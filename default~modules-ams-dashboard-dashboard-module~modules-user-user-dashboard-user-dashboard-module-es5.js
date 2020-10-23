@@ -16118,6 +16118,7 @@
           this.sessionService = sessionService;
           this.emergencyAlert = [];
           this.totalItems = 0;
+          this.isDataLoaded = true;
         }
 
         _createClass(EmergencyAlertsWidgetComponent, [{
@@ -16135,14 +16136,11 @@
           value: function ngOnInit() {
             var _this94 = this;
 
-            this.isDataLoaded = true;
-            this.role = this.sessionService.roleTypeName;
-            var entity = {
-              apartmentId: this.sessionService.apartmentId,
-              active: 1
-            };
-
-            if (this.role != 'Owner' && this.role != 'Tenant') {
+            if (this.isAdmin) {
+              var entity = {
+                apartmentId: this.sessionService.apartmentId,
+                active: 1
+              };
               this.alertService.getAllApartmentBlockUnitAlertByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
                   _this94.emergencyAlert = res.reverse().slice(0, 5);
@@ -16151,9 +16149,9 @@
 
                 _this94.isDataLoaded = false;
               });
-            } else if (this.role == 'Owner' || this.role == 'Tenant') {
+            } else {
               var params = {
-                apartmentBlockUnitId: parseInt(this.sessionService.apartmentBlockUnitID)
+                apartmentBlockUnitId: this.sessionService.apartmentBlockUnitID
               };
               this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe(function (res) {
                 if (res.length > 0) {
@@ -16164,6 +16162,11 @@
                 _this94.isDataLoaded = false;
               });
             }
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -16272,6 +16275,7 @@
           this.sessionService = sessionService;
           this.facility = [];
           this.totalItems = 0;
+          this.isDataLoaded = true;
         }
 
         _createClass(FacilityWidgetComponent, [{
@@ -16438,6 +16442,7 @@
           this.sessionService = sessionService;
           this.violation = [];
           this.totalItems = 0;
+          this.isDataLoaded = true;
         }
 
         _createClass(RecentViolationWidgetComponent, [{
@@ -16455,7 +16460,6 @@
           value: function ngOnInit() {
             var _this96 = this;
 
-            this.isDataLoaded = true;
             var entity = {
               apartmentId: this.sessionService.apartmentId,
               active: 1
@@ -16576,6 +16580,7 @@
           this.workpermitService = workpermitService;
           this.workPermit = [];
           this.totalItems = 0;
+          this.isDataLoaded = true;
         }
 
         _createClass(WorkpermitWidgetComponent, [{
@@ -16593,13 +16598,11 @@
           value: function ngOnInit() {
             var _this97 = this;
 
-            this.isDataLoaded = true;
-            var entity = {
-              apartmentId: this.sessionService.apartmentId,
-              active: 1
-            };
-
-            if (this.role != 'Owner' && this.role != 'Tenant') {
+            if (this.isAdmin) {
+              var entity = {
+                apartmentId: this.sessionService.apartmentId,
+                active: 1
+              };
               this.workpermitService.getWorkPermitsByApartmentIdStatus(entity).subscribe(function (res) {
                 if (res.length > 0) {
                   _this97.workPermit = res.reverse().slice(0, 9);
@@ -16608,7 +16611,7 @@
 
                 _this97.isDataLoaded = false;
               });
-            } else if (this.role == 'Owner' || this.role == 'Tenant') {
+            } else {
               var params = {
                 apartmentId: this.sessionService.apartmentId,
                 apartmentUnitId: parseInt(this.sessionService.apartmentBlockUnitID)
@@ -16622,6 +16625,11 @@
                 _this97.isDataLoaded = false;
               });
             }
+          }
+        }, {
+          key: "isAdmin",
+          get: function get() {
+            return this.sessionService.isAdmin();
           }
         }]);
 
@@ -16725,7 +16733,7 @@
             loadChildren: function loadChildren() {
               return Promise.all(
               /*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */
-              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~9cfc4b94"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~bebd6c34"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~849fa2a3"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
+              [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~c049794b"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~13ee214c"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a61b234f"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null,
               /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */
               "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(function (m) {
                 return m.UnitUsersReportModule;

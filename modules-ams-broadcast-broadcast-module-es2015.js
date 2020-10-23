@@ -87,7 +87,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of AssignInterestUsers\">\n                    {{user.userFullName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                                <div class=\"input-box\">\n                                    <!-- <label>Interest Group Category<span class=\"mandatory\">*</span></label> -->\n                                    <!-- <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\"\n                                        name=\"groupTypeDropDown\" [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\" (onSelect)=\"selectInterestGroup($event)\"\n                                        (onDeSelect)=\"removeInterestGroup($event)\"\n                                        (onDeSelectAll)=\"removeInterestGroup($event)\" required>\n                                    </angular2-multiselect> -->\n                                    <condo-select labelText=\"Interest Group Category\" fieldPlaceholder=\"Select Category\"\n                                    [fieldRequired]=\"'required'\" [fieldList]=\"broadCastGroupCategory.dropdownList\"\n                                    fieldValue=\"groupName\" [fieldModel]=\"categoryId\" fieldId=\"broadCastGroupCategoryId\"\n                                    (fieldParams)=\"getInterestGroupUsers($event)\"></condo-select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View\n                                    recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box upload-box\">\n                                    <label>Upload File</label>\n                                    <ng-container *ngIf=\"isFileDetailsAvailable\">\n                                        <ng-container *ngIf=\"isImageUploaded\">\n                                            <div class=\"preview-wrapper\">\n                                                <div class=\"icon-wrapper\">\n                                                    <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\">\n                                                    </i-feather>\n                                                </div>\n                                                <figure class=\"preview-img\">\n                                                    <img class=\"img-fluid\" [src]=\"fileUrl\" id=\"assetImage\">\n                                                </figure>\n                                            </div>\n                                        </ng-container>\n                                        <ng-container *ngIf=\"!isImageUploaded\">\n                                            <div class=\"file-desp\">\n                                                <span class=\"name mr-3\">\n                                                    <a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n                                                </span>\n                                                <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                                            </div>\n                                        </ng-container>\n                                    </ng-container>\n                                    <div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\"\n                                        *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n                                        <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n                                        <div class=\"attachfiles-normal\">\n                                            <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                                            <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\"\n                                                (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n                                        </div>\n                                    </div>\n                                    <div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n                                        <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"\n                                            [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n\n\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12 d-flex justify-content-end\">\n                                <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitCreateBroadcastMessageForm()\">Submit</button>\n                                <button mat-button (click)=\"ClearFormData()\">Cancel</button>\n                            </div>\n                          \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of AssignInterestUsers\">\n                    {{user.userFullName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                                <div class=\"input-box\">\n                                    <!-- <label>Interest Group Category<span class=\"mandatory\">*</span></label> -->\n                                    <!-- <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\"\n                                        name=\"groupTypeDropDown\" [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\" (onSelect)=\"selectInterestGroup($event)\"\n                                        (onDeSelect)=\"removeInterestGroup($event)\"\n                                        (onDeSelectAll)=\"removeInterestGroup($event)\" required>\n                                    </angular2-multiselect> -->\n                                    <condo-select labelText=\"Interest Group Category\" fieldPlaceholder=\"Select Category\"\n                                    [fieldRequired]=\"'required'\" [fieldList]=\"broadCastGroupCategory.dropdownList\"\n                                    fieldValue=\"groupName\" [fieldModel]=\"categoryId\" fieldId=\"broadCastGroupCategoryId\"\n                                    (fieldParams)=\"getInterestGroupUsers($event)\"></condo-select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View\n                                    recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <app-upload [fileIds]=\"fileDetailId\" [isEdit]=\"isFileEdit\" (outputParams)=\"getFileIds($event)\"></app-upload>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"mt-4 text-right\">\n                                    <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitCreateBroadcastMessageForm()\">Submit</button>\n                                    <button mat-button (click)=\"ClearFormData()\">Cancel</button>\n                                </div>\n                            </div>\n                          \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of users\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersOwner\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersAdmin\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersStaff\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex\">\n                        <div class=\"input-box radio-box w-100 d-flex justify-content-between m-0 flex-wrap\">\n                            <div class=\"form-group\" *ngFor=\"let user of collapsedUserType\">\n                                <input name=\"userType\" id=\"{{user.name}}\" (change)=\"removeAll(user.id,undefined)\"\n                                    [(ngModel)]=\"selectedUserType\" value=\"{{user.id}}\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('tenant')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"tenantRole\" disabled class=\"form-control\" [(ngModel)]=\"tenantRole\"\n                                    (change)=\"getApartmentRole($event,'tenant')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                    [(ngModel)]=\"apartmentBlock.selectedItems\" [settings]=\"blockdropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                    [(ngModel)]=\"condition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\" (onDeSelectAll)=\"removeConditions('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('owner')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <!-- <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                            [(ngModel)]=\"roleTypeArr.selectedItems\"\n                            [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getApartmentRole($event)\"\n                            (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\">\n                        </angular2-multiselect> -->\n                                <select name=\"ownerRole\" disabled class=\"form-control\" [(ngModel)]=\"ownerRole\"\n                                    (change)=\"getApartmentRole($event,'owner')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"ownerApartmentBlock.dropdownList\"\n                                    name=\"ownerApartmentBlock\" [(ngModel)]=\"ownerApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('owner')\"\n                                    (onDeSelect)=\"updateUsers('owner')\" (onSelectAll)=\"updateUsers('owner')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"ownerCondition.dropdownList\" name=\"ownerCondition\"\n                                    [(ngModel)]=\"ownerCondition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('owner')\" (onDeSelect)=\"updateUsers('owner')\"\n                                    (onSelectAll)=\"updateUsers('owner')\" (onDeSelectAll)=\"removeConditions('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('admin')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"adminRole\" disabled class=\"form-control\" [(ngModel)]=\"adminRole\"\n                                    (change)=\"getApartmentRole($event,'admin')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleCategory\"\n                                    [(ngModel)]=\"roleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('admin')\" (onDeSelect)=\"updateUsers('admin')\"\n                                    (onSelectAll)=\"updateUsers('admin')\" (onDeSelectAll)=\"updateUsers('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"adminApartmentBlock.dropdownList\"\n                                    name=\"adminApartmentBlock\" [(ngModel)]=\"adminApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('admin')\"\n                                    (onDeSelect)=\"updateUsers('admin')\" (onSelectAll)=\"updateUsers('admin')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('staff')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"staffRole\" disabled class=\"form-control\" [(ngModel)]=\"staffRole\"\n                                    (change)=\"getApartmentRole($event,'staff')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"staffRoleCategory.dropdownList\" name=\"staffRoleCategory\"\n                                    [(ngModel)]=\"staffRoleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"getstaffCategories($event)\" (onDeSelect)=\"removeStaffCategories($event)\"\n                                    (onSelectAll)=\"getAllStaffCategories($event)\"\n                                    (onDeSelectAll)=\"removeAllStaffCategories($event)\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"staffApartmentBlock.dropdownList\"\n                                    name=\"staffApartmentBlock\" [(ngModel)]=\"staffApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('staff')\"\n                                    (onDeSelect)=\"updateUsers('staff')\" (onSelectAll)=\"updateUsers('staff')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\"\n                            *ngIf=\"staffRoleCategory.selectedItems.length > 0\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffCategory\"\n                                    [(ngModel)]=\"staffCategory.selectedItems\" [settings]=\"dropdownSettings\"\n                                    (onSelect)=\"updateUsers('staff')\" (onDeSelect)=\"updateUsers('staff')\"\n                                    (onSelectAll)=\"updateUsers('staff')\" (onDeSelectAll)=\"updateUsers('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Category<span class=\"mandatory\">*</span></label>\n                                    <select name=\"broadCastCategory\" class=\"form-control\"\n                                        [(ngModel)]=\"broadCastCategory\" (change)=\"categoryChange($event)\">\n                                        <option *ngFor=\"let item of allcategory\"\n                                            value=\"{{item.broadCastMessageCategoryId}}\">\n                                            {{item?.broadCastMessageCategory1}}\n                                        </option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"input-box upload-box\">\n\t\t\t\t\t\t\t\t\t<label>Upload File</label>\n\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isFileDetailsAvailable\">\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"preview-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<figure class=\"preview-img\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" [src] =\"fileUrl\" id=\"assetImage\">\n\t\t\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"!isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t<div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n                            <div class=\"col-sm-12\">\n                                <ul class=\"list-inline float-right mt-4\">\n                                    <li class=\"list-inline-item\">\n                                        <button mat-flat-button class=\"mr-2\" (click)=\"removeAll('','clear')\" >Clear</button>\n                                        <button mat-flat-button [color]=\"'primary'\"\n                                            (click)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"\n                                            [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                                    </li>\n                                </ul>\n                            </div>\n               \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of users\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersOwner\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersAdmin\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersStaff\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex\">\n                        <div class=\"input-box radio-box w-100 d-flex justify-content-between m-0 flex-wrap\">\n                            <div class=\"form-group\" *ngFor=\"let user of collapsedUserType\">\n                                <input name=\"userType\" id=\"{{user.name}}\" (change)=\"removeAll(user.id,undefined)\"\n                                    [(ngModel)]=\"selectedUserType\" value=\"{{user.id}}\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('tenant')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"tenantRole\" disabled class=\"form-control\" [(ngModel)]=\"tenantRole\"\n                                    (change)=\"getApartmentRole($event,'tenant')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                    [(ngModel)]=\"apartmentBlock.selectedItems\" [settings]=\"blockdropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                    [(ngModel)]=\"condition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\" (onDeSelectAll)=\"removeConditions('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('owner')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <!-- <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                            [(ngModel)]=\"roleTypeArr.selectedItems\"\n                            [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getApartmentRole($event)\"\n                            (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\">\n                        </angular2-multiselect> -->\n                                <select name=\"ownerRole\" disabled class=\"form-control\" [(ngModel)]=\"ownerRole\"\n                                    (change)=\"getApartmentRole($event,'owner')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"ownerApartmentBlock.dropdownList\"\n                                    name=\"ownerApartmentBlock\" [(ngModel)]=\"ownerApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('owner')\"\n                                    (onDeSelect)=\"updateUsers('owner')\" (onSelectAll)=\"updateUsers('owner')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"ownerCondition.dropdownList\" name=\"ownerCondition\"\n                                    [(ngModel)]=\"ownerCondition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('owner')\" (onDeSelect)=\"updateUsers('owner')\"\n                                    (onSelectAll)=\"updateUsers('owner')\" (onDeSelectAll)=\"removeConditions('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('admin')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"adminRole\" disabled class=\"form-control\" [(ngModel)]=\"adminRole\"\n                                    (change)=\"getApartmentRole($event,'admin')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleCategory\"\n                                    [(ngModel)]=\"roleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('admin')\" (onDeSelect)=\"updateUsers('admin')\"\n                                    (onSelectAll)=\"updateUsers('admin')\" (onDeSelectAll)=\"updateUsers('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"adminApartmentBlock.dropdownList\"\n                                    name=\"adminApartmentBlock\" [(ngModel)]=\"adminApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('admin')\"\n                                    (onDeSelect)=\"updateUsers('admin')\" (onSelectAll)=\"updateUsers('admin')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('staff')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"staffRole\" disabled class=\"form-control\" [(ngModel)]=\"staffRole\"\n                                    (change)=\"getApartmentRole($event,'staff')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"staffRoleCategory.dropdownList\" name=\"staffRoleCategory\"\n                                    [(ngModel)]=\"staffRoleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"getstaffCategories($event)\" (onDeSelect)=\"removeStaffCategories($event)\"\n                                    (onSelectAll)=\"getAllStaffCategories($event)\"\n                                    (onDeSelectAll)=\"removeAllStaffCategories($event)\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"staffApartmentBlock.dropdownList\"\n                                    name=\"staffApartmentBlock\" [(ngModel)]=\"staffApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('staff')\"\n                                    (onDeSelect)=\"updateUsers('staff')\" (onSelectAll)=\"updateUsers('staff')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\"\n                            *ngIf=\"staffRoleCategory.selectedItems.length > 0\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffCategory\"\n                                    [(ngModel)]=\"staffCategory.selectedItems\" [settings]=\"dropdownSettings\"\n                                    (onSelect)=\"updateUsers('staff')\" (onDeSelect)=\"updateUsers('staff')\"\n                                    (onSelectAll)=\"updateUsers('staff')\" (onDeSelectAll)=\"updateUsers('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Category<span class=\"mandatory\">*</span></label>\n                                    <select name=\"broadCastCategory\" class=\"form-control\"\n                                        [(ngModel)]=\"broadCastCategory\" (change)=\"categoryChange($event)\">\n                                        <option *ngFor=\"let item of allcategory\"\n                                            value=\"{{item.broadCastMessageCategoryId}}\">\n                                            {{item?.broadCastMessageCategory1}}\n                                        </option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\t\t\t\t\t\t\n                                <app-upload [fileIds]=\"fileDetailId\" [isEdit]=\"isFileEdit\" (outputParams)=\"getFileIds($event)\"></app-upload>\n\t\t\t\t\t\t\t</div>\n                            <div class=\"col-sm-12\">\n                                <ul class=\"list-inline float-right mt-4\">\n                                    <li class=\"list-inline-item\">\n                                        <button mat-flat-button class=\"mr-2\" (click)=\"removeAll('','clear')\" >Clear</button>\n                                        <button mat-flat-button [color]=\"'primary'\"\n                                            (click)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"\n                                            [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                                    </li>\n                                </ul>\n                            </div>\n               \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -252,6 +252,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_quill__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ngx-quill */ "./node_modules/ngx-quill/__ivy_ngcc__/fesm2015/ngx-quill.js");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! src/app/modules/ui/upload/upload.module */ "./src/app/modules/ui/upload/upload.module.ts");
+
 
 
 
@@ -294,7 +296,8 @@ BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__["CondoCardModule"],
             _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"],
             ngx_quill__WEBPACK_IMPORTED_MODULE_24__["QuillModule"],
-            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__["SelectModule"]
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__["SelectModule"],
+            src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_27__["UploadModule"]
         ],
         providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
     })
@@ -1798,19 +1801,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
-/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
-/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_16__);
-
-
-
-
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
 
 
 
@@ -1825,7 +1820,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BroadcastGroupComponent = class BroadcastGroupComponent {
-    constructor(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector, fileUploadService, fileDownloadService, fileDetailsService, sanitizer, constantsService, sessionService) {
+    constructor(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector, constantsService, sessionService) {
         this.broadcastService = broadcastService;
         this.sharedService = sharedService;
         this.cookieService = cookieService;
@@ -1833,10 +1828,6 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         this.staffService = staffService;
         this.apartmentService = apartmentService;
         this.injector = injector;
-        this.fileUploadService = fileUploadService;
-        this.fileDownloadService = fileDownloadService;
-        this.fileDetailsService = fileDetailsService;
-        this.sanitizer = sanitizer;
         this.constantsService = constantsService;
         this.sessionService = sessionService;
         this.dropdownSettings = {};
@@ -1894,14 +1885,11 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         this.allBroadcastMessageGroup = [];
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
-        this.isFileDetailsAvailable = false;
-        this.fileUrl = "";
-        this.isImageUploaded = false;
+        this.isFileEdit = false;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
     }
     ngOnInit() {
         this.message = {};
-        this.uploadResponse = { status: '', message: '', fileId: null };
         this.IsBroadcast = true;
         this.loginedUser = this.sessionService.userId;
         this.apartmentID = this.sessionService.apartmentId;
@@ -1991,7 +1979,7 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
     }
     categoryChange(item) {
         let id = parseInt(item.broadCastMessageCategoryId);
-        var data = underscore__WEBPACK_IMPORTED_MODULE_15__["filter"](this.allcategory, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](this.allcategory, function (item) {
             if (item.broadCastMessageCategoryId === id)
                 return item;
         });
@@ -2001,56 +1989,6 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         else {
             this.message.ckeditor = data[0].template;
         }
-    }
-    isUploadProgess() {
-        return this.uploadResponse.status == "progress" ? true : false;
-    }
-    isUploadCompleted() {
-        return this.uploadResponse.status == "completed" ? true : false;
-    }
-    isAssetImageNotAvailable() {
-        return this.fileDetailId == null ? true : false;
-    }
-    uploadFile(event) {
-        let file = event[0];
-        let userId = parseInt(this.loginedUser);
-        this.fileUploadService.upload(file).subscribe((res) => {
-            if (res != undefined && res.length) {
-                this.fileDetailId = res[0].fileDetailsId;
-                let newParams = {
-                    fileDetailsId: this.fileDetailId,
-                    apartmentId: Number(this.apartmentID)
-                };
-                this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
-                    this.filePath = res[0].filePath;
-                    this.downloadFile(this.filePath);
-                });
-            }
-        });
-    }
-    downloadFile(filePath) {
-        this.fileDownloadService.downloadFile(filePath).subscribe((res) => {
-            this.isFileDetailsAvailable = true;
-            let splitFile = filePath.split('.');
-            var ext = splitFile[1].replace(/^/, '.');
-            this.isImageUploaded = this.constantsService.imageFormats.includes(ext);
-            const blob = res.body;
-            let objectURL = URL.createObjectURL(blob);
-            let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-            this.fileUrl = sanitizeUrl;
-        });
-    }
-    deleteFile() {
-        let params = {
-            FileDetailsId: this.fileDetailId,
-            FilePath: this.filePath,
-            updatedByUserId: this.sessionService.userId
-        };
-        this.fileDetailsService.deleteFileDetails(params).subscribe((res) => {
-            this.isFileDetailsAvailable = false;
-            this.uploadResponse = { status: '', message: '', fileId: null };
-            this.fileDetailId = this.uploadResponse.fileId;
-        });
     }
     updateUsers() {
         this.getUserIds$().subscribe((res) => {
@@ -2080,6 +2018,9 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         };
         return this.userService.getUsersByFilter(params);
     }
+    getFileIds(event) {
+        this.fileDetailId = event[0];
+    }
     //Submit Category
     submitCreateBroadcastMessageForm() {
         let broadCastGroupCategoryIDs = this.categoryId;
@@ -2090,7 +2031,7 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
             "subject": this.message.subject,
             "broadcastMessage1": this.message.ckeditor,
             "broadcastBy": this.loginedUser,
-            "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_16___default()().toISOString(),
+            "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
             "broadcastMessageCategoryId": 0,
             "broadcastModeIds": broadcastModeIds,
             "broadCastGroupcategoryId": null,
@@ -2102,7 +2043,7 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
             "isActive": true,
             "insertedBy": this.loginedUser,
             "fileDetailId1": this.fileDetailId,
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_16___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
             "serialNo": 0,
@@ -2133,7 +2074,6 @@ let BroadcastGroupComponent = class BroadcastGroupComponent {
         // this.broadCastGroupCategory.selectedItems = [];
         this.categoryId = null;
         this.AssignInterestUsers = [];
-        this.isFileDetailsAvailable = false;
         this.fileDetailId = null;
     }
 };
@@ -2145,12 +2085,8 @@ BroadcastGroupComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_9__["FileUploadService"] },
-    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"] },
-    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_11__["FileDetailsService"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"] },
-    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__["ConstantsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_14__["SessionService"] }
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }
 ];
 BroadcastGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2166,12 +2102,8 @@ BroadcastGroupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_9__["FileUploadService"],
-        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"],
-        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_11__["FileDetailsService"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"],
-        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__["ConstantsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_14__["SessionService"]])
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])
 ], BroadcastGroupComponent);
 
 
@@ -2209,19 +2141,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
-/* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
-/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
-/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
-
-
-
-
+/* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -2235,17 +2159,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BroadcastRoleComponent = class BroadcastRoleComponent {
-    constructor(broadcastService, sharedService, userService, staffService, apartmentService, injector, fileUploadService, fileDownloadService, fileDetailsService, sanitizer, constantsService, sessionService) {
+    constructor(broadcastService, sharedService, userService, staffService, apartmentService, injector, constantsService, sessionService) {
         this.broadcastService = broadcastService;
         this.sharedService = sharedService;
         this.userService = userService;
         this.staffService = staffService;
         this.apartmentService = apartmentService;
         this.injector = injector;
-        this.fileUploadService = fileUploadService;
-        this.fileDownloadService = fileDownloadService;
-        this.fileDetailsService = fileDetailsService;
-        this.sanitizer = sanitizer;
         this.constantsService = constantsService;
         this.sessionService = sessionService;
         this.dropdownSettings = {};
@@ -2324,14 +2244,11 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
         this.allBroadcastMessageGroup = [];
         this.isFlashNotice = false;
         this.editorPlacehorder = "";
-        this.isFileDetailsAvailable = false;
-        this.fileUrl = "";
-        this.isImageUploaded = false;
+        this.isFileEdit = false;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     ngOnInit() {
         this.message = {};
-        this.uploadResponse = { status: '', message: '', fileId: null };
         this.IsBroadcast = true;
         this.loginedUser = this.sessionService.userId;
         this.apartmentID = this.sessionService.apartmentId;
@@ -2605,7 +2522,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
     }
     categoryChange() {
         let id = parseInt(this.broadCastCategory);
-        var data = underscore__WEBPACK_IMPORTED_MODULE_14__["filter"](this.allcategory, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.allcategory, function (item) {
             if (item.broadCastMessageCategoryId === id)
                 return item;
         });
@@ -2674,69 +2591,6 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
         //   this.staffCategory.dropdownList = temp;
         // }
     }
-    isUploadProgess() {
-        return this.uploadResponse.status == "progress" ? true : false;
-    }
-    isUploadCompleted() {
-        return this.uploadResponse.status == "completed" ? true : false;
-    }
-    isAssetImageNotAvailable() {
-        return this.fileDetailId == null ? true : false;
-    }
-    uploadFile(event) {
-        let file = event[0];
-        let userId = parseInt(this.loginedUser);
-        this.fileUploadService.upload(file).subscribe((res) => {
-            if (res != undefined && res.length) {
-                this.fileDetailId = res[0].fileDetailsId;
-                let newParams = {
-                    fileDetailsId: this.uploadResponse.fileId,
-                    apartmentId: Number(this.apartmentID)
-                };
-                this.fileDetailsService.getFileDetailsById(newParams).subscribe((res) => {
-                    this.filePath = res[0].filePath;
-                    this.downloadFile(this.filePath);
-                });
-            }
-        });
-    }
-    downloadFile(filePath) {
-        this.fileDownloadService.downloadFile(filePath).subscribe((res) => {
-            this.isFileDetailsAvailable = true;
-            let splitFile = filePath.split('.');
-            var ext = splitFile[1].replace(/^/, '.');
-            this.isImageUploaded = this.constantsService.imageFormats.includes(ext);
-            const blob = res.body;
-            let objectURL = URL.createObjectURL(blob);
-            let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-            this.fileUrl = sanitizeUrl;
-        });
-    }
-    deleteFile() {
-        let details = {
-            "fileDetailsId": this.fileDetailId,
-            "fileName": this.filePath,
-            "filePath": this.filePath,
-            "fileSize": 0,
-            "description": this.filePath,
-            "isActive": true,
-            "insertedBy": parseInt(this.loginedUser),
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
-            "updatedBy": null,
-            "updatedOn": null,
-            "apartmentId": this.apartmentID
-        };
-        let params = {
-            FileDetailsId: this.fileDetailId,
-            FilePath: this.filePath,
-            updatedByUserId: this.sessionService.userId
-        };
-        // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
-        //   this.isFileDetailsAvailable = false;
-        //   this.uploadResponse = { status: '', message: '', fileId: null };
-        //   this.fileDetailId = this.uploadResponse.fileId
-        // })
-    }
     getAllStaffCategories(items) {
         items.forEach(element => {
             this.getstaffCategories(element);
@@ -2791,6 +2645,9 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
         }
         return this.userService.getUsersByFilterNew(params);
     }
+    getFileIds(event) {
+        this.fileDetailId = event[0];
+    }
     //Submit Category
     submitCreateBroadcastMessageForm() {
         // let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId }).join(",");
@@ -2814,7 +2671,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
                 'staffCategoryIds': staffcategoryIds,
                 'subStaffCategoryIds': staffSubCategoryIds,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -2861,7 +2718,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
                 'staffCategoryIds': staffcategoryIds,
                 'subStaffCategoryIds': staffSubCategoryIds,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -2908,7 +2765,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
                 'staffCategoryIds': staffcategoryIds,
                 'subStaffCategoryIds': staffSubCategoryIds,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -2955,7 +2812,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
                 'staffCategoryIds': staffcategoryIds,
                 'subStaffCategoryIds': staffSubCategoryIds,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -2990,7 +2847,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
             "subject": this.message.subject,
             "broadcastMessage1": this.message.ckeditor,
             "broadcastBy": this.loginedUser,
-            "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+            "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
             "broadcastMessageCategoryId": 0,
             "broadcastModeIds": Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) { return item.value; }).join(","),
             "broadCastGroupcategoryId": null,
@@ -3002,7 +2859,7 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
             "isFlashNotice": this.isFlashNotice,
             "isActive": true,
             "insertedBy": this.loginedUser,
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
             "serialNo": 0,
@@ -3073,7 +2930,6 @@ let BroadcastRoleComponent = class BroadcastRoleComponent {
         this.usersOwner = [];
         this.usersAdmin = [];
         this.usersStaff = [];
-        this.isFileDetailsAvailable = false;
         this.fileDetailId = null;
         this.message.subject = '';
         this.message.ckeditor = '';
@@ -3159,12 +3015,8 @@ BroadcastRoleComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
-    { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"] },
-    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"] },
-    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"] },
-    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__["ConstantsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__["SessionService"] }
+    { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
 ];
 BroadcastRoleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -3179,12 +3031,8 @@ BroadcastRoleComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]
         src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
-        src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"],
-        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"],
-        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"],
-        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__["ConstantsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__["SessionService"]])
+        src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
 ], BroadcastRoleComponent);
 
 

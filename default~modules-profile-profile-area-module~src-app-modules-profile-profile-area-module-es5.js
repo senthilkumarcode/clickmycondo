@@ -394,7 +394,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-pevehiclests-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4 class=\"mb-4\">Unit vehicles and Parking</h4>\n\t\t<p *ngIf=\"!isAdmin\" class=\"text-secondary\">Please contact your association admin to update vehicle or parking slot</p>\n\t</div>\n\n\t<div class=\"bg-card shadow primary\" *ngIf=\"isUserDataLoaded && parkingSlotsDataList\">\n\t\t<div *ngIf=\"parkingSlotsDataList.length > 0\">\n\t\t\t<h6 class=\"mb-2\">Allocated Parking Slots:</h6>\n\t\t\t<div class=\"ft mr-md-2\" *ngFor=\"let item of parkingSlotsDataList; let i = index\">\n\t\t\t\t<p>Parking Slot : {{item.slotName}} (Bike, Community)</p>\n\t\t\t\t<p>Location :</p>\n\t\t\t</div>\n\t\t</div>\n\t\t<div  *ngIf=\"parkingSlotsDataList.length == 0\">\n\t\t\t<h6 class=\"mb-2\"> Parking Slots Not Available</h6>\n\t\t</div>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && vehicleDataList.length == 0\">\n\t\t<h6>No Vehicle added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\n\t\t<!-- Add Vehicle -->\n\t\t<ng-container *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t<mat-expansion-panel [expanded] = \"expanded\">\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\" [dropDownList]=\"vehicleTypeList\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container >\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Edit Vehicle -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of vehicleDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Type: <span class=\"font-normal\">{{item.vehicle.vehicleTypeLabel}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [dropDownList]=\"vehicleTypeList\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-pevehiclests-wrapper p-5\">\n\n\t<div class=\"mb-4\">\n\t\t<h4 class=\"mb-4\">Unit vehicles and Parking</h4>\n\t\t<p *ngIf=\"!isAdmin\" class=\"text-secondary\">Please contact your association admin to update vehicle or parking slot</p>\n\t</div>\n\n\t<div class=\"bg-card shadow primary\" *ngIf=\"isUserDataLoaded && parkingSlotsDataList\">\n\t\t<div *ngIf=\"parkingSlotsDataList.length > 0\">\n\t\t\t<h6 class=\"mb-2\">Allocated Parking Slots</h6>\n\t\t\t<div class=\"ft mr-md-2\" *ngFor=\"let item of parkingSlotsDataList; let i = index\">\n\t\t\t\t<p>Parking Slot : {{item.slotName}} ({{item.parkingType_Label}}, {{item.slotType_Label}})</p>\n\t\t\t\t<p>Location :</p>\n\t\t\t</div>\n\t\t</div>\n\t\t<div  *ngIf=\"parkingSlotsDataList.length == 0\">\n\t\t\t<h6 class=\"mb-2\"> Parking Slots Not Available</h6>\n\t\t</div>\n\t</div>\n\n\t<div class=\"bg-card shadow warn\" *ngIf=\"isUserDataLoaded && vehicleDataList.length == 0\">\n\t\t<h6>No Vehicle added yet</h6>\n\t</div>\n\n\t<mat-accordion>\n\n\t\t<!-- Add Vehicle -->\n\t\t<ng-container *ngIf=\"isUserEdit || isAdmin\">\n\t\t\t<mat-expansion-panel [expanded] = \"expanded\">\n\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6>Add Vehicle</h6>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [isVehicleNew]=\"true\" [dropDownList]=\"vehicleTypeList\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container >\n\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<!-- Edit Vehicle -->\n\t\t<ng-container *ngIf=\"isUserDataLoaded\">\n\t\t\t<mat-expansion-panel *ngFor=\"let item of vehicleDataList; let i = index\">\n\t\t\t\t<mat-expansion-panel-header class=\"big\">\n\t\t\t\t\t<mat-panel-title>\n\t\t\t\t\t\t<h6 class=\"mb-2\">{{item.vehicle.vehicleNumber}}</h6>\n\t\t\t\t\t\t<p class=\"text-secondary font-medium mr-4 text-sm\">Type: <span class=\"font-normal\">{{item.vehicle.vehicleTypeLabel}}</span></p>\n\t\t\t\t\t</mat-panel-title>\n\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t<mat-panel-description>\n\t\t\t\t\t<app-profile-vehicle-details [vehicleData]=\"item\" [dropDownList]=\"vehicleTypeList\" (outputParams)=\"getParams($event)\"></app-profile-vehicle-details>\n\t\t\t\t</mat-panel-description>\n\t\t\t</mat-expansion-panel>\n\t\t</ng-container>\n\t\t\n\t</mat-accordion>\n\n</div>";
       /***/
     },
 
@@ -1100,12 +1100,12 @@
             this.apartmentService.activateBlockUnitUser(params).subscribe(function (res) {
               _this4.isActiveDataLoaded = true;
 
-              if (res.message) {
+              if (res.code == 200) {
                 _this4.getBlockUnitInfo();
 
                 _this4.showActiveForm();
 
-                _this4.sharedService.openSnackBar(res.message, 'success');
+                _this4.sharedService.openSnackBar(res.statusMessage, 'success');
               } else {
                 _this4.sharedService.openSnackBar(res.errorMessage, 'error');
               }
@@ -1129,8 +1129,8 @@
             this.apartmentService.deActivateBlockUnitUser(params).subscribe(function (res) {
               _this5.isActiveDataLoaded = true;
 
-              if (res.message) {
-                _this5.sharedService.openSnackBar(res.message, 'success');
+              if (res.code == 200) {
+                _this5.sharedService.openSnackBar(res.statusMessage, 'success');
 
                 _this5.router.navigate(['/ams/unit&users/de-activated']);
               } else {
@@ -1384,7 +1384,7 @@
         slug: 'absence',
         icon: 'heroicons_solid:logout'
       }, {
-        id: 'b2d1e4e7-7cfd-4b51-ae59-217a093df754',
+        id: 'b2d1e4e7-7cfd-4b51-ae59-217a093df755',
         title: 'Documents',
         slug: 'document',
         icon: 'dripicons:folder-open'

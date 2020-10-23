@@ -5,7 +5,7 @@
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-assets-assets-module~modules-ams-documents-document-config-document-config-modul~c0c85edc"], {
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~2a70f21d"], {
     /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/upload/upload.component.html":
     /*!***********************************************************************************************!*\
@@ -409,4 +409,4 @@
     }
   }]);
 })();
-//# sourceMappingURL=default~modules-ams-assets-assets-module~modules-ams-documents-document-config-document-config-modul~c0c85edc-es5.js.map
+//# sourceMappingURL=default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~2a70f21d-es5.js.map

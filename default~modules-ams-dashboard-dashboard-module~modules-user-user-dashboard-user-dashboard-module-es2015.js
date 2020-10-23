@@ -11333,6 +11333,10 @@ let EmergencyAlertsWidgetComponent = class EmergencyAlertsWidgetComponent {
         this.sessionService = sessionService;
         this.emergencyAlert = [];
         this.totalItems = 0;
+        this.isDataLoaded = true;
+    }
+    get isAdmin() {
+        return this.sessionService.isAdmin();
     }
     getDateFormat(date) {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(date).format('ddd MMM D YYYY');
@@ -11341,13 +11345,11 @@ let EmergencyAlertsWidgetComponent = class EmergencyAlertsWidgetComponent {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(time).format('hh:mm A');
     }
     ngOnInit() {
-        this.isDataLoaded = true;
-        this.role = this.sessionService.roleTypeName;
-        let entity = {
-            apartmentId: this.sessionService.apartmentId,
-            active: 1,
-        };
-        if (this.role != 'Owner' && this.role != 'Tenant') {
+        if (this.isAdmin) {
+            let entity = {
+                apartmentId: this.sessionService.apartmentId,
+                active: 1,
+            };
             this.alertService.getAllApartmentBlockUnitAlertByApartmentIdStatus(entity).subscribe((res) => {
                 if (res.length > 0) {
                     this.emergencyAlert = res.reverse().slice(0, 5);
@@ -11356,9 +11358,9 @@ let EmergencyAlertsWidgetComponent = class EmergencyAlertsWidgetComponent {
                 this.isDataLoaded = false;
             });
         }
-        else if ((this.role == 'Owner' || this.role == 'Tenant')) {
+        else {
             let params = {
-                apartmentBlockUnitId: parseInt(this.sessionService.apartmentBlockUnitID)
+                apartmentBlockUnitId: this.sessionService.apartmentBlockUnitID
             };
             this.alertService.getAllApartmentBlockUnitAlertByApartmentBlockUnitId(params).subscribe((res) => {
                 if (res.length > 0) {
@@ -11428,6 +11430,7 @@ let FacilityWidgetComponent = class FacilityWidgetComponent {
         this.sessionService = sessionService;
         this.facility = [];
         this.totalItems = 0;
+        this.isDataLoaded = true;
     }
     getDateFormat(date) {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(date).format('ddd MMM D YYYY');
@@ -11530,6 +11533,7 @@ let RecentViolationWidgetComponent = class RecentViolationWidgetComponent {
         this.sessionService = sessionService;
         this.violation = [];
         this.totalItems = 0;
+        this.isDataLoaded = true;
     }
     getDateFormat(date) {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(date).format('ddd MMM D YYYY');
@@ -11538,7 +11542,6 @@ let RecentViolationWidgetComponent = class RecentViolationWidgetComponent {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(time).format('hh:mm A');
     }
     ngOnInit() {
-        this.isDataLoaded = true;
         let entity = {
             apartmentId: this.sessionService.apartmentId,
             active: 1,
@@ -11610,6 +11613,10 @@ let WorkpermitWidgetComponent = class WorkpermitWidgetComponent {
         this.workpermitService = workpermitService;
         this.workPermit = [];
         this.totalItems = 0;
+        this.isDataLoaded = true;
+    }
+    get isAdmin() {
+        return this.sessionService.isAdmin();
     }
     getDateFormat(date) {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(date).format('ddd MMM D YYYY');
@@ -11618,12 +11625,11 @@ let WorkpermitWidgetComponent = class WorkpermitWidgetComponent {
         return moment__WEBPACK_IMPORTED_MODULE_4___default()(time).format('hh:mm A');
     }
     ngOnInit() {
-        this.isDataLoaded = true;
-        let entity = {
-            apartmentId: this.sessionService.apartmentId,
-            active: 1,
-        };
-        if (this.role != 'Owner' && this.role != 'Tenant') {
+        if (this.isAdmin) {
+            let entity = {
+                apartmentId: this.sessionService.apartmentId,
+                active: 1,
+            };
             this.workpermitService.getWorkPermitsByApartmentIdStatus(entity).subscribe((res) => {
                 if (res.length > 0) {
                     this.workPermit = res.reverse().slice(0, 9);
@@ -11632,7 +11638,7 @@ let WorkpermitWidgetComponent = class WorkpermitWidgetComponent {
                 this.isDataLoaded = false;
             });
         }
-        else if (this.role == 'Owner' || this.role == 'Tenant') {
+        else {
             let params = {
                 apartmentId: this.sessionService.apartmentId,
                 apartmentUnitId: parseInt(this.sessionService.apartmentBlockUnitID),
@@ -11692,7 +11698,7 @@ const routes = [
     { path: '', component: _dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], children: [
             { path: '', redirectTo: 'main', pathMatch: 'full' },
             { path: 'main', component: _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_4__["AdminDashboardComponent"], children: [
-                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~9cfc4b94"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~bebd6c34"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~849fa2a3"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) }
+                    { path: 'report', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-unit-users-unit-users-report-unit-users-report-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~c049794b"), __webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-broadcast-broadcast-module~modules-ams-document~13ee214c"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-actions-expense-actions-module~modules-ams-expense-track~a61b234f"), __webpack_require__.e("default~modules-ams-unit-users-unit-users-report-unit-users-report-module~src-app-modules-ams-unit-u~d0e142e4")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module */ "./src/app/modules/ams/unit-users/unit-users-report/unit-users-report.module.ts")).then(m => m.UnitUsersReportModule) }
                 ] },
             { path: 'custom', component: _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["CustomDashboardComponent"] }
         ] }

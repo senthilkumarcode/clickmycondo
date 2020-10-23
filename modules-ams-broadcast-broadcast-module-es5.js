@@ -154,7 +154,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of AssignInterestUsers\">\n                    {{user.userFullName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                                <div class=\"input-box\">\n                                    <!-- <label>Interest Group Category<span class=\"mandatory\">*</span></label> -->\n                                    <!-- <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\"\n                                        name=\"groupTypeDropDown\" [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\" (onSelect)=\"selectInterestGroup($event)\"\n                                        (onDeSelect)=\"removeInterestGroup($event)\"\n                                        (onDeSelectAll)=\"removeInterestGroup($event)\" required>\n                                    </angular2-multiselect> -->\n                                    <condo-select labelText=\"Interest Group Category\" fieldPlaceholder=\"Select Category\"\n                                    [fieldRequired]=\"'required'\" [fieldList]=\"broadCastGroupCategory.dropdownList\"\n                                    fieldValue=\"groupName\" [fieldModel]=\"categoryId\" fieldId=\"broadCastGroupCategoryId\"\n                                    (fieldParams)=\"getInterestGroupUsers($event)\"></condo-select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View\n                                    recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box upload-box\">\n                                    <label>Upload File</label>\n                                    <ng-container *ngIf=\"isFileDetailsAvailable\">\n                                        <ng-container *ngIf=\"isImageUploaded\">\n                                            <div class=\"preview-wrapper\">\n                                                <div class=\"icon-wrapper\">\n                                                    <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\">\n                                                    </i-feather>\n                                                </div>\n                                                <figure class=\"preview-img\">\n                                                    <img class=\"img-fluid\" [src]=\"fileUrl\" id=\"assetImage\">\n                                                </figure>\n                                            </div>\n                                        </ng-container>\n                                        <ng-container *ngIf=\"!isImageUploaded\">\n                                            <div class=\"file-desp\">\n                                                <span class=\"name mr-3\">\n                                                    <a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n                                                </span>\n                                                <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                                            </div>\n                                        </ng-container>\n                                    </ng-container>\n                                    <div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\"\n                                        *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n                                        <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n                                        <div class=\"attachfiles-normal\">\n                                            <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                                            <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\"\n                                                (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n                                        </div>\n                                    </div>\n                                    <div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n                                        <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"\n                                            [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\"\n                                            aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                    </div>\n\n\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12 d-flex justify-content-end\">\n                                <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitCreateBroadcastMessageForm()\">Submit</button>\n                                <button mat-button (click)=\"ClearFormData()\">Cancel</button>\n                            </div>\n                          \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>";
+      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of AssignInterestUsers\">\n                    {{user.userFullName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                                <div class=\"input-box\">\n                                    <!-- <label>Interest Group Category<span class=\"mandatory\">*</span></label> -->\n                                    <!-- <angular2-multiselect [data]=\"broadCastGroupCategory.dropdownList\"\n                                        name=\"groupTypeDropDown\" [(ngModel)]=\"broadCastGroupCategory.selectedItems\"\n                                        [settings]=\"groupCategorySetting\" (onSelect)=\"selectInterestGroup($event)\"\n                                        (onDeSelect)=\"removeInterestGroup($event)\"\n                                        (onDeSelectAll)=\"removeInterestGroup($event)\" required>\n                                    </angular2-multiselect> -->\n                                    <condo-select labelText=\"Interest Group Category\" fieldPlaceholder=\"Select Category\"\n                                    [fieldRequired]=\"'required'\" [fieldList]=\"broadCastGroupCategory.dropdownList\"\n                                    fieldValue=\"groupName\" [fieldModel]=\"categoryId\" fieldId=\"broadCastGroupCategoryId\"\n                                    (fieldParams)=\"getInterestGroupUsers($event)\"></condo-select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View\n                                    recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <app-upload [fileIds]=\"fileDetailId\" [isEdit]=\"isFileEdit\" (outputParams)=\"getFileIds($event)\"></app-upload>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"mt-4 text-right\">\n                                    <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitCreateBroadcastMessageForm()\">Submit</button>\n                                    <button mat-button (click)=\"ClearFormData()\">Cancel</button>\n                                </div>\n                            </div>\n                          \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>";
       /***/
     },
 
@@ -174,7 +174,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of users\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersOwner\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersAdmin\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersStaff\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex\">\n                        <div class=\"input-box radio-box w-100 d-flex justify-content-between m-0 flex-wrap\">\n                            <div class=\"form-group\" *ngFor=\"let user of collapsedUserType\">\n                                <input name=\"userType\" id=\"{{user.name}}\" (change)=\"removeAll(user.id,undefined)\"\n                                    [(ngModel)]=\"selectedUserType\" value=\"{{user.id}}\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('tenant')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"tenantRole\" disabled class=\"form-control\" [(ngModel)]=\"tenantRole\"\n                                    (change)=\"getApartmentRole($event,'tenant')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                    [(ngModel)]=\"apartmentBlock.selectedItems\" [settings]=\"blockdropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                    [(ngModel)]=\"condition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\" (onDeSelectAll)=\"removeConditions('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('owner')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <!-- <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                            [(ngModel)]=\"roleTypeArr.selectedItems\"\n                            [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getApartmentRole($event)\"\n                            (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\">\n                        </angular2-multiselect> -->\n                                <select name=\"ownerRole\" disabled class=\"form-control\" [(ngModel)]=\"ownerRole\"\n                                    (change)=\"getApartmentRole($event,'owner')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"ownerApartmentBlock.dropdownList\"\n                                    name=\"ownerApartmentBlock\" [(ngModel)]=\"ownerApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('owner')\"\n                                    (onDeSelect)=\"updateUsers('owner')\" (onSelectAll)=\"updateUsers('owner')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"ownerCondition.dropdownList\" name=\"ownerCondition\"\n                                    [(ngModel)]=\"ownerCondition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('owner')\" (onDeSelect)=\"updateUsers('owner')\"\n                                    (onSelectAll)=\"updateUsers('owner')\" (onDeSelectAll)=\"removeConditions('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('admin')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"adminRole\" disabled class=\"form-control\" [(ngModel)]=\"adminRole\"\n                                    (change)=\"getApartmentRole($event,'admin')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleCategory\"\n                                    [(ngModel)]=\"roleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('admin')\" (onDeSelect)=\"updateUsers('admin')\"\n                                    (onSelectAll)=\"updateUsers('admin')\" (onDeSelectAll)=\"updateUsers('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"adminApartmentBlock.dropdownList\"\n                                    name=\"adminApartmentBlock\" [(ngModel)]=\"adminApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('admin')\"\n                                    (onDeSelect)=\"updateUsers('admin')\" (onSelectAll)=\"updateUsers('admin')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('staff')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"staffRole\" disabled class=\"form-control\" [(ngModel)]=\"staffRole\"\n                                    (change)=\"getApartmentRole($event,'staff')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"staffRoleCategory.dropdownList\" name=\"staffRoleCategory\"\n                                    [(ngModel)]=\"staffRoleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"getstaffCategories($event)\" (onDeSelect)=\"removeStaffCategories($event)\"\n                                    (onSelectAll)=\"getAllStaffCategories($event)\"\n                                    (onDeSelectAll)=\"removeAllStaffCategories($event)\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"staffApartmentBlock.dropdownList\"\n                                    name=\"staffApartmentBlock\" [(ngModel)]=\"staffApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('staff')\"\n                                    (onDeSelect)=\"updateUsers('staff')\" (onSelectAll)=\"updateUsers('staff')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\"\n                            *ngIf=\"staffRoleCategory.selectedItems.length > 0\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffCategory\"\n                                    [(ngModel)]=\"staffCategory.selectedItems\" [settings]=\"dropdownSettings\"\n                                    (onSelect)=\"updateUsers('staff')\" (onDeSelect)=\"updateUsers('staff')\"\n                                    (onSelectAll)=\"updateUsers('staff')\" (onDeSelectAll)=\"updateUsers('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Category<span class=\"mandatory\">*</span></label>\n                                    <select name=\"broadCastCategory\" class=\"form-control\"\n                                        [(ngModel)]=\"broadCastCategory\" (change)=\"categoryChange($event)\">\n                                        <option *ngFor=\"let item of allcategory\"\n                                            value=\"{{item.broadCastMessageCategoryId}}\">\n                                            {{item?.broadCastMessageCategory1}}\n                                        </option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"input-box upload-box\">\n\t\t\t\t\t\t\t\t\t<label>Upload File</label>\n\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isFileDetailsAvailable\">\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"preview-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"icon-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<figure class=\"preview-img\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<img class=\"img-fluid\" [src] =\"fileUrl\" id=\"assetImage\">\n\t\t\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t<ng-container *ngIf=\"!isImageUploaded\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"file-desp\">\n\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t<div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n\t\t\t\t\t\t\t\t\t\t<input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"attachfiles-normal\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"attachfiles-dragSupport\">Drop file here or </span>\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a> to add attachment\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"progress-bar progress-bar-striped\" role=\"progressbar\"  [style.width.%]=\"uploadResponse.message\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n                            <div class=\"col-sm-12\">\n                                <ul class=\"list-inline float-right mt-4\">\n                                    <li class=\"list-inline-item\">\n                                        <button mat-flat-button class=\"mr-2\" (click)=\"removeAll('','clear')\" >Clear</button>\n                                        <button mat-flat-button [color]=\"'primary'\"\n                                            (click)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"\n                                            [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                                    </li>\n                                </ul>\n                            </div>\n               \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>";
+      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n\t<mat-drawer #receipts mode=\"over\" position=\"end\">\n\t\t<div class=\"view-receipients\">\n\t\t\t<div class=\"title\">\n                <h4 class=\"mt-3\">Recipient</h4>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button (click)=\"receipts.toggle()\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n            </div>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of users\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersOwner\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersAdmin\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n            <mat-chip-list>\n                <mat-chip *ngFor=\"let user of usersStaff\">\n                    {{user.fN+\" \"+user.mN+\" \"+user.lN+\"\"+user.aptName}}\n                    <!-- <mat-icon matChipRemove>cancel</mat-icon> -->\n                </mat-chip>\n            </mat-chip-list>\n\t\t</div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"broadcast-message-wrapper\">\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex\">\n                        <div class=\"input-box radio-box w-100 d-flex justify-content-between m-0 flex-wrap\">\n                            <div class=\"form-group\" *ngFor=\"let user of collapsedUserType\">\n                                <input name=\"userType\" id=\"{{user.name}}\" (change)=\"removeAll(user.id,undefined)\"\n                                    [(ngModel)]=\"selectedUserType\" value=\"{{user.id}}\" type=\"radio\" required>\n                                <label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('tenant')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"tenantRole\" disabled class=\"form-control\" [(ngModel)]=\"tenantRole\"\n                                    (change)=\"getApartmentRole($event,'tenant')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"apartmentBlock.dropdownList\" name=\"blockdropdown\"\n                                    [(ngModel)]=\"apartmentBlock.selectedItems\" [settings]=\"blockdropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"condition.dropdownList\" name=\"conditiondropdown\"\n                                    [(ngModel)]=\"condition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('tenant')\" (onDeSelect)=\"updateUsers('tenant')\"\n                                    (onSelectAll)=\"updateUsers('tenant')\" (onDeSelectAll)=\"removeConditions('tenant')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('owner')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <!-- <angular2-multiselect [data]=\"roleTypeArr.dropdownList\" name=\"roleTypeDropDown\"\n                            [(ngModel)]=\"roleTypeArr.selectedItems\"\n                            [settings]=\"roleTypedropdownSettings\" (onSelect)=\"getApartmentRole($event)\"\n                            (onDeSelect)=\"removeRole($event)\" (onDeSelectAll)=\"removeRole($event)\">\n                        </angular2-multiselect> -->\n                                <select name=\"ownerRole\" disabled class=\"form-control\" [(ngModel)]=\"ownerRole\"\n                                    (change)=\"getApartmentRole($event,'owner')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"ownerApartmentBlock.dropdownList\"\n                                    name=\"ownerApartmentBlock\" [(ngModel)]=\"ownerApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('owner')\"\n                                    (onDeSelect)=\"updateUsers('owner')\" (onSelectAll)=\"updateUsers('owner')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Conditions</label>\n                                <angular2-multiselect [data]=\"ownerCondition.dropdownList\" name=\"ownerCondition\"\n                                    [(ngModel)]=\"ownerCondition.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('owner')\" (onDeSelect)=\"updateUsers('owner')\"\n                                    (onSelectAll)=\"updateUsers('owner')\" (onDeSelectAll)=\"removeConditions('owner')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('admin')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"adminRole\" disabled class=\"form-control\" [(ngModel)]=\"adminRole\"\n                                    (change)=\"getApartmentRole($event,'admin')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"roleCategory.dropdownList\" name=\"roleCategory\"\n                                    [(ngModel)]=\"roleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"updateUsers('admin')\" (onDeSelect)=\"updateUsers('admin')\"\n                                    (onSelectAll)=\"updateUsers('admin')\" (onDeSelectAll)=\"updateUsers('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"adminApartmentBlock.dropdownList\"\n                                    name=\"adminApartmentBlock\" [(ngModel)]=\"adminApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('admin')\"\n                                    (onDeSelect)=\"updateUsers('admin')\" (onSelectAll)=\"updateUsers('admin')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('admin')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex flex-wrap\"\n                        *ngIf=\"getDisplayValue('staff')\">\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>User Type</label>\n                                <select name=\"staffRole\" disabled class=\"form-control\" [(ngModel)]=\"staffRole\"\n                                    (change)=\"getApartmentRole($event,'staff')\">\n                                    <option *ngFor=\"let item of roleList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                                </select>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Role</label>\n                                <angular2-multiselect [data]=\"staffRoleCategory.dropdownList\" name=\"staffRoleCategory\"\n                                    [(ngModel)]=\"staffRoleCategory.selectedItems\" [settings]=\"roleDropdownSettings\"\n                                    (onSelect)=\"getstaffCategories($event)\" (onDeSelect)=\"removeStaffCategories($event)\"\n                                    (onSelectAll)=\"getAllStaffCategories($event)\"\n                                    (onDeSelectAll)=\"removeAllStaffCategories($event)\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\">\n                            <div class=\"select-box\">\n                                <label>Tower</label>\n                                <angular2-multiselect [data]=\"staffApartmentBlock.dropdownList\"\n                                    name=\"staffApartmentBlock\" [(ngModel)]=\"staffApartmentBlock.selectedItems\"\n                                    [settings]=\"blockdropdownSettings\" (onSelect)=\"updateUsers('staff')\"\n                                    (onDeSelect)=\"updateUsers('staff')\" (onSelectAll)=\"updateUsers('staff')\"\n                                    (onDeSelectAll)=\"removeDropdownItems('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-4 col-md-4 col-sm-6 col-xs-12\"\n                            *ngIf=\"staffRoleCategory.selectedItems.length > 0\">\n                            <div class=\"select-box\">\n                                <label>Staff Category</label>\n                                <angular2-multiselect [data]=\"staffCategory.dropdownList\" name=\"staffCategory\"\n                                    [(ngModel)]=\"staffCategory.selectedItems\" [settings]=\"dropdownSettings\"\n                                    (onSelect)=\"updateUsers('staff')\" (onDeSelect)=\"updateUsers('staff')\"\n                                    (onSelectAll)=\"updateUsers('staff')\" (onDeSelectAll)=\"updateUsers('staff')\">\n                                </angular2-multiselect>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row bg-card shadow\">\n                    <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12 plr-0 \">\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-4\" *ngIf=\"IsBroadcast\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Category<span class=\"mandatory\">*</span></label>\n                                    <select name=\"broadCastCategory\" class=\"form-control\"\n                                        [(ngModel)]=\"broadCastCategory\" (change)=\"categoryChange($event)\">\n                                        <option *ngFor=\"let item of allcategory\"\n                                            value=\"{{item.broadCastMessageCategoryId}}\">\n                                            {{item?.broadCastMessageCategory1}}\n                                        </option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"select-box\">\n                                    <label>Broadcast Mode<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"broadModeArr.dropdownList\"\n                                        name=\"BroadCastModeDropDown\" [(ngModel)]=\"broadModeArr.selectedItems\"\n                                        [settings]=\"modeStettings\" required>\n                                    </angular2-multiselect>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4 d-flex align-items-center\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"receipts.toggle()\">View recipients</button>\n                            </div>\n                        </div>\n                        <div class=\"row m-0\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Subject<span class=\"mandatory\">*</span></label>\n                                    <input type=\"text\" class=\"form-control form-group\" placeholder=\"Enter\"\n                                        name=\"subject\" [(ngModel)]=\"message.subject\" required>\n                                    <label>Message<span class=\"mandatory\">*</span></label>\n                                    <quill-editor class=\"quill-editor\" name=\"ckeditor\" [placeholder]=\"editorPlacehorder\"\n                                        [(ngModel)]=\"message.ckeditor\" required>\n                                    </quill-editor>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\t\t\t\t\t\t\n                                <app-upload [fileIds]=\"fileDetailId\" [isEdit]=\"isFileEdit\" (outputParams)=\"getFileIds($event)\"></app-upload>\n\t\t\t\t\t\t\t</div>\n                            <div class=\"col-sm-12\">\n                                <ul class=\"list-inline float-right mt-4\">\n                                    <li class=\"list-inline-item\">\n                                        <button mat-flat-button class=\"mr-2\" (click)=\"removeAll('','clear')\" >Clear</button>\n                                        <button mat-flat-button [color]=\"'primary'\"\n                                            (click)=\"submitCreateBroadcastMessageForm(createBroadcastMessageForm)\"\n                                            [disabled]=\"createBroadcastMessageForm.invalid\">Submit</button>\n                                    </li>\n                                </ul>\n                            </div>\n               \n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer-content>\n</mat-drawer-container>";
       /***/
     },
 
@@ -594,6 +594,12 @@
       var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(
       /*! src/app/modules/ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(
+      /*! src/app/modules/ui/upload/upload.module */
+      "./src/app/modules/ui/upload/upload.module.ts");
 
       var BroadcastModule = function BroadcastModule() {
         _classCallCheck(this, BroadcastModule);
@@ -601,7 +607,7 @@
 
       BroadcastModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_components_broadcast_setup_broadcast_setup_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastSetupComponent"], _components_broadcast_history_broadcast_history_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastHistoryComponent"], _components_broadcast_sendmessage_broadcast_sendmessage_component__WEBPACK_IMPORTED_MODULE_7__["BroadcastSendmessageComponent"], _components_broadcast_group_based_announcement_broadcast_group_based_announcement_component__WEBPACK_IMPORTED_MODULE_22__["BroadcastGroupBasedAnnouncementComponent"], _components_announcement_details_announcement_details_component__WEBPACK_IMPORTED_MODULE_23__["AnnouncementDetailsComponent"], _components_broadcastgroup_setup_broadcastgroup_setup_component__WEBPACK_IMPORTED_MODULE_8__["BroadcastgroupSetupComponent"], _components_broadcast_group_assignment_broadcast_group_assignment_component__WEBPACK_IMPORTED_MODULE_10__["BroadcastGroupAssignmentComponent"], _components_broadcast_removeuser_broadcast_removeuser_component__WEBPACK_IMPORTED_MODULE_11__["BroadcastRemoveuserComponent"], _components_broadcast_announcements_broadcast_announcements_component__WEBPACK_IMPORTED_MODULE_12__["BroadcastAnnouncementsComponent"], _components_broadcast_sendmessage_broadcast_role_broadcast_role_component__WEBPACK_IMPORTED_MODULE_20__["BroadcastRoleComponent"], _components_broadcast_sendmessage_broadcast_group_broadcast_group_component__WEBPACK_IMPORTED_MODULE_21__["BroadcastGroupComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__["CondoCardModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_24__["QuillModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__["SelectModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _broadcast_routing_module__WEBPACK_IMPORTED_MODULE_4__["BroadcastRoutingModule"], angular2_multiselect_dropdown__WEBPACK_IMPORTED_MODULE_9__["AngularMultiSelectModule"], _angular_material_chips__WEBPACK_IMPORTED_MODULE_18__["MatChipsModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_26__["CondoCardModule"], _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_19__["MatSidenavModule"], ngx_quill__WEBPACK_IMPORTED_MODULE_24__["QuillModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_25__["SelectModule"], src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_27__["UploadModule"]],
         providers: [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_13__["BroadcastService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_14__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_15__["ApartmentService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_16__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_17__["LookupService"]]
       })], BroadcastModule);
       /***/
@@ -2810,58 +2816,34 @@
       /* harmony import */
 
 
-      var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/shared/services/file-upload.service */
-      "./src/app/shared/services/file-upload.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! src/app/shared/services/file-download.service */
-      "./src/app/shared/services/file-download.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! src/app/api/controllers/FileDetails */
-      "./src/app/api/controllers/FileDetails.ts");
-      /* harmony import */
-
-
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/shared/services/constants.service */
       "./src/app/shared/services/constants.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_16__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
 
       var BroadcastGroupComponent = /*#__PURE__*/function () {
-        function BroadcastGroupComponent(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector, fileUploadService, fileDownloadService, fileDetailsService, sanitizer, constantsService, sessionService) {
+        function BroadcastGroupComponent(broadcastService, sharedService, cookieService, userService, staffService, apartmentService, injector, constantsService, sessionService) {
           _classCallCheck(this, BroadcastGroupComponent);
 
           this.broadcastService = broadcastService;
@@ -2871,10 +2853,6 @@
           this.staffService = staffService;
           this.apartmentService = apartmentService;
           this.injector = injector;
-          this.fileUploadService = fileUploadService;
-          this.fileDownloadService = fileDownloadService;
-          this.fileDetailsService = fileDetailsService;
-          this.sanitizer = sanitizer;
           this.constantsService = constantsService;
           this.sessionService = sessionService;
           this.dropdownSettings = {};
@@ -2932,9 +2910,7 @@
           this.allBroadcastMessageGroup = [];
           this.isFlashNotice = false;
           this.editorPlacehorder = "";
-          this.isFileDetailsAvailable = false;
-          this.fileUrl = "";
-          this.isImageUploaded = false;
+          this.isFileEdit = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__["ModalService"]);
         }
 
@@ -2942,11 +2918,6 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.message = {};
-            this.uploadResponse = {
-              status: '',
-              message: '',
-              fileId: null
-            };
             this.IsBroadcast = true;
             this.loginedUser = this.sessionService.userId;
             this.apartmentID = this.sessionService.apartmentId;
@@ -3064,7 +3035,7 @@
           key: "categoryChange",
           value: function categoryChange(item) {
             var id = parseInt(item.broadCastMessageCategoryId);
-            var data = underscore__WEBPACK_IMPORTED_MODULE_15__["filter"](this.allcategory, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_11__["filter"](this.allcategory, function (item) {
               if (item.broadCastMessageCategoryId === id) return item;
             });
 
@@ -3075,93 +3046,17 @@
             }
           }
         }, {
-          key: "isUploadProgess",
-          value: function isUploadProgess() {
-            return this.uploadResponse.status == "progress" ? true : false;
-          }
-        }, {
-          key: "isUploadCompleted",
-          value: function isUploadCompleted() {
-            return this.uploadResponse.status == "completed" ? true : false;
-          }
-        }, {
-          key: "isAssetImageNotAvailable",
-          value: function isAssetImageNotAvailable() {
-            return this.fileDetailId == null ? true : false;
-          }
-        }, {
-          key: "uploadFile",
-          value: function uploadFile(event) {
-            var _this28 = this;
-
-            var file = event[0];
-            var userId = parseInt(this.loginedUser);
-            this.fileUploadService.upload(file).subscribe(function (res) {
-              if (res != undefined && res.length) {
-                _this28.fileDetailId = res[0].fileDetailsId;
-                var newParams = {
-                  fileDetailsId: _this28.fileDetailId,
-                  apartmentId: Number(_this28.apartmentID)
-                };
-
-                _this28.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this28.filePath = res[0].filePath;
-
-                  _this28.downloadFile(_this28.filePath);
-                });
-              }
-            });
-          }
-        }, {
-          key: "downloadFile",
-          value: function downloadFile(filePath) {
-            var _this29 = this;
-
-            this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this29.isFileDetailsAvailable = true;
-              var splitFile = filePath.split('.');
-              var ext = splitFile[1].replace(/^/, '.');
-              _this29.isImageUploaded = _this29.constantsService.imageFormats.includes(ext);
-              var blob = res.body;
-              var objectURL = URL.createObjectURL(blob);
-
-              var sanitizeUrl = _this29.sanitizer.bypassSecurityTrustUrl(objectURL);
-
-              _this29.fileUrl = sanitizeUrl;
-            });
-          }
-        }, {
-          key: "deleteFile",
-          value: function deleteFile() {
-            var _this30 = this;
-
-            var params = {
-              FileDetailsId: this.fileDetailId,
-              FilePath: this.filePath,
-              updatedByUserId: this.sessionService.userId
-            };
-            this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this30.isFileDetailsAvailable = false;
-              _this30.uploadResponse = {
-                status: '',
-                message: '',
-                fileId: null
-              };
-              _this30.fileDetailId = _this30.uploadResponse.fileId;
-            });
-          }
-        }, {
           key: "updateUsers",
           value: function updateUsers() {
-            var _this31 = this;
+            var _this28 = this;
 
             this.getUserIds$().subscribe(function (res) {
               if (res.length > 0) {
-                _this31.users = _this31.allUsers.filter(function (obj) {
+                _this28.users = _this28.allUsers.filter(function (obj) {
                   return res.includes(obj.userId);
                 });
               } else {
-                _this31.users = [];
+                _this28.users = [];
               }
             });
           }
@@ -3192,12 +3087,17 @@
               'staffSubCategoryIds': staffSubCategoryIds
             };
             return this.userService.getUsersByFilter(params);
+          }
+        }, {
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            this.fileDetailId = event[0];
           } //Submit Category
 
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this32 = this;
+            var _this29 = this;
 
             var broadCastGroupCategoryIDs = this.categoryId;
             var broadcastModeIds = Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) {
@@ -3209,7 +3109,7 @@
               "subject": this.message.subject,
               "broadcastMessage1": this.message.ckeditor,
               "broadcastBy": this.loginedUser,
-              "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_16___default()().toISOString(),
+              "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
               "broadcastMessageCategoryId": 0,
               "broadcastModeIds": broadcastModeIds,
               "broadCastGroupcategoryId": null,
@@ -3221,7 +3121,7 @@
               "isActive": true,
               "insertedBy": this.loginedUser,
               "fileDetailId1": this.fileDetailId,
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_16___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "serialNo": 0,
@@ -3242,9 +3142,9 @@
               };
               this.broadcastService.addBroadCastMessage(params).subscribe(function (res) {
                 if (res.message) {
-                  _this32.sharedService.openSnackBar("Broadcast Message sent successfully.", 'success');
+                  _this29.sharedService.openSnackBar("Broadcast Message sent successfully.", 'success');
 
-                  _this32.clearData();
+                  _this29.clearData();
                 }
               });
             }
@@ -3257,7 +3157,6 @@
 
             this.categoryId = null;
             this.AssignInterestUsers = [];
-            this.isFileDetailsAvailable = false;
             this.fileDetailId = null;
           }
         }]);
@@ -3281,17 +3180,9 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_9__["FileUploadService"]
+          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
         }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"]
-        }, {
-          type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_11__["FileDetailsService"]
-        }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"]
-        }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__["ConstantsService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_14__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
         }];
       };
 
@@ -3304,7 +3195,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./broadcast-group.component.scss */
         "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-group/broadcast-group.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_9__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_10__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_11__["FileDetailsService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_13__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_14__["SessionService"]])], BroadcastGroupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])], BroadcastGroupComponent);
       /***/
     },
 
@@ -3398,58 +3289,34 @@
       /* harmony import */
 
 
-      var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/shared/services/file-upload.service */
-      "./src/app/shared/services/file-upload.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/app/shared/services/file-download.service */
-      "./src/app/shared/services/file-download.service.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! src/app/api/controllers/FileDetails */
-      "./src/app/api/controllers/FileDetails.ts");
-      /* harmony import */
-
-
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/constants.service */
       "./src/app/shared/services/constants.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
 
       var BroadcastRoleComponent = /*#__PURE__*/function () {
-        function BroadcastRoleComponent(broadcastService, sharedService, userService, staffService, apartmentService, injector, fileUploadService, fileDownloadService, fileDetailsService, sanitizer, constantsService, sessionService) {
+        function BroadcastRoleComponent(broadcastService, sharedService, userService, staffService, apartmentService, injector, constantsService, sessionService) {
           _classCallCheck(this, BroadcastRoleComponent);
 
           this.broadcastService = broadcastService;
@@ -3458,10 +3325,6 @@
           this.staffService = staffService;
           this.apartmentService = apartmentService;
           this.injector = injector;
-          this.fileUploadService = fileUploadService;
-          this.fileDownloadService = fileDownloadService;
-          this.fileDetailsService = fileDetailsService;
-          this.sanitizer = sanitizer;
           this.constantsService = constantsService;
           this.sessionService = sessionService;
           this.dropdownSettings = {};
@@ -3540,9 +3403,7 @@
           this.allBroadcastMessageGroup = [];
           this.isFlashNotice = false;
           this.editorPlacehorder = "";
-          this.isFileDetailsAvailable = false;
-          this.fileUrl = "";
-          this.isImageUploaded = false;
+          this.isFileEdit = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
         }
 
@@ -3550,11 +3411,6 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.message = {};
-            this.uploadResponse = {
-              status: '',
-              message: '',
-              fileId: null
-            };
             this.IsBroadcast = true;
             this.loginedUser = this.sessionService.userId;
             this.apartmentID = this.sessionService.apartmentId;
@@ -3712,7 +3568,7 @@
         }, {
           key: "getAllUsers",
           value: function getAllUsers() {
-            var _this33 = this;
+            var _this30 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -3721,7 +3577,7 @@
               res.forEach(function (element) {
                 element.userFullName = element.userName + " " + element.roleName + " " + element.apartmentBlockNumber + " " + element.apartmentBlockUnitNumber;
               });
-              _this33.allUsers = res; // this.users = [];
+              _this30.allUsers = res; // this.users = [];
               //this.updateUsers();
             });
           } //Get All Broadcast Category
@@ -3729,7 +3585,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this34 = this;
+            var _this31 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -3738,54 +3594,54 @@
               var allBroadCastCategory = res.filter(function (obj) {
                 return obj.isActive;
               });
-              _this34.allcategory = allBroadCastCategory; // this.broadCastCategory.dropdownList = allBroadCastCategory;
+              _this31.allcategory = allBroadCastCategory; // this.broadCastCategory.dropdownList = allBroadCastCategory;
             });
           } //Get User Role
 
         }, {
           key: "getAllRoleTypesList",
           value: function getAllRoleTypesList() {
-            var _this35 = this;
+            var _this32 = this;
 
             this.userService.getAllRoleTypes().subscribe(function (res) {
               // this.roleTypeArr.dropdownList = res;
-              _this35.roleList = res;
+              _this32.roleList = res;
             });
           } //Get All Apartment Block(Tower)
 
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this36 = this;
+            var _this33 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this36.apartmentBlock.dropdownList = res;
-              _this36.ownerApartmentBlock.dropdownList = res;
-              _this36.adminApartmentBlock.dropdownList = res;
-              _this36.staffApartmentBlock.dropdownList = res;
+              _this33.apartmentBlock.dropdownList = res;
+              _this33.ownerApartmentBlock.dropdownList = res;
+              _this33.adminApartmentBlock.dropdownList = res;
+              _this33.staffApartmentBlock.dropdownList = res;
             });
           } //Get Group Category
 
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this37 = this;
+            var _this34 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
-              _this37.broadCastGroupCategory.dropdownList = res;
+              _this34.broadCastGroupCategory.dropdownList = res;
             });
           } //Get User Role Type
 
         }, {
           key: "getApartmentRole",
           value: function getApartmentRole(item, selectedType) {
-            var _this38 = this;
+            var _this35 = this;
 
             if (selectedType == 'admin') {
               this.roleCategory.selectedItems = [];
@@ -3801,9 +3657,9 @@
             this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
               // this.condtionRequired = parseInt(item.value) == 2 || parseInt(item.value) == 4;
               if (selectedType == 'admin') {
-                _this38.roleCategory.dropdownList = res;
+                _this35.roleCategory.dropdownList = res;
               } else if (selectedType == 'staff') {
-                _this38.staffRoleCategory.dropdownList = res;
+                _this35.staffRoleCategory.dropdownList = res;
               } // if (this.apartmentBlock.selectedItems.length > 0) {
               //   this.updateUsers();
               // }
@@ -3852,7 +3708,7 @@
           key: "categoryChange",
           value: function categoryChange() {
             var id = parseInt(this.broadCastCategory);
-            var data = underscore__WEBPACK_IMPORTED_MODULE_14__["filter"](this.allcategory, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_10__["filter"](this.allcategory, function (item) {
               if (item.broadCastMessageCategoryId === id) return item;
             });
 
@@ -3865,30 +3721,30 @@
         }, {
           key: "updateUsers",
           value: function updateUsers(category) {
-            var _this39 = this;
+            var _this36 = this;
 
             this.getUsersByCategories(category).subscribe(function (res) {
               if (res.length > 0) {
                 if (category == 'tenant') {
-                  _this39.users = res;
+                  _this36.users = res;
                 } else if (category == 'owner') {
-                  _this39.usersOwner = res;
+                  _this36.usersOwner = res;
                 } else if (category == 'admin') {
-                  _this39.usersAdmin = res;
+                  _this36.usersAdmin = res;
                 } else if (category == 'staff') {
-                  _this39.usersStaff = res;
+                  _this36.usersStaff = res;
                 }
               } else {
-                _this39.sharedService.openSnackBar("".concat(category, " Not Found"), 'error');
+                _this36.sharedService.openSnackBar("".concat(category, " Not Found"), 'error');
 
                 if (category == 'tenant') {
-                  _this39.users = [];
+                  _this36.users = [];
                 } else if (category == 'owner') {
-                  _this39.usersOwner = [];
+                  _this36.usersOwner = [];
                 } else if (category == 'admin') {
-                  _this39.usersAdmin = [];
+                  _this36.usersAdmin = [];
                 } else if (category == 'staff') {
-                  _this39.usersStaff = [];
+                  _this36.usersStaff = [];
                 }
               }
             });
@@ -3896,7 +3752,7 @@
         }, {
           key: "getstaffCategories",
           value: function getstaffCategories(item) {
-            var _this40 = this;
+            var _this37 = this;
 
             // if (this.staffCategoryMap.get(item.value) == undefined) {
             var params = {
@@ -3904,16 +3760,16 @@
               'apartmentId': this.apartmentID
             };
             this.staffService.getStaffCategoryByRole(params).subscribe(function (res) {
-              var temp = _toConsumableArray(_this40.staffCategory.dropdownList);
+              var temp = _toConsumableArray(_this37.staffCategory.dropdownList);
 
               res.forEach(function (element) {
                 element.category = item.name;
                 temp.push(element);
               }); // this.staffCategoryMap.set(item.value, res);
 
-              _this40.staffCategory.dropdownList = temp;
+              _this37.staffCategory.dropdownList = temp;
 
-              _this40.updateUsers('staff');
+              _this37.updateUsers('staff');
             }); // } else {
             //   let temp = [...this.staffCategory.dropdownList];
             //   let addStaffCategory = this.staffCategoryMap.get(item.value);
@@ -3924,104 +3780,22 @@
             // }
           }
         }, {
-          key: "isUploadProgess",
-          value: function isUploadProgess() {
-            return this.uploadResponse.status == "progress" ? true : false;
-          }
-        }, {
-          key: "isUploadCompleted",
-          value: function isUploadCompleted() {
-            return this.uploadResponse.status == "completed" ? true : false;
-          }
-        }, {
-          key: "isAssetImageNotAvailable",
-          value: function isAssetImageNotAvailable() {
-            return this.fileDetailId == null ? true : false;
-          }
-        }, {
-          key: "uploadFile",
-          value: function uploadFile(event) {
-            var _this41 = this;
-
-            var file = event[0];
-            var userId = parseInt(this.loginedUser);
-            this.fileUploadService.upload(file).subscribe(function (res) {
-              if (res != undefined && res.length) {
-                _this41.fileDetailId = res[0].fileDetailsId;
-                var newParams = {
-                  fileDetailsId: _this41.uploadResponse.fileId,
-                  apartmentId: Number(_this41.apartmentID)
-                };
-
-                _this41.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this41.filePath = res[0].filePath;
-
-                  _this41.downloadFile(_this41.filePath);
-                });
-              }
-            });
-          }
-        }, {
-          key: "downloadFile",
-          value: function downloadFile(filePath) {
-            var _this42 = this;
-
-            this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this42.isFileDetailsAvailable = true;
-              var splitFile = filePath.split('.');
-              var ext = splitFile[1].replace(/^/, '.');
-              _this42.isImageUploaded = _this42.constantsService.imageFormats.includes(ext);
-              var blob = res.body;
-              var objectURL = URL.createObjectURL(blob);
-
-              var sanitizeUrl = _this42.sanitizer.bypassSecurityTrustUrl(objectURL);
-
-              _this42.fileUrl = sanitizeUrl;
-            });
-          }
-        }, {
-          key: "deleteFile",
-          value: function deleteFile() {
-            var details = {
-              "fileDetailsId": this.fileDetailId,
-              "fileName": this.filePath,
-              "filePath": this.filePath,
-              "fileSize": 0,
-              "description": this.filePath,
-              "isActive": true,
-              "insertedBy": parseInt(this.loginedUser),
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
-              "updatedBy": null,
-              "updatedOn": null,
-              "apartmentId": this.apartmentID
-            };
-            var params = {
-              FileDetailsId: this.fileDetailId,
-              FilePath: this.filePath,
-              updatedByUserId: this.sessionService.userId
-            }; // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
-            //   this.isFileDetailsAvailable = false;
-            //   this.uploadResponse = { status: '', message: '', fileId: null };
-            //   this.fileDetailId = this.uploadResponse.fileId
-            // })
-          }
-        }, {
           key: "getAllStaffCategories",
           value: function getAllStaffCategories(items) {
-            var _this43 = this;
+            var _this38 = this;
 
             items.forEach(function (element) {
-              _this43.getstaffCategories(element);
+              _this38.getstaffCategories(element);
             });
           }
         }, {
           key: "removeStaffCategories",
           value: function removeStaffCategories(item) {
-            var _this44 = this;
+            var _this39 = this;
 
             var removeStaffCategory = this.staffCategoryMap.get(item.value);
             removeStaffCategory.forEach(function (element) {
-              _this44.staffCategory.dropdownList = _this44.staffCategory.dropdownList.filter(function (obj) {
+              _this39.staffCategory.dropdownList = _this39.staffCategory.dropdownList.filter(function (obj) {
                 return obj.value !== element.value;
               });
             }); // this.updateUsers();
@@ -4084,12 +3858,17 @@
             }
 
             return this.userService.getUsersByFilterNew(params);
+          }
+        }, {
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            this.fileDetailId = event[0];
           } //Submit Category
 
         }, {
           key: "submitCreateBroadcastMessageForm",
           value: function submitCreateBroadcastMessageForm() {
-            var _this45 = this;
+            var _this40 = this;
 
             // let broadCastGroupCategoryIDs = Array.prototype.map.call(this.broadCastGroupCategory.selectedItems, function (item) { return item.broadCastGroupCategoryId }).join(",");
             if (this.selectedUserType == 1 || this.selectedUserType == 2 || this.selectedUserType == 4) {
@@ -4119,7 +3898,7 @@
                 'staffCategoryIds': staffcategoryIds,
                 'subStaffCategoryIds': staffSubCategoryIds,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -4132,17 +3911,17 @@
                 broadcastMessage.filterId = parseInt(res.message);
 
                 if (broadcastMessage.userIds.length == 0) {
-                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this40.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params = {
                     "sourceBroadCastMessage_model": broadcastMessage
                   };
 
-                  _this45.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
+                  _this40.broadcastService.addBroadCastMessage(_params).subscribe(function (res) {
                     if (res.message) {
-                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
+                      _this40.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
 
-                      _this45.removeAll('', 'clear');
+                      _this40.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4180,7 +3959,7 @@
                 'staffCategoryIds': _staffcategoryIds,
                 'subStaffCategoryIds': _staffSubCategoryIds,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -4193,17 +3972,17 @@
                 _broadcastMessage.filterId = parseInt(res.message);
 
                 if (_broadcastMessage.userIds.length == 0) {
-                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this40.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params4 = {
                     "sourceBroadCastMessage_model": _broadcastMessage
                   };
 
-                  _this45.broadcastService.addBroadCastMessage(_params4).subscribe(function (res) {
+                  _this40.broadcastService.addBroadCastMessage(_params4).subscribe(function (res) {
                     if (res.message) {
-                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
+                      _this40.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
 
-                      _this45.removeAll('', 'clear');
+                      _this40.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4241,7 +4020,7 @@
                 'staffCategoryIds': _staffcategoryIds2,
                 'subStaffCategoryIds': _staffSubCategoryIds2,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -4254,17 +4033,17 @@
                 _broadcastMessage2.filterId = parseInt(res.message);
 
                 if (_broadcastMessage2.userIds.length == 0) {
-                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this40.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params7 = {
                     "sourceBroadCastMessage_model": _broadcastMessage2
                   };
 
-                  _this45.broadcastService.addBroadCastMessage(_params7).subscribe(function (res) {
+                  _this40.broadcastService.addBroadCastMessage(_params7).subscribe(function (res) {
                     if (res.message) {
-                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
+                      _this40.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
 
-                      _this45.removeAll('', 'clear');
+                      _this40.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4306,7 +4085,7 @@
                 'staffCategoryIds': _staffcategoryIds3,
                 'subStaffCategoryIds': _staffSubCategoryIds3,
                 "insertedBy": this.loginedUser,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null,
                 'isActive': true,
@@ -4319,17 +4098,17 @@
                 _broadcastMessage3.filterId = parseInt(res.message);
 
                 if (_broadcastMessage3.userIds.length == 0) {
-                  _this45.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
+                  _this40.sharedService.openSnackBar("No such Users exists to broadcast message.", 'error');
                 } else {
                   var _params10 = {
                     "sourceBroadCastMessage_model": _broadcastMessage3
                   };
 
-                  _this45.broadcastService.addBroadCastMessage(_params10).subscribe(function (res) {
+                  _this40.broadcastService.addBroadCastMessage(_params10).subscribe(function (res) {
                     if (res.message) {
-                      _this45.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
+                      _this40.sharedService.openSnackBar("Broadcast Message sent successfully", 'success');
 
-                      _this45.removeAll('', 'clear');
+                      _this40.removeAll('', 'clear');
                     }
                   });
                 }
@@ -4345,7 +4124,7 @@
               "subject": this.message.subject,
               "broadcastMessage1": this.message.ckeditor,
               "broadcastBy": this.loginedUser,
-              "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+              "broadcastOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
               "broadcastMessageCategoryId": 0,
               "broadcastModeIds": Array.prototype.map.call(this.broadModeArr.selectedItems, function (item) {
                 return item.value;
@@ -4359,7 +4138,7 @@
               "isFlashNotice": this.isFlashNotice,
               "isActive": true,
               "insertedBy": this.loginedUser,
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null,
               "serialNo": 0,
@@ -4422,7 +4201,7 @@
         }, {
           key: "removeAll",
           value: function removeAll(category, flag) {
-            var _this46 = this;
+            var _this41 = this;
 
             this.apartmentBlock.selectedItems = [];
             this.ownerApartmentBlock.selectedItems = [];
@@ -4435,7 +4214,6 @@
             this.usersOwner = [];
             this.usersAdmin = [];
             this.usersStaff = [];
-            this.isFileDetailsAvailable = false;
             this.fileDetailId = null;
             this.message.subject = '';
             this.message.ckeditor = '';
@@ -4460,7 +4238,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this46.roleCategory.dropdownList = res;
+                _this41.roleCategory.dropdownList = res;
               });
             }
 
@@ -4472,7 +4250,7 @@
                 'ApartmentId': this.apartmentID
               };
               this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-                _this46.staffRoleCategory.dropdownList = res;
+                _this41.staffRoleCategory.dropdownList = res;
               });
             }
           }
@@ -4541,17 +4319,9 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"]
+          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"]
         }, {
-          type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"]
-        }, {
-          type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"]
-        }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"]
-        }, {
-          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__["ConstantsService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }];
       };
 
@@ -4564,7 +4334,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./broadcast-role.component.scss */
         "./src/app/modules/ams/broadcast/components/broadcast-sendmessage/broadcast-role/broadcast-role.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_11__["DomSanitizer"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_12__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_13__["SessionService"]])], BroadcastRoleComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Broadcast__WEBPACK_IMPORTED_MODULE_2__["BroadcastService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], BroadcastRoleComponent);
       /***/
     },
 
@@ -4819,7 +4589,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this47 = this;
+            var _this42 = this;
 
             this.loginUserId = parseInt(this.sessionService.userId);
             this.apartmentId = this.sessionService.apartmentId;
@@ -4870,12 +4640,12 @@
               if (index != null) {
                 var params = {
                   broadcastId: index,
-                  deleteBy: _this47.loginUserId
+                  deleteBy: _this42.loginUserId
                 };
-                _this47.isDataLoaded = false;
+                _this42.isDataLoaded = false;
 
-                _this47.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
-                  _this47.getAllCategory();
+                _this42.broadcastService.deleteBroadCastMessageCategory(params).subscribe(function (res) {
+                  _this42.getAllCategory();
                 }, function (error) {});
               }
             });
@@ -4883,7 +4653,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this48 = this;
+            var _this43 = this;
 
             if (this.searchCategory != "") {
               var filtergroup = new jqx.filter();
@@ -4896,7 +4666,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.broadcastCategoryHeader.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this48.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this43.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -4920,7 +4690,7 @@
         }, {
           key: "getAllCategory",
           value: function getAllCategory() {
-            var _this49 = this;
+            var _this44 = this;
 
             this.isDataLoaded = false;
             var queryParamBase = {
@@ -4929,17 +4699,17 @@
             this.broadcastService.getBroadCastMessageCategories(queryParamBase).subscribe(function (res) {
               var allBroadcastCategory = res; //filter active true items
 
-              _this49.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
+              _this44.allBroadcastCategory = allBroadcastCategory.filter(function (data) {
                 // data.template = data.template.replace(/<[^>]*>/g, '');
                 return data.isActive;
               });
               var categorySourceData = {
-                localdata: _this49.allBroadcastCategory.reverse(),
+                localdata: _this44.allBroadcastCategory.reverse(),
                 datatype: "array"
               };
-              _this49.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
-              _this49.isDataLoaded = true;
-              _this49.totalItems = _this49.allBroadcastCategory.length; // if(this.totalItems>this.itemLimit){
+              _this44.broadcastCategoryList = new jqx.dataAdapter(categorySourceData);
+              _this44.isDataLoaded = true;
+              _this44.totalItems = _this44.allBroadcastCategory.length; // if(this.totalItems>this.itemLimit){
               //   this.ItemEndIndex = this.itemLimit;
               // }
               // else {
@@ -4962,7 +4732,7 @@
         }, {
           key: "UpsertBroadcastMessageCategory",
           value: function UpsertBroadcastMessageCategory() {
-            var _this50 = this;
+            var _this45 = this;
 
             var broadcastCategory = {
               "broadCastMessageCategoryId": 0,
@@ -4992,20 +4762,20 @@
             };
             this.broadcastService.upsertBroadCastMessageCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this50.isEdit) {
-                  _this50.sharedService.openSnackBar("Broadcast category updated successfully", 'success');
+                if (_this45.isEdit) {
+                  _this45.sharedService.openSnackBar("Broadcast category updated successfully", 'success');
                 } else {
-                  _this50.sharedService.openSnackBar("Broadcast category added successfully", 'success');
+                  _this45.sharedService.openSnackBar("Broadcast category added successfully", 'success');
                 }
 
-                _this50.getAllCategory();
+                _this45.getAllCategory();
 
-                _this50.category = {
+                _this45.category = {
                   broadCastMessageCategory1: '',
                   template: ''
                 };
-                _this50.isEdit = false;
-                _this50.isExpand = false;
+                _this45.isEdit = false;
+                _this45.isExpand = false;
               }
             });
           }
@@ -5243,7 +5013,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this51 = this;
+            var _this46 = this;
 
             this.groupCategory = {};
             this.apartmentID = this.sessionService.apartmentId;
@@ -5265,12 +5035,12 @@
               if (index != null) {
                 var params = {
                   broadCastGroupCategoryId: index,
-                  deleteBy: _this51.userId
+                  deleteBy: _this46.userId
                 };
-                _this51.isDataLoaded = false;
+                _this46.isDataLoaded = false;
 
-                _this51.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
-                  _this51.getAllGroupCategory();
+                _this46.broadcastService.deleteBroadCastGroupCategory(params).subscribe(function (res) {
+                  _this46.getAllGroupCategory();
                 }, function (error) {});
               }
             });
@@ -5285,35 +5055,35 @@
         }, {
           key: "getAllRoleTypesList",
           value: function getAllRoleTypesList() {
-            var _this52 = this;
+            var _this47 = this;
 
             this.userService.getAllRoleTypes().subscribe(function (res) {
-              _this52.allRoleTypesList = res;
+              _this47.allRoleTypesList = res;
             });
           }
         }, {
           key: "getAllApartmentBlockList",
           value: function getAllApartmentBlockList() {
-            var _this53 = this;
+            var _this48 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
             };
             this.apartmentService.getApartmentBlockByApartmentId(queryParamBase).subscribe(function (res) {
-              _this53.allApartmentBlockList = res;
+              _this48.allApartmentBlockList = res;
             });
           }
         }, {
           key: "getAppartmentRole",
           value: function getAppartmentRole() {
-            var _this54 = this;
+            var _this49 = this;
 
             var params = {
               'RoleTypeId': this.roleType,
               'ApartmentId': this.apartmentID
             };
             this.userService.getApartmentRolesByRoleTypeId(params).subscribe(function (res) {
-              _this54.allApartmentRolesList = res;
+              _this49.allApartmentRolesList = res;
             });
           }
         }, {
@@ -5339,7 +5109,7 @@
         }, {
           key: "getAllGroupCategory",
           value: function getAllGroupCategory() {
-            var _this55 = this;
+            var _this50 = this;
 
             var queryParamBase = {
               apartmentId: this.apartmentID
@@ -5347,16 +5117,16 @@
             this.broadcastService.getAllBroadCastGroupCategory(queryParamBase).subscribe(function (res) {
               var allBroadcastGroupCategory = res; //filter active true items
 
-              _this55.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
+              _this50.allBroadcastGroupCategory = allBroadcastGroupCategory.filter(function (data) {
                 return data.isActive;
               });
-              _this55.isDataLoaded = true;
-              _this55.totalItems = _this55.allBroadcastGroupCategory.length;
+              _this50.isDataLoaded = true;
+              _this50.totalItems = _this50.allBroadcastGroupCategory.length;
 
-              if (_this55.totalItems > _this55.itemLimit) {
-                _this55.ItemEndIndex = _this55.itemLimit;
+              if (_this50.totalItems > _this50.itemLimit) {
+                _this50.ItemEndIndex = _this50.itemLimit;
               } else {
-                _this55.ItemEndIndex = _this55.totalItems;
+                _this50.ItemEndIndex = _this50.totalItems;
               }
             });
           } //Submit Category
@@ -5364,7 +5134,7 @@
         }, {
           key: "submitcreateBroadcastGroupCategoryForm",
           value: function submitcreateBroadcastGroupCategoryForm(form) {
-            var _this56 = this;
+            var _this51 = this;
 
             var privileges = Array.prototype.map.call(this.privilageCategory.selectedItems, function (item) {
               return item.name;
@@ -5397,16 +5167,16 @@
             };
             this.broadcastService.addBroadCastGroupCategory(params).subscribe(function (res) {
               if (res.message) {
-                if (_this56.isEdit) {
-                  _this56.sharedService.setAlertMessage("Broadcast category updated successfully");
+                if (_this51.isEdit) {
+                  _this51.sharedService.setAlertMessage("Broadcast category updated successfully");
                 } else {
-                  _this56.sharedService.setAlertMessage("Broadcast Group category added successfully");
+                  _this51.sharedService.setAlertMessage("Broadcast Group category added successfully");
                 }
 
-                _this56.getAllGroupCategory();
+                _this51.getAllGroupCategory();
 
-                _this56.groupCategory = {};
-                _this56.privilageCategory.selectedItems = [];
+                _this51.groupCategory = {};
+                _this51.privilageCategory.selectedItems = [];
               }
             });
           } //Cancel

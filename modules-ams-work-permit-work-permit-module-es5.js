@@ -766,7 +766,7 @@
         }, {
           key: "cancel",
           value: function cancel() {
-            if (this.isAdmin()) this.router.navigate(['/ams/work-permit/pending']);else this.router.navigate(['/user/work-permit/history']);
+            if (this.isAdmin()) this.router.navigate(['/ams/work-permit/pending']);else this.router.navigate(['/user/work-permit/user-history']);
           }
         }, {
           key: "getUnits",
@@ -1896,10 +1896,14 @@
               if (res.message) {
                 _this20.clickMode = '';
 
-                _this20.sharedService.setAlertMessage("Created Successfully");
+                _this20.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
 
                 _this20.getNatureOfWorklist();
+              } else {
+                _this20.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this20.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -1925,10 +1929,14 @@
               if (res.message) {
                 _this21.clickMode = '';
 
-                _this21.sharedService.setAlertMessage("Updated Successfully");
+                _this21.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
 
                 _this21.getNatureOfWorklist();
+              } else {
+                _this21.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this21.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -1950,6 +1958,10 @@
               }
 
               _this22.isDataLoaded = false;
+            }, function (error) {
+              _this22.isDataLoaded = false;
+
+              _this22.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -2360,10 +2372,14 @@
               if (res.message) {
                 _this25.clickMode = '';
 
-                _this25.sharedService.setAlertMessage("WorkPermit Type added successfully");
+                _this25.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
 
                 _this25.getWorkPermitList();
+              } else {
+                _this25.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this25.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -2389,10 +2405,14 @@
               if (res.message) {
                 _this26.clickMode = '';
 
-                _this26.sharedService.setAlertMessage("WorkPermit Type added successfully");
+                _this26.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
 
                 _this26.getWorkPermitList();
+              } else {
+                _this26.sharedService.openSnackBar(res.errorMessage, 'error');
               }
+            }, function (error) {
+              _this26.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -2414,6 +2434,10 @@
               }
 
               _this27.isDataLoaded = false;
+            }, function (error) {
+              _this27.isDataLoaded = false;
+
+              _this27.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {

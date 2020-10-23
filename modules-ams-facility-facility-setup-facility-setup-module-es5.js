@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"facility-create-wrapper\">\n    <div class=\"main\">\n        <div class=\"d-flex justify-content-between\">\n            <h4 class=\"mb-4\" *ngIf=\"facilityType.type == 'create'\">Add Facility</h4>\n            <h4 class=\"mb-4\" *ngIf=\"facilityType.type == 'edit' || facilityType.type == 'slot'\">Edit Facility</h4>\n            <h4 class=\"mb-4\" *ngIf=\"facilityType.type == 'view'\">View Facility</h4>\n            <a class=\"mb-4\" mat-button routerLink=\"/ams/facility/setup/list\" [color]=\"'primary'\">\n                <mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n                <span>Go Back</span>\n            </a>\n        </div>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n        <div class=\"bg-card shadow\">\n            <p class=\"text-muted mt-3 mb-5\" *ngIf=\"facility.isSlotBooking\">Alert Messages : You have selected 'TIME SLOT' as YES, Please create slots for this facility.</p>\n            <form #facilitySettingsForm = \"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Facility Name<span class=\"required\">*</span></label>\n                            <input  type=\"text\" class=\"form-control\" placeholder=\"Facility Name\" name=\"staffCategory\" [(ngModel)]=\"facility.facilityName\"\n                            autocomplete=\"off\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                        <div class=\"input-box radio-box\">\n                            <label>Is Booking Allowed<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityBookingAllowId\" id=\"EnaBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"\n                                    (change)=\"isBookingAllowed()\"  [value]=\"true\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"EnaBookAllow\">Yes</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityBookingAllowId\" id=\"DisBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"\n                                    (change)=\"isBookingAllowed()\"  [value]=\"false\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"DisBookAllow\">No</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box radio-box\">\n                            <label>Rate Type<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityRateBaseId\" id=\"hourType\" [(ngModel)]=\"facility.rateBaseId\"\n                                    (change)=\"isHourDay()\"  [value]=\"138\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"hourType\">Hour</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityRateBaseId\" id=\"dayType\" [(ngModel)]=\"facility.rateBaseId\"\n                                    (change)=\"isHourDay()\" [value]=\"139\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"dayType\">Day</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed && facility.rateBaseId == 138\">\n                        <div class=\"input-box radio-box\">\n                            <label>Enable Time Slot<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"enableTimeSlotBook\" id=\"enableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"\n                                    (change)=\"enableSlot()\" [value]=\"true\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"enableSlotTime\">Yes</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"enableTimeSlotBook\" id=\"disableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"\n                                    (change)=\"enableSlot()\" [value]=\"false\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"disableSlotTime\">No</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                        <div class=\"input-box radio-box\">\n                            <label>Service Type<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input name=\"faclityTypeId\" id=\"paidType\" [(ngModel)]=\"facility.facilityTypeId\" (change)=\"isPaidOrFree()\"\n                                    [value]=\"184\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"paidType\">Paid</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"faclityTypeId\" id=\"freeType\" [(ngModel)]=\"facility.facilityTypeId\" (change)=\"isPaidOrFree()\"\n                                    [value]=\"185\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"freeType\">Free</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Facility Location<span class=\"required\">*</span></label>\n                            <select name=\"location\" class=\"form-control\" [(ngModel)]=\"facility.apartmentBlockId\" [disabled]=\"viewMode\" required>\n                                <option [ngValue]=\"null\"  selected >Select Location</option>\n                                <option *ngFor=\"let item of towerslist\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                        <div class=\"input-box\">\n                            <label>Booking Amount Per {{ facility.rateBaseId == 138 ? 'Hour' : 'Day'}} ({{pesoValue}})<span class=\"required\">*</span></label>\n                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Booking Amount\" name=\"amount\"\n                                [(ngModel)]=\"facility.amount\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.facilityTypeId == 184\">\n                        <div class=\"input-box\">\n                            <label>Security Deposit ({{pesoValue}})</label>\n                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"deposit\"\n                                [(ngModel)]=\"facility.cautionDeposit\" [disabled]=\"viewMode\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box\">\n                            <label>Advance Booking In Days<span class=\"required\">*</span></label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Booking Days\" name=\"advanceBookingindays\"\n                                [(ngModel)]=\"facility.advanceBookingindays\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                        <div class=\"input-box\" >\n                            <label>Payment Due In Days<span class=\"required\">*</span></label>\n                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Payment Due Days\" name=\"autoCancelDays\"\n                                [(ngModel)]=\"facility.autoCancelDays\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.rateBaseId == 138\">\n                        <div class=\"input-box\">\n                            <label>Min Hours Booking<span class=\"required\">*</span></label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Min Hrs Booking\" name=\"minHoursBooking\"\n                                [(ngModel)]=\"facility.minHoursBooking\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\"> \n                        <div class=\"input-box\">\n                            <label>Facility Opens At<span class=\"required\">*</span></label>\n                            <input  class=\"form-control\" name=\"minTimeLimit\" [owlDateTime]=\"minTimeLimit\" [owlDateTimeTrigger]=\"minTimeLimit\"\n                                placeholder=\"Time\" [(ngModel)]=\"facility.minTimeLimit\"\n                            autocomplete=\"off\" [disabled]=\"viewMode\" required>\n                            <owl-date-time  [pickerType]=\"'timer'\" #minTimeLimit></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"minTimeLimit\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box\">\n                            <label>Facility Closes At<span class=\"required\">*</span></label>\n                            <input  class=\"form-control\" name=\"maxTimeLimit\" [owlDateTime]=\"maxTimeLimit\" [owlDateTimeTrigger]=\"maxTimeLimit\"\n                                placeholder=\"Time\" [(ngModel)]=\"facility.maxTimeLimit\"\n                            autocomplete=\"off\" [disabled]=\"viewMode\" required>\n                            <owl-date-time  [pickerType]=\"'timer'\" #maxTimeLimit></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"maxTimeLimit\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\" >\n                            <label>Total No Of Occupancy</label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Occupancy\" name=\"autoCancelDays\"\n                                [(ngModel)]=\"facility.totalallowedperson\" [disabled]=\"viewMode\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box radio-box\">\n                            <label>Approval Required<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"approvalType\" id=\"Yes\" [(ngModel)]=\"facility.isApproved\"  [value]=\"true\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"approvalType\" id=\"No\" [(ngModel)]=\"facility.isApproved\" [value]=\"false\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"No\">No</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-10\">\n                        <div class=\"input-box\">\n                            <label>Accessed By<span class=\"required\">*</span></label>\n                            <angular2-multiselect [data]=\"accessTower.dropdownList\" name=\"accessTowerDropDown\"\n                                [(ngModel)]=\"accessTower.selectedItems\"\n                                [settings]=\"accessTowerdropdownSettings\" [disabled]=\"viewMode\">\n                            </angular2-multiselect>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\" *ngIf=\"facility.isSlotBooking\">\n                        <div class=\"mt-3 mb-5\">\n                            <mat-accordion>\n                                <mat-expansion-panel [expanded] = \"facility.apartmentFacilitySlot.length > 0\">\n                                    <mat-expansion-panel-header>\n                                        <mat-panel-title>Available Slot </mat-panel-title>\n                                    </mat-expansion-panel-header>\n                                    <mat-panel-description>\n                                        <div class=\"text-right mb-2 add\">\n                                            <button *ngIf=\"!viewMode\" mat-flat-button [color]=\"'accent'\"(click)=\"addSlot('add')\" >\n                                                <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                                            </button>\n                                        </div>\n                                        <mat-accordion>\n                                            <mat-expansion-panel class=\"scroll-{{i}}\" *ngFor=\"let slot of facility.apartmentFacilitySlot;let i= index\" [expanded]=\"facilityType.type == 'slot' && facility.apartmentFacilitySlot.length-1 == i\">\n                                                <mat-expansion-panel-header>\n                                                    <mat-panel-title> \n                                                        Slot {{i+1}}\n                                                        <mat-icon *ngIf=\"!viewMode\" svgIcon=\"mat_outline:delete\" class=\"float-right mr-5 mt-2\" (click)=deleteSlot(i,slot)></mat-icon>\n                                                    </mat-panel-title>\n                                                </mat-expansion-panel-header>\n                                                <mat-panel-description>\n                                                    <p class=\"error mt-1 mb-1 ml-4\" *ngIf=\"slot.error\">Please enter End time greater than Begin time</p>\n                                                    <div class=\"row\">\n                                                        <div class=\"col-sm-4\">\n                                                            <div class=\"input-box\">\n                                                                <label>Begin Time<span class=\"required\">*</span></label>\n                                                                <input class=\"form-control\" name=\"slotBeginTime{{i}}\" [owlDateTime]=\"slotBeginTime\" [owlDateTimeTrigger]=\"slotBeginTime\"\n                                                                    placeholder=\"Time\" [(ngModel)]=\"slot.slotBeginTime\" (dateTimeInput)=\"setMinTime(i)\" [disabled]=\"viewMode\" [required]=\"facility.isSlotBooking\" autocomplete=\"off\">\n                                                                <owl-date-time [pickerType]=\"'timer'\" #slotBeginTime></owl-date-time>\n                                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotBeginTime\">\n                                                                    <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                                                                </div>\n                                                            </div>\n                                                        </div>\n                                                        <div class=\"col-sm-4\">\n                                                            <div class=\"input-box\">\n                                                                <label>End Time<span class=\"required\">*</span></label>\n                                                                <input class=\"form-control\" name=\"slotEndTime{{i}}\" [min]=\"slot.slotBeginTime\" [max]=\"24\" [owlDateTime]=\"slotEndTime\"\n                                                                    [owlDateTimeTrigger]=\"slotEndTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotEndTime\"\n                                                                (dateTimeInput)=\"setMinTime(i)\" [disabled]=\"viewMode\" [required]=\"facility.isSlotBooking\" autocomplete=\"off\">\n                                                                <owl-date-time [pickerType]=\"'timer'\" #slotEndTime></owl-date-time>\n                                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotEndTime\">\n                                                                    <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                                                                </div>\n                                                            </div>\n                                                        </div>\n                                                        <div class=\"col-sm-4\">\n                                                            <div class=\"input-box\">\n                                                                <label>Cost per Slot ({{pesoValue}})<span class=\"required\">*</span></label>\n                                                                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"cost\" name=\"cost{{i}}\" [(ngModel)]=\"slot.cost\"\n                                                                [disabled]=\"viewMode\"  [required]=\"facility.isSlotBooking\">\n                                                            </div>\n                                                        </div>\n                                                        <div class=\"col-sm-12\">\n                                                            <div class=\"input-box\">\n                                                                <label>Comments</label>\n                                                                <textarea placeholder=\"some text here\" name=\"comments{{i}}\" [(ngModel)]=\"slot.comment\" [disabled]=\"viewMode\"></textarea>\n                                                            </div>\n                                                        </div>\n                                                    </div>\n                                                </mat-panel-description>\n                                            </mat-expansion-panel>\n                                        </mat-accordion>\n                                    </mat-panel-description>\n                                </mat-expansion-panel>\n                            </mat-accordion>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Terms and Condition</label>\n                            <quill-editor \n                                class=\"quill-editor\"\n                                name=\"description\"\n                                [modules]=\"quillModules\"\n                                [(ngModel)]=\"facility.description\"\n                                [disabled]=\"viewMode\"\n                                [placeholder]=\"editorPlacehorder\">\n                            </quill-editor>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-4\">\n                            <app-upload [fileId]=\"facility.fileAttachmentId\" (fileIdChanged)=\"getFileId($event)\"></app-upload>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12 text-right\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"createFacility()\">Submit</button>\n                    </div>\n                </div>\n            </form>   \n        </div>\n    </div>\n</div>\n\n    ";
+      __webpack_exports__["default"] = "<div class=\"facility-create-wrapper\">\n    <div class=\"main\">\n        <div class=\"d-flex justify-content-between\">\n            <h4 class=\"mb-4\" *ngIf=\"facilityType.type == 'create'\">Add Facility</h4>\n            <h4 class=\"mb-4\" *ngIf=\"facilityType.type == 'edit' || facilityType.type == 'slot'\">Edit Facility</h4>\n            <h4 class=\"mb-4\" *ngIf=\"facilityType.type == 'view'\">View Facility</h4>\n            <a class=\"mb-4\" mat-button routerLink=\"/ams/facility/setup/list\" [color]=\"'primary'\">\n                <mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n                <span>Go Back</span>\n            </a>\n        </div>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n        <div class=\"bg-card shadow\">\n            <p class=\"text-muted mt-3 mb-5\" *ngIf=\"facility.isSlotBooking\">Alert Messages : You have selected 'TIME SLOT' as YES, Please create slots for this facility.</p>\n            <form #facilitySettingsForm = \"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>Facility Name<span class=\"required\">*</span></label>\n                            <input  type=\"text\" class=\"form-control\" placeholder=\"Facility Name\" name=\"staffCategory\" [(ngModel)]=\"facility.facilityName\"\n                            autocomplete=\"off\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                        <div class=\"input-box radio-box\">\n                            <label>Is Booking Allowed<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityBookingAllowId\" id=\"EnaBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"\n                                    (change)=\"isBookingAllowed()\"  [value]=\"true\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"EnaBookAllow\">Yes</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityBookingAllowId\" id=\"DisBookAllow\" [(ngModel)]=\"facility.isBookingAllowed\"\n                                    (change)=\"isBookingAllowed()\"  [value]=\"false\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"DisBookAllow\">No</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box radio-box\">\n                            <label>Rate Type<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityRateBaseId\" id=\"hourType\" [(ngModel)]=\"facility.rateBaseId\"\n                                    (change)=\"isHourDay()\"  [value]=\"138\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"hourType\">Hour</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"faclityRateBaseId\" id=\"dayType\" [(ngModel)]=\"facility.rateBaseId\"\n                                    (change)=\"isHourDay()\" [value]=\"139\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"dayType\">Day</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed && facility.rateBaseId == 138\">\n                        <div class=\"input-box radio-box\">\n                            <label>Enable Time Slot<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"enableTimeSlotBook\" id=\"enableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"\n                                    (change)=\"enableSlot()\" [value]=\"true\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"enableSlotTime\">Yes</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"enableTimeSlotBook\" id=\"disableSlotTime\" [(ngModel)]=\"facility.isSlotBooking\"\n                                    (change)=\"enableSlot()\" [value]=\"false\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"disableSlotTime\">No</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\">\n                        <div class=\"input-box radio-box\">\n                            <label>Service Type<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input name=\"faclityTypeId\" id=\"paidType\" [(ngModel)]=\"facility.facilityTypeId\" (change)=\"isPaidOrFree()\"\n                                    [value]=\"184\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"paidType\">Paid</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input name=\"faclityTypeId\" id=\"freeType\" [(ngModel)]=\"facility.facilityTypeId\" (change)=\"isPaidOrFree()\"\n                                    [value]=\"185\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"freeType\">Free</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>Facility Location<span class=\"required\">*</span></label>\n                            <select name=\"location\" class=\"form-control\" [(ngModel)]=\"facility.apartmentBlockId\" [disabled]=\"viewMode\" required>\n                                <option [ngValue]=\"null\"  selected >Select Location</option>\n                                <option *ngFor=\"let item of towerslist\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                        <div class=\"input-box\">\n                            <label>Booking Amount Per {{ facility.rateBaseId == 138 ? 'Hour' : 'Day'}} ({{pesoValue}})<span class=\"required\">*</span></label>\n                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Booking Amount\" name=\"amount\"\n                                [(ngModel)]=\"facility.amount\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.facilityTypeId == 184\">\n                        <div class=\"input-box\">\n                            <label>Security Deposit ({{pesoValue}})</label>\n                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Security Amount\" name=\"deposit\"\n                                [(ngModel)]=\"facility.cautionDeposit\" [disabled]=\"viewMode\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box\">\n                            <label>Advance Booking In Days<span class=\"required\">*</span></label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Advance Booking Days\" name=\"advanceBookingindays\"\n                                [(ngModel)]=\"facility.advanceBookingindays\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.facilityTypeId == 184\">\n                        <div class=\"input-box\" >\n                            <label>Payment Due In Days<span class=\"required\">*</span></label>\n                            <input  type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Payment Due Days\" name=\"autoCancelDays\"\n                                [(ngModel)]=\"facility.autoCancelDays\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed && facility.rateBaseId == 138\">\n                        <div class=\"input-box\">\n                            <label>Min Hours Booking<span class=\"required\">*</span></label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Min Hrs Booking\" name=\"minHoursBooking\"\n                                [(ngModel)]=\"facility.minHoursBooking\" [disabled]=\"viewMode\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\"> \n                        <div class=\"input-box\">\n                            <label>Facility Opens At<span class=\"required\">*</span></label>\n                            <input  class=\"form-control\" name=\"minTimeLimit\" [owlDateTime]=\"minTimeLimit\" [owlDateTimeTrigger]=\"minTimeLimit\"\n                                placeholder=\"Time\" [(ngModel)]=\"facility.minTimeLimit\"\n                            autocomplete=\"off\" [disabled]=\"viewMode\" required>\n                            <owl-date-time  [pickerType]=\"'timer'\" #minTimeLimit></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"minTimeLimit\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box\">\n                            <label>Facility Closes At<span class=\"required\">*</span></label>\n                            <input  class=\"form-control\" name=\"maxTimeLimit\" [owlDateTime]=\"maxTimeLimit\" [owlDateTimeTrigger]=\"maxTimeLimit\"\n                                placeholder=\"Time\" [(ngModel)]=\"facility.maxTimeLimit\"\n                            autocomplete=\"off\" [disabled]=\"viewMode\" required>\n                            <owl-date-time  [pickerType]=\"'timer'\" #maxTimeLimit></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"maxTimeLimit\">\n                                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\" >\n                            <label>Total No Of Occupancy</label>\n                            <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Occupancy\" name=\"autoCancelDays\"\n                                [(ngModel)]=\"facility.totalallowedperson\" [disabled]=\"viewMode\">\n                        </div>\n                    </div>\n                    <div class=\"col-sm-2\" *ngIf=\"facility.isBookingAllowed\">\n                        <div class=\"input-box radio-box\">\n                            <label>Approval Required<span class=\"required\">*</span></label>\n                            <div class=\"form-group\">\n                                <input  name=\"approvalType\" id=\"Yes\" [(ngModel)]=\"facility.isApproved\"  [value]=\"true\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"Yes\">Yes</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"approvalType\" id=\"No\" [(ngModel)]=\"facility.isApproved\" [value]=\"false\" type=\"radio\" [disabled]=\"viewMode\" required>\n                                <label class=\"radio-inline\" for=\"No\">No</label>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-10\">\n                        <div class=\"input-box\">\n                            <label>Accessed By<span class=\"required\">*</span></label>\n                            <angular2-multiselect [data]=\"accessTower.dropdownList\" name=\"accessTowerDropDown\"\n                                [(ngModel)]=\"accessTower.selectedItems\"\n                                [settings]=\"accessTowerdropdownSettings\" [disabled]=\"viewMode\">\n                            </angular2-multiselect>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\" *ngIf=\"facility.isSlotBooking\">\n                        <div class=\"mt-3 mb-5\">\n                            <mat-accordion>\n                                <mat-expansion-panel [expanded] = \"facility.apartmentFacilitySlot.length > 0\">\n                                    <mat-expansion-panel-header>\n                                        <mat-panel-title>Available Slot </mat-panel-title>\n                                    </mat-expansion-panel-header>\n                                    <mat-panel-description>\n                                        <div class=\"text-right mb-2 add\">\n                                            <button *ngIf=\"!viewMode\" mat-flat-button [color]=\"'accent'\"(click)=\"addSlot('add')\" >\n                                                <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                                            </button>\n                                        </div>\n                                        <mat-accordion>\n                                            <mat-expansion-panel class=\"scroll-{{i}}\" *ngFor=\"let slot of facility.apartmentFacilitySlot;let i= index\" [expanded]=\"facilityType.type == 'slot' && facility.apartmentFacilitySlot.length-1 == i\">\n                                                <mat-expansion-panel-header>\n                                                    <mat-panel-title> \n                                                        Slot {{i+1}}\n                                                        <mat-icon *ngIf=\"!viewMode\" svgIcon=\"mat_outline:delete\" class=\"float-right mr-5 mt-2\" (click)=deleteSlot(i,slot)></mat-icon>\n                                                    </mat-panel-title>\n                                                </mat-expansion-panel-header>\n                                                <mat-panel-description>\n                                                    <p class=\"error mt-1 mb-1 ml-4\" *ngIf=\"slot.error\">Please enter End time greater than Begin time</p>\n                                                    <div class=\"row\">\n                                                        <div class=\"col-sm-4\">\n                                                            <div class=\"input-box\">\n                                                                <label>Begin Time<span class=\"required\">*</span></label>\n                                                                <input class=\"form-control\" name=\"slotBeginTime{{i}}\" [owlDateTime]=\"slotBeginTime\" [owlDateTimeTrigger]=\"slotBeginTime\"\n                                                                    placeholder=\"Time\" [(ngModel)]=\"slot.slotBeginTime\" (dateTimeInput)=\"setMinTime(i)\" [disabled]=\"viewMode\" [required]=\"facility.isSlotBooking\" autocomplete=\"off\">\n                                                                <owl-date-time [pickerType]=\"'timer'\" #slotBeginTime></owl-date-time>\n                                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotBeginTime\">\n                                                                    <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                                                                </div>\n                                                            </div>\n                                                        </div>\n                                                        <div class=\"col-sm-4\">\n                                                            <div class=\"input-box\">\n                                                                <label>End Time<span class=\"required\">*</span></label>\n                                                                <input class=\"form-control\" name=\"slotEndTime{{i}}\" [min]=\"slot.slotBeginTime\" [max]=\"24\" [owlDateTime]=\"slotEndTime\"\n                                                                    [owlDateTimeTrigger]=\"slotEndTime\" placeholder=\"Time\" [(ngModel)]=\"slot.slotEndTime\"\n                                                                (dateTimeInput)=\"setMinTime(i)\" [disabled]=\"viewMode\" [required]=\"facility.isSlotBooking\" autocomplete=\"off\">\n                                                                <owl-date-time [pickerType]=\"'timer'\" #slotEndTime></owl-date-time>\n                                                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"slotEndTime\">\n                                                                    <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n                                                                </div>\n                                                            </div>\n                                                        </div>\n                                                        <div class=\"col-sm-4\">\n                                                            <div class=\"input-box\">\n                                                                <label>Cost per Slot ({{pesoValue}})<span class=\"required\">*</span></label>\n                                                                <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"cost\" name=\"cost{{i}}\" [(ngModel)]=\"slot.cost\"\n                                                                [disabled]=\"viewMode\"  [required]=\"facility.isSlotBooking\">\n                                                            </div>\n                                                        </div>\n                                                        <div class=\"col-sm-12\">\n                                                            <div class=\"input-box\">\n                                                                <label>Comments</label>\n                                                                <textarea placeholder=\"some text here\" name=\"comments{{i}}\" [(ngModel)]=\"slot.comment\" [disabled]=\"viewMode\"></textarea>\n                                                            </div>\n                                                        </div>\n                                                    </div>\n                                                </mat-panel-description>\n                                            </mat-expansion-panel>\n                                        </mat-accordion>\n                                    </mat-panel-description>\n                                </mat-expansion-panel>\n                            </mat-accordion>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Terms and Condition</label>\n                            <quill-editor \n                                class=\"quill-editor\"\n                                name=\"description\"\n                                [modules]=\"quillModules\"\n                                [(ngModel)]=\"facility.description\"\n                                [disabled]=\"viewMode\"\n                                [placeholder]=\"editorPlacehorder\">\n                            </quill-editor>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"mb-4\">\n                            <app-upload [fileIds]=\"facility.fileAttachmentId\" [isEdit]=\"isFileEdit\" (outputParams)=\"getFileIds($event)\"></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"text-right\">\n                            <button *ngIf=\"facilityType.type == 'create'\" mat-flat-button [color]=\"'primary'\" (click)=\"submitFacility()\">Create</button>\n                            <button *ngIf=\"facilityType.type == 'edit'\" mat-flat-button [color]=\"'primary'\" (click)=\"submitFacility()\">Update</button>\n                        </div>\n                    </div>\n                </div>\n            </form>   \n        </div>\n    </div>\n</div>\n\n    ";
       /***/
     },
 
@@ -196,6 +196,7 @@
           this.fileUrl = "";
           this.isImageUploaded = false;
           this.viewMode = false;
+          this.isFileEdit = false;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_10__["ModalService"]);
           this.quillModules = {
             toolbar: [[{
@@ -319,16 +320,13 @@
             }
           }
         }, {
-          key: "getFileId",
-          value: function getFileId(event) {
-            this.facility.fileAttachmentId = event;
-          } //Submit Function
-
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            this.facility.fileAttachmentId = event[0];
+          }
         }, {
-          key: "createFacility",
-          value: function createFacility() {
-            var _this = this;
-
+          key: "submitFacility",
+          value: function submitFacility() {
             this.message = null;
 
             if (!this.form.valid) {
@@ -347,67 +345,125 @@
 
               this.changeDetect.markForCheck();
             } else {
-              this.facility.apartmentFacilityId = this.facilityType.type == 'create' ? 0 : this.facility.apartmentFacilityId;
-              this.facility.apartmentId = this.sessionService.apartmentId;
-              this.facility.totalallowedperson = this.facility.totalallowedperson;
-              this.facility.description = this.facility.description;
-              this.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss');
-              this.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss');
-              this.facility.apartmentFacilityAllowedBlock = [];
-              this.accessTower.selectedItems.forEach(function (ele) {
-                var entity = {
-                  id: ele.id ? ele.id : 0,
-                  apartmentId: _this.sessionService.apartmentId,
-                  apartmentBlockId: ele.apartmentBlockId,
-                  apartmentFacilityId: _this.facilityType.type == 'create' ? 0 : _this.facility.apartmentFacilityId,
-                  isActive: true,
-                  insertedBy: parseInt(_this.sessionService.userId),
-                  insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
-                  updatedBy: null,
-                  updatedOn: null
-                };
-
-                _this.facility.apartmentFacilityAllowedBlock.push(entity);
-              });
-
-              if (this.facility.rateBaseId == 138 && this.facility.isSlotBooking) {
-                this.facility.apartmentFacilitySlot.forEach(function (data) {
-                  data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
-                  data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
-                  delete data.error;
-                });
-              } else {
-                this.facility.apartmentFacilitySlot = [];
-              }
-
-              var entity = {
-                "approvalRequired": true,
-                "isActive": true,
-                "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-              };
-              var apartmentFacilityParams = {
-                apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
-              };
-              var apiName = this.facilityType.type == 'create' ? 'addApartmentFacility' : 'updateApartmentFacility';
-              this.facilityapiservice[apiName](apartmentFacilityParams).subscribe(function (res) {
-                if (res.message) {
-                  var message = _this.facilityType.type == 'create' ? 'Facility added successfully' : 'Facility Updated successfully';
-
-                  _this.sharedService.setAlertMessage(message);
-
-                  _this.router.navigate(['/ams/facility/setup/list']);
-                } else {
-                  _this.isCategoryError = true;
-                  _this.alertMessage = res.errorMessage;
-                }
-              }, function (error) {
-                _this.isCategoryError = true;
-                _this.alertMessage = "Server Error";
-              });
+              if (this.facilityType.type == 'create') this.createFacility();else if (this.facilityType.type == 'edit') this.updateFacility();
             }
+          }
+        }, {
+          key: "createFacility",
+          value: function createFacility() {
+            var _this = this;
+
+            this.facility.apartmentFacilityAllowedBlock = [];
+            this.accessTower.selectedItems.forEach(function (ele) {
+              var entity = {
+                id: 0,
+                apartmentId: _this.sessionService.apartmentId,
+                apartmentBlockId: ele.apartmentBlockId,
+                apartmentFacilityId: 0,
+                isActive: true,
+                insertedBy: parseInt(_this.sessionService.userId),
+                insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+                updatedBy: null,
+                updatedOn: null
+              };
+
+              _this.facility.apartmentFacilityAllowedBlock.push(entity);
+            });
+
+            if (this.facility.rateBaseId == 138 && this.facility.isSlotBooking) {
+              this.facility.apartmentFacilitySlot.forEach(function (data) {
+                data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
+                data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
+                delete data.error;
+              });
+            } else {
+              this.facility.apartmentFacilitySlot = [];
+            }
+
+            var entity = {
+              "apartmentId": this.sessionService.apartmentId,
+              "minTimeLimit": moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss'),
+              "maxTimeLimit": moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss'),
+              "approvalRequired": true,
+              "isActive": true,
+              "insertedBy": parseInt(this.sessionService.userId),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null
+            };
+            var apartmentFacilityParams = {
+              apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
+            };
+            this.facilityapiservice.addApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
+              if (res.message) {
+                _this.sharedService.openSnackBar('Facility added successfully', 'success');
+
+                _this.router.navigate(['/ams/facility/setup/list']);
+              } else {
+                _this.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "updateFacility",
+          value: function updateFacility() {
+            var _this2 = this;
+
+            this.facility.apartmentFacilityAllowedBlock = [];
+            this.accessTower.selectedItems.forEach(function (ele) {
+              var entity = {
+                id: ele.id,
+                apartmentId: _this2.sessionService.apartmentId,
+                apartmentBlockId: ele.apartmentBlockId,
+                apartmentFacilityId: _this2.facility.apartmentFacilityId,
+                isActive: true,
+                insertedBy: parseInt(_this2.sessionService.userId),
+                insertedOn: moment__WEBPACK_IMPORTED_MODULE_2__().format(),
+                updatedBy: null,
+                updatedOn: null
+              };
+
+              _this2.facility.apartmentFacilityAllowedBlock.push(entity);
+            });
+
+            if (this.facility.rateBaseId == 138 && this.facility.isSlotBooking) {
+              this.facility.apartmentFacilitySlot.forEach(function (data) {
+                data.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotBeginTime).format('HH:mm:ss');
+                data.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(data.slotEndTime).format('HH:mm:ss');
+                delete data.error;
+              });
+            } else {
+              this.facility.apartmentFacilitySlot = [];
+            }
+
+            var entity = {
+              "apartmentId": this.sessionService.apartmentId,
+              "minTimeLimit": moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.minTimeLimit).format('HH:mm:ss'),
+              "maxTimeLimit": moment__WEBPACK_IMPORTED_MODULE_2__(this.facility.maxTimeLimit).format('HH:mm:ss'),
+              "approvalRequired": true,
+              "isActive": true,
+              "insertedBy": parseInt(this.sessionService.userId),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
+              "updatedBy": null,
+              "updatedOn": null,
+              "fileAttachmentId": this.facility.fileAttachmentId ? Number(this.facility.fileAttachmentId) : null
+            };
+            var apartmentFacilityParams = {
+              apartmentFacility: Object.assign(Object.assign({}, this.facility), entity)
+            };
+            this.facilityapiservice.updateApartmentFacility(apartmentFacilityParams).subscribe(function (res) {
+              if (res.message) {
+                _this2.sharedService.openSnackBar('Facility Updated successfully', 'success');
+
+                _this2.router.navigate(['/ams/facility/setup/list']);
+              } else {
+                _this2.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this2.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "getBlockNumber",
@@ -420,7 +476,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.accessTowerdropdownSettings = {
               singleSelection: false,
@@ -436,9 +492,9 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerParams).subscribe(function (res) {
-              _this2.towerslist = res;
+              _this3.towerslist = res;
               res.forEach(function (data) {
-                _this2.accessTower.dropdownList.push({
+                _this3.accessTower.dropdownList.push({
                   apartmentBlockNumber: data.apartmentBlockNumber,
                   apartmentBlockId: data.apartmentBlockId
                 });
@@ -450,11 +506,11 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this2.pesoValue = res[0].lookupValueName;
+              _this3.pesoValue = res[0].lookupValueName;
             }); //Edit Based
 
             this.routerActivate.queryParams.subscribe(function (params) {
-              _this2.facilityType = params;
+              _this3.facilityType = params;
 
               if (params.type) {
                 if (params.id) {
@@ -462,34 +518,42 @@
                     apartmentFacilityId: parseInt(params.id)
                   };
 
-                  _this2.facilityapiservice.getApartmentFacilityByFacilityId(entity).subscribe(function (res) {
-                    _this2.facility = res[0];
-                    _this2.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this2.facility.minTimeLimit, 'HH:mm:ss').format();
-                    _this2.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this2.facility.maxTimeLimit, 'HH:mm:ss').format();
-                    _this2.facility.apartmentBlockId = _this2.facility.apartmentBlockID;
-                    delete _this2.facility.apartmentBlockID;
-                    _this2.facility.apartmentFacilitySlot = _this2.facility.apartmentFacilitySlot.filter(function (ele) {
+                  _this3.facilityapiservice.getApartmentFacilityByFacilityId(entity).subscribe(function (res) {
+                    _this3.facility = res[0];
+                    _this3.facility.minTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this3.facility.minTimeLimit, 'HH:mm:ss').format();
+                    _this3.facility.maxTimeLimit = moment__WEBPACK_IMPORTED_MODULE_2__(_this3.facility.maxTimeLimit, 'HH:mm:ss').format();
+                    _this3.facility.apartmentBlockId = _this3.facility.apartmentBlockID;
+                    delete _this3.facility.apartmentBlockID; // Patch File
+
+                    _this3.isFileEdit = true;
+
+                    if (_this3.facility.fileAttachmentId) {
+                      _this3.facility.fileAttachmentId = _this3.facility.fileAttachmentId.toString();
+                    } // Patch Slot
+
+
+                    _this3.facility.apartmentFacilitySlot = _this3.facility.apartmentFacilitySlot.filter(function (ele) {
                       ele.slotBeginTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotBeginTime, 'HH:mm:ss').format();
                       ele.slotEndTime = moment__WEBPACK_IMPORTED_MODULE_2__(ele.slotEndTime, 'HH:mm:ss').format();
                       return ele.isActive;
                     });
 
-                    _this2.facility.apartmentFacilityAllowedBlock.forEach(function (data) {
-                      _this2.accessTower.selectedItems.push({
-                        apartmentBlockNumber: _this2.getBlockNumber(data.apartmentBlockId),
+                    _this3.facility.apartmentFacilityAllowedBlock.forEach(function (data) {
+                      _this3.accessTower.selectedItems.push({
+                        apartmentBlockNumber: _this3.getBlockNumber(data.apartmentBlockId),
                         apartmentBlockId: data.apartmentBlockId,
                         id: data.id
                       });
                     });
 
-                    if (params.type == 'slot') _this2.addSlot('scroll');else if (params.type == 'view') {
-                      _this2.viewMode = true;
-                      _this2.accessTowerdropdownSettings.disabled = true;
+                    if (params.type == 'slot') _this3.addSlot('scroll');else if (params.type == 'view') {
+                      _this3.viewMode = true;
+                      _this3.accessTowerdropdownSettings.disabled = true;
                     }
                   });
                 }
               } else {
-                _this2.router.navigate(['/ams/facility/setup/list']);
+                _this3.router.navigate(['/ams/facility/setup/list']);
               }
             }); //delete slot
 
@@ -497,13 +561,15 @@
               if (id != null) {
                 var params = {
                   apartmentFacilityBookingId: id,
-                  deleteBy: parseInt(_this2.sessionService.userId)
+                  deleteBy: parseInt(_this3.sessionService.userId)
                 };
 
-                _this2.facilityapiservice.deleteApartmentFacilitySlot(params).subscribe(function (res) {
-                  _this2.sharedService.setUnitListDeleteIndex(null);
+                _this3.facilityapiservice.deleteApartmentFacilitySlot(params).subscribe(function (res) {
+                  _this3.sharedService.setUnitListDeleteIndex(null);
                 }, function (error) {
-                  console.log(error);
+                  _this3.sharedService.setUnitListDeleteIndex(null);
+
+                  _this3.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -725,7 +791,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.isFacilityCategoryLoaded = false; //Faciliy List
 
@@ -734,9 +800,9 @@
             };
             this.facilityService.getApartmentFacilitiesByApartmentId(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this3.facilityCategoryData = res;
-                _this3.totalItems = res.length;
-                _this3.isFacilityCategoryLoaded = true;
+                _this4.facilityCategoryData = res;
+                _this4.totalItems = res.length;
+                _this4.isFacilityCategoryLoaded = true;
               }
             }, function (error) {
               console.log(error);
@@ -747,29 +813,29 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(entity).subscribe(function (res) {
-              _this3.pesoValue = res[0].lookupValueName;
+              _this4.pesoValue = res[0].lookupValueName;
             }); //Delete Facility
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this3.isFacilityCategoryLoaded = false;
+                _this4.isFacilityCategoryLoaded = false;
                 var params = {
                   apartmentFacilityId: item.id,
-                  deleteBy: _this3.sessionService.userId
+                  deleteBy: _this4.sessionService.userId
                 };
 
-                _this3.facilityService.deleteApartmentFacility(params).subscribe(function (res) {
+                _this4.facilityService.deleteApartmentFacility(params).subscribe(function (res) {
                   if (res.message) {
-                    _this3.facilityCategoryData.splice(item.index, 1);
+                    _this4.facilityCategoryData.splice(item.index, 1);
 
-                    _this3.sharedService.setUnitListDeleteIndex(null);
+                    _this4.sharedService.setUnitListDeleteIndex(null);
 
-                    _this3.totalItems -= 1;
-                    _this3.isFacilityCategoryLoaded = true;
+                    _this4.totalItems -= 1;
+                    _this4.isFacilityCategoryLoaded = true;
 
-                    _this3.sharedService.openSnackBar(res.message, 'success');
+                    _this4.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this3.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this4.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }

@@ -498,7 +498,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
         if (this.isAdmin())
             this.router.navigate(['/ams/work-permit/pending']);
         else
-            this.router.navigate(['/user/work-permit/history']);
+            this.router.navigate(['/user/work-permit/user-history']);
     }
     getUnits(type) {
         if (type == 'change')
@@ -1323,9 +1323,14 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
         this.lookupService.addLookupValue(params).subscribe((res) => {
             if (res.message) {
                 this.clickMode = '';
-                this.sharedService.setAlertMessage("Created Successfully");
+                this.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
                 this.getNatureOfWorklist();
             }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     updateWorkType() {
@@ -1346,9 +1351,14 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
         this.lookupService.updateLookupValue(params).subscribe((res) => {
             if (res.message) {
                 this.clickMode = '';
-                this.sharedService.setAlertMessage("Updated Successfully");
+                this.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
                 this.getNatureOfWorklist();
             }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     getNatureOfWorklist() {
@@ -1365,6 +1375,9 @@ let NatureOfWorkSetupComponent = class NatureOfWorkSetupComponent {
                 this.natureWorkList = new jqx.dataAdapter(arrangeSlotRawData);
             }
             this.isDataLoaded = false;
+        }, (error) => {
+            this.isDataLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {
@@ -1635,9 +1648,14 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
         this.lookupService.addLookupValue(params).subscribe((res) => {
             if (res.message) {
                 this.clickMode = '';
-                this.sharedService.setAlertMessage("WorkPermit Type added successfully");
+                this.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
                 this.getWorkPermitList();
             }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     updateWorkPermitType() {
@@ -1658,9 +1676,14 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
         this.lookupService.updateLookupValue(params).subscribe((res) => {
             if (res.message) {
                 this.clickMode = '';
-                this.sharedService.setAlertMessage("WorkPermit Type added successfully");
+                this.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
                 this.getWorkPermitList();
             }
+            else {
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     getWorkPermitList() {
@@ -1677,6 +1700,9 @@ let WorkpermitTypeSetupComponent = class WorkpermitTypeSetupComponent {
                 this.workPermitList = new jqx.dataAdapter(arrangeSlotRawData);
             }
             this.isDataLoaded = false;
+        }, (error) => {
+            this.isDataLoaded = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     ngOnInit() {

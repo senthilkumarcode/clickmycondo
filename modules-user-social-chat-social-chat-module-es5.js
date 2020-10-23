@@ -341,7 +341,8 @@
           key: "likesUpdate",
           value: function likesUpdate(data) {
             this.ForumTopicsService.addLike({
-              id: data.id
+              TopicId: data.id,
+              userId: this.sessionService.userId
             }).subscribe(function (res) {
               data.likes++;
             });

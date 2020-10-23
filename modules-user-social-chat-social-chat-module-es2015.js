@@ -205,7 +205,7 @@ let ForumComponent = class ForumComponent {
         });
     }
     likesUpdate(data) {
-        this.ForumTopicsService.addLike({ id: data.id }).subscribe((res) => {
+        this.ForumTopicsService.addLike({ TopicId: data.id, userId: this.sessionService.userId }).subscribe((res) => {
             data.likes++;
         });
     }

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n\n    <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n    <ng-container *ngIf=\"isPackageCreated\">\n\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n      <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\"\n        novalidate>\n\n        <div class=\"bg-card shadow\">\n\n          <div class=\"row\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\"\n                    [value]=\"item.lookupValueId\" type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockData\" fieldValue=\"block_Label\" [fieldModel]=\"package.apartmentBlockId\"\n                fieldId=\"block_Id\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n            </div>\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Unit No\" fieldPlaceholder=\"Select Unit\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockUnitData\" fieldValue=\"bu_Label\" [fieldModel]=\"package.apartmentBlockUnitId\"\n                fieldId=\"buId\" [isDisabled]=\"!isBlockSelected\" (fieldParams)=\"getSelectedBlockUnit($event)\">\n              </condo-select>\n\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Primary Name *</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\"\n                  [(ngModel)]=\"package.primaryName\">\n              </div>\n            </div>\n\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\"\n                fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\" [fieldList]=\"packageTypes\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\">\n              </condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\"\n                fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\" fieldValue=\"lookupValueName\"\n                (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n            </div>\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\"\n                fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\"\n                (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\"\n                [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\" [fieldList]=\"deliverySlots\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\">\n              </condo-select>\n            </div>\n\n\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-6\">\n              <app-upload [fileIds]=\"package.packageImageId\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"\n                [multiple]=\"true\"></app-upload>\n            </div>\n\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\"\n                  [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"d-flex justify-flex-end\">\n          <div class=\"ml-auto\">\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"!isEditPackage\">Submit</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"isEditPackage\">Update</button>\n          </div>\n        </div>\n\n      </form>\n\n    </ng-container>\n\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"package-create-wrapper\">\n\n  <div class=\"main\">\n\n    <app-loader *ngIf=\"!isPackageCreated\"></app-loader>\n\n    <ng-container *ngIf=\"isPackageCreated\">\n\n      <h4 class=\"mb-4\">Create Delivery</h4>\n\n      <form #createPackageForm=\"ngForm\" name=\"createPackageForm\" (ngSubmit)=\"submitAddPackageForm(createPackageForm)\"\n        novalidate>\n\n        <div class=\"bg-card shadow\">\n\n          <div class=\"row\">\n            <div class=\"col-sm-4\">\n              <div class=\"input-box radio-box\">\n                <label>Receiver Type *</label>\n                <div *ngFor=\"let item of receiverType; let i = index;\" class=\"form-group\">\n                  <input name=\"receiverType{{i}}\" id=\"receiverType{{i}}\" [(ngModel)]=\"packageData.ReceiverType\"\n                    [value]=\"item.lookupValueId\" type=\"radio\" required>\n                  <label class=\"radio-inline\" for=\"receiverType{{i}}\">{{item.lookupValueName}}</label>\n                </div>\n              </div>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockData\" fieldValue=\"block_Label\" [fieldModel]=\"package.apartmentBlockId\"\n                fieldId=\"block_Id\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n            </div>\n            <div class=\"col-sm-4\">\n              <condo-select labelText=\"Unit No\" fieldPlaceholder=\"Select Unit\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"blockUnitData\" fieldValue=\"bu_Label\" [fieldModel]=\"package.apartmentBlockUnitId\"\n                fieldId=\"buId\" [isDisabled]=\"!isBlockSelected\" (fieldParams)=\"getSelectedBlockUnit($event)\">\n              </condo-select>\n\n            </div>\n            <div class=\"col-sm-4\">\n              <div class=\"input-box\">\n                <label>Primary Name *</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\"\n                  [(ngModel)]=\"package.primaryName\">\n              </div>\n            </div>\n\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.packageTypeId\" fieldId=\"lookupValueId\" labelText=\"Type\"\n                fieldPlaceholder=\"Select Type\" [fieldRequired]=\"'required'\" [fieldList]=\"packageTypes\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedType($event)\">\n              </condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.deliveryTypeId\" labelText=\"Delivery Types\"\n                fieldPlaceholder=\"Select Delivery Type\" fieldId=\"lookupValueId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"deliveryTypes\" [isDisabled]=\"false\" fieldValue=\"lookupValueName\"\n                (fieldParams)=\"getSelectedDeliveryType($event)\"></condo-select>\n            </div>\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.assignedTo\" labelText=\"Assign to staff\"\n                fieldPlaceholder=\"Select Staff\" fieldId=\"staffId\" [fieldRequired]=\"'required'\"\n                [fieldList]=\"staffListData\" fieldValue=\"firstName\" [isDisabled]=\"false\"\n                (fieldParams)=\"getSelectedStaff($event)\"></condo-select>\n            </div>\n\n            <div class=\"col-sm-4\">\n              <condo-select [fieldModel]=\"package.slotId\" labelText=\"Slot\" fieldPlaceholder=\"Select Slot\"\n                [fieldRequired]=\"'required'\" fieldId=\"lookupValueId\" [fieldList]=\"deliverySlots\"\n                fieldValue=\"lookupValueName\" [isDisabled]=\"false\" (fieldParams)=\"getSelectedSlot($event)\">\n              </condo-select>\n            </div>\n\n\n\n          </div>\n\n          <div class=\"row\">\n\n            <div class=\"col-sm-6\">\n              <app-upload [fileIds]=\"package.packageImageId\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event)\"></app-upload>\n            </div>\n\n            <div class=\"col-sm-6\">\n              <div class=\"input-box\">\n                <label>Comments /Package count</label>\n                <textarea placeholder=\"some text here\" class=\"form-control textarea\" name=\"packageComments\"\n                  [(ngModel)]=\"packageData.Comments\"></textarea>\n              </div>\n            </div>\n          </div>\n\n        </div>\n\n        <div class=\"d-flex justify-flex-end\">\n          <div class=\"ml-auto\">\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"!isEditPackage\">Submit</button>\n            <button mat-flat-button [color]=\"'primary'\" class=\"mt-2 mr-2\" [disabled]=\"!createPackageForm.valid\"\n              *ngIf=\"isEditPackage\">Update</button>\n          </div>\n        </div>\n\n      </form>\n\n    </ng-container>\n\n  </div>\n</div>";
       /***/
     },
 
@@ -162,7 +162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"security-setup-add-category-wrapper\">\n        <div class=\"main\">\n          <div class=\"d-flex mb-4\">\n            <h4>Edit Pending Delivery</h4>\n            <div class=\"ml-auto\">\n              <!-- <button mat-stroked-button  (click)=\"downloadPdf()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span class=\"ml-2\">Export</span>\n              </button> -->\n              <!-- <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button> -->\n            </div>\n          </div>\n          <app-loader *ngIf=\"!isdeliverySubmitted\"></app-loader>\n        \n          <ng-container>\n          <div class=\"bg-card shadow\" id=\"pdf\">\n            <!-- PDF Download View -->\n\n            <form #pendingdelivery = \"ngForm\" name=\"pendingdelivery\" (ngSubmit)=\"submitAddPackageForm(pendingdelivery)\"\n            novalidate>\n              <div class=\"row\">\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Tower No*</label>\n                    <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" >\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Unit No*</label>\n                    <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"delivery.apartmentUnitId\" (change)=\"getPrimaryName()\">\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"input-box\">\n                    <label>Primary Name</label>\n                    <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\">\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n            \n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                            <label>Package No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"packageNo\" [(ngModel)]=\"deliveryData.packageNo\">\n                                <!-- <label>{{deliveryData.packageNo}}</label> -->\n                        </div> \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Type</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"type\" [(ngModel)]=\"deliveryData.type\">\n                                <!-- <label>{{deliveryData.type}}</label> -->\n                        </div>\n                           \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Comments</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"comments\" name=\"comments\" [(ngModel)]=\"deliveryData.comments\">\n                                <!-- <label>{{deliveryData.comments}}</label> -->\n                        </div>\n                            \n                    </div>\n                    <div class=\"col-sm-4\">\n                                <!-- <input  type=\"text\"  class=\"form-control\" placeholder=\"image\" name=\"image\" [(ngModel)]=\"deliveryData.image\"> -->\n                                \n                                        <div class=\"input-box upload-box\">\n                                          <label *ngIf=\"isAssetImageNotAvailable()\">Upload File *</label>\n                                          <label *ngIf=\"!isAssetImageNotAvailable()\">Image/Document</label>\n                          \n                                          <ng-container *ngIf=\"isFileDetailsAvailable\">\n                          \n                                            <ng-container *ngIf=\"isImageUploaded\">\n                                              <div class=\"preview-wrapper\">\n                                                <div class=\"icon-wrapper\">\n                                                  <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                                                </div>\n                                                <figure class=\"preview-img\">\n                                                  <img class=\"img-fluid\" [src]=\"fileUrl\" id=\"assetImage\">\n                                                </figure>\n                                              </div>\n                                            </ng-container>\n                          \n                                            <ng-container *ngIf=\"!isImageUploaded\">\n                                              <div class=\"file-desp\">\n                                                <span class=\"name mr-3\">\n                                                  <a [href]=\"fileUrl\" target=\"_blank\">{{filePath}}</a>\n                                                </span>\n                                                <i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile()\"></i-feather>\n                                              </div>\n                                            </ng-container>\n                          \n                                          </ng-container>\n                          \n                          \n                                          <div class=\"browse-files\" [appDragAndDrop] (onFileDropped)=\"uploadFile($event)\" *ngIf=\"!isUploadProgess() && !isUploadCompleted() && isAssetImageNotAvailable()\">\n                                            <input hidden type=\"file\" #fileInput (change)=\"uploadFile($event.target.files)\">\n                                            <div class=\"attachfiles-normal\">\n                                              <span class=\"attachfiles-dragSupport\">Drop file here or </span>\n                                              <a class=\"attachFiles-link\" href=\"javascript:void(0)\" id=\"attachProfilePic\" (click)=\"fileInput.click()\">Browse<br></a>\n                                              to add attachment\n                                            </div>\n                                          </div>\n                                          <div class=\"progress\" *ngIf=\"isUploadProgess() && !isUploadCompleted()\">\n                                            <div class=\"progress-bar progress-bar-striped\" role=\"progressbar\" [style.width.%]=\"uploadResponse.message\"\n                                              aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\"></div>\n                                          </div>\n                          \n                          \n                                        </div>\n                                <!-- <label>{{deliveryData.image}}</label> -->\n                        \n                            \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Slot No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"slotNo\" name=\"slotNo\" [(ngModel)]=\"deliveryData.slotNo\">\n                                <!-- <label>{{deliveryData.slotNo}}</label> -->\n                        </div>\n                            \n                    </div>\n\n\n    \n                   \n    \n                </div>\n                <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                          <div class=\"list-inline float-right mt-4\">\n                            <button mat-flat-button class=\"mr-2\" (click)=\"goBack()\">Cancel</button>\n                            <button mat-flat-button [color]=\"'primary'\" class=\"mr-2\" [disabled]=\"pendingdelivery.invalid\">Update</button>\n                          </div>\n                        </div>\n                      </div>\n            </form>\n          </div>\n        </ng-container>\n        </div>\n      </div>\n";
+      __webpack_exports__["default"] = "<div class=\"security-setup-add-category-wrapper\">\n        <div class=\"main\">\n          <div class=\"d-flex mb-4\">\n            <h4>Edit Pending Delivery</h4>\n            <div class=\"ml-auto\">\n              <!-- <button mat-stroked-button  (click)=\"downloadPdf()\">\n                <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n                <span class=\"ml-2\">Export</span>\n              </button> -->\n              <!-- <button mat-icon-button (click)=\"goBack()\">\n                    <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                </button> -->\n            </div>\n          </div>\n          <app-loader *ngIf=\"!isdeliverySubmitted\"></app-loader>\n        \n          <ng-container>\n          <div class=\"bg-card shadow\" id=\"pdf\">\n            <!-- PDF Download View -->\n\n            <form #pendingdelivery = \"ngForm\" name=\"pendingdelivery\" (ngSubmit)=\"submitAddPackageForm(pendingdelivery)\"\n            novalidate>\n              <div class=\"row\">\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Tower No*</label>\n                    <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" >\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"select-box\">\n                    <label>Unit No*</label>\n                    <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"delivery.apartmentUnitId\" (change)=\"getPrimaryName()\">\n                      <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                      <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n                    </select>\n                  </div>\n                </div>\n                <div class=\"col-sm-4\">\n                  <div class=\"input-box\">\n                    <label>Primary Name</label>\n                    <input  type=\"text\"  class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\">\n                  </div>\n                </div>\n              </div>\n\n              <div class=\"row\">\n            \n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                            <label>Package No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"packageNo\" [(ngModel)]=\"deliveryData.packageNo\">\n                                <!-- <label>{{deliveryData.packageNo}}</label> -->\n                        </div> \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Type</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"package No\" name=\"type\" [(ngModel)]=\"deliveryData.type\">\n                                <!-- <label>{{deliveryData.type}}</label> -->\n                        </div>\n                           \n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Comments</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"comments\" name=\"comments\" [(ngModel)]=\"deliveryData.comments\">\n                                <!-- <label>{{deliveryData.comments}}</label> -->\n                        </div>\n                            \n                    </div>\n                    <div class=\"col-sm-4\">\n                      <app-upload [fileIds]=\"deliveryData.packageImageId\" [isEdit]=\"true\" (outputParams)=\"getFileIds($event)\"></app-upload>\n                    </div>\n                    <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Slot No</label>\n                                <input  type=\"text\"  class=\"form-control\" placeholder=\"slotNo\" name=\"slotNo\" [(ngModel)]=\"deliveryData.slotNo\">\n                                <!-- <label>{{deliveryData.slotNo}}</label> -->\n                        </div>\n                            \n                    </div>\n\n\n    \n                   \n    \n                </div>\n                <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                          <div class=\"list-inline float-right mt-4\">\n                            <button mat-flat-button class=\"mr-2\" (click)=\"goBack()\">Cancel</button>\n                            <button mat-flat-button [color]=\"'primary'\" class=\"mr-2\" [disabled]=\"pendingdelivery.invalid\">Update</button>\n                          </div>\n                        </div>\n                      </div>\n            </form>\n          </div>\n        </ng-container>\n        </div>\n      </div>\n";
       /***/
     },
 
@@ -406,9 +406,9 @@
             this["package"].slotName = event[0].lookupValueName;
           }
         }, {
-          key: "getFileId",
-          value: function getFileId(event) {
-            this["package"].packageImageId = event;
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            this["package"].packageImageId = event[0];
           }
         }, {
           key: "submitAddPackageForm",
@@ -442,7 +442,7 @@
               };
               this.packageService.addPackage(addPackageParams).subscribe(function (res) {
                 if (res.message) {
-                  _this3.sharedService.setAlertMessage('package added successfully');
+                  _this3.sharedService.openSnackBar('package added successfully', 'success');
                 } else {}
               }, function (error) {});
             } else {}
@@ -2270,46 +2270,22 @@
       /* harmony import */
 
 
-      var _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! ../../../../../shared/services/file-upload.service */
-      "./src/app/shared/services/file-upload.service.ts");
-      /* harmony import */
-
-
-      var _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! ../../../../../shared/services/file-download.service */
-      "./src/app/shared/services/file-download.service.ts");
-      /* harmony import */
-
-
-      var _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-      /*! ../../../../../api/controllers/FileDetails */
-      "./src/app/api/controllers/FileDetails.ts");
-      /* harmony import */
-
-
-      var _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! ../../../../../shared/services/constants.service */
-      "./src/app/shared/services/constants.service.ts");
-      /* harmony import */
-
-
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! @angular/platform-browser */
-      "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-      /* harmony import */
-
-
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/services/constants.service */
+      "./src/app/shared/services/constants.service.ts");
 
       var PendingDeliveryEditComponent = /*#__PURE__*/function () {
-        function PendingDeliveryEditComponent(_activatedRoute, _router, el, _changeDetectorRef, apartmentService, sharedService, sessionService, packageService, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sanitizer) {
+        function PendingDeliveryEditComponent(_activatedRoute, _router, el, _changeDetectorRef, apartmentService, sharedService, sessionService, packageService, constantsService) {
           _classCallCheck(this, PendingDeliveryEditComponent);
 
           this._activatedRoute = _activatedRoute;
@@ -2320,11 +2296,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.packageService = packageService;
-          this.fileUploadService = fileUploadService;
-          this.fileDownloadService = fileDownloadService;
-          this.fileDetailsService = fileDetailsService;
           this.constantsService = constantsService;
-          this.sanitizer = sanitizer;
           this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           this.isdeliverySubmitted = false;
           this.apartmentBlockId = null;
@@ -2342,12 +2314,6 @@
           this.delivery = {
             apartmentUnitId: null
           };
-          this.isFileDetailsAvailable = false;
-          this.fileUrl = "";
-          this.isImageUploaded = false;
-          this.isFileAdded = false;
-          this.fileList = [];
-          this.listOfFiles = [];
           this["package"] = {}; // Set the private defaults
 
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
@@ -2363,19 +2329,11 @@
             this.deliveryData.packageNo = "";
             this.deliveryData.type = "";
             this.deliveryData.comments = "";
-            this.deliveryData.image = "";
             this.deliveryData.slotNo = "";
             this.deliveryData.assignedTo = "";
             this.deliveryData.receivedBy = "";
             this.deliveryData.deliveryStatusId = "";
-            this.deliveryData.updatedBy = "";
-            this.uploadResponse = {
-              status: '',
-              message: '',
-              fileId: null
-            };
-            this.asset = {};
-            this.asset.assetImageId = null; //Open the drawer
+            this.deliveryData.updatedBy = ""; //Open the drawer
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               _this18.pageType = params.type;
@@ -2391,24 +2349,14 @@
                   _this18.deliveryData.packageNo = _deliveryData[0].packageId;
                   _this18.deliveryData.type = _deliveryData[0].packageTypeId;
                   _this18.deliveryData.comments = _deliveryData[0].description;
-                  _this18.deliveryData.image = _deliveryData[0].attachment1;
                   _this18.deliveryData.slotNo = _deliveryData[0].slot;
                   _this18.deliveryData.assignedTo = _deliveryData[0].assignedTo;
                   _this18.deliveryData.receivedBy = _deliveryData[0].receivedBy;
                   _this18.deliveryData.deliveryStatusId = _deliveryData[0].deliveryStatusId;
                   _this18.deliveryData.updatedBy = _deliveryData[0].updatedBy;
 
-                  if (_deliveryData[0].attachment1 !== null) {
-                    var newParams = {
-                      fileDetailsId: _deliveryData[0].attachment1,
-                      apartmentId: Number(_this18.sessionService.apartmentId)
-                    };
-
-                    _this18.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                      _this18.filePath = res[0].filePath;
-
-                      _this18.downloadFile(_this18.filePath);
-                    });
+                  if (_deliveryData[0].attachment1) {
+                    _this18.deliveryData.packageImageId = _deliveryData[0].attachment1.toString();
                   }
                 }
               });
@@ -2458,6 +2406,11 @@
             this.apartmentBlockUnitId = event[0].apartmentBlockUnitId;
           }
         }, {
+          key: "getFileIds",
+          value: function getFileIds(event) {
+            this.deliveryData.packageImageId = event[0];
+          }
+        }, {
           key: "submitAddPackageForm",
           value: function submitAddPackageForm(form) {
             var _this20 = this;
@@ -2465,14 +2418,14 @@
             this.isdeliverySubmitted = false;
             var addPackageDetails = {
               packageId: this.deliveryData.packageNo,
-              deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
+              deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               description: this.deliveryData.comments,
               slot: this.deliveryData.slotNo,
               assignedTo: parseInt(this.deliveryData.assignedTo),
               receivedBy: this.sessionService.userId,
               deliveryStatusId: parseInt(this.deliveryData.deliveryStatusId),
               updatedBy: parseInt(this.deliveryData.updatedBy),
-              updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString()
+              updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString()
             };
             var addPackageParams = {
               Package: addPackageDetails
@@ -2499,93 +2452,6 @@
             });
             if (data.length > 0) this.block.primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;else this.block.primaryName = '';
           }
-        }, {
-          key: "isUploadProgess",
-          value: function isUploadProgess() {
-            return this.uploadResponse.status == "progress" ? true : false;
-          }
-        }, {
-          key: "isUploadCompleted",
-          value: function isUploadCompleted() {
-            return this.uploadResponse.status == "completed" ? true : false;
-          }
-        }, {
-          key: "isAssetImageNotAvailable",
-          value: function isAssetImageNotAvailable() {
-            return this.asset.assetImageId == null ? true : false;
-          }
-        }, {
-          key: "uploadFile",
-          value: function uploadFile(event) {
-            var _this22 = this;
-
-            var file = event[0];
-            var userId = parseInt(this.sessionService.userId);
-            this.fileUploadService.upload(file).subscribe(function (res) {
-              if (res != undefined) {
-                _this22.uploadResponse = res;
-              }
-
-              if (_this22.isUploadCompleted()) {
-                _this22.asset.assetImageId = _this22.uploadResponse.fileId;
-                _this22["package"].packageImageId = _this22.uploadResponse.fileId;
-                var newParams = {
-                  fileDetailsId: _this22.uploadResponse.fileId,
-                  apartmentId: Number(_this22.sessionService.apartmentId)
-                };
-
-                _this22.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this22.filePath = res[0].filePath;
-
-                  _this22.downloadFile(_this22.filePath);
-                });
-              }
-            });
-          }
-        }, {
-          key: "downloadFile",
-          value: function downloadFile(filePath) {
-            var _this23 = this;
-
-            this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this23.isFileDetailsAvailable = true;
-              var splitFile = filePath.split('.');
-              var ext = splitFile[1].replace(/^/, '.');
-              _this23.isImageUploaded = _this23.constantsService.imageFormats.includes(ext);
-              var blob = res.body;
-              var objectURL = URL.createObjectURL(blob);
-
-              var sanitizeUrl = _this23.sanitizer.bypassSecurityTrustUrl(objectURL);
-
-              _this23.fileUrl = sanitizeUrl;
-            });
-          }
-        }, {
-          key: "deleteFile",
-          value: function deleteFile() {
-            var details = {
-              fileDetailsId: this.asset.assetImageId,
-              fileName: this.filePath,
-              filePath: this.filePath,
-              fileSize: 0,
-              description: this.filePath,
-              isActive: true,
-              insertedBy: parseInt(this.sessionService.userId),
-              insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_13___default()().toISOString(),
-              updatedBy: null,
-              updatedOn: null,
-              apartmentId: this.sessionService.apartmentId
-            };
-            var params = {
-              FileDetailsId: this.asset.assetImageId,
-              FilePath: this.filePath,
-              updatedByUserId: this.sessionService.userId
-            }; // this.fileDetailsService.deleteFileDetails(params).subscribe((res:any) => {
-            //   this.isFileDetailsAvailable = false;
-            //   this.uploadResponse = { status: '', message: '', fileId: null };
-            //   this.asset.assetImageId = this.uploadResponse.fileId
-            // })
-          }
         }]);
 
         return PendingDeliveryEditComponent;
@@ -2609,15 +2475,7 @@
         }, {
           type: src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_7__["PackageService"]
         }, {
-          type: _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"]
-        }, {
-          type: _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"]
-        }, {
-          type: _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"]
-        }, {
-          type: _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"]
-        }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"]
+          type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]
         }];
       };
 
@@ -2647,7 +2505,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./pending-delivery-edit.component.scss */
         "./src/app/modules/ams/parcel-delivery/components/pending-delivery-edit/pending-delivery-edit.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_7__["PackageService"], _shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_8__["FileUploadService"], _shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_9__["FileDownloadService"], _api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_10__["FileDetailsService"], _shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_12__["DomSanitizer"]])], PendingDeliveryEditComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Package__WEBPACK_IMPORTED_MODULE_7__["PackageService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_9__["ConstantsService"]])], PendingDeliveryEditComponent);
       /***/
     },
 
@@ -2830,16 +2688,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this22 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this24.timeZone = timeZone;
+              return _this22.timeZone = timeZone;
             });
             this.ItemEndIndex = 0;
             this.getAllPackage(); // staff type
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              _this24.staffListData = res.filter(function (data) {
+              _this22.staffListData = res.filter(function (data) {
                 return data.isActive;
               });
             });
@@ -2847,7 +2705,7 @@
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.packageTypes = res.filter(function (item) {
+              _this22.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2855,7 +2713,7 @@
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.deliveryTypes = res.filter(function (item) {
+              _this22.deliveryTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2863,7 +2721,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.deliveryStatus = res.filter(function (item) {
+              _this22.deliveryStatus = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2871,7 +2729,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.deliverySlots = res.filter(function (item) {
+              _this22.deliverySlots = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2879,7 +2737,7 @@
               LookupTypeId: 182
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
-              _this24.receiverType = res.filter(function (item) {
+              _this22.receiverType = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2981,7 +2839,7 @@
         }, {
           key: "getAllPackage",
           value: function getAllPackage() {
-            var _this25 = this;
+            var _this23 = this;
 
             this.isPendingDeliveryLoaded = false;
             var params = {};
@@ -3001,28 +2859,28 @@
             }
 
             this.packageService.getAllPendingDeliveries(params).subscribe(function (res) {
-              _this25.allParcelDelivey = res;
+              _this23.allParcelDelivey = res;
 
               var _deliveryHistoryList = res.filter(function (x) {
                 return x.isActive === false;
               });
 
-              _this25.gridSourceData = {
+              _this23.gridSourceData = {
                 localdata: _deliveryHistoryList,
                 datatype: "array"
               };
-              _this25.deliveryHistoryList = new jqx.dataAdapter(_this25.gridSourceData);
-              _this25.totalItems = _deliveryHistoryList.length;
+              _this23.deliveryHistoryList = new jqx.dataAdapter(_this23.gridSourceData);
+              _this23.totalItems = _deliveryHistoryList.length;
 
-              if (_this25.totalItems > _this25.itemLimit) {
-                _this25.ItemEndIndex = _this25.itemLimit;
+              if (_this23.totalItems > _this23.itemLimit) {
+                _this23.ItemEndIndex = _this23.itemLimit;
               } else {
-                _this25.ItemEndIndex = _this25.totalItems;
+                _this23.ItemEndIndex = _this23.totalItems;
               }
 
-              _this25.isPendingDeliveryLoaded = true; // Mark for check
+              _this23.isPendingDeliveryLoaded = true; // Mark for check
 
-              _this25._changeDetectorRef.markForCheck();
+              _this23._changeDetectorRef.markForCheck();
             });
           }
         }, {
