@@ -1967,7 +1967,7 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
             // Generate menu links
             this._generateFoldersMenuLinks();
             // Update navigation badge
-            this._updateNavigationBadge(folders);
+            //this._updateNavigationBadge(folders);
         });
         // Labels
         this._mailboxService.labels$

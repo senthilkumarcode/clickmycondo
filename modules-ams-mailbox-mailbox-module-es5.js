@@ -2900,9 +2900,8 @@
               _this17.folders = folders; // Generate menu links
 
               _this17._generateFoldersMenuLinks(); // Update navigation badge
+              //this._updateNavigationBadge(folders);
 
-
-              _this17._updateNavigationBadge(folders);
             }); // Labels
 
 
