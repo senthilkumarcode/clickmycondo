@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n<div class=\"inventory-view-wrapper\" *ngIf=\"isDeliveryHistoryLoaded\" >\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n                            [disableClose]=\"true\"\n                            #matDrawer>\n\n                      <router-outlet></router-outlet>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n<div class=\"inventory-view-wrapper\">\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n\t\t\t\t\t\t\t[disableClose]=\"true\"\n\t\t\t\t\t\t\t#packageHistory\n                            >\n\n\t\t\t\t\t\t\t<div class=\"bg-card shadow\">\n    \n\t\t\t\t\t\t\t\t<div class=\"title row p-2\">\n\t\t\t\t\t\t\t\t\t<h4 class=\"mt-3\">View Delivery History</h4>\n\t\t\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form #viewdeliveryHistory = \"ngForm\" name=\"viewdeliveryHistory\" (ngSubmit)=\"submitAddCreditNoteForm(viewdeliveryHistory)\"\n\t\t\t\t\t\t\t\t\tnovalidate>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Package No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.packageNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Type</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.type}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.comments}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Image</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.image}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Slot No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.slotNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\" *ngIf=\"isDeliveryHistoryLoaded\" >\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n");
 
 /***/ }),
 
@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Packge Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Package Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>");
 
 /***/ }),
 
@@ -113,7 +113,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"pending-delivery\">\n\t<div class=\"main\">\n\t\t<form #pendingDeliveryForm=\"ngForm\" class=\"bg-card shadow\" name=\"pendingDeliveryForm\" novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>From Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"delivery.fromDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"From Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Startdate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>To Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"delivery.toDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"To Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Enddate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button (click)=\"onReset()\">Reset</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t\t<app-loader *ngIf=\"!isPendingDeliveryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isPendingDeliveryLoaded\">\n            <ng-container *ngFor=\"let item of allParcelDelivey | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                <div class=\"bg-card shadow mb-4\">\n                    <div class=\"dues d-flex align-items-center\">\n                        <div class=\"details\">\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Package No</p>\n                                    <p class=\"text-secondary\">{{item.packageId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Slot No</p>\n                                    <p class=\"text-secondary\">{{item.slot}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Block Unit No</p>\n                                    <p class=\"text-secondary\">{{item.apartmentBlockUnitId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{item.deliveryStatusId}}</p>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"text\">Actions</div>\n\t\t\t\t\t\t\t\t\t<div (click)=\"editParcelDelivery(item.packageId)\" class=\"pay-btn font-medium mt-2\">Edit</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n                    </div>\n                </div>\n            </ng-container>\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </ng-container>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"pending-delivery\">\n\t<div class=\"main\">\n\t\t<form #pendingDeliveryForm=\"ngForm\" class=\"bg-card shadow\" name=\"pendingDeliveryForm\" novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>From Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"delivery.fromDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"From Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Startdate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>To Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"delivery.toDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"To Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Enddate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button (click)=\"onReset()\">Reset</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t\t<app-loader *ngIf=\"!isPendingDeliveryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isPendingDeliveryLoaded\">\n\t\t\t<ng-container *ngFor=\"let item of allParcelDelivey | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t<div class=\"bg-card shadow mb-4\">\n\t\t\t\t\t<div class=\"dues d-flex align-items-center\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row mb-3\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Number</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.rno}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Block Unit No</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.blockUnit_Label}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Slot No</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.slot}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-3 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Status</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.residentName}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-3 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Status</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.assignToStaff}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"text\">Actions</div> -->\n\t\t\t\t\t\t\t\t\t<div (click)=\"editParcelDelivery(item.packageId)\" class=\"pay-btn font-medium mt-2\">\n\t\t\t\t\t\t\t\t\t\tEdit</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n\t\t\t</div>\n\t\t</ng-container>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -460,6 +460,7 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         this.selectedInput = "";
         this.columnField = {};
         this.isEditCredit = false;
+        this.deliveryData = {};
         this.params = {
             apartmentId: this.sessionService.apartmentId
         };
@@ -490,6 +491,11 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         return this.totalItems == 0 ? true : false;
     }
     ngOnInit() {
+        this.deliveryData.packageNo = "";
+        this.deliveryData.type = "";
+        this.deliveryData.comments = "";
+        this.deliveryData.image = "";
+        this.deliveryData.slotNo = "";
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.ItemEndIndex = 0;
         // this.getAllPackage();
@@ -631,10 +637,30 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.credit = dataRecord;
         var id = dataRecord.packageId;
-        this.sharedService.setMatDrawerId(id);
-        this._router.navigate(['./delivery-history', 'view', id], { relativeTo: this._activatedRoute.parent });
-        //Mark for check
-        this._changeDetectorRef.markForCheck();
+        this.getPackage(id);
+        this.matDrawer.open();
+        // this.sharedService.setMatDrawerId(id);
+        // this._router.navigate(['./delivery-history' ,'view', id], {relativeTo: this._activatedRoute.parent});
+        //  //Mark for check
+        //  this._changeDetectorRef.markForCheck();
+    }
+    getPackage(packageId) {
+        let queryParamBase = {
+            // tslint:disable-next-line:radix
+            ApartmentId: parseInt(this.sessionService.apartmentId),
+            packageid: packageId
+        };
+        this.packageService.getpackagebyId(queryParamBase).subscribe((res) => {
+            let _deliveryData = res;
+            this.deliveryData.packageNo = _deliveryData[0].packageId;
+            this.deliveryData.type = _deliveryData[0].packageTypeId;
+            this.deliveryData.comments = _deliveryData[0].description;
+            this.deliveryData.image = _deliveryData[0].attachment1;
+            this.deliveryData.slotNo = _deliveryData[0].slot;
+        });
+    }
+    goBack() {
+        this.matDrawer.close();
     }
 };
 DeliveryHistoryComponent.ctorParameters = () => [
@@ -649,7 +675,7 @@ DeliveryHistoryComponent.ctorParameters = () => [
 ];
 DeliveryHistoryComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
+    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['packageHistory', { static: true },] }],
     onEditCreditNote: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:onEditCreditNote', ['$event.detail'],] }]
 };
 DeliveryHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -1016,14 +1042,14 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                 lookupvalue: details
             };
             this.lookupService.addLookupValue(add_param).subscribe((res) => {
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                }
                 if (res.message) {
                     const param = {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        if (res.code == 200) {
-                            this.sharedService.openSnackBar(res.statusMessage, 'success');
-                        }
                         // this.isDeliveryCategorySubmitted = true;
                         /// Go to the parent route
                         this.goBack();
@@ -1059,13 +1085,13 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
             };
             this.lookupService.updateLookupValue(update_param).subscribe((res) => {
                 if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
+                }
+                if (res.message) {
                     const param = {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        if (res.code == 200) {
-                            this.sharedService.openSnackBar(res.statusMessage, 'success');
-                        }
                         /// Go to the parent route
                         this.goBack();
                         this.getDeliveryTypeData();
@@ -1226,14 +1252,14 @@ let PackageTypeComponent = class PackageTypeComponent {
                 lookupvalue: details
             };
             this.lookupService.addLookupValue(add_param).subscribe((res) => {
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                }
                 if (res.message) {
                     const param = {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        if (res.code == 200) {
-                            this.sharedService.openSnackBar(res.statusMessage, 'success');
-                        }
                         // this.isDeliveryCategorySubmitted = true;
                         /// Go to the parent route
                         this.goBack();
@@ -1269,13 +1295,13 @@ let PackageTypeComponent = class PackageTypeComponent {
             };
             this.lookupService.updateLookupValue(update_param).subscribe((res) => {
                 if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
+                }
+                if (res.message) {
                     const param = {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        if (res.code == 200) {
-                            this.sharedService.openSnackBar(res.statusMessage, 'success');
-                        }
                         /// Go to the parent route
                         this.goBack();
                         this.getCategoryData();
@@ -1436,14 +1462,14 @@ let SlotTypeComponent = class SlotTypeComponent {
                 lookupvalue: details
             };
             this.lookupService.addLookupValue(add_param).subscribe((res) => {
+                if (res.code == 200) {
+                    this.sharedService.openSnackBar(res.statusMessage, 'success');
+                }
                 if (res.message) {
                     const param = {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        if (res.code == 200) {
-                            this.sharedService.openSnackBar(res.statusMessage, 'success');
-                        }
                         // this.isDeliveryCategorySubmitted = true;
                         /// Go to the parent route
                         this.goBack();
@@ -1479,13 +1505,13 @@ let SlotTypeComponent = class SlotTypeComponent {
             };
             this.lookupService.updateLookupValue(update_param).subscribe((res) => {
                 if (res.message) {
+                    this.sharedService.openSnackBar(res.message, 'success');
+                }
+                if (res.message) {
                     const param = {
                         LookupTypeId: 169
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
-                        if (res.code == 200) {
-                            this.sharedService.openSnackBar(res.statusMessage, 'success');
-                        }
                         /// Go to the parent route
                         this.goBack();
                         this.getSlotData();
@@ -2113,7 +2139,7 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
             };
         }
         this.packageService.getAllPendingDeliveries(params).subscribe((res) => {
-            this.allParcelDelivey = res.filter(x => x.isActive === false);
+            this.allParcelDelivey = res.filter(x => x.isActive === true);
             this.totalItems = this.allParcelDelivey.length;
             if (this.totalItems > this.itemLimit) {
                 this.ItemEndIndex = this.itemLimit;

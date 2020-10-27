@@ -94,7 +94,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
-    constructor(_router, _activatedRoute, userService, apartmentService, sharedService, sessionService, dialog) {
+    constructor(_router, _activatedRoute, userService, apartmentService, sharedService, sessionService, dialog, changeDetector) {
         this._router = _router;
         this._activatedRoute = _activatedRoute;
         this.userService = userService;
@@ -102,6 +102,7 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.dialog = dialog;
+        this.changeDetector = changeDetector;
         this.totalUsers = 0;
         this.unitData = "";
         this.ItemStartIndex = 0;
@@ -197,46 +198,11 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
         });
     }
     changePrimayContact(apartmentBlockUnitUserId, user) {
-        const message = `Do you want to Change as Primary Contact ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let apartmentBlockUnitUser = {
-                    "apartmentId": this.sessionService.apartmentId,
-                    "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
-                    "isPrimaryContact": !user.isPrimaryContact,
-                    "isLiving": user.isLiving,
-                    "updatedBy": this.sessionService.userId,
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-                };
-                let updateParam = {
-                    apartmentBlockUnitUser: apartmentBlockUnitUser
-                };
-                this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(resp => {
-                    this.sharedService.openSnackBar('Primary Contact Updated', 'success');
-                    this.getDeActivatedUsers();
-                });
-            }
-            else {
-                this.deActivatedUsersData.filter(key => {
-                    if (key.apartmentBlockUnitUserId == apartmentBlockUnitUserId) {
-                        key.userInfo.filter(item => {
-                            if (item.userId == user.userId) {
-                                item.isPrimaryContact = !user.isPrimaryContact;
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-    changeLiving(apartmentBlockUnitUserId, user) {
-        const message = `Do you want to Change as Living ?`;
+        let message;
+        if (user.isPrimaryContact)
+            message = 'Do you want to enable the user as primary contact for billing?';
+        else
+            message = 'Do you want to disable the user as primary contact for billing?';
         const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
         const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
             panelClass: 'material-dialog-medium',
@@ -249,7 +215,7 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
                     "apartmentId": this.sessionService.apartmentId,
                     "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
                     "isPrimaryContact": user.isPrimaryContact,
-                    "isLiving": !user.isLiving,
+                    "isLiving": user.isLiving,
                     "updatedBy": this.sessionService.userId,
                     "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
@@ -257,22 +223,54 @@ let UnitUsersDeActivateComponent = class UnitUsersDeActivateComponent {
                     apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
                 this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(resp => {
-                    this.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                    this.sharedService.openSnackBar('Primary Contact Updated', 'success');
                     this.getDeActivatedUsers();
                 });
             }
-            else {
-                this.deActivatedUsersData.filter(key => {
-                    if (key.apartmentBlockUnitUserId == apartmentBlockUnitUserId) {
-                        key.userInfo.filter(item => {
-                            if (item.userId == user.userId) {
-                                item.isLiving = !user.isLiving;
-                            }
-                        });
-                    }
-                });
-            }
+            else
+                user.isPrimaryContact = !user.isPrimaryContact;
         });
+    }
+    changeLiving(apartmentBlockUnitUserId, user) {
+        if (user.roleName == 'Tenant' && !user.isLiving) {
+            this.changeDetector.detectChanges();
+            user.isLiving = !user.isLiving;
+            this.sharedService.openSnackBar('Tenant is always a resident', 'error');
+        }
+        else {
+            let message;
+            if (user.isLiving)
+                message = 'Do you want to set the user as resident ?';
+            else
+                message = 'Do you want to set the user as non-resident ?';
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let apartmentBlockUnitUser = {
+                        "apartmentId": this.sessionService.apartmentId,
+                        "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
+                        "isPrimaryContact": user.isPrimaryContact,
+                        "isLiving": user.isLiving,
+                        "updatedBy": this.sessionService.userId,
+                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                    };
+                    let updateParam = {
+                        apartmentBlockUnitUser: apartmentBlockUnitUser
+                    };
+                    this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(resp => {
+                        this.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                        this.getDeActivatedUsers();
+                    });
+                }
+                else
+                    user.isLiving = !user.isLiving;
+            });
+        }
     }
     ngOnInit() {
         this.getDeActivatedUsers();
@@ -300,7 +298,8 @@ UnitUsersDeActivateComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 UnitUsersDeActivateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -315,7 +314,8 @@ UnitUsersDeActivateComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], UnitUsersDeActivateComponent);
 
 

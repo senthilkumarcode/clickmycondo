@@ -1870,7 +1870,7 @@
           value: function appointmentClick(info) {
             var _this17 = this;
 
-            if (this.sessionService.roleTypeName == 'Admin') {
+            if (this.sessionService.isAdmin()) {
               var data = {
                 id: info.event.extendedProps.meetingId,
                 type: 'edit',
@@ -1894,7 +1894,7 @@
           value: function appointmentAdd(event) {
             var _this18 = this;
 
-            if (this.sessionService.roleTypeName == 'Admin') {
+            if (this.sessionService.isAdmin()) {
               var data = {
                 type: 'create',
                 from: 'calendar',

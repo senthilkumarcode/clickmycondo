@@ -1369,7 +1369,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         };
     }
     appointmentClick(info) {
-        if (this.sessionService.roleTypeName == 'Admin') {
+        if (this.sessionService.isAdmin()) {
             let data = { id: info.event.extendedProps.meetingId, type: 'edit', from: 'calendar' };
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 panelClass: 'material-dialog-big',
@@ -1385,7 +1385,7 @@ let MeetingsScheduledListComponent = class MeetingsScheduledListComponent {
         }
     }
     appointmentAdd(event) {
-        if (this.sessionService.roleTypeName == 'Admin') {
+        if (this.sessionService.isAdmin()) {
             let data = { type: 'create', from: 'calendar', event: event };
             const dialogRef = this.dialog.open(_meeting_edit_display_meeting_edit_display_component__WEBPACK_IMPORTED_MODULE_7__["MeetingEditDisplayComponent"], {
                 panelClass: 'material-dialog-big',

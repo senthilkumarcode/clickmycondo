@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-category-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"violation-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Violation Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Violation Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addDocumentCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Category Type*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"category.lookupValueName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"category.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n                                    <button *ngIf=\"clickMode=='add'\" class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"createViolationCategory()\">Submit</button>\n                                    <button *ngIf=\"clickMode=='edit'\"  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"updateViolationCategory()\">Update</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>Create Violation Category</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Category\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <!-- Loader -->\n                        <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                        <div *ngIf=\"isViolationCategoryLoaded\">\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                                [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationCategoryList\"\n                                [columns]=\"violationCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-category-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"violation-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Violation Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Violation Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addDocumentCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Category Type*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"category.lookupValueName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"category.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n                                    <button *ngIf=\"clickMode=='add'\" class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"createViolationCategory()\">Submit</button>\n                                    <button *ngIf=\"clickMode=='edit'\"  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"updateViolationCategory()\">Update</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>Violation Category</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Violation Category\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <!-- Loader -->\n                        <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                        <div *ngIf=\"isViolationCategoryLoaded\">\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                                [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationCategoryList\"\n                                [columns]=\"violationCategoryHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-rule\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Violation Rules</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n                        <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory('add',0)\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Category\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                <div *ngIf=\"isViolationCategoryLoaded\">\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                        [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationRuleList\"\n                        [columns]=\"violationRuleHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                    </jqxGrid>\n                </div>\n            </div>\n        </condo-card>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-rule\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Violation Rules</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto mr-3\">\n                        <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                    </div>\n                    <div class=\"mr-3\">\n                        <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                    </div>\n                    <div>\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory('add',0)\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Violation Category\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <!-- Loader -->\n                <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                <div *ngIf=\"isViolationCategoryLoaded\">\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                        [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"violationRuleList\"\n                        [columns]=\"violationRuleHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                    </jqxGrid>\n                </div>\n            </div>\n        </condo-card>\n    </div>");
 
 /***/ }),
 
@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-stop-privilage-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"violation-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Violation Category</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Violation Category</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addDocumentCategoryForm = \"ngForm\">\n\t\t\t\t\t\t<div class=\"row\">\n                            <div class=\"col-s\n                            m-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Category Type*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Type\" name=\"name\" [(ngModel)]=\"category.lookupValueName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\"  placeholder=\"Description\" name=\"description\" [(ngModel)]=\"category.description\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitViolationCategoryForm()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>Stop Privilage</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Category\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <!-- Loader -->\n                        <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                        <div *ngIf=\"isViolationCategoryLoaded\">\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                                [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"stopPrivilageList\"\n                                [columns]=\"stopPrivilageHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"violation-stop-privilage-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer #filter mode=\"over\" position=\"end\">\n            <div class=\"violation-setup-drawer\">\n                <div class=\"title\">\n                    <h4 class=\"mb-4\" *ngIf=\"clickMode == 'add'\">Add Stop Privilege</h4>\n                    <h4 class=\"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Stop Privilege</h4>\n                    <div class=\"ml-auto\">\n                        <button mat-icon-button (click)=\"closeDrawer()\">\n                            <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                        </button>\n                    </div>\n                </div>\n                <app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n                <div *ngIf=\"isDrawerLoader\">\n                    <form #addDocumentCategoryForm=\"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Stop Privledge Name</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"StopPrivledgeName\"\n                                        [(ngModel)]=\"privledge.Name\" required>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Stopwhat Description</label>\n                                    <select placeholder=\"Select Stopwhat\" name=\"ViolationDescription\"\n                                        [(ngModel)]=\"privledge.Description\" required class=\"form-control\">\n                                        <option *ngFor=\"let item of allMenus\" [value]=\"item\">{{item}}</option>\n                                    </select>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Period of Stop Privledges (days)</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Enter\"\n                                        name=\"PeriodOfPrivledges\" [(ngModel)]=\"privledge.StopPriveldgeDays\" required>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"float-right\">\n                                    <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                        (click)=\"submitViolationCategoryForm()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n                                    <button mat-button (click)=\"closeDrawer()\">Cancel</button>\n                                </div>\n                            </div>\n                        </div>\n                    </form>\n                </div>\n            </div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <div>\n                <condo-card>\n                    <div CondoCardHeader>\n                        <div class=\"d-flex\">\n                            <div>\n                                <h4>Stop Privilege</h4>\n                                <p>{{totalItems}} results</p>\n                            </div>\n                            <div class=\"ml-auto mr-3\">\n                                <app-table-search [input]=\"violationSearch\" (outputParams)=\"onGlSearchFilter($event)\">\n                                </app-table-search>\n                            </div>\n                            <div class=\"mr-3\">\n                                <app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addViolationCategory()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Stop Privilege\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                    <div CondoCardBody>\n                        <!-- Loader -->\n                        <app-loader *ngIf=\"!isViolationCategoryLoaded\"></app-loader>\n                        <div *ngIf=\"isViolationCategoryLoaded\">\n                            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\"\n                                [pageable]=\"true\" [filterable]=\"true\" [sortable]=\"true\" [source]=\"stopPrivilageList\"\n                                [columns]=\"stopPrivilageHeader\" [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                            </jqxGrid>\n                        </div>\n                    </div>\n                </condo-card>\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>");
 
 /***/ }),
 
@@ -479,14 +479,24 @@ let ViolationRuleCreateComponent = class ViolationRuleCreateComponent {
         };
         if (this.isEdit == 'edit') {
             this.violationService.updateViolationRuleNew(violationRuleParam).subscribe((res) => {
-                this.sharedService.openSnackBar('Violation Rules Updated Successfully', 'success');
-                this.dialogRef.close(true);
+                if (res.message) {
+                    this.sharedService.openSnackBar('Violation Rules Updated Successfully', 'success');
+                    this.dialogRef.close(true);
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
             });
         }
         else {
             this.violationService.addViolationRuleNew(violationRuleParam).subscribe((res) => {
-                this.sharedService.openSnackBar('Violation Rules Created Successfully', 'success');
-                this.dialogRef.close(true);
+                if (res.message) {
+                    this.sharedService.openSnackBar('Violation Rules Created Successfully', 'success');
+                    this.dialogRef.close(true);
+                }
+                else {
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
             });
         }
     }
@@ -957,6 +967,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
 /* harmony import */ var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Violation */ "./src/app/api/controllers/Violation.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+
+
 
 
 
@@ -967,22 +982,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComponent {
-    constructor(lookupService, injector, sharedService, sessionService, violationService) {
+    constructor(lookupService, injector, sharedService, sessionService, violationService, screenService) {
         this.lookupService = lookupService;
         this.injector = injector;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.violationService = violationService;
+        this.screenService = screenService;
         this.category = {};
         this.isViolationCategoryLoaded = false;
         this.isDrawerLoader = true;
         this.violationSearch = '';
+        this.privledge = {
+            Id: 0,
+            Name: '',
+            Description: '',
+            StopPriveldgeDays: 0,
+            IsActive: true,
+            InsertedBy: 0,
+            InsertedOn: '',
+            UpdatedBy: 0,
+            UpdatedOn: '',
+            ApartmentId: this.sessionService.apartmentId,
+        };
+        this.allMenus = [];
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_7__["ModalService"]);
     }
     editViolation(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.clickMode = 'edit';
-        this.category = dataRecord;
+        this.privledge.Id = dataRecord.id,
+            this.privledge.Name = dataRecord.name,
+            this.privledge.Description = dataRecord.description,
+            this.privledge.StopPriveldgeDays = dataRecord.stopPriveldgeDays,
+            this.category = dataRecord;
         window.scroll({
             top: 0,
             behavior: 'smooth'
@@ -1013,6 +1046,18 @@ let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComp
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'Violation Category');
     }
+    getallMenu() {
+        let params = {
+            active: 1
+        };
+        this.screenService.xgetAllScreensByStatus(params).subscribe((res) => {
+            const menuData = res;
+            menuData.forEach((element) => {
+                let data = element.screenName;
+                this.allMenus.push(data.replace("Admin_Main_", ""));
+            });
+        });
+    }
     deleteViolation(detail) {
         this.modalService.showConfirmModal(detail.rowId);
     }
@@ -1029,60 +1074,47 @@ let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComp
     submitViolationCategoryForm() {
         this.isDrawerLoader = false;
         if (this.clickMode == 'add') {
-            const lookupparams = {
-            // Name : ,
-            // Description : ,
-            // StopPriveldgeDays : ,
-            // IsActive: true,
-            // InsertedBy: this.sessionService.userId,
-            // InsertedOn: _moment().toISOString(),
-            // UpdatedBy: null,
-            // UpdatedOn: null,
-            // ApartmentId: this.sessionService.apartmentId
-            };
-            this.violationService.addViolationPrivilege(lookupparams).subscribe((res) => {
+            this.privledge.InsertedBy = this.sessionService.userId;
+            this.privledge.InsertedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+            this.violationService.addViolationPrivilege(this.privledge).subscribe((res) => {
                 this.isDrawerLoader = true;
-                if (res.message) {
-                    this.sharedService.openSnackBar('Violation Privilege Added Successfully', 'success');
-                    this.closeDrawer();
-                    this.getViolationPrivilege();
-                    // this.privledge = {
-                    //   privilegeId: 0,
-                    //   ViolationName: '',
-                    //   ViolationDescription: '',
-                    //   PeriodOfPrivledges: ''
-                    // };
-                }
-                else
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
+                this.sharedService.openSnackBar('Violation Privilege Added Successfully', 'success');
+                this.closeDrawer();
+                this.getViolationPrivilege();
+                this.resetAll();
             }, (error) => {
                 this.isDrawerLoader = true;
                 this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
         else {
-            const lookupparams = {};
-            this.violationService.updateViolationPrivilege(lookupparams).subscribe((res) => {
+            this.privledge.UpdatedBy = this.sessionService.userId;
+            this.privledge.UpdatedOn = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+            this.violationService.updateViolationPrivilege(this.privledge).subscribe((res) => {
                 this.isDrawerLoader = true;
-                if (res.message) {
-                    // this.privledge = {
-                    //   privilegeId: 0,
-                    //   ViolationName: '',
-                    //   ViolationDescription: '',
-                    //   PeriodOfPrivledges: ''
-                    // };
-                    this.closeDrawer();
-                    this.getViolationPrivilege();
-                    this.sharedService.openSnackBar(res.message, 'success');
-                }
-                else {
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
+                this.resetAll();
+                this.closeDrawer();
+                this.getViolationPrivilege();
+                this.sharedService.openSnackBar(res.message, 'success');
             }, (error) => {
                 this.isDrawerLoader = true;
                 this.sharedService.openSnackBar('Network Error', 'error');
             });
         }
+    }
+    resetAll() {
+        this.privledge = {
+            Id: 0,
+            Name: '',
+            Description: '',
+            StopPriveldgeDays: 0,
+            IsActive: true,
+            InsertedBy: 0,
+            InsertedOn: '',
+            UpdatedBy: 0,
+            UpdatedOn: '',
+            ApartmentId: this.sessionService.apartmentId,
+        };
     }
     getViolationPrivilege() {
         this.isViolationCategoryLoaded = false;
@@ -1105,6 +1137,7 @@ let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComp
     }
     ngOnInit() {
         this.getViolationPrivilege();
+        this.getallMenu();
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -1142,7 +1175,7 @@ let ViolationStopPrivilageSetupComponent = class ViolationStopPrivilageSetupComp
                 align: 'center',
                 width: 120,
                 cellsrenderer: (row) => {
-                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editMainstaff(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
+                    return '<div class="simple-actions"> <a href="javascript:void(0)" class="mr-2" onClick="editCategory(' + row + ')"><i class="icon fa fa-pencil" aria-hidden="true"></i> </a> <a href="javascript:void(0)" onClick="showConfirmDeleteEvent(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i> </a></div>';
                 },
                 renderer: columnrenderer
             }];
@@ -1177,7 +1210,8 @@ ViolationStopPrivilageSetupComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] },
-    { type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__["ViolationService"] }
+    { type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__["ViolationService"] },
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_10__["ScreenService"] }
 ];
 ViolationStopPrivilageSetupComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -1196,7 +1230,8 @@ ViolationStopPrivilageSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"],
-        src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__["ViolationService"]])
+        src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_8__["ViolationService"],
+        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_10__["ScreenService"]])
 ], ViolationStopPrivilageSetupComponent);
 
 function editCategory(row) {

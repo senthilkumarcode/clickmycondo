@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"approved-user-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<div class=\"userList\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Approved Users</h4>\n\t\t\t\t\t\t\t<p class=\"\">Total {{totalUnits}} Units and {{totalItems}} Users</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (keyup)=\"searchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3\">\n\n\t\t\t\t\t\t\t<form novalidate>\n\n\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\" [fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\" [isLabel]=\"'false'\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\n\t\t\t\t\t\t\t</form>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<div class=\"users\">\n\n\t\t\t\t\t\t<mat-list class=\"border-bottom\"\n\t\t\t\t\t\t\t*ngFor=\"let item of approvedList() | slice:ItemStartIndex:ItemEndIndex\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<mat-list-item class=\"h-auto\">\n\t\t\t\t\t\t\t\t<div class=\"w-100 pt-4 pb-4 link\">\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-2\">\n\t\t\t\t\t\t\t\t\t\t\t{{item?.apartmentBlockNumber}} {{item.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let user of item.userInfo\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Owner'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person_pin\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Tenant'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"user.roleName != 'Admin'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-sm\">{{user.userName}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-orange-900 text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isPrimaryContact\">(Primary)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"text-primary text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isLiving\">(Living)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.phone}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tPrimary\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"!user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle *ngIf=\"user.isLiving\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tLiving\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle  *ngIf=\"!user.isLiving\" [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon (click)=\"showApprovedUserDetails(item,user)\" svgIcon=\"mat_outline:remove_red_eye\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-list-item>\n\t\t\t\t\t\t</mat-list>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"approved-user-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t\t<div class=\"userList\" *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex align-items-center justify-content-between\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Approved Users</h4>\n\t\t\t\t\t\t\t<p class=\"\">Total {{totalUnits}} Units and {{totalItems}} Users</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"unitData\" (keyup)=\"searchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3\">\n\n\t\t\t\t\t\t\t<form novalidate>\n\n\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower\" fieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\" [fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\" [fieldModel]=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\" [isLabel]=\"'false'\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\n\t\t\t\t\t\t\t</form>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<div class=\"users\">\n\n\t\t\t\t\t\t<mat-list class=\"border-bottom\"\n\t\t\t\t\t\t\t*ngFor=\"let item of approvedList() | slice:ItemStartIndex:ItemEndIndex\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<mat-list-item class=\"h-auto\">\n\t\t\t\t\t\t\t\t<div class=\"w-100 pt-4 pb-4 link\">\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-2\">\n\t\t\t\t\t\t\t\t\t\t\t{{item?.apartmentBlockNumber}} {{item.apartmentBlockUnitNumber}}\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-10\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\" *ngFor=\"let user of item.userInfo\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Owner'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"mat_outline:person_pin\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.roleName == 'Tenant'\"></mat-icon>\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div *ngIf=\"user.roleName != 'Admin'\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-sm\">{{user.userName}}</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"mr-2 text-orange-900 text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isPrimaryContact\">(Primary)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<span class=\"text-primary text-sm\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t*ngIf=\"user.isLiving\">(Living)</span>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.phone}}\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.isPrimaryContact\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changePrimayContact(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.isPrimaryContact ? 'Primary' : ''}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-slide-toggle [(ngModel)]=\"user.isLiving\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t(change)=\"changeLiving(item.apartmentBlockUnitUserId,user)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{user.isLiving ? 'Living' : ''}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-slide-toggle>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-2 text-secondary text-sm pt-xs-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon (click)=\"showApprovedUserDetails(item,user)\" svgIcon=\"mat_outline:remove_red_eye\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</mat-list-item>\n\t\t\t\t\t\t</mat-list>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t\t</app-pagination>\n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</div>\n\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -95,7 +95,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
-    constructor(_router, _activatedRoute, userService, apartmentService, sharedService, sessionService, dialog) {
+    constructor(_router, _activatedRoute, userService, apartmentService, sharedService, sessionService, dialog, changeDetector) {
         this._router = _router;
         this._activatedRoute = _activatedRoute;
         this.userService = userService;
@@ -103,6 +103,7 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.dialog = dialog;
+        this.changeDetector = changeDetector;
         this.totalUsers = 0;
         this.unitData = "";
         this.ItemStartIndex = 0;
@@ -198,46 +199,11 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
         });
     }
     changePrimayContact(apartmentBlockUnitUserId, user) {
-        const message = `Do you want to Change as Primary Contact ?`;
-        const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
-        const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
-            panelClass: 'material-dialog-medium',
-            disableClose: true,
-            data: dialogData
-        });
-        dialogRef.afterClosed().subscribe(dialogResult => {
-            if (dialogResult) {
-                let apartmentBlockUnitUser = {
-                    "apartmentId": this.sessionService.apartmentId,
-                    "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
-                    "isPrimaryContact": !user.isPrimaryContact,
-                    "isLiving": user.isLiving,
-                    "updatedBy": this.sessionService.userId,
-                    "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
-                };
-                let updateParam = {
-                    apartmentBlockUnitUser: apartmentBlockUnitUser
-                };
-                this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(resp => {
-                    this.sharedService.openSnackBar('Primary Contact Updated', 'success');
-                    this.getApprovedUsers();
-                });
-            }
-            else {
-                this.approvedUsersData.filter(key => {
-                    if (key.apartmentBlockUnitUserId == apartmentBlockUnitUserId) {
-                        key.userInfo.filter(item => {
-                            if (item.userId == user.userId) {
-                                item.isPrimaryContact = !user.isPrimaryContact;
-                            }
-                        });
-                    }
-                });
-            }
-        });
-    }
-    changeLiving(apartmentBlockUnitUserId, user) {
-        const message = `Do you want to Change as Living ?`;
+        let message;
+        if (user.isPrimaryContact)
+            message = 'Do you want to enable the user as primary contact for billing?';
+        else
+            message = 'Do you want to disable the user as primary contact for billing?';
         const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
         const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
             panelClass: 'material-dialog-medium',
@@ -250,7 +216,7 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
                     "apartmentId": this.sessionService.apartmentId,
                     "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
                     "isPrimaryContact": user.isPrimaryContact,
-                    "isLiving": !user.isLiving,
+                    "isLiving": user.isLiving,
                     "updatedBy": this.sessionService.userId,
                     "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
@@ -258,22 +224,54 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
                     apartmentBlockUnitUser: apartmentBlockUnitUser
                 };
                 this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(resp => {
-                    this.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                    this.sharedService.openSnackBar('Primary Contact Updated', 'success');
                     this.getApprovedUsers();
                 });
             }
-            else {
-                this.approvedUsersData.filter(key => {
-                    if (key.apartmentBlockUnitUserId == apartmentBlockUnitUserId) {
-                        key.userInfo.filter(item => {
-                            if (item.userId == user.userId) {
-                                item.isLiving = !user.isLiving;
-                            }
-                        });
-                    }
-                });
-            }
+            else
+                user.isPrimaryContact = !user.isPrimaryContact;
         });
+    }
+    changeLiving(apartmentBlockUnitUserId, user) {
+        if (user.roleName == 'Tenant' && !user.isLiving) {
+            this.changeDetector.detectChanges();
+            user.isLiving = !user.isLiving;
+            this.sharedService.openSnackBar('Tenant is always a resident', 'error');
+        }
+        else {
+            let message;
+            if (user.isLiving)
+                message = 'Do you want to set the user as resident ?';
+            else
+                message = 'Do you want to set the user as non-resident ?';
+            const dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogModel"]("Confirm Action", message);
+            const dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_8__["CommonConfirmModalComponent"], {
+                panelClass: 'material-dialog-medium',
+                disableClose: true,
+                data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(dialogResult => {
+                if (dialogResult) {
+                    let apartmentBlockUnitUser = {
+                        "apartmentId": this.sessionService.apartmentId,
+                        "apartmentBlockUnitUserId": apartmentBlockUnitUserId,
+                        "isPrimaryContact": user.isPrimaryContact,
+                        "isLiving": user.isLiving,
+                        "updatedBy": this.sessionService.userId,
+                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
+                    };
+                    let updateParam = {
+                        apartmentBlockUnitUser: apartmentBlockUnitUser
+                    };
+                    this.apartmentService.updateIsPrimaryAndLivingByApartmentBlockUnitUser(updateParam).subscribe(resp => {
+                        this.sharedService.openSnackBar('Living Updated Successfully', 'success');
+                        this.getApprovedUsers();
+                    });
+                }
+                else
+                    user.isLiving = !user.isLiving;
+            });
+        }
     }
     ngOnInit() {
         this.getApprovedUsers();
@@ -301,7 +299,8 @@ UnitUsersApprovedComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 UnitUsersApprovedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -316,7 +315,8 @@ UnitUsersApprovedComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], UnitUsersApprovedComponent);
 
 

@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n<div class=\"inventory-view-wrapper\" *ngIf=\"isDeliveryHistoryLoaded\" >\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n                            [disableClose]=\"true\"\n                            #matDrawer>\n\n                      <router-outlet></router-outlet>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\">\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n";
+      __webpack_exports__["default"] = "<app-loader *ngIf=\"!isDeliveryHistoryLoaded\" ></app-loader>\n<div class=\"inventory-view-wrapper\">\n\t\t<mat-drawer-container (backdropClick)=\"onBackdropClicked()\">\n\n                <!-- Drawer -->\n                <mat-drawer [mode]=\"drawerMode\"\n                            [opened]=\"false\"\n                            [position]=\"'end'\"\n\t\t\t\t\t\t\t[disableClose]=\"true\"\n\t\t\t\t\t\t\t#packageHistory\n                            >\n\n\t\t\t\t\t\t\t<div class=\"bg-card shadow\">\n    \n\t\t\t\t\t\t\t\t<div class=\"title row p-2\">\n\t\t\t\t\t\t\t\t\t<h4 class=\"mt-3\">View Delivery History</h4>\n\t\t\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form #viewdeliveryHistory = \"ngForm\" name=\"viewdeliveryHistory\" (ngSubmit)=\"submitAddCreditNoteForm(viewdeliveryHistory)\"\n\t\t\t\t\t\t\t\t\tnovalidate>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Package No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.packageNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Type</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.type}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.comments}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Image</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.image}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-lg-12 col-md-12 col-sm-12 row\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Slot No</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-6\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>{{deliveryData.slotNo}}</label>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t   \n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\n                </mat-drawer>\n\n                <mat-drawer-content>\n                    \n                    <div class=\"main\" *ngIf=\"isDeliveryHistoryLoaded\" >\n\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t<condo-card >\n\n\t\t\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t\t\t\t\t<h4>All Delivery History</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"creditNoteData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<!-- <div>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addCreditNote()\">Add Credit Note</button>\n\t\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t\t\t\t\t\t[source]=\"deliveryHistoryList\"\n\t\t\t\t\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t\t\t\t\t\t</jqxGrid> \n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t\t</condo-card>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</mat-drawer-content>\n\t\t\n\t\t\t\t\t</mat-drawer-container>\n</div>\n\n";
       /***/
     },
 
@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Packge Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>";
+      __webpack_exports__["default"] = "<mat-drawer-container class=\"content-layout right-sidebar-fullheight-basic-inner-scroll\" [hasBackdrop]=\"true\">\n    <mat-drawer #package mode=\"over\" position=\"end\">\n        <div class=\"add-package-type\">\n            <div class=\"title\">\n                <h4>\n                    <span *ngIf=\"!isEdit\">Add Package Type</span>\n                    <span *ngIf=\"isEdit\">Update Package Type</span>\n                </h4>\n                <div class=\"ml-auto\">\n                    <button mat-icon-button (click)=\"goBack()\">\n                        <mat-icon [svgIcon]=\"'close'\"></mat-icon>\n                    </button>\n                </div>\n            </div>\n            <form #addAssociationCategoryForm=\"ngForm\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Name *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryName\"\n                                [(ngModel)]=\"categoryName\" required>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description *</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"categoryDescription\"\n                                [(ngModel)]=\"categoryDescription\" required>\n                        </div>\n                    </div>\n\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"float-right\">\n                            <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                                (click)=\"submitSecurityCategoryForm()\">{{isEdit ? 'Update' : 'Submit'}}</button>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </mat-drawer>\n    <mat-drawer-content>\n        <div class=\"main\">\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4>Package Type</h4>\n                    <p class=\"text-secondary\">{{totalItems}} Items</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearchData\">\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"addCategory()\">Add New</button>\n                </div>\n            </div>\n\n            <div class=\"bg-card-list col-sm-12\">\n\n                <div class=\"category-list list-boxes\">\n\n                    <div class=\"bg-card pt-4 pr-5 pl-5 shadow\"\n                        *ngFor=\"let item of packageTypeList | simpleSearch: categorySearchData; let i = index\">\n                        <div class=\"desp mt-3\">\n                            <h6>{{item.lookupValueName}}</h6>\n                        </div>\n                        <div class=\"mt-3 ml-n4 button-wrapper\">\n                            <button class=\"px-3\" mat-button [color]=\"'primary'\" (click)=\"editDeliveryType(item)\">\n                                <mat-icon [svgIcon]=\"'feather:edit'\"></mat-icon>\n                                Edit\n                            </button>\n                            <button class=\"px-3\" mat-button [color]=\"'warn'\"\n                                (click)=\"deleteCategory(item.lookupValueId)\">\n                                <mat-icon [svgIcon]=\"'feather:trash-2'\"></mat-icon>\n                                Delete\n                            </button>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n        </div>\n\n    </mat-drawer-content>\n</mat-drawer-container>";
       /***/
     },
 
@@ -182,7 +182,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"pending-delivery\">\n\t<div class=\"main\">\n\t\t<form #pendingDeliveryForm=\"ngForm\" class=\"bg-card shadow\" name=\"pendingDeliveryForm\" novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>From Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"delivery.fromDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"From Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Startdate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>To Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"delivery.toDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"To Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Enddate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button (click)=\"onReset()\">Reset</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t\t<app-loader *ngIf=\"!isPendingDeliveryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isPendingDeliveryLoaded\">\n            <ng-container *ngFor=\"let item of allParcelDelivey | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                <div class=\"bg-card shadow mb-4\">\n                    <div class=\"dues d-flex align-items-center\">\n                        <div class=\"details\">\n                            <div class=\"row mb-3\">\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Package No</p>\n                                    <p class=\"text-secondary\">{{item.packageId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Slot No</p>\n                                    <p class=\"text-secondary\">{{item.slot}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Block Unit No</p>\n                                    <p class=\"text-secondary\">{{item.apartmentBlockUnitId}}</p>\n                                </div>\n                                <div class=\"col-sm-12 col-md-3 column\">\n                                    <p class=\"font-medium\">Status</p>\n                                    <p class=\"text-secondary\">{{item.deliveryStatusId}}</p>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"text\">Actions</div>\n\t\t\t\t\t\t\t\t\t<div (click)=\"editParcelDelivery(item.packageId)\" class=\"pay-btn font-medium mt-2\">Edit</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n                    </div>\n                </div>\n            </ng-container>\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                    [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n        </ng-container>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"pending-delivery\">\n\t<div class=\"main\">\n\t\t<form #pendingDeliveryForm=\"ngForm\" class=\"bg-card shadow\" name=\"pendingDeliveryForm\" novalidate>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>From Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"delivery.fromDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"From Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Startdate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>To Date</label>\n\t\t\t\t\t\t<input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"delivery.toDate\"\n\t\t\t\t\t\t\t[ngModelOptions]=\"{standalone: true}\" placeholder=\"To Date\" autocomplete=\"off\" required>\n\t\t\t\t\t\t<owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"Enddate\">\n\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">Submit</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"col-sm-2 my-auto mx-auto\">\n\t\t\t\t\t<button mat-flat-button (click)=\"onReset()\">Reset</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t\t<app-loader *ngIf=\"!isPendingDeliveryLoaded\"></app-loader>\n\t\t<ng-container *ngIf=\"isPendingDeliveryLoaded\">\n\t\t\t<ng-container *ngFor=\"let item of allParcelDelivey | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\t\t\t\t<div class=\"bg-card shadow mb-4\">\n\t\t\t\t\t<div class=\"dues d-flex align-items-center\">\n\t\t\t\t\t\t<div class=\"details\">\n\t\t\t\t\t\t\t<div class=\"row mb-3\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Number</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.rno}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Block Unit No</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.blockUnit_Label}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-2 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Slot No</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.slot}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-3 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Status</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.residentName}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12 col-md-3 column\">\n\t\t\t\t\t\t\t\t\t<!-- <p class=\"font-medium\">Status</p> -->\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary\">{{item.assignToStaff}}</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"amount\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"text\">Actions</div> -->\n\t\t\t\t\t\t\t\t\t<div (click)=\"editParcelDelivery(item.packageId)\" class=\"pay-btn font-medium mt-2\">\n\t\t\t\t\t\t\t\t\t\tEdit</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t\t<app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n\t\t\t\t</app-pagination>\n\t\t\t</div>\n\t\t</ng-container>\n\t</div>\n</div>";
       /***/
     },
 
@@ -707,6 +707,7 @@
           this.selectedInput = "";
           this.columnField = {};
           this.isEditCredit = false;
+          this.deliveryData = {};
           this.params = {
             apartmentId: this.sessionService.apartmentId
           };
@@ -752,6 +753,11 @@
           value: function ngOnInit() {
             var _this5 = this;
 
+            this.deliveryData.packageNo = "";
+            this.deliveryData.type = "";
+            this.deliveryData.comments = "";
+            this.deliveryData.image = "";
+            this.deliveryData.slotNo = "";
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this5.timeZone = timeZone;
             });
@@ -907,14 +913,35 @@
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             this.credit = dataRecord;
             var id = dataRecord.packageId;
-            this.sharedService.setMatDrawerId(id);
+            this.getPackage(id);
+            this.matDrawer.open(); // this.sharedService.setMatDrawerId(id);
+            // this._router.navigate(['./delivery-history' ,'view', id], {relativeTo: this._activatedRoute.parent});
+            //  //Mark for check
+            //  this._changeDetectorRef.markForCheck();
+          }
+        }, {
+          key: "getPackage",
+          value: function getPackage(packageId) {
+            var _this7 = this;
 
-            this._router.navigate(['./delivery-history', 'view', id], {
-              relativeTo: this._activatedRoute.parent
-            }); //Mark for check
-
-
-            this._changeDetectorRef.markForCheck();
+            var queryParamBase = {
+              // tslint:disable-next-line:radix
+              ApartmentId: parseInt(this.sessionService.apartmentId),
+              packageid: packageId
+            };
+            this.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
+              var _deliveryData = res;
+              _this7.deliveryData.packageNo = _deliveryData[0].packageId;
+              _this7.deliveryData.type = _deliveryData[0].packageTypeId;
+              _this7.deliveryData.comments = _deliveryData[0].description;
+              _this7.deliveryData.image = _deliveryData[0].attachment1;
+              _this7.deliveryData.slotNo = _deliveryData[0].slot;
+            });
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
           }
         }]);
 
@@ -950,7 +977,7 @@
         }],
         matDrawer: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['matDrawer', {
+          args: ['packageHistory', {
             "static": true
           }]
         }],
@@ -1105,7 +1132,7 @@
         _createClass(DeliveryViewHistoryComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this7 = this;
+            var _this8 = this;
 
             //this.getAllCollection();
             this.isdeliverySubmitted = true;
@@ -1116,12 +1143,12 @@
             this.deliveryData.slotNo = ""; //Open the drawer
 
             this.sharedService.matdraweridcast.subscribe(function (id) {
-              if (id != null && id == _this7._activatedRoute.params['value'].id) {
-                _this7._deliveryHistoryComponent.matDrawer.open();
+              if (id != null && id == _this8._activatedRoute.params['value'].id) {
+                _this8._deliveryHistoryComponent.matDrawer.open();
               } //Mark for check
 
 
-              _this7._changeDetectorRef.markForCheck();
+              _this8._changeDetectorRef.markForCheck();
             });
 
             if (this._activatedRoute.params['value'].type == 'view') {
@@ -1136,11 +1163,11 @@
             };
             this.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
               var _deliveryData = res;
-              _this7.deliveryData.packageNo = _deliveryData[0].packageId;
-              _this7.deliveryData.type = _deliveryData[0].packageTypeId;
-              _this7.deliveryData.comments = _deliveryData[0].description;
-              _this7.deliveryData.image = _deliveryData[0].attachment1;
-              _this7.deliveryData.slotNo = _deliveryData[0].slot;
+              _this8.deliveryData.packageNo = _deliveryData[0].packageId;
+              _this8.deliveryData.type = _deliveryData[0].packageTypeId;
+              _this8.deliveryData.comments = _deliveryData[0].description;
+              _this8.deliveryData.image = _deliveryData[0].attachment1;
+              _this8.deliveryData.slotNo = _deliveryData[0].slot;
             });
           }
         }, {
@@ -1166,17 +1193,17 @@
         }, {
           key: "getUnits",
           value: function getUnits() {
-            var _this8 = this;
+            var _this9 = this;
 
             var params = {
               // tslint:disable-next-line:radix
               apartmentBlockId: parseInt(this.apartmentBlockId)
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this8.isBlockSelected = true;
-              _this8.unitData = res; //Mark for check
+              _this9.isBlockSelected = true;
+              _this9.unitData = res; //Mark for check
 
-              _this8._changeDetectorRef.markForCheck();
+              _this9._changeDetectorRef.markForCheck();
             }, function (error) {
               console.log(error);
             });
@@ -1444,20 +1471,20 @@
         _createClass(DeliveryTypeComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this9 = this;
+            var _this10 = this;
 
             this.getDeliveryTypeData();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
-                  updateUserId: parseInt(_this9.sessionService.userId)
+                  updateUserId: parseInt(_this10.sessionService.userId)
                 };
 
-                _this9.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this9.sharedService.openSnackBar('Delivery Type Deleted Successfully', 'success');
+                _this10.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this10.sharedService.openSnackBar('Delivery Type Deleted Successfully', 'success');
 
-                  _this9.getDeliveryTypeData();
+                  _this10.getDeliveryTypeData();
                 }, function (error) {});
               }
             });
@@ -1465,17 +1492,17 @@
         }, {
           key: "getDeliveryTypeData",
           value: function getDeliveryTypeData() {
-            var _this10 = this;
+            var _this11 = this;
 
             var param = {
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-              _this10.isDeliveryCategoryLoaded = true;
-              _this10.deliveryTypeList = res.filter(function (item) {
+              _this11.isDeliveryCategoryLoaded = true;
+              _this11.deliveryTypeList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this10.totalItems = _this10.deliveryTypeList.length;
+              _this11.totalItems = _this11.deliveryTypeList.length;
             });
           }
         }, {
@@ -1498,7 +1525,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm() {
-            var _this11 = this;
+            var _this12 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -1523,21 +1550,21 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(add_param).subscribe(function (res) {
+                if (res.code == 200) {
+                  _this12.sharedService.openSnackBar(res.statusMessage, 'success');
+                }
+
                 if (res.message) {
                   var param = {
                     LookupTypeId: 169
                   };
 
-                  _this11.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    if (res.code == 200) {
-                      _this11.sharedService.openSnackBar(res.statusMessage, 'success');
-                    } // this.isDeliveryCategorySubmitted = true;
+                  _this12.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    // this.isDeliveryCategorySubmitted = true;
                     /// Go to the parent route
+                    _this12.goBack();
 
-
-                    _this11.goBack();
-
-                    _this11.getDeliveryTypeData();
+                    _this12.getDeliveryTypeData();
                   });
                 } else {// this.isDeliveryCategorySubmitted = true;
                 }
@@ -1566,19 +1593,19 @@
               };
               this.lookupService.updateLookupValue(update_param).subscribe(function (res) {
                 if (res.message) {
+                  _this12.sharedService.openSnackBar(res.message, 'success');
+                }
+
+                if (res.message) {
                   var param = {
                     LookupTypeId: 169
                   };
 
-                  _this11.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    if (res.code == 200) {
-                      _this11.sharedService.openSnackBar(res.statusMessage, 'success');
-                    } /// Go to the parent route
+                  _this12.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    /// Go to the parent route
+                    _this12.goBack();
 
-
-                    _this11.goBack();
-
-                    _this11.getDeliveryTypeData();
+                    _this12.getDeliveryTypeData();
                   });
                 } else {}
               });
@@ -1742,20 +1769,20 @@
         _createClass(PackageTypeComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.getCategoryData();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
-                  updateUserId: parseInt(_this12.sessionService.userId)
+                  updateUserId: parseInt(_this13.sessionService.userId)
                 };
 
-                _this12.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this12.sharedService.openSnackBar('Package Type Deleted Successfully', 'success');
+                _this13.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this13.sharedService.openSnackBar('Package Type Deleted Successfully', 'success');
 
-                  _this12.getCategoryData();
+                  _this13.getCategoryData();
                 }, function (error) {});
               }
             });
@@ -1763,17 +1790,17 @@
         }, {
           key: "getCategoryData",
           value: function getCategoryData() {
-            var _this13 = this;
+            var _this14 = this;
 
             var param = {
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-              _this13.isDeliveryCategoryLoaded = true;
-              _this13.packageTypeList = res.filter(function (item) {
+              _this14.isDeliveryCategoryLoaded = true;
+              _this14.packageTypeList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this13.totalItems = _this13.packageTypeList.length;
+              _this14.totalItems = _this14.packageTypeList.length;
             });
           }
         }, {
@@ -1796,7 +1823,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm() {
-            var _this14 = this;
+            var _this15 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -1821,21 +1848,21 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(add_param).subscribe(function (res) {
+                if (res.code == 200) {
+                  _this15.sharedService.openSnackBar(res.statusMessage, 'success');
+                }
+
                 if (res.message) {
                   var param = {
                     LookupTypeId: 169
                   };
 
-                  _this14.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    if (res.code == 200) {
-                      _this14.sharedService.openSnackBar(res.statusMessage, 'success');
-                    } // this.isDeliveryCategorySubmitted = true;
+                  _this15.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    // this.isDeliveryCategorySubmitted = true;
                     /// Go to the parent route
+                    _this15.goBack();
 
-
-                    _this14.goBack();
-
-                    _this14.getCategoryData();
+                    _this15.getCategoryData();
                   });
                 } else {// this.isDeliveryCategorySubmitted = true;
                 }
@@ -1864,19 +1891,19 @@
               };
               this.lookupService.updateLookupValue(update_param).subscribe(function (res) {
                 if (res.message) {
+                  _this15.sharedService.openSnackBar(res.message, 'success');
+                }
+
+                if (res.message) {
                   var param = {
                     LookupTypeId: 169
                   };
 
-                  _this14.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    if (res.code == 200) {
-                      _this14.sharedService.openSnackBar(res.statusMessage, 'success');
-                    } /// Go to the parent route
+                  _this15.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    /// Go to the parent route
+                    _this15.goBack();
 
-
-                    _this14.goBack();
-
-                    _this14.getCategoryData();
+                    _this15.getCategoryData();
                   });
                 } else {}
               });
@@ -2040,20 +2067,20 @@
         _createClass(SlotTypeComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.getSlotData();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
-                  updateUserId: parseInt(_this15.sessionService.userId)
+                  updateUserId: parseInt(_this16.sessionService.userId)
                 };
 
-                _this15.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this15.sharedService.openSnackBar('Slot Deleted Successfully', 'success');
+                _this16.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this16.sharedService.openSnackBar('Slot Deleted Successfully', 'success');
 
-                  _this15.getSlotData();
+                  _this16.getSlotData();
                 }, function (error) {});
               }
             });
@@ -2061,17 +2088,17 @@
         }, {
           key: "getSlotData",
           value: function getSlotData() {
-            var _this16 = this;
+            var _this17 = this;
 
             var param = {
               LookupTypeId: 172
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-              _this16.isDeliveryCategoryLoaded = true;
-              _this16.slotList = res.filter(function (item) {
+              _this17.isDeliveryCategoryLoaded = true;
+              _this17.slotList = res.filter(function (item) {
                 return item.isActive;
               });
-              _this16.totalItems = _this16.slotList.length;
+              _this17.totalItems = _this17.slotList.length;
             });
           }
         }, {
@@ -2094,7 +2121,7 @@
         }, {
           key: "submitSecurityCategoryForm",
           value: function submitSecurityCategoryForm() {
-            var _this17 = this;
+            var _this18 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -2119,21 +2146,21 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(add_param).subscribe(function (res) {
+                if (res.code == 200) {
+                  _this18.sharedService.openSnackBar(res.statusMessage, 'success');
+                }
+
                 if (res.message) {
                   var param = {
                     LookupTypeId: 169
                   };
 
-                  _this17.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    if (res.code == 200) {
-                      _this17.sharedService.openSnackBar(res.statusMessage, 'success');
-                    } // this.isDeliveryCategorySubmitted = true;
+                  _this18.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    // this.isDeliveryCategorySubmitted = true;
                     /// Go to the parent route
+                    _this18.goBack();
 
-
-                    _this17.goBack();
-
-                    _this17.getSlotData();
+                    _this18.getSlotData();
                   });
                 } else {// this.isDeliveryCategorySubmitted = true;
                 }
@@ -2162,19 +2189,19 @@
               };
               this.lookupService.updateLookupValue(update_param).subscribe(function (res) {
                 if (res.message) {
+                  _this18.sharedService.openSnackBar(res.message, 'success');
+                }
+
+                if (res.message) {
                   var param = {
                     LookupTypeId: 169
                   };
 
-                  _this17.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
-                    if (res.code == 200) {
-                      _this17.sharedService.openSnackBar(res.statusMessage, 'success');
-                    } /// Go to the parent route
+                  _this18.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
+                    /// Go to the parent route
+                    _this18.goBack();
 
-
-                    _this17.goBack();
-
-                    _this17.getSlotData();
+                    _this18.getSlotData();
                   });
                 } else {}
               });
@@ -2403,7 +2430,7 @@
         _createClass(PendingDeliveryEditComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this18 = this;
+            var _this19 = this;
 
             //this.getAllCollection();
             this.isdeliverySubmitted = true;
@@ -2425,36 +2452,36 @@
             this.asset.assetImageId = null; //Open the drawer
 
             this._activatedRoute.queryParams.subscribe(function (params) {
-              _this18.pageType = params.type;
+              _this19.pageType = params.type;
               var queryParamBase = {
                 // tslint:disable-next-line:radix
-                ApartmentId: parseInt(_this18.sessionService.apartmentId),
+                ApartmentId: parseInt(_this19.sessionService.apartmentId),
                 packageid: parseInt(params.id)
               };
 
-              _this18.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
+              _this19.packageService.getpackagebyId(queryParamBase).subscribe(function (res) {
                 if (res.length > 0) {
                   var _deliveryData = res;
-                  _this18.deliveryData.packageNo = _deliveryData[0].packageId;
-                  _this18.deliveryData.type = _deliveryData[0].packageTypeId;
-                  _this18.deliveryData.comments = _deliveryData[0].description;
-                  _this18.deliveryData.image = _deliveryData[0].attachment1;
-                  _this18.deliveryData.slotNo = _deliveryData[0].slot;
-                  _this18.deliveryData.assignedTo = _deliveryData[0].assignedTo;
-                  _this18.deliveryData.receivedBy = _deliveryData[0].receivedBy;
-                  _this18.deliveryData.deliveryStatusId = _deliveryData[0].deliveryStatusId;
-                  _this18.deliveryData.updatedBy = _deliveryData[0].updatedBy;
+                  _this19.deliveryData.packageNo = _deliveryData[0].packageId;
+                  _this19.deliveryData.type = _deliveryData[0].packageTypeId;
+                  _this19.deliveryData.comments = _deliveryData[0].description;
+                  _this19.deliveryData.image = _deliveryData[0].attachment1;
+                  _this19.deliveryData.slotNo = _deliveryData[0].slot;
+                  _this19.deliveryData.assignedTo = _deliveryData[0].assignedTo;
+                  _this19.deliveryData.receivedBy = _deliveryData[0].receivedBy;
+                  _this19.deliveryData.deliveryStatusId = _deliveryData[0].deliveryStatusId;
+                  _this19.deliveryData.updatedBy = _deliveryData[0].updatedBy;
 
                   if (_deliveryData[0].attachment1 !== null) {
                     var newParams = {
                       fileDetailsId: _deliveryData[0].attachment1,
-                      apartmentId: Number(_this18.sessionService.apartmentId)
+                      apartmentId: Number(_this19.sessionService.apartmentId)
                     };
 
-                    _this18.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                      _this18.filePath = res[0].filePath;
+                    _this19.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                      _this19.filePath = res[0].filePath;
 
-                      _this18.downloadFile(_this18.filePath);
+                      _this19.downloadFile(_this19.filePath);
                     });
                   }
                 }
@@ -2465,7 +2492,7 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(tower).subscribe(function (res) {
-              _this18.towerList = res;
+              _this19.towerList = res;
             });
           } // closeDrawer(): Promise<MatDrawerToggleResult>{
           //   return this._pendingDeliveryComponent.matDrawer.close();
@@ -2487,16 +2514,16 @@
         }, {
           key: "getUnits",
           value: function getUnits(type) {
-            var _this19 = this;
+            var _this20 = this;
 
             if (type == 'change') this.delivery.apartmentUnitId = null;
             var params = {
               apartmentBlockId: this.block.blockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(params).subscribe(function (res) {
-              _this19.unitList = res;
+              _this20.unitList = res;
 
-              _this19.getPrimaryName();
+              _this20.getPrimaryName();
             });
           }
         }, {
@@ -2507,7 +2534,7 @@
         }, {
           key: "submitAddPackageForm",
           value: function submitAddPackageForm(form) {
-            var _this20 = this;
+            var _this21 = this;
 
             this.isdeliverySubmitted = false;
             var addPackageDetails = {
@@ -2526,12 +2553,12 @@
             };
             this.packageService.updatePackageDelivery(addPackageParams).subscribe(function (res) {
               if (res.message) {
-                _this20.isdeliverySubmitted = true;
+                _this21.isdeliverySubmitted = true;
 
-                _this20.sharedService.openSnackBar('package updated successfully', 'success');
+                _this21.sharedService.openSnackBar('package updated successfully', 'success');
 
-                _this20._router.navigate(['/ams/parcel-delivery/delivery-pending'], {
-                  relativeTo: _this20._activatedRoute.parent
+                _this21._router.navigate(['/ams/parcel-delivery/delivery-pending'], {
+                  relativeTo: _this21._activatedRoute.parent
                 });
               } else {}
             }, function (error) {});
@@ -2539,10 +2566,10 @@
         }, {
           key: "getPrimaryName",
           value: function getPrimaryName() {
-            var _this21 = this;
+            var _this22 = this;
 
             var data = this.unitList.filter(function (unit) {
-              return unit.apartmentBlockUnitId === _this21.sessionService.apartmentBlockUnitID;
+              return unit.apartmentBlockUnitId === _this22.sessionService.apartmentBlockUnitID;
             });
             if (data.length > 0) this.block.primaryName = data[0].blockUnitUserIsPrimaryContact[0].primaryContactName;else this.block.primaryName = '';
           }
@@ -2564,27 +2591,27 @@
         }, {
           key: "uploadFile",
           value: function uploadFile(event) {
-            var _this22 = this;
+            var _this23 = this;
 
             var file = event[0];
             var userId = parseInt(this.sessionService.userId);
             this.fileUploadService.upload(file).subscribe(function (res) {
               if (res != undefined) {
-                _this22.uploadResponse = res;
+                _this23.uploadResponse = res;
               }
 
-              if (_this22.isUploadCompleted()) {
-                _this22.asset.assetImageId = _this22.uploadResponse.fileId;
-                _this22["package"].packageImageId = _this22.uploadResponse.fileId;
+              if (_this23.isUploadCompleted()) {
+                _this23.asset.assetImageId = _this23.uploadResponse.fileId;
+                _this23["package"].packageImageId = _this23.uploadResponse.fileId;
                 var newParams = {
-                  fileDetailsId: _this22.uploadResponse.fileId,
-                  apartmentId: Number(_this22.sessionService.apartmentId)
+                  fileDetailsId: _this23.uploadResponse.fileId,
+                  apartmentId: Number(_this23.sessionService.apartmentId)
                 };
 
-                _this22.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
-                  _this22.filePath = res[0].filePath;
+                _this23.fileDetailsService.getFileDetailsById(newParams).subscribe(function (res) {
+                  _this23.filePath = res[0].filePath;
 
-                  _this22.downloadFile(_this22.filePath);
+                  _this23.downloadFile(_this23.filePath);
                 });
               }
             });
@@ -2592,19 +2619,19 @@
         }, {
           key: "downloadFile",
           value: function downloadFile(filePath) {
-            var _this23 = this;
+            var _this24 = this;
 
             this.fileDownloadService.downloadFile(filePath).subscribe(function (res) {
-              _this23.isFileDetailsAvailable = true;
+              _this24.isFileDetailsAvailable = true;
               var splitFile = filePath.split('.');
               var ext = splitFile[1].replace(/^/, '.');
-              _this23.isImageUploaded = _this23.constantsService.imageFormats.includes(ext);
+              _this24.isImageUploaded = _this24.constantsService.imageFormats.includes(ext);
               var blob = res.body;
               var objectURL = URL.createObjectURL(blob);
 
-              var sanitizeUrl = _this23.sanitizer.bypassSecurityTrustUrl(objectURL);
+              var sanitizeUrl = _this24.sanitizer.bypassSecurityTrustUrl(objectURL);
 
-              _this23.fileUrl = sanitizeUrl;
+              _this24.fileUrl = sanitizeUrl;
             });
           }
         }, {
@@ -2877,16 +2904,16 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this25 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this24.timeZone = timeZone;
+              return _this25.timeZone = timeZone;
             });
             this.ItemEndIndex = 0;
             this.getAllPackage(); // staff type
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
-              _this24.staffListData = res.filter(function (data) {
+              _this25.staffListData = res.filter(function (data) {
                 return data.isActive;
               });
             });
@@ -2894,7 +2921,7 @@
               LookupTypeId: 169
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.packageTypes = res.filter(function (item) {
+              _this25.packageTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2902,7 +2929,7 @@
               LookupTypeId: 170
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.deliveryTypes = res.filter(function (item) {
+              _this25.deliveryTypes = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2910,7 +2937,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.deliveryStatus = res.filter(function (item) {
+              _this25.deliveryStatus = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2918,7 +2945,7 @@
               LookupTypeId: 171
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
-              _this24.deliverySlots = res.filter(function (item) {
+              _this25.deliverySlots = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2926,7 +2953,7 @@
               LookupTypeId: 182
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
-              _this24.receiverType = res.filter(function (item) {
+              _this25.receiverType = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -3028,7 +3055,7 @@
         }, {
           key: "getAllPackage",
           value: function getAllPackage() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.isPendingDeliveryLoaded = false;
             var params = {};
@@ -3048,20 +3075,20 @@
             }
 
             this.packageService.getAllPendingDeliveries(params).subscribe(function (res) {
-              _this25.allParcelDelivey = res.filter(function (x) {
-                return x.isActive === false;
+              _this26.allParcelDelivey = res.filter(function (x) {
+                return x.isActive === true;
               });
-              _this25.totalItems = _this25.allParcelDelivey.length;
+              _this26.totalItems = _this26.allParcelDelivey.length;
 
-              if (_this25.totalItems > _this25.itemLimit) {
-                _this25.ItemEndIndex = _this25.itemLimit;
+              if (_this26.totalItems > _this26.itemLimit) {
+                _this26.ItemEndIndex = _this26.itemLimit;
               } else {
-                _this25.ItemEndIndex = _this25.totalItems;
+                _this26.ItemEndIndex = _this26.totalItems;
               }
 
-              _this25.isPendingDeliveryLoaded = true; // Mark for check
+              _this26.isPendingDeliveryLoaded = true; // Mark for check
 
-              _this25._changeDetectorRef.markForCheck();
+              _this26._changeDetectorRef.markForCheck();
             });
           }
         }, {
