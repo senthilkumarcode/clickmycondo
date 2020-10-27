@@ -1914,6 +1914,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/layout/regulars/navigation/navigation.service */ "./src/app/layout/regulars/navigation/navigation.service.ts");
 /* harmony import */ var src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/common/mailbox/mailbox.service */ "./src/app/modules/common/mailbox/mailbox.service.ts");
 /* harmony import */ var src_app_modules_common_mailbox_compose_compose_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/common/mailbox/compose/compose.component */ "./src/app/modules/common/mailbox/compose/compose.component.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
@@ -1930,9 +1932,10 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
      * @param {MailboxService} _mailboxService
      * @param {MatDialog} _matDialog
      */
-    constructor(_condoNavigationService, _mailboxService, _matDialog) {
+    constructor(_condoNavigationService, _mailboxService, sessionService, _matDialog) {
         this._condoNavigationService = _condoNavigationService;
         this._mailboxService = _mailboxService;
+        this.sessionService = sessionService;
         this._matDialog = _matDialog;
         this.unReadMailCount = 0;
         // Set the private defaults
@@ -1943,6 +1946,9 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         // Set the defaults
         this.menuData = [];
+    }
+    pageType() {
+        return this.sessionService.isAdmin() ? 'ams' : 'user';
     }
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
@@ -2007,7 +2013,7 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
                 title: folder.title,
                 type: 'basic',
                 icon: folder.icon,
-                link: '/common/mailbox/' + folder.slug
+                link: '/' + this.pageType() + '/mailbox/' + folder.slug
             };
             // If the count is available and is bigger than zero...
             if (folder.count && folder.count > 0) {
@@ -2039,7 +2045,7 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
                 title: filter.title,
                 type: 'basic',
                 icon: filter.icon,
-                link: '/common/mailbox/filter/' + filter.slug
+                link: '/ams/mailbox/filter/' + filter.slug
             });
         });
         // Update the menu data
@@ -2062,7 +2068,7 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
                 type: 'basic',
                 icon: 'label',
                 iconClasses: 'text-' + label.color,
-                link: '/common/mailbox/label/' + label.slug
+                link: '/ams/mailbox/label/' + label.slug
             });
         });
         // Update the menu data
@@ -2079,7 +2085,7 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
             title: 'Settings',
             type: 'basic',
             icon: 'settings',
-            link: '/common/mailbox/settings'
+            link: '/ams/mailbox/settings'
         });
         // Update the menu data
         this._updateMenuData();
@@ -2142,6 +2148,7 @@ let MailboxSidebarComponent = class MailboxSidebarComponent {
 MailboxSidebarComponent.ctorParameters = () => [
     { type: src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"] },
     { type: src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
 ];
 MailboxSidebarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
@@ -2153,6 +2160,7 @@ MailboxSidebarComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"],
         src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])
 ], MailboxSidebarComponent);
 

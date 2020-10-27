@@ -2851,6 +2851,12 @@
       var src_app_modules_common_mailbox_compose_compose_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/modules/common/mailbox/compose/compose.component */
       "./src/app/modules/common/mailbox/compose/compose.component.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
 
       var MailboxSidebarComponent = /*#__PURE__*/function () {
         /**
@@ -2860,11 +2866,12 @@
          * @param {MailboxService} _mailboxService
          * @param {MatDialog} _matDialog
          */
-        function MailboxSidebarComponent(_condoNavigationService, _mailboxService, _matDialog) {
+        function MailboxSidebarComponent(_condoNavigationService, _mailboxService, sessionService, _matDialog) {
           _classCallCheck(this, MailboxSidebarComponent);
 
           this._condoNavigationService = _condoNavigationService;
           this._mailboxService = _mailboxService;
+          this.sessionService = sessionService;
           this._matDialog = _matDialog;
           this.unReadMailCount = 0; // Set the private defaults
 
@@ -2875,16 +2882,21 @@
           this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"](); // Set the defaults
 
           this.menuData = [];
-        } // -----------------------------------------------------------------------------------------------------
-        // @ Lifecycle hooks
-        // -----------------------------------------------------------------------------------------------------
-
-        /**
-         * On init
-         */
-
+        }
 
         _createClass(MailboxSidebarComponent, [{
+          key: "pageType",
+          value: function pageType() {
+            return this.sessionService.isAdmin() ? 'ams' : 'user';
+          } // -----------------------------------------------------------------------------------------------------
+          // @ Lifecycle hooks
+          // -----------------------------------------------------------------------------------------------------
+
+          /**
+           * On init
+           */
+
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this17 = this;
@@ -2948,7 +2960,7 @@
                 title: folder.title,
                 type: 'basic',
                 icon: folder.icon,
-                link: '/common/mailbox/' + folder.slug
+                link: '/' + _this18.pageType() + '/mailbox/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -2986,7 +2998,7 @@
                 title: filter.title,
                 type: 'basic',
                 icon: filter.icon,
-                link: '/common/mailbox/filter/' + filter.slug
+                link: '/ams/mailbox/filter/' + filter.slug
               });
             }); // Update the menu data
 
@@ -3014,7 +3026,7 @@
                 type: 'basic',
                 icon: 'label',
                 iconClasses: 'text-' + label.color,
-                link: '/common/mailbox/label/' + label.slug
+                link: '/ams/mailbox/label/' + label.slug
               });
             }); // Update the menu data
 
@@ -3034,7 +3046,7 @@
               title: 'Settings',
               type: 'basic',
               icon: 'settings',
-              link: '/common/mailbox/settings'
+              link: '/ams/mailbox/settings'
             }); // Update the menu data
 
 
@@ -3115,6 +3127,8 @@
         }, {
           type: src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"]
         }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+        }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
         }];
       };
@@ -3128,7 +3142,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./sidebar.component.scss */
         "./src/app/modules/common/mailbox/sidebar/sidebar.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"], src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])], MailboxSidebarComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["CondoNavigationService"], src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_6__["MailboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]])], MailboxSidebarComponent);
       /***/
     }
   }]);
