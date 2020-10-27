@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-profile-wrapper mt-3\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-container>\n\n\t<form #profileBasicForm =\"ngForm\" name=\"profileBasicForm\"  (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\">\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<div class=\"property-pic-container\">\n\t\t\t\t\t\t\t\t<app-apartment-pic [property]=\"property\" (outputParams)=\"getProperty($event)\" ></app-apartment-pic>\n\t\t\t\t\t\t\t\t<div class=\"clear pt-5\">\n\t\t\t\t\t\t\t\t\t<h5>{{property.apartmentName}}</h5>\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary mt-2\">{{towersLength}} Towers and {{unitsLength}} Community Units</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mt-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2 icon-md\" svgIcon=\"feather:mail\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<div class=\"text-secondary\">{{property.emailId}}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2 icon-md\" svgIcon=\"feather:phone\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<div class=\"text-secondary\">{{property.phoneNumber}}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Property Location</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.location | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Property Type</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getPropertyType(property.propertyTypeId) | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Category</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getPropertyCategory(property.propertyCategoryId) | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Construction Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getDate(property.constructionStartDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Construction End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getDate(property.constructionEndDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Common Area SQ.M</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.commonSqMt | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Total SQ.M</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.totalSqMt | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ng-container>\n\t\n\t\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Property Location*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"location\" [(ngModel)]=\"property.location\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\" [(ngModel)]=\"property.address1\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t\t<div class=\"input-box\"> \n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<!-- <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"phoneNo\" [(ngModel)]=\"property.phoneNumber\"> -->\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"property.emailId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Property Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Property\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"propertyTypeData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"property.propertyTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPropertyType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Property Category\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"propertyCategoryData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"property.propertyCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPropertyCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Construction Start Date</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"constructionStartDate\" [owlDateTime]=\"constructionStartDate\" [owlDateTimeTrigger]=\"constructionStartDate\" placeholder=\"Date\" [(ngModel)]=\"property.constructionStartDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #constructionStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"constructionStartDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Construction End Date</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"constructionEndDate\" [owlDateTime]=\"constructionEndDate\" [owlDateTimeTrigger]=\"constructionEndDate\" placeholder=\"Date\" [(ngModel)]=\"property.constructionEndDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #constructionEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"constructionEndDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Common Area SQ.M</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"commonsqmt\" [(ngModel)]=\"property.commonSqMt\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Total SQ.M</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"totalsqmt\" [(ngModel)]=\"property.totalSqMt\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t<app-upload\n\t\t\t\t\t\t\t\t[fileId]=\"property.imageId\"\n\t\t\t\t\t\t\t\t(fileIdChanged)=\"getFileId($event)\"\n\t\t\t\t\t\t\t></app-upload>\n\t\t\t\t\t\t\n\t\t\t\n\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"property-profile-wrapper mt-3\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div class=\"ml-auto\" *ngIf=\"!isEdit\">\n\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"showEditForm()\">Edit</button>\n\t\t\t</div>\n\t\t</div>\n\n\t</ng-container>\n\n\t<form #profileBasicForm =\"ngForm\" name=\"profileBasicForm\"  (ngSubmit)=\"submitProfileBasicForm(profileBasicForm)\">\n\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\n\t\t\t<div class=\"data-wrapper\">\n\n\t\t\t\t<ng-container *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<div class=\"property-pic-container\">\n\t\t\t\t\t\t\t\t<app-apartment-pic [property]=\"property\" (outputParams)=\"getProperty($event)\" ></app-apartment-pic>\n\t\t\t\t\t\t\t\t<div class=\"clear pt-5\">\n\t\t\t\t\t\t\t\t\t<h5>{{property.apartmentName}}</h5>\n\t\t\t\t\t\t\t\t\t<p class=\"text-secondary mt-2\">{{towersLength}} Towers and {{unitsLength}} Community Units</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mt-3\">\n\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2 icon-md\" svgIcon=\"feather:mail\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<div class=\"text-secondary\">{{property.emailId}}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2 icon-md\" svgIcon=\"feather:phone\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t<div class=\"text-secondary\">{{property.phoneNumber | notAvail}}</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-8\">\n\t\t\t\t\t\t\t<div class=\"data-wrapper\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Property Location</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.location | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Property Type</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getPropertyType(property.propertyTypeId) | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Category</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getPropertyCategory(property.propertyCategoryId) | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Construction Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getDate(property.constructionStartDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Construction End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{getDate(property.constructionEndDate)}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Common Area SQ.M</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.commonSqMt | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t<label>Total SQ.M</label>\n\t\t\t\t\t\t\t\t\t\t\t<p>{{property.totalSqMt | notAvail}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</ng-container>\n\t\n\t\t\t\t<ng-container *ngIf=\"isEdit\">\n\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Property Location*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"location\" [(ngModel)]=\"property.location\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\" [(ngModel)]=\"property.address1\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\"> \n\t\t\t\t\t\t\t<div class=\"input-box\"> \n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<!-- <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"phoneNo\" [(ngModel)]=\"property.phoneNumber\"> -->\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"property.phoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email\" [(ngModel)]=\"property.emailId\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Property Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Property\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"propertyTypeData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"property.propertyTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPropertyType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Property Category\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"propertyCategoryData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"property.propertyCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedPropertyCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Construction Start Date</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"constructionStartDate\" [owlDateTime]=\"constructionStartDate\" [owlDateTimeTrigger]=\"constructionStartDate\" placeholder=\"Date\" [(ngModel)]=\"property.constructionStartDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #constructionStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"constructionStartDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Construction End Date</label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"constructionEndDate\" [owlDateTime]=\"constructionEndDate\" [owlDateTimeTrigger]=\"constructionEndDate\" placeholder=\"Date\" [(ngModel)]=\"property.constructionEndDate\">\n\t\t\t\t\t\t\t\t<owl-date-time #constructionEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"constructionEndDate\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Common Area SQ.M</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"commonsqmt\" [(ngModel)]=\"property.commonSqMt\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Total SQ.M</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter value\" name=\"totalsqmt\" [(ngModel)]=\"property.totalSqMt\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t<app-upload\n\t\t\t\t\t\t\t\t[fileId]=\"property.imageId\"\n\t\t\t\t\t\t\t\t(fileIdChanged)=\"getFileId($event)\"\n\t\t\t\t\t\t\t></app-upload>\n\t\t\t\t\t\t\n\t\t\t\n\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\t\n\t\t</div>\n\n\t\t<div class=\"mt-4 text-right\" *ngIf=\"isEdit && isDataLoaded\">\n\t\t\t<button class=\"mr-2\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t<button mat-button (click)=\"isEdit=false\">Back</button>\n\t\t</div>\n\t\n\t</form>\n\n</div>");
 
 /***/ }),
 
@@ -127,10 +127,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -153,41 +151,6 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
         this.subMenuList = [];
         this.selectedCategoryName = '';
         this.selectedSubCategoryName = '';
-    }
-    moveTabRight() {
-        if (this.currentPosition + 1 < this.itemPositions.length) {
-            document.getElementById("property-tabs").style.left = "-" + this.itemPositions[++this.currentPosition] + "px";
-        }
-    }
-    moveTabLeft() {
-        if (this.currentPosition - 1 >= 0) {
-            document.getElementById("property-tabs").style.left = "-" + this.itemPositions[--this.currentPosition] + "px";
-        }
-    }
-    widthOfList() {
-        this.itemPositions = [];
-        var marginWidth = 60;
-        var wrapperWidth = document.querySelector('#property-wrapper').clientWidth - marginWidth;
-        var itemsWidth = 0;
-        this.itemPositions.push(0);
-        underscore__WEBPACK_IMPORTED_MODULE_3__["each"](this.tabItems, (item) => {
-            var itemWidth = item.offsetWidth;
-            itemsWidth += itemWidth;
-            if (itemsWidth > wrapperWidth) {
-                this.itemPositions.push(itemsWidth - wrapperWidth);
-            }
-        });
-        return itemsWidth;
-    }
-    isMobileView() {
-        return window.innerWidth <= 576 ? true : false;
-    }
-    onWindowResize(event) {
-        this.widthOfList();
-        if (this.isMobileView()) {
-            document.getElementById("property-tabs").style.left = 0 + 'px';
-            this.currentPosition = 0;
-        }
     }
     ngOnInit() {
         this.menuList = [
@@ -307,19 +270,16 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
 };
 PropertyConfigurationComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"] }
 ];
-PropertyConfigurationComponent.propDecorators = {
-    onWindowResize: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:resize', ['$event'],] }]
-};
 PropertyConfigurationComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-property-configuration',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-configuration.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-configuration.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-configuration.component.scss */ "./src/app/modules/ams/my-property/property-configuration/property-configuration.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])
 ], PropertyConfigurationComponent);
 
 
@@ -345,10 +305,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 /* harmony import */ var src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/upload/upload.module */ "./src/app/modules/ui/upload/upload.module.ts");
-/* harmony import */ var _property_configuration_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./property-configuration.component */ "./src/app/modules/ams/my-property/property-configuration/property-configuration.component.ts");
-/* harmony import */ var _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./property-profile/property-profile.component */ "./src/app/modules/ams/my-property/property-configuration/property-profile/property-profile.component.ts");
-/* harmony import */ var _property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./property-parking-details/property-parking-details.component */ "./src/app/modules/ams/my-property/property-configuration/property-parking-details/property-parking-details.component.ts");
-/* harmony import */ var _property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./property-parking-details/property-parking-details-info/property-parking-details-info.component */ "./src/app/modules/ams/my-property/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var _property_configuration_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./property-configuration.component */ "./src/app/modules/ams/my-property/property-configuration/property-configuration.component.ts");
+/* harmony import */ var _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./property-profile/property-profile.component */ "./src/app/modules/ams/my-property/property-configuration/property-profile/property-profile.component.ts");
+/* harmony import */ var _property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./property-parking-details/property-parking-details.component */ "./src/app/modules/ams/my-property/property-configuration/property-parking-details/property-parking-details.component.ts");
+/* harmony import */ var _property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./property-parking-details/property-parking-details-info/property-parking-details-info.component */ "./src/app/modules/ams/my-property/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.ts");
+
 
 
 
@@ -367,18 +329,19 @@ let PropertyConfigurationModule = class PropertyConfigurationModule {
 };
 PropertyConfigurationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_property_configuration_component__WEBPACK_IMPORTED_MODULE_9__["PropertyConfigurationComponent"], _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_10__["PropertyProfileComponent"], _property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_11__["PropertyParkingDetailsComponent"], _property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_12__["PropertyParkingDetailsInfoComponent"]],
+        declarations: [_property_configuration_component__WEBPACK_IMPORTED_MODULE_10__["PropertyConfigurationComponent"], _property_profile_property_profile_component__WEBPACK_IMPORTED_MODULE_11__["PropertyProfileComponent"], _property_parking_details_property_parking_details_component__WEBPACK_IMPORTED_MODULE_12__["PropertyParkingDetailsComponent"], _property_parking_details_property_parking_details_info_property_parking_details_info_component__WEBPACK_IMPORTED_MODULE_13__["PropertyParkingDetailsInfoComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__["SelectModule"],
             src_app_modules_ui_upload_upload_module__WEBPACK_IMPORTED_MODULE_8__["UploadModule"],
+            ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["NgxIntlTelInputModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"].forChild(_property_configuration_routing_module__WEBPACK_IMPORTED_MODULE_4__["routes"]),
             _property_configuration_routing_module__WEBPACK_IMPORTED_MODULE_4__["PropertyConfigurationRoutingModule"]
         ],
         bootstrap: [
-            _property_configuration_component__WEBPACK_IMPORTED_MODULE_9__["PropertyConfigurationComponent"]
+            _property_configuration_component__WEBPACK_IMPORTED_MODULE_10__["PropertyConfigurationComponent"]
         ]
     })
 ], PropertyConfigurationModule);
@@ -580,8 +543,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-
 
 
 
@@ -606,9 +567,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.separateDialCode = true;
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
-        this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required])
-        });
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
     }
     getSelectedPropertyType(event) {
         this.property.propertyTypeId = event[0].lookupValueId;
@@ -666,7 +625,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             "builderName": this.property.builderName,
             "registrationNumber": this.property.registrationNumber,
             "emailId": this.property.emailId,
-            "phoneNumber": this.phoneForm.value.phone.e164Number,
+            "phoneNumber": this.property.phoneNumber.e164Number,
             "address1": this.property.address1,
             "address2": this.property.address2,
             "city": this.property.city,
@@ -721,6 +680,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         });
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.property = {};
         this.property.propertyTypeId = "";
         this.property.propertyCategoryId = "";
@@ -729,10 +689,13 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             active: 2
         };
         this.apartmentService.getApartmentByApartmentId(params).subscribe((res) => {
-            this.property = res[0];
-            this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormGroup"]({
-                phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_10__["FormControl"](this.property.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_10__["Validators"].required])
-            });
+            if (res.code == 200) {
+                this.property = res.responseData.value[0];
+                this.isDataLoaded = true;
+            }
+            else {
+                this.isDataLoaded = true;
+            }
             let params = {
                 apartmentId: this.sessionService.apartmentId
             };
@@ -745,7 +708,6 @@ let PropertyProfileComponent = class PropertyProfileComponent {
                     this.unitsLength = res.length;
                 });
             });
-            this.isDataLoaded = true;
         });
         let propertyParams = {
             LookupTypeId: 65
