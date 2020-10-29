@@ -625,7 +625,8 @@
 
             if (this.data.from == 'private') {
               var params = {
-                LookupTypeId: 200
+                LookupTypeId: 200,
+                ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                 _this3.documentCategoryList = res;
@@ -982,7 +983,8 @@
             var _this6 = this;
 
             var params = {
-              LookupTypeId: this.lookupId
+              LookupTypeId: this.lookupId,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this6.isDocumentCategoryLoaded = true;

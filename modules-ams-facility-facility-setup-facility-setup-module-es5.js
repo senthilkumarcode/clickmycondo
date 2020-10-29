@@ -720,6 +720,7 @@
           this.router = router;
           this.injector = injector;
           this.isFacilityCategoryLoaded = false;
+          this.totalItems = 0;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
         }
 
@@ -802,10 +803,11 @@
               if (res.length > 0) {
                 _this4.facilityCategoryData = res;
                 _this4.totalItems = res.length;
-                _this4.isFacilityCategoryLoaded = true;
               }
+
+              _this4.isFacilityCategoryLoaded = true;
             }, function (error) {
-              console.log(error);
+              _this4.sharedService.openSnackBar('Server Error', 'error');
             }); //peso value
 
             var entity = {
