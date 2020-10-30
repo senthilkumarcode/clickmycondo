@@ -1188,9 +1188,13 @@ let MeetingsListComponent = class MeetingsListComponent {
                 datafield: 'meetingStatusId',
                 cellsrenderer: (row, column, value) => {
                     let status, label;
-                    if (value == 308) {
+                    if (value == 308 && this.urlType == 'scheduled-list') {
                         status = 'purple';
                         label = 'Scheduled';
+                    }
+                    else if (value == 308 && this.urlType == 'history') {
+                        status = 'green';
+                        label = 'Completed';
                     }
                     else if (value == 315) {
                         status = 'red';

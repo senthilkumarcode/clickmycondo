@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"security-reports-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t<form #alertReportsCustomerForm = \"ngForm\" name=\"alertReportsCustomerForm\" (ngSubmit)=\"submitSecurityAlertReports(alertReportsCustomerForm)\"  novalidate>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"blockData\"\n\t\t\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"report.apartmentBlockID\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Emergency Category\" fieldPlaceholder=\"Emergency Category\" [fieldRequired]=\"'required'\" [fieldList]=\"securityCategoryData\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.emergencyCategoryTypeID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedEmergency($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Alert Type\" fieldPlaceholder=\"Alert Type\" [fieldRequired]=\"'required'\" [fieldList]=\"alertTypeStatus\"\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\" [fieldModel]=\"report.alertTypeStatusID\" fieldId=\"lookupValueId\" (fieldParams)=\"getSelectedAlert($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\"> \n\t\t\t\t\n\t\t\n\t\t\n\n\t\t\t<condo-card *ngIf=\"!isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\"  class=\"ml-auto my-auto\"\n\t\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>View All Report\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"security-reports-data-wrapper\">\n\t\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-4 col-md-4 col-sm-4 col-xs-4 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t\t<form>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of blockData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\t\n\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelectedNote == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllNoteData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tSubject</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelectedNote != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleNoteActions\">{{singleNote}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleNoteActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let note of securityCategoryData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSelectNote(note)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{note.lookupValueName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelectedType == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllTypeData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tAlert</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelectedType != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleTypeActions\">{{singleType}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleTypeActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let type of alertTypeStatus\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSelectType(type)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{type.lookupValueName}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>Start Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\" [owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"report.startDate\" (dateInput)=\"fromInput($event)\" (ngModelChange)=\"fromInput($event)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<label>End Date</label>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\" [owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"report.endDate\" [min]=\"minDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\"> \n\t\t\t\t\n\t\t\n\t\t\n\n\t\t\t<condo-card *ngIf=\"!isReportSubmitted\">\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/security/reports\"  class=\"ml-auto my-auto\"\n\t\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>{{pageName}}</h4>\n\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t<div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"d-md-block mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t\t</jqxGrid>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\t</div>\n</mat-drawer-content>\n</mat-drawer-container>\n</div>\n\n");
 
 /***/ }),
 
@@ -931,8 +931,14 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.unitOrder = false;
         this.isReportSubmitted = true;
         this.isDataLoaded = true;
+        this.reportData = "";
         this.filterSelected = "all";
         this.singleBlock = "Select Tower";
+        this.filterSelectedNote = "all";
+        this.singleNote = "Select Subject";
+        this.filterSelectedType = "all";
+        this.singleType = "Select Alert";
+        this.minDate = null;
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -1069,6 +1075,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.report.alertTypeStatusID = null;
         this.report.startDate = null;
         this.report.endDate = null;
+        this.minDate = null;
         // =this.getTicketByAdmin();
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
@@ -1106,6 +1113,9 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
     goBack() {
         this.matDrawer.close();
     }
+    getPrintParams(event) {
+        this.datagrid.exportdata(event, 'SecurityReportsData');
+    }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.pageName = this.route.params['value'].name;
@@ -1114,8 +1124,8 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.report.apartmentBlockID = "";
         this.report.emergencyCategoryTypeID = "";
         this.report.alertTypeStatusID = "";
-        this.report.startDate = undefined;
-        this.report.endDate = undefined;
+        this.report.startDate = null;
+        this.report.endDate = null;
         let apartment_params = {
             apartmentId: parseInt(this.sessionService.apartmentId)
         };
@@ -1154,7 +1164,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
             }, {
                 text: 'Creation Date',
                 datafield: 'creationDate',
-                width: 100,
+                width: 200,
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell">' + this.getDate(value) + '</div>';
                 },
@@ -1164,38 +1174,41 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
                 datafield: 'unitNo',
                 cellsrenderer: cellsrenderer,
                 minwidth: 80,
+                maxwidth: 160,
                 renderer: columnrenderer
             }, {
-                text: 'Tower No',
+                text: 'Tower',
                 datafield: 'blockNo',
-                cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + this.getDate(value) + '</div>';
-                },
-                minwidth: 170,
+                cellsrenderer: cellsrenderer,
+                minwidth: 120,
+                maxwidth: 180,
                 renderer: columnrenderer
             }, {
                 text: 'Category',
                 datafield: 'category',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 120,
+                maxwidth: 180,
                 renderer: columnrenderer
             }, {
                 text: 'Subject',
                 datafield: 'notes',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                minwidth: 120,
+                maxwidth: 180,
                 renderer: columnrenderer
             }, {
                 text: 'Status',
                 datafield: 'alertStatus',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 120,
+                maxwidth: 150,
                 renderer: columnrenderer
             }];
         let details = {
             ApartmentBlockID: parseInt(this.report.apartmentBlockID),
-            StartDate: this.report.startDate === "" ? "2020-01-01" : this.getDateTime(this.report.startDate),
-            EndDate: this.report.startDate === "" ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDateTime(this.report.endDate),
+            StartDate: this.report.startDate === null ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date("2020-01-01")).format("MM/DD/YYYY hh:mm aa") : this.getDateTime(this.report.startDate),
+            EndDate: this.report.endDate === null ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDateTime(this.report.endDate),
             ApartmentID: parseInt(this.sessionService.apartmentId),
             EmergencyCategoryTypeID: parseInt(this.report.emergencyCategoryTypeID),
             AlertTypeStatusID: parseInt(this.report.alertTypeStatusID)
@@ -1228,7 +1241,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         this.filterSelected = 'all';
         this.singleBlock = "Select Tower";
         this.report.apartmentBlockID = "";
-        this.datagrid.clearfilters();
+        this.datagrid.removefilter('blockNo', true);
     }
     getSingleBlock(block) {
         this.filterSelected = 'single';
@@ -1239,15 +1252,74 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         let filtervalue = this.singleBlock;
         let filtercondition = 'contains';
         let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-        filtergroup.operator = 'or';
+        filtergroup.operator = 'and';
         filtergroup.addfilter(filter_or_operator, filterData);
         this.datagrid.showfiltercolumnbackground(false);
         this.columnData.forEach(item => {
-            if (item.datafield != 'Actions') {
+            if (item.datafield === 'blockNo') {
                 this.datagrid.addfilter(item.datafield, filtergroup, true);
             }
         });
         this.datagrid.applyfilters();
+    }
+    getAllNoteData() {
+        this.filterSelectedNote = 'all';
+        this.singleNote = "Select Subject";
+        this.report.emergencyCategoryTypeID = "";
+        // this.datagrid.clearfilters();
+        this.datagrid.removefilter('notes', true);
+    }
+    getSelectNote(note) {
+        this.filterSelectedNote = 'single';
+        this.singleNote = note.lookupValueName;
+        this.report.emergencyCategoryTypeID = note.lookupValueId;
+        let filtergroup = new jqx.filter();
+        let filter_or_operator = 1;
+        let filtervalue = this.singleNote;
+        let filtercondition = 'contains';
+        let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+        filtergroup.operator = 'and';
+        filtergroup.addfilter(filter_or_operator, filterData);
+        this.datagrid.showfiltercolumnbackground(false);
+        this.columnData.forEach(item => {
+            if (item.datafield === 'notes') {
+                this.datagrid.addfilter(item.datafield, filtergroup, true);
+            }
+        });
+        this.datagrid.applyfilters();
+    }
+    getAllTypeData() {
+        this.filterSelectedType = 'all';
+        this.singleType = "Select Alert";
+        this.report.alertTypeStatusID = "";
+        this.datagrid.removefilter('alertStatus', true);
+    }
+    getSelectType(note) {
+        this.filterSelectedType = 'single';
+        this.singleType = note.lookupValueName;
+        this.report.alertTypeStatusID = note.lookupValueId;
+        let filtergroup = new jqx.filter();
+        let filter_or_operator = 1;
+        let filtervalue = this.singleNote;
+        let filtercondition = 'contains';
+        let filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+        filtergroup.operator = 'and';
+        filtergroup.addfilter(filter_or_operator, filterData);
+        this.datagrid.showfiltercolumnbackground(false);
+        this.columnData.forEach(item => {
+            if (item.datafield === 'alertStatus') {
+                this.datagrid.addfilter(item.datafield, filtergroup, true);
+            }
+        });
+        this.datagrid.applyfilters();
+    }
+    fromInput(event) {
+        let from = new Date(this.report.startDate);
+        let to = new Date(this.report.endDate);
+        if (from > to) {
+            this.report.endDate = '';
+        }
+        this.minDate = new Date(this.report.startDate);
     }
 };
 SecurityReportsDataComponent.ctorParameters = () => [

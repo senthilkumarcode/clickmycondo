@@ -376,49 +376,57 @@
               this.columnData = [{
                 text: 'User Name',
                 datafield: 'unitUserName',
-                width: 120,
+                minwidth: 130,
+                maxwidth: 170,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Block Number',
                 datafield: 'blockNo',
-                width: 130,
+                minwidth: 100,
+                maxwidth: 130,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Unit Number',
                 datafield: 'unitNo',
-                width: 120,
+                minwidth: 100,
+                maxwidth: 130,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Email Id',
                 datafield: 'emailID',
-                width: 220,
+                minwidth: 220,
+                maxwidth: 300,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'User Type',
                 datafield: 'userTypeName',
-                width: 100,
+                minwidth: 100,
+                maxwidth: 140,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Mobile',
                 datafield: 'mobile',
-                width: 120,
+                minwidth: 120,
+                maxwidth: 140,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Vehicle Model',
                 datafield: 'vehicleModel',
-                width: 150,
+                minwidth: 150,
+                maxwidth: 170,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }, {
                 text: 'Vehicle Number',
                 datafield: 'vehicleNumber',
-                width: 140,
+                minwidth: 140,
+                maxwidth: 170,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
               }];

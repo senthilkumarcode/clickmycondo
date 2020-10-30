@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"vendors-view-wrapper\">\n        <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n                \n                                    \t<div class=\"filter-box cleafix\">\n                                                <div class=\"d-flex align-items-center mb-4\">\n                                                    \n                                            \n                                                        <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                            Towers</button>\n                                                        <button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n                                                        <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                            <ng-container *ngFor=\"let block of unitBlocksData\">\n                                                                <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                                    {{block.apartmentBlockNumber}}\n                                                                </button>\n                                                            </ng-container>\n                                                        </mat-menu>\n                                            \n                                                    \n                                                    \n                                                </div>\n                                            </div>\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n    \n        <condo-card *ngIf=\"isVendorLoaded\">\n            <div CondoCardHeader>\n                \t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/vendor/reports\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{selected_report_type}} Vendors </h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"vendorData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- <div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div> -->\n                  \n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"vendorTableList\" [columns]=\"columnData\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n        <ng-template #viewVendorRef let-vendor>\n            <div class=\"user-info\">\n                <div class=\"close-icon\" mat-dialog-close>\n                    <i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n                </div>\n                <div class=\"title\">\n                    <h5>Vendor Info</h5>\n                </div>\n    \n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <div class=\"media\">\n                            <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n                                <p class=\"grey\">{{vendor.email}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"card-body lists\">\n                        <ul class=\"list-group\">\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Vendor ID</h6>\n                                <p>{{vendor.vendorId}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Contact Person</h6>\n                                <p>{{vendor.contactPerson}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Phone No</h6>\n                                <p>{{vendor.phone1}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">VAT No</h6>\n                                <p>{{vendor.vatorTin}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax1 No</h6>\n                                <p>{{vendor.tax1}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax2 No</h6>\n                                <p>{{vendor.tax2}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax3 No</h6>\n                                <p>{{vendor.tax3}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax4 No</h6>\n                                <p>{{vendor.tax4}}</p>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            </div>\n    \n        </ng-template>\n    </div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n    </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"vendors-view-wrapper\">\n        <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\n\t\t\t\t\t\t\t\t<form>\n                \n                                    \t<div class=\"filter-box cleafix\">\n                                                <div class=\"d-flex align-items-center mb-4\">\n                                                    \n                                            \n                                                        <button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n                                                            Towers</button>\n                                                        <button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n                                                        <mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n                                                            <ng-container *ngFor=\"let block of unitBlocksData\">\n                                                                <button mat-menu-item (click)=\"getSingleBlock(block)\">\n                                                                    {{block.apartmentBlockNumber}}\n                                                                </button>\n                                                            </ng-container>\n                                                        </mat-menu>\n                                            \n                                                    \n                                                    \n                                                </div>\n                                            </div>\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t<!-- <div class=\"row\">\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\n\t\t\t\t\t\t\t\t\t\t <condo-select [fieldModel]=\"blockId\" labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" fieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t\t\t\t [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\" [isDisabled]=\"false\"  fieldValue=\"apartmentBlockNumber\" (fieldParams)=\"getSelectedType($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t\n\t\t\t\t\t</div>\n\t\t\t\t</mat-drawer>\n\t\t\t\t<mat-drawer-content>\n        <div class=\"main\">\n    \n        <app-loader *ngIf=\"!isVendorLoaded\"></app-loader>\n    \n        <condo-card *ngIf=\"isVendorLoaded\">\n            <div CondoCardHeader>\n                \t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/vendor/reports\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n                                        <mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>{{selected_report_type}} Vendors </h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"vendorData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- <div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div> -->\n                  \n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"vendorTableList\" [columns]=\"columnData\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n        <ng-template #viewVendorRef let-vendor>\n            <div class=\"user-info\">\n                <div class=\"close-icon\" mat-dialog-close>\n                    <i-feather class=\"icon del\" name=\"x\" width=\"20\"></i-feather>\n                </div>\n                <div class=\"title\">\n                    <h5>Vendor Info</h5>\n                </div>\n    \n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <div class=\"media\">\n                            <div class=\"icon mr-4\"><img src=\"assets/images/user-icon.svg\" width=\"36\" /></div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mt-0\">{{vendor.vendorName}}</h5>\n                                <p class=\"grey\">{{vendor.email}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"card-body lists\">\n                        <ul class=\"list-group\">\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Vendor ID</h6>\n                                <p>{{vendor.vendorId}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Contact Person</h6>\n                                <p>{{vendor.contactPerson}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Phone No</h6>\n                                <p>{{vendor.phone1}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">VAT No</h6>\n                                <p>{{vendor.vatorTin}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax1 No</h6>\n                                <p>{{vendor.tax1}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax2 No</h6>\n                                <p>{{vendor.tax2}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax3 No</h6>\n                                <p>{{vendor.tax3}}</p>\n                            </li>\n                            <li class=\"list-inline-item\">\n                                <h6 class=\"mt-0\">Tax4 No</h6>\n                                <p>{{vendor.tax4}}</p>\n                            </li>\n                        </ul>\n                    </div>\n                </div>\n            </div>\n    \n        </ng-template>\n    </div>\n\n</mat-drawer-content>\n</mat-drawer-container>\n    </div>");
 
 /***/ }),
 
@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!selected_report \" class=\"gl-other-reports-wrapper\">\n\t<div class=\"main\">\n\n\n\t\t\t<ng-container>\n\t\t\t\n\t\t\t\t<h4 class=\"mb-4\">Select the reports</h4>\n\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportsTypes; let i = index\">\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/vendor/reports/{{report.type}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t <h6>{{report.name}}</h6>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t</ng-container>\n</div>\n</div>\n\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"!selected_report \" class=\"gl-other-reports-wrapper\">\n\t<div class=\"main\">\n\n\n\t\t\t<ng-container>\n\t\t\t\n\t\t\t\t<h4 class=\"mb-4\">Select the reports</h4>\n\t\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportsTypes; let i = index\">\n\t\t\t\t\t\t<condo-card>\n\t\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\" routerLink=\"/ams/vendor/reports/{{report.type}}\"\n\t\t\t\t\t\t\t routerLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">\n\t\t\t\t\t\t\t <h6>{{report.name}}</h6>\n\t\t\t\t\t\t\t <p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\n\t\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</condo-card>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t</ng-container>\n</div>\n</div>\n\n\n");
 
 /***/ }),
 
@@ -1099,46 +1099,83 @@ let VendorReportDataComponent = class VendorReportDataComponent {
         this.columnData = [{
                 text: 'Vendor ID',
                 datafield: 'vendorId',
-                minwidth: 130,
+                minwidth: 80,
+                maxwidth: 90,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-            }, {
+            },
+            {
+                text: 'Vendor Name',
+                datafield: 'vendorName',
+                minwidth: 160,
+                maxwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Email ID',
+                datafield: 'email',
+                minwidth: 170,
+                maxwidth: 200,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Vendor Category',
+                datafield: 'vendorCategoryId',
+                minwidth: 140,
+                maxwidth: 160,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Vendor Type',
+                datafield: 'vendorTypeId',
+                minwidth: 100,
+                maxwidth: 120,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
                 text: 'Contact Person',
                 datafield: 'contactPerson',
-                minwidth: 250,
+                minwidth: 130,
+                maxwidth: 150,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'Phone No',
                 datafield: 'phone1',
-                minwidth: 170,
+                minwidth: 110,
+                maxwidth: 130,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'VAT',
                 datafield: 'vatorTin',
-                minwidth: 160,
+                minwidth: 130,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Percentage Tax',
                 datafield: 'tax1',
-                minwidth: 150,
+                minwidth: 120,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
             {
                 text: 'With Holding Tax',
                 datafield: 'tax2',
-                minwidth: 150,
+                minwidth: 120,
+                maxwidth: 140,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Actions',
                 cellsalign: 'center',
                 align: 'center',
-                minwidth: 150,
+                minwidth: 120,
                 cellclassname: 'action-cell',
                 cellsrenderer: (row, column, value) => {
                     return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="viewVendor(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></div>';
@@ -1149,9 +1186,10 @@ let VendorReportDataComponent = class VendorReportDataComponent {
         this.vendorCategoryId = "All";
         this.vendor.categoryName = "";
         let params = {
-            apartmentId: this.sessionService.apartmentId
+            apartmentId: this.sessionService.apartmentId,
+            active: this.pageName === "Active" ? 1 : 0
         };
-        this.vendorService.getVendorByApartmentId(params).subscribe((res) => {
+        this.vendorService.getVendorByApartmentIdStatus(params).subscribe((res) => {
             this.allVendorListData = res;
             this.isVendorLoaded = true;
             this.selectReport(this.pageName);
@@ -1437,8 +1475,8 @@ let VendorReportsComponent = class VendorReportsComponent {
         this.vendorCategoryId = "All";
         this.vendor.categoryName = "";
         this.reportsTypes = [
-            { name: 'Active Vendors', type: 'Active' },
-            { name: 'Inactive Vendors', type: 'Inactive' }
+            { name: 'Active Vendors', type: 'Active', description: 'Provides the list of active vendors' },
+            { name: 'Inactive Vendors', type: 'Inactive', description: 'Provides the list of inactive vendors' }
         ];
         let params = {
             apartmentId: this.sessionService.apartmentId

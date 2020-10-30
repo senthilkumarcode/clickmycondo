@@ -1616,9 +1616,12 @@
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var status, label;
 
-                if (value == 308) {
+                if (value == 308 && _this17.urlType == 'scheduled-list') {
                   status = 'purple';
                   label = 'Scheduled';
+                } else if (value == 308 && _this17.urlType == 'history') {
+                  status = 'green';
+                  label = 'Completed';
                 } else if (value == 315) {
                   status = 'red';
                   label = 'Cancelled';
