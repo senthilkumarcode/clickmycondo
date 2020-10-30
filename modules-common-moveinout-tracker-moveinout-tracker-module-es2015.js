@@ -2132,14 +2132,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/MoveInOut */ "./src/app/api/controllers/MoveInOut.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/MoveInOut */ "./src/app/api/controllers/MoveInOut.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -2151,12 +2149,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let MoveinReportDataComponent = class MoveinReportDataComponent {
-    constructor(route, apartmentService, moveInOutService, sharedService, cookieService, sessionService) {
+    constructor(route, apartmentService, moveInOutService, sharedService, sessionService) {
         this.route = route;
         this.apartmentService = apartmentService;
         this.moveInOutService = moveInOutService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.sessionService = sessionService;
         this.pageName = "";
         this.isDataLoaded = false;
@@ -2180,7 +2177,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
         this.matDrawer.close();
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
     }
     submitReportsFilterForm() {
         let params = {
@@ -2240,7 +2237,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
     }
     getExpectedDate(val) {
         if (val != '') {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(val).format("MM/DD/YYYY");
+            return moment__WEBPACK_IMPORTED_MODULE_9__(val).format("MM/DD/YYYY");
         }
         else {
             return '';
@@ -2311,7 +2308,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             this.unitBlocksData = res;
         });
         let visitParams = {
-            ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 15
         };
         this.isDataLoaded = true;
@@ -2396,7 +2393,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             ApartmentID: parseInt(this.sessionService.apartmentId),
             ApartmentBlockID: parseInt(this.blockId),
             StartDate: this.start_date === "" ? "2020-01-01" : this.getDate(this.start_date),
-            EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
+            EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_9__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
         };
         this.getDetails(params);
     }
@@ -2429,10 +2426,9 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
 MoveinReportDataComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
-    { type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"] },
+    { type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_6__["MoveInOutService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] }
 ];
 MoveinReportDataComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
@@ -2446,10 +2442,9 @@ MoveinReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorat
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
-        src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"],
+        src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_6__["MoveInOutService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])
 ], MoveinReportDataComponent);
 
 

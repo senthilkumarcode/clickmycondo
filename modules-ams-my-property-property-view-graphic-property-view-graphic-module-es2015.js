@@ -74,21 +74,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
-/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
-/* harmony import */ var src_app_modules_ams_profile_settings_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/PropertyManager */ "./src/app/api/controllers/PropertyManager.ts");
-/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_15__);
-
+/* harmony import */ var src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/file-upload.service */ "./src/app/shared/services/file-upload.service.ts");
+/* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
+/* harmony import */ var src_app_modules_ams_profile_settings_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component */ "./src/app/modules/ams/profile-settings/components/add-property-dialog/add-property-dialog.component.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/api/controllers/PropertyManager */ "./src/app/api/controllers/PropertyManager.ts");
+/* harmony import */ var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/material/sidenav */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_14__);
 
 
 
@@ -106,11 +104,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var graph;
 let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
-    constructor(element, apartmentService, sharedService, cookieService, fileUploadService, fileDownloadService, sanitizer, lookupService, propertyManagerService, dialog, sessionService, fileDetailService) {
+    constructor(element, apartmentService, sharedService, fileUploadService, fileDownloadService, sanitizer, lookupService, propertyManagerService, dialog, sessionService, fileDetailService) {
         this.element = element;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
-        this.cookieService = cookieService;
         this.fileUploadService = fileUploadService;
         this.fileDownloadService = fileDownloadService;
         this.sanitizer = sanitizer;
@@ -275,7 +272,7 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
         let data = this.onChangeVal;
         data['type'] = type;
         data['apartmentBlockId'] = this.selectedFloor;
-        const dialogRef = this.dialog.open(src_app_modules_ams_profile_settings_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"], {
+        const dialogRef = this.dialog.open(src_app_modules_ams_profile_settings_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_9__["AddPropertyDialogComponent"], {
             width: '20%',
             position: {
                 right: '10%'
@@ -388,10 +385,10 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 "floorPictureFileDetailsId": imageId,
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
-                "insertedBy": parseInt(this.cookieService.get('userId')),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()().toISOString(),
                 "updatedBy": 0,
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedFloor
             }
         };
@@ -416,9 +413,9 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
                 "mapJsonFile": JSON.stringify(this.updatedGraph),
                 "isActive": true,
                 "insertedBy": 0,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
-                "updatedBy": parseInt(this.cookieService.get('userId')),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()().toISOString(),
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_14___default()().toISOString(),
                 "apartmentBlockFloorId": this.selectedTower
             }
         };
@@ -510,16 +507,15 @@ let PropertyViewGraphicComponent = class PropertyViewGraphicComponent {
 PropertyViewGraphicComponent.ctorParameters = () => [
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"] },
-    { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_4__["FileUploadService"] },
-    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_5__["FileDownloadService"] },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_12__["PropertyManagerService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"] },
-    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"] },
+    { type: src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_3__["FileUploadService"] },
+    { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"] },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_11__["PropertyManagerService"] },
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] },
+    { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_8__["FileDetailsService"] }
 ];
 PropertyViewGraphicComponent.propDecorators = {
     poiId: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['poiId',] }],
@@ -537,16 +533,15 @@ PropertyViewGraphicComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__deco
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"],
-        src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_4__["FileUploadService"],
-        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_5__["FileDownloadService"],
-        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["DomSanitizer"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_12__["PropertyManagerService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_8__["MatDialog"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_11__["SessionService"],
-        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_9__["FileDetailsService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_13__["SharedService"],
+        src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_3__["FileUploadService"],
+        src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_4__["FileDownloadService"],
+        _angular_platform_browser__WEBPACK_IMPORTED_MODULE_5__["DomSanitizer"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        src_app_api_controllers_PropertyManager__WEBPACK_IMPORTED_MODULE_11__["PropertyManagerService"],
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_7__["MatDialog"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"],
+        src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_8__["FileDetailsService"]])
 ], PropertyViewGraphicComponent);
 
 

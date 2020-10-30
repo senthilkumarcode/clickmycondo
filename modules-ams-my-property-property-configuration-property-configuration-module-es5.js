@@ -197,9 +197,9 @@
         }, {
           path: 'asset',
           loadChildren: function loadChildren() {
-            return Promise.all(
+            return __webpack_require__.e(
             /*! import() | src-app-modules-ams-my-property-asset-configuration-asset-configuration-module */
-            [__webpack_require__.e("common"), __webpack_require__.e("src-app-modules-ams-my-property-asset-configuration-asset-configuration-module")]).then(__webpack_require__.bind(null,
+            "src-app-modules-ams-my-property-asset-configuration-asset-configuration-module").then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/my-property/asset-configuration/asset-configuration.module */
             "./src/app/modules/ams/my-property/asset-configuration/asset-configuration.module.ts")).then(function (m) {
               return m.AssetConfigurationModule;

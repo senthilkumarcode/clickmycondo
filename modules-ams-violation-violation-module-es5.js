@@ -449,22 +449,15 @@
       var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
-      /* harmony import */
-
-
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
       var AddViolationComponent = /*#__PURE__*/function () {
-        function AddViolationComponent(dialog, violationService, lookupService, sharedService, cookieService, userService, apartmentService, sessionService, cdr) {
+        function AddViolationComponent(dialog, violationService, lookupService, sharedService, userService, apartmentService, sessionService, cdr) {
           _classCallCheck(this, AddViolationComponent);
 
           this.dialog = dialog;
           this.violationService = violationService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
           this.userService = userService;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
@@ -517,7 +510,7 @@
             this.getViolationCategory();
             this.getAllViolation();
             var apartment_params = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId'))
+              apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(apartment_params).subscribe(function (res) {// this.blockData = res;
             });
@@ -531,7 +524,7 @@
           key: "getUser",
           value: function getUser() {
             var userParams = {
-              userid: parseInt(this.cookieService.get('userId'))
+              userid: this.sessionService.userId
             };
             this.userService.getUserById(userParams).subscribe(function (res) {// this.user = res[0];
               // this.violationData.raisedByName = res[0].firstName + res[0].middleName + res[0].lastName;
@@ -541,7 +534,7 @@
           key: "getAllViolation",
           value: function getAllViolation() {
             var statusparams = {
-              apartmentId: parseInt(this.cookieService.get('apartmentId')),
+              apartmentId: this.sessionService.apartmentId,
               active: 1
             };
             this.violationService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
@@ -874,8 +867,6 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_15__["CookieService"]
-        }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"]
         }, {
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"]
@@ -894,7 +885,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-violation.component.scss */
         "./src/app/modules/ams/violation/components/add-violation/add-violation.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_15__["CookieService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddViolationComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddViolationComponent);
       /***/
     },
 
@@ -982,34 +973,28 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-      /* harmony import */
-
-
-      var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ../../../../../../api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
       var SearcWorkpermitsComponent = /*#__PURE__*/function () {
-        function SearcWorkpermitsComponent(dialogRef, data, facilityService, sharedService, sessionService, workpermitService, cookieService, apartmentService) {
+        function SearcWorkpermitsComponent(dialogRef, data, facilityService, sharedService, sessionService, workpermitService, apartmentService) {
           _classCallCheck(this, SearcWorkpermitsComponent);
 
           this.dialogRef = dialogRef;
@@ -1018,7 +1003,6 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.workpermitService = workpermitService;
-          this.cookieService = cookieService;
           this.apartmentService = apartmentService;
           this.ItemStartIndex = 0;
           this.itemLimit = 20;
@@ -1039,7 +1023,7 @@
         }, {
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",
@@ -1097,14 +1081,14 @@
               text: 'Start date',
               datafield: 'startDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this9.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this9.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'End date',
               datafield: 'endDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this9.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this9.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1227,9 +1211,7 @@
         }, {
           type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"]
-        }, {
-          type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]
+          type: _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
         }];
       };
 
@@ -1257,7 +1239,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./searc-workpermits.component.scss */
         "./src/app/modules/ams/violation/components/add-violation/searc-workpermits/searc-workpermits.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_7__["CookieService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"]])], SearcWorkpermitsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_4__["FacilityService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]])], SearcWorkpermitsComponent);
 
       function selectRow(row) {
         var event = new CustomEvent('selectRow', {
@@ -1997,15 +1979,9 @@
       var src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Parking */
       "./src/app/api/controllers/Parking.ts");
-      /* harmony import */
-
-
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
       var SearchParkingslotsComponent = /*#__PURE__*/function () {
-        function SearchParkingslotsComponent(dialogRef, data, facilityService, sessionService, parkingService, cookieService) {
+        function SearchParkingslotsComponent(dialogRef, data, facilityService, sessionService, parkingService) {
           _classCallCheck(this, SearchParkingslotsComponent);
 
           this.dialogRef = dialogRef;
@@ -2013,7 +1989,6 @@
           this.facilityService = facilityService;
           this.sessionService = sessionService;
           this.parkingService = parkingService;
-          this.cookieService = cookieService;
           this.ItemStartIndex = 0;
           this.itemLimit = 5;
           this.unitFieldType = 'unitno';
@@ -2094,7 +2069,7 @@
             var _this20 = this;
 
             var params = {
-              ApartmentID: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentID: this.sessionService.apartmentId,
               KeywordSlotNo: this.parkingSlot.slotNo,
               KeywordVehicleNo: this.parkingSlot.vehicleNo
             };
@@ -2129,8 +2104,6 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
           type: src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_5__["ParkingService"]
-        }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
         }];
       };
 
@@ -2148,7 +2121,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./search-parkingslots.component.scss */
         "./src/app/modules/ams/violation/components/add-violation/search-parkingslots/search-parkingslots.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_5__["ParkingService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]])], SearchParkingslotsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Facility__WEBPACK_IMPORTED_MODULE_3__["FacilityService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_api_controllers_Parking__WEBPACK_IMPORTED_MODULE_5__["ParkingService"]])], SearchParkingslotsComponent);
       /***/
     },
 
@@ -2922,45 +2895,38 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/api/controllers/Violation */
       "./src/app/api/controllers/Violation.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
 
       var DisputeComponent = /*#__PURE__*/function () {
-        function DisputeComponent(dialogRef, data, cookieService, sharedService, violationService, sessionService) {
+        function DisputeComponent(dialogRef, data, sharedService, violationService, sessionService) {
           _classCallCheck(this, DisputeComponent);
 
           this.dialogRef = dialogRef;
           this.data = data;
-          this.cookieService = cookieService;
           this.sharedService = sharedService;
           this.violationService = violationService;
           this.sessionService = sessionService;
@@ -2988,7 +2954,7 @@
                 disputeComments: this.dispute.disputeComments,
                 isActive: true,
                 insertedBy: parseInt(this.sessionService.userId),
-                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
                 updatedBy: null,
                 updatedOn: null,
                 apartmentId: parseInt(this.sessionService.apartmentId),
@@ -3045,13 +3011,11 @@
             args: [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MAT_DIALOG_DATA"]]
           }]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+          type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"]
         }, {
-          type: src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }];
       };
 
@@ -3074,7 +3038,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./dispute.component.scss */
         "./src/app/modules/ams/violation/components/user-violation/dispute/dispute.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__["CookieService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_5__["ViolationService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], DisputeComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], DisputeComponent);
       /***/
     },
 
@@ -3461,7 +3425,7 @@
           key: "getAllBlockData",
           value: function getAllBlockData() {
             this.filterSelected = 'all';
-            this.singleBlock = "Select Tower"; // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(parseInt(this.cookieService.get('apartmentId'))).subscribe((res:any) => {
+            this.singleBlock = "Select Tower"; // this.accountsService.GetIncomeTrackerSubLedgersByApartmentId(this.sessionService.apartmentId).subscribe((res:any) => {
             // this.subLedgerDataList = new jqx.dataAdapter({
             //   localData: res,
             //   datatype: "array"

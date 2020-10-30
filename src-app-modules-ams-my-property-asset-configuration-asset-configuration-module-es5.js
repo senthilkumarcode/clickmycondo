@@ -250,24 +250,24 @@
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/core/session/session.service */
+      "./src/app/core/session/session.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
-      /* harmony import */
-
-
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
 
       var AssetConfigurationDetailsComponent = /*#__PURE__*/function () {
-        function AssetConfigurationDetailsComponent(assetConfigurationList, _activatedRoute, _router, el, _changeDetectorRef, sharedService, cookieService, lookupService) {
+        function AssetConfigurationDetailsComponent(assetConfigurationList, _activatedRoute, _router, el, _changeDetectorRef, sessionService, sharedService, lookupService) {
           _classCallCheck(this, AssetConfigurationDetailsComponent);
 
           this.assetConfigurationList = assetConfigurationList;
@@ -275,8 +275,8 @@
           this._router = _router;
           this.el = el;
           this._changeDetectorRef = _changeDetectorRef;
+          this.sessionService = sessionService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
           this.lookupService = lookupService;
           this.subMenuList = [];
         }
@@ -299,7 +299,7 @@
             if (this._activatedRoute.params['value'].id) {
               var queryParamBase = {};
               queryParamBase = {
-                apartmentId: this.cookieService.get('apartmentId'),
+                apartmentId: this.sessionService.apartmentId,
                 lookupTypeId: 19,
                 subCategoryLookupTypeId: 68
               };
@@ -341,11 +341,11 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]
         }];
       };
 
@@ -357,7 +357,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./asset-configuration-details.component.scss */
         "./src/app/modules/ams/my-property/asset-configuration/asset-configuration-details/asset-configuration-details.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_asset_configuration_list_asset_configuration_list_component__WEBPACK_IMPORTED_MODULE_2__["AssetConfigurationListComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_6__["CookieService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]])], AssetConfigurationDetailsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_asset_configuration_list_asset_configuration_list_component__WEBPACK_IMPORTED_MODULE_2__["AssetConfigurationListComponent"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"]])], AssetConfigurationDetailsComponent);
       /***/
     },
 

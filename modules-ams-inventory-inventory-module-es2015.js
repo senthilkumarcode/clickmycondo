@@ -977,10 +977,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
 /* harmony import */ var src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Inventory */ "./src/app/api/controllers/Inventory.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-/* harmony import */ var src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/PurchaseOrder */ "./src/app/api/controllers/PurchaseOrder.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-
+/* harmony import */ var src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/PurchaseOrder */ "./src/app/api/controllers/PurchaseOrder.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 
 
 
@@ -988,10 +986,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let InventoryCurrentDetailsComponent = class InventoryCurrentDetailsComponent {
-    constructor(inventoryService, purchaseOrderService, cookieService, sessionService) {
+    constructor(inventoryService, purchaseOrderService, sessionService) {
         this.inventoryService = inventoryService;
         this.purchaseOrderService = purchaseOrderService;
-        this.cookieService = cookieService;
         this.sessionService = sessionService;
         this.warehouseData = [];
         this.searchWareHouseId = '';
@@ -1127,9 +1124,8 @@ let InventoryCurrentDetailsComponent = class InventoryCurrentDetailsComponent {
 };
 InventoryCurrentDetailsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_3__["InventoryService"] },
-    { type: src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_5__["PurchaseOrderService"] },
-    { type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
+    { type: src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_4__["PurchaseOrderService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
 ];
 InventoryCurrentDetailsComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }]
@@ -1141,9 +1137,8 @@ InventoryCurrentDetailsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./inventory-current-details.component.scss */ "./src/app/modules/ams/inventory/components/inventory-current-details/inventory-current-details.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Inventory__WEBPACK_IMPORTED_MODULE_3__["InventoryService"],
-        src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_5__["PurchaseOrderService"],
-        ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
+        src_app_api_controllers_PurchaseOrder__WEBPACK_IMPORTED_MODULE_4__["PurchaseOrderService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], InventoryCurrentDetailsComponent);
 
 

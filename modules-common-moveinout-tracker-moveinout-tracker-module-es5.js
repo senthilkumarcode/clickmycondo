@@ -3100,53 +3100,46 @@
       /* harmony import */
 
 
-      var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ngx-cookie-service */
-      "./node_modules/ngx-cookie-service/__ivy_ngcc__/fesm2015/ngx-cookie-service.js");
-      /* harmony import */
-
-
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/MoveInOut */
       "./src/app/api/controllers/MoveInOut.ts");
       /* harmony import */
 
 
-      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _angular_material_sidenav__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/material/sidenav */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/sidenav.js");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
 
       var MoveinReportDataComponent = /*#__PURE__*/function () {
-        function MoveinReportDataComponent(route, apartmentService, moveInOutService, sharedService, cookieService, sessionService) {
+        function MoveinReportDataComponent(route, apartmentService, moveInOutService, sharedService, sessionService) {
           _classCallCheck(this, MoveinReportDataComponent);
 
           this.route = route;
           this.apartmentService = apartmentService;
           this.moveInOutService = moveInOutService;
           this.sharedService = sharedService;
-          this.cookieService = cookieService;
           this.sessionService = sessionService;
           this.pageName = "";
           this.isDataLoaded = false;
@@ -3179,7 +3172,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
           }
         }, {
           key: "submitReportsFilterForm",
@@ -3243,7 +3236,7 @@
           key: "getExpectedDate",
           value: function getExpectedDate(val) {
             if (val != '') {
-              return moment__WEBPACK_IMPORTED_MODULE_10__(val).format("MM/DD/YYYY");
+              return moment__WEBPACK_IMPORTED_MODULE_9__(val).format("MM/DD/YYYY");
             } else {
               return '';
             }
@@ -3332,7 +3325,7 @@
               _this32.unitBlocksData = res;
             });
             var visitParams = {
-              ApartmentId: parseInt(this.cookieService.get('apartmentId')),
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 15
             };
             this.isDataLoaded = true;
@@ -3422,7 +3415,7 @@
               ApartmentID: parseInt(this.sessionService.apartmentId),
               ApartmentBlockID: parseInt(this.blockId),
               StartDate: this.start_date === "" ? "2020-01-01" : this.getDate(this.start_date),
-              EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_10__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
+              EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_9__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
             };
             this.getDetails(params);
           }
@@ -3468,13 +3461,11 @@
         }, {
           type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
         }, {
-          type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"]
+          type: src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_6__["MoveInOutService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
-          type: ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"]
-        }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
         }];
       };
 
@@ -3500,7 +3491,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./movein-report-data.component.scss */
         "./src/app/modules/common/moveinout-tracker/components/movein-reports/movein-report-data/movein-report-data.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_7__["MoveInOutService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_5__["CookieService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], MoveinReportDataComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_MoveInOut__WEBPACK_IMPORTED_MODULE_6__["MoveInOutService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]])], MoveinReportDataComponent);
       /***/
     },
 

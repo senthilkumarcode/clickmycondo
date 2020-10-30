@@ -357,7 +357,8 @@ let DocumentCreateComponent = class DocumentCreateComponent {
     ngOnInit() {
         if (this.data.from == 'private') {
             let params = {
-                LookupTypeId: 200
+                LookupTypeId: 200,
+                ApartmentId: this.sessionService.apartmentId,
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                 this.documentCategoryList = res;
@@ -589,7 +590,8 @@ let DocumentSetupCategoryComponent = class DocumentSetupCategoryComponent {
     }
     getDocumentCategoryList() {
         let params = {
-            LookupTypeId: this.lookupId
+            LookupTypeId: this.lookupId,
+            ApartmentId: this.sessionService.apartmentId,
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.isDocumentCategoryLoaded = true;
