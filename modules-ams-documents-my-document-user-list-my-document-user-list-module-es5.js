@@ -240,8 +240,7 @@
 
             if (this.data.from == 'private') {
               var params = {
-                LookupTypeId: 200,
-                ApartmentId: this.sessionService.apartmentId
+                LookupTypeId: 200
               };
               this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
                 _this3.documentCategoryList = res;

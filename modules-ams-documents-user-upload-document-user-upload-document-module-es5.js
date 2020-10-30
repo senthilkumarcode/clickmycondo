@@ -798,8 +798,7 @@
                   } else {
                     //Document Category List
                     var params = {
-                      LookupTypeId: 200,
-                      ApartmentId: _this5.sessionService.apartmentId
+                      LookupTypeId: 200
                     };
 
                     _this5.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {

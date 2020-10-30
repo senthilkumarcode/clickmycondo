@@ -496,8 +496,7 @@ let UserUploadDrawerComponent = class UserUploadDrawerComponent {
                     else {
                         //Document Category List
                         let params = {
-                            LookupTypeId: 200,
-                            ApartmentId: this.sessionService.apartmentId,
+                            LookupTypeId: 200
                         };
                         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
                             this.documentCategoryList = res;

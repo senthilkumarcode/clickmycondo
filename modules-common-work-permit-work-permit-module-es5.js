@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"workpermit-create-wrapper\">\n  <div class=\"main\">\n    <div class=\"d-flex mb-4\">\n      <h4 *ngIf=\"pageType=='create'\">Create WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='edit'\">Edit WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='view'\">View WorkPermit</h4>\n      <div class=\"ml-auto\" *ngIf=\"pageType=='view'\">\n        <button mat-stroked-button  (click)=\"downloadPdf()\">\n          <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n          <span class=\"ml-2\">Export</span>\n        </button>\n      </div>\n    </div>\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n      [appearance]=\"message.appearance\"\n      [showIcon]=\"message.showIcon\"\n      [type]=\"message.type\"\n      [@shake]=\"message.shake\">\n      {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" id=\"pdf\">\n      <!-- PDF Download View -->\n      <div class=\"row\" *ngIf=\"pageType=='view' && isPDFDow\">\n        <div class=\"col-sm-12\">\n          <h5>WorkPermit No: {{workPermit.workPermitId}}</h5>\n          <div class=\"text-center mb-4\"> \n            <h6>{{apartmentInfo.apartmentName}} Apartments</h6>\n            <p>{{apartmentInfo.address1}},{{apartmentInfo.city}}</p>\n          </div>\n        </div>\n      </div>\n      <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\">\n        <div class=\"row\" *ngIf=\"isAdmin()\">\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n              <label>Tower No<span class=\"required\">*</span></label>\n              <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n            <div class=\"select-box\">\n              <label>Unit No<span class=\"required\">*</span></label>\n              <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"workPermit.apartmentUnitId\" (change)=\"getPrimaryName()\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"workPermit.apartmentUnitId\">\n            <div class=\"input-box\">\n              <label>Primary Name</label>\n              <input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>WorkPermit Type<span class=\"required\">*</span></label>\n              <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workPermit.workPermitTypeId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of workPermitTypeList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Nature of work<span class=\"required\">*</span></label>\n              <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workPermit.workNatureId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of natureWorkList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Contact Number<span class=\"required\">*</span></label>\n              <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"contact\" name=\"WPContact\" [(ngModel)]=\"workPermit.contactNumber\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Vendor/Contractor<span class=\"required\">*</span></label>\n              <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workPermit.vendorId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let vendor of vendorList\" [ngValue]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Person In Charge<span class=\"required\">*</span></label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Person In Charge\" name=\"WPIncharge\" [(ngModel)]=\"workPermit.inChargePerson\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n        </div>\n        <!-- Time and Minutes -->\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Start Date<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\" [owlDateTimeTrigger]=\"WPStartdate\"\n               placeholder=\"Date\" [(ngModel)]=\"workPermit.startDate\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>End Date<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                placeholder=\"Date\" [min]=\"workPermit.startDate\" [(ngModel)]=\"workPermit.endDate\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-2\">\n            <div class=\"input-box\">\n              <label>Start Time<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\" [owlDateTimeTrigger]=\"WPStarttime\"\n              placeholder=\"Time\" [(ngModel)]=\"workPermit.startTime\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPStarttime [pickerType]=\"'timer'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-2\">\n            <div class=\"input-box\">\n              <label>End Time<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                placeholder=\"Time\" [(ngModel)]=\"workPermit.endTime\" [min]=\"workPermit.startTime\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPEndtime [pickerType]=\"'timer'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n         <!-- StatusList -->\n         <div class=\"row\">\n          <div class=\"col-sm-12\" *ngIf=\"isAdmin() && !viewMode else viewStatusLabel\">\n            <div class=\"input-box radio-box\">\n              <label>Status<span class=\"required\">*</span></label>\n              <div class=\"form-group\" *ngFor=\"let data of statusList;let i=index\">\n                <input name=\"workPermitStatus\" id=\"status{{i}}\" [(ngModel)]=\"workPermit.workPermitStatusId\" [value]=\"data.lookupValueId\"\n                 type=\"radio\" [disabled]=\"viewMode\" required>\n                <label class=\"radio-inline\" for=\"status{{i}}\">{{data.lookupValueName}}</label>\n              </div>\n            </div>\n          </div>\n          <!-- View Mode -->\n          <ng-template #viewStatusLabel>\n            <ng-container *ngFor=\"let data of statusList;let i=index\">\n              <div class=\"col-sm-4\" *ngIf=\"data.lookupValueId == workPermit.workPermitStatusId\">\n                <div class=\"input-box\">\n                  <label>Status</label>\n                  <p class=\"ml-2\">{{data.lookupValueName}}</p>\n              </div>\n              </div>\n            </ng-container>\n          </ng-template>\n        </div>\n        <!-- Accordion -->\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Workers/Personnels</b></p>\n              <table *ngIf=\"pageType!='view'\" class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"35%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"worker.workerName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"60%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"worker.workDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <button mat-flat-button [color]=\"'accent'\" (click)=\"addWorkers()\">\n                        <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                      </button>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion1=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Workers List <span *ngIf=\"workersList.length!==0\">({{workersList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"workersList.length!=0\">\n                          <tr *ngFor=\"let worker of workersList;index as i;\">\n                            <td class=\"name\">{{worker.workerName}}</td>\n                            <td class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">{{worker.workDescription}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <mat-icon [color]=\"'primary'\" class=\"mr-2 link\" svgIcon=\"feather:edit\" (click)=\"editlistItems(i, 'worker',worker)\"></mat-icon>\n                              <mat-icon class=\"link\" [color]=\"'warn'\" svgIcon=\"feather:delete\" (click)=\"deletelistItems(i, 'worker',worker)\"></mat-icon>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Materials</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"material.material\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"material.quantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"material.description\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <button mat-flat-button [color]=\"'accent'\" (click)=\"addMaterials()\">\n                        <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                      </button>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion2=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Material List <span *ngIf=\"materialsList.length!=0\">({{materialsList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"action\">Qty</th>\n                            <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"materialsList.length!=0\">\n                          <tr *ngFor=\"let material of materialsList;index as i;\">\n                            <td class=\"name\">{{material.material}}</td>\n                            <td class=\"action\">{{material.quantity}}</td>\n                            <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{material.description}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <mat-icon [color]=\"'primary'\" class=\"mr-2 link\" svgIcon=\"feather:edit\" (click)=\"editlistItems(i, 'material',material)\"></mat-icon>\n                              <mat-icon class=\"link\" [color]=\"'warn'\" svgIcon=\"feather:delete\" (click)=\"deletelistItems(i, 'material',material)\"></mat-icon>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Tools</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                        [(ngModel)]=\"tool.tool\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                        [(ngModel)]=\"tool.quantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                        [(ngModel)]=\"tool.description\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <button mat-flat-button [color]=\"'accent'\" (click)=\"addTools()\">\n                        <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                      </button>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion3=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Tools List <span *ngIf=\"toolsList.length!=0\">({{toolsList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"action\">Qty</th>\n                            <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"toolsList.length!=0\">\n                          <tr *ngFor=\"let tool of toolsList;index as i;\">\n                            <td class=\"name\">{{tool.tool}}</td>\n                            <td class=\"action\">{{tool.quantity}}</td>\n                            <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{tool.description}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <mat-icon [color]=\"'primary'\" class=\"mr-2 link\" svgIcon=\"feather:edit\" (click)=\"editlistItems(i, 'tool',tool)\"></mat-icon>\n                              <mat-icon class=\"link\" [color]=\"'warn'\" svgIcon=\"feather:delete\" (click)=\"deletelistItems(i, 'tool',tool)\"></mat-icon>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <label>Terms and Condition</label>\n              <textarea name=\"terms\" [value]=\"workPermit.termsConditions\" readonly></textarea>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"input-box d-inline-block\">\n              <div class=\"form-group\">\n                <div class=\"form-check\">\n                  <input type=\"checkbox\" class=\"form-check-input\" id=\"acceptTerms\" name=\"acceptTerms\"\n                   [(ngModel)]=\"acceptTerms\" required>\n                  <label class=\"form-check-label tiny\" for=\"acceptTerms\">I agree to the terms and condition<span class=\"required\">*</span></label>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"text-right\">\n              <button *ngIf=\"!isPDFDow\" class=\"ml-2\" mat-button (click)=\"cancel()\">Cancel</button>\n              <button mat-flat-button *ngIf=\"pageType=='create'\" [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create</button>\n              <button mat-flat-button *ngIf=\"pageType=='edit'\"  [color]=\"'primary'\" (click)=\"updateWorkPermit()\">Update</button>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"workpermit-create-wrapper\">\n  <div class=\"main\">\n    <div class=\"d-flex mb-4\">\n      <h4 *ngIf=\"pageType=='create'\">Create WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='edit'\">Edit WorkPermit</h4>\n      <h4 *ngIf=\"pageType=='view'\">View WorkPermit</h4>\n      <div class=\"ml-auto\" *ngIf=\"pageType=='view'\">\n        <button mat-stroked-button  (click)=\"downloadPdf()\">\n          <mat-icon [svgIcon]=\"'save'\"></mat-icon>\n          <span class=\"ml-2\">Export</span>\n        </button>\n      </div>\n    </div>\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n      [appearance]=\"message.appearance\"\n      [showIcon]=\"message.showIcon\"\n      [type]=\"message.type\"\n      [@shake]=\"message.shake\">\n      {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" id=\"pdf\">\n      <!-- PDF Download View -->\n      <div class=\"row\" *ngIf=\"pageType=='view' && isPDFDow\">\n        <div class=\"col-sm-12\">\n          <h5>WorkPermit No: {{workPermit.workPermitId}}</h5>\n          <div class=\"text-center mb-4\"> \n            <h6>{{apartmentInfo.apartmentName}} Apartments</h6>\n            <p>{{apartmentInfo.address1}},{{apartmentInfo.city}}</p>\n          </div>\n        </div>\n      </div>\n      <form #createWorkPermitForm=\"ngForm\" name=\"createWorkPermitForm\">\n        <div class=\"row\" *ngIf=\"isAdmin()\">\n          <div class=\"col-sm-4\">\n            <div class=\"select-box\">\n              <label>Tower No<span class=\"required\">*</span></label>\n              <select name=\"apartmentBlockId\" id=\"blockNo\" class=\"form-control\" [(ngModel)]=\"block.blockId\" (ngModelChange)=\"getUnits('change')\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of towerList\" [ngValue]=\"item.apartmentBlockId\">{{ item.apartmentBlockNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n            <div class=\"select-box\">\n              <label>Unit No<span class=\"required\">*</span></label>\n              <select name=\"unitNo\" id=\"unitNo\" class=\"form-control\" [(ngModel)]=\"workPermit.apartmentUnitId\" (change)=\"getPrimaryName()\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let item of unitList\" [ngValue]=\"item.apartmentBlockUnitId\">{{ item.apartmentBlockUnitNumber }}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\" *ngIf=\"workPermit.apartmentUnitId\">\n            <div class=\"input-box\">\n              <label>Primary Name</label>\n              <input  type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" name=\"primaryName\" [(ngModel)]=\"block.primaryName\">\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>WorkPermit Type<span class=\"required\">*</span></label>\n              <select name=\"WPPermitType\" id=\"PermitType\" class=\"form-control\" [(ngModel)]=\"workPermit.workPermitTypeId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of workPermitTypeList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Nature of work<span class=\"required\">*</span></label>\n              <select name=\"WPNatureWork\" id=\"NatureWork\" class=\"form-control\" [(ngModel)]=\"workPermit.workNatureId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let data of natureWorkList\" [ngValue]=\"data.lookupValueId\">{{data.lookupValueName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Contact Number<span class=\"required\">*</span></label>\n              <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"contact\" name=\"WPContact\" [(ngModel)]=\"workPermit.contactNumber\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Vendor/Contractor<span class=\"required\">*</span></label>\n              <select name=\"WPVendor\" id=\"vendor\" class=\"form-control\" [(ngModel)]=\"workPermit.vendorId\" [disabled]=\"viewMode\" required>\n                <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                <option *ngFor=\"let vendor of vendorList\" [ngValue]=\"vendor.vendorId\">{{vendor.vendorName}}</option>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Name of Person In Charge<span class=\"required\">*</span></label>\n              <input type=\"text\" class=\"form-control\" placeholder=\"Person In Charge\" name=\"WPIncharge\" [(ngModel)]=\"workPermit.inChargePerson\" [disabled]=\"viewMode\" required>\n            </div>\n          </div>\n        </div>\n        <!-- Time and Minutes -->\n        <div class=\"row\">\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>Start Date<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPStartdate\" [owlDateTime]=\"WPStartdate\" [owlDateTimeTrigger]=\"WPStartdate\"\n               placeholder=\"Date\" [(ngModel)]=\"workPermit.startDate\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPStartdate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-4\">\n            <div class=\"input-box\">\n              <label>End Date<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPEnddate\" [owlDateTime]=\"WPEnddate\" [owlDateTimeTrigger]=\"WPEnddate\"\n                placeholder=\"Date\" [min]=\"workPermit.startDate\" [(ngModel)]=\"workPermit.endDate\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPEnddate [pickerType]=\"'calendar'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-2\">\n            <div class=\"input-box\">\n              <label>Start Time<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPStarttime\" [owlDateTime]=\"WPStarttime\" [owlDateTimeTrigger]=\"WPStarttime\"\n              placeholder=\"Time\" [(ngModel)]=\"workPermit.startTime\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPStarttime [pickerType]=\"'timer'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-2\">\n            <div class=\"input-box\">\n              <label>End Time<span class=\"required\">*</span></label>\n              <input class=\"form-control\" name=\"WPEndtime\" [owlDateTime]=\"WPEndtime\" [owlDateTimeTrigger]=\"WPEndtime\"\n                placeholder=\"Time\" [(ngModel)]=\"workPermit.endTime\" [disabled]=\"viewMode\" autocomplete=\"off\" required>\n              <owl-date-time #WPEndtime [pickerType]=\"'timer'\"></owl-date-time>\n              <div class=\"date-btn\">\n                <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n              </div>\n            </div>\n          </div>\n        </div>\n         <!-- StatusList -->\n         <div class=\"row\">\n          <div class=\"col-sm-12\" *ngIf=\"isAdmin() && !viewMode else viewStatusLabel\">\n            <div class=\"input-box radio-box\">\n              <label>Status<span class=\"required\">*</span></label>\n              <div class=\"form-group\" *ngFor=\"let data of statusList;let i=index\">\n                <input name=\"workPermitStatus\" id=\"status{{i}}\" [(ngModel)]=\"workPermit.workPermitStatusId\" [value]=\"data.lookupValueId\"\n                 type=\"radio\" [disabled]=\"viewMode\" required>\n                <label class=\"radio-inline\" for=\"status{{i}}\">{{data.lookupValueName}}</label>\n              </div>\n            </div>\n          </div>\n          <!-- View Mode -->\n          <ng-template #viewStatusLabel>\n            <ng-container *ngFor=\"let data of statusList;let i=index\">\n              <div class=\"col-sm-4\" *ngIf=\"data.lookupValueId == workPermit.workPermitStatusId\">\n                <div class=\"input-box\">\n                  <label>Status</label>\n                  <p class=\"ml-2\">{{data.lookupValueName}}</p>\n              </div>\n              </div>\n            </ng-container>\n          </ng-template>\n        </div>\n        <!-- Accordion -->\n        <div class=\"row\">\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Workers/Personnels</b></p>\n              <table *ngIf=\"pageType!='view'\" class=\"mini-table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                  <tr>\n                    <th width=\"35%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"WorkerName\"\n                        [(ngModel)]=\"worker.workerName\" maxlength=\"16\">\n                    </th>\n                    <th width=\"60%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"WorkerDescription\"\n                        [(ngModel)]=\"worker.workDescription\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <button mat-flat-button [color]=\"'accent'\" (click)=\"addWorkers()\">\n                        <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                      </button>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion1=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Workers List <span *ngIf=\"workersList.length!==0\">({{workersList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"workersList.length!=0\">\n                          <tr *ngFor=\"let worker of workersList;index as i;\">\n                            <td class=\"name\">{{worker.workerName}}</td>\n                            <td class=\"inc-desc\" [ngClass]=\"{'inc-wdesc':pageType=='view'}\">{{worker.workDescription}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <mat-icon [color]=\"'primary'\" class=\"mr-2\" svgIcon=\"feather:edit\" (click)=\"editlistItems(i, 'worker',worker)\"></mat-icon>\n                              <mat-icon [color]=\"'warn'\" svgIcon=\"feather:delete\" (click)=\"deletelistItems(i, 'worker',worker)\"></mat-icon>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Materials</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"MaterialName\"\n                        [(ngModel)]=\"material.material\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Qty\" name=\"MaterialQuantity\"\n                        [(ngModel)]=\"material.quantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"MaterialDescription\"\n                        [(ngModel)]=\"material.description\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <button mat-flat-button [color]=\"'accent'\" (click)=\"addMaterials()\">\n                        <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                      </button>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion2=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Material List <span *ngIf=\"materialsList.length!=0\">({{materialsList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"action\">Qty</th>\n                            <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"materialsList.length!=0\">\n                          <tr *ngFor=\"let material of materialsList;index as i;\">\n                            <td class=\"name\">{{material.material}}</td>\n                            <td class=\"action\">{{material.quantity}}</td>\n                            <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{material.description}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <mat-icon [color]=\"'primary'\" class=\"mr-2\" svgIcon=\"feather:edit\" (click)=\"editlistItems(i, 'material',material)\"></mat-icon>\n                              <mat-icon [color]=\"'warn'\" svgIcon=\"feather:delete\" (click)=\"deletelistItems(i, 'material',material)\"></mat-icon>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n          <div class=\"col-sm-6\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\" *ngIf=\"pageType!='view'\"><b>List of Tools</b></p>\n              <table class=\"mini-table\" [ngClass]=\"isMobileView()\" *ngIf=\"pageType!='view'\">\n                <thead>\n                  <tr>\n                    <th width=\"30%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Name\" name=\"ToolName\"\n                        [(ngModel)]=\"tool.tool\" maxlength=\"16\">\n                    </th>\n                    <th width=\"15%\">\n                      <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Qty\" name=\"ToolQuantity\"\n                        [(ngModel)]=\"tool.quantity\">\n                    </th>\n                    <th width=\"50%\">\n                      <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"ToolDescription\"\n                        [(ngModel)]=\"tool.description\">\n                    </th>\n                    <th width=\"5%\" align=\"right\">\n                      <button mat-flat-button [color]=\"'accent'\" (click)=\"addTools()\">\n                        <mat-icon svgIcon=\"heroicons_solid:plus\"></mat-icon>Add\n                      </button>\n                    </th>\n                  </tr>\n                </thead>\n              </table>\n              <mat-accordion #myaccordion3=\"matAccordion\" multi=\"true\">\n                <mat-expansion-panel>\n                  <mat-expansion-panel-header>\n                      <mat-panel-title>Tools List <span *ngIf=\"toolsList.length!=0\">({{toolsList.length}})</span></mat-panel-title>\n                  </mat-expansion-panel-header>\n                  <mat-panel-description>\n                    <div class=\"details\">\n                      <table class=\"mini-table-1\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                          <tr>\n                            <th class=\"name\">Name</th>\n                            <th class=\"action\">Qty</th>\n                            <th class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">Description</th>\n                            <th class=\"action\" *ngIf=\"pageType!='view'\">Action</th>\n                          </tr>\n                        </thead>\n                        <tbody *ngIf=\"toolsList.length!=0\">\n                          <tr *ngFor=\"let tool of toolsList;index as i;\">\n                            <td class=\"name\">{{tool.tool}}</td>\n                            <td class=\"action\">{{tool.quantity}}</td>\n                            <td class=\"desc\" [ngClass]=\"{'inc-desc':pageType=='view'}\">{{tool.description}}</td>\n                            <td class=\"action\" *ngIf=\"pageType!='view'\">\n                              <mat-icon [color]=\"'primary'\" class=\"mr-2\" svgIcon=\"feather:edit\" (click)=\"editlistItems(i, 'tool',tool)\"></mat-icon>\n                              <mat-icon [color]=\"'warn'\" svgIcon=\"feather:delete\" (click)=\"deletelistItems(i, 'tool',tool)\"></mat-icon>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </div>\n                  </mat-panel-description>\n                </mat-expansion-panel>\n              </mat-accordion>\n            </div>\n          </div>\n        </div>\n        <div class=\"row\">\n          <div class=\"col-sm-12\">\n            <div class=\"input-box\">\n              <label>Terms and Condition</label>\n              <textarea name=\"terms\" [value]=\"workPermit.termsConditions\" readonly></textarea>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"input-box d-inline-block\">\n              <div class=\"form-group\">\n                <div class=\"form-check\">\n                  <input type=\"checkbox\" class=\"form-check-input\" id=\"acceptTerms\" name=\"acceptTerms\"\n                   [(ngModel)]=\"acceptTerms\" required>\n                  <label class=\"form-check-label tiny\" for=\"acceptTerms\">I agree to the terms and condition<span class=\"required\">*</span></label>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-sm-12\">\n            <div class=\"text-right\">\n              <button *ngIf=\"!isPDFDow\" class=\"ml-2\" mat-button (click)=\"cancel()\">Cancel</button>\n              <button mat-flat-button *ngIf=\"pageType=='create'\" [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create</button>\n              <button mat-flat-button *ngIf=\"pageType=='edit'\"  [color]=\"'primary'\" (click)=\"updateWorkPermit()\">Update</button>\n            </div>\n          </div>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>";
       /***/
     },
 
@@ -82,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"nature-work-setup-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form #workForm=\"ngForm\" name=\"workForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Nature Of Work*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"type\" [(ngModel)]=\"natureOfWork.lookupValueName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"natureOfWork.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"cancelWorkPermit()\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Nature Of Work</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"natureFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWork()\">Create Nature Of Work</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"natureWorkList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ";
+      __webpack_exports__["default"] = "<div class=\"nature-work-setup-wrapper\">\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Nature Of Work*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Nature of Work\" name=\"type\" [(ngModel)]=\"natureOfWork.lookupValueName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"natureOfWork.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"clickMode=''\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Nature Of Work</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"natureFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWork()\">Create Nature Of Work</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"natureWorkList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n            ";
       /***/
     },
 
@@ -122,7 +122,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"work-permit-type-setup-wrapper\">\n    <condo-message class=\"mb-3\" *ngIf=\"message\"\n        [appearance]=\"message.appearance\"\n        [showIcon]=\"message.showIcon\"\n        [type]=\"message.type\"\n        [@shake]=\"message.shake\">\n        {{message.content}}\n    </condo-message>\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form  #workPermitForm=\"ngForm\" name=\"workPermitForm\">\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Type*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"name\" [(ngModel)]=\"workpermit.lookupValueName\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"workpermit.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkPermitType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkPermitType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"cancelWorkPermit()\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>WorkPermit Type</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"workPermitFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create WorkPermit Type</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\t\t";
+      __webpack_exports__["default"] = "<div class=\"work-permit-type-setup-wrapper\">\n    <div class=\"bg-card shadow\" *ngIf=\"clickMode == 'create' || clickMode == 'edit'\">\n        <form>\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>WorkPermit Type*</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Workpermit Type\" name=\"name\" [(ngModel)]=\"workpermit.lookupValueName\">\n                    </div>\n                </div>\n                <div class=\"col-sm-8\">\n                    <div class=\"input-box\">\n                        <label>Description</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Description\" name=\"description\" [(ngModel)]=\"workpermit.description\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                    <div class=\"float-right\">\n                        <button  mat-flat-button [color]=\"'primary'\" *ngIf=\"clickMode=='create'\" (click)=\"submitWorkPermitType()\">Submit</button>\n                        <button  mat-flat-button  [color]=\"'primary'\" *ngIf=\"clickMode=='edit'\" (click)=\"updateWorkPermitType()\">Update</button>\n                        <button mat-button class=\"ml-2\" (click)=\"clickMode=''\">Cancel</button>\n                    </div>\n                </div>\n            </div>\n        </form>\n    </div>\n    <!-- Loader -->\n    <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n    <!-- Table -->\n    <condo-card *ngIf=\"!isDataLoaded\">\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>WorkPermit Title</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto mr-3\">\n                    <app-table-search [input]=\"workPermitFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                </div>\n                <div class=\"mr-3\">\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n                <div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"createWorkPermit()\">Create WorkPermit Type</button>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                [filterable]=\"true\" [sortable]=\"true\" [source]=\"workPermitList\" [columns]=\"column\"\n                [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n</div>\n\t\t";
       /***/
     },
 
@@ -314,7 +314,7 @@
         }, {
           key: "navigateEditViewPage",
           value: function navigateEditViewPage(type, id) {
-            this.router.navigate(["/user/work-permit/".concat(type, "/").concat(id)]);
+            this.router.navigate(["/user/work-permit/create/".concat(type, "/").concat(id)]);
           }
         }, {
           key: "onEditTicket",
@@ -703,26 +703,13 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
-      /* harmony import */
-
-
-      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
-      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
-      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
-      /* harmony import */
-
-
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
-      /*! @angular/material/dialog */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var WorkpermitCreateComponent = /*#__PURE__*/function () {
-        function WorkpermitCreateComponent(dialog, router, activateRouter, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService, _changeDetectorRef) {
+        function WorkpermitCreateComponent(router, activateRouter, vendor, apartmentService, workPermitService, injector, lookupService, sessionService, sharedService, _changeDetectorRef) {
           var _this5 = this;
 
           _classCallCheck(this, WorkpermitCreateComponent);
 
-          this.dialog = dialog;
           this.router = router;
           this.activateRouter = activateRouter;
           this.vendor = vendor;
@@ -849,42 +836,25 @@
           key: "deletelistItems",
           value: function deletelistItems(index, listName, data) {
             if (listName === 'worker') {
-              if (data.workPermitWorkersId == 0) this.deleteConfirmDialog(listName, index);else this.modalService.showConfirmModal({
+              if (data.workPermitWorkersId == 0) this.workersList.splice(index, 1);else this.modalService.showConfirmModal({
                 type: listName,
                 id: data.workPermitWorkersId,
                 index: index
               });
             } else if (listName === 'material') {
-              if (data.workPermitMaterialsId == 0) this.deleteConfirmDialog(listName, index);else this.modalService.showConfirmModal({
+              if (data.workPermitMaterialsId == 0) this.materialsList.splice(index, 1);else this.modalService.showConfirmModal({
                 type: listName,
                 id: data.workPermitMaterialsId,
                 index: index
               });
+              this.materialsList.splice(index, 1);
             } else {
-              if (data.workPermitToolsId == 0) this.deleteConfirmDialog(listName, index);else this.modalService.showConfirmModal({
+              if (data.workPermitToolsId == 0) this.toolsList.splice(index, 1);else this.modalService.showConfirmModal({
                 type: listName,
                 id: data.workPermitToolsId,
                 index: index
               });
             }
-          }
-        }, {
-          key: "deleteConfirmDialog",
-          value: function deleteConfirmDialog(type, index) {
-            var _this8 = this;
-
-            var message = "Are you sure you want to delete ?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_16__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                if (type == 'worker') _this8.workersList.splice(index, 1);else if (type === 'material') _this8.materialsList.splice(index, 1);else _this8.toolsList.splice(index, 1);
-              }
-            });
           } //edit listWorkers 
 
         }, {
@@ -904,7 +874,7 @@
         }, {
           key: "createWorkPermit",
           value: function createWorkPermit() {
-            var _this9 = this;
+            var _this8 = this;
 
             this.message = null;
 
@@ -941,17 +911,17 @@
               };
               this.workPermitService.addWorkPermit(params).subscribe(function (res) {
                 if (res.message) {
-                  _this9.sharedService.openSnackBar('WorkPermit Created Successfully', 'success');
+                  _this8.sharedService.openSnackBar('WorkPermit Created Successfully', 'success');
 
-                  _this9.createWorkers(res.message);
+                  _this8.createWorkers(res.message);
 
-                  _this9.createMaterials(res.message);
+                  _this8.createMaterials(res.message);
 
-                  _this9.createTools(res.message);
+                  _this8.createTools(res.message);
 
-                  _this9.cancel();
+                  _this8.cancel();
                 } else {
-                  _this9.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this8.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -959,7 +929,7 @@
         }, {
           key: "updateWorkPermit",
           value: function updateWorkPermit() {
-            var _this10 = this;
+            var _this9 = this;
 
             this.message = null;
 
@@ -991,17 +961,17 @@
               };
               this.workPermitService.updateWorkPermit(params).subscribe(function (res) {
                 if (res.message) {
-                  _this10.sharedService.openSnackBar(res.message, 'success');
+                  _this9.sharedService.openSnackBar(res.message, 'success');
 
-                  _this10.createWorkers(null);
+                  _this9.createWorkers(null);
 
-                  _this10.createMaterials(null);
+                  _this9.createMaterials(null);
 
-                  _this10.createTools(null);
+                  _this9.createTools(null);
 
-                  _this10.cancel();
+                  _this9.cancel();
                 } else {
-                  _this10.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -1066,52 +1036,52 @@
         }, {
           key: "deleteWorkers",
           value: function deleteWorkers(id, index) {
-            var _this11 = this;
+            var _this10 = this;
 
             var params = {
               workPermitWorkersId: id,
               deleteBy: this.sessionService.userId
             };
             this.workPermitService.deleteWorkPermitWorkers(params).subscribe(function (res) {
-              _this11.sharedService.setUnitListDeleteIndex(null);
+              _this10.sharedService.setUnitListDeleteIndex(null);
 
-              _this11.workersList.splice(index, 1);
+              _this10.workersList.splice(index, 1);
             });
           }
         }, {
           key: "deleteMaterials",
           value: function deleteMaterials(id, index) {
-            var _this12 = this;
+            var _this11 = this;
 
             var params = {
               workPermitMaterialsId: id,
               deleteBy: this.sessionService.userId
             };
             this.workPermitService.deleteWorkPermitMaterials(params).subscribe(function (res) {
-              _this12.sharedService.setUnitListDeleteIndex(null);
+              _this11.sharedService.setUnitListDeleteIndex(null);
 
-              _this12.materialsList.splice(index, 1);
+              _this11.materialsList.splice(index, 1);
             });
           }
         }, {
           key: "deleteTools",
           value: function deleteTools(id, index) {
-            var _this13 = this;
+            var _this12 = this;
 
             var params = {
               workPermitToolsId: id,
               deleteBy: this.sessionService.userId
             };
             this.workPermitService.deleteWorkPermitTools(params).subscribe(function (res) {
-              _this13.sharedService.setUnitListDeleteIndex(null);
+              _this12.sharedService.setUnitListDeleteIndex(null);
 
-              _this13.toolsList.splice(index, 1);
+              _this12.toolsList.splice(index, 1);
             });
           }
         }, {
           key: "downloadPdf",
           value: function downloadPdf() {
-            var _this14 = this;
+            var _this13 = this;
 
             this.accordion1.openAll();
             this.accordion2.openAll();
@@ -1131,14 +1101,14 @@
                 var position = 0;
                 pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
                 pdf.save('work-permit.pdf');
-                _this14.isPDFDow = false;
+                _this13.isPDFDow = false;
               });
             }, 800);
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this14 = this;
 
             if (!this.isAdmin()) {
               this.workPermit.apartmentUnitId = this.sessionService.apartmentBlockUnitID;
@@ -1147,105 +1117,103 @@
                 apartmentId: this.sessionService.apartmentId
               };
               this.apartmentService.getApartmentBlockByApartmentId(tower).subscribe(function (res) {
-                _this15.towerList = res;
+                _this14.towerList = res;
               });
             }
 
             var natureWork = {
-              LookupTypeId: 89,
-              ApartmentId: this.sessionService.apartmentId
+              LookupTypeId: 89
             };
             this.lookupService.getLookupValueByLookupTypeId(natureWork).subscribe(function (res) {
-              _this15.natureWorkList = res;
+              _this14.natureWorkList = res;
             });
             var workPermitType = {
-              LookupTypeId: 90,
-              ApartmentId: this.sessionService.apartmentId
+              LookupTypeId: 90
             };
             this.lookupService.getLookupValueByLookupTypeId(workPermitType).subscribe(function (res) {
-              _this15.workPermitTypeList = res;
+              _this14.workPermitTypeList = res;
             });
             var vendor = {
               apartmentId: this.sessionService.apartmentId
             };
             this.vendor.getAllWorkPermitVendorByApartmentId(vendor).subscribe(function (res) {
-              _this15.vendorList = res;
+              _this14.vendorList = res;
             });
             var statusParams = {
               LookupTypeId: 91
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-              _this15.statusList = res;
+              _this14.statusList = res;
             }); //Edit Mode
 
             this.activateRouter.params.subscribe(function (params) {
               if (params.id && params.type) {
                 var entity = {
                   workPermitId: parseInt(params.id),
-                  apartmentId: _this15.sessionService.apartmentId
+                  apartmentId: _this14.sessionService.apartmentId
                 };
-                _this15.pageType = params.type;
+                _this14.pageType = params.type;
 
-                if (_this15.pageType == 'view') {
-                  _this15.viewMode = true;
+                if (_this14.pageType == 'view') {
+                  _this14.viewMode = true;
                   var apartment = {
-                    apartmentId: _this15.sessionService.apartmentId,
+                    apartmentId: _this14.sessionService.apartmentId,
                     active: 1
                   };
 
-                  _this15.apartmentService.getApartmentByApartmentId(apartment).subscribe(function (apart) {
-                    _this15.apartmentInfo = apart[0];
+                  _this14.apartmentService.getApartmentByApartmentId(apartment).subscribe(function (apart) {
+                    _this14.apartmentInfo = apart[0];
                   });
                 }
 
-                _this15.workPermitService.getWorkPermitById(entity).subscribe(function (res) {
-                  _this15.workPermit = res[0];
-                  _this15.workPermit.startTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].startTime, 'HH:mm').format();
-                  _this15.workPermit.endTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].endTime, 'HH:mm').format(); //getBlockNo
+                _this14.workPermitService.getWorkPermitById(entity).subscribe(function (res) {
+                  _this14.workPermit = res[0];
+                  _this14.workPermit.startTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].startTime, 'HH:mm').format();
+                  _this14.workPermit.endTime = moment__WEBPACK_IMPORTED_MODULE_9__(res[0].endTime, 'HH:mm').format(); //getBlockNo
 
-                  if (_this15.isAdmin()) {
+                  if (_this14.isAdmin()) {
                     var unitDetails = {
                       apartmentBlockUnitId: res[0].apartmentUnitId
                     };
 
-                    _this15.apartmentService.getApartmentBlockUnitById(unitDetails).subscribe(function (data) {
-                      _this15.block.blockId = data[0].apartmentBlockId;
+                    _this14.apartmentService.getApartmentBlockUnitById(unitDetails).subscribe(function (data) {
+                      _this14.block.blockId = data[0].apartmentBlockId;
 
-                      _this15.getUnits('edit');
+                      _this14.getUnits('edit');
                     });
                   }
                 });
 
-                _this15.workPermitService.getWorkPermitWorkersByWorkPermitId(entity).subscribe(function (res) {
+                _this14.workPermitService.getWorkPermitWorkersByWorkPermitId(entity).subscribe(function (res) {
                   if (Array.isArray(res)) {
-                    _this15.workersList = res;
+                    _this14.workersList = res;
                   }
                 });
 
-                _this15.workPermitService.getWorkPermitMaterialsByWorkPermitId(entity).subscribe(function (res) {
+                _this14.workPermitService.getWorkPermitMaterialsByWorkPermitId(entity).subscribe(function (res) {
                   if (Array.isArray(res)) {
-                    _this15.materialsList = res;
+                    _this14.materialsList = res;
                   }
                 });
 
-                _this15.workPermitService.getWorkPermitToolsByWorkPermitId(entity).subscribe(function (res) {
+                _this14.workPermitService.getWorkPermitToolsByWorkPermitId(entity).subscribe(function (res) {
                   if (Array.isArray(res)) {
-                    _this15.toolsList = res;
+                    _this14.toolsList = res;
                   }
                 });
               } else {
                 //termsCondition
-                _this15.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({
-                  ApartmentId: _this15.sessionService.apartmentId,
+                _this14.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({
+                  ApartmentId: _this14.sessionService.apartmentId,
                   TermsNo: "1"
                 }).subscribe(function (res) {
-                  if (res.length > 0) _this15.workPermit.termsConditions = res[0].termsTemplate;
+                  if (res.length > 0) _this14.workPermit.termsConditions = res[0].termsTemplate;
                 });
               }
             }); //delete workers,tools and materials
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
-              if (item && item.id && item.type == 'worker') _this15.deleteWorkers(item.id, item.index);else if (item && item.id && item.type == 'material') _this15.deleteMaterials(item.id, item.index);else if (item && item.id && item.type == 'tool') _this15.deleteTools(item.id, item.index);
+              if (item && item.id && item.type == 'worker') _this14.deleteWorkers(item.id, item.index);else if (item && item.id && item.type == 'material') _this14.deleteMaterials(item.id, item.index);else if (item && item.id && item.type == 'tool') _this14.deleteTools(item.id, item.index);
             });
           }
         }, {
@@ -1260,8 +1228,6 @@
 
       WorkpermitCreateComponent.ctorParameters = function () {
         return [{
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"]
-        }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
@@ -1312,7 +1278,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./workpermit-create.component.scss */
         "./src/app/modules/common/work-permit/components/workpermit-create/workpermit-create.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_17__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], WorkpermitCreateComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_5__["VendorService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_4__["ApartmentService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_3__["WorkPermitService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_14__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], WorkpermitCreateComponent);
       /***/
     },
 
@@ -1430,7 +1396,7 @@
         _createClass(WorkpermitListComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this16 = this;
+            var _this15 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1443,7 +1409,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this16.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this15.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1464,7 +1430,7 @@
         }, {
           key: "navigateEditViewPage",
           value: function navigateEditViewPage(type, id) {
-            this.router.navigate(["/ams/work-permit/".concat(type, "/").concat(id)]);
+            this.router.navigate(["/ams/work-permit/create/".concat(type, "/").concat(id)]);
           }
         }, {
           key: "onEditTicket",
@@ -1483,7 +1449,7 @@
         }, {
           key: "onstatusPermit",
           value: function onstatusPermit(detail) {
-            var _this17 = this;
+            var _this16 = this;
 
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var entity = {
@@ -1496,14 +1462,14 @@
             });
             dialogRef.afterClosed().subscribe(function (result) {
               if (result) {
-                _this17.getWorkApprovalListByAdmin();
+                _this16.getWorkApprovalListByAdmin();
               }
             });
           }
         }, {
           key: "getWorkApprovalListByAdmin",
           value: function getWorkApprovalListByAdmin() {
-            var _this18 = this;
+            var _this17 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
@@ -1522,23 +1488,23 @@
             }
 
             this.workPermit.getAllWorkPermitsByStatues(params).subscribe(function (res) {
-              _this18.workPermitListData = res.reverse();
-              _this18.totalItems = _this18.workPermitListData.length;
-              _this18.gridSourceData = {
-                localdata: _this18.workPermitListData,
+              _this17.workPermitListData = res.reverse();
+              _this17.totalItems = _this17.workPermitListData.length;
+              _this17.gridSourceData = {
+                localdata: _this17.workPermitListData,
                 datatype: "array"
               };
-              _this18.workPermitListData = new jqx.dataAdapter(_this18.gridSourceData);
-              _this18.isDataLoaded = true;
+              _this17.workPermitListData = new jqx.dataAdapter(_this17.gridSourceData);
+              _this17.isDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this18 = this;
 
             this.activeRouter.url.subscribe(function (data) {
-              _this19.urlType = data[0].path;
+              _this18.urlType = data[0].path;
             });
             this.getWorkApprovalListByAdmin();
 
@@ -1633,7 +1599,7 @@
                   status = 'red';
                 }
 
-                return "<div class=\"jqx-custom-inner-cell\">\n           <div class=\"status-badge bg-status-".concat(status, "-700\">\n             <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this19.workPermitListData.loadedData[row].status, "</span>\n           </div>\n        </div>");
+                return "<div class=\"jqx-custom-inner-cell\">\n           <div class=\"status-badge bg-status-".concat(status, "-700\">\n             <span class=\"font-bold text-status-").concat(status, "-900 text-uppercase\">").concat(_this18.workPermitListData.loadedData[row].status, "</span>\n           </div>\n        </div>");
               },
               minwidth: 160,
               renderer: columnrenderer
@@ -1648,7 +1614,7 @@
                 edit = '<a href="javascript:void(0)" class="mr-3" onClick="editPermitEvent(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>';
                 status = '<a href="javascript:void(0)" onClick="statusPermitEvent(' + row + ')"><i class="fa fa-check-circle icon delete" aria-hidden="true"></i></a>';
 
-                if (_this19.urlType == 'pending') {
+                if (_this18.urlType == 'pending') {
                   return '<div class="simple-actions">' + edit + view + status + '</div>';
                 } else {
                   return '<div class="simple-actions">' + view + status + '</div>';
@@ -1839,34 +1805,26 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
-      /* harmony import */
-
-
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/@condo/animations */
-      "./src/@condo/animations/index.ts");
 
       var NatureOfWorkSetupComponent = /*#__PURE__*/function () {
-        function NatureOfWorkSetupComponent(lookupService, sharedService, injector, _changeDetectorRef, sessionService, dialog) {
+        function NatureOfWorkSetupComponent(lookupService, sharedService, injector, sessionService, dialog) {
           _classCallCheck(this, NatureOfWorkSetupComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.injector = injector;
-          this._changeDetectorRef = _changeDetectorRef;
           this.sessionService = sessionService;
           this.dialog = dialog;
           this.isDataLoaded = true;
           this.natureFilter = '';
           this.natureOfWork = {};
-          this.message = null;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(NatureOfWorkSetupComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this20 = this;
+            var _this19 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -1879,7 +1837,7 @@
               this.dataGrid.showfiltercolumnbackground(false);
               this.column.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this20.dataGrid.addfilter(item.datafield, filtergroup, true);
+                  _this19.dataGrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.dataGrid.applyfilters();
@@ -1905,12 +1863,6 @@
             this.clickMode = 'create';
           }
         }, {
-          key: "cancelWorkPermit",
-          value: function cancelWorkPermit() {
-            this.clickMode = '';
-            this.message = null;
-          }
-        }, {
           key: "onEditNatureWork",
           value: function onEditNatureWork(detail) {
             this.clickMode = 'edit';
@@ -1926,137 +1878,98 @@
         }, {
           key: "submitWorkType",
           value: function submitWorkType() {
-            var _this21 = this;
+            var _this20 = this;
 
-            this.message = null;
+            var params = {
+              lookupvalue: {
+                "lookupValueId": 0,
+                "apartmentId": this.sessionService.apartmentId,
+                "lookupTypeId": 89,
+                "lookupValueName": this.natureOfWork.lookupValueName,
+                "description": this.natureOfWork.description,
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              }
+            };
+            this.lookupService.addLookupValue(params).subscribe(function (res) {
+              if (res.message) {
+                _this20.clickMode = '';
 
-            if (!this.form.valid) {
-              window.scroll({
-                top: 0,
-                behavior: 'smooth'
-              }); // Show the validation message
+                _this20.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
-
-              this._changeDetectorRef.markForCheck();
-            } else {
-              var params = {
-                lookupvalue: {
-                  "lookupValueId": 0,
-                  "apartmentId": this.sessionService.apartmentId,
-                  "lookupTypeId": 89,
-                  "lookupValueName": this.natureOfWork.lookupValueName,
-                  "description": this.natureOfWork.description,
-                  "isActive": true,
-                  "insertedBy": this.sessionService.userId,
-                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                  "updatedBy": null,
-                  "updatedOn": null
-                }
-              };
-              this.lookupService.addLookupValue(params).subscribe(function (res) {
-                if (res.message) {
-                  _this21.clickMode = '';
-
-                  _this21.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
-
-                  _this21.getNatureOfWorklist();
-                } else {
-                  _this21.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this21.sharedService.openSnackBar('Server Error', 'error');
-              });
-            }
+                _this20.getNatureOfWorklist();
+              } else {
+                _this20.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this20.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "updateWorkType",
           value: function updateWorkType() {
-            var _this22 = this;
+            var _this21 = this;
 
-            this.message = null;
+            var params = {
+              lookupvalue: {
+                "lookupValueId": this.natureOfWork.lookupValueId,
+                "apartmentId": this.sessionService.apartmentId,
+                "lookupTypeId": 89,
+                "lookupValueName": this.natureOfWork.lookupValueName,
+                "description": this.natureOfWork.description,
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              }
+            };
+            this.lookupService.updateLookupValue(params).subscribe(function (res) {
+              if (res.message) {
+                _this21.clickMode = '';
 
-            if (!this.form.valid) {
-              window.scroll({
-                top: 0,
-                behavior: 'smooth'
-              }); // Show the validation message
+                _this21.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
-
-              this._changeDetectorRef.markForCheck();
-            } else {
-              var params = {
-                lookupvalue: {
-                  "lookupValueId": this.natureOfWork.lookupValueId,
-                  "apartmentId": this.sessionService.apartmentId,
-                  "lookupTypeId": 89,
-                  "lookupValueName": this.natureOfWork.lookupValueName,
-                  "description": this.natureOfWork.description,
-                  "isActive": true,
-                  "insertedBy": this.sessionService.userId,
-                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                  "updatedBy": null,
-                  "updatedOn": null
-                }
-              };
-              this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                if (res.message) {
-                  _this22.clickMode = '';
-
-                  _this22.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
-
-                  _this22.getNatureOfWorklist();
-                } else {
-                  _this22.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this22.sharedService.openSnackBar('Server Error', 'error');
-              });
-            }
+                _this21.getNatureOfWorklist();
+              } else {
+                _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this21.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "getNatureOfWorklist",
           value: function getNatureOfWorklist() {
-            var _this23 = this;
+            var _this22 = this;
 
             var params = {
-              LookupTypeId: 89,
-              ApartmentId: this.sessionService.apartmentId
+              LookupTypeId: 89
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (resp) {
               if (resp.length > 0) {
-                _this23.totalItems = resp.length;
+                _this22.totalItems = resp.length;
                 var arrangeSlotRawData = {
                   localdata: resp.reverse(),
                   datatype: "array"
                 };
-                _this23.natureWorkList = new jqx.dataAdapter(arrangeSlotRawData);
+                _this22.natureWorkList = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this23.isDataLoaded = false;
+              _this22.isDataLoaded = false;
             }, function (error) {
-              _this23.isDataLoaded = false;
+              _this22.isDataLoaded = false;
 
-              _this23.sharedService.openSnackBar('Server Error', 'error');
+              _this22.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this24 = this;
+            var _this23 = this;
 
             this.getNatureOfWorklist();
 
@@ -2093,14 +2006,14 @@
               if (item != null) {
                 var params = {
                   lookupValueId: item,
-                  updateUserId: _this24.sessionService.userId
+                  updateUserId: _this23.sessionService.userId
                 };
 
-                _this24.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this23.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res) {
-                    _this24.sharedService.setUnitListDeleteIndex(null);
+                    _this23.sharedService.setUnitListDeleteIndex(null);
 
-                    _this24.getNatureOfWorklist();
+                    _this23.getNatureOfWorklist();
                   }
                 });
               }
@@ -2124,8 +2037,6 @@
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
@@ -2138,10 +2049,6 @@
           args: ['dataGrid', {
             "static": false
           }]
-        }],
-        form: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['workForm']
         }],
         OnDeleteNatureWork: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
@@ -2157,12 +2064,10 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./nature-of-work-setup.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.html"))["default"],
-        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./nature-of-work-setup.component.scss */
         "./src/app/modules/common/work-permit/components/workpermit-setup/nature-of-work-setup/nature-of-work-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], NatureOfWorkSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], NatureOfWorkSetupComponent);
 
       function editNatureWork(row) {
         var event = new CustomEvent('onEditNatureWork', {
@@ -2252,10 +2157,10 @@
           value: function ngOnInit() {
             this.navArray = [{
               link: 'workpermit-type',
-              name: 'WorkPermit Type'
+              name: 'Create WorkPermit Type'
             }, {
               link: 'nature-of-work',
-              name: 'Nature of Work'
+              name: 'Create Nature of Work'
             }];
           }
         }]);
@@ -2376,34 +2281,26 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
-      /* harmony import */
-
-
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-      /*! src/@condo/animations */
-      "./src/@condo/animations/index.ts");
 
       var WorkpermitTypeSetupComponent = /*#__PURE__*/function () {
-        function WorkpermitTypeSetupComponent(lookupService, sharedService, injector, sessionService, _changeDetectorRef, dialog) {
+        function WorkpermitTypeSetupComponent(lookupService, sharedService, injector, sessionService, dialog) {
           _classCallCheck(this, WorkpermitTypeSetupComponent);
 
           this.lookupService = lookupService;
           this.sharedService = sharedService;
           this.injector = injector;
           this.sessionService = sessionService;
-          this._changeDetectorRef = _changeDetectorRef;
           this.dialog = dialog;
           this.isDataLoaded = true;
           this.workPermitFilter = '';
           this.workpermit = {};
-          this.message = null;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_6__["ModalService"]);
         }
 
         _createClass(WorkpermitTypeSetupComponent, [{
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this25 = this;
+            var _this24 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -2416,7 +2313,7 @@
               this.dataGrid.showfiltercolumnbackground(false);
               this.column.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this25.dataGrid.addfilter(item.datafield, filtergroup, true);
+                  _this24.dataGrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.dataGrid.applyfilters();
@@ -2442,12 +2339,6 @@
             this.clickMode = 'create';
           }
         }, {
-          key: "cancelWorkPermit",
-          value: function cancelWorkPermit() {
-            this.clickMode = '';
-            this.message = null;
-          }
-        }, {
           key: "onEditWorkPermit",
           value: function onEditWorkPermit(detail) {
             this.clickMode = 'edit';
@@ -2463,137 +2354,98 @@
         }, {
           key: "submitWorkPermitType",
           value: function submitWorkPermitType() {
-            var _this26 = this;
+            var _this25 = this;
 
-            this.message = null;
+            var params = {
+              lookupvalue: {
+                "lookupValueId": 0,
+                "apartmentId": this.sessionService.apartmentId,
+                "lookupTypeId": 90,
+                "lookupValueName": this.workpermit.lookupValueName,
+                "description": this.workpermit.description,
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              }
+            };
+            this.lookupService.addLookupValue(params).subscribe(function (res) {
+              if (res.message) {
+                _this25.clickMode = '';
 
-            if (!this.form.valid) {
-              window.scroll({
-                top: 0,
-                behavior: 'smooth'
-              }); // Show the validation message
+                _this25.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
-
-              this._changeDetectorRef.markForCheck();
-            } else {
-              var params = {
-                lookupvalue: {
-                  "lookupValueId": 0,
-                  "apartmentId": this.sessionService.apartmentId,
-                  "lookupTypeId": 90,
-                  "lookupValueName": this.workpermit.lookupValueName,
-                  "description": this.workpermit.description,
-                  "isActive": true,
-                  "insertedBy": this.sessionService.userId,
-                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                  "updatedBy": null,
-                  "updatedOn": null
-                }
-              };
-              this.lookupService.addLookupValue(params).subscribe(function (res) {
-                if (res.message) {
-                  _this26.clickMode = '';
-
-                  _this26.sharedService.openSnackBar("Setup Value Created Successfully", 'success');
-
-                  _this26.getWorkPermitList();
-                } else {
-                  _this26.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this26.sharedService.openSnackBar('Server Error', 'error');
-              });
-            }
+                _this25.getWorkPermitList();
+              } else {
+                _this25.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this25.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "updateWorkPermitType",
           value: function updateWorkPermitType() {
-            var _this27 = this;
+            var _this26 = this;
 
-            this.message = null;
+            var params = {
+              lookupvalue: {
+                "lookupValueId": this.workpermit.lookupValueId,
+                "apartmentId": this.sessionService.apartmentId,
+                "lookupTypeId": 90,
+                "lookupValueName": this.workpermit.lookupValueName,
+                "description": this.workpermit.description,
+                "isActive": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+              }
+            };
+            this.lookupService.updateLookupValue(params).subscribe(function (res) {
+              if (res.message) {
+                _this26.clickMode = '';
 
-            if (!this.form.valid) {
-              window.scroll({
-                top: 0,
-                behavior: 'smooth'
-              }); // Show the validation message
+                _this26.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
 
-              this.message = {
-                appearance: 'outline',
-                content: "Fill the Required Fields",
-                shake: true,
-                showIcon: true,
-                type: 'error'
-              }; //Mark for check
-
-              this._changeDetectorRef.markForCheck();
-            } else {
-              var params = {
-                lookupvalue: {
-                  "lookupValueId": this.workpermit.lookupValueId,
-                  "apartmentId": this.sessionService.apartmentId,
-                  "lookupTypeId": 90,
-                  "lookupValueName": this.workpermit.lookupValueName,
-                  "description": this.workpermit.description,
-                  "isActive": true,
-                  "insertedBy": this.sessionService.userId,
-                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                  "updatedBy": null,
-                  "updatedOn": null
-                }
-              };
-              this.lookupService.updateLookupValue(params).subscribe(function (res) {
-                if (res.message) {
-                  _this27.clickMode = '';
-
-                  _this27.sharedService.openSnackBar("Setup Value Updated Successfully", 'success');
-
-                  _this27.getWorkPermitList();
-                } else {
-                  _this27.sharedService.openSnackBar(res.errorMessage, 'error');
-                }
-              }, function (error) {
-                _this27.sharedService.openSnackBar('Server Error', 'error');
-              });
-            }
+                _this26.getWorkPermitList();
+              } else {
+                _this26.sharedService.openSnackBar(res.errorMessage, 'error');
+              }
+            }, function (error) {
+              _this26.sharedService.openSnackBar('Server Error', 'error');
+            });
           }
         }, {
           key: "getWorkPermitList",
           value: function getWorkPermitList() {
-            var _this28 = this;
+            var _this27 = this;
 
             var params = {
-              LookupTypeId: 90,
-              ApartmentId: this.sessionService.apartmentId
+              LookupTypeId: 90
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (resp) {
               if (resp.length > 0) {
-                _this28.totalItems = resp.length;
+                _this27.totalItems = resp.length;
                 var arrangeSlotRawData = {
                   localdata: resp.reverse(),
                   datatype: "array"
                 };
-                _this28.workPermitList = new jqx.dataAdapter(arrangeSlotRawData);
+                _this27.workPermitList = new jqx.dataAdapter(arrangeSlotRawData);
               }
 
-              _this28.isDataLoaded = false;
+              _this27.isDataLoaded = false;
             }, function (error) {
-              _this28.isDataLoaded = false;
+              _this27.isDataLoaded = false;
 
-              _this28.sharedService.openSnackBar('Server Error', 'error');
+              _this27.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this29 = this;
+            var _this28 = this;
 
             this.getWorkPermitList();
 
@@ -2630,14 +2482,14 @@
               if (item != null) {
                 var params = {
                   lookupValueId: item,
-                  updateUserId: _this29.sessionService.userId
+                  updateUserId: _this28.sessionService.userId
                 };
 
-                _this29.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                _this28.lookupService.deleteLookupvalue(params).subscribe(function (res) {
                   if (res) {
-                    _this29.sharedService.setUnitListDeleteIndex(null);
+                    _this28.sharedService.setUnitListDeleteIndex(null);
 
-                    _this29.getWorkPermitList();
+                    _this28.getWorkPermitList();
                   }
                 });
               }
@@ -2663,8 +2515,6 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
         }];
       };
@@ -2675,10 +2525,6 @@
           args: ['dataGrid', {
             "static": false
           }]
-        }],
-        form: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
-          args: ['workPermitForm']
         }],
         onDeleteWorkPermit: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
@@ -2694,12 +2540,10 @@
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./workpermit-type-setup.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/common/work-permit/components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component.html"))["default"],
-        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./workpermit-type-setup.component.scss */
         "./src/app/modules/common/work-permit/components/workpermit-setup/workpermit-type-setup/workpermit-type-setup.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], WorkpermitTypeSetupComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]])], WorkpermitTypeSetupComponent);
 
       function editWorkPermit(row) {
         var event = new CustomEvent('onEditWorkPermit', {
@@ -2810,15 +2654,9 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
 
       var WorkpermitStatusComponent = /*#__PURE__*/function () {
-        function WorkpermitStatusComponent(dialogRef, data, lookupService, workPermitService, sessionService, sharedService) {
+        function WorkpermitStatusComponent(dialogRef, data, lookupService, workPermitService, sessionService) {
           _classCallCheck(this, WorkpermitStatusComponent);
 
           this.dialogRef = dialogRef;
@@ -2826,13 +2664,12 @@
           this.lookupService = lookupService;
           this.workPermitService = workPermitService;
           this.sessionService = sessionService;
-          this.sharedService = sharedService;
         }
 
         _createClass(WorkpermitStatusComponent, [{
           key: "onConfirm",
           value: function onConfirm() {
-            var _this30 = this;
+            var _this29 = this;
 
             var params = {
               workPermit: {
@@ -2847,34 +2684,22 @@
               }
             };
             this.workPermitService.updateWorkPermitStatusById(params).subscribe(function (data) {
-              if (data.message) {
-                _this30.sharedService.openSnackBar('Workpermit Status Updated', 'success');
-
-                _this30.dialogRef.close(true);
-              } else {
-                _this30.sharedService.openSnackBar(data.errorMessage, 'error');
-
-                _this30.dialogRef.close(false);
-              }
-            }, function (error) {
-              _this30.dialogRef.close(false);
-
-              _this30.sharedService.openSnackBar('Server Error', 'error');
+              _this29.dialogRef.close(true);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this30 = this;
 
             var statusParams = {
               LookupTypeId: 91
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this31.statusTypeData = res.filter(function (status) {
+                _this30.statusTypeData = res.filter(function (status) {
                   // Admin Side
-                  if (_this31.sessionService.isAdmin()) {
+                  if (_this30.sessionService.isAdmin()) {
                     return status;
                   } else {
                     // User side
@@ -2883,7 +2708,7 @@
                     }
                   }
                 });
-                _this31.status = _this31.data.statusId;
+                _this30.status = _this30.data.statusId;
               }
             });
           }
@@ -2907,8 +2732,6 @@
           type: src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }];
       };
 
@@ -2920,7 +2743,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./workpermit-status.component.scss */
         "./src/app/modules/common/work-permit/components/workpermit-status/workpermit-status.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], WorkpermitStatusComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], Object, src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_3__["LookupService"], src_app_api_controllers_WorkPermit__WEBPACK_IMPORTED_MODULE_4__["WorkPermitService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], WorkpermitStatusComponent);
       /***/
     },
 
@@ -3034,7 +2857,7 @@
         component: _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitCreateComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {
-        path: '/:type/:id',
+        path: 'create/:type/:id',
         component: _components_workpermit_create_workpermit_create_component__WEBPACK_IMPORTED_MODULE_5__["WorkpermitCreateComponent"],
         canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
       }, {

@@ -521,7 +521,6 @@ let FacilityListComponent = class FacilityListComponent {
         this.router = router;
         this.injector = injector;
         this.isFacilityCategoryLoaded = false;
-        this.totalItems = 0;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_5__["ModalService"]);
     }
     addNewFacilityCategory() {
@@ -567,10 +566,10 @@ let FacilityListComponent = class FacilityListComponent {
             if (res.length > 0) {
                 this.facilityCategoryData = res;
                 this.totalItems = res.length;
+                this.isFacilityCategoryLoaded = true;
             }
-            this.isFacilityCategoryLoaded = true;
-        }, (error) => {
-            this.sharedService.openSnackBar('Server Error', 'error');
+        }, error => {
+            console.log(error);
         });
         //peso value
         let entity = {

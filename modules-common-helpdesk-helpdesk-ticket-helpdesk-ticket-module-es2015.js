@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-user-ticket-list-wrapper\">\n    \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">All Tickets</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <a class=\"nav-link\" routerLink=\"create-ticket\"  mat-flat-button [color]=\"'primary'\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Create Ticket</span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of ticketListData | simpleSearch: ticketData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"ticket-item\">\n\n                    <div class=\"d-flex\">\n\n                        <div>\n                            <h5>#{{item.ticketId}}</h5>\n                            <div class=\"ticket-others d-flex pt-3 align-items-center\">\n                                <div class=\"status-badge bg-status-{{getTicketStatus(item.ticketStatusId)}}-700\">\n                                    <span class=\"font-bold text-status-{{getTicketStatus(item.ticketStatusId)}}-900 text-uppercase\">{{getTicketLabel(item.ticketStatusId)}}</span>\n                                </div>\n                                <p class=\"text-secondary pl-3 pr-3\">|</p>\n                                <h6 class=\"text-secondary\">{{item.title}}</h6>\n                            </div>\n                            <div class=\"d-flex pt-3\" *ngIf=\"isTicketPriortyLoaded\">\n                                <p class=\"priority\" [ngClass]=\"getPriority(item.ticketPriorityId)\"></p>\n                                <p class=\"text-secondary text-smr font-medium text-capitalize\">{{getPriority(item.ticketPriorityId)}}</p>\n                            </div>\n                        </div>\n\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editTicket(item.ticketId)\"></mat-icon>\n                        </div>\n\n                    </div>\n\n                    <div class=\"border-top ticket-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Ticket Created</p>\n                                <p class=\"right\">{{getDateTime(item.insertedOn)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Assigned to</p>\n                                <p class=\"right\">{{item.assignedTo | nill}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\" *ngIf=\"isTicketCategoryLoaded\">\n                                <p class=\"font-medium\">Category</p>\n                                <p class=\"right\">{{getCategory(item.ticketCategoryId)}}</p>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"ticketListData.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n\n        </ng-container>\n\n    </div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"helpdesk-user-ticket-list-wrapper\">\n    \n    <div class=\"main\">\n\n        <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n        <ng-container *ngIf=\"isDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">All Tickets</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"ticketData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <a class=\"nav-link\" routerLink=\"create-ticket\"  mat-flat-button [color]=\"'primary'\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Create Ticket</span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of ticketListData | simpleSearch: ticketData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"ticket-item\">\n\n                    <div class=\"d-flex\">\n\n                        <div>\n                            <h5>#{{item.ticketId}}</h5>\n                            <div class=\"ticket-others d-flex pt-3 align-items-center\">\n                                <div class=\"status-badge bg-status-{{getTicketStatus(item.ticketStatusId)}}-700\">\n                                    <span class=\"font-bold text-status-{{getTicketStatus(item.ticketStatusId)}}-900 text-uppercase\">{{getTicketLabel(item.ticketStatusId)}}</span>\n                                </div>\n                                <p class=\"text-secondary pl-3 pr-3\">|</p>\n                                <h6 class=\"text-secondary\">{{item.title}}</h6>\n                            </div>\n                            <div class=\"d-flex pt-3\" *ngIf=\"isTicketPriortyLoaded\">\n                                <p class=\"priority\" [ngClass]=\"getPriority(item.ticketPriorityId)\"></p>\n                                <p class=\"text-secondary text-smr font-medium text-capitalize\">{{getPriority(item.ticketPriorityId)}}</p>\n                            </div>\n                        </div>\n\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editTicket(item.ticketId)\"></mat-icon>\n                        </div>\n\n                    </div>\n\n                    <div class=\"border-top ticket-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Ticket Created</p>\n                                <p class=\"right\">{{getDateTime(item.insertedOn)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Assigned to</p>\n                                <p class=\"right\">{{item.assignedTo | nill}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\" *ngIf=\"isTicketCategoryLoaded\">\n                                <p class=\"font-medium\">Category</p>\n                                <p class=\"right\">{{getCategory(item.ticketCategoryId)}}</p>\n                            </div>\n                        </div>\n                    </div>\n\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                </app-pagination>\n            </div>\n\n        </ng-container>\n\n    </div>\n\n</div>");
 
 /***/ }),
 
@@ -338,33 +338,31 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
             return '';
     }
     createComment(type) {
-        if (this.ticketComment) {
-            let commentDetails = {
-                "ticketComment": {
-                    "ticketId": this.ticket.ticketId,
-                    "comments": this.ticketComment,
-                    "isActive": true,
-                    "isLog": type == 'log' ? true : false,
-                    "insertedBy": this.sessionService.userId,
-                    "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
-                    "updatedBy": null,
-                    "updatedOn": null
+        let commentDetails = {
+            "ticketComment": {
+                "ticketId": this.ticket.ticketId,
+                "comments": this.ticketComment,
+                "isActive": true,
+                "isLog": type == 'log' ? true : false,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            }
+        };
+        this.ticketService.addTicketComment(commentDetails).subscribe((res) => {
+            if (res.code == 200) {
+                this.getCommentList();
+                this.ticketComment = '';
+                if (type != 'log') {
+                    this.sharedService.openSnackBar('Comment Added Successfully', 'success');
                 }
-            };
-            this.ticketService.addTicketComment(commentDetails).subscribe((res) => {
-                if (res.code == 200) {
-                    this.getCommentList();
-                    this.ticketComment = '';
-                    if (type != 'log') {
-                        this.sharedService.openSnackBar('Comment Added Successfully', 'success');
-                    }
-                }
-                else
-                    this.sharedService.openSnackBar(res.errorMessage, 'error');
-            }, (error) => {
-                this.sharedService.openSnackBar('Server Error', 'error');
-            });
-        }
+            }
+            else
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
     }
     getCommentList() {
         let params = {
@@ -1220,8 +1218,8 @@ let HelpdeskUserTicketListComponent = class HelpdeskUserTicketListComponent {
                     this.ItemEndIndex = this.totalItems;
                 }
                 this.totalItems = this.ticketListData.length;
+                this.isDataLoaded = true;
             }
-            this.isDataLoaded = true;
         }, (error) => {
             this.isDataLoaded = true;
             this.sharedService.openSnackBar('Server Error', 'error');
