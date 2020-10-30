@@ -627,7 +627,7 @@ let RolesAndPermissionsListComponent = class RolesAndPermissionsListComponent {
                 renderer: columnrenderer
             }];
         // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 var params = {
                     menuRoleSecLevelId: id,
@@ -641,6 +641,9 @@ let RolesAndPermissionsListComponent = class RolesAndPermissionsListComponent {
             }
         });
         this.getRolePermissionList();
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
     getRolePermissionList() {
         this.isShowRoleList = false;

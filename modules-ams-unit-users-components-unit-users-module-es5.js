@@ -1679,7 +1679,7 @@
             }, {
               text: 'Name',
               datafield: 'userName',
-              minwidth: 200,
+              width: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {

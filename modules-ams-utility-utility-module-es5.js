@@ -4428,6 +4428,8 @@
               deleteBy: parseInt(this.sessionService.userId)
             };
             this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe(function (res) {
+              _this34.sharedService.setUnitListDeleteIndex(null);
+
               _this34.loadUtilityCategory();
             });
           }
@@ -4590,11 +4592,16 @@
                 _this37.submitUtilityCategoryForm(is_category_form);
               }
             });
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item_id) {
               if (item_id) {
                 _this37.deleteUtilityCategory(item_id);
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 

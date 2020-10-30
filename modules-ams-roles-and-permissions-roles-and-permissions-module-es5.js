@@ -972,7 +972,7 @@
               renderer: columnrenderer
             }]; // delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   menuRoleSecLevelId: id,
@@ -987,6 +987,11 @@
               }
             });
             this.getRolePermissionList();
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }, {
           key: "getRolePermissionList",

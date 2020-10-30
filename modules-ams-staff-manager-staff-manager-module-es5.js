@@ -1003,7 +1003,7 @@
                 "dob": this.staff.dob,
                 "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "bloodGroup": this.staff.bloodGroup,
-                "phoneNumber": this.phoneForm.value.phone.number,
+                "phoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
                 "emergencyContactNumber": "",
                 "emergencyContactPerson": "",
                 "emergencyContactNumberSecondary": "",
@@ -1018,7 +1018,7 @@
                 "insertedBy": this.sessionService.userId,
                 "updatedBy": null,
                 "secLevelId": this.staff.secLevelId,
-                "phonecountrycode": this.phoneForm.value.phone.countryCode
+                "phonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
               };
               var userParams = {
                 user: userDetails
@@ -1035,7 +1035,7 @@
                       "middleName": "",
                       "lastName": _this7.staff.lastName,
                       "emailId": _this7.staff.emailId,
-                      "contactNumber": _this7.phoneForm.value.phone.number,
+                      "contactNumber": _this7.phoneForm.value.phone == null ? '' : _this7.phoneForm.value.phone.number,
                       "alternateContact": _this7.staff.alternateContact == null ? "" : _this7.staff.alternateContact.toString(),
                       "staffNumber": null,
                       "staffCategoryId": parseInt(_this7.staff.staffCategoryId),
@@ -1074,8 +1074,8 @@
                       "updatedBy": null,
                       "updatedOn": null,
                       "secLevelId": _this7.staff.secLevelId,
-                      "userPhoneNumber": _this7.phoneForm.value.phone.number,
-                      "userPhonecountrycode": _this7.phoneForm.value.phone.countryCode
+                      "userPhoneNumber": _this7.phoneForm.value.phone == null ? '' : _this7.phoneForm.value.phone.number,
+                      "userPhonecountrycode": _this7.phoneForm.value.phone == null ? '' : _this7.phoneForm.value.phone.countryCode
                     }
                   };
 
@@ -1181,7 +1181,7 @@
                 "insertedBy": 0,
                 "secLevelId": this.staff.secLevelId,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "phonecountrycode": this.phoneForm.value.phone.countryCode
+                "phonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
               };
               var _userParams = {
                 user: _userDetails
@@ -1197,7 +1197,7 @@
                     "middleName": "string",
                     "lastName": _this7.staff.lastName,
                     "emailId": _this7.staff.emailId,
-                    "contactNumber": _this7.phoneForm.value.phone.number,
+                    "contactNumber": _this7.phoneForm.value.phone == null ? '' : _this7.phoneForm.value.phone.number,
                     "alternateContact": _this7.staff.alternateContact == null ? "" : _this7.staff.alternateContact.toString(),
                     "staffNumber": null,
                     "staffCategoryId": parseInt(_this7.staff.staffCategoryId),
@@ -1236,8 +1236,8 @@
                     "updatedBy": parseInt(_this7.sessionService.userId),
                     "updatedOn": "2019-11-30T12:41:45.620Z",
                     "secLevelId": _this7.staff.secLevelId,
-                    "userPhoneNumber": _this7.phoneForm.value.phone.number,
-                    "userPhonecountrycode": _this7.phoneForm.value.phone.countryCode
+                    "userPhoneNumber": _this7.phoneForm.value.phone == null ? '' : _this7.phoneForm.value.phone.number,
+                    "userPhonecountrycode": _this7.phoneForm.value.phone == null ? '' : _this7.phoneForm.value.phone.countryCode
                   };
                   var staffParams = {
                     staff: staffDetails
@@ -2894,7 +2894,7 @@
             this.columnData = [{
               text: 'Staff Name',
               datafield: 'firstName',
-              width: 100,
+              width: 150,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
@@ -2902,19 +2902,19 @@
               text: 'Email Id',
               datafield: 'emailId',
               cellsrenderer: cellsrenderer,
-              minwidth: 80,
+              minwidth: 100,
               renderer: columnrenderer
             }, {
               text: 'Category',
               datafield: 'staffCategory_Label',
               cellsrenderer: cellsrenderer,
-              minwidth: 170,
+              minwidth: 100,
               renderer: columnrenderer
             }, {
               text: 'Phone Number',
               datafield: 'phoneNumber_Label',
               cellsrenderer: cellsrenderer,
-              minwidth: 170,
+              width: 150,
               renderer: columnrenderer
             }, {
               text: 'Actions',
@@ -2955,7 +2955,7 @@
               });
             }, function (error) {}); // delete item
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   staffId: id,
@@ -2978,6 +2978,11 @@
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }, {
           key: "getAllStaff",

@@ -54,7 +54,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <div>\n            <span class=\"d-flex align-items-center\" ><span class=\"text-primary mr-1\" >Sender :</span> {{messageDetails?.insertedby_label}}</span>\n            <small class=\"font-bold text-status-purple-900 text-uppercase mr-4\">{{messageDetails?.groupName}}</small>\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <div>\n            <span class=\"d-flex align-items-center\" ><span class=\"text-primary mr-1\" >Sender :</span> {{messageDetails?.insertedby_label}}</span>\n            <small class=\"font-bold text-status-purple-900 text-uppercase mr-4\">{{messageDetails?.broadCastGroupcategory_label}}</small>\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <app-loader *ngIf=\"isBusy\" ></app-loader>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>";
       /***/
     },
 
@@ -609,6 +609,7 @@
           this.router = router;
           this.sessionService = sessionService;
           this.selectedId = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          this.isBusy = false;
           this.messageIds = [];
         }
 
@@ -637,6 +638,7 @@
               _this._changeDetectorRef.markForCheck();
 
               if (_this.messageDetails && _this.messageDetails.fileDetailId1) {
+                _this.isBusy = true;
                 var newParams = {
                   fileDetailsId: _this.messageDetails.fileDetailId1,
                   apartmentId: _this.sessionService.apartmentId
@@ -651,7 +653,12 @@
                       var sanitizeUrl = _this.sanitizer.bypassSecurityTrustUrl(objectURL);
 
                       _this.filePath = sanitizeUrl;
+                      _this.isBusy = false;
                     });
+
+                    _this.isBusy = false;
+                  } else {
+                    _this.filePath = _this.messageDetails.fileDetailId1;
                   }
                 });
               }

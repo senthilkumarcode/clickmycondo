@@ -718,7 +718,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "dob": this.staff.dob,
                 "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "bloodGroup": this.staff.bloodGroup,
-                "phoneNumber": this.phoneForm.value.phone.number,
+                "phoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
                 "emergencyContactNumber": "",
                 "emergencyContactPerson": "",
                 "emergencyContactNumberSecondary": "",
@@ -733,7 +733,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "insertedBy": this.sessionService.userId,
                 "updatedBy": null,
                 "secLevelId": this.staff.secLevelId,
-                "phonecountrycode": this.phoneForm.value.phone.countryCode
+                "phonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
             };
             let userParams = {
                 user: userDetails
@@ -750,7 +750,7 @@ let AddStaffComponent = class AddStaffComponent {
                             "middleName": "",
                             "lastName": this.staff.lastName,
                             "emailId": this.staff.emailId,
-                            "contactNumber": this.phoneForm.value.phone.number,
+                            "contactNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
                             "alternateContact": this.staff.alternateContact == null ? "" : this.staff.alternateContact.toString(),
                             "staffNumber": null,
                             "staffCategoryId": parseInt(this.staff.staffCategoryId),
@@ -789,8 +789,8 @@ let AddStaffComponent = class AddStaffComponent {
                             "updatedBy": null,
                             "updatedOn": null,
                             "secLevelId": this.staff.secLevelId,
-                            "userPhoneNumber": this.phoneForm.value.phone.number,
-                            "userPhonecountrycode": this.phoneForm.value.phone.countryCode
+                            "userPhoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
+                            "userPhonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
                         }
                     };
                     this.staffService.addStaff(staffParams).subscribe((res) => {
@@ -891,7 +891,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "insertedBy": 0,
                 "secLevelId": this.staff.secLevelId,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "phonecountrycode": this.phoneForm.value.phone.countryCode
+                "phonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
             };
             let userParams = {
                 user: userDetails
@@ -907,7 +907,7 @@ let AddStaffComponent = class AddStaffComponent {
                         "middleName": "string",
                         "lastName": this.staff.lastName,
                         "emailId": this.staff.emailId,
-                        "contactNumber": this.phoneForm.value.phone.number,
+                        "contactNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
                         "alternateContact": this.staff.alternateContact == null ? "" : this.staff.alternateContact.toString(),
                         "staffNumber": null,
                         "staffCategoryId": parseInt(this.staff.staffCategoryId),
@@ -946,8 +946,8 @@ let AddStaffComponent = class AddStaffComponent {
                         "updatedBy": parseInt(this.sessionService.userId),
                         "updatedOn": "2019-11-30T12:41:45.620Z",
                         "secLevelId": this.staff.secLevelId,
-                        "userPhoneNumber": this.phoneForm.value.phone.number,
-                        "userPhonecountrycode": this.phoneForm.value.phone.countryCode
+                        "userPhoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
+                        "userPhonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
                     };
                     let staffParams = {
                         staff: staffDetails
@@ -2198,7 +2198,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         this.columnData = [{
                 text: 'Staff Name',
                 datafield: 'firstName',
-                width: 100,
+                width: 150,
                 pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
@@ -2206,19 +2206,19 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
                 text: 'Email Id',
                 datafield: 'emailId',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                minwidth: 100,
                 renderer: columnrenderer
             }, {
                 text: 'Category',
                 datafield: 'staffCategory_Label',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 100,
                 renderer: columnrenderer
             }, {
                 text: 'Phone Number',
                 datafield: 'phoneNumber_Label',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                width: 150,
                 renderer: columnrenderer
             }, {
                 text: 'Actions',
@@ -2262,7 +2262,7 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
         }, error => {
         });
         // delete item
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 var params = {
                     staffId: id,
@@ -2282,6 +2282,9 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
                 });
             }
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
     getAllStaff() {
         this.staffService.getAllStaffsByApartmentId(this.params).subscribe((res) => {

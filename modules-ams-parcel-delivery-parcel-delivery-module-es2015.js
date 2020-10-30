@@ -254,7 +254,7 @@ let CreatePackageComponent = class CreatePackageComponent {
                 deliveryTypeId: parseInt(this.package.deliveryTypeId),
                 deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 assignedTo: this.package.assignedTo,
-                description: this.packageData.Comments,
+                description: this.packageData.Comments ? this.packageData.Comments : "string",
                 receivedBy: this.sessionService.userId,
                 deliveryStatusId: 986,
                 isActive: true,
@@ -351,7 +351,6 @@ let CreatePackageComponent = class CreatePackageComponent {
         this.package = {};
         this.packageData.Deliverytype = '';
         this.packageData.Staff = '';
-        this.packageData.Slot = '';
         this.packageData.Slot = '';
         this.package.slotName = '';
         this.package.apartmentBlockId = '';
@@ -996,7 +995,7 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
     }
     ngOnInit() {
         this.getDeliveryTypeData();
-        this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
             if (lookupValueId != null) {
                 var params = {
                     lookupValueId: lookupValueId,
@@ -1119,6 +1118,9 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
             });
         }
     }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
+    }
     deleteCategory(lookupValueId) {
         this.modalService.showConfirmModal(lookupValueId);
     }
@@ -1206,7 +1208,7 @@ let PackageTypeComponent = class PackageTypeComponent {
     }
     ngOnInit() {
         this.getCategoryData();
-        this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
             if (lookupValueId != null) {
                 var params = {
                     lookupValueId: lookupValueId,
@@ -1329,6 +1331,9 @@ let PackageTypeComponent = class PackageTypeComponent {
             });
         }
     }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
+    }
     deleteCategory(lookupValueId) {
         this.modalService.showConfirmModal(lookupValueId);
     }
@@ -1416,7 +1421,7 @@ let SlotTypeComponent = class SlotTypeComponent {
     }
     ngOnInit() {
         this.getSlotData();
-        this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(lookupValueId => {
             if (lookupValueId != null) {
                 var params = {
                     lookupValueId: lookupValueId,
@@ -1538,6 +1543,9 @@ let SlotTypeComponent = class SlotTypeComponent {
                 }
             });
         }
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
     deleteCategory(lookupValueId) {
         this.modalService.showConfirmModal(lookupValueId);

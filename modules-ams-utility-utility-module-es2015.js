@@ -3039,6 +3039,7 @@ let UtilitySetupComponent = class UtilitySetupComponent {
             deleteBy: parseInt(this.sessionService.userId)
         };
         this.utilityTrackerService.deleteUtilityTrackerCategory(params).subscribe((res) => {
+            this.sharedService.setUnitListDeleteIndex(null);
             this.loadUtilityCategory();
         });
     }
@@ -3175,11 +3176,14 @@ let UtilitySetupComponent = class UtilitySetupComponent {
                 this.submitUtilityCategoryForm(is_category_form);
             }
         });
-        this.sharedService.unitlistdeleteindexcast.subscribe(item_id => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(item_id => {
             if (item_id) {
                 this.deleteUtilityCategory(item_id);
             }
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 UtilitySetupComponent.ctorParameters = () => [

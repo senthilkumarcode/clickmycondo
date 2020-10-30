@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <!-- <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n            <i class=\"ml-4 mr-4 fa fa-ellipsis-v\" aria-hidden=\"true\" [matMenuTriggerFor]=\"mail_options\"></i>\n            <mat-menu #mail_options=\"matMenu\">\n                <button mat-menu-item>Forward</button>\n                <button mat-menu-item>Reply</button>\n              </mat-menu> -->\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <!-- <img src=\"../../../../assets/images/img-users.jpg\" alt=\"\"> -->\n        <div>\n            <span>{{messageDetails?.insertedby_label}}</span>\n            <!-- <small>dharu@gmail.com</small> -->\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"inbox-details bg-card shadow\">\n    <div class=\"details-head\">\n        <span>{{messageDetails?.broadcastOn | date : 'medium'}}</span>\n        <span>\n            <!-- <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n            <i class=\"ml-4 mr-4 fa fa-ellipsis-v\" aria-hidden=\"true\" [matMenuTriggerFor]=\"mail_options\"></i>\n            <mat-menu #mail_options=\"matMenu\">\n                <button mat-menu-item>Forward</button>\n                <button mat-menu-item>Reply</button>\n              </mat-menu> -->\n            <i class=\"fa fa-times-circle-o\" (click)=\"closeDrawer()\" aria-hidden=\"true\"></i>\n        </span>\n    </div>\n    <div class=\"detail-address\">\n        <!-- <img src=\"../../../../assets/images/img-users.jpg\" alt=\"\"> -->\n        <div>\n            <span>{{messageDetails?.insertedby_label}}</span>\n            <!-- <small>dharu@gmail.com</small> -->\n        </div>\n    </div>\n    <div class=\"detail-subject\">\n        {{messageDetails?.subject}}\n    </div>\n    <div class=\"detail-content\" [innerHTML]=\"messageDetails?.broadcastMessage1\">\n    </div>\n    <div class=\"detail-image\">\n        <mat-icon aria-hidden=\"false\" (click)=\"movePrev()\" >keyboard_arrow_left</mat-icon>\n        <app-loader *ngIf=\"isBusy\" ></app-loader>\n        <img *ngIf=\"filePath\" [src]=\"filePath\" alt=\"\">\n        <mat-icon aria-hidden=\"false\" (click)=\"moveNext()\" >keyboard_arrow_right</mat-icon>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -152,7 +152,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n    <h4 class=\"mb-4\">Broadcast Group Setup</h4>\n    <mat-accordion>\n        <mat-expansion-panel [expanded]=\"isExpand\" (afterCollapse)=\"Cancel()\">\n            <mat-expansion-panel-header>\n                <mat-panel-title>{{(!isEdit)?'Add':'Update'}} Broadcast Group Category\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <mat-panel-description>\n            </mat-panel-description>\n            <form #createBroadcastGroupCategoryForm=\"ngForm\" name=\"createBroadcastGroupCategoryForm\" novalidate>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box m-3\">\n                            <label> Interest Group Name<span class=\"mandatory\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter Group Name\" name=\"groupName\"\n                                [(ngModel)]=\"groupCategory.groupName\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box m-3\">\n                            <!-- <label>Priviledge<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"privilageCategory.dropdownList\"\n                                        name=\"privilegeModeDropDown\" [(ngModel)]=\"privilageCategory.selectedItems\"\n                                        [settings]=\"dropdownSettings\" required></angular2-multiselect> -->\n\n                            <condo-select labelText=\"Priviledge\" fieldPlaceholder=\"Select Group Category\"\n                                [fieldRequired]=\"'required'\" [fieldList]=\"privilegeList\" fieldValue=\"name\"\n                                [fieldModel]=\"groupCategory.privilege\" fieldId=\"value\"\n                                (fieldParams)=\"getGroupUsers($event)\"></condo-select>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box m-3\">\n                            <label>Description</label>\n                            <textarea class=\"form-control\" rows=5 placeholder=\"Enter Description\" name=\"description\"\n                                [(ngModel)]=\"groupCategory.description\"></textarea>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12 d-flex justify-content-end\">\n                        <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"submitcreateBroadcastGroupCategoryForm()\" *ngIf=\"!isEdit\">Submit</button>\n                        <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"submitcreateBroadcastGroupCategoryForm()\" *ngIf=\"isEdit\">Update</button>\n                        <button mat-button (click)=\"Cancel()\">Cancel</button>\n                    </div>\n                </div>\n            </form>\n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"mt-3\">\n        <condo-card *ngIf=\"isDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Broadcast Group Category</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchCategory\"\n                            (ngModelChange)=\"onGlSearchFilter()\" placeholder=\"Search...\">\n                    </div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"isExpand=true;\">Add Group Category</button>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastGroupList\" [columns]=\"broadcastGroupHeader\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main\">\n    <h4 class=\"mb-4\">Broadcast Interest Group Setup</h4>\n    <mat-accordion>\n        <mat-expansion-panel [expanded]=\"isExpand\" (afterCollapse)=\"Cancel()\">\n            <mat-expansion-panel-header>\n                <mat-panel-title>{{(!isEdit)?'Add':'Update'}} Broadcast Interest Group Category\n                </mat-panel-title>\n            </mat-expansion-panel-header>\n            <mat-panel-description>\n            </mat-panel-description>\n            <form #createBroadcastGroupCategoryForm=\"ngForm\" name=\"createBroadcastGroupCategoryForm\" novalidate>\n                <div class=\"row\">\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box m-3\">\n                            <label> Interest Group Name<span class=\"mandatory\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter Group Name\" name=\"groupName\"\n                                [(ngModel)]=\"groupCategory.groupName\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-6\">\n                        <div class=\"input-box m-3\">\n                            <!-- <label>Priviledge<span class=\"mandatory\">*</span></label>\n                                    <angular2-multiselect [data]=\"privilageCategory.dropdownList\"\n                                        name=\"privilegeModeDropDown\" [(ngModel)]=\"privilageCategory.selectedItems\"\n                                        [settings]=\"dropdownSettings\" required></angular2-multiselect> -->\n\n                            <condo-select labelText=\"Priviledge\" fieldPlaceholder=\"Select Group Category\"\n                                [fieldRequired]=\"'required'\" [fieldList]=\"privilegeList\" fieldValue=\"name\"\n                                [fieldModel]=\"groupCategory.privilege\" fieldId=\"value\"\n                                (fieldParams)=\"getGroupUsers($event)\"></condo-select>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box m-3\">\n                            <label>Description</label>\n                            <textarea class=\"form-control\" rows=5 placeholder=\"Enter Description\" name=\"description\"\n                                [(ngModel)]=\"groupCategory.description\"></textarea>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12 d-flex justify-content-end\">\n                        <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"submitcreateBroadcastGroupCategoryForm()\" *ngIf=\"!isEdit\">Submit</button>\n                        <button class=\"mr-2\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"submitcreateBroadcastGroupCategoryForm()\" *ngIf=\"isEdit\">Update</button>\n                        <button mat-button (click)=\"Cancel()\">Cancel</button>\n                    </div>\n                </div>\n            </form>\n        </mat-expansion-panel>\n    </mat-accordion>\n    <div class=\"mt-3\">\n        <condo-card *ngIf=\"isDataLoaded\">\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Broadcast Interest Group Category</h4>\n                        <p>{{totalItems}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"searchCategory\"\n                            (ngModelChange)=\"onGlSearchFilter()\" placeholder=\"Search...\">\n                    </div>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"isExpand=true;\">Add Interest Group Category</button>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                    [filterable]=\"true\" [sortable]=\"true\" [source]=\"broadcastGroupList\" [columns]=\"broadcastGroupHeader\"\n                    [columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n                </jqxGrid>\n            </div>\n        </condo-card>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -385,6 +385,7 @@ let AnnouncementDetailsComponent = class AnnouncementDetailsComponent {
         this.sharedService = sharedService;
         this.selectedId = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.messageIds = [];
+        this.isBusy = false;
     }
     ngOnInit() {
     }
@@ -403,6 +404,7 @@ let AnnouncementDetailsComponent = class AnnouncementDetailsComponent {
             //Mark for check
             this._changeDetectorRef.markForCheck();
             if (this.messageDetails && this.messageDetails.fileDetailId1) {
+                this.isBusy = true;
                 let newParams = {
                     fileDetailsId: this.messageDetails.fileDetailId1,
                     apartmentId: this.sessionService.apartmentId
@@ -414,9 +416,14 @@ let AnnouncementDetailsComponent = class AnnouncementDetailsComponent {
                             let objectURL = URL.createObjectURL(blob);
                             let sanitizeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
                             this.filePath = sanitizeUrl;
+                            this.isBusy = false;
                         });
+                        this.isBusy = false;
                     }
                 });
+            }
+            else {
+                this.filePath = this.messageDetails.fileDetailId1;
             }
         });
     }
@@ -1644,7 +1651,7 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
             maxHeight: 240,
             classes: "myClass inputField"
         };
-        this.sharedService.unitlistdeleteindexcast.subscribe(index => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(index => {
             if (index != null) {
                 var params = {
                     broadCastGroupCategoryUserId: index,
@@ -1664,6 +1671,9 @@ let BroadcastRemoveuserComponent = class BroadcastRemoveuserComponent {
         this.getAllGroupCategory();
         this.getAllApartmentBlockList();
         this.getUsers();
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
     getCategory(e) {
         this.categoryId = e[0].broadCastGroupCategoryId;
@@ -3381,7 +3391,7 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
         ];
         this.getAllCategory();
         // delete category
-        this.sharedService.unitlistdeleteindexcast.subscribe(index => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(index => {
             if (index != null) {
                 var params = {
                     broadcastId: index,
@@ -3395,6 +3405,9 @@ let BroadcastSetupComponent = class BroadcastSetupComponent {
                 });
             }
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
     onGlSearchFilter() {
         if (this.searchCategory != "") {
@@ -3720,7 +3733,7 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
             }
         ];
         ///delete category
-        this.sharedService.unitlistdeleteindexcast.subscribe(index => {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(index => {
             if (index != null) {
                 var params = {
                     broadCastGroupCategoryId: index,
@@ -3737,6 +3750,9 @@ let BroadcastgroupSetupComponent = class BroadcastgroupSetupComponent {
         });
         this.privilegeList = [{ "name": "All", "value": 1 },
             { "name": "Admin", "value": 2 }];
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
     getAllRoleTypesList() {
         this.userService.getAllRoleTypes().subscribe((res) => {

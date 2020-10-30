@@ -432,7 +432,7 @@
                 deliveryTypeId: parseInt(this["package"].deliveryTypeId),
                 deliveryDate: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
                 assignedTo: this["package"].assignedTo,
-                description: this.packageData.Comments,
+                description: this.packageData.Comments ? this.packageData.Comments : "string",
                 receivedBy: this.sessionService.userId,
                 deliveryStatusId: 986,
                 isActive: true,
@@ -526,7 +526,6 @@
             this["package"] = {};
             this.packageData.Deliverytype = '';
             this.packageData.Staff = '';
-            this.packageData.Slot = '';
             this.packageData.Slot = '';
             this["package"].slotName = '';
             this["package"].apartmentBlockId = '';
@@ -1488,7 +1487,7 @@
             var _this10 = this;
 
             this.getDeliveryTypeData();
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
@@ -1624,6 +1623,11 @@
                 } else {}
               });
             }
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }, {
           key: "deleteCategory",
@@ -1786,7 +1790,7 @@
             var _this13 = this;
 
             this.getCategoryData();
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
@@ -1922,6 +1926,11 @@
                 } else {}
               });
             }
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }, {
           key: "deleteCategory",
@@ -2084,7 +2093,7 @@
             var _this16 = this;
 
             this.getSlotData();
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
@@ -2220,6 +2229,11 @@
                 } else {}
               });
             }
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }, {
           key: "deleteCategory",
