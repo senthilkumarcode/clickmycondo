@@ -1431,19 +1431,25 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/layout/regulars/navigation/navigation.service */
+      "./src/app/layout/regulars/navigation/navigation.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/api/controllers/MessageInbox */
       "./src/app/api/controllers/MessageInbox.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
 
@@ -1454,10 +1460,11 @@
          * @param {MailboxComponent} mailboxComponent
          * @param {MailboxService} _mailboxService
          */
-        function MailboxListComponent(mailboxComponent, _mailboxService, messageInbox, sessionService, sharedService) {
+        function MailboxListComponent(mailboxComponent, _condoNavigationService, _mailboxService, messageInbox, sessionService, sharedService) {
           _classCallCheck(this, MailboxListComponent);
 
           this.mailboxComponent = mailboxComponent;
+          this._condoNavigationService = _condoNavigationService;
           this._mailboxService = _mailboxService;
           this.messageInbox = messageInbox;
           this.sessionService = sessionService;
@@ -1509,6 +1516,7 @@
 
             this._mailboxService.mail$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._unsubscribeAll)).subscribe(function (mail) {
               _this10.selectedMail = mail;
+              console.log(_this10.selectedMail);
             });
           }
           /**
@@ -1535,14 +1543,47 @@
         }, {
           key: "onMailSelected",
           value: function onMailSelected(mail) {
-            // If the mail is unread...
-            if (mail.unread) {
-              // Update the mail object
-              mail.unread = false; // Update the mail on the server
+            var _this11 = this;
 
-              this._mailboxService.updateMail(mail.messageId, {
-                unread: false
-              }).subscribe();
+            // If the mail is unread...
+            if (!mail.isRead) {
+              var params = {
+                userId: this.sessionService.userId,
+                messageId: mail.messageId,
+                deletedBy: this.sessionService.userId
+              };
+              this.messageInbox.updateReadMessage(params).subscribe(function (res) {
+                if (res.message) {
+                  // Update the mail object
+                  mail.isRead = true; //get mailbox unread messages
+
+                  _this11._mailboxService.getUnreadMessages().subscribe(function (res) {
+                    var count = res[0].totalUnreadMessage; // Get the component -> navigation data -> item
+
+                    var mainNavigationComponent = _this11._condoNavigationService.getComponent('mainNavigation'); // If the main navigation component exists...
+
+
+                    if (mainNavigationComponent) {
+                      var menuItemId;
+
+                      if (_this11.sessionService.isAdmin()) {
+                        menuItemId = 'Admin_Main_inbox';
+                      } else {
+                        menuItemId = 'Mail Box';
+                      }
+
+                      var mainNavigation = mainNavigationComponent.navigation;
+
+                      var menuItem = _this11._condoNavigationService.getItem(menuItemId, mainNavigation); // Update the badge title of the item
+
+
+                      menuItem.badge.title = count + ''; // Refresh the navigation
+
+                      mainNavigationComponent.refresh();
+                    }
+                  });
+                }
+              });
             } // Execute the mailSelected observable
 
 
@@ -1633,13 +1674,15 @@
         return [{
           type: src_app_modules_common_mailbox_mailbox_component__WEBPACK_IMPORTED_MODULE_6__["MailboxComponent"]
         }, {
+          type: src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_7__["CondoNavigationService"]
+        }, {
           type: src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_5__["MailboxService"]
         }, {
-          type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_7__["MessageInboxService"]
+          type: src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_8__["MessageInboxService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]
         }];
       };
 
@@ -1658,7 +1701,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./list.component.scss */
         "./src/app/modules/common/mailbox/list/list.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_common_mailbox_mailbox_component__WEBPACK_IMPORTED_MODULE_6__["MailboxComponent"], src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_5__["MailboxService"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_7__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]])], MailboxListComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_modules_common_mailbox_mailbox_component__WEBPACK_IMPORTED_MODULE_6__["MailboxComponent"], src_app_layout_regulars_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_7__["CondoNavigationService"], src_app_modules_common_mailbox_mailbox_service__WEBPACK_IMPORTED_MODULE_5__["MailboxService"], src_app_api_controllers_MessageInbox__WEBPACK_IMPORTED_MODULE_8__["MessageInboxService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"]])], MailboxListComponent);
       /***/
     },
 
@@ -1950,7 +1993,7 @@
         _createClass(MailboxComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             // Subscribe to media changes
             this._condoMediaWatcherService.onMediaChange$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (_ref) {
@@ -1958,11 +2001,11 @@
 
               // Set the drawerMode and drawerOpened if the given breakpoint is active
               if (matchingAliases.includes('lt-lg')) {
-                _this11.drawerMode = 'over';
-                _this11.drawerOpened = false;
+                _this12.drawerMode = 'over';
+                _this12.drawerOpened = false;
               } else {
-                _this11.drawerMode = 'side';
-                _this11.drawerOpened = true;
+                _this12.drawerMode = 'side';
+                _this12.drawerOpened = true;
               }
             });
           }
@@ -2381,7 +2424,7 @@
         _createClass(MailboxMailsResolver, [{
           key: "resolve",
           value: function resolve(route, state) {
-            var _this12 = this;
+            var _this13 = this;
 
             // Don't allow page param to go below 1
             if (route.paramMap.get('page') && parseInt(route.paramMap.get('page'), 10) <= 0) {
@@ -2418,7 +2461,7 @@
 
               if (!currentRoute.paramMap.get('id')) {
                 // Reset the mail
-                _this12._mailboxService.resetMail().subscribe();
+                _this13._mailboxService.resetMail().subscribe();
               }
             }), // Error here means the requested page is not available
             Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(function (error) {
@@ -2427,7 +2470,7 @@
 
               var url = state.url.split('/').slice(0, -1).join('/') + '/' + error.pagination.lastPage; // Navigate to there
 
-              _this12._router.navigateByUrl(url); // Throw an error
+              _this13._router.navigateByUrl(url); // Throw an error
 
 
               return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
@@ -2477,7 +2520,7 @@
         _createClass(MailboxMailResolver, [{
           key: "resolve",
           value: function resolve(route, state) {
-            var _this13 = this;
+            var _this14 = this;
 
             return this._mailboxService.getMailById(route.paramMap.get('id')).pipe( // Error here means the requested mail is either
             // not available on the requested page or not
@@ -2488,7 +2531,7 @@
 
               var parentUrl = state.url.split('/').slice(0, -1).join('/'); // Navigate to there
 
-              _this13._router.navigateByUrl(parentUrl); // Throw an error
+              _this14._router.navigateByUrl(parentUrl); // Throw an error
 
 
               return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["throwError"])(error);
@@ -2639,7 +2682,7 @@
         _createClass(MailboxSettingsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this15 = this;
 
             // Create the labels form
             this.labelsForm = this._formBuilder.group({
@@ -2652,11 +2695,11 @@
 
             this._mailboxService.labels$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["take"])(1)).subscribe(function (labels) {
               // Get the labels
-              _this14.labels = labels; // Iterate through the labels
+              _this15.labels = labels; // Iterate through the labels
 
               labels.forEach(function (label) {
                 // Create a label form group
-                var labelFormGroup = _this14._formBuilder.group({
+                var labelFormGroup = _this15._formBuilder.group({
                   id: [label.id],
                   title: [label.title, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                   slug: [label.slug],
@@ -2664,13 +2707,13 @@
                 }); // Add the label form group to the labels form array
 
 
-                _this14.labelsForm.get('labels').push(labelFormGroup);
+                _this15.labelsForm.get('labels').push(labelFormGroup);
               });
             }); // Update labels when there is a value change
 
 
             this.labelsForm.get('labels').valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["debounceTime"])(500)).subscribe(function () {
-              _this14.updateLabels();
+              _this15.updateLabels();
             });
           } // -----------------------------------------------------------------------------------------------------
           // @ Public methods
@@ -2683,12 +2726,12 @@
         }, {
           key: "addLabel",
           value: function addLabel() {
-            var _this15 = this;
+            var _this16 = this;
 
             // Add label to the server
             this._mailboxService.addLabel(this.labelsForm.get('newLabel').value).subscribe(function (addedLabel) {
               // Push the new label to the labels form array
-              _this15.labelsForm.get('labels').push(_this15._formBuilder.group({
+              _this16.labelsForm.get('labels').push(_this16._formBuilder.group({
                 id: [addedLabel.id],
                 title: [addedLabel.title, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
                 slug: [addedLabel.slug],
@@ -2696,15 +2739,15 @@
               })); // Reset the new label form
 
 
-              _this15.labelsForm.get('newLabel').markAsPristine();
+              _this16.labelsForm.get('newLabel').markAsPristine();
 
-              _this15.labelsForm.get('newLabel').markAsUntouched();
+              _this16.labelsForm.get('newLabel').markAsUntouched();
 
-              _this15.labelsForm.get('newLabel.title').reset();
+              _this16.labelsForm.get('newLabel.title').reset();
 
-              _this15.labelsForm.get('newLabel.title').clearValidators();
+              _this16.labelsForm.get('newLabel.title').clearValidators();
 
-              _this15.labelsForm.get('newLabel.title').updateValueAndValidity();
+              _this16.labelsForm.get('newLabel.title').updateValueAndValidity();
             });
           }
           /**
@@ -2730,14 +2773,14 @@
         }, {
           key: "updateLabels",
           value: function updateLabels() {
-            var _this16 = this;
+            var _this17 = this;
 
             // Iterate through the labels form array controls
             this.labelsForm.get('labels').controls.forEach(function (labelFormGroup) {
               // If the label has been edited...
               if (labelFormGroup.dirty) {
                 // Update the label on the server
-                _this16._mailboxService.updateLabel(labelFormGroup.value.id, labelFormGroup.value).subscribe();
+                _this17._mailboxService.updateLabel(labelFormGroup.value.id, labelFormGroup.value).subscribe();
               }
             }); // Reset the labels form array
 
@@ -2905,7 +2948,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this18 = this;
 
             // Filters
             this._mailboxService.filters$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (filters) {//this.filters = filters;
@@ -2915,9 +2958,9 @@
 
 
             this._mailboxService.folders$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (folders) {
-              _this17.folders = folders; // Generate menu links
+              _this18.folders = folders; // Generate menu links
 
-              _this17._generateFoldersMenuLinks(); // Update navigation badge
+              _this18._generateFoldersMenuLinks(); // Update navigation badge
               //this._updateNavigationBadge(folders);
 
             }); // Labels
@@ -2954,7 +2997,7 @@
         }, {
           key: "_generateFoldersMenuLinks",
           value: function _generateFoldersMenuLinks() {
-            var _this18 = this;
+            var _this19 = this;
 
             // Reset the folders menu data
             this._foldersMenuData = []; // Iterate through the folders
@@ -2966,7 +3009,7 @@
                 title: folder.title,
                 type: 'basic',
                 icon: folder.icon,
-                link: '/' + _this18.pageType() + '/mailbox/' + folder.slug
+                link: '/' + _this19.pageType() + '/mailbox/' + folder.slug
               }; // If the count is available and is bigger than zero...
 
               if (folder.count && folder.count > 0) {
@@ -2978,7 +3021,7 @@
               } // Push the menu item to the folders menu data
 
 
-              _this18._foldersMenuData.push(menuItem);
+              _this19._foldersMenuData.push(menuItem);
             }); // Update the menu data
 
             this._updateMenuData();
@@ -2992,14 +3035,14 @@
         }, {
           key: "_generateFiltersMenuLinks",
           value: function _generateFiltersMenuLinks() {
-            var _this19 = this;
+            var _this20 = this;
 
             // Reset the filters menu
             this._filtersMenuData = []; // Iterate through the filters
 
             this.filters.forEach(function (filter) {
               // Generate menu item for the filter
-              _this19._filtersMenuData.push({
+              _this20._filtersMenuData.push({
                 id: filter.id,
                 title: filter.title,
                 type: 'basic',
@@ -3019,14 +3062,14 @@
         }, {
           key: "_generateLabelsMenuLinks",
           value: function _generateLabelsMenuLinks() {
-            var _this20 = this;
+            var _this21 = this;
 
             // Reset the labels menu
             this._labelsMenuData = []; // Iterate through the labels
 
             this.labels.forEach(function (label) {
               // Generate menu item for the label
-              _this20._labelsMenuData.push({
+              _this21._labelsMenuData.push({
                 id: label.id,
                 title: label.title,
                 type: 'basic',

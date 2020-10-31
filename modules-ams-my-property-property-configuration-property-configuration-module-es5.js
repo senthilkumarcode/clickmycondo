@@ -888,64 +888,71 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/api/controllers/Lookup */
       "./src/app/api/controllers/Lookup.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! underscore */
       "./node_modules/underscore/modules/index-all.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
+      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
       /* harmony import */
 
 
-      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ngx-intl-tel-input */
       "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 
       var PropertyProfileComponent = /*#__PURE__*/function () {
-        function PropertyProfileComponent(apartmentService, lookupService, sharedService, sessionService) {
+        function PropertyProfileComponent(_activatedRoute, apartmentService, lookupService, sharedService, sessionService) {
           _classCallCheck(this, PropertyProfileComponent);
 
+          this._activatedRoute = _activatedRoute;
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
@@ -956,9 +963,9 @@
           this.fileList = [];
           this.listOfFiles = [];
           this.separateDialCode = true;
-          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
-          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
-          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+          this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
+          this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
+          this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
         }
 
         _createClass(PropertyProfileComponent, [{
@@ -974,7 +981,7 @@
         }, {
           key: "getPropertyType",
           value: function getPropertyType(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.propertyTypeData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.propertyTypeData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -987,7 +994,7 @@
         }, {
           key: "getPropertyCategory",
           value: function getPropertyCategory(id) {
-            var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.propertyCategoryData, function (item) {
+            var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.propertyCategoryData, function (item) {
               if (item.lookupValueId === id) return item;
             });
 
@@ -1003,7 +1010,7 @@
             if (date === null || date === undefined || date.length == 0) {
               return "NA";
             } else {
-              return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.date);
+              return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.date);
             }
           }
         }, {
@@ -1046,13 +1053,13 @@
               "insertedBy": this.property.insertedBy,
               "insertedOn": this.property.insertedOn,
               "updatedBy": parseInt(this.sessionService.userId),
-              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+              "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
               "updatePersonName": this.property.updatePersonName,
               "insertPersonName": this.property.insertPersonName,
               "location": this.property.location,
-              "constructionStartDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.constructionStartDate).utcOffset(this.timeZone.offset).format(),
-              "constructionEndDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.constructionEndDate).utcOffset(this.timeZone.offset).format(),
-              "occupanyDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.occupanyDate).utcOffset(this.timeZone.offset).format(),
+              "constructionStartDate": moment__WEBPACK_IMPORTED_MODULE_8__(this.property.constructionStartDate).utcOffset(this.timeZone.offset).format(),
+              "constructionEndDate": moment__WEBPACK_IMPORTED_MODULE_8__(this.property.constructionEndDate).utcOffset(this.timeZone.offset).format(),
+              "occupanyDate": moment__WEBPACK_IMPORTED_MODULE_8__(this.property.occupanyDate).utcOffset(this.timeZone.offset).format(),
               "propertyTypeId": parseInt(this.property.propertyTypeId),
               "propertyCategoryId": parseInt(this.property.propertyCategoryId),
               "imageId": this.property.imageId,
@@ -1099,33 +1106,25 @@
             this.property = {};
             this.property.propertyTypeId = "";
             this.property.propertyCategoryId = "";
-            var params = {
-              apartmentId: this.sessionService.apartmentId,
-              active: 2
+            var apartmentParams = {
+              apartmentId: this.sessionService.apartmentId
             };
-            this.apartmentService.getApartmentByApartmentId(params).subscribe(function (res) {
-              if (res.code == 200) {
-                _this6.property = res.responseData.value[0];
-                _this6.isDataLoaded = true;
-              } else {
-                _this6.isDataLoaded = true;
-              }
-
+            this.apartmentService.getApartmentBlockByApartmentId(apartmentParams).subscribe(function (res) {
+              _this6.towersLength = res.length;
               var params = {
                 apartmentId: _this6.sessionService.apartmentId
               };
 
-              _this6.apartmentService.getApartmentBlockByApartmentId(params).subscribe(function (res) {
-                _this6.towersLength = res.length;
-                var params = {
-                  apartmentId: _this6.sessionService.apartmentId
-                };
-
-                _this6.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
-                  _this6.unitsLength = res.length;
-                });
+              _this6.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe(function (res) {
+                _this6.unitsLength = res.length;
+                _this6.isDataLoaded = true;
               });
+            }); // Subscribe to the resolved route data
+
+            this._activatedRoute.parent.parent.parent.parent.data.subscribe(function (data) {
+              _this6.property = data.initialData.apartment;
             });
+
             var propertyParams = {
               LookupTypeId: 65
             }; //get property type
@@ -1148,13 +1147,15 @@
 
       PropertyProfileComponent.ctorParameters = function () {
         return [{
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -1167,7 +1168,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./property-profile.component.scss */
         "./src/app/modules/ams/my-property/property-configuration/property-profile/property-profile.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])], PropertyProfileComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], PropertyProfileComponent);
       /***/
     }
   }]);

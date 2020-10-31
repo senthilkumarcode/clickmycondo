@@ -436,89 +436,96 @@
       /* harmony import */
 
 
-      var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/cdk/overlay */
       "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
       /* harmony import */
 
 
-      var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/cdk/portal */
       "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
       /* harmony import */
 
 
-      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/material/dialog */
       "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
       /* harmony import */
 
 
-      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/api/controllers/Accounts */
       "./src/app/api/controllers/Accounts.ts");
       /* harmony import */
 
 
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */
       "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! moment */
       "./node_modules/moment/moment.js");
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
+      var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var html2canvas__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! html2canvas */
       "./node_modules/html2canvas/dist/html2canvas.js");
       /* harmony import */
 
 
-      var html2canvas__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_11__);
+      var html2canvas__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_12__);
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var jspdf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! jspdf */
       "./node_modules/jspdf/dist/jspdf.min.js");
       /* harmony import */
 
 
-      var jspdf__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_12__);
+      var jspdf__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_13__);
 
       var IncomeViewReceiptsComponent = /*#__PURE__*/function () {
-        function IncomeViewReceiptsComponent(_overlay, _viewContainerRef, dialog, accountsService, apartmentService, sessionService, sharedService) {
+        function IncomeViewReceiptsComponent(_overlay, _viewContainerRef, dialog, _activatedRoute, accountsService, apartmentService, sessionService, sharedService) {
           _classCallCheck(this, IncomeViewReceiptsComponent);
 
           this._overlay = _overlay;
           this._viewContainerRef = _viewContainerRef;
           this.dialog = dialog;
+          this._activatedRoute = _activatedRoute;
           this.accountsService = accountsService;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
@@ -567,7 +574,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -578,13 +585,13 @@
           key: "printInvoice",
           value: function printInvoice() {
             var data = document.getElementById('ReceiptElement');
-            html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(function (canvas) {
+            html2canvas__WEBPACK_IMPORTED_MODULE_12___default()(data).then(function (canvas) {
               var imgWidth = 208;
               var pageHeight = 295;
               var imgHeight = canvas.height * imgWidth / canvas.width;
               var heightLeft = imgHeight;
               var contentDataURL = canvas.toDataURL('image/png');
-              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
+              var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_13__('p', 'mm', 'a4'); // A4 size page of PDF  
 
               var position = 0;
               pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
@@ -633,7 +640,7 @@
               }])
             }); // Create a portal from the template
 
-            var templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__["TemplatePortal"](this._reversePanel, this._viewContainerRef); // Attach the portal to the overlay
+            var templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["TemplatePortal"](this._reversePanel, this._viewContainerRef); // Attach the portal to the overlay
 
             this._selectPanelOverlayRef.attach(templatePortal); // Subscribe to the backdrop click
 
@@ -688,7 +695,7 @@
         }, {
           key: "getReceiptInfoDate",
           value: function getReceiptInfoDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.date);
           }
         }, {
           key: "isReversed",
@@ -767,7 +774,7 @@
               datafield: 'paymentDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(_this6.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).format(_this6.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -816,14 +823,12 @@
               },
               renderer: columnrenderer
             }];
-            this.getReceiptsData();
-            var apartmentParams = {
-              apartmentId: this.sessionService.apartmentId,
-              active: 1
-            };
-            this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe(function (res) {
-              _this6.apartmentDetails = res[0];
+            this.getReceiptsData(); // Subscribe to the resolved route data
+
+            this._activatedRoute.parent.parent.parent.data.subscribe(function (data) {
+              _this6.apartmentDetails = data.initialData.apartment;
             });
+
             var termsParams = {
               ApartmentId: this.sessionService.apartmentId
             };
@@ -840,19 +845,21 @@
 
       IncomeViewReceiptsComponent.ctorParameters = function () {
         return [{
-          type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"]
+          type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
         }, {
-          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
         }, {
-          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"]
+          type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }];
       };
 
@@ -895,7 +902,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-view-receipts.component.scss */
         "./src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])], IncomeViewReceiptsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], IncomeViewReceiptsComponent);
 
       var isReverse = function isReverse(value) {
         return value ? '' : 'd-none';

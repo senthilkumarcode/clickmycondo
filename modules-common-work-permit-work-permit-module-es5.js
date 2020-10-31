@@ -1226,7 +1226,7 @@
             var _this13 = this;
 
             this.activateRouter.parent.parent.data.subscribe(function (data) {
-              _this13.apartmentInfo = data.initialData.apartment[0];
+              _this13.apartmentInfo = data.initialData.apartment;
             });
             var natureWork = {
               LookupTypeId: 89,

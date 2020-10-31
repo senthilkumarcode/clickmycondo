@@ -533,16 +533,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PropertyProfileComponent", function() { return PropertyProfileComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var underscore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! underscore */ "./node_modules/underscore/modules/index-all.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+
 
 
 
@@ -554,7 +556,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PropertyProfileComponent = class PropertyProfileComponent {
-    constructor(apartmentService, lookupService, sharedService, sessionService) {
+    constructor(_activatedRoute, apartmentService, lookupService, sharedService, sessionService) {
+        this._activatedRoute = _activatedRoute;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
         this.sharedService = sharedService;
@@ -565,9 +568,9 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.fileList = [];
         this.listOfFiles = [];
         this.separateDialCode = true;
-        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["SearchCountryField"];
-        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"];
-        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_9__["CountryISO"].UnitedKingdom];
+        this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["SearchCountryField"];
+        this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"];
+        this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_10__["CountryISO"].UnitedKingdom];
     }
     getSelectedPropertyType(event) {
         this.property.propertyTypeId = event[0].lookupValueId;
@@ -576,7 +579,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.property.propertyCategoryId = event[0].lookupValueId;
     }
     getPropertyType(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.propertyTypeData, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.propertyTypeData, function (item) {
             if (item.lookupValueId === id)
                 return item;
         });
@@ -588,7 +591,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         }
     }
     getPropertyCategory(id) {
-        var data = underscore__WEBPACK_IMPORTED_MODULE_6__["filter"](this.propertyCategoryData, function (item) {
+        var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.propertyCategoryData, function (item) {
             if (item.lookupValueId === id)
                 return item;
         });
@@ -604,7 +607,7 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             return "NA";
         }
         else {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.date);
         }
     }
     showEditForm() {
@@ -637,13 +640,13 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             "insertedBy": this.property.insertedBy,
             "insertedOn": this.property.insertedOn,
             "updatedBy": parseInt(this.sessionService.userId),
-            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+            "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
             "updatePersonName": this.property.updatePersonName,
             "insertPersonName": this.property.insertPersonName,
             "location": this.property.location,
-            "constructionStartDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.constructionStartDate).utcOffset(this.timeZone.offset).format(),
-            "constructionEndDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.constructionEndDate).utcOffset(this.timeZone.offset).format(),
-            "occupanyDate": moment__WEBPACK_IMPORTED_MODULE_7__(this.property.occupanyDate).utcOffset(this.timeZone.offset).format(),
+            "constructionStartDate": moment__WEBPACK_IMPORTED_MODULE_8__(this.property.constructionStartDate).utcOffset(this.timeZone.offset).format(),
+            "constructionEndDate": moment__WEBPACK_IMPORTED_MODULE_8__(this.property.constructionEndDate).utcOffset(this.timeZone.offset).format(),
+            "occupanyDate": moment__WEBPACK_IMPORTED_MODULE_8__(this.property.occupanyDate).utcOffset(this.timeZone.offset).format(),
             "propertyTypeId": parseInt(this.property.propertyTypeId),
             "propertyCategoryId": parseInt(this.property.propertyCategoryId),
             "imageId": this.property.imageId,
@@ -684,30 +687,22 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         this.property = {};
         this.property.propertyTypeId = "";
         this.property.propertyCategoryId = "";
-        var params = {
-            apartmentId: this.sessionService.apartmentId,
-            active: 2
+        let apartmentParams = {
+            apartmentId: this.sessionService.apartmentId
         };
-        this.apartmentService.getApartmentByApartmentId(params).subscribe((res) => {
-            if (res.code == 200) {
-                this.property = res.responseData.value[0];
-                this.isDataLoaded = true;
-            }
-            else {
-                this.isDataLoaded = true;
-            }
+        this.apartmentService.getApartmentBlockByApartmentId(apartmentParams).subscribe((res) => {
+            this.towersLength = res.length;
             let params = {
                 apartmentId: this.sessionService.apartmentId
             };
-            this.apartmentService.getApartmentBlockByApartmentId(params).subscribe((res) => {
-                this.towersLength = res.length;
-                let params = {
-                    apartmentId: this.sessionService.apartmentId
-                };
-                this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
-                    this.unitsLength = res.length;
-                });
+            this.apartmentService.getApartmentBlockUnitByApartmentId(params).subscribe((res) => {
+                this.unitsLength = res.length;
+                this.isDataLoaded = true;
             });
+        });
+        // Subscribe to the resolved route data
+        this._activatedRoute.parent.parent.parent.parent.data.subscribe((data) => {
+            this.property = data.initialData.apartment;
         });
         let propertyParams = {
             LookupTypeId: 65
@@ -728,10 +723,11 @@ let PropertyProfileComponent = class PropertyProfileComponent {
     }
 };
 PropertyProfileComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 PropertyProfileComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -740,10 +736,11 @@ PropertyProfileComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-profile.component.scss */ "./src/app/modules/ams/my-property/property-configuration/property-profile/property-profile.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_4__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], PropertyProfileComponent);
 
 

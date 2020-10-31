@@ -809,7 +809,7 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
     }
     ngOnInit() {
         this.activateRouter.parent.parent.data.subscribe((data) => {
-            this.apartmentInfo = data.initialData.apartment[0];
+            this.apartmentInfo = data.initialData.apartment;
         });
         let natureWork = {
             LookupTypeId: 89,

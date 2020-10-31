@@ -125,11 +125,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
-    constructor(_overlay, _viewContainerRef, dialog, router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
+    constructor(_overlay, _viewContainerRef, dialog, _activatedRoute, _router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
         this._overlay = _overlay;
         this._viewContainerRef = _viewContainerRef;
         this.dialog = dialog;
-        this.router = router;
+        this._activatedRoute = _activatedRoute;
+        this._router = _router;
         this.accountsService = accountsService;
         this.apartmentService = apartmentService;
         this.lookupService = lookupService;
@@ -221,7 +222,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         let custInvoiceId = dataRecord.custInvoiceId;
         let apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
-        this.router.navigateByUrl('/ams/income/post-invoice/' + apartmentBlockUnitId + '/' + custInvoiceId);
+        this._router.navigateByUrl('/ams/income/post-invoice/' + apartmentBlockUnitId + '/' + custInvoiceId);
     }
     onEditReverse(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -459,12 +460,9 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 renderer: columnrenderer
             }];
         this.getAllInvoicesData(this.fromDate, this.toDate);
-        let apartmentParams = {
-            apartmentId: this.sessionService.apartmentId,
-            active: 1
-        };
-        this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe((res) => {
-            this.apartmentDetails = res[0];
+        // Subscribe to the resolved route data
+        this._activatedRoute.parent.parent.parent.data.subscribe((data) => {
+            this.apartmentDetails = data.initialData.apartment;
         });
         let termsParams = {
             ApartmentId: this.sessionService.apartmentId
@@ -501,7 +499,6 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
             });
             this.totalItems = invoiceDataList.length;
-            console.log(invoiceDataList);
             this.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -520,6 +517,7 @@ IncomeAllInvoicesComponent.ctorParameters = () => [
     { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"] },
@@ -547,6 +545,7 @@ IncomeAllInvoicesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decora
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
         _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"],

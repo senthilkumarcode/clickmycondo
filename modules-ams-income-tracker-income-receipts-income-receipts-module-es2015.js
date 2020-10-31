@@ -254,20 +254,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IncomeViewReceiptsComponent", function() { return IncomeViewReceiptsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
-/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
-/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
-/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
-/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
-/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/overlay.js");
+/* harmony import */ var _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/cdk/portal */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/portal.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
+/* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
+/* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_jqwidgets_scripts_jqwidgets_ts_angular_jqxgrid__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid */ "./src/app/shared/jqwidgets-scripts/jqwidgets-ts/angular_jqxgrid.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! html2canvas */ "./node_modules/html2canvas/dist/html2canvas.js");
+/* harmony import */ var html2canvas__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jspdf */ "./node_modules/jspdf/dist/jspdf.min.js");
+/* harmony import */ var jspdf__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_13__);
+
 
 
 
@@ -282,10 +284,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
-    constructor(_overlay, _viewContainerRef, dialog, accountsService, apartmentService, sessionService, sharedService) {
+    constructor(_overlay, _viewContainerRef, dialog, _activatedRoute, accountsService, apartmentService, sessionService, sharedService) {
         this._overlay = _overlay;
         this._viewContainerRef = _viewContainerRef;
         this.dialog = dialog;
+        this._activatedRoute = _activatedRoute;
         this.accountsService = accountsService;
         this.apartmentService = apartmentService;
         this.sessionService = sessionService;
@@ -326,20 +329,20 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     printInvoice() {
         var data = document.getElementById('ReceiptElement');
-        html2canvas__WEBPACK_IMPORTED_MODULE_11___default()(data).then(canvas => {
+        html2canvas__WEBPACK_IMPORTED_MODULE_12___default()(data).then(canvas => {
             var imgWidth = 208;
             var pageHeight = 295;
             var imgHeight = canvas.height * imgWidth / canvas.width;
             var heightLeft = imgHeight;
             const contentDataURL = canvas.toDataURL('image/png');
-            let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_12__('p', 'mm', 'a4'); // A4 size page of PDF  
+            let pdf = new jspdf__WEBPACK_IMPORTED_MODULE_13__('p', 'mm', 'a4'); // A4 size page of PDF  
             var position = 0;
             pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
             pdf.save('receipt.pdf');
@@ -387,7 +390,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
             ])
         });
         // Create a portal from the template
-        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_3__["TemplatePortal"](this._reversePanel, this._viewContainerRef);
+        const templatePortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_4__["TemplatePortal"](this._reversePanel, this._viewContainerRef);
         // Attach the portal to the overlay
         this._selectPanelOverlayRef.attach(templatePortal);
         // Subscribe to the backdrop click
@@ -431,7 +434,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
         // this.updateInvoiceItem(invoice, detail.column);
     }
     getReceiptInfoDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.date);
     }
     isReversed(event) {
         if (event) {
@@ -495,7 +498,7 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
                 datafield: 'paymentDate',
                 minwidth: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -553,12 +556,9 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
                 renderer: columnrenderer
             }];
         this.getReceiptsData();
-        let apartmentParams = {
-            apartmentId: this.sessionService.apartmentId,
-            active: 1
-        };
-        this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe((res) => {
-            this.apartmentDetails = res[0];
+        // Subscribe to the resolved route data
+        this._activatedRoute.parent.parent.parent.data.subscribe((data) => {
+            this.apartmentDetails = data.initialData.apartment;
         });
         let termsParams = {
             ApartmentId: this.sessionService.apartmentId
@@ -571,13 +571,14 @@ let IncomeViewReceiptsComponent = class IncomeViewReceiptsComponent {
     }
 };
 IncomeViewReceiptsComponent.ctorParameters = () => [
-    { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"] },
+    { type: _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
-    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"] },
-    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"] },
+    { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"] }
 ];
 IncomeViewReceiptsComponent.propDecorators = {
     _reversePanel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['reversePanel',] }],
@@ -594,13 +595,14 @@ IncomeViewReceiptsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./income-view-receipts.component.scss */ "./src/app/modules/ams/income-tracker/income-receipts/income-view-receipts.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["Overlay"],
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
-        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_5__["AccountsService"],
-        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+        src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_6__["AccountsService"],
+        src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])
 ], IncomeViewReceiptsComponent);
 
 let isReverse = value => {

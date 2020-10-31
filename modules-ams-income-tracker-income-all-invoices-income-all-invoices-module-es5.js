@@ -277,13 +277,14 @@
       var jspdf__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_17__);
 
       var IncomeAllInvoicesComponent = /*#__PURE__*/function () {
-        function IncomeAllInvoicesComponent(_overlay, _viewContainerRef, dialog, router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
+        function IncomeAllInvoicesComponent(_overlay, _viewContainerRef, dialog, _activatedRoute, _router, accountsService, apartmentService, lookupService, sharedService, constantsService, sessionService) {
           _classCallCheck(this, IncomeAllInvoicesComponent);
 
           this._overlay = _overlay;
           this._viewContainerRef = _viewContainerRef;
           this.dialog = dialog;
-          this.router = router;
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
           this.accountsService = accountsService;
           this.apartmentService = apartmentService;
           this.lookupService = lookupService;
@@ -397,7 +398,8 @@
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             var custInvoiceId = dataRecord.custInvoiceId;
             var apartmentBlockUnitId = dataRecord.apartmentBlockUnitId;
-            this.router.navigateByUrl('/ams/income/post-invoice/' + apartmentBlockUnitId + '/' + custInvoiceId);
+
+            this._router.navigateByUrl('/ams/income/post-invoice/' + apartmentBlockUnitId + '/' + custInvoiceId);
           }
         }, {
           key: "onEditReverse",
@@ -633,14 +635,12 @@
               },
               renderer: columnrenderer
             }];
-            this.getAllInvoicesData(this.fromDate, this.toDate);
-            var apartmentParams = {
-              apartmentId: this.sessionService.apartmentId,
-              active: 1
-            };
-            this.apartmentService.getApartmentByApartmentId(apartmentParams).subscribe(function (res) {
-              _this5.apartmentDetails = res[0];
+            this.getAllInvoicesData(this.fromDate, this.toDate); // Subscribe to the resolved route data
+
+            this._activatedRoute.parent.parent.parent.data.subscribe(function (data) {
+              _this5.apartmentDetails = data.initialData.apartment;
             });
+
             var termsParams = {
               ApartmentId: this.sessionService.apartmentId
             };
@@ -682,7 +682,6 @@
                 item.towerUnit = item.apartmentBlockNumber + ' ' + item.apartmentBlockUnitNumber;
               });
               _this6.totalItems = invoiceDataList.length;
-              console.log(invoiceDataList);
               _this6.gridSourceData = {
                 localdata: invoiceDataList,
                 datatype: "array"
@@ -709,6 +708,8 @@
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
@@ -769,7 +770,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./income-all-invoices.component.scss */
         "./src/app/modules/ams/income-tracker/income-all-invoices/income-all-invoices.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]])], IncomeAllInvoicesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_3__["Overlay"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_5__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_7__["AccountsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_8__["ApartmentService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_11__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_12__["SessionService"]])], IncomeAllInvoicesComponent);
 
       var isReverse = function isReverse(value) {
         return value ? '' : 'd-none';
