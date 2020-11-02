@@ -4449,7 +4449,7 @@
 
           this.menuData = [];
 
-          if (this.sessionService.roleTypeName == 'Admin') {
+          if (this.sessionService.isAdmin()) {
             this.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["amsFolders"];
           } else {
             this.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["userFolders"];
@@ -4467,7 +4467,7 @@
         _createClass(ProfileSidebarComponent, [{
           key: "pagePath",
           value: function pagePath() {
-            return this.sessionService.roleTypeName == 'Admin' ? 'ams' : 'user';
+            return this.sessionService.isAdmin() ? 'ams' : 'user';
           }
         }, {
           key: "ngOnInit",

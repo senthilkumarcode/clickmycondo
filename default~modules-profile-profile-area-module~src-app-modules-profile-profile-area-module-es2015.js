@@ -2824,7 +2824,7 @@ let ProfileSidebarComponent = class ProfileSidebarComponent {
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         // Set the defaults
         this.menuData = [];
-        if (this.sessionService.roleTypeName == 'Admin') {
+        if (this.sessionService.isAdmin()) {
             this.folders = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["amsFolders"];
         }
         else {
@@ -2838,7 +2838,7 @@ let ProfileSidebarComponent = class ProfileSidebarComponent {
         this.settings = src_app_modules_profile_profile_area_data__WEBPACK_IMPORTED_MODULE_6__["settings"];
     }
     pagePath() {
-        return this.sessionService.roleTypeName == 'Admin' ? 'ams' : 'user';
+        return this.sessionService.isAdmin() ? 'ams' : 'user';
     }
     ngOnInit() {
         this.user = {};
