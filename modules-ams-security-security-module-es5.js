@@ -1897,7 +1897,6 @@
             var _this12 = this;
 
             var details = {
-              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 87,
               MenuName: 'VisitorManagement'
             };

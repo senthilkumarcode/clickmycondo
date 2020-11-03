@@ -891,7 +891,6 @@ let FacilityReportsComponent = class FacilityReportsComponent {
         ];
         this.isDataLoaded = true;
         //  let details = {
-        //   ApartmentId: this.sessionService.apartmentId,
         //   LookupTypeId: 87, //lookuptypeid for report
         //   MenuName: 'VisitorManagement'
         // }

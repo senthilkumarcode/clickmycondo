@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-layout fullwidth-basic-content-scroll\">\n\n    <img class=\"image\"\n         src=\"assets/images/404.svg\">\n\n    <h1>Ooops... 404!</h1>\n    <h6>The page you requested could not be found.</h6>\n\n    <a class=\"link\"\n       [routerLink]=\"[url]\">\n        Back to Dashboard\n    </a>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"content-layout fullwidth-basic-content-scroll\">\n\n    <img class=\"image\"\n         src=\"assets/images/404.svg\">\n\n    <h1>Ooops... 404!</h1>\n    <h6>The page you requested could not be found.</h6>\n\n    <a class=\"link\"\n       [routerLink]=\"[goToPage()]\">\n        Back to Dashboard\n    </a>\n\n</div>\n");
 
 /***/ }),
 
@@ -58,6 +58,9 @@ let Error404Component = class Error404Component {
         // Set the private defaults
         this._unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
     }
+    goToPage() {
+        return this.sessionService.isAdmin() ? '/ams' : '/user';
+    }
     ngOnDestroy() {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
@@ -76,13 +79,6 @@ let Error404Component = class Error404Component {
             const themeName = 'condo-theme-' + config.theme;
             this._document.body.classList.add(themeName);
         });
-        this.userRoleType = this.sessionService.roleTypeName;
-        if (this.userRoleType == 'Admin') {
-            this.url = '/ams';
-        }
-        else {
-            this.url = '/user';
-        }
     }
 };
 Error404Component.ctorParameters = () => [

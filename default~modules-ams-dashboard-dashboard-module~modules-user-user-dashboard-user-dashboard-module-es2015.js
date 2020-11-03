@@ -8285,7 +8285,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:shield-check\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Emergency Alerts\n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"mini-main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of emergencyAlert\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-9\">\n                                <p>{{data.notes}}</p> \n                                <p class=\"font-medium text-highlight-base\">{{data.apartmentBlockUnitId}}</p>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <p>{{getDateFormat(data.insertedOn)}}</p>\n                                <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"emergencyAlert?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>");
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-accordion>\n    <mat-expansion-panel>\n        <mat-expansion-panel-header>\n            <mat-panel-title>\n                <div class=\"d-flex align-items-end mb-3\">\n                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:shield-check\"></mat-icon> \n                    <h5 class=\"font-medium d-inline\">Emergency Alerts\n                        <span *ngIf=\"totalItems > 0\">({{totalItems}})</span>\n                    </h5>\n                </div>\n            </mat-panel-title>\n        </mat-expansion-panel-header>\n        <mat-panel-description>\n            <div class=\"mini-main-content-widget\">\n                <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n                <ng-container *ngIf=\"!isDataLoaded\">\n                    <div class=\"dash-border-line mt-3 pb-1\" *ngFor=\"let data of emergencyAlert\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-9\">\n                                <p>{{data.alertTypeId_label}}</p> \n                                <p class=\"font-medium text-highlight-base\">{{data.block_Unit}}</p>\n                            </div>\n                            <div class=\"col-xs-12 col-md-3\">\n                                <p>{{getDateFormat(data.insertedOn)}}</p>\n                                <p class=\"text-hint\">{{getTimeFormat(data.insertedOn)}}</p>\n                            </div>\n                        </div>\n                    </div>\n                    <p class=\"font-medium text-center mt-2 mb-2\" *ngIf=\"emergencyAlert?.length == 0\">No Data Found</p>\n                </ng-container>\n            </div>\n        </mat-panel-description>\n    </mat-expansion-panel>\n</mat-accordion>");
 
 /***/ }),
 
@@ -11793,9 +11793,11 @@ let DashboardComponent = class DashboardComponent {
             let dashboardMenu = this.data.navigation.default.filter(item => {
                 return item.id == 'DASHBOARD';
             });
-            this.isCustomAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](dashboardMenu[0].children, item => {
-                return item.id == 'CUSTOM';
-            });
+            if (dashboardMenu.length > 0) {
+                this.isCustomAvailable = underscore__WEBPACK_IMPORTED_MODULE_7__["some"](dashboardMenu[0].children, item => {
+                    return item.id == 'CUSTOM';
+                });
+            }
         });
         this._router.events
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])((event) => event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])(this._router))

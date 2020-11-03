@@ -2162,7 +2162,6 @@ let AssetsReportsComponent = class AssetsReportsComponent {
     }
     getReportData() {
         let details = {
-            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 87,
             MenuName: 'UnitUser'
         };

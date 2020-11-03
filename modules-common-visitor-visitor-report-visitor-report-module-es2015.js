@@ -507,7 +507,6 @@ let VisitorReportsComponent = class VisitorReportsComponent {
     }
     ngOnInit() {
         let details = {
-            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 87,
             MenuName: 'VisitorManagement'
         };

@@ -1558,7 +1558,8 @@
                   mail.isRead = true; //get mailbox unread messages
 
                   _this11._mailboxService.getUnreadMessages().subscribe(function (res) {
-                    var count = res[0].totalUnreadMessage; // Get the component -> navigation data -> item
+                    var count;
+                    if (res.message) count = 0;else count = res[0].totalUnreadMessage; // Get the component -> navigation data -> item
 
                     var mainNavigationComponent = _this11._condoNavigationService.getComponent('mainNavigation'); // If the main navigation component exists...
 

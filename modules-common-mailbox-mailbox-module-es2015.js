@@ -1035,7 +1035,11 @@ let MailboxListComponent = class MailboxListComponent {
                     mail.isRead = true;
                     //get mailbox unread messages
                     this._mailboxService.getUnreadMessages().subscribe((res) => {
-                        var count = res[0].totalUnreadMessage;
+                        var count;
+                        if (res.message)
+                            count = 0;
+                        else
+                            count = res[0].totalUnreadMessage;
                         // Get the component -> navigation data -> item
                         const mainNavigationComponent = this._condoNavigationService.getComponent('mainNavigation');
                         // If the main navigation component exists...

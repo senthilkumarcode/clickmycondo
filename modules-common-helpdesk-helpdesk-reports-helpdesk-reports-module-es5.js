@@ -882,7 +882,6 @@
             var _this5 = this;
 
             var details = {
-              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 87,
               MenuName: 'HelpdeskTracker'
             }; // this.reportDataList = [

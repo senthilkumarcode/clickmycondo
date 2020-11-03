@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"content-layout fullwidth-basic-content-scroll\">\n\n    <img class=\"image\"\n         src=\"assets/images/404.svg\">\n\n    <h1>Ooops... 404!</h1>\n    <h6>The page you requested could not be found.</h6>\n\n    <a class=\"link\"\n       [routerLink]=\"[url]\">\n        Back to Dashboard\n    </a>\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"content-layout fullwidth-basic-content-scroll\">\n\n    <img class=\"image\"\n         src=\"assets/images/404.svg\">\n\n    <h1>Ooops... 404!</h1>\n    <h6>The page you requested could not be found.</h6>\n\n    <a class=\"link\"\n       [routerLink]=\"[goToPage()]\">\n        Back to Dashboard\n    </a>\n\n</div>\n";
       /***/
     },
 
@@ -120,6 +120,11 @@
         }
 
         _createClass(Error404Component, [{
+          key: "goToPage",
+          value: function goToPage() {
+            return this.sessionService.isAdmin() ? '/ams' : '/user';
+          }
+        }, {
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
             // Unsubscribe from all subscriptions
@@ -143,14 +148,6 @@
 
               _this._document.body.classList.add(themeName);
             });
-
-            this.userRoleType = this.sessionService.roleTypeName;
-
-            if (this.userRoleType == 'Admin') {
-              this.url = '/ams';
-            } else {
-              this.url = '/user';
-            }
           }
         }]);
 

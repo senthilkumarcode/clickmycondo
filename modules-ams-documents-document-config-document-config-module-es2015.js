@@ -1579,7 +1579,6 @@ let DocumentsReportsComponent = class DocumentsReportsComponent {
     }
     ngOnInit() {
         let details = {
-            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 87,
             MenuName: 'UnitUser'
         };

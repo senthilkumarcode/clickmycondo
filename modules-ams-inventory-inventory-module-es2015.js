@@ -2568,7 +2568,6 @@ let InventoryReportsComponent = class InventoryReportsComponent {
     // }
     getReportData() {
         let details = {
-            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 87,
             MenuName: 'UnitUser'
         };

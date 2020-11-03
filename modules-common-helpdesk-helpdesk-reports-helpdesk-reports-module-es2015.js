@@ -645,7 +645,6 @@ let HelpdeskReportsComponent = class HelpdeskReportsComponent {
     }
     ngOnInit() {
         let details = {
-            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 87,
             MenuName: 'HelpdeskTracker'
         };

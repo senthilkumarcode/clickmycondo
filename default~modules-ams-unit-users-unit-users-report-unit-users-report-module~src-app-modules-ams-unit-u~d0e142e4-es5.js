@@ -1325,7 +1325,6 @@
             var _this6 = this;
 
             var details = {
-              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 87,
               MenuName: 'UnitUser'
             };
