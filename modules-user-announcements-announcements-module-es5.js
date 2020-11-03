@@ -1116,7 +1116,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7___default()(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7___default()(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "openAnnouncement",

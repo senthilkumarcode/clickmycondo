@@ -1010,7 +1010,7 @@
             if (date === null || date === undefined || date.length == 0) {
               return "NA";
             } else {
-              return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.date);
+              return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
             }
           }
         }, {

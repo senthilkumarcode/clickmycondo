@@ -1023,7 +1023,7 @@
         }, {
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",
@@ -1081,14 +1081,14 @@
               text: 'Start date',
               datafield: 'startDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this9.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this9.timeZone.offset, 'hours').format(_this9.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'End date',
               datafield: 'endDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this9.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this9.timeZone.offset, 'hours').format(_this9.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1729,21 +1729,21 @@
               text: 'Date',
               datafield: 'bookedForDate',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this15.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this15.timeZone.offset, 'hours').format(_this15.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'Start time',
               datafield: 'bookedFromTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this15.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this15.timeZone.offset, 'hours').format(_this15.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
               text: 'End time',
               datafield: 'bookedToTime',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this15.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this15.timeZone.offset, 'hours').format(_this15.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1770,7 +1770,7 @@
         }, {
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "getFacility",
@@ -3189,7 +3189,7 @@
         _createClass(UserViolationComponent, [{
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_3__(value).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_3__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",

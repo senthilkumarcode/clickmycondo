@@ -2179,7 +2179,7 @@
               datafield: 'periodFrom',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2187,7 +2187,7 @@
               datafield: 'periodTo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2282,7 +2282,7 @@
               datafield: 'dateEntered',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }];
@@ -3444,7 +3444,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "getBlockDetails",

@@ -987,7 +987,7 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getDateTime(date) {
         return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time24);

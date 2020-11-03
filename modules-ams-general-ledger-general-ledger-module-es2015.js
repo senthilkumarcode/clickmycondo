@@ -927,7 +927,7 @@ let GlAssetsComponent = class GlAssetsComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -1142,7 +1142,7 @@ let GlEquityMemberFundComponent = class GlEquityMemberFundComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -1366,7 +1366,7 @@ let GlExpenseComponent = class GlExpenseComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -2515,7 +2515,7 @@ let GlIncomeComponent = class GlIncomeComponent {
         }
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -2702,7 +2702,7 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -2717,7 +2717,7 @@ let GlAllJournalsComponent = class GlAllJournalsComponent {
         return id;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     showConfirmModal(index) {
         this.modalService.showConfirmModal(index);
@@ -3366,7 +3366,7 @@ let GlLiablilitiesComponent = class GlLiablilitiesComponent {
         return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -3549,7 +3549,7 @@ let GlFinancialStatementsComponent = class GlFinancialStatementsComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     submitGlreportsFinancialForm(form) {
         let details = {
@@ -3794,7 +3794,7 @@ let GlOtherReprotsTransactionsComponent = class GlOtherReprotsTransactionsCompon
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -3943,7 +3943,7 @@ let GlReportTransactionsComponent = class GlReportTransactionsComponent {
             return '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -4136,7 +4136,7 @@ let GlReportsComponent = class GlReportsComponent {
         this.isTrialGenerated = true;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_5__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     submitGlTrialBalanceForm(form) {
         this.isDataLoaded = false;

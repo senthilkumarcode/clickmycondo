@@ -1736,7 +1736,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "submitIncomeReportsForm",
@@ -1829,7 +1829,7 @@
               datafield: 'documentDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1843,7 +1843,7 @@
               datafield: 'entryDateTime',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1851,7 +1851,7 @@
               datafield: 'postingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1859,7 +1859,7 @@
               datafield: 'clearingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

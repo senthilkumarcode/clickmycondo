@@ -367,6 +367,8 @@
                 return item[_this3.fieldId] == _this3.fieldModel;
               });
               if (this.selectedItem.length != 0) this.selectedModel = this.selectedItem[0][this.fieldValue];else this.selectedModel = "";
+            } else {
+              this.selectedModel = "";
             }
           }
         }]);

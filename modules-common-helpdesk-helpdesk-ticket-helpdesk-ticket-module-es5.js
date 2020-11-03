@@ -241,7 +241,7 @@
         }, {
           key: "getTimeFormat",
           value: function getTimeFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "createdByChange",
@@ -1125,7 +1125,7 @@
               text: 'Date Requested',
               datafield: 'insertedOn',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__(value).format(_this15.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__(value).add(_this15.timeZone.offset, 'hours').format(_this15.timeZone.time) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1599,7 +1599,7 @@
         }, {
           key: "getDateTime",
           value: function getDateTime(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "editTicket",

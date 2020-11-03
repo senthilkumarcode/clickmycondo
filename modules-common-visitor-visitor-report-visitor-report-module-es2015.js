@@ -196,7 +196,7 @@ let VisitorReportsDataComponent = class VisitorReportsDataComponent {
         this.datagrid.exportdata(event, 'VisitorReportsData');
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     submitReportsFilterForm() {
         let params = {

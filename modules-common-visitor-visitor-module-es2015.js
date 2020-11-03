@@ -6709,7 +6709,7 @@ let CurrentlyCheckedinListComponent = class CurrentlyCheckedinListComponent {
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -6856,10 +6856,10 @@ let ExpUserVisitorListComponent = class ExpUserVisitorListComponent {
         this.router.navigate(['confirm-expected-visitor', id, 'expected'], { relativeTo: this.activeRouter.parent });
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getIndexParams(event) {
         this.ItemStartIndex = event.ItemStartIndex;
@@ -7022,7 +7022,7 @@ let ExpVisitorConfirmComponent = class ExpVisitorConfirmComponent {
         this.correctionLevel = _techiediaries_ngx_qrcode__WEBPACK_IMPORTED_MODULE_7__["NgxQrcodeErrorCorrectionLevels"].HIGH;
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     convertImage() {
         var data = document.getElementById('pass');
@@ -7539,10 +7539,10 @@ let ExpVisitorListComponent = class ExpVisitorListComponent {
         this.datagrid.exportdata(event, 'expectedVisitorData');
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_11__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     viewPass(id) {
         this.router.navigate(['confirm-expected-visitor', id, 'expected'], { relativeTo: this.activateRouter.parent });

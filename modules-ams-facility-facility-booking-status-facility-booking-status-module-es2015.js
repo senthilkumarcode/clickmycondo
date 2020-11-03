@@ -256,7 +256,7 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
         this.changeDetectorRef.markForCheck();
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_11__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_11__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     changeStatus(detail) {
         let dataRecord = this.datagrid.getrowdata(detail.rowId);

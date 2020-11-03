@@ -142,7 +142,7 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
     }
     getDate(date) {
         if (date != null)
-            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_3__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
         else
             return "";
     }
@@ -162,7 +162,7 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
         return this.totalItems == 0 ? true : false;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_3__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getTimeFormat(dateTime) {
         return moment__WEBPACK_IMPORTED_MODULE_3__(dateTime).format(this.timeZone.date);

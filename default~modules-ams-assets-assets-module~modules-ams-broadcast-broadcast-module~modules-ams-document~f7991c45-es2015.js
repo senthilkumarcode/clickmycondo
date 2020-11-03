@@ -232,6 +232,9 @@ let SelectComponent = class SelectComponent {
             else
                 this.selectedModel = "";
         }
+        else {
+            this.selectedModel = "";
+        }
     }
 };
 SelectComponent.ctorParameters = () => [

@@ -3172,7 +3172,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "submitReportsFilterForm",

@@ -464,7 +464,7 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
         }
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_12__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_12__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     submitAssetMaintenanceForm(form) {
         if (!this.isEditAssetMaintenance) {
@@ -1463,7 +1463,7 @@ let AssetsMaintenanceHistoryComponent = class AssetsMaintenanceHistoryComponent 
         this.itemLimit = event.itemLimit;
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getMaintenanceStatus(id) {
         var data = underscore__WEBPACK_IMPORTED_MODULE_7__["filter"](this.statusTypeData, function (item) {
@@ -1643,7 +1643,7 @@ let AssetsReportDataComponent = class AssetsReportDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getSelectedType(event) {
         this.blockId = event[0].apartmentBlockId;
@@ -4149,7 +4149,7 @@ let ManageMaintenanceComponent = class ManageMaintenanceComponent {
         this.searchAsset();
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);

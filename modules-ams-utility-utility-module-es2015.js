@@ -1418,7 +1418,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
                 datafield: 'periodFrom',
                 width: 200,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1427,7 +1427,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
                 datafield: 'periodTo',
                 width: 200,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1536,7 +1536,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
                 datafield: 'dateEntered',
                 width: 250,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             }
@@ -2330,7 +2330,7 @@ let UtilityReportDataComponent = class UtilityReportDataComponent {
         return this.pageName == "List of Utility Bills - Water";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_6__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getBlockDetails() {
         //jqx column generating

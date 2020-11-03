@@ -1103,7 +1103,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         }
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     submitIncomeReportsForm(form) {
         this.isReportSubmitted = true;
@@ -1189,7 +1189,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'documentDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -1203,7 +1203,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'entryDateTime',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1212,7 +1212,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'postingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1221,7 +1221,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'clearingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {

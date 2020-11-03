@@ -549,7 +549,7 @@ let MailboxDetailsComponent = class MailboxDetailsComponent {
      * On init
      */
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_13__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_13__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
@@ -964,7 +964,7 @@ let MailboxListComponent = class MailboxListComponent {
         this.mailsLoading = false;
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_4__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_4__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);

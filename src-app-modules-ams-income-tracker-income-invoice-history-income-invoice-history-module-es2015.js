@@ -460,7 +460,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 datafield: 'postedDate',
                 width: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -732,7 +732,7 @@ let IncomeTrackerFilterComponent = class IncomeTrackerFilterComponent {
         return true;
     }
     getInvoiceDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_3__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     clearFilterItems() {
         this.resetFilter();

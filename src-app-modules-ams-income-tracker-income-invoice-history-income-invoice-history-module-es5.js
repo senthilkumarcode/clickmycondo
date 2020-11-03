@@ -710,7 +710,7 @@
               datafield: 'postedDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this5.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1074,7 +1074,7 @@
         }, {
           key: "getInvoiceDate",
           value: function getInvoiceDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_3__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_3__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "clearFilterItems",

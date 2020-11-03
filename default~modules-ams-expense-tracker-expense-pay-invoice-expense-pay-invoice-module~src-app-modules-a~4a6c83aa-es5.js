@@ -250,7 +250,7 @@
         _createClass(ExpensePayInvoiceComponent, [{
           key: "getInvoiceDate",
           value: function getInvoiceDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "getAccountName",
@@ -437,7 +437,7 @@
               datafield: 'vendorInvoiceDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this4.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this4.timeZone.offset, 'hours').format(_this4.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -451,7 +451,7 @@
               datafield: 'dueDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(_this4.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this4.timeZone.offset, 'hours').format(_this4.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {

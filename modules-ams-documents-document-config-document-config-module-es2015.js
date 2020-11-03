@@ -826,7 +826,7 @@ let DocumentsReportsDataComponent = class DocumentsReportsDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getBlockDetails() {
         //jqx column generating
@@ -1677,7 +1677,7 @@ let DocumentDownloadComponent = class DocumentDownloadComponent {
             return this.selectedTab != -1 ? 'show' : '';
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     isAdmin() {
         return this.sessionService.isAdmin();

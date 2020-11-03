@@ -673,7 +673,7 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
         this.dialogRef.close();
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
@@ -728,7 +728,7 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
                 text: 'Start date',
                 datafield: 'startDate',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -736,7 +736,7 @@ let SearcWorkpermitsComponent = class SearcWorkpermitsComponent {
                 text: 'End date',
                 datafield: 'endDate',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1178,7 +1178,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
                 text: 'Date',
                 datafield: 'bookedForDate',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1186,7 +1186,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
                 text: 'Start time',
                 datafield: 'bookedFromTime',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1194,7 +1194,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
                 text: 'End time',
                 datafield: 'bookedToTime',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1220,7 +1220,7 @@ let SearchFacilityComponent = class SearchFacilityComponent {
         this.dialogRef.close(false);
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getFacility() {
         const params = {
@@ -2193,7 +2193,7 @@ let UserViolationComponent = class UserViolationComponent {
         this.unitOrder = false;
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_3__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_3__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);

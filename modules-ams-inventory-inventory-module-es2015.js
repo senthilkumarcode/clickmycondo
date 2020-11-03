@@ -1261,7 +1261,7 @@ let InventoryInitialStockComponent = class InventoryInitialStockComponent {
     getSelectedBlock(event) {
     }
     getDate(value) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
@@ -2187,7 +2187,7 @@ let InventoryReportDataComponent = class InventoryReportDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getSelectedType(event) {
         this.blockId = event[0].apartmentBlockId;
@@ -2493,7 +2493,7 @@ let InventoryReportsComponent = class InventoryReportsComponent {
     //   return this.pageName == "List of Units"
     // }
     // getDate(date) {
-    //   return moment(date).format(this.timeZone.time);
+    //   return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     // }
     // getBlockDetails() {
     //   this.isDataLoaded = false;

@@ -161,7 +161,7 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getSelectedType(event) {
         this.blockId = event[0].apartmentBlockId;
@@ -854,7 +854,7 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
         return this.pageName == "List of Admins";
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     getBlockDetails() {
         //jqx column generating

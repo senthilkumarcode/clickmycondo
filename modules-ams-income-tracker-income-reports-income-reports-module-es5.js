@@ -433,12 +433,12 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "getDateTime",
           value: function getDateTime(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "submitIncomeReportsCustomerForm",
@@ -693,12 +693,12 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "getDateTime",
           value: function getDateTime(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "submitIncomeReportsVendorForm",

@@ -316,7 +316,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_14__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_14__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "isMobileView",
@@ -578,7 +578,7 @@
               datafield: 'insertedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).format(_this5.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

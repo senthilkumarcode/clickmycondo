@@ -1423,7 +1423,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -1745,7 +1745,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -2071,7 +2071,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -3823,7 +3823,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_10__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_10__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -4101,7 +4101,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -4126,7 +4126,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "showConfirmModal",
@@ -5147,7 +5147,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -5424,7 +5424,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "submitGlreportsFinancialForm",
@@ -5830,7 +5830,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_6__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_6__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -6072,7 +6072,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -6395,7 +6395,7 @@
         _createClass(GlReportsComponent, [{
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_5__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "submitGlTrialBalanceForm",

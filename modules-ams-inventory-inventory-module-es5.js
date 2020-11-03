@@ -1751,7 +1751,7 @@
         }, {
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",
@@ -3039,7 +3039,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "getSelectedType",
@@ -3440,7 +3440,7 @@
           //   return this.pageName == "List of Units"
           // }
           // getDate(date) {
-          //   return moment(date).format(this.timeZone.time);
+          //   return moment(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           // }
           // getBlockDetails() {
           //   this.isDataLoaded = false;

@@ -574,7 +574,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "isMobileView",
@@ -695,7 +695,7 @@
         }, {
           key: "getReceiptInfoDate",
           value: function getReceiptInfoDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format(this.timeZone.date);
+            return moment__WEBPACK_IMPORTED_MODULE_11__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
           }
         }, {
           key: "isReversed",
@@ -774,7 +774,7 @@
               datafield: 'paymentDate',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).format(_this6.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_11__(value).add(_this6.timeZone.offset, 'hours').format(_this6.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

@@ -753,7 +753,7 @@ let UserGroupAnnouncementListComponent = class UserGroupAnnouncementListComponen
         }
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7___default()(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_7___default()(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     openAnnouncement(id) {
         this.selectedId = id;

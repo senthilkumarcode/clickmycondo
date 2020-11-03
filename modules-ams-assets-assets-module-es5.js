@@ -871,7 +871,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_12__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_12__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "submitAssetMaintenanceForm",
@@ -2174,7 +2174,7 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "getMaintenanceStatus",
@@ -2477,7 +2477,7 @@
         }, {
           key: "getDate",
           value: function getDate(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "getSelectedType",
@@ -5620,7 +5620,7 @@
         }, {
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(value).format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",

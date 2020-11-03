@@ -2054,7 +2054,7 @@ let ProfileLeaseInfoComponent = class ProfileLeaseInfoComponent {
             this.updateLeaseForm();
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_5__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_5__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     createLeaseForm() {
         this.isDataLoaded = false;

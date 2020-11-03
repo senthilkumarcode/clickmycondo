@@ -242,10 +242,10 @@ let IncomeTrackerReportsCustomerComponent = class IncomeTrackerReportsCustomerCo
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_7__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_7__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     submitIncomeReportsCustomerForm(form) {
         this.isReportSubmitted = true;
@@ -414,10 +414,10 @@ let IncomeTrackerReportsVendorComponent = class IncomeTrackerReportsVendorCompon
         return this.totalItems == 0 ? true : false;
     }
     getDate(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.date);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
     }
     getDateTime(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_8__(date).format(this.timeZone.time);
+        return moment__WEBPACK_IMPORTED_MODULE_8__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
     }
     submitIncomeReportsVendorForm(form) {
         this.isReportSubmitted = true;
