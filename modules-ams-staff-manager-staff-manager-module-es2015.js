@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-add-staff-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t</h4>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"!isEditStaff\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"emailIdCheck\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"resetField()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\">\n\n\t\t\t<mat-accordion> \n\n\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" [disabled]=\"isValidEmail\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\" *ngFor=\"let user of userTypeList\"\n\t\t\t\t\t\t\t\t\t\t[hidden]=\"user.value == 2 || user.value == 4 || user.value == 5\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" (change)=\"changeUserType($event)\" id=\"{{user.name}}\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userType\" value=\"{{user.value}}\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"{{user.name}}\">{{user.name}}</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEditStaff\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"Staffpassword\" [(ngModel)]=\"staff.password\" autocomplete=\"new-password\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>{{userType == 1 ? 'Admin' : userType == 3 ? 'Staff' : 'Admin'}} Role</label>\n\t\t\t\t\t\t\t\t\t<select name=\"userRole\" id=\"userRole\" class=\"form-control\" placeholder=\"Select Role\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"userRoleId\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of userRolesData\" [value]=\"item.roleId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.roleName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Menu Control*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"secLevelId\" id=\"secLevelId\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.secLevelId\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of menuControlList\" [value]=\"item.secLevelId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.roleName }},{{ item.secLevelName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"false\" >\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"staffCategory\" id=\"staffCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[disabled]=\"userType == 1 ? true : false\" [(ngModel)]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\t(ngModelChange)=\"getStaffType(staff.staffCategoryId)\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffTypeData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCategoryEnabled()\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Category*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"staffSubCategory\" id=\"staffSubCategory\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.staffSubCategoryId\" required>\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of staffCategoryData\" [value]=\"item.lookupValueId\">\n\t\t\t\t\t\t\t\t\t\t\t{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<form #mobileForm=\"ngForm\" name=\"mobileForm\" novalidate [formGroup]=\"phoneForm\">\n\t\t\t\t\t\t\t\t<div class=\"input-box d-flex flex-column\">\n\t\t\t\t\t\t\t\t\t<label>Contact Number</label>\n\t\t\t\t\t\t\t\t\t<!-- <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"contactNumber\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.contactNumber\"> -->\n\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"false\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"true\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t\t<select name=\"bloodGroup\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.bloodGroup\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"staff.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"staff.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"vendorType\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Vendor Name*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"vendorName\" id=\"vendorName\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vendorId\">\n\t\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of vendorNameList\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<!-- <div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-photo-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderPhoto.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderPhoto type=\"file\" name=\"fileUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.file\" (change)=\"uploadPhoto($event)\">\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload\n\t\t\t\t\t\t\t\t\t\tPhoto</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isPhotoAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfPhotos; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePhoto(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderFile.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderFile type=\"file\" name=\"docUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.multifile\" (change)=\"uploadFile($event)\" multiple>\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload ID Card\n\t\t\t\t\t\t\t\t\t\tDocs</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div> -->\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Base Pay</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedEntryTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedExitTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\n\t\t\t<button (click)=\"submitAddStaffForm(addStaffForm)\" mat-flat-button [color]=\"'primary'\" class=\"mt-5\">{{isEditStaff ? 'Update' : 'Submit'}}</button>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"staff-add-staff-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t</h4>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"!isEditStaff\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"emailIdCheck\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"resetField()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" *ngIf=\"isValidEmail\">\n\n\t\t\t<mat-accordion> \n\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" [disabled]=\"isValidEmail\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"staff.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"staff.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\">\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.userPhoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"vendorType\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"Vendor Name\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Vendor Name\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"vendorList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"vendorName\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.vendorId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"vendorId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setVendor($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeAdmin\" [(ngModel)]=\"roleTypeId\" [value]=\"1\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeAdmin\">Admin</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeStaff\" [(ngModel)]=\"roleTypeId\" [value]=\"3\"\n\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeUserType()\" required>\n\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeStaff\">Staff</label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEmailExist\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"Staffpassword\" [(ngModel)]=\"staff.password\" autocomplete=\"new-password\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"userRolesData\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setUserRole($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"Menu Control\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Menu Control\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"menuControlList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.secLevelId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"secLevelId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setMenuControl($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"Category\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"staffCategoryData\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setCategory($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Blood Group\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.bloodGroup\"\n\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setBloodGroup($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<!-- <div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-photo-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderPhoto.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderPhoto type=\"file\" name=\"fileUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.file\" (change)=\"uploadPhoto($event)\">\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload\n\t\t\t\t\t\t\t\t\t\tPhoto</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isPhotoAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfPhotos; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deletePhoto(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label class=\"btn sf lime-green\" for=\"my-file-selector\"\n\t\t\t\t\t\t\t\t\t\t(click)=\"uploaderFile.click()\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" #uploaderFile type=\"file\" name=\"docUpload\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.multifile\" (change)=\"uploadFile($event)\" multiple>\n\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-paperclip mr-2\" aria-hidden=\"true\"></i> Upload ID Card\n\t\t\t\t\t\t\t\t\t\tDocs</label>\n\t\t\t\t\t\t\t\t\t<div class=\"file-desp\" *ngIf=\"isFileAdded\">\n\t\t\t\t\t\t\t\t\t\t<div *ngFor=\"let item of listOfFiles; let i = index\">\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"name mr-3\">{{item.name}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<span class=\"size\">{{bytesToSize(item.size)}}</span>\n\t\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon del\" name=\"x\" (click)=\"deleteFile(i)\">\n\t\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t</div> -->\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Base Pay</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedEntryTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedExitTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t<i-feather class=\"icon date float-left\" name=\"calendar\" width=\"18\">\n\t\t\t\t\t\t\t\t\t\t</i-feather>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</mat-panel-description>\n\t\t\t\t</mat-expansion-panel>\n\t\t\t</mat-accordion>\n\n\t\t\t<button (click)=\"submitAddStaffForm(addStaffForm)\" mat-flat-button [color]=\"'primary'\" class=\"mt-5\">{{isEditStaff ? 'Update' : 'Submit'}}</button>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
 
 /***/ }),
 
@@ -492,17 +492,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
-/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/api/controllers/User */ "./src/app/api/controllers/User.ts");
+/* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/EmailSend */ "./src/app/api/controllers/EmailSend.ts");
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 /* harmony import */ var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/api/controllers/Screen */ "./src/app/api/controllers/Screen.ts");
+/* harmony import */ var src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/api/controllers/Vendor */ "./src/app/api/controllers/Vendor.ts");
+
 
 
 
@@ -517,7 +520,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddStaffComponent = class AddStaffComponent {
-    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService) {
+    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService, vendor) {
         this.router = router;
         this.route = route;
         this.userService = userService;
@@ -527,15 +530,9 @@ let AddStaffComponent = class AddStaffComponent {
         this.sessionService = sessionService;
         this.emailSendService = emailSendService;
         this.screenService = screenService;
+        this.vendor = vendor;
         this.isEditStaff = false;
         this.isStaffSubmitted = false;
-        this.isStaffAdded = false;
-        this.isSuperAdmin = false;
-        this.isStaffError = false;
-        this.isStaffSuccess = false;
-        this.userRoleId = "";
-        this.vendorType = "";
-        this.isTypeSelected = false;
         this.isFileAdded = false;
         this.fileList = [];
         this.listOfFiles = [];
@@ -546,16 +543,13 @@ let AddStaffComponent = class AddStaffComponent {
         this.staffId = null;
         this.genderType = null;
         this.userRolesData = [];
-        this.userTypeList = [];
         this.outputParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.separateDialCode = true;
         this.SearchCountryField = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["SearchCountryField"];
         this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"];
-        this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](undefined, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
-        });
         this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedKingdom];
         this.menuControlList = [];
+        this.staff = {};
     }
     validateEmail(val) {
         var retVal = true;
@@ -578,10 +572,23 @@ let AddStaffComponent = class AddStaffComponent {
                 emailId: this.emailIdCheck,
                 apartmentId: this.sessionService.apartmentId
             };
-            this.userService.checkstaffUseremailexists(params).subscribe((respone) => {
-                if (respone.length > 0) {
-                    this.staff.firstName = respone[0].firstName;
-                    this.staff.lastName = respone[0].lastName;
+            this.userService.checkUserEmailExists(params).subscribe((response) => {
+                if (response.ErrorMessage) {
+                    this.isEmailExist = false;
+                    this.userId = null;
+                }
+                else {
+                    this.userId = response.userId;
+                    this.staff.firstName = response.firstName;
+                    this.staff.lastName = response.lastName;
+                    this.staff.bloodGroup = response.bloodGroup;
+                    this.staff.genderId = response.genderId;
+                    this.staff.userPhoneNumber = {
+                        number: response.phoneNumber,
+                        countryCode: response.phonecountrycode
+                    };
+                    this.staff.address = response.address1;
+                    this.isEmailExist = true;
                 }
             }, (error) => {
                 this.isValidEmail = false;
@@ -594,18 +601,51 @@ let AddStaffComponent = class AddStaffComponent {
     }
     resetField() {
         this.staff = {};
-        this.userType = null;
-        this.staff.bloodGroup = "";
-        this.staff.staffCategoryId = "";
-        this.staff.staffSubCategoryId = "";
-        this.staff.contactNumber = "";
-        this.staff.alternateContact = "";
-        this.staff.secLevelId = "";
-        this.staff.staffCategoryId = '115';
+        this.userId = null;
+        this.roleTypeId = null;
+        this.vendorType = null;
         this.isValidEmail = false;
+        this.isEmailExist = false;
+        this.roleId = null;
     }
-    isArrayOne() {
-        return this.staffArray.length > 1 ? true : false;
+    changeRoleType() {
+        this.roleId = null;
+        this.getUserRoleList();
+    }
+    getVendorList() {
+        if (this.vendorType) {
+            let vendor = {
+                apartmentId: this.sessionService.apartmentId
+            };
+            this.vendor.getAllWorkPermitVendorByApartmentId(vendor).subscribe((res) => {
+                this.vendorList = res;
+            });
+        }
+    }
+    setVendor(event) {
+        this.staff.vendorId = event[0].vendorId;
+    }
+    getUserRoleList() {
+        //Admin Role Type
+        var paramsRoles = {
+            RoleTypeId: this.roleTypeId,
+            ApartmentId: this.sessionService.apartmentId
+        };
+        this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe((res) => {
+            this.userRolesData = res;
+        });
+    }
+    setUserRole(event) {
+        this.roleId = event[0].roleId;
+    }
+    setMenuControl(event) {
+        this.staff.secLevelId = event[0].secLevelId;
+    }
+    setCategory(event) {
+        this.staff.staffCategoryId = event[0].lookupValueId;
+    }
+    setBloodGroup(event) {
+        this.staff.bloodGroup = event[0].lookupValueName;
     }
     deleteStaff() {
         this.staffArray.splice(this.index, 1);
@@ -657,49 +697,11 @@ let AddStaffComponent = class AddStaffComponent {
         else
             return (bytes / 1073741824).toFixed(3) + " GB";
     }
-    isCategoryEnabled() {
-        if (!this.isEditStaff) {
-            if (this.isTypeSelected)
-                return true;
-            else
-                return false;
+    addUser() {
+        if (this.userId) {
+            this.addStaff();
         }
         else {
-            return true;
-        }
-    }
-    getStaffType(typeId) {
-        this.isTypeSelected = true;
-        if (typeId == "115") {
-            let params = {
-                LookupTypeId: 26
-            };
-            //staff offical category
-            this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-                this.staffCategoryData = res.filter(item => {
-                    return item.isActive;
-                });
-            }, error => {
-            });
-        }
-        else {
-            let params = {
-                LookupTypeId: 27
-            };
-            //staff personal category
-            this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
-                this.staffCategoryData = res.filter(item => {
-                    return item.isActive;
-                });
-            }, error => {
-            });
-        }
-    }
-    submitAddStaffForm(form) {
-        this.isStaffSubmitted = true;
-        this.isStaffError = false;
-        if (!this.isEditStaff) {
-            //add user
             let userDetails = {
                 "apartmentId": this.sessionService.apartmentId,
                 "firstName": this.staff.firstName,
@@ -718,7 +720,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "dob": this.staff.dob,
                 "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                 "bloodGroup": this.staff.bloodGroup,
-                "phoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
+                "phoneNumber": this.staff.userPhoneNumber.number,
                 "emergencyContactNumber": "",
                 "emergencyContactPerson": "",
                 "emergencyContactNumberSecondary": "",
@@ -733,7 +735,7 @@ let AddStaffComponent = class AddStaffComponent {
                 "insertedBy": this.sessionService.userId,
                 "updatedBy": null,
                 "secLevelId": this.staff.secLevelId,
-                "phonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
+                "phonecountrycode": this.staff.userPhoneNumber.countryCode
             };
             let userParams = {
                 user: userDetails
@@ -742,159 +744,160 @@ let AddStaffComponent = class AddStaffComponent {
             this.userService.addUser(userParams).subscribe((res) => {
                 if (res && res.responseData && res.responseData.statusCode === 200) {
                     this.userId = res.responseData.value.message;
-                    let staffParams = {
-                        staff: {
-                            "apartmentId": this.sessionService.apartmentId,
-                            "userId": this.userId,
-                            "firstName": this.staff.firstName,
-                            "middleName": "",
-                            "lastName": this.staff.lastName,
-                            "emailId": this.staff.emailId,
-                            "contactNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
-                            "alternateContact": this.staff.alternateContact == null ? "" : this.staff.alternateContact.toString(),
-                            "staffNumber": null,
-                            "staffCategoryId": parseInt(this.staff.staffCategoryId),
-                            "staffSubCategoryId": parseInt(this.staff.staffSubCategoryId),
-                            "dob": this.staff.dob,
-                            "genderId": this.staff.genderId,
-                            "bloodGroup": this.staff.bloodGroup,
-                            "vendorId": null,
-                            "vehicleId": null,
-                            "healthIssue": this.staff.healthIssue,
-                            "comments": this.staff.comments,
-                            "plannedEntryTime": this.staff.plannedEntryTime,
-                            "plannedExitTime": this.staff.plannedExitTime,
-                            "jobStartDate": this.staff.jobStartDate,
-                            "jobEndDate": this.staff.jobEndDate,
-                            "mtwtfss": "",
-                            "photoId": null,
-                            "idcardImg1": null,
-                            "idcardImg2": null,
-                            "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
-                            "sickLeaveDays": parseInt(this.staff.sickLeaveDays),
-                            "basePay": this.staff.basePay,
-                            "overtimePayperhour": this.staff.overtimePayperhour,
-                            "allowance1": this.staff.allowance1,
-                            "allowance2": this.staff.allowance2,
-                            "allowance3": this.staff.allowance3,
-                            "deduction1": this.staff.deduction1,
-                            "deduction2": this.staff.deduction2,
-                            "deduction3": this.staff.deduction3,
-                            "perDaySalary": this.staff.perDaySalary,
-                            "shiftId": null,
-                            "jobTitleId": parseInt(this.staff.staffSubCategoryId),
-                            "isActive": true,
-                            "insertedBy": this.sessionService.userId,
-                            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                            "updatedBy": null,
-                            "updatedOn": null,
-                            "secLevelId": this.staff.secLevelId,
-                            "userPhoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
-                            "userPhonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
-                        }
-                    };
-                    this.staffService.addStaff(staffParams).subscribe((res) => {
-                        this.isStaffSubmitted = false;
-                        if (res.message) {
-                            let roleId;
-                            if (this.userType == 5) {
-                                roleId = 5;
-                            }
-                            else {
-                                roleId = this.userRoleId;
-                            }
-                            let userRole = {
-                                "userId": this.userId,
-                                "roleId": roleId,
-                                "isActive": true,
-                                "insertedBy": parseInt(this.sessionService.userId),
-                                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
-                                "updatedBy": null,
-                                "updatedOn": null,
-                                "staffId": res.message
-                            };
-                            let roleParams = {
-                                userRole: userRole
-                            };
-                            //add userrole
-                            this.userService.addUserRole(roleParams).subscribe((res) => {
-                                if (res.message) {
-                                    let emailDetails = {
-                                        emailAddress: this.staff.emailId,
-                                        Name: this.staff.firstName,
-                                        Subject: 'User Created',
-                                        TextMessage: 'User Created'
-                                    };
-                                    this.emailSendService.sendEmail(emailDetails).subscribe((res) => {
-                                        this.sharedService.openSnackBar("Staff added successfully", 'success');
-                                        this.router.navigate(['ams/staff/maintain-staff']);
-                                    }, (error) => {
-                                        this.sharedService.openSnackBar("Server Error", 'error');
-                                    });
-                                }
-                                else {
-                                    this.isStaffSubmitted = false;
-                                    this.sharedService.openSnackBar(res.errorMessage, 'error');
-                                }
-                            }, (error) => {
-                                this.isStaffSubmitted = false;
-                                this.sharedService.openSnackBar("Server Error", 'error');
-                            });
-                        }
-                    }, error => {
-                        this.sharedService.openSnackBar('Server Error', 'error');
-                    });
+                    this.addStaff();
                 }
-                else {
-                    this.isStaffSubmitted = false;
-                    this.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
-                }
-            }, error => {
+            }, (error) => {
+                this.isStaffSubmitted = false;
                 this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
-        else {
-            this.isStaffSubmitted = true;
-            this.isStaffError = false;
-            //edit user
-            let userDetails = {
-                "userId": this.userId,
+    }
+    addStaff() {
+        let staffParams = {
+            staff: {
                 "apartmentId": this.sessionService.apartmentId,
+                "userId": this.userId,
                 "firstName": this.staff.firstName,
-                "middleName": "string",
+                "middleName": "",
                 "lastName": this.staff.lastName,
                 "emailId": this.staff.emailId,
-                "password": this.staff.password,
-                "salt": null,
-                "address1": this.staff.address || "",
-                "address2": "string",
-                "city": "string",
-                "state": "string",
-                "country": "string",
-                "zipCode": "string",
-                "genderId": this.staff.genderId,
+                "contactNumber": this.staff.userPhoneNumber.number,
+                "alternateContact": this.staff.alternateContact == null ? "" : this.staff.alternateContact.toString(),
+                "staffNumber": null,
+                "staffCategoryId": parseInt(this.staff.staffCategoryId),
+                "staffSubCategoryId": null,
                 "dob": this.staff.dob,
-                "joinedOn": "2019-11-10T09:58:08.934Z",
+                "genderId": this.staff.genderId,
                 "bloodGroup": this.staff.bloodGroup,
-                "phoneNumber": this.phoneForm.value.phone.number,
-                "emergencyContactNumber": "string",
-                "emergencyContactPerson": "string",
-                "emergencyContactNumberSecondary": "string",
-                "emergencyContactPersonSecondary": "string",
-                "accessCardNumber": "string",
-                "notes": "string",
-                "profilePictureId": null,
-                "isLiving": true,
+                "vendorId": this.staff.vendorId,
+                "vehicleId": null,
+                "healthIssue": this.staff.healthIssue,
+                "comments": this.staff.comments,
+                "plannedEntryTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime).format('HH:mm'),
+                "plannedExitTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedExitTime).format('HH:mm'),
+                "jobStartDate": this.staff.jobStartDate,
+                "jobEndDate": this.staff.jobEndDate,
+                "mtwtfss": "",
+                "photoId": null,
+                "idcardImg1": null,
+                "idcardImg2": null,
+                "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
+                "sickLeaveDays": parseInt(this.staff.sickLeaveDays),
+                "basePay": this.staff.basePay,
+                "overtimePayperhour": this.staff.overtimePayperhour,
+                "allowance1": this.staff.allowance1,
+                "allowance2": this.staff.allowance2,
+                "allowance3": this.staff.allowance3,
+                "deduction1": this.staff.deduction1,
+                "deduction2": this.staff.deduction2,
+                "deduction3": this.staff.deduction3,
+                "perDaySalary": this.staff.perDaySalary,
+                "shiftId": null,
+                "jobTitleId": parseInt(this.staff.staffSubCategoryId),
                 "isActive": true,
-                "isApproved": true,
-                "resetPassword": true,
-                "insertedBy": 0,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
                 "secLevelId": this.staff.secLevelId,
-                "updatedBy": parseInt(this.sessionService.userId),
-                "phonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
-            };
+                "userPhoneNumber": this.staff.userPhoneNumber.number,
+                "userPhonecountrycode": this.staff.userPhoneNumber.countryCode
+            }
+        };
+        this.staffService.addStaff(staffParams).subscribe((res) => {
+            this.isStaffSubmitted = false;
+            if (res.message) {
+                let roleParams = {
+                    userRole: {
+                        "userId": this.userId,
+                        "roleId": Number(this.roleId),
+                        "isActive": true,
+                        "insertedBy": parseInt(this.sessionService.userId),
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                        "updatedBy": null,
+                        "updatedOn": null,
+                        "staffId": res.message
+                    }
+                };
+                this.userService.addUserRole(roleParams).subscribe((res) => {
+                    if (res.message) {
+                        let emailDetails = {
+                            emailAddress: this.staff.emailId,
+                            Name: this.staff.firstName,
+                            Subject: 'User Created',
+                            TextMessage: 'User Created'
+                        };
+                        this.emailSendService.sendEmail(emailDetails).subscribe((res) => {
+                            this.isStaffSubmitted = false;
+                            this.sharedService.openSnackBar("Staff added successfully", 'success');
+                            this.router.navigate(['ams/staff/maintain-staff']);
+                        }, (error) => {
+                            this.isStaffSubmitted = false;
+                            this.sharedService.openSnackBar("Server Error", 'error');
+                        });
+                    }
+                    else {
+                        this.isStaffSubmitted = false;
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
+                }, (error) => {
+                    this.isStaffSubmitted = false;
+                    this.sharedService.openSnackBar("Server Error", 'error');
+                });
+            }
+            else {
+                this.isStaffSubmitted = false;
+                this.sharedService.openSnackBar(res.errorMessage, 'error');
+            }
+        }, error => {
+            this.isStaffSubmitted = false;
+            this.sharedService.openSnackBar('Server Error', 'error');
+        });
+    }
+    submitAddStaffForm(form) {
+        this.isStaffSubmitted = true;
+        if (!this.isEditStaff) {
+            this.addUser();
+        }
+        else {
+            //edit user
             let userParams = {
-                user: userDetails
+                user: {
+                    "userId": this.userId,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "firstName": this.staff.firstName,
+                    "middleName": "string",
+                    "lastName": this.staff.lastName,
+                    "emailId": this.staff.emailId,
+                    "password": this.staff.password,
+                    "salt": null,
+                    "address1": this.staff.address || "",
+                    "address2": "string",
+                    "city": "string",
+                    "state": "string",
+                    "country": "string",
+                    "zipCode": "string",
+                    "genderId": this.staff.genderId,
+                    "dob": this.staff.dob,
+                    "joinedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                    "bloodGroup": this.staff.bloodGroup,
+                    "phoneNumber": this.staff.userPhoneNumber.number,
+                    "emergencyContactNumber": "string",
+                    "emergencyContactPerson": "string",
+                    "emergencyContactNumberSecondary": "string",
+                    "emergencyContactPersonSecondary": "string",
+                    "accessCardNumber": "string",
+                    "notes": "string",
+                    "profilePictureId": null,
+                    "isLiving": true,
+                    "isActive": true,
+                    "isApproved": true,
+                    "resetPassword": true,
+                    "insertedBy": 0,
+                    "secLevelId": this.staff.secLevelId,
+                    "updatedBy": this.sessionService.userId,
+                    "phonecountrycode": this.staff.userPhoneNumber.countryCode
+                }
             };
             //edit user 
             this.userService.updateUser(userParams).subscribe((res) => {
@@ -907,7 +910,7 @@ let AddStaffComponent = class AddStaffComponent {
                         "middleName": "string",
                         "lastName": this.staff.lastName,
                         "emailId": this.staff.emailId,
-                        "contactNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
+                        "contactNumber": this.staff.userPhoneNumber.number,
                         "alternateContact": this.staff.alternateContact == null ? "" : this.staff.alternateContact.toString(),
                         "staffNumber": null,
                         "staffCategoryId": parseInt(this.staff.staffCategoryId),
@@ -924,7 +927,7 @@ let AddStaffComponent = class AddStaffComponent {
                         "jobStartDate": this.staff.jobStartDate,
                         "jobEndDate": this.staff.jobEndDate,
                         "mtwtfss": "string",
-                        "photoId": 4,
+                        "photoId": null,
                         "idcardImg1": null,
                         "idcardImg2": null,
                         "vacationLeaveDays": parseInt(this.staff.vacationLeaveDays),
@@ -942,12 +945,12 @@ let AddStaffComponent = class AddStaffComponent {
                         "jobTitleId": parseInt(this.staff.staffSubCategoryId),
                         "isActive": true,
                         "insertedBy": 0,
-                        "insertedOn": "2019-11-30T12:41:45.620Z",
-                        "updatedBy": parseInt(this.sessionService.userId),
-                        "updatedOn": "2019-11-30T12:41:45.620Z",
+                        "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                        "updatedBy": this.sessionService.userId,
+                        "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                         "secLevelId": this.staff.secLevelId,
-                        "userPhoneNumber": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.number,
-                        "userPhonecountrycode": this.phoneForm.value.phone == null ? '' : this.phoneForm.value.phone.countryCode
+                        "userPhoneNumber": this.staff.userPhoneNumber.number,
+                        "userPhonecountrycode": this.staff.userPhoneNumber.countryCode
                     };
                     let staffParams = {
                         staff: staffDetails
@@ -956,133 +959,96 @@ let AddStaffComponent = class AddStaffComponent {
                     this.staffService.updateStaff(staffParams).subscribe((res) => {
                         this.isStaffSubmitted = false;
                         if (res.message) {
-                            //this.isStaffSuccess = true;
-                            //this.staffId = res.message;
                             this.sharedService.openSnackBar("Staff updated successfully", 'success');
                             this.router.navigate(['ams/staff/maintain-staff']);
                         }
-                        else {
-                            this.isStaffError = true;
-                        }
-                    }, error => {
+                    }, (error) => {
                         this.isStaffSubmitted = false;
-                        this.isStaffError = true;
+                        this.sharedService.openSnackBar('Server Error', 'error');
                     });
                 }
                 else {
                     this.isStaffSubmitted = false;
-                    this.isStaffError = true;
+                    this.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
+            }, (error) => {
+                this.isStaffSubmitted = false;
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }
-    changeUserType(evt) {
-        this.isSuperAdmin = false;
-        if (this.userType == 5) {
-            this.isSuperAdmin = true;
-        }
-        else {
-            this.isSuperAdmin = false;
-        }
-        if (this.userType == 1) {
-            this.staff.staffCategoryId = 115;
-        }
-        else {
-            this.staff.staffCategoryId = "";
-        }
-        this.getUserRoleList();
-    }
     ngOnInit() {
-        this.staff = {};
-        this.staff.bloodGroup = "";
-        this.staff.staffCategoryId = "";
-        this.staff.staffSubCategoryId = "";
-        this.staff.contactNumber = "";
-        this.staff.alternateContact = "";
-        this.staff.secLevelId = "";
-        this.staff.staffCategoryId = '115';
         if (this.route.params['value'].id != undefined) {
             this.isEditStaff = true;
-            this.isStaffAdded = true;
             this.staffId = this.route.params['value'].id;
             let getStaffParam = {
                 staffId: this.route.params['value'].id
             };
             this.staffService.getStaffByStaffId(getStaffParam).subscribe((res) => {
+                this.isValidEmail = true;
                 this.staff = res[0];
                 this.userId = this.staff.userId;
-                this.getStaffType(this.staff.staffCategoryId);
-                this.phoneForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
-                    phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](this.staff.phoneNumber, [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required])
-                });
-            }, error => {
+                this.staff.address = this.staff.address1;
+                this.roleTypeId = this.staff.roleTypeId;
+                this.roleId = this.staff.roleId;
+                this.getUserRoleList();
+                this.staff.userPhoneNumber = {
+                    number: this.staff.phoneNumber,
+                    countryCode: this.staff.phonecountrycode
+                };
+                if (this.staff.vendorId) {
+                    this.vendorType = true;
+                    this.getVendorList();
+                }
+                if (this.staff.plannedEntryTime) {
+                    this.staff.plannedEntryTime = moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime, 'HH:mm:ss').format();
+                }
+                if (this.staff.plannedExitTime) {
+                    this.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime, 'HH:mm:ss').format();
+                }
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
-        else {
-            this.getStaffType(this.staff.staffCategoryId);
-        }
+        //Blood Group
         let groupParams = {
             LookupTypeId: 24
         };
         this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
             this.bloodGroupData = res;
         });
-        let staffParams = {
-            LookupTypeId: 25
-        };
-        //staff type
-        this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe((res) => {
-            this.staffTypeData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
+        //Category 
         let categoryParams = {
             LookupTypeId: 26
         };
-        //category type
         this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
-            this.staffCategoryData = res.filter(item => {
-                return item.isActive;
-            });
-        }, error => {
-        });
-        //user Type List
-        this.userService.getAllRoleTypes().subscribe((resp) => {
-            this.userTypeList = resp;
+            this.staffCategoryData = res;
         });
         //menu control list
         let menuControlParam = {
             apartmentId: this.sessionService.apartmentId
         };
         this.screenService.getAllDefaultMenuRoleSecLevelbyApartmentId(menuControlParam).subscribe((resp) => {
-            this.menuControlList = resp.filter(data => {
-                return data.isActive;
-            });
-        });
-        this.getUserRoleList();
-    }
-    getUserRoleList() {
-        //Admin Role Type
-        var paramsRoles = {
-            RoleTypeId: this.userType,
-            ApartmentId: this.sessionService.apartmentId
-        };
-        this.userService.getAllRolesByRoleTypeIdByApartmentId(paramsRoles).subscribe((res) => {
-            this.userRolesData = res;
+            if (resp.length > 0) {
+                this.menuControlList = resp;
+                this.menuControlList.forEach(data => {
+                    data.customLabel = `${data.roleName} ${data.secLevelName}`;
+                });
+            }
         });
     }
 };
 AddStaffComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
-    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"] },
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"] },
+    { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"] },
+    { type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__["EmailSendService"] },
-    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"] }
+    { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"] },
+    { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"] }
 ];
 AddStaffComponent.propDecorators = {
     index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['index',] }],
@@ -1098,13 +1064,14 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
-        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_5__["StaffService"],
-        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_7__["LookupService"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__["SessionService"],
+        src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+        src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__["EmailSendService"],
-        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"]])
+        src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"],
+        src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"]])
 ], AddStaffComponent);
 
 
@@ -3307,6 +3274,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
 /* harmony import */ var _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/staff-setup/associate-staff/associate-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/associate-staff/associate-staff.component.ts");
 /* harmony import */ var _components_staff_setup_personal_staff_personal_staff_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/staff-setup/personal-staff/personal-staff.component */ "./src/app/modules/ams/staff-manager/components/staff-setup/personal-staff/personal-staff.component.ts");
+/* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
+
 
 
 
@@ -3352,6 +3321,7 @@ StaffManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__["CondoCardModule"],
+            src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_21__["SelectModule"],
             _staff_manager_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffManagerRoutingModule"],
             ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_18__["NgxIntlTelInputModule"]
         ],

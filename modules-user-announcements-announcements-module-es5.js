@@ -74,7 +74,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"broadcast-message-wrapper\">\n    <mat-drawer-container [hasBackdrop]=\"false\">\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" #matDrawer>\n            <app-user-group-announcement-details *ngIf=\"selectedId\" [detailId]=\"selectedId\"\n                (selectedId)=\"changeRecord($event)\">\n            </app-user-group-announcement-details>\n        </mat-drawer>\n        <mat-drawer-content>\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"announcementList mt-3\">\n                    <div class=\"row m-0 announcement\" *ngFor=\"let message of broadCastMessages\"\n                        [ngClass]=\"{'bg-cool-gray-50': message.broadCastMessageId == selectedId }\"\n                        (click)=\"openAnnouncement(message.broadCastMessageId)\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                            <div class=\"broadCastList\">\n                                <span>{{message?.subject}}</span>\n                                <span class=\"d-flex align-items-center\" >\n                                    <div class=\"status-badge bg-status-purple-700 mr-4\">\n                                        <small class=\"font-bold text-status-purple-900 text-uppercase\">{{message?.groupName}}</small>\n                                    </div>\n                                    <small class=\"text-disabled\">{{getDateFormat(message.broadcastOn)}}</small>\n                                </span>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n\n                        </div>\n                    </div>\n                    <div class=\"row m-0 announcement\" *ngIf=\"broadCastMessages.length == 0\">\n                        <p class=\"p-3 d-flex justify-content-center\">No Record Found</p>\n                    </div>\n                    <app-loader *ngIf=\"broadCastMessages.length == 0\"></app-loader>\n                </div>\n            </form>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"broadcast-message-wrapper\">\n    <mat-drawer-container [hasBackdrop]=\"false\">\n        <mat-drawer [mode]=\"drawerMode\" [opened]=\"false\" [position]=\"'end'\" #matDrawer>\n            <app-user-group-announcement-details *ngIf=\"selectedId\" [detailId]=\"selectedId\"\n                (selectedId)=\"changeRecord($event)\">\n            </app-user-group-announcement-details>\n        </mat-drawer>\n        <mat-drawer-content>\n            <form #createBroadcastMessageForm=\"ngForm\" name=\"createBroadcastMessageForm\" novalidate>\n                <div class=\"announcementList mt-3\">\n                    <div class=\"row m-0 announcement\" *ngFor=\"let message of broadCastMessages\"\n                        [ngClass]=\"{'bg-cool-gray-50': message.broadCastMessageId == selectedId }\"\n                        (click)=\"openAnnouncement(message.broadCastMessageId)\">\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n                            <div class=\"broadCastList\">\n                                <span>{{message?.subject}}</span>\n                                <span class=\"d-flex align-items-center\" >\n                                    <div class=\"status-badge bg-status-purple-700 mr-4\" *ngIf=\"message.groupName\">\n                                        <small class=\"font-bold text-status-purple-900 text-uppercase\">{{message?.groupName}}</small>\n                                    </div>\n                                    <small class=\"text-secondary\">{{getDateFormat(message.broadcastOn)}}</small>\n                                </span>\n                            </div>\n                        </div>\n                        <div class=\"col-lg-6 col-md-6 col-sm-6 col-xs-12\">\n\n                        </div>\n                    </div>\n                    <div class=\"row m-0 announcement\" *ngIf=\"broadCastMessages.length == 0\">\n                        <p class=\"p-3 d-flex justify-content-center\">No Record Found</p>\n                    </div>\n                    <app-loader *ngIf=\"broadCastMessages.length == 0\"></app-loader>\n                </div>\n            </form>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -132,8 +132,12 @@
         path: '',
         component: _announcements_component__WEBPACK_IMPORTED_MODULE_3__["AnnouncementsComponent"],
         children: [{
-          path: 'user-group-based-announcement/:category',
+          path: 'user-announcement-details/:category',
           component: _user_group_announcement_list_user_group_announcement_list_component__WEBPACK_IMPORTED_MODULE_4__["UserGroupAnnouncementListComponent"]
+        }, {
+          path: '**',
+          redirectTo: 'user-announcement-details/group',
+          pathMatch: 'full'
         }]
       }];
 
@@ -376,10 +380,10 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.navArray = [{
-              link: 'user-group-based-announcement/group',
+              link: 'user-announcement-details/group',
               name: 'BroadCast Group Based'
             }, {
-              link: 'user-group-based-announcement/interest',
+              link: 'user-announcement-details/interest',
               name: 'Interest Group Based'
             }];
           }
