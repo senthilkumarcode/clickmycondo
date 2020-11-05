@@ -60,19 +60,89 @@ const defaultTooltip = [
         text: 'Please raise service ticket to modify'
     },
     {
-        id: 'Email',
-        title: 'Email',
+        id: 'userEmail',
+        title: 'userEmail',
         text: 'Enter a valid email ID to add a User'
     },
     {
-        id: 'addTicketSubject',
-        title: 'addTicketSubject',
+        id: 'ticketSubject',
+        title: 'ticketSubject',
         text: 'Give a brief description of the issue that you are facing'
     },
     {
-        id: 'addComposeSubject',
-        title: 'addComposeSubject',
+        id: 'composeSubject',
+        title: 'composeSubject',
         text: 'Enter a brief subject for the message to be sent'
+    },
+    {
+        id: 'vehicleID',
+        title: 'vehicleID',
+        text: 'Enter the Pass Number'
+    },
+    {
+        id: 'roleType',
+        title: 'roleType',
+        text: 'Select the user type to whom this meeting invite is sent'
+    },
+    {
+        id: 'assetTagNo',
+        title: 'assetTagNo',
+        text: 'Enter Asset Tag No which is Assigned to the Asset'
+    },
+    {
+        id: 'maintenanceCategoryName',
+        title: 'maintenanceCategoryName',
+        text: 'Enter Category Name'
+    },
+    {
+        id: 'categoryDescription',
+        title: 'categoryDescription',
+        text: 'Enter Short description of the category'
+    },
+    {
+        id: 'maintenanceRecordNo',
+        title: 'maintenanceRecordNo',
+        text: 'Enter Maintenance Record Number'
+    },
+    {
+        id: 'wareHouseName',
+        title: 'wareHouseName',
+        text: 'Enter the Warehouse name'
+    },
+    {
+        id: 'inventoryDescription',
+        title: 'inventoryDescription',
+        text: 'Enter Short description of the Warehouse'
+    },
+    {
+        id: 'initialStock',
+        title: 'initialStock',
+        text: 'Enter Initial Stock Qty'
+    },
+    {
+        id: 'receivingPONumber',
+        title: 'receivingPONumber',
+        text: 'Enter the purchase order number'
+    },
+    {
+        id: 'slotName',
+        title: 'slotName',
+        text: 'Add the Slot Number and Slot timings'
+    },
+    {
+        id: 'pendingDeliveryDate',
+        title: 'pendingDeliveryDate',
+        text: 'Filter based on the Parcel delivery creation date'
+    },
+    {
+        id: 'eventName',
+        title: 'eventName',
+        text: 'Enter the event for which the Facility is booked'
+    },
+    {
+        id: 'guestName',
+        title: 'guestName',
+        text: 'Enter the Guest Name for whom the Facility is booked'
     },
 ];
 
