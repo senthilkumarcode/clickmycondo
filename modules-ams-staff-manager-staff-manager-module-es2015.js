@@ -903,7 +903,7 @@ let AddStaffComponent = class AddStaffComponent {
             this.userService.updateUser(userParams).subscribe((res) => {
                 if (res.message) {
                     let staffDetails = {
-                        "staffId": this.route.params['value'].id,
+                        "staffId": Number(this.route.params['value'].id),
                         "apartmentId": this.sessionService.apartmentId,
                         "userId": this.userId,
                         "firstName": this.staff.firstName,
@@ -922,8 +922,8 @@ let AddStaffComponent = class AddStaffComponent {
                         "vehicleId": null,
                         "healthIssue": this.staff.healthIssue,
                         "comments": this.staff.comments,
-                        "plannedEntryTime": this.staff.plannedEntryTime,
-                        "plannedExitTime": this.staff.plannedExitTime,
+                        "plannedEntryTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime).format('HH:mm'),
+                        "plannedExitTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedExitTime).format('HH:mm'),
                         "jobStartDate": this.staff.jobStartDate,
                         "jobEndDate": this.staff.jobEndDate,
                         "mtwtfss": "string",

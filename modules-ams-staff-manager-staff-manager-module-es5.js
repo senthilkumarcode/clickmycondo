@@ -1228,7 +1228,7 @@
               this.userService.updateUser(userParams).subscribe(function (res) {
                 if (res.message) {
                   var staffDetails = {
-                    "staffId": _this10.route.params['value'].id,
+                    "staffId": Number(_this10.route.params['value'].id),
                     "apartmentId": _this10.sessionService.apartmentId,
                     "userId": _this10.userId,
                     "firstName": _this10.staff.firstName,
@@ -1247,8 +1247,8 @@
                     "vehicleId": null,
                     "healthIssue": _this10.staff.healthIssue,
                     "comments": _this10.staff.comments,
-                    "plannedEntryTime": _this10.staff.plannedEntryTime,
-                    "plannedExitTime": _this10.staff.plannedExitTime,
+                    "plannedEntryTime": moment__WEBPACK_IMPORTED_MODULE_8__(_this10.staff.plannedEntryTime).format('HH:mm'),
+                    "plannedExitTime": moment__WEBPACK_IMPORTED_MODULE_8__(_this10.staff.plannedExitTime).format('HH:mm'),
                     "jobStartDate": _this10.staff.jobStartDate,
                     "jobEndDate": _this10.staff.jobEndDate,
                     "mtwtfss": "string",
