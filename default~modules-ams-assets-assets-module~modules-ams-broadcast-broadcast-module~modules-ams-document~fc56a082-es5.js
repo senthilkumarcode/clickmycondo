@@ -122,12 +122,18 @@
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
 
       var UploadComponent = /*#__PURE__*/function () {
-        function UploadComponent(sanitizer, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sessionService) {
+        function UploadComponent(sanitizer, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sharedService, sessionService) {
           _classCallCheck(this, UploadComponent);
 
           this.sanitizer = sanitizer;
@@ -135,6 +141,7 @@
           this.fileDownloadService = fileDownloadService;
           this.fileDetailsService = fileDetailsService;
           this.constantsService = constantsService;
+          this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.isImageUploaded = false;
           this.fileList = [];
@@ -179,24 +186,48 @@
             this.selectedFiles = Array.from(event.target.files);
             this.newFiles = this.selectedFiles.map(function (item) {
               return {
+                tempId: _this.sharedService.guid(),
                 fileDetailsId: null,
                 filePath: null,
                 status: false
               };
             });
-            this.uploadSubscription = this.uploadFiles().subscribe(function (res) {
-              res.map(function (data, index) {
-                _this.fileList = _this.fileList.concat(_this.newFiles[index]);
+            this.newFiles.map(function (item) {
+              _this.fileList = _this.fileList.concat(item);
+            });
+            this.selectedFiles.forEach(function (file, index) {
+              _this.uploadFiles(file, index).subscribe(function (data) {
                 _this.newFiles[index].binary = _this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
                 _this.newFiles[index].type = data.body.type;
                 _this.newFiles[index].status = true;
-              });
-              _this.fileIds = _this.fileList.map(function (item) {
-                return item.fileDetailsId;
-              });
 
-              _this.outputParams.emit(_this.fileIds);
+                _this.fileList.map(function (fileItem) {
+                  if (fileItem.tempId == _this.newFiles[index].tempId) {
+                    fileItem.status = true;
+                    return fileItem;
+                  }
+                });
+
+                _this.fileIds = _this.fileList.map(function (item) {
+                  return item.fileDetailsId;
+                });
+
+                _this.outputParams.emit(_this.fileIds);
+              });
             });
+          }
+        }, {
+          key: "uploadFiles",
+          value: function uploadFiles(file, index) {
+            var _this2 = this;
+
+            return this.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(function (data) {
+              return data != undefined;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (data) {
+              _this2.newFiles[index].fileDetailsId = data[0].fileDetailsId;
+              _this2.newFiles[index].filePath = data[0].filePath;
+              return _this2.fileDownloadService.downloadFile(data[0].filePath);
+            }));
           }
         }, {
           key: "isImage",
@@ -208,7 +239,7 @@
         }, {
           key: "deleteFile",
           value: function deleteFile(file) {
-            var _this2 = this;
+            var _this3 = this;
 
             file.status = false;
             var params = {
@@ -217,32 +248,15 @@
               updatedByUserId: this.sessionService.userId
             };
             this.fileDetailsService.deleteFileDetails(params).subscribe(function (res) {
-              _this2.fileList = _this2.fileList.filter(function (item) {
+              _this3.fileList = _this3.fileList.filter(function (item) {
                 return item.fileDetailsId != file.fileDetailsId;
               });
-              _this2.fileIds = _this2.fileList.map(function (item) {
+              _this3.fileIds = _this3.fileList.map(function (item) {
                 return item.fileDetailsId;
               });
 
-              _this2.outputParams.emit(_this2.fileIds);
+              _this3.outputParams.emit(_this3.fileIds);
             });
-          }
-        }, {
-          key: "uploadFiles",
-          value: function uploadFiles() {
-            var _this3 = this;
-
-            var observables = this.selectedFiles.map(function (file, index) {
-              return _this3.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(function (data) {
-                return data != undefined;
-              }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(function (data) {
-                _this3.newFiles[index].status = false;
-                _this3.newFiles[index].fileDetailsId = data[0].fileDetailsId;
-                _this3.newFiles[index].filePath = data[0].filePath;
-                return _this3.fileDownloadService.downloadFile(data[0].filePath);
-              }));
-            });
-            return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(observables);
           }
         }, {
           key: "getFileDetails",
@@ -317,7 +331,9 @@
         }, {
           type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]
         }];
       };
 
@@ -344,7 +360,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./upload.component.scss */
         "./src/app/modules/ui/upload/upload.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_7__["FileDetailsService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])], UploadComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"], src_app_shared_services_file_upload_service__WEBPACK_IMPORTED_MODULE_5__["FileUploadService"], src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"], src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_7__["FileDetailsService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])], UploadComponent);
       /***/
     },
 

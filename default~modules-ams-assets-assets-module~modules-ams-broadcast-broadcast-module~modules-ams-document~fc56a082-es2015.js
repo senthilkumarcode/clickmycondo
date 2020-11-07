@@ -45,7 +45,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/file-download.service */ "./src/app/shared/services/file-download.service.ts");
 /* harmony import */ var src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/api/controllers/FileDetails */ "./src/app/api/controllers/FileDetails.ts");
 /* harmony import */ var src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/constants.service */ "./src/app/shared/services/constants.service.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
@@ -57,12 +59,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let UploadComponent = class UploadComponent {
-    constructor(sanitizer, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sessionService) {
+    constructor(sanitizer, fileUploadService, fileDownloadService, fileDetailsService, constantsService, sharedService, sessionService) {
         this.sanitizer = sanitizer;
         this.fileUploadService = fileUploadService;
         this.fileDownloadService = fileDownloadService;
         this.fileDetailsService = fileDetailsService;
         this.constantsService = constantsService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.isImageUploaded = false;
         this.fileList = [];
@@ -97,20 +100,35 @@ let UploadComponent = class UploadComponent {
     selectFile(event) {
         this.selectedFiles = Array.from(event.target.files);
         this.newFiles = this.selectedFiles.map(item => {
-            return { fileDetailsId: null, filePath: null, status: false };
+            return { tempId: this.sharedService.guid(), fileDetailsId: null, filePath: null, status: false };
         });
-        this.uploadSubscription = this.uploadFiles().subscribe((res) => {
-            res.map((data, index) => {
-                this.fileList = this.fileList.concat(this.newFiles[index]);
+        this.newFiles.map((item) => {
+            this.fileList = this.fileList.concat(item);
+        });
+        this.selectedFiles.forEach((file, index) => {
+            this.uploadFiles(file, index).subscribe((data) => {
                 this.newFiles[index].binary = this.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(data.body));
                 this.newFiles[index].type = data.body.type;
                 this.newFiles[index].status = true;
+                this.fileList.map(fileItem => {
+                    if (fileItem.tempId == this.newFiles[index].tempId) {
+                        fileItem.status = true;
+                        return fileItem;
+                    }
+                });
+                this.fileIds = this.fileList.map(item => {
+                    return item.fileDetailsId;
+                });
+                this.outputParams.emit(this.fileIds);
             });
-            this.fileIds = this.fileList.map(item => {
-                return item.fileDetailsId;
-            });
-            this.outputParams.emit(this.fileIds);
         });
+    }
+    uploadFiles(file, index) {
+        return this.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {
+            this.newFiles[index].fileDetailsId = data[0].fileDetailsId;
+            this.newFiles[index].filePath = data[0].filePath;
+            return this.fileDownloadService.downloadFile(data[0].filePath);
+        }));
     }
     isImage(type) {
         let splitFile = type.split('/');
@@ -131,17 +149,6 @@ let UploadComponent = class UploadComponent {
             });
             this.outputParams.emit(this.fileIds);
         });
-    }
-    uploadFiles() {
-        const observables = this.selectedFiles.map((file, index) => {
-            return this.fileUploadService.upload(file).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["first"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["filter"])(data => data != undefined), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["mergeMap"])(data => {
-                this.newFiles[index].status = false;
-                this.newFiles[index].fileDetailsId = data[0].fileDetailsId;
-                this.newFiles[index].filePath = data[0].filePath;
-                return this.fileDownloadService.downloadFile(data[0].filePath);
-            }));
-        });
-        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["forkJoin"])(observables);
     }
     getFileDetails() {
         const observables = this.fileList.map((file, index) => {
@@ -192,7 +199,8 @@ UploadComponent.ctorParameters = () => [
     { type: src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"] },
     { type: src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_7__["FileDetailsService"] },
     { type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"] }
 ];
 UploadComponent.propDecorators = {
     fileIds: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -212,7 +220,8 @@ UploadComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_shared_services_file_download_service__WEBPACK_IMPORTED_MODULE_6__["FileDownloadService"],
         src_app_api_controllers_FileDetails__WEBPACK_IMPORTED_MODULE_7__["FileDetailsService"],
         src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_8__["ConstantsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_9__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_10__["SessionService"]])
 ], UploadComponent);
 
 
