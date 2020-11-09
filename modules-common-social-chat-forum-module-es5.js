@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"forum-category-wrapper\">\n\t<div class=\"main\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div>\n\t\t\t\t<h4>Social Chat</h4>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<div class=\"row\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"bg-card shadow\" (click)=\"navigateChatPage(data)\" *ngFor=\"let data of forumCategoryList | columnSearch : 'categoryName': categorySearch;\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<img width=\"36\" src=\"assets/images/{{data.image}}.svg\"/>\n\t\t\t\t\t\t<h5 class=\"ml-3\">{{data.categoryName}}</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"forum-category-wrapper\">\n\t<div class=\"main\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div>\n\t\t\t\t<h4>Social Chat</h4>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<div class=\"row\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"bg-card shadow link\" (click)=\"navigateChatPage(data)\" *ngFor=\"let data of forumCategoryList | columnSearch : 'categoryName': categorySearch;\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<img width=\"36\" src=\"assets/images/{{data.image}}.svg\"/>\n\t\t\t\t\t\t<h5 class=\"ml-3\">{{data.categoryName}}</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"forum-chat-comment-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Create Post -->\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<h4 class=\"mb-4\">What is your question ?</h4>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t<textarea placeholder=\"some text here\" name=\"post\" [(ngModel)]=\"forum.description\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t<button mat-button (click)=\"uploader.click()\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'insert_photo'\"></mat-icon>\n\t\t\t\t\t<span>Photo</span>\n\t\t\t\t\t<input class=\"form-control file-upload-field\" #uploader type=\"file\" [(ngModel)]=\"uploadFileItem\" (change)=\"uploadImage($event)\" multiple>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"ml-auto\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPost()\">Post</button>\n\t\t\t</div>\n\t\t\t<div class=\"upload-preview-img\" *ngIf=\"forum.img\">\n\t\t\t\t<img class=\"img-fluid\" [src]=\"forum.img\">\n\t\t\t</div>\n\t\t</div>\n\t\t <!-- NewsFeed -->\n\t\t <div class=\"mb-4\" *ngFor=\"let data of getallTopicsList\">\n\t\t\t<div class=\"bg-card shadow\" [ngClass]=\"{'mb-1' : expanded}\">\n\t\t\t\t<!-- Blog Header -->\n\t\t\t\t<div class=\"d-flex header\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<p class=\"font-medium\">{{data.insertPersonName}}</p>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateTimeFormat(data.insertedOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class=\"ml-auto\" mat-icon-button [matMenuTriggerFor]=\"commentReport\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t\t<mat-menu #commentReport=\"matMenu\">\n\t\t\t\t\t\t<button mat-menu-item>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-3\" [svgIcon]=\"'report'\"></mat-icon>\n\t\t\t\t\t\t\t\t<span>Report post</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Body -->\n\t\t\t\t<div class=\"content mt-3 mb-3\">\n\t\t\t\t\t<p>{{data.description}}</p>\n\t\t\t\t\t<div class=\"view-preview-img mt-3\" *ngIf=\"data.img\">\n\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"data.img\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Footer -->\n\t\t\t\t<div class=\"mt-3 mb-3 straight-line\"></div>\n\t\t\t\t<div class=\"footer\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<button mat-button (click)=\"likesUpdate(data)\">\n\t\t\t\t\t\t\t<mat-icon class=\"text-red mr-2\" [svgIcon]=\"'mat_outline:favorite'\">\n\t\t\t\t\t\t\t</mat-icon>\n\t\t\t\t\t\t\t<span>{{data.likes}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-button (click)=\"viewComments(data)\">\n\t\t\t\t\t\t\t<span class=\"mr-1\">{{data.totalComments}} Comments</span>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"data.hide\" [svgIcon]=\"'expand_more'\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"!data.hide\" [svgIcon]=\"'expand_less'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Expand -->\n\t\t\t<div class=\"bg-card shadow mx-4\" *ngIf=\"data.hide\">\n\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comment\" #input></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\" (click)=\"addComment(input,data)\">Post</button>\n\t\t\t\t</div>\n\t\t\t\t<!--Comment Loader -->\n\t\t\t\t<app-loader *ngIf=\"commentLoader\"></app-loader>\n\t\t\t\t<!-- Comment History -->\n\t\t\t\t<div class=\"view-comment-history\" *ngFor=\"let comment of data.commentList\">\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<img class=\"comment-profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<div class=\"d-flex flex-column\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span class=\"font-medium text-nowrap mr-3\">{{comment.insertedBy_Label}}</span>\n\t\t\t\t\t\t\t\t<span class=\"text-secondary time-log\">{{getDateTimeFormat(comment.insertedOn)}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p>{{comment.description}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isLoader\"></app-loader>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"forum-chat-comment-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Create Post -->\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<h4 class=\"mb-4\">What is your question ?</h4>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t<textarea placeholder=\"some text here\" name=\"post\" [(ngModel)]=\"forum.description\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t<button mat-button (click)=\"uploader.click()\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'insert_photo'\"></mat-icon>\n\t\t\t\t\t<span>Photo</span>\n\t\t\t\t\t<input class=\"form-control file-upload-field\" #uploader type=\"file\" [(ngModel)]=\"uploadFileItem\" (change)=\"uploadImage($event)\" multiple>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"ml-auto\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPost()\">Post</button>\n\t\t\t</div>\n\t\t\t<div class=\"upload-preview-img\" *ngIf=\"forum.img\">\n\t\t\t\t<img class=\"img-fluid\" [src]=\"forum.img\">\n\t\t\t</div>\n\t\t</div>\n\t\t <!-- NewsFeed -->\n\t\t <div class=\"mb-4\" *ngFor=\"let data of getallTopicsList\">\n\t\t\t<div class=\"bg-card shadow\" [ngClass]=\"{'mb-1' : expanded}\">\n\t\t\t\t<!-- Blog Header -->\n\t\t\t\t<div class=\"d-flex header\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<p class=\"font-medium\">{{data.insertPersonName}}</p>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateTimeFormat(data.insertedOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class=\"ml-auto\" mat-icon-button [matMenuTriggerFor]=\"commentReport\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t\t<mat-menu #commentReport=\"matMenu\">\n\t\t\t\t\t\t<button mat-menu-item>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-3\" [svgIcon]=\"'report'\"></mat-icon>\n\t\t\t\t\t\t\t\t<span>Report post</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Body -->\n\t\t\t\t<div class=\"content mt-3 mb-3\">\n\t\t\t\t\t<p>{{data.description}}</p>\n\t\t\t\t\t<div class=\"view-preview-img mt-3\" *ngIf=\"data.img\">\n\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"data.img\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Footer -->\n\t\t\t\t<div class=\"mt-3 mb-3 straight-line\"></div>\n\t\t\t\t<div class=\"footer\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<button mat-button (click)=\"disLikes(data)\" *ngIf=\"data.isLiked\">\n\t\t\t\t\t\t\t<mat-icon  class=\"text-red mr-2\" [svgIcon]=\"'mat_outline:favorite'\"></mat-icon>\n\t\t\t\t\t\t\t<span>{{data.totalLike}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button mat-button (click)=\"likesUpdate(data)\" *ngIf=\"!data.isLiked\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'mat_outline:favorite'\"></mat-icon>\n\t\t\t\t\t\t\t<span>{{data.totalLike}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-button (click)=\"viewComments(data)\">\n\t\t\t\t\t\t\t<span class=\"mr-1\">{{data.totalComments}} Comments</span>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"data.hide\" [svgIcon]=\"'expand_more'\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"!data.hide\" [svgIcon]=\"'expand_less'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Expand -->\n\t\t\t<div class=\"bg-card shadow mx-4\" *ngIf=\"data.hide\">\n\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comment\" #input></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\" (click)=\"addComment(input,data)\">Post</button>\n\t\t\t\t</div>\n\t\t\t\t<!--Comment Loader -->\n\t\t\t\t<app-loader *ngIf=\"commentLoader\"></app-loader>\n\t\t\t\t<!-- Comment History -->\n\t\t\t\t<div class=\"view-comment-history\" *ngFor=\"let comment of data.commentList\">\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<img class=\"comment-profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<div class=\"d-flex flex-column\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span class=\"font-medium text-nowrap mr-3\">{{comment.insertedBy_Label}}</span>\n\t\t\t\t\t\t\t\t<span class=\"text-secondary time-log\">{{getDateTimeFormat(comment.insertedOn)}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p>{{comment.description}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isLoader\"></app-loader>\n\t</div>\n</div>";
       /***/
     },
 
@@ -334,9 +334,27 @@
       var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      /*! rxjs */
+      "./node_modules/rxjs/_esm2015/index.js");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! rxjs/operators */
+      "./node_modules/rxjs/_esm2015/operators/index.js");
 
       var ForumChatComponent = /*#__PURE__*/function () {
-        function ForumChatComponent(ForumPostsService, ForumTopicsService, apartmentService, sharedService, sessionService) {
+        function ForumChatComponent(ForumPostsService, ForumTopicsService, apartmentService, sharedService, sessionService, activeRouter) {
           _classCallCheck(this, ForumChatComponent);
 
           this.ForumPostsService = ForumPostsService;
@@ -344,12 +362,15 @@
           this.apartmentService = apartmentService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this.activeRouter = activeRouter;
           this.expanded = false;
           this.getallTopicsList = [];
           this.forum = {};
           this.isLoader = true;
           this.commentLoader = false;
           this.pagination = {};
+          this.scrollY = new rxjs__WEBPACK_IMPORTED_MODULE_11__["BehaviorSubject"]('Initial Hit');
+          this.scrollY$ = this.scrollY.asObservable();
         }
 
         _createClass(ForumChatComponent, [{
@@ -383,7 +404,7 @@
                 "description": this.forum.description,
                 "likes": 0,
                 "img": this.forum.img,
-                "categoryId": 1,
+                "categoryId": this.activeRouter.params['value'].id,
                 "active": true,
                 "insertedBy": this.sessionService.userId,
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
@@ -392,7 +413,9 @@
               }
             };
             this.ForumTopicsService.addForumTopics(params).subscribe(function (res) {
-              _this3.getForumList();
+              _this3.resetAll();
+
+              _this3.scrollY.next('New Post Hit');
 
               _this3.forum = {};
             });
@@ -405,7 +428,20 @@
               userId: this.sessionService.userId
             };
             this.ForumTopicsService.addLike(queryParamBase).subscribe(function (res) {
-              data.likes++;
+              data.totalLike++;
+              data.isLiked = true;
+            });
+          }
+        }, {
+          key: "disLikes",
+          value: function disLikes(data) {
+            var params = {
+              TopicId: data.id,
+              userId: this.sessionService.userId
+            };
+            this.ForumTopicsService.addDisLike(params).subscribe(function (res) {
+              data.totalLike--;
+              data.isLiked = false;
             });
           }
         }, {
@@ -429,6 +465,8 @@
         }, {
           key: "addComment",
           value: function addComment(event, data) {
+            var _this5 = this;
+
             if (event.value) {
               var params = {
                 forumPosts: {
@@ -448,7 +486,7 @@
                 data.totalComments++;
                 event.value = '';
               }, function (error) {
-                console.log(error);
+                _this5.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -460,50 +498,70 @@
               lastPage: 0,
               totalResult: 0
             };
+            this.getallTopicsList = [];
           }
         }, {
           key: "scrollHandler",
           value: function scrollHandler() {
             if (window.innerHeight + Math.ceil(window.scrollY) + 1 >= document.body.offsetHeight) {
               if (this.pagination.currentPage < this.pagination.lastPage) {
-                this.pagination.currentPage += 1;
-
-                if (this.getallTopicsList.length > 0) {
-                  this.getForumList();
-                }
+                this.scrollY.next('Scroller Hit');
               }
             }
           }
         }, {
           key: "getForumList",
           value: function getForumList() {
-            var _this5 = this;
-
             this.isLoader = true;
             var params = {
               id: this.sessionService.apartmentId,
-              CategoryId: 1,
               PageNo: this.pagination.currentPage,
-              PageSize: 5
+              PageSize: 5,
+              CategoryId: this.activeRouter.params['value'].id
             };
-            this.ForumTopicsService.getAllForumTopicsByApartmentId(params).subscribe(function (res) {
-              _this5.isLoader = false;
-              _this5.pagination.totalResult = res[0].count;
-              _this5.pagination.lastPage = Math.max(Math.ceil(_this5.pagination.totalResult / 5), 1);
-
-              if (res[0].outPut.length) {
-                var reverse = res[0].outPut.reverse();
-                reverse.forEach(function (data) {
-                  _this5.getallTopicsList.push(data);
-                });
-              }
-            });
+            return this.ForumTopicsService.getAllForumTopicsByApartmentId(params);
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this6 = this;
+
             this.resetAll();
-            this.getForumList();
+            this.scrollY$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["switchMap"])(function () {
+              return _this6.getForumList();
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["catchError"])(function (e) {
+              if (e) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["throwError"])(e);
+              }
+            })).subscribe(function (res) {
+              _this6.isLoader = false;
+              _this6.pagination.totalResult = res[0].count;
+              _this6.pagination.lastPage = Math.max(Math.ceil(_this6.pagination.totalResult / 5), 1);
+              _this6.pagination.currentPage += 1;
+
+              if (res[0].outPut.length) {
+                var reverse = res[0].outPut.reverse();
+                reverse.forEach(function (data) {
+                  var isLiked = data.likedUsers.split(',');
+
+                  if (isLiked.length > 0) {
+                    if (isLiked.includes(_this6.sessionService.userId.toString())) {
+                      data.isLiked = true;
+                    } else {
+                      data.isLiked = false;
+                    }
+                  } else {
+                    data.isLiked = false;
+                  }
+
+                  _this6.getallTopicsList.push(data);
+                });
+              }
+            }, function (error) {
+              _this6.isLoader = false;
+
+              _this6.sharedService.openSnackBar(error, 'error');
+            });
           }
         }]);
 
@@ -521,6 +579,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"]
         }];
       };
 
@@ -540,7 +600,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./forum-chat.component.scss */
         "./src/app/modules/common/social-chat/forum-chat/forum-chat.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_5__["ForumPostsService"], src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__["ForumTopicsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])], ForumChatComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_ForumPosts__WEBPACK_IMPORTED_MODULE_5__["ForumPostsService"], src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__["ForumTopicsService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"]])], ForumChatComponent);
       /***/
     },
 
@@ -613,7 +673,7 @@
         path: 'category',
         component: _forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_4__["ForumCategoryComponent"]
       }, {
-        path: 'forum/:name',
+        path: 'forum/:id',
         component: _forum_chat_forum_chat_component__WEBPACK_IMPORTED_MODULE_5__["ForumChatComponent"]
       }];
 
@@ -778,7 +838,7 @@
         }, {
           key: "submitForumCategory",
           value: function submitForumCategory() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.isDrawerLoader = false;
 
@@ -794,21 +854,21 @@
                 }
               };
               this.forumTopicsService.addForumCategory(params).subscribe(function (res) {
-                _this6.isDrawerLoader = true;
+                _this7.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this6.closeDrawer();
+                  _this7.closeDrawer();
 
-                  _this6.sharedService.openSnackBar('Forum Category Created Successfully', 'success');
+                  _this7.sharedService.openSnackBar('Forum Category Created Successfully', 'success');
 
-                  _this6.getForumCategory();
+                  _this7.getForumCategory();
                 } else {
-                  _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this6.isDrawerLoader = true;
+                _this7.isDrawerLoader = true;
 
-                _this6.sharedService.openSnackBar('Server Error', 'error');
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             } else {
               var _params = {
@@ -823,28 +883,28 @@
                 }
               };
               this.forumTopicsService.updateForumCategory(_params).subscribe(function (res) {
-                _this6.isDrawerLoader = true;
+                _this7.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this6.closeDrawer();
+                  _this7.closeDrawer();
 
-                  _this6.getForumCategory();
+                  _this7.getForumCategory();
 
-                  _this6.sharedService.openSnackBar(res.message, 'success');
+                  _this7.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this6.isDrawerLoader = true;
+                _this7.isDrawerLoader = true;
 
-                _this6.sharedService.openSnackBar('Server Error', 'error');
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "getForumCategory",
           value: function getForumCategory() {
-            var _this7 = this;
+            var _this8 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -852,39 +912,39 @@
               indicator: 0
             };
             this.forumTopicsService.getAllForumCategoryByApartmentId(params).subscribe(function (res) {
-              _this7.isDataLoaded = true;
-              _this7.forumCategoryList = res;
-              _this7.totalItems = res.length;
+              _this8.isDataLoaded = true;
+              _this8.forumCategoryList = res;
+              _this8.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this9 = this;
 
             this.getForumCategory(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this8.isDataLoaded = false;
+                _this9.isDataLoaded = false;
                 var params = {
                   forumCategoryId: item.id,
-                  ModifiedBy: _this8.sessionService.userId
+                  ModifiedBy: _this9.sessionService.userId
                 };
 
-                _this8.forumTopicsService.deleteForumCategory(params).subscribe(function (res) {
-                  _this8.sharedService.setUnitListDeleteIndex(null);
+                _this9.forumTopicsService.deleteForumCategory(params).subscribe(function (res) {
+                  _this9.sharedService.setUnitListDeleteIndex(null);
 
-                  _this8.isDataLoaded = true;
+                  _this9.isDataLoaded = true;
 
                   if (res.message) {
-                    _this8.getForumCategory();
+                    _this9.getForumCategory();
 
-                    _this8.clickMode = ''; //close input box
+                    _this9.clickMode = ''; //close input box
 
-                    _this8.sharedService.openSnackBar(res.message, 'success');
+                    _this9.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this8.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }

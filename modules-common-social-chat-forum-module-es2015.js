@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"forum-category-wrapper\">\n\t<div class=\"main\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div>\n\t\t\t\t<h4>Social Chat</h4>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<div class=\"row\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"bg-card shadow\" (click)=\"navigateChatPage(data)\" *ngFor=\"let data of forumCategoryList | columnSearch : 'categoryName': categorySearch;\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<img width=\"36\" src=\"assets/images/{{data.image}}.svg\"/>\n\t\t\t\t\t\t<h5 class=\"ml-3\">{{data.categoryName}}</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"forum-category-wrapper\">\n\t<div class=\"main\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<div>\n\t\t\t\t<h4>Social Chat</h4>\n\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Items</p>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex ml-auto\">\n\t\t\t\t<div class=\"d-none d-md-block mr-3\">\n\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"categorySearch\">\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t<div class=\"row\" *ngIf=\"isDataLoaded\">\n\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t<div class=\"bg-card shadow link\" (click)=\"navigateChatPage(data)\" *ngFor=\"let data of forumCategoryList | columnSearch : 'categoryName': categorySearch;\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<img width=\"36\" src=\"assets/images/{{data.image}}.svg\"/>\n\t\t\t\t\t\t<h5 class=\"ml-3\">{{data.categoryName}}</h5>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"forum-chat-comment-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Create Post -->\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<h4 class=\"mb-4\">What is your question ?</h4>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t<textarea placeholder=\"some text here\" name=\"post\" [(ngModel)]=\"forum.description\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t<button mat-button (click)=\"uploader.click()\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'insert_photo'\"></mat-icon>\n\t\t\t\t\t<span>Photo</span>\n\t\t\t\t\t<input class=\"form-control file-upload-field\" #uploader type=\"file\" [(ngModel)]=\"uploadFileItem\" (change)=\"uploadImage($event)\" multiple>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"ml-auto\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPost()\">Post</button>\n\t\t\t</div>\n\t\t\t<div class=\"upload-preview-img\" *ngIf=\"forum.img\">\n\t\t\t\t<img class=\"img-fluid\" [src]=\"forum.img\">\n\t\t\t</div>\n\t\t</div>\n\t\t <!-- NewsFeed -->\n\t\t <div class=\"mb-4\" *ngFor=\"let data of getallTopicsList\">\n\t\t\t<div class=\"bg-card shadow\" [ngClass]=\"{'mb-1' : expanded}\">\n\t\t\t\t<!-- Blog Header -->\n\t\t\t\t<div class=\"d-flex header\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<p class=\"font-medium\">{{data.insertPersonName}}</p>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateTimeFormat(data.insertedOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class=\"ml-auto\" mat-icon-button [matMenuTriggerFor]=\"commentReport\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t\t<mat-menu #commentReport=\"matMenu\">\n\t\t\t\t\t\t<button mat-menu-item>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-3\" [svgIcon]=\"'report'\"></mat-icon>\n\t\t\t\t\t\t\t\t<span>Report post</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Body -->\n\t\t\t\t<div class=\"content mt-3 mb-3\">\n\t\t\t\t\t<p>{{data.description}}</p>\n\t\t\t\t\t<div class=\"view-preview-img mt-3\" *ngIf=\"data.img\">\n\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"data.img\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Footer -->\n\t\t\t\t<div class=\"mt-3 mb-3 straight-line\"></div>\n\t\t\t\t<div class=\"footer\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<button mat-button (click)=\"likesUpdate(data)\">\n\t\t\t\t\t\t\t<mat-icon class=\"text-red mr-2\" [svgIcon]=\"'mat_outline:favorite'\">\n\t\t\t\t\t\t\t</mat-icon>\n\t\t\t\t\t\t\t<span>{{data.likes}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-button (click)=\"viewComments(data)\">\n\t\t\t\t\t\t\t<span class=\"mr-1\">{{data.totalComments}} Comments</span>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"data.hide\" [svgIcon]=\"'expand_more'\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"!data.hide\" [svgIcon]=\"'expand_less'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Expand -->\n\t\t\t<div class=\"bg-card shadow mx-4\" *ngIf=\"data.hide\">\n\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comment\" #input></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\" (click)=\"addComment(input,data)\">Post</button>\n\t\t\t\t</div>\n\t\t\t\t<!--Comment Loader -->\n\t\t\t\t<app-loader *ngIf=\"commentLoader\"></app-loader>\n\t\t\t\t<!-- Comment History -->\n\t\t\t\t<div class=\"view-comment-history\" *ngFor=\"let comment of data.commentList\">\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<img class=\"comment-profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<div class=\"d-flex flex-column\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span class=\"font-medium text-nowrap mr-3\">{{comment.insertedBy_Label}}</span>\n\t\t\t\t\t\t\t\t<span class=\"text-secondary time-log\">{{getDateTimeFormat(comment.insertedOn)}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p>{{comment.description}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isLoader\"></app-loader>\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"forum-chat-comment-wrapper\">\n\t<div class=\"main\">\n\t\t<!-- Create Post -->\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<h4 class=\"mb-4\">What is your question ?</h4>\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t<textarea placeholder=\"some text here\" name=\"post\" [(ngModel)]=\"forum.description\"></textarea>\n\t\t\t</div>\n\t\t\t<div class=\"d-flex mt-3\">\n\t\t\t\t<button mat-button (click)=\"uploader.click()\">\n\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'insert_photo'\"></mat-icon>\n\t\t\t\t\t<span>Photo</span>\n\t\t\t\t\t<input class=\"form-control file-upload-field\" #uploader type=\"file\" [(ngModel)]=\"uploadFileItem\" (change)=\"uploadImage($event)\" multiple>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"ml-auto\" mat-flat-button  [color]=\"'primary'\" (click)=\"createPost()\">Post</button>\n\t\t\t</div>\n\t\t\t<div class=\"upload-preview-img\" *ngIf=\"forum.img\">\n\t\t\t\t<img class=\"img-fluid\" [src]=\"forum.img\">\n\t\t\t</div>\n\t\t</div>\n\t\t <!-- NewsFeed -->\n\t\t <div class=\"mb-4\" *ngFor=\"let data of getallTopicsList\">\n\t\t\t<div class=\"bg-card shadow\" [ngClass]=\"{'mb-1' : expanded}\">\n\t\t\t\t<!-- Blog Header -->\n\t\t\t\t<div class=\"d-flex header\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<p class=\"font-medium\">{{data.insertPersonName}}</p>\n\t\t\t\t\t\t<p class=\"text-secondary\">{{getDateTimeFormat(data.insertedOn)}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<button class=\"ml-auto\" mat-icon-button [matMenuTriggerFor]=\"commentReport\">\n\t\t\t\t\t\t<mat-icon [svgIcon]=\"'more_vert'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t\t<mat-menu #commentReport=\"matMenu\">\n\t\t\t\t\t\t<button mat-menu-item>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-3\" [svgIcon]=\"'report'\"></mat-icon>\n\t\t\t\t\t\t\t\t<span>Report post</span>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</mat-menu>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Body -->\n\t\t\t\t<div class=\"content mt-3 mb-3\">\n\t\t\t\t\t<p>{{data.description}}</p>\n\t\t\t\t\t<div class=\"view-preview-img mt-3\" *ngIf=\"data.img\">\n\t\t\t\t\t\t<img class=\"img-fluid\" [src]=\"data.img\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<!-- Blog Footer -->\n\t\t\t\t<div class=\"mt-3 mb-3 straight-line\"></div>\n\t\t\t\t<div class=\"footer\">\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<button mat-button (click)=\"disLikes(data)\" *ngIf=\"data.isLiked\">\n\t\t\t\t\t\t\t<mat-icon  class=\"text-red mr-2\" [svgIcon]=\"'mat_outline:favorite'\"></mat-icon>\n\t\t\t\t\t\t\t<span>{{data.totalLike}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button mat-button (click)=\"likesUpdate(data)\" *ngIf=\"!data.isLiked\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'mat_outline:favorite'\"></mat-icon>\n\t\t\t\t\t\t\t<span>{{data.totalLike}}</span>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"ml-auto\" mat-button (click)=\"viewComments(data)\">\n\t\t\t\t\t\t\t<span class=\"mr-1\">{{data.totalComments}} Comments</span>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"data.hide\" [svgIcon]=\"'expand_more'\"></mat-icon>\n\t\t\t\t\t\t\t<mat-icon *ngIf=\"!data.hide\" [svgIcon]=\"'expand_less'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<!-- Expand -->\n\t\t\t<div class=\"bg-card shadow mx-4\" *ngIf=\"data.hide\">\n\t\t\t\t<div class=\"d-flex mb-3\">\n\t\t\t\t\t<img class=\"profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comment\" #input></textarea>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\" (click)=\"addComment(input,data)\">Post</button>\n\t\t\t\t</div>\n\t\t\t\t<!--Comment Loader -->\n\t\t\t\t<app-loader *ngIf=\"commentLoader\"></app-loader>\n\t\t\t\t<!-- Comment History -->\n\t\t\t\t<div class=\"view-comment-history\" *ngFor=\"let comment of data.commentList\">\n\t\t\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t\t\t<img class=\"comment-profile-img mr-3\" src=\"assets/images/avatars/male-04.jpg\">\n\t\t\t\t\t\t<div class=\"d-flex flex-column\">\n\t\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t\t<span class=\"font-medium text-nowrap mr-3\">{{comment.insertedBy_Label}}</span>\n\t\t\t\t\t\t\t\t<span class=\"text-secondary time-log\">{{getDateTimeFormat(comment.insertedOn)}}</span>\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p>{{comment.description}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<!-- Loader -->\n\t\t<app-loader *ngIf=\"isLoader\"></app-loader>\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -170,6 +170,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/@condo/animations */ "./src/@condo/animations/index.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
 
 
 
@@ -181,18 +187,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ForumChatComponent = class ForumChatComponent {
-    constructor(ForumPostsService, ForumTopicsService, apartmentService, sharedService, sessionService) {
+    constructor(ForumPostsService, ForumTopicsService, apartmentService, sharedService, sessionService, activeRouter) {
         this.ForumPostsService = ForumPostsService;
         this.ForumTopicsService = ForumTopicsService;
         this.apartmentService = apartmentService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.activeRouter = activeRouter;
         this.expanded = false;
         this.getallTopicsList = [];
         this.forum = {};
         this.isLoader = true;
         this.commentLoader = false;
         this.pagination = {};
+        this.scrollY = new rxjs__WEBPACK_IMPORTED_MODULE_11__["BehaviorSubject"]('Initial Hit');
+        this.scrollY$ = this.scrollY.asObservable();
     }
     getDateTimeFormat(date) {
         return moment__WEBPACK_IMPORTED_MODULE_2__(date).format('MMM D YYYY, ddd hh:mm a');
@@ -214,7 +223,7 @@ let ForumChatComponent = class ForumChatComponent {
                 "description": this.forum.description,
                 "likes": 0,
                 "img": this.forum.img,
-                "categoryId": 1,
+                "categoryId": this.activeRouter.params['value'].id,
                 "active": true,
                 "insertedBy": this.sessionService.userId,
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_3___default()().toISOString(),
@@ -223,7 +232,8 @@ let ForumChatComponent = class ForumChatComponent {
             }
         };
         this.ForumTopicsService.addForumTopics(params).subscribe((res) => {
-            this.getForumList();
+            this.resetAll();
+            this.scrollY.next('New Post Hit');
             this.forum = {};
         });
     }
@@ -233,7 +243,18 @@ let ForumChatComponent = class ForumChatComponent {
             userId: this.sessionService.userId,
         };
         this.ForumTopicsService.addLike(queryParamBase).subscribe((res) => {
-            data.likes++;
+            data.totalLike++;
+            data.isLiked = true;
+        });
+    }
+    disLikes(data) {
+        let params = {
+            TopicId: data.id,
+            userId: this.sessionService.userId,
+        };
+        this.ForumTopicsService.addDisLike(params).subscribe((res) => {
+            data.totalLike--;
+            data.isLiked = false;
         });
     }
     viewComments(data) {
@@ -267,7 +288,7 @@ let ForumChatComponent = class ForumChatComponent {
                 data.totalComments++;
                 event.value = '';
             }, error => {
-                console.log(error);
+                this.sharedService.openSnackBar('Server Error', 'error');
             });
         }
     }
@@ -277,14 +298,12 @@ let ForumChatComponent = class ForumChatComponent {
             lastPage: 0,
             totalResult: 0
         };
+        this.getallTopicsList = [];
     }
     scrollHandler() {
         if ((window.innerHeight + Math.ceil(window.scrollY) + 1) >= document.body.offsetHeight) {
             if (this.pagination.currentPage < this.pagination.lastPage) {
-                this.pagination.currentPage += 1;
-                if (this.getallTopicsList.length > 0) {
-                    this.getForumList();
-                }
+                this.scrollY.next('Scroller Hit');
             }
         }
     }
@@ -292,25 +311,47 @@ let ForumChatComponent = class ForumChatComponent {
         this.isLoader = true;
         let params = {
             id: this.sessionService.apartmentId,
-            CategoryId: 1,
             PageNo: this.pagination.currentPage,
             PageSize: 5,
+            CategoryId: this.activeRouter.params['value'].id,
         };
-        this.ForumTopicsService.getAllForumTopicsByApartmentId(params).subscribe((res) => {
-            this.isLoader = false;
-            this.pagination.totalResult = res[0].count;
-            this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 5), 1);
-            if (res[0].outPut.length) {
-                let reverse = res[0].outPut.reverse();
-                reverse.forEach((data) => {
-                    this.getallTopicsList.push(data);
-                });
-            }
-        });
+        return this.ForumTopicsService.getAllForumTopicsByApartmentId(params);
     }
     ngOnInit() {
         this.resetAll();
-        this.getForumList();
+        this.scrollY$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["debounceTime"])(300), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["switchMap"])(() => {
+            return this.getForumList();
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_12__["catchError"])(e => {
+            if (e) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["throwError"])(e);
+            }
+        })).subscribe((res) => {
+            this.isLoader = false;
+            this.pagination.totalResult = res[0].count;
+            this.pagination.lastPage = Math.max(Math.ceil(this.pagination.totalResult / 5), 1);
+            this.pagination.currentPage += 1;
+            if (res[0].outPut.length) {
+                let reverse = res[0].outPut.reverse();
+                reverse.forEach((data) => {
+                    let isLiked = data.likedUsers.split(',');
+                    if (isLiked.length > 0) {
+                        if (isLiked.includes((this.sessionService.userId).toString())) {
+                            data.isLiked = true;
+                        }
+                        else {
+                            data.isLiked = false;
+                        }
+                    }
+                    else {
+                        data.isLiked = false;
+                    }
+                    this.getallTopicsList.push(data);
+                });
+            }
+        }, (error) => {
+            this.isLoader = false;
+            this.sharedService.openSnackBar(error, 'error');
+        });
     }
 };
 ForumChatComponent.ctorParameters = () => [
@@ -318,7 +359,8 @@ ForumChatComponent.ctorParameters = () => [
     { type: src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__["ForumTopicsService"] },
     { type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] }
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"] }
 ];
 ForumChatComponent.propDecorators = {
     scrollHandler: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"], args: ['window:scroll', ['$event'],] }]
@@ -335,7 +377,8 @@ ForumChatComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_api_controllers_ForumTopics__WEBPACK_IMPORTED_MODULE_4__["ForumTopicsService"],
         src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__["ApartmentService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]])
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_10__["ActivatedRoute"]])
 ], ForumChatComponent);
 
 
@@ -368,7 +411,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: 'setup', component: _forum_setup_forum_setup_component__WEBPACK_IMPORTED_MODULE_3__["ForumSetupComponent"] },
     { path: 'category', component: _forum_category_forum_category_component__WEBPACK_IMPORTED_MODULE_4__["ForumCategoryComponent"] },
-    { path: 'forum/:name', component: _forum_chat_forum_chat_component__WEBPACK_IMPORTED_MODULE_5__["ForumChatComponent"] }
+    { path: 'forum/:id', component: _forum_chat_forum_chat_component__WEBPACK_IMPORTED_MODULE_5__["ForumChatComponent"] }
 ];
 let ForumRoutingModule = class ForumRoutingModule {
 };

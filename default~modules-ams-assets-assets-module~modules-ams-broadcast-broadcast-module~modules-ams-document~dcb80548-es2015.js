@@ -51,7 +51,7 @@ const defaultTooltip = [
     },
     {
         id: 'dueDate',
-        title: 'addUnit',
+        title: 'dueDate',
         text: 'Enter the due date'
     },
     {

@@ -571,7 +571,7 @@
               }
             }); //delete slot
 
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+            this.apiSubscription = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
               if (id != null) {
                 var params = {
                   apartmentFacilityBookingId: id,
@@ -587,6 +587,11 @@
                 });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscription.unsubscribe();
           }
         }]);
 

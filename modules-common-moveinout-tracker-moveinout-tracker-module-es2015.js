@@ -100,7 +100,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-card>\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\n\t\t\t\t\t\t<form>\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date Time\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\n\t\n\n\t\t<condo-card>\n\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/moveinout-tracker/reports\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:ticket\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</ng-container>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"user-report-data-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n\t<mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n\t\t<mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer p-5\">\n\t\t\t\t<div class=\"title row\">\n\t\t\t\t\t<h4> Filter By </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<condo-card>\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\n\t\t\t\t\t\t<form #f=\"ngForm\">\n\t\t\n\t\t\t\t\t\t\t\t<div class=\"filter-box cleafix\">\n\t\t\t\t\t\t\t\t\t\t<div class=\"d-flex align-items-center mb-4\">\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button class=\"mr-3\" [ngClass]=\"filterSelected == 'all' ? 'mat-primary' : 'mat-lined'\" (click)=\"getAllBlockData('all')\">All\n\t\t\t\t\t\t\t\t\t\t\t\t\tTowers</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [ngClass]=\"filterSelected != 'all' ? 'mat-primary' : 'mat-lined'\" [matMenuTriggerFor]=\"singleBlockActions\">{{singleBlock}}</button>\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-menu class=\"mat-actions-menu\" [xPosition]=\"'before'\" #singleBlockActions=\"matMenu\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<ng-container *ngFor=\"let block of unitBlocksData\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-menu-item (click)=\"getSingleBlock(block)\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t{{block.apartmentBlockNumber}}\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t</ng-container>\n\t\t\t\t\t\t\t\t\t\t\t\t</mat-menu>\n\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\t\n\t\t\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\n\t\t\t\t\t\t\t\t<!-- <div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t<condo-select labelText=\"Tower No\" fieldPlaceholder=\"Select Tower\" [fieldRequired]=\"'required'\" [fieldList]=\"unitBlocksData\"\n\t\t\t\t\t\t\t\t fieldValue=\"apartmentBlockNumber\" [fieldModel]=\"blockId\" fieldId=\"apartmentBlockId\" (fieldParams)=\"getSelectedBlock($event)\"></condo-select>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Start Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"startDate\" [owlDateTime]=\"startDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"startDate\" placeholder=\"Date\" [(ngModel)]=\"start_date\"\n\t\t\t\t\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #startDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"startDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>End Date<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"endDate\" [owlDateTime]=\"endDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"endDate\" placeholder=\"Date\" [(ngModel)]=\"end_date\" required>\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #endDate></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"endDate\">\n\t\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\n\t\t\t\t\t\t</form>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t\n\t\t\t</div>\n\t\t</mat-drawer>\n\t\t<mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\n\t<ng-container>\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t\n\t\n\n\t\t<condo-card *ngIf=\"isDataLoaded\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t<a href=\"javascript:void(0)\" routerLink=\"/ams/moveinout-tracker/reports\" \n\t\t\t\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2 ml-3\" svgIcon=\"heroicons_outline:document-report\"></mat-icon>All Reports\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h5>{{pageName}}</h5>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto  my-auto\">\n\t\t\t\t\t\t\t<app-table-search [input]=\"reportData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams)=\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 my-auto ml-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\" class=\"d-none d-md-block\">\n\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<button class=\"d-block d-md-none table-add-btn\" mat-button (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'heroicons_outline:filter'\"></mat-icon>\n\t\t\t\t\t\t\t  </button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"listData\" [columns]=\"columnData\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</ng-container>\n</div>\n</mat-drawer-content>\n</mat-drawer-container>\n\t\n\n</div>");
 
 /***/ }),
 
@@ -2138,6 +2138,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+
 
 
 
@@ -2171,7 +2173,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
     getPrintParams(event) {
-        this.datagrid.exportdata(event, 'VisitorReportsData');
+        this.datagrid.exportdata(event, 'MoveinReportData');
     }
     goBack() {
         this.matDrawer.close();
@@ -2197,16 +2199,28 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             serviceName = this.moveInOutService.getReportsForMoveInUsersMultiFilter(params);
         }
         else if (id == 373) {
-            // params.MoveInStatusID = id;
+            params.MoveOutStatusID = id;
             serviceName = this.moveInOutService.getReportsForMoveOutUsersMultiFilter(params);
         }
         else if (id == 374) {
+            params.MoveInStatusID = id;
+            serviceName = this.moveInOutService.getReportsForMoveInUsersMultiFilter(params);
+        }
+        else if (name_ == "rejectedmoveout") {
             params.MoveOutStatusID = id;
             serviceName = this.moveInOutService.getReportsForMoveOutUsersMultiFilter(params);
         }
-        else if (id == 375) {
+        else if (name_ == "moveout") {
             params.MoveOutStatusID = id;
             serviceName = this.moveInOutService.getReportsForMoveOutUsersMultiFilter(params);
+        }
+        else if (name_ == 'moveinusers') {
+            params.MoveInStatusID = id;
+            serviceName = this.moveInOutService.getReportsForMoveInUsersMultiFilter(params);
+        }
+        else if (name_ == 'cancelledmovein') {
+            params.MoveInStatusID = id;
+            serviceName = this.moveInOutService.getReportsForMoveInUsersMultiFilter(params);
         }
         else if (name_ == 'delayedMoveIn') {
             serviceName = this.moveInOutService.getReportsForMoveInDelayedUsersMultiFilter(params);
@@ -2285,15 +2299,17 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
         this.getDetails(params);
     }
     clearFilter() {
+        this.myForm.form.reset();
         this.blockId = null;
         this.start_date = null;
         this.end_date = null;
+        this.datagrid.clearfilters();
         // =this.getTicketByAdmin();
         let params = {
             ApartmentID: parseInt(this.sessionService.apartmentId),
             ApartmentBlockID: parseInt(this.blockId),
-            StartDate: this.getDate(this.start_date),
-            EndDate: this.getDate(this.end_date)
+            StartDate: this.start_date === null ? moment__WEBPACK_IMPORTED_MODULE_9__().subtract(5, 'months').startOf('month').add(this.timeZone.offset, 'hours').format(this.timeZone.date) : this.getDate(this.start_date),
+            EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_9__().add(this.timeZone.offset, 'hours').format(this.timeZone.date) : this.getDate(this.end_date)
         };
         this.getDetails(params);
         this.goBack();
@@ -2311,7 +2327,7 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 15
         };
-        this.isDataLoaded = true;
+        this.isDataLoaded = false;
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
         };
@@ -2319,50 +2335,43 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
-                text: 'S.No',
-                datafield: 'serialNo',
-                width: 100,
+                text: 'Resident Name',
+                datafield: 'residentName',
+                cellsrenderer: cellsrenderer,
+                minwidth: 120,
                 pinned: true,
-                cellsrenderer: (row, column, value) => {
-                    let serialNo = row + 1;
-                    return '<div class="jqx-custom-inner-cell">' + serialNo + '</div>';
-                },
                 renderer: columnrenderer
             }, {
                 text: 'Unit No',
                 datafield: 'unitNo',
-                width: 100,
+                minwidth: 80,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
                 text: 'Tower No',
                 datafield: 'blockNo',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
-                renderer: columnrenderer
-            }, {
-                text: 'Resident Name',
-                datafield: 'residentName',
-                cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 100,
                 renderer: columnrenderer
             }, {
                 text: 'Owner/Tenant',
                 datafield: 'ownerorTenant',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 130,
                 renderer: columnrenderer
             }, {
                 text: 'Resident Contact Number',
                 datafield: 'residentContactNumber',
                 cellsrenderer: cellsrenderer,
-                minwidth: 80,
+                minwidth: 220,
+                maxwidth: 250,
                 renderer: columnrenderer
             }, {
                 text: 'No of Occupants',
                 datafield: 'noOfOccupants',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 130,
+                maxwidth: 150,
                 renderer: columnrenderer
             }, {
                 text: 'Expected Date',
@@ -2370,13 +2379,15 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
                 cellsrenderer: (row, column, value) => {
                     return '<div class="jqx-custom-inner-cell">' + this.getExpectedDate(value) + '</div>';
                 },
-                minwidth: 170,
+                minwidth: 130,
+                maxwidth: 150,
                 renderer: columnrenderer
             }, {
                 text: 'Expected Time',
                 datafield: 'expectedTime',
                 cellsrenderer: cellsrenderer,
-                minwidth: 170,
+                minwidth: 120,
+                maxwidth: 150,
                 renderer: columnrenderer
             }];
         if (this.route.params['value'].id == '374') {
@@ -2389,11 +2400,13 @@ let MoveinReportDataComponent = class MoveinReportDataComponent {
             };
             this.columnData.push(obj);
         }
+        this.fromDate = moment__WEBPACK_IMPORTED_MODULE_9__().subtract(12, 'months').endOf('month').format(this.timeZone.time);
+        this.toDate = moment__WEBPACK_IMPORTED_MODULE_9__().format(this.timeZone.time);
         let params = {
             ApartmentID: parseInt(this.sessionService.apartmentId),
             ApartmentBlockID: parseInt(this.blockId),
-            StartDate: this.start_date === "" ? "2020-01-01" : this.getDate(this.start_date),
-            EndDate: this.end_date === "" ? moment__WEBPACK_IMPORTED_MODULE_9__(new Date()).format(this.timeZone.time) : this.getDate(this.end_date)
+            StartDate: this.start_date === null ? moment__WEBPACK_IMPORTED_MODULE_9__().subtract(5, 'months').startOf('month').add(this.timeZone.offset, 'hours').format(this.timeZone.date) : this.getDate(this.start_date),
+            EndDate: this.end_date === null ? moment__WEBPACK_IMPORTED_MODULE_9__().add(this.timeZone.offset, 'hours').format(this.timeZone.date) : this.getDate(this.end_date)
         };
         this.getDetails(params);
     }
@@ -2432,7 +2445,8 @@ MoveinReportDataComponent.ctorParameters = () => [
 ];
 MoveinReportDataComponent.propDecorators = {
     datagrid: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['datagrid', { static: false },] }],
-    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }]
+    matDrawer: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['matDrawer', { static: true },] }],
+    myForm: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"], args: ['f',] }]
 };
 MoveinReportDataComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -2487,12 +2501,12 @@ let MoveinReportsComponent = class MoveinReportsComponent {
             { lookupValueName: 'List of Unapproved Move In', description: 'Gives the list of unapproved users to Move-In', statusId: 372, name: 'movein' },
             { lookupValueName: 'List of Unapproved Move Out', description: 'Gives the list of unapproved users to Move-Out', statusId: 373, name: 'moveout' },
             { lookupValueName: 'List of Rejected Move In', description: 'Provides the list of Rejected Move-In requests', statusId: 374, name: 'movein' },
-            { lookupValueName: 'List of Rejected Move Out', description: 'Provides the list of Rejected Move-Out requests', statusId: 375, name: 'moveout' },
+            { lookupValueName: 'List of Rejected Move Out', description: 'Provides the list of Rejected Move-Out requests', statusId: 378, name: 'rejectedmoveout' },
             { lookupValueName: 'List of Delayed Move In', description: 'Gives the list of users who have not Moved In as planned', statusId: 0, name: 'delayedMoveIn' },
             { lookupValueName: 'List of Delayed Move Out', description: 'Gives the list of users who have not Moved Out as planned', statusId: 0, name: 'delayedMoveOut' },
-            { lookupValueName: 'List of Moved In Users', description: 'Provides the list of residents who have Moved In', statusId: 372, name: 'movein' },
+            { lookupValueName: 'List of Moved In Users', description: 'Provides the list of residents who have Moved In', statusId: 375, name: 'moveinusers' },
             { lookupValueName: 'List of Moved Out Users', description: 'Provides the list of residents who have Moved Out', statusId: 373, name: 'moveout' },
-            { lookupValueName: 'List of Cancelled Move In', description: 'Gives the list of users who have cancelled Move In requests', statusId: 372, name: 'movein' },
+            { lookupValueName: 'List of Cancelled Move In', description: 'Gives the list of users who have cancelled Move In requests', statusId: 380, name: 'cancelledmovein' },
             { lookupValueName: 'List of Cancelled Move Out', description: 'Gives the list of users who have cancelled Move Out requests', statusId: 373, name: 'moveout' }
         ];
         this.isDataLoaded = true;

@@ -54,7 +54,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<h4 class=\"mb-4\">General</h4>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" novalidate>\n\n\t\t<!-- Active and Deactive Block -->\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"isAdmin\">\n\t\t\t<app-loader *ngIf=\"!isActiveDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isActiveDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isShowActiveForm\"> \n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showActiveForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{isActivate ? 'Active' : 'In Active'}}</span></h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div *ngIf=\"isShowActiveForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"active\" [(ngModel)]=\"isActivate\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"inactive\" [(ngModel)]=\"isActivate\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-2\">\n\t\t\t\t\t\t\t\t<button class=\"mr-2\" (click)=\"isActiveBlock()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showActiveForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Residing Condo -->\n\t\t<div class=\"bg-card shadow p-4\">\n\t\t\t<app-loader *ngIf=\"!isResidingDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isResidingDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isResidingForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showResidingForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Residing in the Condo</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isLiving ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Billing Contact</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isPrimaryContact ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"isResidingForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"blockUnitResponse.isLiving\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"livingcondo\">Is Residing In Condo</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"blockUnitResponse.isPrimaryContact\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact for Billing</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-2\">\n\t\t\t\t\t\t\t\t<button class=\"mr-2\" (click)=\"updateBlockUnitUser()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showResidingForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Profile Info -->\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\t<div *ngIf=\"!profileForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showProfileForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile</label> \n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" disabled name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{user.bloodGroup | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div *ngIf=\"profileForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label> \n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" [disabled]=\"!isAdmin\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.bloodGroup\">\n\t\t\t\t\t\t\t\t\t<option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-2\">\n\t\t\t\t\t\t\t\t<button class=\"mr-2\" (click)=\"submitProfileBasicForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showProfileForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\t</form>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-area-basic-wrapper p-5\">\n\n\t<h4 class=\"mb-4\">General</h4>\n\n\t<form #profileBasicForm=\"ngForm\" name=\"profileBasicForm\" novalidate>\n\n\t\t<!-- Active and Deactive Block -->\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"!isAdmin\">\n\t\t\t<app-loader *ngIf=\"!isActiveDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isActiveDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isShowActiveForm\"> \n\t\t\t\t\t<div class=\"text-right mb-2 float-right\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showActiveForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h6 class=\"font-normal\">User is <span class=\"font-medium\">{{isActivate ? 'Active' : 'In Active'}}</span></h6>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div *ngIf=\"isShowActiveForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"input-box radio-box mb-0\">\n\t\t\t\t\t\t\t\t<label>Status</label>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"active\" [(ngModel)]=\"isActivate\" [value]=\"true\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"active\">Active</label>\n\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t\t<div class=\"form-group mb-0\">\n\t\t\t\t\t\t\t\t\t<input name=\"active\" id=\"inactive\" [(ngModel)]=\"isActivate\" [value]=\"false\" type=\"radio\" required>\n\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"inactive\">Inactive</label>\n\t\t\t\t\t\t\t\t </div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-2\">\n\t\t\t\t\t\t\t\t<button class=\"mr-2\" (click)=\"isActiveBlock()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showActiveForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Residing Condo -->\n\t\t<div class=\"bg-card shadow p-4\" *ngIf=\"!isAdmin\">\n\t\t\t<app-loader *ngIf=\"!isResidingDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isResidingDataLoaded\">\n\t\t\t\t<div *ngIf=\"!isResidingForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showResidingForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Residing in the Condo</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isLiving ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Billing Contact</label>\n\t\t\t\t\t\t\t\t<p>{{blockUnitResponse?.isPrimaryContact ? 'Yes' : 'No'}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div *ngIf=\"isResidingForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"livingcondo\"\n\t\t\t\t\t\t\t\t\tname=\"livingcondo\" [(ngModel)]=\"blockUnitResponse.isLiving\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"livingcondo\">Is Residing In Condo</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"form-check recur-check mr-4\">\n\t\t\t\t\t\t\t\t<input type=\"checkbox\" class=\"form-check-input\" id=\"primarycondo\"\n\t\t\t\t\t\t\t\t\tname=\"primarycondo\" [(ngModel)]=\"blockUnitResponse.isPrimaryContact\">\n\t\t\t\t\t\t\t\t<label class=\"form-check-label tiny\" for=\"primarycondo\">Is Primary Contact for Billing</label>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-2\">\n\t\t\t\t\t\t\t\t<button class=\"mr-2\" (click)=\"updateBlockUnitUser()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showResidingForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t</div>\t\t\n\t\t\t</ng-container>\n\t\t</div>\n\n\t\t<!-- Profile Info -->\n\t\t<div class=\"bg-card shadow\" *ngIf=\"isDataLoaded\">\n\t\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t\t\t<div *ngIf=\"!profileForm\">\n\t\t\t\t\t<div class=\"text-right mb-2\">\n\t\t\t\t\t\t<mat-icon class=\"icon-md link\" [color]=\"'primary'\" (click)=\"showProfileForm()\" svgIcon=\"feather:edit\"></mat-icon>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID</label>\n\t\t\t\t\t\t\t\t<p>{{user.emailId}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile</label> \n\t\t\t\t\t\t\t\t<div class=\"d-block\">\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" disabled name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t<p>{{user.address1 | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Blood Group</label>\n\t\t\t\t\t\t\t\t<p>{{getBloodGroup(user.bloodGroup) | notAvail}}</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div *ngIf=\"profileForm\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Email ID*</label>\n\t\t\t\t\t\t\t\t<input (blur)=\"IsValidEmail($event.target.value)\" type=\"text\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Email Id\" name=\"emailId\" [(ngModel)]=\"user.emailId\" [disabled]=\"!isAdmin\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Phone/Mobile*</label>\n\t\t\t\t\t\t\t\t<div class=\"d-block\">\n\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\" [preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\" [searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\" [selectedCountryISO]=\"CountryISO.Philippines\"\n\t\t\t\t\t\t\t\t\t[maxLength]=\"15\" [phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.phoneNumber\" [disabled]=\"!isAdmin\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t</div> \n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Address*</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Address\" name=\"address1\"\n\t\t\t\t\t\t\t\t\t[(ngModel)]=\"user.address1\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"user.bloodGroup\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBloodGroup($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-2\">\n\t\t\t\t\t\t\t\t<button class=\"mr-2\" (click)=\"submitProfileBasicForm()\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"showProfileForm()\">Back</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ng-container>\n\t\t</div>\n\t</form>\n</div>";
       /***/
     },
 
@@ -294,7 +294,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Time</h4>\n\n    <div class=\"bg-card shadow\">\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                   <condo-select \n                        labelText=\"Select Time Zone\"\n                        fieldPlaceholder=\"Select\"\n                        [fieldRequired]=\"'null'\"\n                        [fieldList]=\"timeZonesData\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"user.zone\"\n                        fieldId=\"abbr\"\n                        [isClear]=\"false\"\n                        (fieldParams)=\"getSelectedZone($event)\" \n\t\t\t\t\t></condo-select>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Time</h4>\n\n    <div class=\"bg-card shadow\">\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                   <condo-select \n                        labelText=\"Select Time Zone\"\n                        fieldPlaceholder=\"Select\"\n                        [fieldRequired]=\"'null'\"\n                        [fieldList]=\"timeZonesData\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"user.timeZone\"\n                        fieldId=\"abbr\"\n                        [isClear]=\"false\"\n                        (fieldParams)=\"getSelectedZone($event)\" \n\t\t\t\t\t></condo-select>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>";
       /***/
     },
 
@@ -1067,6 +1067,24 @@
           key: "showProfileForm",
           value: function showProfileForm() {
             this.profileForm = !this.profileForm;
+          }
+        }, {
+          key: "getSelectedBloodGroup",
+          value: function getSelectedBloodGroup(event) {
+            this.user.bloodGroup = event[0].lookupValueId;
+          }
+        }, {
+          key: "getBloodGroup",
+          value: function getBloodGroup(id) {
+            var data = this.bloodGroupData.filter(function (item) {
+              if (item.lookupValueId === parseInt(id)) return item;
+            });
+
+            if (data === undefined || data.length == 0) {
+              return '';
+            } else {
+              return data[0].lookupValueName;
+            }
           }
         }, {
           key: "IsValidEmail",
@@ -4663,26 +4681,41 @@
       /* harmony import */
 
 
-      var src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/modules/profile/data/timezone/data */
       "./src/app/modules/profile/data/timezone/data.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/api/controllers/User */
+      "./src/app/api/controllers/User.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
 
       var ProfileTimezoneComponent = /*#__PURE__*/function () {
-        function ProfileTimezoneComponent(sharedService, sessionService) {
+        function ProfileTimezoneComponent(_activatedRoute, _router, userService, sharedService, sessionService) {
           _classCallCheck(this, ProfileTimezoneComponent);
 
+          this._activatedRoute = _activatedRoute;
+          this._router = _router;
+          this.userService = userService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.timeZonesData = [];
@@ -4694,16 +4727,36 @@
         }, {
           key: "getSelectedZone",
           value: function getSelectedZone(event) {
-            this.user.zone = event[0].abbr;
-            this.sessionService.zone = event[0].abbr;
-            this.sharedService.setTimeZone(this.sessionService.zone);
+            var _this42 = this;
+
+            this.user.timeZone = event[0].abbr;
+            var params = {
+              user: this.user
+            };
+            this.userService.updateUser(params).subscribe(function (res) {
+              if (res.message) {
+                _this42.sessionService.zone = event[0].abbr;
+
+                _this42.sharedService.setTimeZone(_this42.sessionService.zone);
+
+                _this42.sharedService.openSnackBar('Timezone updated Successfully', 'success');
+              } else {
+                _this42.sharedService.openSnackBar('Some error occured', 'error');
+              }
+            }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            this.user = {};
-            this.user.zone = this.sessionService.zone;
-            this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_2__["timeZones"].map(function (data) {
+            var _this43 = this;
+
+            this.user = {}; // Subscribe to the resolved route data
+
+            this._activatedRoute.parent.data.subscribe(function (data) {
+              _this43.user = data.initialData.profileUser;
+            });
+
+            this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_3__["timeZones"].map(function (data) {
               data.customLabel = "".concat(data.value, " ").concat(data.abbr, " ").concat(data.text);
               return data;
             });
@@ -4715,9 +4768,15 @@
 
       ProfileTimezoneComponent.ctorParameters = function () {
         return [{
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
+        }, {
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }];
       };
 
@@ -4729,7 +4788,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-timezone.component.scss */
         "./src/app/modules/profile/profile-timezone/profile-timezone.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]])], ProfileTimezoneComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], ProfileTimezoneComponent);
       /***/
     },
 
@@ -4860,7 +4919,7 @@
         }, {
           key: "getBlockUnit",
           value: function getBlockUnit(event) {
-            var _this42 = this;
+            var _this44 = this;
 
             if (event) {
               this.blockFormData.apartmentBlockId = event[0].apartmentBlockId;
@@ -4872,7 +4931,7 @@
               apartmentBlockId: this.block.apartmentBlockId
             };
             this.apartmentService.getApartmentBlockUnitByBlockId(unitParams).subscribe(function (res) {
-              _this42.blockUnitList = res;
+              _this44.blockUnitList = res;
             });
           }
         }, {
@@ -4888,7 +4947,7 @@
         }, {
           key: "submitProfileUnitForm",
           value: function submitProfileUnitForm(form) {
-            var _this43 = this;
+            var _this45 = this;
 
             this.isUserDataLoaded = false; // let apartmentBlockUnitUserParams = {
             //   apartmentBlockUnitUser:  {
@@ -4942,27 +5001,27 @@
               }
             };
             this.apartmentService.updateApartmentBlockUnit(apartmentBlockUnitParams).subscribe(function (res) {
-              _this43.isUserDataLoaded = true;
+              _this45.isUserDataLoaded = true;
 
               if (res.code == 200) {
-                _this43.isEdit = false;
+                _this45.isEdit = false;
 
-                _this43.getBlockUnitInfo(_this43.blockFormData.apartmentBlockUnitId);
+                _this45.getBlockUnitInfo(_this45.blockFormData.apartmentBlockUnitId);
 
-                _this43.sharedService.openSnackBar(res.statusMessage, 'success');
+                _this45.sharedService.openSnackBar(res.statusMessage, 'success');
               } else {
-                _this43.sharedService.openSnackBar(res.statusMessage, 'error');
+                _this45.sharedService.openSnackBar(res.statusMessage, 'error');
               }
             }, function (error) {
-              _this43.isUserDataLoaded = true;
+              _this45.isUserDataLoaded = true;
 
-              _this43.sharedService.openSnackBar('Server Error', 'error');
+              _this45.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getBlockUnitInfo",
           value: function getBlockUnitInfo(id) {
-            var _this44 = this;
+            var _this46 = this;
 
             this.isUserDataLoaded = false;
             var blockUnitInfo = {
@@ -4970,15 +5029,15 @@
             };
             this.apartmentService.getApartmentBlockUnitById(blockUnitInfo).subscribe(function (res) {
               if (res.length > 0) {
-                _this44.block = res[0];
-                _this44.isUserDataLoaded = true;
+                _this46.block = res[0];
+                _this46.isUserDataLoaded = true;
               }
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this45 = this;
+            var _this47 = this;
 
             if (!this.isAdmin) {
               this.isUserEdit = false;
@@ -4990,11 +5049,11 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this45.block.apartmentBlockId = Number(params.blockId);
-                _this45.block.apartmentBlockUnitId = Number(params.unitId);
-                _this45.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this47.block.apartmentBlockId = Number(params.blockId);
+                _this47.block.apartmentBlockUnitId = Number(params.unitId);
+                _this47.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this45.getBlockUnitInfo(_this45.block.apartmentBlockUnitId);
+                _this47.getBlockUnitInfo(_this47.block.apartmentBlockUnitId);
               }
             }); // Tower
 
@@ -5003,16 +5062,16 @@
               apartmentId: this.sessionService.apartmentId
             };
             this.apartmentService.getApartmentBlockByApartmentId(towerInfo).subscribe(function (res) {
-              _this45.blockList = res;
+              _this47.blockList = res;
 
-              _this45.getBlockUnit(null);
+              _this47.getBlockUnit(null);
             }); //Unit Type
 
             var unitTypeInfo = {
               LookupTypeId: 1
             };
             this.lookupService.getLookupValueByLookupTypeId(unitTypeInfo).subscribe(function (res) {
-              _this45.unitTypeList = res;
+              _this47.unitTypeList = res;
             });
           }
         }, {
@@ -5304,7 +5363,7 @@
         }, {
           key: "createAbsenceForm",
           value: function createAbsenceForm() {
-            var _this46 = this;
+            var _this48 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5336,25 +5395,25 @@
               apartmentLongAbsence: details
             };
             this.apartmentService.addApartmentLongAbsence(params).subscribe(function (res) {
-              _this46.isDataLoaded = true;
+              _this48.isDataLoaded = true;
 
               if (res.message) {
-                _this46.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
+                _this48.sharedService.openSnackBar("Out of condo Info added successfully", 'success');
 
-                _this46.getHistoryData();
+                _this48.getHistoryData();
               } else {
-                _this46.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this48.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this46.isDataLoaded = false;
+              _this48.isDataLoaded = false;
 
-              _this46.sharedService.openSnackBar('Server Error', 'error');
+              _this48.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateAbsenceForm",
           value: function updateAbsenceForm() {
-            var _this47 = this;
+            var _this49 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -5373,25 +5432,25 @@
               })
             };
             this.apartmentService.updateApartmentLongAbsence(params).subscribe(function (res) {
-              _this47.isDataLoaded = true;
+              _this49.isDataLoaded = true;
 
               if (res.message) {
-                _this47.sharedService.openSnackBar(res.message, 'success');
+                _this49.sharedService.openSnackBar(res.message, 'success');
 
-                _this47.getHistoryData();
+                _this49.getHistoryData();
               } else {
-                _this47.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this49.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this47.isDataLoaded = false;
+              _this49.isDataLoaded = false;
 
-              _this47.sharedService.openSnackBar('Server Error', 'error');
+              _this49.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "getHistoryData",
           value: function getHistoryData() {
-            var _this48 = this;
+            var _this50 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -5401,25 +5460,25 @@
             this.apartmentService.getOutofCondobyApartmentblockunituser(params).subscribe(function (unit) {
               if (unit && Array.isArray(unit)) {
                 if (unit.length > 0) {
-                  _this48.historyListData = unit.reverse();
-                  _this48.data = _this48.historyListData[0];
+                  _this50.historyListData = unit.reverse();
+                  _this50.data = _this50.historyListData[0];
                 }
               } else {
-                _this48.sharedService.openSnackBar(unit.errorMessage, 'error');
+                _this50.sharedService.openSnackBar(unit.errorMessage, 'error');
               }
 
-              _this48.clickMode = 'showAll';
-              _this48.isDataLoaded = true;
+              _this50.clickMode = 'showAll';
+              _this50.isDataLoaded = true;
             }, function (error) {
-              _this48.isDataLoaded = true;
+              _this50.isDataLoaded = true;
 
-              _this48.sharedService.openSnackBar('Server Error', 'error');
+              _this50.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this49 = this;
+            var _this51 = this;
 
             //this.userId = this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -5429,16 +5488,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unituserid && params.unitId) {
-                _this49.apartmentBlockUnitId = Number(params.unitId), _this49.apartmentBlockUnitUserId = Number(params.unituserid);
+                _this51.apartmentBlockUnitId = Number(params.unitId), _this51.apartmentBlockUnitUserId = Number(params.unituserid);
 
-                _this49.getHistoryData();
+                _this51.getHistoryData();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this49.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
+                _this51.isUserEdit = data.initialData.userIndicator[0].isOutOfCondo;
               }
             });
           }
@@ -5628,7 +5687,7 @@
         }, {
           key: "createProfileVehicle",
           value: function createProfileVehicle() {
-            var _this50 = this;
+            var _this52 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5650,18 +5709,18 @@
             this.vehicleService.addVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitId": _this50.apartmentBlockUnitId,
+                  "apartmentBlockUnitId": _this52.apartmentBlockUnitId,
                   "vehicleId": parseInt(res.message),
-                  "userId": _this50.sessionService.userId,
+                  "userId": _this52.sessionService.userId,
                   "documentId": null,
                   "parkingSlotId": null,
-                  "stickerNumber": _this50.vehicleFormData.stickerNumber,
-                  "rfid": _this50.vehicleFormData.rfid,
-                  "fromDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this50.vehicleFormData.fromDate).utcOffset(_this50.timeZone.offset).format(),
-                  "toDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this50.vehicleFormData.toDate).utcOffset(_this50.timeZone.offset).format(),
+                  "stickerNumber": _this52.vehicleFormData.stickerNumber,
+                  "rfid": _this52.vehicleFormData.rfid,
+                  "fromDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this52.vehicleFormData.fromDate).utcOffset(_this52.timeZone.offset).format(),
+                  "toDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this52.vehicleFormData.toDate).utcOffset(_this52.timeZone.offset).format(),
                   "isPassIssued": true,
                   "isActive": true,
-                  "insertedBy": parseInt(_this50.sessionService.userId),
+                  "insertedBy": parseInt(_this52.sessionService.userId),
                   "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                   "updatedBy": null,
                   "updatedOn": null
@@ -5670,39 +5729,39 @@
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this50.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this52.vehicleService.addApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this50.isDataLoaded = true;
-                    _this50.vehicleFormData = {};
+                    _this52.isDataLoaded = true;
+                    _this52.vehicleFormData = {};
 
-                    _this50.sharedService.openSnackBar("Vehicle added successfully", 'success');
+                    _this52.sharedService.openSnackBar("Vehicle added successfully", 'success');
 
-                    _this50.outputParams.emit(true);
+                    _this52.outputParams.emit(true);
                   } else {
-                    _this50.isDataLoaded = true;
+                    _this52.isDataLoaded = true;
 
-                    _this50.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this52.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this50.isDataLoaded = true;
+                  _this52.isDataLoaded = true;
 
-                  _this50.sharedService.openSnackBar('Server Error', 'error');
+                  _this52.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this50.isDataLoaded = true;
+                _this52.isDataLoaded = true;
 
-                _this50.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this52.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this50.isDataLoaded = true;
+              _this52.isDataLoaded = true;
 
-              _this50.sharedService.openSnackBar('Server Error', 'error');
+              _this52.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateProfileVehicle",
           value: function updateProfileVehicle() {
-            var _this51 = this;
+            var _this53 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -5725,62 +5784,62 @@
             this.vehicleService.updateVehicle(vehicleParams).subscribe(function (res) {
               if (res.message) {
                 var unitDetails = {
-                  "apartmentBlockUnitVehicleId": parseInt(_this51.vehicleData.apartmentBlockUnitVehicleId),
-                  "apartmentBlockUnitId": _this51.apartmentBlockUnitId,
-                  "vehicleId": parseInt(_this51.vehicleFormData.vehicleId),
-                  "userId": _this51.sessionService.userId,
+                  "apartmentBlockUnitVehicleId": parseInt(_this53.vehicleData.apartmentBlockUnitVehicleId),
+                  "apartmentBlockUnitId": _this53.apartmentBlockUnitId,
+                  "vehicleId": parseInt(_this53.vehicleFormData.vehicleId),
+                  "userId": _this53.sessionService.userId,
                   "documentId": null,
                   "parkingSlotId": null,
-                  "stickerNumber": _this51.vehicleFormData.stickerNumber,
-                  "rfid": _this51.vehicleFormData.rfid,
-                  "fromDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this51.vehicleFormData.fromDate).utcOffset(_this51.timeZone.offset).format(),
-                  "toDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this51.vehicleFormData.toDate).utcOffset(_this51.timeZone.offset).format(),
-                  "isPassIssued": _this51.vehicleFormData.isPassIssued,
-                  "isActive": _this51.vehicleFormData.isActive,
-                  "insertedBy": _this51.vehicleFormData.insertedBy,
-                  "insertedOn": _this51.vehicleFormData.insertedOn,
-                  "updatedBy": parseInt(_this51.sessionService.userId),
+                  "stickerNumber": _this53.vehicleFormData.stickerNumber,
+                  "rfid": _this53.vehicleFormData.rfid,
+                  "fromDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this53.vehicleFormData.fromDate).utcOffset(_this53.timeZone.offset).format(),
+                  "toDate": moment__WEBPACK_IMPORTED_MODULE_6__(_this53.vehicleFormData.toDate).utcOffset(_this53.timeZone.offset).format(),
+                  "isPassIssued": _this53.vehicleFormData.isPassIssued,
+                  "isActive": _this53.vehicleFormData.isActive,
+                  "insertedBy": _this53.vehicleFormData.insertedBy,
+                  "insertedOn": _this53.vehicleFormData.insertedOn,
+                  "updatedBy": parseInt(_this53.sessionService.userId),
                   "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
                 };
                 var unitParams = {
                   apartmentBlockUnitVehicle: unitDetails
                 };
 
-                _this51.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
+                _this53.vehicleService.updateApartmentBlockUnitVehicle(unitParams).subscribe(function (res) {
                   if (res.message) {
-                    _this51.isDataLoaded = true;
+                    _this53.isDataLoaded = true;
 
-                    _this51.sharedService.openSnackBar("Vehicle updated successfully", 'success');
+                    _this53.sharedService.openSnackBar("Vehicle updated successfully", 'success');
 
-                    _this51.outputParams.emit(true);
+                    _this53.outputParams.emit(true);
                   } else {
-                    _this51.isDataLoaded = true;
+                    _this53.isDataLoaded = true;
 
-                    _this51.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this53.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this51.isDataLoaded = true;
+                  _this53.isDataLoaded = true;
 
-                  _this51.sharedService.openSnackBar('Server Error', 'error');
+                  _this53.sharedService.openSnackBar('Server Error', 'error');
                 });
               } else {
-                _this51.isDataLoaded = true;
+                _this53.isDataLoaded = true;
 
-                _this51.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this53.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this51.isDataLoaded = true;
+              _this53.isDataLoaded = true;
 
-              _this51.sharedService.openSnackBar('Server Error', 'error');
+              _this53.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this52 = this;
+            var _this54 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this52.timeZone = timeZone;
+              return _this54.timeZone = timeZone;
             });
 
             if (!this.isAdmin) {
@@ -5789,14 +5848,14 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this52.apartmentBlockUnitId = Number(params.unitId);
+                _this54.apartmentBlockUnitId = Number(params.unitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this52.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this54.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             });
 
@@ -5967,23 +6026,23 @@
         }, {
           key: "vehicleList",
           value: function vehicleList(id) {
-            var _this53 = this;
+            var _this55 = this;
 
             this.isUserDataLoaded = false;
             var vehicleListParams = {
               apartmentBlockUnitId: id
             };
             this.vehicleService.getAllVehiclesByApartmentBlockUnitId(vehicleListParams).subscribe(function (res) {
-              _this53.isUserDataLoaded = true;
-              if (res.length > 0) _this53.vehicleDataList = res.reverse();
+              _this55.isUserDataLoaded = true;
+              if (res.length > 0) _this55.vehicleDataList = res.reverse();
             }, function (error) {
-              _this53.sharedService.openSnackBar('Server Error', 'error');
+              _this55.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this54 = this;
+            var _this56 = this;
 
             //this.userId = this.sessionService.profileUserId
             if (!this.isAdmin) {
@@ -5993,16 +6052,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this54.apartmentBlockUnitId = Number(params.unitId);
+                _this56.apartmentBlockUnitId = Number(params.unitId);
 
-                _this54.vehicleList(_this54.apartmentBlockUnitId);
+                _this56.vehicleList(_this56.apartmentBlockUnitId);
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this54.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
+                _this56.isUserEdit = data.initialData.userIndicator[0].isUserProfileCar;
               }
             }); //Vehicle Type DropDown
 
@@ -6011,14 +6070,14 @@
               LookupTypeId: 2
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe(function (res) {
-              _this54.vehicleTypeList = res;
+              _this56.vehicleTypeList = res;
             }); //parking List
 
             var parkingListParams = {
               apartmentIdBlockUnitId: this.apartmentBlockUnitId
             };
             this.vehicleService.getParkingSlotByApartmentIdUnitId(parkingListParams).subscribe(function (res) {
-              _this54.parkingSlotsDataList = res;
+              _this56.parkingSlotsDataList = res;
             });
           }
         }, {
@@ -6231,7 +6290,7 @@
         }, {
           key: "submitPropertyManagerCreateForm",
           value: function submitPropertyManagerCreateForm(form) {
-            var _this55 = this;
+            var _this57 = this;
 
             this.isDataLoaded = false;
             var details = {
@@ -6256,15 +6315,15 @@
             };
             this.propertyManagerService.addPropertyManager(params).subscribe(function (res) {
               if (res.message) {
-                _this55.sharedService.setAlertMessage("Property Manager added successfully");
+                _this57.sharedService.setAlertMessage("Property Manager added successfully");
 
-                _this55.propertyData = {};
-                _this55.isDataLoaded = true;
+                _this57.propertyData = {};
+                _this57.isDataLoaded = true;
 
-                _this55.outputParams.emit('close');
+                _this57.outputParams.emit('close');
               }
             }, function (error) {
-              _this55.isDataLoaded = true;
+              _this57.isDataLoaded = true;
               console.log(error);
             });
           }
@@ -6513,7 +6572,7 @@
         }, {
           key: "addPropertyManager",
           value: function addPropertyManager() {
-            var _this56 = this;
+            var _this58 = this;
 
             this.isDataLoaded = false;
             var propertyManagerParams = {
@@ -6540,22 +6599,22 @@
             };
             this.propertyManagerService.addPropertyManager(propertyManagerParams).subscribe(function (res) {
               if (res.message) {
-                _this56.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this58.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this56.getPropertyList();
+                _this58.getPropertyList();
               } else {
-                _this56.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this58.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this56.isDataLoaded = false;
+              _this58.isDataLoaded = false;
 
-              _this56.sharedService.openSnackBar('Server Error', 'error');
+              _this58.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updatePropertyManagerForm",
           value: function updatePropertyManagerForm() {
-            var _this57 = this;
+            var _this59 = this;
 
             this.isDataLoaded = false;
             var propertyManagerParams = {
@@ -6583,22 +6642,22 @@
             };
             this.propertyManagerService.updatePropertyManager(propertyManagerParams).subscribe(function (res) {
               if (res.message) {
-                _this57.sharedService.openSnackBar("Property Manager updated successfully", 'success');
+                _this59.sharedService.openSnackBar("Property Manager updated successfully", 'success');
 
-                _this57.getPropertyList();
+                _this59.getPropertyList();
               } else {
-                _this57.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this59.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this57.isDataLoaded = false;
+              _this59.isDataLoaded = false;
 
-              _this57.sharedService.openSnackBar('Server Error', 'error');
+              _this59.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "deletePropertyManager",
           value: function deletePropertyManager() {
-            var _this58 = this;
+            var _this60 = this;
 
             var message = "Are you sure you want to delete?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_6__["ConfirmDialogModel"]("Confirm Action", message);
@@ -6609,15 +6668,15 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this58.isDataLoaded = false;
+                _this60.isDataLoaded = false;
                 var details = {
-                  "propertyManagerId": _this58.propertyData.propertyManagerId,
-                  "deleteBy": _this58.userId
+                  "propertyManagerId": _this60.propertyData.propertyManagerId,
+                  "deleteBy": _this60.userId
                 };
 
-                _this58.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
+                _this60.propertyManagerService.deletePropertyManager(details).subscribe(function (res) {
                   if (res.message) {
-                    _this58.sharedService.setAlertMessage("Property Manager Deleted successfully");
+                    _this60.sharedService.setAlertMessage("Property Manager Deleted successfully");
                   }
                 }, function (error) {});
               }
@@ -6626,7 +6685,7 @@
         }, {
           key: "getPropertyList",
           value: function getPropertyList() {
-            var _this59 = this;
+            var _this61 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -6635,25 +6694,25 @@
             this.propertyManagerService.getPropertyManagerByApartmentBlockUnitId(params).subscribe(function (res) {
               if (res && Array.isArray(res)) {
                 if (res.length > 0) {
-                  _this59.propertyList = res.reverse();
-                  _this59.propertyData = res[0];
+                  _this61.propertyList = res.reverse();
+                  _this61.propertyData = res[0];
                 }
               } else {
-                _this59.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this61.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this59.clickMode = 'showAll';
-              _this59.isDataLoaded = true;
+              _this61.clickMode = 'showAll';
+              _this61.isDataLoaded = true;
             }, function (error) {
-              _this59.isDataLoaded = true;
+              _this61.isDataLoaded = true;
 
-              _this59.sharedService.openSnackBar('Server Error', 'error');
+              _this61.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this60 = this;
+            var _this62 = this;
 
             //this.userId =  this.sessionService.profileUserId;
             if (!this.isAdmin) {
@@ -6663,16 +6722,16 @@
 
             this._activatedRoute.queryParams.subscribe(function (params) {
               if (params && params.unitId) {
-                _this60.apartmentBlockUnitId = Number(params.unitId);
+                _this62.apartmentBlockUnitId = Number(params.unitId);
 
-                _this60.getPropertyList();
+                _this62.getPropertyList();
               }
             }); // Subscribe to the resolved route data
 
 
             this._activatedRoute.parent.data.subscribe(function (data) {
               if (data.initialData.userIndicator && data.initialData.userIndicator.length > 0) {
-                _this60.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
+                _this62.isUserEdit = data.initialData.userIndicator[0].isPropertyManager;
               }
             });
           }

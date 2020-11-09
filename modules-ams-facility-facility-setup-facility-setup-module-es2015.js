@@ -428,7 +428,7 @@ let FacilityCreateComponent = class FacilityCreateComponent {
             }
         });
         //delete slot
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
+        this.apiSubscription = this.sharedService.unitlistdeleteindexcast.subscribe(id => {
             if (id != null) {
                 var params = {
                     apartmentFacilityBookingId: id,
@@ -442,6 +442,9 @@ let FacilityCreateComponent = class FacilityCreateComponent {
                 });
             }
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscription.unsubscribe();
     }
 };
 FacilityCreateComponent.ctorParameters = () => [

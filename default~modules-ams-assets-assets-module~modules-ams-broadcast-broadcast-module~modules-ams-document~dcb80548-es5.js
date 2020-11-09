@@ -68,7 +68,7 @@
         text: 'Enter unit number with Comma or Enter Key'
       }, {
         id: 'dueDate',
-        title: 'addUnit',
+        title: 'dueDate',
         text: 'Enter the due date'
       }, {
         id: '',
