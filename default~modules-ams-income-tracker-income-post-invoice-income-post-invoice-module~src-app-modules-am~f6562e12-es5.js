@@ -542,12 +542,15 @@
               this.invoiceGLAccountsData.form = true;
             }
 
-            this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              _this.glAccountListData = res.filter(function (item) {
-                return item.isActive && _this.sessionService.apartmentId && item.indicator == _this.glAccountIndicator;
-              });
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              GLAccountTypeId: 165
+            };
+            this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe(function (res) {
+              _this.glAccountListData = res;
             });
             var vatListParams = {
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 77
             }; //VAT types
 
@@ -555,6 +558,7 @@
               _this.vatTypeDataList = res;
             });
             var disListParams = {
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 88
             }; //discount types
 
@@ -1009,8 +1013,8 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
-                "custInvoiceDate": this.invoice.custInvoiceDate,
-                "dueDate": this.invoice.dueDate,
+                "custInvoiceDate": moment__WEBPACK_IMPORTED_MODULE_10__(this.invoice.custInvoiceDate).utcOffset(this.timeZone.offset).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_10__(this.invoice.dueDate).utcOffset(this.timeZone.offset).format(),
                 "tax1": this.invoice.tax1,
                 "tax2": this.invoice.tax2,
                 "tax3": this.invoice.tax3,
@@ -1209,12 +1213,14 @@
               "discountDirectAmt": parseFloat(this.invoiceGLAccountsData.discountDirectAmt)
             }];
             var dateParams = {
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 74
             };
             this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe(function (res) {
-              _this5.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_10__().add(parseInt(res[0].lookupValueName), 'days');
+              if (res[0] != undefined) _this5.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_10__().add(parseInt(res[0].lookupValueName), 'days').add(_this5.timeZone.offset, 'hours');
             });
             var vatListParams = {
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 77
             }; //VAT types
 
@@ -1225,6 +1231,7 @@
               });
             });
             var disListParams = {
+              ApartmentId: this.sessionService.apartmentId,
               LookupTypeId: 88
             }; //discount types
 

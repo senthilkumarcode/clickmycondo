@@ -482,6 +482,7 @@
             this.isLoader = true;
             var params = {
               id: this.sessionService.apartmentId,
+              CategoryId: 1,
               PageNo: this.pagination.currentPage,
               PageSize: 5
             };

@@ -292,6 +292,7 @@ let ForumChatComponent = class ForumChatComponent {
         this.isLoader = true;
         let params = {
             id: this.sessionService.apartmentId,
+            CategoryId: 1,
             PageNo: this.pagination.currentPage,
             PageSize: 5,
         };

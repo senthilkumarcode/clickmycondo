@@ -343,12 +343,15 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
         if (this.isEditInvoice) {
             this.invoiceGLAccountsData.form = true;
         }
-        this.accountsService.getAllGlAccounts().subscribe((res) => {
-            this.glAccountListData = res.filter(item => {
-                return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
-            });
+        let params = {
+            apartmentId: this.sessionService.apartmentId,
+            GLAccountTypeId: 165
+        };
+        this.accountsService.getNewGlAccountsByGlAccountTypeId(params).subscribe((res) => {
+            this.glAccountListData = res;
         });
         let vatListParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 77
         };
         //VAT types
@@ -356,6 +359,7 @@ let IncomePostMultiInvoiceFieldsComponent = class IncomePostMultiInvoiceFieldsCo
             this.vatTypeDataList = res;
         });
         let disListParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 88
         };
         //discount types
@@ -681,8 +685,8 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
                 "apartmentId": this.sessionService.apartmentId,
                 "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
                 "custInvoiceAmount": parseFloat(this.invoice.custInvoiceAmount),
-                "custInvoiceDate": this.invoice.custInvoiceDate,
-                "dueDate": this.invoice.dueDate,
+                "custInvoiceDate": moment__WEBPACK_IMPORTED_MODULE_10__(this.invoice.custInvoiceDate).utcOffset(this.timeZone.offset).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_10__(this.invoice.dueDate).utcOffset(this.timeZone.offset).format(),
                 "tax1": this.invoice.tax1,
                 "tax2": this.invoice.tax2,
                 "tax3": this.invoice.tax3,
@@ -865,12 +869,15 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             }
         ];
         let dateParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 74
         };
         this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe((res) => {
-            this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_10__().add(parseInt(res[0].lookupValueName), 'days');
+            if (res[0] != undefined)
+                this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_10__().add(parseInt(res[0].lookupValueName), 'days').add(this.timeZone.offset, 'hours');
         });
         let vatListParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 77
         };
         //VAT types
@@ -881,6 +888,7 @@ let IncomePostMultiInvoiceComponent = class IncomePostMultiInvoiceComponent {
             });
         });
         let disListParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 88
         };
         //discount types

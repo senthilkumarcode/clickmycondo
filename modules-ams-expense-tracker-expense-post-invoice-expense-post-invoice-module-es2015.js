@@ -671,8 +671,8 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
                 "vendorId": parseInt(this.route.params['value'].id),
                 "vendorInvoiceNumber": this.invoice.vendorInvoiceNumber,
                 "vendorInvoiceAmount": parseFloat(this.invoice.vendorInvoiceAmount),
-                "vendorInvoiceDate": this.invoice.vendorInvoiceDate,
-                "dueDate": this.invoice.dueDate,
+                "vendorInvoiceDate": moment__WEBPACK_IMPORTED_MODULE_9__(this.invoice.vendorInvoiceDate).utcOffset(this.timeZone.offset).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__(this.invoice.dueDate).utcOffset(this.timeZone.offset).format(),
                 "tax1": null,
                 "tax2": null,
                 "tax3": null,
@@ -726,8 +726,8 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
                 "vendorId": parseInt(this.route.params['value'].id),
                 "vendorInvoiceNumber": this.invoice.vendorInvoiceNumber,
                 "vendorInvoiceAmount": parseFloat(this.invoice.vendorInvoiceAmount),
-                "vendorInvoiceDate": this.invoice.vendorInvoiceDate,
-                "dueDate": this.invoice.dueDate,
+                "vendorInvoiceDate": moment__WEBPACK_IMPORTED_MODULE_9__(this.invoice.vendorInvoiceDate).utcOffset(this.timeZone.offset).format(),
+                "dueDate": moment__WEBPACK_IMPORTED_MODULE_9__(this.invoice.dueDate).utcOffset(this.timeZone.offset).format(),
                 "tax1": this.invoice.tax1,
                 "tax2": this.invoice.tax2,
                 "tax3": this.invoice.tax3,
@@ -776,11 +776,12 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
         }
     }
     ngOnInit() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.invoice = {};
         this.invoice.vendorId = this.route.params['value'].id;
         this.invoice.vendorInvoiceNumber = "";
         this.invoice.vendorInvoiceAmount = 0;
-        this.invoice.vendorInvoiceDate = moment_timezone__WEBPACK_IMPORTED_MODULE_10___default()().toISOString();
+        this.invoice.vendorInvoiceDate = moment__WEBPACK_IMPORTED_MODULE_9__().utcOffset(this.timeZone.offset).format(this.timeZone.hours);
         this.invoice.isVat = false;
         this.invoice.totalVatamount = 0;
         this.invoice.isdiscount = false;
@@ -889,12 +890,15 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             }
         ];
         let dateParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 74
         };
         this.lookupService.getLookupValueByLookupTypeId(dateParams).subscribe((res) => {
-            this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days');
+            if (res[0] != undefined)
+                this.invoice.dueDate = moment__WEBPACK_IMPORTED_MODULE_9__().add(parseInt(res[0].lookupValueName), 'days').add(this.timeZone.offset, 'hours');
         });
         let vatListParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 77
         };
         //VAT types
@@ -905,6 +909,7 @@ let ExpensePostMultiInvoiceComponent = class ExpensePostMultiInvoiceComponent {
             });
         });
         let disListParams = {
+            ApartmentId: this.sessionService.apartmentId,
             LookupTypeId: 88
         };
         //discount types
