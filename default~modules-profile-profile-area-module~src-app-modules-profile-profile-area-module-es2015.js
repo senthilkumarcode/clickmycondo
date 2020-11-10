@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-timezone-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Time</h4>\n\n    <div class=\"bg-card shadow\">\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                   <condo-select \n                        labelText=\"Select Time Zone\"\n                        fieldPlaceholder=\"Select\"\n                        [fieldRequired]=\"'null'\"\n                        [fieldList]=\"timeZonesData\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"user.timeZone\"\n                        fieldId=\"abbr\"\n                        [isClear]=\"false\"\n                        (fieldParams)=\"getSelectedZone($event)\" \n\t\t\t\t\t></condo-select>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-timezone-wrapper p-5\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"mb-4\">Set Time</h4>\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n\n            <div class=\"bg-card shadow\">\n                \n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"Select Time Zone\"\n                            fieldPlaceholder=\"Select\"\n                            [fieldRequired]=\"'null'\"\n                            [fieldList]=\"timeZonesData\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"user.timeZone\"\n                            fieldId=\"abbr\"\n                            [isClear]=\"false\"\n                            (fieldParams)=\"getSelectedZone($event)\" \n                        ></condo-select>\n                        </div>\n                    </div>\n            </div>\n\n            <div class=\"float-right mt-4\">\n                <button mat-flat-button [color]=\"'primary'\">Submit</button>\n            </div>\n\n        </form>\n\n    </ng-container> \n\n</div>");
 
 /***/ }),
 
@@ -3022,28 +3022,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let ProfileTimezoneComponent = class ProfileTimezoneComponent {
-    constructor(_activatedRoute, _router, userService, sharedService, sessionService) {
+    constructor(_activatedRoute, userService, sharedService, sessionService) {
         this._activatedRoute = _activatedRoute;
-        this._router = _router;
         this.userService = userService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.timeZonesData = [];
-    }
-    submitTimeSettingsform(form) {
+        this.isDataLoaded = true;
     }
     getSelectedZone(event) {
         this.user.timeZone = event[0].abbr;
+    }
+    submitTimeSettingsform(form) {
+        this.isDataLoaded = false;
         let params = {
             user: this.user
         };
         this.userService.updateUser(params).subscribe((res) => {
             if (res.message) {
-                this.sessionService.zone = event[0].abbr;
+                this.isDataLoaded = true;
+                this.sessionService.zone = this.user.timeZone;
                 this.sharedService.setTimeZone(this.sessionService.zone);
                 this.sharedService.openSnackBar('Timezone updated Successfully', 'success');
             }
             else {
+                this.isDataLoaded = true;
                 this.sharedService.openSnackBar('Some error occured', 'error');
             }
         }, error => {
@@ -3063,7 +3066,6 @@ let ProfileTimezoneComponent = class ProfileTimezoneComponent {
 };
 ProfileTimezoneComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
@@ -3075,7 +3077,6 @@ ProfileTimezoneComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile-timezone.component.scss */ "./src/app/modules/profile/profile-timezone/profile-timezone.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
         src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])

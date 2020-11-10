@@ -294,7 +294,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <h4 class=\"mb-4\">Set Time</h4>\n\n    <div class=\"bg-card shadow\">\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                   <condo-select \n                        labelText=\"Select Time Zone\"\n                        fieldPlaceholder=\"Select\"\n                        [fieldRequired]=\"'null'\"\n                        [fieldList]=\"timeZonesData\"\n                        fieldValue=\"customLabel\"\n                        [fieldModel]=\"user.timeZone\"\n                        fieldId=\"abbr\"\n                        [isClear]=\"false\"\n                        (fieldParams)=\"getSelectedZone($event)\" \n\t\t\t\t\t></condo-select>\n                </div>\n            </div>\n        </form>\n        \n\n    </div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"mb-4\">Set Time</h4>\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n\n            <div class=\"bg-card shadow\">\n                \n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"Select Time Zone\"\n                            fieldPlaceholder=\"Select\"\n                            [fieldRequired]=\"'null'\"\n                            [fieldList]=\"timeZonesData\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"user.timeZone\"\n                            fieldId=\"abbr\"\n                            [isClear]=\"false\"\n                            (fieldParams)=\"getSelectedZone($event)\" \n                        ></condo-select>\n                        </div>\n                    </div>\n            </div>\n\n            <div class=\"float-right mt-4\">\n                <button mat-flat-button [color]=\"'primary'\">Submit</button>\n            </div>\n\n        </form>\n\n    </ng-container> \n\n</div>";
       /***/
     },
 
@@ -4723,37 +4723,42 @@
       "./src/app/core/session/session.service.ts");
 
       var ProfileTimezoneComponent = /*#__PURE__*/function () {
-        function ProfileTimezoneComponent(_activatedRoute, _router, userService, sharedService, sessionService) {
+        function ProfileTimezoneComponent(_activatedRoute, userService, sharedService, sessionService) {
           _classCallCheck(this, ProfileTimezoneComponent);
 
           this._activatedRoute = _activatedRoute;
-          this._router = _router;
           this.userService = userService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.timeZonesData = [];
+          this.isDataLoaded = true;
         }
 
         _createClass(ProfileTimezoneComponent, [{
-          key: "submitTimeSettingsform",
-          value: function submitTimeSettingsform(form) {}
-        }, {
           key: "getSelectedZone",
           value: function getSelectedZone(event) {
+            this.user.timeZone = event[0].abbr;
+          }
+        }, {
+          key: "submitTimeSettingsform",
+          value: function submitTimeSettingsform(form) {
             var _this42 = this;
 
-            this.user.timeZone = event[0].abbr;
+            this.isDataLoaded = false;
             var params = {
               user: this.user
             };
             this.userService.updateUser(params).subscribe(function (res) {
               if (res.message) {
-                _this42.sessionService.zone = event[0].abbr;
+                _this42.isDataLoaded = true;
+                _this42.sessionService.zone = _this42.user.timeZone;
 
                 _this42.sharedService.setTimeZone(_this42.sessionService.zone);
 
                 _this42.sharedService.openSnackBar('Timezone updated Successfully', 'success');
               } else {
+                _this42.isDataLoaded = true;
+
                 _this42.sharedService.openSnackBar('Some error occured', 'error');
               }
             }, function (error) {});
@@ -4783,8 +4788,6 @@
         return [{
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
@@ -4801,7 +4804,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./profile-timezone.component.scss */
         "./src/app/modules/profile/profile-timezone/profile-timezone.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], ProfileTimezoneComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])], ProfileTimezoneComponent);
       /***/
     },
 
