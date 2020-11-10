@@ -1292,8 +1292,12 @@ let UnapprovedComponent = class UnapprovedComponent {
                 width: 120,
                 cellsrenderer: (row) => {
                     return '<div class="simple-actions">'
-                        + '<a href="javascript:void(0)" class="mr-3" onClick="viewUserInfo(' + row + ')"><i class="fa fa-eye icon view" aria-hidden="true"></i></a>'
-                        + '<a href="javascript:void(0)" class="mr-2" onClick="deleteUnApprove(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>'
+                        + '<a href="javascript:void(0)" class="mr-2" onClick="viewUserInfo(' + row + ')">'
+                        + '<svg class="view" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>'
+                        + '</a>'
+                        + '<a href="javascript:void(0)" class="mr-2" onClick="deleteUnApprove(' + row + ')">'
+                        + '<svg class="delete" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>'
+                        + '</a>'
                         + '</div>';
                 },
                 renderer: columnrenderer
