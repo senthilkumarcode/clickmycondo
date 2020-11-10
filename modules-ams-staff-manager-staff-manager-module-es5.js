@@ -777,7 +777,7 @@
       "./src/app/api/controllers/Vendor.ts");
 
       var AddStaffComponent = /*#__PURE__*/function () {
-        function AddStaffComponent(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService, vendor) {
+        function AddStaffComponent(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService, vendor, activateRouter) {
           _classCallCheck(this, AddStaffComponent);
 
           this.router = router;
@@ -790,6 +790,7 @@
           this.emailSendService = emailSendService;
           this.screenService = screenService;
           this.vendor = vendor;
+          this.activateRouter = activateRouter;
           this.isEditStaff = false;
           this.isStaffSubmitted = false;
           this.isFileAdded = false;
@@ -1042,7 +1043,9 @@
                 "insertedBy": this.sessionService.userId,
                 "updatedBy": null,
                 "secLevelId": this.staff.secLevelId,
-                "phonecountrycode": this.staff.userPhoneNumber.countryCode
+                "timeZone": this.staff.timeZone,
+                "phonecountrycode": this.staff.userPhoneNumber.countryCode,
+                "phonecountrycodeno": this.staff.phoneNumber.dialCode
               };
               var userParams = {
                 user: userDetails
@@ -1311,6 +1314,11 @@
           value: function ngOnInit() {
             var _this11 = this;
 
+            // Set TimeZone 
+            this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
+              if (data) _this11.staff.timeZone = data.initialData.apartment.timesettings;else _this11.staff.timeZone = '';
+            });
+
             if (this.route.params['value'].id != undefined) {
               this.isEditStaff = true;
               this.staffId = this.route.params['value'].id;
@@ -1404,6 +1412,8 @@
           type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"]
         }, {
           type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }];
       };
 
@@ -1429,7 +1439,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-staff.component.scss */
         "./src/app/modules/ams/staff-manager/components/add-staff/add-staff.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__["EmailSendService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"]])], AddStaffComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_3__["UserService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_4__["StaffService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_6__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__["EmailSendService"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"], src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])], AddStaffComponent);
       /***/
     },
 

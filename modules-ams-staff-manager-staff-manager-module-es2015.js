@@ -520,7 +520,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AddStaffComponent = class AddStaffComponent {
-    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService, vendor) {
+    constructor(router, route, userService, staffService, lookupService, sharedService, sessionService, emailSendService, screenService, vendor, activateRouter) {
         this.router = router;
         this.route = route;
         this.userService = userService;
@@ -531,6 +531,7 @@ let AddStaffComponent = class AddStaffComponent {
         this.emailSendService = emailSendService;
         this.screenService = screenService;
         this.vendor = vendor;
+        this.activateRouter = activateRouter;
         this.isEditStaff = false;
         this.isStaffSubmitted = false;
         this.isFileAdded = false;
@@ -735,7 +736,9 @@ let AddStaffComponent = class AddStaffComponent {
                 "insertedBy": this.sessionService.userId,
                 "updatedBy": null,
                 "secLevelId": this.staff.secLevelId,
-                "phonecountrycode": this.staff.userPhoneNumber.countryCode
+                "timeZone": this.staff.timeZone,
+                "phonecountrycode": this.staff.userPhoneNumber.countryCode,
+                "phonecountrycodeno": this.staff.phoneNumber.dialCode
             };
             let userParams = {
                 user: userDetails
@@ -978,6 +981,13 @@ let AddStaffComponent = class AddStaffComponent {
         }
     }
     ngOnInit() {
+        // Set TimeZone 
+        this.activateRouter.parent.parent.parent.data.subscribe((data) => {
+            if (data)
+                this.staff.timeZone = data.initialData.apartment.timesettings;
+            else
+                this.staff.timeZone = '';
+        });
         if (this.route.params['value'].id != undefined) {
             this.isEditStaff = true;
             this.staffId = this.route.params['value'].id;
@@ -1048,7 +1058,8 @@ AddStaffComponent.ctorParameters = () => [
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"] },
     { type: src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__["EmailSendService"] },
     { type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"] },
-    { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"] }
+    { type: src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
 ];
 AddStaffComponent.propDecorators = {
     index: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"], args: ['index',] }],
@@ -1071,7 +1082,8 @@ AddStaffComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"],
         src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_10__["EmailSendService"],
         src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_12__["ScreenService"],
-        src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"]])
+        src_app_api_controllers_Vendor__WEBPACK_IMPORTED_MODULE_13__["VendorService"],
+        _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]])
 ], AddStaffComponent);
 
 

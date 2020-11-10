@@ -68,7 +68,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"unitData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/unit&users/info/add-users\"\n\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div >\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" [disabled]=\"!isUserSelected\" (click)=\"rejPopUpOpen()\">Reject User</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n\n<ng-template #rejectedReason>\n\t<div class=\"bg-card shadow mb-0\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Reject User</h4>\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<form>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comment</label>\n\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comments\" #reason></textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\" (click)=\"rejPopUpClose(reason.value)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</ng-template>";
+      __webpack_exports__["default"] = "<div class=\"unapproved-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isUserDataLoaded\"></app-loader>\n\n\t<div class=\"main unapproved-card\">\n\n\t\t<!-- Tips -->\n\t\t<div class=\"bg-card shadow p-0\">\n\t\t\t\t<mat-accordion>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Tips</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"text-hint\">\n\t\t\t\t\t\t\t\t<p>Tips :  Gives the list of users unapproved by the Admin.</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t</mat-accordion>\n\t\t\t</div>\n\n\t\t<condo-card *ngIf=\"isUserDataLoaded\">\n\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Unapproved Users</h4>\n\t\t\t\t\t\t<p>{{totalUserItems}} results</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t<app-table-search [input]=\"unitData\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/unit&users/info/add-users\"\n\t\t\t\t\t\trouterLinkActive=\"active\" [routerLinkActiveOptions]=\"{exact:true}\">Add User</button>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" \n\t\t\t\t\t\t[disabled]=\"!isUserSelected\"\n\t\t\t\t\t\t(click)=\"approveUsers()\">Approve Selected Users</button>\n\t\t\t\t\t</div >\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" [disabled]=\"!isUserSelected\" (click)=\"rejPopUpOpen()\">Reject User</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t</div>\n\t\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid \n\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t[pageable]=\"true\" \n\t\t\t\t[filterable]=\"true\" \n\t\t\t\t[sortable]=\"true\" \n\t\t\t\t[source]=\"unitListData\"\n\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t#datagrid>\n\t\t\t\t</jqxGrid> \n\t\t\t</div>\n\t\n\t\t</condo-card>\n\n\t\t<!-- <div class=\"user-info-card\" *ngIf=\"isProfile\">\n\t\t\t<div class=\"d-flex bg-card p-2 mb-0 border-bottom\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"\t></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<router-outlet></router-outlet>\n\t\t</div> -->\n\n\t</div>\n\n</div>\n\n\n<ng-template #rejectedReason>\n\t<div class=\"bg-card shadow mb-0\">\n\t\t<div class=\"d-flex mb-4\">\n\t\t\t<h4>Reject User</h4>\n\t\t\t<mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n\t\t</div>\n\t\t<form>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comment</label>\n\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"comments\" #reason></textarea>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<button class=\"float-right\"  mat-flat-button  [color]=\"'primary'\" (click)=\"rejPopUpClose(reason.value)\">Submit</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</form>\n\t</div>\n</ng-template>";
       /***/
     },
 
@@ -201,7 +201,7 @@
       var moment_timezone__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_13__);
 
       var AddUsersResidentComponent = /*#__PURE__*/function () {
-        function AddUsersResidentComponent(dialog, router, userService, emailSendService, apartmentService, sharedService, sessionService, constantsService, cd) {
+        function AddUsersResidentComponent(dialog, router, userService, emailSendService, apartmentService, sharedService, sessionService, constantsService, activateRouter, cd) {
           _classCallCheck(this, AddUsersResidentComponent);
 
           this.dialog = dialog;
@@ -212,6 +212,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.constantsService = constantsService;
+          this.activateRouter = activateRouter;
           this.cd = cd;
           this.isUserSubmitted = false;
           this.isValidEmail = false;
@@ -548,8 +549,9 @@
                 "updatedBy": 0,
                 "isDocSubmitted": false,
                 "readyForApproval": false,
-                "timeZone": "",
-                "phonecountrycode": this.user.phoneNumber.countryCode
+                "timeZone": this.user.timeZone,
+                "phonecountrycode": this.user.phoneNumber.countryCode,
+                "phonecountrycodeno": this.user.phoneNumber.dialCode
               };
               var params = {
                 user: userDetails
@@ -676,7 +678,11 @@
           value: function ngOnInit() {
             var _this8 = this;
 
-            //Tower List
+            // Set TimeZone 
+            this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
+              if (data) _this8.user.timeZone = data.initialData.apartment.timesettings;else _this8.user.timeZone = '';
+            }); //Tower List
+
             var tower = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -709,6 +715,8 @@
         }, {
           type: src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"]
         }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
@@ -729,7 +737,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-users-resident.component.scss */
         "./src/app/modules/ams/unit-users/components/add-users-resident/add-users-resident.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__["EmailSendService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddUsersResidentComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_5__["UserService"], src_app_api_controllers_EmailSend__WEBPACK_IMPORTED_MODULE_6__["EmailSendService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_7__["ApartmentService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_9__["SessionService"], src_app_shared_services_constants_service__WEBPACK_IMPORTED_MODULE_10__["ConstantsService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddUsersResidentComponent);
       /***/
     },
 

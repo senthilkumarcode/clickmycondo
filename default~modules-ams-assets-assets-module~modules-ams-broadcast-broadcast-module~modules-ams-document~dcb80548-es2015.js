@@ -144,6 +144,16 @@ const defaultTooltip = [
         title: 'guestName',
         text: 'Enter the Guest Name for whom the Facility is booked'
     },
+    {
+        id: 'addRadioButton',
+        title: 'addRadioButton',
+        text: 'After entering radio button name, press Enterkey to add another radio button'
+    },
+    {
+        id: 'stickerNumber',
+        title: 'stickerNumber',
+        text: 'Enter the Pass Number'
+    },
 ];
 
 
