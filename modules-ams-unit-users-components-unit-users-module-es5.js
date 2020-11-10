@@ -1664,7 +1664,6 @@
         }, {
           key: "onviewUserInfo",
           value: function onviewUserInfo(detail) {
-            console.log(detail);
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             this.viewUserInfo(dataRecord);
           }

@@ -1198,7 +1198,6 @@ let UnapprovedComponent = class UnapprovedComponent {
         this.modalService.showConfirmModal(detail.rowId);
     }
     onviewUserInfo(detail) {
-        console.log(detail);
         let dataRecord = this.datagrid.getrowdata(detail.rowId);
         this.viewUserInfo(dataRecord);
     }
