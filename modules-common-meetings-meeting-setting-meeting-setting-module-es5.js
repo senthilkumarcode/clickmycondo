@@ -1092,7 +1092,8 @@
 
             this.meeting = {};
             var params = {
-              LookupTypeId: 21
+              LookupTypeId: 21,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this12.meetingCategoryData = res.filter(function (item) {

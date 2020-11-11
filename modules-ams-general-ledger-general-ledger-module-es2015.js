@@ -580,7 +580,8 @@ let AddGlAccountComponent = class AddGlAccountComponent {
             });
         });
         let defaultParams = {
-            LookupTypeId: 60
+            LookupTypeId: 60,
+            ApartmentId: this.sessionService.apartmentId
         };
         //bank details
         this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe((res) => {
@@ -1184,7 +1185,8 @@ let GlEquityMemberFundComponent = class GlEquityMemberFundComponent {
             });
         });
         let bankListParams = {
-            LookupTypeId: 27
+            LookupTypeId: 27,
+            ApartmentId: this.sessionService.apartmentId
         };
         //bank details
         this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe((res) => {
@@ -1408,7 +1410,8 @@ let GlExpenseComponent = class GlExpenseComponent {
             });
         });
         let bankListParams = {
-            LookupTypeId: 27
+            LookupTypeId: 27,
+            ApartmentId: this.sessionService.apartmentId
         };
         //bank details
         this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe((res) => {
@@ -2557,7 +2560,8 @@ let GlIncomeComponent = class GlIncomeComponent {
             });
         });
         let bankListParams = {
-            LookupTypeId: 27
+            LookupTypeId: 27,
+            ApartmentId: this.sessionService.apartmentId
         };
         //bank details
         this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe((res) => {

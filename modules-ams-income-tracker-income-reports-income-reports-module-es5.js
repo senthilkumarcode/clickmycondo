@@ -497,7 +497,8 @@
               });
             });
             var glDocParams = {
-              LookupTypeId: 31
+              LookupTypeId: 31,
+              ApartmentId: this.sessionService.apartmentId
             }; //Gl Document 
 
             this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {
@@ -763,7 +764,8 @@
               });
             });
             var glDocParams = {
-              LookupTypeId: 31
+              LookupTypeId: 31,
+              ApartmentId: this.sessionService.apartmentId
             }; //Gl Document 
 
             this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe(function (res) {

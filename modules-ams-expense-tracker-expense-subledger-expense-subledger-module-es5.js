@@ -419,7 +419,8 @@
                 if (item.due >= 0) _this2.totalDueAmount = _this2.totalDueAmount + item.due;
               });
               var lookUp = {
-                LookupTypeId: 57
+                LookupTypeId: 57,
+                ApartmentId: _this2.sessionService.apartmentId
               };
 
               _this2.lookupService.getLookupValueByLookupTypeId(lookUp).subscribe(function (res) {

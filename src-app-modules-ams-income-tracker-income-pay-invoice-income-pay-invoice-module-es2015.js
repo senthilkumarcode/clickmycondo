@@ -684,7 +684,8 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         this.collection.collectionStatusId = "";
         this.apartmentBlockUnitId = this._activatedRoute.params['value'].id;
         let paymentListParams = {
-            LookupTypeId: 34
+            LookupTypeId: 34,
+            ApartmentId: this.sessionService.apartmentId
         };
         //payment status
         this.lookupService.getLookupValueByLookupTypeId(paymentListParams).subscribe((res) => {
@@ -694,7 +695,8 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         }, error => {
         });
         let insListParams = {
-            LookupTypeId: 33
+            LookupTypeId: 33,
+            ApartmentId: this.sessionService.apartmentId
         };
         //payment mode
         this.lookupService.getLookupValueByLookupTypeId(insListParams).subscribe((res) => {

@@ -627,14 +627,16 @@
               console.log(error);
             });
             var emergencyParams = {
-              LookupTypeId: 29
+              LookupTypeId: 29,
+              ApartmentId: this.sessionService.apartmentId
             }; //get emergency types
 
             this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe(function (res) {
               _this2.emergencyTypeList = res;
             });
             var alertParams = {
-              LookupTypeId: 30
+              LookupTypeId: 30,
+              ApartmentId: this.sessionService.apartmentId
             }; //get alert status types
 
             this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe(function (res) {
@@ -1081,7 +1083,8 @@
               console.log(error);
             });
             var emergencyParams = {
-              LookupTypeId: 29
+              LookupTypeId: 29,
+              ApartmentId: this.sessionService.apartmentId
             }; //get emergency types
 
             this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe(function (res) {
@@ -1092,7 +1095,8 @@
               // this.historyData = new jqx.dataAdapter(this.gridSourceData);
             });
             var alertParams = {
-              LookupTypeId: 30
+              LookupTypeId: 30,
+              ApartmentId: this.sessionService.apartmentId
             }; //get alert status types
 
             this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe(function (res) {
@@ -1548,7 +1552,8 @@
               _this8.blockData = res;
             });
             var sec_params = {
-              LookupTypeId: 29
+              LookupTypeId: 29,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(sec_params).subscribe(function (res) {
               _this8.securityCategoryData = res.filter(function (item) {
@@ -1556,7 +1561,8 @@
               });
             });
             var alert_params = {
-              LookupTypeId: 30
+              LookupTypeId: 30,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(alert_params).subscribe(function (res) {
               _this8.alertTypeStatus = res.filter(function (item) {
@@ -2263,7 +2269,8 @@
               this.isSecurityCategorySubmitted = false;
               this.isEdit = true;
               var param = {
-                LookupTypeId: 29
+                LookupTypeId: 29,
+                ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
                 _this14.isSecurityCategorySubmitted = true;
@@ -2520,7 +2527,8 @@
             var _this15 = this;
 
             var param = {
-              LookupTypeId: 29
+              LookupTypeId: 29,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(param).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll)).subscribe(function (res) {
               _this15.isSecurityCategoryLoaded = true;

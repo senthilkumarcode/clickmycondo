@@ -867,7 +867,8 @@ let AddVehicleComponent = class AddVehicleComponent {
     ngOnInit() {
         this.vehicle = {};
         let params = {
-            LookupTypeId: 2
+            LookupTypeId: 2,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get vehicle type
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
@@ -1486,7 +1487,8 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
         });
         //Status
         let slotTypeParams = {
-            LookupTypeId: 97
+            LookupTypeId: 97,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe((res) => {
             if (res.length > 0) {
@@ -2715,7 +2717,8 @@ let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent 
     }
     getMasterData() {
         let mainTypeParam = {
-            LookupTypeId: 71
+            LookupTypeId: 71,
+            ApartmentId: this.sessionService.apartmentId
         };
         //slot main type
         this.lookupService.getLookupValueByLookupTypeId(mainTypeParam).subscribe((res) => {
@@ -2725,7 +2728,8 @@ let ParkingCreateParkingSlotComponent = class ParkingCreateParkingSlotComponent 
         });
         //slot type
         let slotTypeParams = {
-            LookupTypeId: 18
+            LookupTypeId: 18,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe((res) => {
             this.slotTypeList = res.filter(item => {
@@ -3203,7 +3207,8 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
     }
     ngOnInit() {
         let slotParams = {
-            LookupTypeId: 18
+            LookupTypeId: 18,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get slot type
         this.lookupService.getLookupValueByLookupTypeId(slotParams).subscribe((res) => {
@@ -3211,7 +3216,8 @@ let ParkingManagementAllottedComponent = class ParkingManagementAllottedComponen
         }, error => {
         });
         let vehicleParams = {
-            LookupTypeId: 2
+            LookupTypeId: 2,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get vehicle type
         this.lookupService.getLookupValueByLookupTypeId(vehicleParams).subscribe((res) => {
@@ -3529,7 +3535,8 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
     ngOnInit() {
         this.getSlotType();
         let slotMainParams = {
-            LookupTypeId: 71
+            LookupTypeId: 71,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe((res) => {
             this.slotMainTypeDataList = res.filter(item => {
@@ -3542,7 +3549,8 @@ let ParkingManagementSlotTypesComponent = class ParkingManagementSlotTypesCompon
      */
     getSlotType() {
         let slotListParams = {
-            LookupTypeId: 18
+            LookupTypeId: 18,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(slotListParams).subscribe((res) => {
             this.slotDataList = res.filter(item => {
@@ -3825,7 +3833,8 @@ let ParkingManagementVehicleTypesComponent = class ParkingManagementVehicleTypes
     }
     getVehicleTypeList() {
         let vehicleDataListParams = {
-            LookupTypeId: 2
+            LookupTypeId: 2,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(vehicleDataListParams).subscribe((res) => {
             this.vehicleDataList = res.filter(item => {
@@ -3935,7 +3944,8 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
     }
     getVehicleType() {
         let categoryParams = {
-            LookupTypeId: 2
+            LookupTypeId: 2,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get vehcile type
         this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
@@ -3947,7 +3957,8 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
     }
     getMainSlotType() {
         let slotCategoryParams = {
-            LookupTypeId: 71
+            LookupTypeId: 71,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get main slot type
         this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe((res) => {
@@ -3959,7 +3970,8 @@ let ParkingManagementSettingsComponent = class ParkingManagementSettingsComponen
     }
     getSlotType() {
         let slotCategoryParams = {
-            LookupTypeId: 18
+            LookupTypeId: 18,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get slot type
         this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe((res) => {

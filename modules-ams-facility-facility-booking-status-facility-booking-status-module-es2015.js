@@ -115,7 +115,8 @@ let FacilityBookingConfirmationComponent = class FacilityBookingConfirmationComp
                 this.facilityBookingListComponent.matDrawer.open();
                 //Status
                 let statusParams = {
-                    LookupTypeId: 40
+                    LookupTypeId: 40,
+                    ApartmentId: this.sessionService.apartmentId
                 };
                 this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
                     this.statusTypeData = res;
@@ -373,7 +374,8 @@ let FacilityBookingListComponent = class FacilityBookingListComponent {
             let yesterday = moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(1, 'days').utc().format();
             this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_11__(yesterday).subtract(2, 'month').utc().format();
             let statusParams = {
-                LookupTypeId: 40
+                LookupTypeId: 40,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
                 this.statusTypeData = res;

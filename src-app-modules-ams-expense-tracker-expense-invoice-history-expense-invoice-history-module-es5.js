@@ -327,7 +327,8 @@
               });
               _this2.isVendorDataLoaded = true;
               var categoryParams = {
-                LookupTypeId: 57
+                LookupTypeId: 57,
+                ApartmentId: _this2.sessionService.apartmentId
               };
 
               _this2.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {

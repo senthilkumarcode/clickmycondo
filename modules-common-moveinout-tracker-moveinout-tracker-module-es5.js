@@ -4093,7 +4093,8 @@
             }); //document type
 
             var docListparams = {
-              LookupTypeId: 72
+              LookupTypeId: 72,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe(function (res) {
               _this38.documentTypeDataList = res;

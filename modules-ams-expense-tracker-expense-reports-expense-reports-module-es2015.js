@@ -221,7 +221,8 @@ let ExpenseReportsVendorComponent = class ExpenseReportsVendorComponent {
         });
         //Gl Document 
         let documentParams = {
-            LookupTypeId: 31
+            LookupTypeId: 31,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(documentParams).subscribe((res) => {
             this.glDocumentTypeDataList = res;

@@ -651,7 +651,8 @@ let SendPanicAlertComponent = class SendPanicAlertComponent {
     }
     ngOnInit() {
         let emergencyListParams = {
-            LookupTypeId: 29
+            LookupTypeId: 29,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get emergency services
         this.lookupService.getLookupValueByLookupTypeId(emergencyListParams).subscribe((res) => {

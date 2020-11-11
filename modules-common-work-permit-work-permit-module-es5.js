@@ -1249,7 +1249,8 @@
               _this13.vendorList = res;
             });
             var statusParams = {
-              LookupTypeId: 91
+              LookupTypeId: 91,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
               if (_this13.activateRouter.params['value'].type) {
@@ -2952,7 +2953,8 @@
             var _this29 = this;
 
             var statusParams = {
-              LookupTypeId: 91
+              LookupTypeId: 91,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
               if (res.length > 0) {

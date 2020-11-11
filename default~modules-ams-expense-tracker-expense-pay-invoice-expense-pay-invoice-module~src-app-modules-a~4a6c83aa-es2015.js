@@ -336,7 +336,8 @@ let ExpensePayInvoiceComponent = class ExpensePayInvoiceComponent {
             });
             this.isVendorDataLoaded = true;
             let categoryParams = {
-                LookupTypeId: 57
+                LookupTypeId: 57,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                 this.vendorCategoryData = res.filter(item => {
@@ -553,7 +554,8 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
         this.collection = {};
         this.collection.instrumentTypeId = "";
         let params = {
-            LookupTypeId: 33
+            LookupTypeId: 33,
+            ApartmentId: this.sessionService.apartmentId
         };
         //payment mode
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {

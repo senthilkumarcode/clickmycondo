@@ -576,7 +576,8 @@
               renderer: columnrenderer
             }];
             var params = {
-              LookupTypeId: 57
+              LookupTypeId: 57,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this3.isVendorCategoryLoaded = true;
@@ -585,7 +586,8 @@
               }); //vendor type
 
               var vendorTypeParams = {
-                LookupTypeId: 58
+                LookupTypeId: 58,
+                ApartmentId: _this3.sessionService.apartmentId
               };
 
               _this3.lookupService.getLookupValueByLookupTypeId(vendorTypeParams).subscribe(function (res) {
@@ -1076,7 +1078,8 @@
               _this4.glAccountListData = res;
             });
             var params = {
-              LookupTypeId: 57
+              LookupTypeId: 57,
+              ApartmentId: this.sessionService.apartmentId
             }; //vendor Category
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
@@ -1085,7 +1088,8 @@
               });
             }, function (error) {});
             var vendorParams = {
-              LookupTypeId: 59
+              LookupTypeId: 59,
+              ApartmentId: this.sessionService.apartmentId
             }; //vendor type
 
             this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
@@ -1587,7 +1591,8 @@
               _this8.selectReport(_this8.pageName);
             }, function (error) {});
             var vendorParams = {
-              LookupTypeId: 57
+              LookupTypeId: 57,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
               _this8.vendorCategoryData = res.filter(function (item) {
@@ -1990,7 +1995,8 @@
               _this10.isVendorLoaded = true;
             }, function (error) {});
             var vendorParams = {
-              LookupTypeId: 57
+              LookupTypeId: 57,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe(function (res) {
               _this10.vendorCategoryData = res.filter(function (item) {
@@ -2257,7 +2263,8 @@
               this.lookupService.addLookupValue(params).subscribe(function (res) {
                 if (res.message) {
                   var categoryParams = {
-                    LookupTypeId: 57
+                    LookupTypeId: 57,
+                    ApartmentId: _this12.sessionService.apartmentId
                   };
 
                   _this12.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
@@ -2297,7 +2304,8 @@
               this.lookupService.updateLookupValue(_params).subscribe(function (res) {
                 if (res.message) {
                   var categoryParams = {
-                    LookupTypeId: 57
+                    LookupTypeId: 57,
+                    ApartmentId: _this12.sessionService.apartmentId
                   };
 
                   _this12.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
@@ -2325,7 +2333,8 @@
             var _this13 = this;
 
             var categoryParams = {
-              LookupTypeId: 57
+              LookupTypeId: 57,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
               _this13.vendorCategoryData = res.filter(function (item) {

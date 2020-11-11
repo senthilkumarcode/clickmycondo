@@ -1245,7 +1245,8 @@
               _this14.vendorDataList = res;
             });
             var inventoryListparams = {
-              LookupTypeId: 20
+              LookupTypeId: 20,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(inventoryListparams).subscribe(function (res) {
               _this14.inventoryCategoryDataList = res;
@@ -3207,7 +3208,8 @@
               _this41.unitBlocksData = res;
             });
             var params = {
-              LookupTypeId: 87
+              LookupTypeId: 87,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
@@ -3558,7 +3560,8 @@
               _this43.unitBlocksData = res;
             });
             var params = {
-              LookupTypeId: 87
+              LookupTypeId: 87,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
@@ -5328,7 +5331,8 @@
 
             this.inventory = {};
             var params = {
-              LookupTypeId: 20
+              LookupTypeId: 20,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this67.inventoryCategoryData = res.filter(function (item) {

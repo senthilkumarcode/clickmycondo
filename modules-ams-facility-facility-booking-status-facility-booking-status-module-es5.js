@@ -208,7 +208,8 @@
 
 
                 var statusParams = {
-                  LookupTypeId: 40
+                  LookupTypeId: 40,
+                  ApartmentId: _this2.sessionService.apartmentId
                 };
 
                 _this2.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
@@ -589,7 +590,8 @@
               var yesterday = moment__WEBPACK_IMPORTED_MODULE_11__(new Date()).subtract(1, 'days').utc().format();
               this.filterFacility.eventDate_From = moment__WEBPACK_IMPORTED_MODULE_11__(yesterday).subtract(2, 'month').utc().format();
               var statusParams = {
-                LookupTypeId: 40
+                LookupTypeId: 40,
+                ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
                 _this5.statusTypeData = res;

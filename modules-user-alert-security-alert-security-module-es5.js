@@ -1025,7 +1025,8 @@
             var _this11 = this;
 
             var emergencyListParams = {
-              LookupTypeId: 29
+              LookupTypeId: 29,
+              ApartmentId: this.sessionService.apartmentId
             }; //get emergency services
 
             this.lookupService.getLookupValueByLookupTypeId(emergencyListParams).subscribe(function (res) {

@@ -404,7 +404,8 @@ let AllVendorsComponent = class AllVendorsComponent {
                 renderer: columnrenderer
             }];
         let params = {
-            LookupTypeId: 57
+            LookupTypeId: 57,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.isVendorCategoryLoaded = true;
@@ -413,7 +414,8 @@ let AllVendorsComponent = class AllVendorsComponent {
             });
             //vendor type
             let vendorTypeParams = {
-                LookupTypeId: 58
+                LookupTypeId: 58,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vendorTypeParams).subscribe((res) => {
                 this.isVendorTypeLoaded = true;
@@ -793,7 +795,8 @@ let CreateVendorComponent = class CreateVendorComponent {
             this.glAccountListData = res;
         });
         let params = {
-            LookupTypeId: 57
+            LookupTypeId: 57,
+            ApartmentId: this.sessionService.apartmentId
         };
         //vendor Category
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
@@ -803,7 +806,8 @@ let CreateVendorComponent = class CreateVendorComponent {
         }, error => {
         });
         let vendorParams = {
-            LookupTypeId: 59
+            LookupTypeId: 59,
+            ApartmentId: this.sessionService.apartmentId
         };
         //vendor type
         this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe((res) => {
@@ -1196,7 +1200,8 @@ let VendorReportDataComponent = class VendorReportDataComponent {
         }, error => {
         });
         let vendorParams = {
-            LookupTypeId: 57
+            LookupTypeId: 57,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe((res) => {
             this.vendorCategoryData = res.filter(item => {
@@ -1487,7 +1492,8 @@ let VendorReportsComponent = class VendorReportsComponent {
         }, error => {
         });
         let vendorParams = {
-            LookupTypeId: 57
+            LookupTypeId: 57,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(vendorParams).subscribe((res) => {
             this.vendorCategoryData = res.filter(item => {
@@ -1658,7 +1664,8 @@ let VendorSetupComponent = class VendorSetupComponent {
             this.lookupService.addLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     let categoryParams = {
-                        LookupTypeId: 57
+                        LookupTypeId: 57,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isVendorCategorySubmitted = true;
@@ -1696,7 +1703,8 @@ let VendorSetupComponent = class VendorSetupComponent {
             this.lookupService.updateLookupValue(params).subscribe((res) => {
                 if (res.message) {
                     let categoryParams = {
-                        LookupTypeId: 57
+                        LookupTypeId: 57,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                         this.isVendorCategorySubmitted = true;
@@ -1717,7 +1725,8 @@ let VendorSetupComponent = class VendorSetupComponent {
     }
     loadVendorCategory() {
         let categoryParams = {
-            LookupTypeId: 57
+            LookupTypeId: 57,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
             this.vendorCategoryData = res.filter(item => {

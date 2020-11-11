@@ -199,7 +199,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
     onAccountChange(event, index) {
         this.invoiceVendorAccountsData.glaccountName = event[0].glaccountName;
         this.invoiceVendorAccountsData.glaccountId = parseInt(event[0].glaccountId);
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
     }
@@ -211,7 +211,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             this.invoiceVendorAccountsData.amount = 0;
         }
         this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - parseFloat(this.invoiceVendorAccountsData.discountAmount);
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
         this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -231,7 +231,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
         this.invoiceVendorAccountsData.discountTypeId = event[0].lookupValueName;
         this.onDiscountAdded(this.invoiceVendorAccountsData.discountDirectAmt, index);
         this.invoiceVendorAccountsData.lineItemTotal = this.invoiceVendorAccountsData.amount - parseFloat(this.invoiceVendorAccountsData.discountAmount);
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
         this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -261,7 +261,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             this.invoiceVendorAccountsData.discountDirectAmt = 0;
         }
         this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
         this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -278,7 +278,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             this.invoiceVendorAccountsData.discountDirectAmt = 0;
         }
         this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
         this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -286,7 +286,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
     }
     onCommentChange(value, index) {
         this.invoiceVendorAccountsData.comments = value;
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
     }
@@ -315,7 +315,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             this.vendorinvoiceTaxData.invoiceTotalAmount = 0;
         }
         this.vendorinvoiceTaxData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
         this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -343,7 +343,7 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             this.invoiceVendorAccountsData.wthtaxAmountId = "";
             this.vendorinvoiceTaxData.wthtaxAmountId = 0;
         }
-        this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+        this.invoiceVendorAccountsData.form = this.isFormValid();
         this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
         this.fieldParams.emit(this.invoiceVendorAccountsArray);
         this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -377,21 +377,24 @@ let ExpensePostMultiInvoiceFieldsComponent = class ExpensePostMultiInvoiceFields
             });
         });
         let vatListParams = {
-            LookupTypeId: 189
+            LookupTypeId: 189,
+            ApartmentId: this.sessionService.apartmentId
         };
         //VAT types
         this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {
             this.vatTypeDataList = res;
         });
         let withHoldingListParams = {
-            LookupTypeId: 179
+            LookupTypeId: 179,
+            ApartmentId: this.sessionService.apartmentId
         };
         //withholding tax types
         this.lookupService.getLookupValueByLookupTypeId(withHoldingListParams).subscribe((res) => {
             this.withTaxTypeDataList = res;
         });
         let disListParams = {
-            LookupTypeId: 88
+            LookupTypeId: 88,
+            ApartmentId: this.sessionService.apartmentId
         };
         //discount types
         this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe((res) => {

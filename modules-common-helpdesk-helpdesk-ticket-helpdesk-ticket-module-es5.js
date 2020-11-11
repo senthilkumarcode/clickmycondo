@@ -580,14 +580,16 @@
 
 
             var ticketTypeParams = {
-              LookupTypeId: 7
+              LookupTypeId: 7,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(ticketTypeParams).subscribe(function (res) {
               _this9.ticketTypeList = res;
             }); //priorityList
 
             var priority = {
-              LookupTypeId: 14
+              LookupTypeId: 14,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
               _this9.priortyTypeList = res;
@@ -650,7 +652,8 @@
                 _this9.getCategoryList('edit');
               });
               var statusParams = {
-                LookupTypeId: 9
+                LookupTypeId: 9,
+                ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
                 _this9.statusTypeList = res;
@@ -1211,7 +1214,8 @@
               }); //Filter Purpose => Ticket Status
 
               var statusParams = {
-                LookupTypeId: 9
+                LookupTypeId: 9,
+                ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
                 _this15.ticketStatusList = res;
@@ -1768,7 +1772,8 @@
             }); //priorityList
 
             var priority = {
-              LookupTypeId: 14
+              LookupTypeId: 14,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
               _this16.priortyTypeList = res;

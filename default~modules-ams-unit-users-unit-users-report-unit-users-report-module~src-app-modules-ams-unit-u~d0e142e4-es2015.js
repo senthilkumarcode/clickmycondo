@@ -990,7 +990,8 @@ let UnitUsersReportDataComponent = class UnitUsersReportDataComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {

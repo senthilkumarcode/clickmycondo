@@ -285,7 +285,8 @@ let ExpenseSubledgerComponent = class ExpenseSubledgerComponent {
                     this.totalDueAmount = this.totalDueAmount + item.due;
             });
             let lookUp = {
-                LookupTypeId: 57
+                LookupTypeId: 57,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(lookUp).subscribe((res) => {
                 this.vendorCategoryData = res.filter(item => {

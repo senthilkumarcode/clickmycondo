@@ -364,7 +364,7 @@
           value: function onAccountChange(event, index) {
             this.invoiceVendorAccountsData.glaccountName = event[0].glaccountName;
             this.invoiceVendorAccountsData.glaccountId = parseInt(event[0].glaccountId);
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
           }
@@ -378,7 +378,7 @@
             }
 
             this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - parseFloat(this.invoiceVendorAccountsData.discountAmount);
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
             this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -400,7 +400,7 @@
             this.invoiceVendorAccountsData.discountTypeId = event[0].lookupValueName;
             this.onDiscountAdded(this.invoiceVendorAccountsData.discountDirectAmt, index);
             this.invoiceVendorAccountsData.lineItemTotal = this.invoiceVendorAccountsData.amount - parseFloat(this.invoiceVendorAccountsData.discountAmount);
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
             this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -432,7 +432,7 @@
             }
 
             this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
             this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -451,7 +451,7 @@
             }
 
             this.invoiceVendorAccountsData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
             this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -461,7 +461,7 @@
           key: "onCommentChange",
           value: function onCommentChange(value, index) {
             this.invoiceVendorAccountsData.comments = value;
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
           }
@@ -493,7 +493,7 @@
             }
 
             this.vendorinvoiceTaxData.lineAmountAfterDiscount = this.invoiceVendorAccountsData.amount - this.invoiceVendorAccountsData.discountAmount;
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
             this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -526,7 +526,7 @@
               this.vendorinvoiceTaxData.wthtaxAmountId = 0;
             }
 
-            this.invoiceVendorAccountsData.form = this.invoiceForm.valid;
+            this.invoiceVendorAccountsData.form = this.isFormValid();
             this.invoiceVendorAccountsArray[index] = this.invoiceVendorAccountsData;
             this.fieldParams.emit(this.invoiceVendorAccountsArray);
             this.taxParams.emit(this.vendorinvoiceTaxData);
@@ -566,21 +566,24 @@
               });
             });
             var vatListParams = {
-              LookupTypeId: 189
+              LookupTypeId: 189,
+              ApartmentId: this.sessionService.apartmentId
             }; //VAT types
 
             this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {
               _this.vatTypeDataList = res;
             });
             var withHoldingListParams = {
-              LookupTypeId: 179
+              LookupTypeId: 179,
+              ApartmentId: this.sessionService.apartmentId
             }; //withholding tax types
 
             this.lookupService.getLookupValueByLookupTypeId(withHoldingListParams).subscribe(function (res) {
               _this.withTaxTypeDataList = res;
             });
             var disListParams = {
-              LookupTypeId: 88
+              LookupTypeId: 88,
+              ApartmentId: this.sessionService.apartmentId
             }; //discount types
 
             this.lookupService.getLookupValueByLookupTypeId(disListParams).subscribe(function (res) {

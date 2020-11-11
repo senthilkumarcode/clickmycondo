@@ -1061,7 +1061,8 @@
               _this4.unitBlocksData = res;
             });
             var params = {
-              LookupTypeId: 87
+              LookupTypeId: 87,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {

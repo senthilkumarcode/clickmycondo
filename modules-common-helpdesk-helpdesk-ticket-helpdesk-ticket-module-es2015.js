@@ -421,14 +421,16 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
         }
         //Ticket Type List
         let ticketTypeParams = {
-            LookupTypeId: 7
+            LookupTypeId: 7,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(ticketTypeParams).subscribe((res) => {
             this.ticketTypeList = res;
         });
         //priorityList
         let priority = {
-            LookupTypeId: 14
+            LookupTypeId: 14,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(priority).subscribe((res) => {
             this.priortyTypeList = res;
@@ -487,7 +489,8 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
                 this.getCategoryList('edit');
             });
             let statusParams = {
-                LookupTypeId: 9
+                LookupTypeId: 9,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
                 this.statusTypeList = res;
@@ -926,7 +929,8 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
             });
             //Filter Purpose => Ticket Status
             let statusParams = {
-                LookupTypeId: 9
+                LookupTypeId: 9,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
                 this.ticketStatusList = res;
@@ -1274,7 +1278,8 @@ let HelpdeskUserTicketListComponent = class HelpdeskUserTicketListComponent {
         });
         //priorityList
         let priority = {
-            LookupTypeId: 14
+            LookupTypeId: 14,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(priority).subscribe((res) => {
             this.priortyTypeList = res;

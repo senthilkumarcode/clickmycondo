@@ -279,7 +279,8 @@
 
             this.unit = {};
             var unitParams = {
-              LookupTypeId: 1
+              LookupTypeId: 1,
+              ApartmentId: this.sessionService.apartmentId
             }; //Open the drawer
 
             this.sharedService.matdraweridcast.subscribe(function (id) {

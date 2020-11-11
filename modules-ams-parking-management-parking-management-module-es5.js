@@ -1309,7 +1309,8 @@
 
             this.vehicle = {};
             var params = {
-              LookupTypeId: 2
+              LookupTypeId: 2,
+              ApartmentId: this.sessionService.apartmentId
             }; //get vehicle type
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
@@ -2292,7 +2293,8 @@
             }); //Status
 
             var slotTypeParams = {
-              LookupTypeId: 97
+              LookupTypeId: 97,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe(function (res) {
               if (res.length > 0) {
@@ -4130,7 +4132,8 @@
             var _this18 = this;
 
             var mainTypeParam = {
-              LookupTypeId: 71
+              LookupTypeId: 71,
+              ApartmentId: this.sessionService.apartmentId
             }; //slot main type
 
             this.lookupService.getLookupValueByLookupTypeId(mainTypeParam).subscribe(function (res) {
@@ -4140,7 +4143,8 @@
             }); //slot type
 
             var slotTypeParams = {
-              LookupTypeId: 18
+              LookupTypeId: 18,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotTypeParams).subscribe(function (res) {
               _this18.slotTypeList = res.filter(function (item) {
@@ -4828,14 +4832,16 @@
             var _this27 = this;
 
             var slotParams = {
-              LookupTypeId: 18
+              LookupTypeId: 18,
+              ApartmentId: this.sessionService.apartmentId
             }; //get slot type
 
             this.lookupService.getLookupValueByLookupTypeId(slotParams).subscribe(function (res) {
               _this27.slotTypeData = res;
             }, function (error) {});
             var vehicleParams = {
-              LookupTypeId: 2
+              LookupTypeId: 2,
+              ApartmentId: this.sessionService.apartmentId
             }; //get vehicle type
 
             this.lookupService.getLookupValueByLookupTypeId(vehicleParams).subscribe(function (res) {
@@ -5273,7 +5279,8 @@
 
             this.getSlotType();
             var slotMainParams = {
-              LookupTypeId: 71
+              LookupTypeId: 71,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotMainParams).subscribe(function (res) {
               _this30.slotMainTypeDataList = res.filter(function (item) {
@@ -5291,7 +5298,8 @@
             var _this31 = this;
 
             var slotListParams = {
-              LookupTypeId: 18
+              LookupTypeId: 18,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(slotListParams).subscribe(function (res) {
               _this31.slotDataList = res.filter(function (item) {
@@ -5701,7 +5709,8 @@
             var _this34 = this;
 
             var vehicleDataListParams = {
-              LookupTypeId: 2
+              LookupTypeId: 2,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(vehicleDataListParams).subscribe(function (res) {
               _this34.vehicleDataList = res.filter(function (item) {
@@ -5878,7 +5887,8 @@
             var _this36 = this;
 
             var categoryParams = {
-              LookupTypeId: 2
+              LookupTypeId: 2,
+              ApartmentId: this.sessionService.apartmentId
             }; //get vehcile type
 
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
@@ -5894,7 +5904,8 @@
             var _this37 = this;
 
             var slotCategoryParams = {
-              LookupTypeId: 71
+              LookupTypeId: 71,
+              ApartmentId: this.sessionService.apartmentId
             }; //get main slot type
 
             this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe(function (res) {
@@ -5910,7 +5921,8 @@
             var _this38 = this;
 
             var slotCategoryParams = {
-              LookupTypeId: 18
+              LookupTypeId: 18,
+              ApartmentId: this.sessionService.apartmentId
             }; //get slot type
 
             this.lookupService.getLookupValueByLookupTypeId(slotCategoryParams).subscribe(function (res) {

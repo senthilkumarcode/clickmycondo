@@ -793,7 +793,8 @@ let MeetingsCreateComponent = class MeetingsCreateComponent {
     ngOnInit() {
         this.meeting = {};
         let params = {
-            LookupTypeId: 21
+            LookupTypeId: 21,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.meetingCategoryData = res.filter(item => {

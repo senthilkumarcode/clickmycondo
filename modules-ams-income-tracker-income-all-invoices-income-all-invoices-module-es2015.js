@@ -468,7 +468,8 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
             ApartmentId: this.sessionService.apartmentId
         };
         let vatListParams = {
-            LookupTypeId: 77
+            LookupTypeId: 77,
+            ApartmentId: this.sessionService.apartmentId
         };
         //VAT types
         this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe((res) => {

@@ -361,7 +361,8 @@
 
             this.isViolationCategoryLoaded = false;
             var params = {
-              LookupTypeId: 78
+              LookupTypeId: 78,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               if (res.length > 0) {

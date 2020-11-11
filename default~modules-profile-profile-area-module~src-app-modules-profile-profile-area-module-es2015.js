@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-timezone-wrapper p-5\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"mb-4\">Set Time</h4>\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n\n            <div class=\"bg-card shadow\">\n                \n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"Select Time Zone\"\n                            fieldPlaceholder=\"Select\"\n                            [fieldRequired]=\"'null'\"\n                            [fieldList]=\"timeZonesData\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"user.timeZone\"\n                            fieldId=\"abbr\"\n                            [isClear]=\"false\"\n                            (fieldParams)=\"getSelectedZone($event)\" \n                        ></condo-select>\n                        </div>\n                    </div>\n            </div>\n\n            <div class=\"float-right mt-4\">\n                <button mat-flat-button [color]=\"'primary'\">Submit</button>\n            </div>\n\n        </form>\n\n    </ng-container> \n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"profile-timezone-wrapper p-5\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"mb-4\">Set Time</h4>\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n\n            <div class=\"bg-card shadow\">\n                \n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                            <condo-select \n                                labelText=\"Select Time Zone\"\n                                fieldPlaceholder=\"Select\"\n                                [fieldRequired]=\"'null'\"\n                                [fieldList]=\"timeZonesData\"\n                                fieldValue=\"customLabel\"\n                                [fieldModel]=\"user.timeZone\"\n                                fieldId=\"abbr\"\n                                [isClear]=\"false\"\n                                (fieldParams)=\"getSelectedZone($event)\" \n                            ></condo-select>\n                        </div>\n                    </div>\n            </div>\n\n            <div class=\"float-right mt-4\">\n                <button mat-flat-button [color]=\"'primary'\">Submit</button>\n            </div>\n\n        </form>\n\n    </ng-container> \n\n</div>");
 
 /***/ }),
 
@@ -823,7 +823,8 @@ let ProfileAreaBasicComponent = class ProfileAreaBasicComponent {
         });
         //Blood Group
         let groupParams = {
-            LookupTypeId: 24
+            LookupTypeId: 24,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
             this.bloodGroupData = res;
@@ -1763,7 +1764,8 @@ let ProfileFamilyMembersComponent = class ProfileFamilyMembersComponent {
             }
         });
         let groupParams = {
-            LookupTypeId: 24
+            LookupTypeId: 24,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
             this.bloodGroupList = res;
@@ -2627,7 +2629,8 @@ let ProfilePetComponent = class ProfilePetComponent {
         });
         //Pet DropDown
         let petParams = {
-            LookupTypeId: 85
+            LookupTypeId: 85,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(petParams).subscribe((res) => {
             this.petTypeList = res;
@@ -3276,7 +3279,8 @@ let ProfileUnitDetailsComponent = class ProfileUnitDetailsComponent {
         });
         //Unit Type
         let unitTypeInfo = {
-            LookupTypeId: 1
+            LookupTypeId: 1,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(unitTypeInfo).subscribe((res) => {
             this.unitTypeList = res;
@@ -3951,7 +3955,8 @@ let ProfileVehiclesComponent = class ProfileVehiclesComponent {
         });
         //Vehicle Type DropDown
         let vehicleTypeParams = {
-            LookupTypeId: 2
+            LookupTypeId: 2,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(vehicleTypeParams).subscribe((res) => {
             this.vehicleTypeList = res;

@@ -566,7 +566,8 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
         }
         this.assetId = this.route.params['value'].id;
         let statusParams = {
-            LookupTypeId: 64
+            LookupTypeId: 64,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
             this.statusTypeData = res;
@@ -577,7 +578,8 @@ let AddAssetMaintenanceComponent = class AddAssetMaintenanceComponent {
             this.assetData = res[0];
         });
         let assetCategoryParams = {
-            LookupTypeId: 19
+            LookupTypeId: 19,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe((res) => {
             this.assetCategoryData = res.filter(item => {
@@ -1228,7 +1230,8 @@ let AssetsCreateComponent = class AssetsCreateComponent {
             });
         }
         let assetCategoryParams = {
-            LookupTypeId: 19
+            LookupTypeId: 19,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe((res) => {
             this.assetCategoryData = res.filter(item => {
@@ -1244,7 +1247,8 @@ let AssetsCreateComponent = class AssetsCreateComponent {
             });
         });
         let assetStatusParams = {
-            LookupTypeId: 64
+            LookupTypeId: 64,
+            ApartmentId: this.sessionService.apartmentId
         };
         //maintenance status 
         this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe((res) => {
@@ -1497,7 +1501,8 @@ let AssetsMaintenanceHistoryComponent = class AssetsMaintenanceHistoryComponent 
             this.totalItems = this.maintenanceDataList.length;
         });
         let params = {
-            LookupTypeId: 64
+            LookupTypeId: 64,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.statusTypeData = res;
@@ -2032,7 +2037,8 @@ let AssetsReportDataComponent = class AssetsReportDataComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {
@@ -2191,7 +2197,8 @@ let AssetsReportsComponent = class AssetsReportsComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {
@@ -4240,8 +4247,10 @@ let ManageMaintenanceComponent = class ManageMaintenanceComponent {
         this.modalService.showConfirmModal(id);
     }
     getAllCategory() {
-        let params = {};
-        params.LookupTypeId = 19;
+        let params = {
+            LookupTypeId: 19,
+            ApartmentId: this.sessionService.apartmentId
+        };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             if (res) {
                 // this.categoryList = res;
@@ -4271,8 +4280,10 @@ let ManageMaintenanceComponent = class ManageMaintenanceComponent {
         );
     }
     getSubCategory() {
-        let params = {};
-        params.LookupTypeId = 68;
+        let params = {
+            LookupTypeId: 68,
+            ApartmentId: this.sessionService.apartmentId
+        };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             if (res) {
                 // this.subCategoryList = res;

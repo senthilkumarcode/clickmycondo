@@ -389,14 +389,16 @@ let UserRegistrationFormComponent = class UserRegistrationFormComponent {
         this.getUserInfo();
         //Blood Group
         let groupParams = {
-            LookupTypeId: 24
+            LookupTypeId: 24,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe((res) => {
             this.bloodGroupData = res;
         });
         //Document Category List
         let params = {
-            LookupTypeId: 200
+            LookupTypeId: 200,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.documentCategoryList = res;

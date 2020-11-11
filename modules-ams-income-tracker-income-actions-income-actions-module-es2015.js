@@ -1245,7 +1245,8 @@ let IncomeJournalComponent = class IncomeJournalComponent {
             });
         });
         let glDocParams = {
-            LookupTypeId: 31
+            LookupTypeId: 31,
+            ApartmentId: this.sessionService.apartmentId
         };
         //Gl Document 
         this.lookupService.getLookupValueByLookupTypeId(glDocParams).subscribe((res) => {

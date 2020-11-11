@@ -448,14 +448,16 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
             console.log(error);
         });
         let emergencyParams = {
-            LookupTypeId: 29
+            LookupTypeId: 29,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get emergency types
         this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe((res) => {
             this.emergencyTypeList = res;
         });
         let alertParams = {
-            LookupTypeId: 30
+            LookupTypeId: 30,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get alert status types
         this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe((res) => {
@@ -797,7 +799,8 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
             console.log(error);
         });
         let emergencyParams = {
-            LookupTypeId: 29
+            LookupTypeId: 29,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get emergency types
         this.lookupService.getLookupValueByLookupTypeId(emergencyParams).subscribe((res) => {
@@ -809,7 +812,8 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
             // this.historyData = new jqx.dataAdapter(this.gridSourceData);
         });
         let alertParams = {
-            LookupTypeId: 30
+            LookupTypeId: 30,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get alert status types
         this.lookupService.getLookupValueByLookupTypeId(alertParams).subscribe((res) => {
@@ -1133,7 +1137,8 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
             this.blockData = res;
         });
         let sec_params = {
-            LookupTypeId: 29
+            LookupTypeId: 29,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(sec_params).subscribe((res) => {
             this.securityCategoryData = res.filter(item => {
@@ -1141,7 +1146,8 @@ let SecurityReportsDataComponent = class SecurityReportsDataComponent {
             });
         });
         let alert_params = {
-            LookupTypeId: 30
+            LookupTypeId: 30,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(alert_params).subscribe((res) => {
             this.alertTypeStatus = res.filter(item => {
@@ -1613,7 +1619,8 @@ let SecuritySetupAddCategoryComponent = class SecuritySetupAddCategoryComponent 
             this.isSecurityCategorySubmitted = false;
             this.isEdit = true;
             let param = {
-                LookupTypeId: 29
+                LookupTypeId: 29,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                 this.isSecurityCategorySubmitted = true;
@@ -1773,7 +1780,8 @@ let SecuritySetupListComponent = class SecuritySetupListComponent {
     }
     getCategoryData() {
         let param = {
-            LookupTypeId: 29
+            LookupTypeId: 29,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(param).
             pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this._unsubscribeAll))

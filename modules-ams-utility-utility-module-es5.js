@@ -1519,7 +1519,8 @@
             this.unitTypeId = ""; //get unit type
 
             var params = {
-              LookupTypeId: 1
+              LookupTypeId: 1,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this10.unitTypeData = res;
@@ -3597,7 +3598,8 @@
             this.apartmentService.getApartmentBlockByApartmentId(unitBlockParams).subscribe(function (res) {
               _this26.unitBlocksData = res;
             }); // let params = {
-            // 	LookupTypeId: 87
+            // 	LookupTypeId: 87,
+            //  ApartmentId: this.sessionService.apartmentId
             // }
             // this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res: any) => {
             // 	var data = res.filter(item => {

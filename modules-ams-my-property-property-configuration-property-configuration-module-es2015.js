@@ -243,7 +243,8 @@ let PropertyConfigurationComponent = class PropertyConfigurationComponent {
     }
     ngAfterViewInit() {
         let params = {
-            LookupTypeId: 19
+            LookupTypeId: 19,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get all asset categories
         /* this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res:any) => {
@@ -376,12 +377,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+
 
 
 
 let PropertyParkingDetailsInfoComponent = class PropertyParkingDetailsInfoComponent {
-    constructor(lookupService) {
+    constructor(lookupService, sessionService) {
         this.lookupService = lookupService;
+        this.sessionService = sessionService;
         this.parkingData = "";
         this.unitFieldType = "unitno";
         this.unitOrder = true;
@@ -416,7 +420,8 @@ let PropertyParkingDetailsInfoComponent = class PropertyParkingDetailsInfoCompon
     }
     ngOnInit() {
         let params = {
-            LookupTypeId: 71
+            LookupTypeId: 71,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get main slot type
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
@@ -428,7 +433,8 @@ let PropertyParkingDetailsInfoComponent = class PropertyParkingDetailsInfoCompon
     }
 };
 PropertyParkingDetailsInfoComponent.ctorParameters = () => [
-    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] }
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"] }
 ];
 PropertyParkingDetailsInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -436,7 +442,8 @@ PropertyParkingDetailsInfoComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__[
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./property-parking-details-info.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/my-property/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./property-parking-details-info.component.scss */ "./src/app/modules/ams/my-property/property-configuration/property-parking-details/property-parking-details-info/property-parking-details-info.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_3__["SessionService"]])
 ], PropertyParkingDetailsInfoComponent);
 
 
@@ -705,7 +712,8 @@ let PropertyProfileComponent = class PropertyProfileComponent {
             this.property = data.initialData.apartment;
         });
         let propertyParams = {
-            LookupTypeId: 65
+            LookupTypeId: 65,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get property type
         this.lookupService.getLookupValueByLookupTypeId(propertyParams).subscribe((res) => {
@@ -713,7 +721,8 @@ let PropertyProfileComponent = class PropertyProfileComponent {
         }, error => {
         });
         let propertyCategoryParams = {
-            LookupTypeId: 66
+            LookupTypeId: 66,
+            ApartmentId: this.sessionService.apartmentId
         };
         //get property category
         this.lookupService.getLookupValueByLookupTypeId(propertyCategoryParams).subscribe((res) => {

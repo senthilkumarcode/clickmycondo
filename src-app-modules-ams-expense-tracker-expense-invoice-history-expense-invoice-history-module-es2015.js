@@ -208,7 +208,8 @@ let ExpenseInvoiceHistoryComponent = class ExpenseInvoiceHistoryComponent {
             });
             this.isVendorDataLoaded = true;
             let categoryParams = {
-                LookupTypeId: 57
+                LookupTypeId: 57,
+                ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe((res) => {
                 this.vendorCategoryData = res.filter(item => {

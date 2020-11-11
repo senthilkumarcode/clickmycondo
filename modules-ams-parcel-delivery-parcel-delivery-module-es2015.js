@@ -293,7 +293,8 @@ let CreatePackageComponent = class CreatePackageComponent {
             });
         });
         const packageTypeParams = {
-            LookupTypeId: 169
+            LookupTypeId: 169,
+            ApartmentId: this.sessionService.apartmentId,
         };
         this.lookupService.getLookupValueByLookupTypeId(packageTypeParams).subscribe((res) => {
             this.packageTypes = res.filter(item => {
@@ -302,7 +303,8 @@ let CreatePackageComponent = class CreatePackageComponent {
         }, error => {
         });
         const deliveryTypeParams = {
-            LookupTypeId: 170
+            LookupTypeId: 170,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(deliveryTypeParams).subscribe((res) => {
             this.deliveryTypes = res.filter(item => {
@@ -311,7 +313,8 @@ let CreatePackageComponent = class CreatePackageComponent {
         }, error => {
         });
         const deliveryStatusParams = {
-            LookupTypeId: 171
+            LookupTypeId: 171,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(deliveryStatusParams).subscribe((res) => {
             this.deliveryStatus = res.filter(item => {
@@ -320,7 +323,8 @@ let CreatePackageComponent = class CreatePackageComponent {
         }, error => {
         });
         const deliverySlotParams = {
-            LookupTypeId: 172
+            LookupTypeId: 172,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(deliverySlotParams).subscribe((res) => {
             this.deliverySlots = res.filter(item => {
@@ -329,7 +333,8 @@ let CreatePackageComponent = class CreatePackageComponent {
         }, error => {
         });
         const receiverTypeParams = {
-            LookupTypeId: 182
+            LookupTypeId: 182,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe((res) => {
             this.receiverType = res.filter(item => {
@@ -505,7 +510,8 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
             });
         });
         const packgeTypeParams = {
-            LookupTypeId: 169
+            LookupTypeId: 169,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.packageTypes = res.filter(item => {
@@ -514,7 +520,8 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         }, error => {
         });
         const deliveryTypeParams = {
-            LookupTypeId: 170
+            LookupTypeId: 170,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.deliveryTypes = res.filter(item => {
@@ -523,7 +530,8 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         }, error => {
         });
         const deliveryStatusParams = {
-            LookupTypeId: 171
+            LookupTypeId: 171,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.deliveryStatus = res.filter(item => {
@@ -532,7 +540,8 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         }, error => {
         });
         const deliverySlotParams = {
-            LookupTypeId: 171
+            LookupTypeId: 171,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.deliverySlots = res.filter(item => {
@@ -541,7 +550,8 @@ let DeliveryHistoryComponent = class DeliveryHistoryComponent {
         }, error => {
         });
         const receiverTypeParams = {
-            LookupTypeId: 182
+            LookupTypeId: 182,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe((res) => {
             this.receiverType = res.filter(item => {
@@ -1011,7 +1021,8 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
     }
     getDeliveryTypeData() {
         let param = {
-            LookupTypeId: 170
+            LookupTypeId: 170,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
             this.isDeliveryCategoryLoaded = true;
@@ -1063,7 +1074,8 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                 }
                 if (res.message) {
                     const param = {
-                        LookupTypeId: 169
+                        LookupTypeId: 169,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                         // this.isDeliveryCategorySubmitted = true;
@@ -1105,7 +1117,8 @@ let DeliveryTypeComponent = class DeliveryTypeComponent {
                 }
                 if (res.message) {
                     const param = {
-                        LookupTypeId: 169
+                        LookupTypeId: 169,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                         /// Go to the parent route
@@ -1224,7 +1237,8 @@ let PackageTypeComponent = class PackageTypeComponent {
     }
     getCategoryData() {
         let param = {
-            LookupTypeId: 169
+            LookupTypeId: 169,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
             this.isDeliveryCategoryLoaded = true;
@@ -1276,7 +1290,8 @@ let PackageTypeComponent = class PackageTypeComponent {
                 }
                 if (res.message) {
                     const param = {
-                        LookupTypeId: 169
+                        LookupTypeId: 169,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                         // this.isDeliveryCategorySubmitted = true;
@@ -1318,7 +1333,8 @@ let PackageTypeComponent = class PackageTypeComponent {
                 }
                 if (res.message) {
                     const param = {
-                        LookupTypeId: 169
+                        LookupTypeId: 169,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                         /// Go to the parent route
@@ -1437,7 +1453,8 @@ let SlotTypeComponent = class SlotTypeComponent {
     }
     getSlotData() {
         let param = {
-            LookupTypeId: 172
+            LookupTypeId: 172,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
             this.isDeliveryCategoryLoaded = true;
@@ -1489,7 +1506,8 @@ let SlotTypeComponent = class SlotTypeComponent {
                 }
                 if (res.message) {
                     const param = {
-                        LookupTypeId: 169
+                        LookupTypeId: 169,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                         // this.isDeliveryCategorySubmitted = true;
@@ -1531,7 +1549,8 @@ let SlotTypeComponent = class SlotTypeComponent {
                 }
                 if (res.message) {
                     const param = {
-                        LookupTypeId: 169
+                        LookupTypeId: 169,
+                        ApartmentId: this.sessionService.apartmentId
                     };
                     this.lookupService.getLookupValueByLookupTypeId(param).subscribe((res) => {
                         /// Go to the parent route
@@ -2012,7 +2031,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
             });
         });
         const packgeTypeParams = {
-            LookupTypeId: 169
+            LookupTypeId: 169,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.packageTypes = res.filter(item => {
@@ -2021,7 +2041,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         }, error => {
         });
         const deliveryTypeParams = {
-            LookupTypeId: 170
+            LookupTypeId: 170,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.deliveryTypes = res.filter(item => {
@@ -2030,7 +2051,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         }, error => {
         });
         const deliveryStatusParams = {
-            LookupTypeId: 171
+            LookupTypeId: 171,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.deliveryStatus = res.filter(item => {
@@ -2039,7 +2061,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         }, error => {
         });
         const deliverySlotParams = {
-            LookupTypeId: 171
+            LookupTypeId: 171,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe((res) => {
             this.deliverySlots = res.filter(item => {
@@ -2048,7 +2071,8 @@ let PendingDeliveryComponent = class PendingDeliveryComponent {
         }, error => {
         });
         const receiverTypeParams = {
-            LookupTypeId: 182
+            LookupTypeId: 182,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe((res) => {
             this.receiverType = res.filter(item => {

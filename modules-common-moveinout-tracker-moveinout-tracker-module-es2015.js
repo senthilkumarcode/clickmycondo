@@ -2858,7 +2858,8 @@ let MoveinSetupComponent = class MoveinSetupComponent {
         });
         //document type
         let docListparams = {
-            LookupTypeId: 72
+            LookupTypeId: 72,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(docListparams).subscribe((res) => {
             this.documentTypeDataList = res;

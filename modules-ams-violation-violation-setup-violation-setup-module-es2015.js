@@ -230,7 +230,8 @@ let ViolationCategorySetupComponent = class ViolationCategorySetupComponent {
     getViolationCategory() {
         this.isViolationCategoryLoaded = false;
         let params = {
-            LookupTypeId: 78
+            LookupTypeId: 78,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             if (res.length > 0) {

@@ -471,7 +471,8 @@
               });
             });
             var packageTypeParams = {
-              LookupTypeId: 169
+              LookupTypeId: 169,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packageTypeParams).subscribe(function (res) {
               _this4.packageTypes = res.filter(function (item) {
@@ -479,7 +480,8 @@
               });
             }, function (error) {});
             var deliveryTypeParams = {
-              LookupTypeId: 170
+              LookupTypeId: 170,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(deliveryTypeParams).subscribe(function (res) {
               _this4.deliveryTypes = res.filter(function (item) {
@@ -487,7 +489,8 @@
               });
             }, function (error) {});
             var deliveryStatusParams = {
-              LookupTypeId: 171
+              LookupTypeId: 171,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(deliveryStatusParams).subscribe(function (res) {
               _this4.deliveryStatus = res.filter(function (item) {
@@ -495,7 +498,8 @@
               });
             }, function (error) {});
             var deliverySlotParams = {
-              LookupTypeId: 172
+              LookupTypeId: 172,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(deliverySlotParams).subscribe(function (res) {
               _this4.deliverySlots = res.filter(function (item) {
@@ -503,7 +507,8 @@
               });
             }, function (error) {});
             var receiverTypeParams = {
-              LookupTypeId: 182
+              LookupTypeId: 182,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
               _this4.receiverType = res.filter(function (item) {
@@ -769,7 +774,8 @@
               });
             });
             var packgeTypeParams = {
-              LookupTypeId: 169
+              LookupTypeId: 169,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this5.packageTypes = res.filter(function (item) {
@@ -777,7 +783,8 @@
               });
             }, function (error) {});
             var deliveryTypeParams = {
-              LookupTypeId: 170
+              LookupTypeId: 170,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this5.deliveryTypes = res.filter(function (item) {
@@ -785,7 +792,8 @@
               });
             }, function (error) {});
             var deliveryStatusParams = {
-              LookupTypeId: 171
+              LookupTypeId: 171,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this5.deliveryStatus = res.filter(function (item) {
@@ -793,7 +801,8 @@
               });
             }, function (error) {});
             var deliverySlotParams = {
-              LookupTypeId: 171
+              LookupTypeId: 171,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this5.deliverySlots = res.filter(function (item) {
@@ -801,7 +810,8 @@
               });
             }, function (error) {});
             var receiverTypeParams = {
-              LookupTypeId: 182
+              LookupTypeId: 182,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
               _this5.receiverType = res.filter(function (item) {
@@ -1508,7 +1518,8 @@
             var _this11 = this;
 
             var param = {
-              LookupTypeId: 170
+              LookupTypeId: 170,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
               _this11.isDeliveryCategoryLoaded = true;
@@ -1569,7 +1580,8 @@
 
                 if (res.message) {
                   var param = {
-                    LookupTypeId: 169
+                    LookupTypeId: 169,
+                    ApartmentId: _this12.sessionService.apartmentId
                   };
 
                   _this12.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
@@ -1611,7 +1623,8 @@
 
                 if (res.message) {
                   var param = {
-                    LookupTypeId: 169
+                    LookupTypeId: 169,
+                    ApartmentId: _this12.sessionService.apartmentId
                   };
 
                   _this12.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
@@ -1811,7 +1824,8 @@
             var _this14 = this;
 
             var param = {
-              LookupTypeId: 169
+              LookupTypeId: 169,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
               _this14.isDeliveryCategoryLoaded = true;
@@ -1872,7 +1886,8 @@
 
                 if (res.message) {
                   var param = {
-                    LookupTypeId: 169
+                    LookupTypeId: 169,
+                    ApartmentId: _this15.sessionService.apartmentId
                   };
 
                   _this15.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
@@ -1914,7 +1929,8 @@
 
                 if (res.message) {
                   var param = {
-                    LookupTypeId: 169
+                    LookupTypeId: 169,
+                    ApartmentId: _this15.sessionService.apartmentId
                   };
 
                   _this15.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
@@ -2114,7 +2130,8 @@
             var _this17 = this;
 
             var param = {
-              LookupTypeId: 172
+              LookupTypeId: 172,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
               _this17.isDeliveryCategoryLoaded = true;
@@ -2175,7 +2192,8 @@
 
                 if (res.message) {
                   var param = {
-                    LookupTypeId: 169
+                    LookupTypeId: 169,
+                    ApartmentId: _this18.sessionService.apartmentId
                   };
 
                   _this18.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
@@ -2217,7 +2235,8 @@
 
                 if (res.message) {
                   var param = {
-                    LookupTypeId: 169
+                    LookupTypeId: 169,
+                    ApartmentId: _this18.sessionService.apartmentId
                   };
 
                   _this18.lookupService.getLookupValueByLookupTypeId(param).subscribe(function (res) {
@@ -2946,7 +2965,8 @@
               });
             });
             var packgeTypeParams = {
-              LookupTypeId: 169
+              LookupTypeId: 169,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this25.packageTypes = res.filter(function (item) {
@@ -2954,7 +2974,8 @@
               });
             }, function (error) {});
             var deliveryTypeParams = {
-              LookupTypeId: 170
+              LookupTypeId: 170,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this25.deliveryTypes = res.filter(function (item) {
@@ -2962,7 +2983,8 @@
               });
             }, function (error) {});
             var deliveryStatusParams = {
-              LookupTypeId: 171
+              LookupTypeId: 171,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this25.deliveryStatus = res.filter(function (item) {
@@ -2970,7 +2992,8 @@
               });
             }, function (error) {});
             var deliverySlotParams = {
-              LookupTypeId: 171
+              LookupTypeId: 171,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(packgeTypeParams).subscribe(function (res) {
               _this25.deliverySlots = res.filter(function (item) {
@@ -2978,7 +3001,8 @@
               });
             }, function (error) {});
             var receiverTypeParams = {
-              LookupTypeId: 182
+              LookupTypeId: 182,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(receiverTypeParams).subscribe(function (res) {
               _this25.receiverType = res.filter(function (item) {

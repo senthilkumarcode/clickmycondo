@@ -330,7 +330,7 @@ let VisitorReportsDataComponent = class VisitorReportsDataComponent {
         });
         let visitParams = {
             ApartmentId: this.sessionService.apartmentId,
-            LookupTypeId: 15
+            LookupTypeId: 15,
         };
         //visit type
         this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe((res) => {

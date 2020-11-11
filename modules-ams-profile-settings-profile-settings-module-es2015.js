@@ -1240,7 +1240,8 @@ let AddUnitComponent = class AddUnitComponent {
             this.unitBlocksData = res;
         });
         let unitParams = {
-            LookupTypeId: 1
+            LookupTypeId: 1,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(unitParams).subscribe((res) => {
             this.unitTypeData = res;

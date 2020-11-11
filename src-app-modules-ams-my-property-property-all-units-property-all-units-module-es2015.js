@@ -169,7 +169,8 @@ let PropertyAddUnitComponent = class PropertyAddUnitComponent {
     ngOnInit() {
         this.unit = {};
         let unitParams = {
-            LookupTypeId: 1
+            LookupTypeId: 1,
+            ApartmentId: this.sessionService.apartmentId
         };
         //Open the drawer
         this.sharedService.matdraweridcast.subscribe(id => {

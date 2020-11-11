@@ -914,7 +914,8 @@ let InventoryCreateComponent = class InventoryCreateComponent {
             this.vendorDataList = res;
         });
         let inventoryListparams = {
-            LookupTypeId: 20
+            LookupTypeId: 20,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(inventoryListparams).subscribe((res) => {
             this.inventoryCategoryDataList = res;
@@ -2340,7 +2341,8 @@ let InventoryReportDataComponent = class InventoryReportDataComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {
@@ -2600,7 +2602,8 @@ let InventoryReportsComponent = class InventoryReportsComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {
@@ -3908,7 +3911,8 @@ let InventoryViewComponent = class InventoryViewComponent {
     ngOnInit() {
         this.inventory = {};
         let params = {
-            LookupTypeId: 20
+            LookupTypeId: 20,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.inventoryCategoryData = res.filter(item => {

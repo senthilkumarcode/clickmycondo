@@ -633,14 +633,16 @@
             this.getUserInfo(); //Blood Group
 
             var groupParams = {
-              LookupTypeId: 24
+              LookupTypeId: 24,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
               _this10.bloodGroupData = res;
             }); //Document Category List
 
             var params = {
-              LookupTypeId: 200
+              LookupTypeId: 200,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this10.documentCategoryList = res;

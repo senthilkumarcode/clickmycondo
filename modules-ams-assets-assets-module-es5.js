@@ -993,7 +993,8 @@
 
             this.assetId = this.route.params['value'].id;
             var statusParams = {
-              LookupTypeId: 64
+              LookupTypeId: 64,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
               _this2.statusTypeData = res;
@@ -1003,7 +1004,8 @@
               _this2.assetData = res[0];
             });
             var assetCategoryParams = {
-              LookupTypeId: 19
+              LookupTypeId: 19,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
               _this2.assetCategoryData = res.filter(function (item) {
@@ -1851,7 +1853,8 @@
             }
 
             var assetCategoryParams = {
-              LookupTypeId: 19
+              LookupTypeId: 19,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(assetCategoryParams).subscribe(function (res) {
               _this11.assetCategoryData = res.filter(function (item) {
@@ -1867,7 +1870,8 @@
               });
             });
             var assetStatusParams = {
-              LookupTypeId: 64
+              LookupTypeId: 64,
+              ApartmentId: this.sessionService.apartmentId
             }; //maintenance status 
 
             this.lookupService.getLookupValueByLookupTypeId(assetStatusParams).subscribe(function (res) {
@@ -2221,7 +2225,8 @@
               _this18.totalItems = _this18.maintenanceDataList.length;
             });
             var params = {
-              LookupTypeId: 64
+              LookupTypeId: 64,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               _this18.statusTypeData = res;
@@ -2858,7 +2863,8 @@
               _this22.unitBlocksData = res;
             });
             var params = {
-              LookupTypeId: 87
+              LookupTypeId: 87,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
@@ -3108,7 +3114,8 @@
               _this24.unitBlocksData = res;
             });
             var params = {
-              LookupTypeId: 87
+              LookupTypeId: 87,
+              ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               var data = res.filter(function (item) {
@@ -5734,8 +5741,10 @@
           value: function getAllCategory() {
             var _this52 = this;
 
-            var params = {};
-            params.LookupTypeId = 19;
+            var params = {
+              LookupTypeId: 19,
+              ApartmentId: this.sessionService.apartmentId
+            };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               if (res) {
                 // this.categoryList = res;
@@ -5770,8 +5779,10 @@
           value: function getSubCategory() {
             var _this53 = this;
 
-            var params = {};
-            params.LookupTypeId = 68;
+            var params = {
+              LookupTypeId: 68,
+              ApartmentId: this.sessionService.apartmentId
+            };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
               if (res) {
                 // this.subCategoryList = res;

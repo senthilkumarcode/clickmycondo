@@ -966,7 +966,8 @@
             this.collection.collectionStatusId = "";
             this.apartmentBlockUnitId = this._activatedRoute.params['value'].id;
             var paymentListParams = {
-              LookupTypeId: 34
+              LookupTypeId: 34,
+              ApartmentId: this.sessionService.apartmentId
             }; //payment status
 
             this.lookupService.getLookupValueByLookupTypeId(paymentListParams).subscribe(function (res) {
@@ -975,7 +976,8 @@
               });
             }, function (error) {});
             var insListParams = {
-              LookupTypeId: 33
+              LookupTypeId: 33,
+              ApartmentId: this.sessionService.apartmentId
             }; //payment mode
 
             this.lookupService.getLookupValueByLookupTypeId(insListParams).subscribe(function (res) {

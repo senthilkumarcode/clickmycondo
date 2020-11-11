@@ -878,7 +878,8 @@
               });
             });
             var defaultParams = {
-              LookupTypeId: 60
+              LookupTypeId: 60,
+              ApartmentId: this.sessionService.apartmentId
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(defaultParams).subscribe(function (res) {
@@ -1808,7 +1809,8 @@
               });
             });
             var bankListParams = {
-              LookupTypeId: 27
+              LookupTypeId: 27,
+              ApartmentId: this.sessionService.apartmentId
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
@@ -2134,7 +2136,8 @@
               });
             });
             var bankListParams = {
-              LookupTypeId: 27
+              LookupTypeId: 27,
+              ApartmentId: this.sessionService.apartmentId
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {
@@ -3886,7 +3889,8 @@
               });
             });
             var bankListParams = {
-              LookupTypeId: 27
+              LookupTypeId: 27,
+              ApartmentId: this.sessionService.apartmentId
             }; //bank details
 
             this.lookupService.getLookupValueByLookupTypeId(bankListParams).subscribe(function (res) {

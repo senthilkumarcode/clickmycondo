@@ -381,7 +381,7 @@
           value: function onAccountChange(event, index) {
             this.invoiceGLAccountsData.glaccountName = event[0].glaccountName;
             this.invoiceGLAccountsData.glaccountId = parseInt(event[0].glaccountId);
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
           }
@@ -400,7 +400,7 @@
             this.invoiceGLAccountsData.discountTypeId = event[0].lookupValueName;
             this.onDiscountAdded(this.invoiceGLAccountsData.discountDirectAmt, index);
             this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseFloat(this.invoiceGLAccountsData.discountAmount);
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
           }
@@ -429,7 +429,7 @@
             }
 
             this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - this.invoiceGLAccountsData.discountAmount;
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
             this.calculateVat();
@@ -445,7 +445,7 @@
             }
 
             this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - this.invoiceGLAccountsData.discountAmount;
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
             this.calculateVat();
@@ -475,7 +475,7 @@
 
             this.invoiceGLAccountsData.vatid = parseInt(event[0].lookupValueId);
             this.invoiceGLAccountsData.vatamount = parseFloat(this.invoiceGLAccountsData.amount) * percent;
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
           }
@@ -489,7 +489,7 @@
             }
 
             this.invoiceGLAccountsData.lineItemTotal = this.invoiceGLAccountsData.amount - parseFloat(this.invoiceGLAccountsData.discountAmount);
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
             this.calculateVat();
@@ -498,7 +498,7 @@
           key: "onCommentChange",
           value: function onCommentChange(value, index) {
             this.invoiceGLAccountsData.comments = value;
-            this.invoiceGLAccountsData.form = this.invoiceForm.valid;
+            this.invoiceGLAccountsData.form = this.isFormValid();
             this.invoiceGLAccountsArray[index] = this.invoiceGLAccountsData;
             this.fieldParams.emit(this.invoiceGLAccountsArray);
           }
@@ -1135,7 +1135,7 @@
             this.invoice.finalDiscountTypeName = "";
             this.invoice.comments = "";
             this.invoice.isRecurCustInvoice = true;
-            this.invoice.custInvoiceDate = moment__WEBPACK_IMPORTED_MODULE_10__().utcOffset(this.timeZone.offset).format(this.timeZone.hours);
+            this.invoice.custInvoiceDate = moment__WEBPACK_IMPORTED_MODULE_10__().add(this.timeZone.offset, 'hours');
             this.invoiceGLAccountsData = {};
             this.invoiceGLAccountsData.glaccountId = "";
             this.invoiceGLAccountsData.glaccountName = "";

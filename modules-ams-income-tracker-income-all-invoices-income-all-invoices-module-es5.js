@@ -645,7 +645,8 @@
               ApartmentId: this.sessionService.apartmentId
             };
             var vatListParams = {
-              LookupTypeId: 77
+              LookupTypeId: 77,
+              ApartmentId: this.sessionService.apartmentId
             }; //VAT types
 
             this.lookupService.getLookupValueByLookupTypeId(vatListParams).subscribe(function (res) {

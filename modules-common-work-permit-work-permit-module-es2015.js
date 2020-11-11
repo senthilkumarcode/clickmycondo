@@ -832,7 +832,8 @@ let WorkpermitCreateComponent = class WorkpermitCreateComponent {
             this.vendorList = res;
         });
         let statusParams = {
-            LookupTypeId: 91
+            LookupTypeId: 91,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
             if (this.activateRouter.params['value'].type) {
@@ -2054,7 +2055,8 @@ let WorkpermitStatusComponent = class WorkpermitStatusComponent {
     }
     ngOnInit() {
         let statusParams = {
-            LookupTypeId: 91
+            LookupTypeId: 91,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe((res) => {
             if (res.length > 0) {

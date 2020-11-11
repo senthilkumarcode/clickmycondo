@@ -510,7 +510,8 @@ let HelpdeskReportsDataComponent = class HelpdeskReportsDataComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {
@@ -1533,7 +1534,8 @@ let OpenTicketsReportComponent = class OpenTicketsReportComponent {
             this.unitBlocksData = res;
         });
         let params = {
-            LookupTypeId: 87
+            LookupTypeId: 87,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             var data = res.filter(item => {

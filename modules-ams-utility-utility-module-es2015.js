@@ -967,7 +967,8 @@ let UnitReadingInfoComponent = class UnitReadingInfoComponent {
         this.unitTypeId = "";
         //get unit type
         let params = {
-            LookupTypeId: 1
+            LookupTypeId: 1,
+            ApartmentId: this.sessionService.apartmentId
         };
         this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res) => {
             this.unitTypeData = res;
@@ -2480,7 +2481,8 @@ let UtilityReportDataComponent = class UtilityReportDataComponent {
             this.unitBlocksData = res;
         });
         // let params = {
-        // 	LookupTypeId: 87
+        // 	LookupTypeId: 87,
+        //  ApartmentId: this.sessionService.apartmentId
         // }
         // this.lookupService.getLookupValueByLookupTypeId(params).subscribe((res: any) => {
         // 	var data = res.filter(item => {
