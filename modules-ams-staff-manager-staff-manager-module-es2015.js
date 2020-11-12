@@ -985,7 +985,7 @@ let AddStaffComponent = class AddStaffComponent {
     }
     ngOnInit() {
         // Set TimeZone 
-        this.activateRouter.parent.parent.parent.data.subscribe((data) => {
+        this.activateRouter.parent.parent.data.subscribe((data) => {
             if (data)
                 this.staff.timeZone = data.initialData.apartment.timesettings;
             else

@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-block-unit-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"block-unit-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">{{unitInfo.tower}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-8\">\n                                <div class=\"input-box\">\n                                    <label>Floor Name</label>\n                                    <p>{{unitInfo.floorLabel}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"input-box\">\n                                    <label>Floor No</label>\n                                    <p>{{unitInfo.floorno}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <mat-form-field class=\"unit-chips\">\n                                    <mat-label>Unit Information</mat-label>\n                                    <mat-chip-list #unitList aria-label=\"UnitSelection\">\n                                      <mat-chip [color]=\"'primary'\" *ngFor=\"let unitNo of unitInfo.apartmentBlockunitInfo;let i= index\" [selectable]=\"true\" (removed)=\"removeUnit(unitNo,i)\">\n                                        {{unitNo.apartmentBlockUnitNumber}}\n                                        <mat-icon [color]=\"'warn'\" matChipRemove>cancel</mat-icon>\n                                      </mat-chip>\n                                      <input \n                                            OnlyNumber=\"true\"\n                                            class=\"border-none\"\n                                            placeholder=\"Enter Unit No...\"\n                                            [matChipInputFor]=\"unitList\"\n                                            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n                                            [matChipInputAddOnBlur]=\"true\"\n                                            (matChipInputTokenEnd)=\"addUnit($event)\">\n                                            <help-tooltip title=\"addUnit\"></help-tooltip>\n                                    </mat-chip-list>\n                                </mat-form-field>\n                            </div>\n                        </div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <ng-container *ngIf=\"isDataLoaded\">\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"i == 0\"  *ngFor=\"let tower of towerList; let i = index\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                <h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <mat-panel-description>\n                            <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\" *ngIf=\"tower.floorInfo.length > 0\">\n                                <thead>\n                                    <tr>\n                                        <th class=\"red-width\" scope=\"col\">Floor No</th>\n                                        <th class=\"red-width\" scope=\"col\">Floor Name</th>\n                                        <th class=\"red-width\" scope=\"col\">Total Units</th>\n                                        <th scope=\"col\">Unit No</th>\n                                        <th class=\"red-width\"scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let floor of tower.floorInfo\">\n                                        <td>{{floor.floorno}}</td>\n                                        <td>{{floor.floorLabel}}</td>\n                                        <td>{{floor.unitCount}}</td>\n                                        <td class=\"unit-column\">\n                                            <ng-container *ngFor=\"let unit of floor.apartmentBlockunitInfo;let last = last\">\n                                                {{unit.apartmentBlockUnitNumber}}<span *ngIf=!last>,</span>\n                                            </ng-container>\n                                        </td>\n                                        <td>\n                                            <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editUnit(floor,tower.apartmentBlockNumber,tower.apartmentBlockId)\"  class=\"pt-2 link\" title=\"Add Unit\"></mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </mat-panel-description>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </ng-container>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"add-block-unit-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"false\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"block-unit-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\">{{unitInfo.tower}}</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-8\">\n                                <div class=\"input-box\">\n                                    <label>Floor Name</label>\n                                    <p>{{unitInfo.floorLabel}}</p>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-4\">\n                                <div class=\"input-box\">\n                                    <label>Floor No</label>\n                                    <p>{{unitInfo.floorno}}</p>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <mat-form-field class=\"unit-chips\">\n                                    <mat-label>Unit Information</mat-label>\n                                    <mat-chip-list #unitList aria-label=\"UnitSelection\">\n                                      <mat-chip [color]=\"'primary'\" *ngFor=\"let unitNo of unitInfo.apartmentBlockunitInfo;let i= index\" [selectable]=\"true\" (removed)=\"removeUnit(unitNo,i)\">\n                                        {{unitNo.apartmentBlockUnitNumber}}\n                                        <mat-icon [color]=\"'warn'\" matChipRemove>cancel</mat-icon>\n                                      </mat-chip>\n                                      <input \n                                            #chipsInput\n                                            OnlyNumber=\"true\"\n                                            class=\"border-none\"\n                                            placeholder=\"Enter Unit No...\"\n                                            [matChipInputFor]=\"unitList\"\n                                            [matChipInputSeparatorKeyCodes]=\"separatorKeysCodes\"\n                                            [matChipInputAddOnBlur]=\"true\"\n                                            (matChipInputTokenEnd)=\"addUnit($event)\">\n                                            <help-tooltip title=\"addUnit\"></help-tooltip>\n                                    </mat-chip-list>\n                                </mat-form-field>\n                            </div>\n                        </div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <ng-container *ngIf=\"isDataLoaded\">\n                <mat-accordion>\n                    <mat-expansion-panel [expanded]=\"i == 0\"  *ngFor=\"let tower of towerList; let i = index\">\n                        <mat-expansion-panel-header>\n                            <mat-panel-title>\n                                <h6 class=\"mb-2\">{{tower.apartmentBlockNumber}}</h6>\n                            </mat-panel-title>\n                        </mat-expansion-panel-header>\n                        <mat-panel-description>\n                            <table class=\"table table-resizable\" [ngClass]=\"isMobileView()\" *ngIf=\"tower.floorInfo.length > 0\">\n                                <thead>\n                                    <tr>\n                                        <th class=\"red-width\" scope=\"col\">Floor No</th>\n                                        <th class=\"red-width\" scope=\"col\">Floor Name</th>\n                                        <th class=\"red-width\" scope=\"col\">Total Units</th>\n                                        <th scope=\"col\">Unit No</th>\n                                        <th class=\"red-width\"scope=\"col\">Action</th>\n                                    </tr>\n                                </thead>\n                                <tbody>\n                                    <tr *ngFor=\"let floor of tower.floorInfo\">\n                                        <td>{{floor.floorno}}</td>\n                                        <td>{{floor.floorLabel}}</td>\n                                        <td>{{floor.unitCount}}</td>\n                                        <td class=\"unit-column\">\n                                            <ng-container *ngFor=\"let unit of floor.apartmentBlockunitInfo;let last = last\">\n                                                {{unit.apartmentBlockUnitNumber}}<span *ngIf=!last>,</span>\n                                            </ng-container>\n                                        </td>\n                                        <td>\n                                            <mat-icon [svgIcon]=\"'feather:edit'\" (click)=\"editUnit(floor,tower.apartmentBlockNumber,tower.apartmentBlockId)\"  class=\"pt-2 link\" title=\"Add Unit\"></mat-icon>\n                                        </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </mat-panel-description>\n                    </mat-expansion-panel>\n                </mat-accordion>\n            </ng-container>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -102,7 +102,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"add-tower-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"tower-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Tower</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Tower</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTower = \"ngForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Tower Name</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Tower\" name=\"towerName\" [(ngModel)]=\"tower.apartmentBlockNumber\">\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total No of Floors</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Floors\" name=\"floor\" [(ngModel)]=\"tower.totalnofloors\">\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total No of Units</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Units\" name=\"units\" [(ngModel)]=\"tower.totalNounits\">\n                                </div>\n                            </div>\n                        </div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"float-right\">\n\t\t\t\t\t\t\t\t\t<button  class=\"mr-2\" mat-flat-button [color]=\"'primary'\" (click)=\"submitTowerInfo()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</button>\n\t\t\t\t\t\t\t\t\t<button mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n             <!-- Loader -->\n             <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <condo-card *ngIf=\"isDataLoaded\">\n                <div CondoCardHeader>\n                    <div class=\"d-flex\">\n                        <div>\n                            <h4>No.Of Towers</h4>\n                            <p>{{totalItems}} results</p>\n                        </div>\n                        <div class=\"ml-auto mr-3\">\n                            <app-table-search [input]=\"towerFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addTower()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Tower\n                            </button>\n                        </div>\n                    </div>\n                </div>\n                <div CondoCardBody>\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                        [filterable]=\"true\" [sortable]=\"true\" [source]=\"towerList\" [columns]=\"column\"\n                        [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n                    </jqxGrid>\n                </div>\n            </condo-card>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"add-tower-setup-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer  #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"tower-setup-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'add'\">Add Tower</h4>\n\t\t\t\t\t<h4 class= \"mb-4\" *ngIf=\"clickMode == 'edit'\">Edit Tower</h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"closeDrawer()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n                </div>\n                <condo-message class=\"mb-3\" *ngIf=\"message\"\n                    [appearance]=\"message.appearance\"\n                    [showIcon]=\"message.showIcon\"\n                    [type]=\"message.type\"\n                    [@shake]=\"message.shake\">\n                    {{message.content}}\n                </condo-message>\n\t\t\t\t<app-loader *ngIf=\"!isDrawerLoader\"></app-loader>\n\t\t\t\t<div *ngIf=\"isDrawerLoader\">\n\t\t\t\t\t<form #addTowerForm=\"ngForm\" name=\"addTowerForm\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Tower Name*</label>\n                                    <input type=\"text\" class=\"form-control\" placeholder=\"Tower\" name=\"towerName\" [(ngModel)]=\"tower.apartmentBlockNumber\" required>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total No of Floors*</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Floors\" name=\"floor\" [(ngModel)]=\"tower.totalnofloors\" required>\n                                </div>\n                            </div>\n                            <div class=\"col-sm-12\">\n                                <div class=\"input-box\">\n                                    <label>Total No of Units*</label>\n                                    <input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"No Of Units\" name=\"units\" [(ngModel)]=\"tower.totalNounits\" required>\n                                </div>\n                            </div>\n                        </div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t\t<div class=\"d-flex justify-content-end\">\n                                    <submit-button [isSubmit]=\"!isDrawerLoader\" (click)=\"submitTowerInfo()\">{{clickMode=='add' ? 'Submit' : 'Update'}}</submit-button>\n\t\t\t\t\t\t\t\t\t<button class=\"ml-2\" mat-button (click)=\"closeDrawer()\">Cancel</button>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</form>\n\t\t\t\t</div>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n             <!-- Loader -->\n             <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n            <condo-card *ngIf=\"isDataLoaded\">\n                <div CondoCardHeader>\n                    <div class=\"d-flex\">\n                        <div>\n                            <h4>No.Of Towers</h4>\n                            <p>{{totalItems}} results</p>\n                        </div>\n                        <div class=\"ml-auto mr-3\">\n                            <app-table-search [input]=\"towerFilter\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n                        </div>\n                        <div>\n                            <button mat-flat-button [color]=\"'primary'\" (click)=\"addTower()\">\n                                <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add Tower\n                            </button>\n                        </div>\n                    </div>\n                </div>\n                <div CondoCardBody>\n                    <jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n                        [filterable]=\"true\" [sortable]=\"true\" [source]=\"towerList\" [columns]=\"column\"\n                        [columnsresize]=\"true\" [enablehover]=\"false\" #dataGrid>\n                    </jqxGrid>\n                </div>\n            </condo-card>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>";
       /***/
     },
 
@@ -1087,6 +1087,8 @@
             if (input) {
               input.value = '';
             }
+
+            this.chipsInput.nativeElement.blur();
           } //   pasteUnit(event: ClipboardEvent): void {
           // 	event.preventDefault();
           // 	let pastedData =  event.clipboardData.getData('Text');
@@ -1228,6 +1230,10 @@
           args: ['matDrawer', {
             "static": true
           }]
+        }],
+        chipsInput: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['chipsInput']
         }]
       };
       AddBlockUnitComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1429,21 +1435,29 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      /* harmony import */
+
+
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/@condo/animations */
+      "./src/@condo/animations/index.ts");
 
       var AddTowerComponent = /*#__PURE__*/function () {
-        function AddTowerComponent(apartmentService, injector, sharedService, sessionService) {
+        function AddTowerComponent(apartmentService, injector, sharedService, sessionService, _changeDetectorRef) {
           _classCallCheck(this, AddTowerComponent);
 
           this.apartmentService = apartmentService;
           this.injector = injector;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
+          this._changeDetectorRef = _changeDetectorRef;
           this.tower = {};
           this.totalItems = 0;
           this.towerFilter = '';
           this.isDataLoaded = false;
           this.isDrawerLoader = true;
           this.towerList = [];
+          this.message = null;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
         }
 
@@ -1475,6 +1489,7 @@
           key: "addTower",
           value: function addTower() {
             this.clickMode = 'add';
+            this.message = null;
             this.matDrawer.open();
             this.tower = {};
           }
@@ -1482,8 +1497,8 @@
           key: "onEditTower",
           value: function onEditTower(detail) {
             this.clickMode = 'edit';
+            this.message = null;
             var dataRecord = this.dataGrid.getrowdata(detail.rowId);
-            console.log(dataRecord);
             this.tower = Object.assign({}, dataRecord);
             window.scroll({
               top: 0,
@@ -1512,68 +1527,106 @@
           value: function createTower() {
             var _this17 = this;
 
-            this.isDataLoaded = false;
-            var params = {
-              apartmentBlocks: [{
-                "apartmentBlockId": 0,
-                "apartmentBlockNumber": this.tower.apartmentBlockNumber,
-                "totalNounits": Number(this.tower.totalNounits),
-                "totalnofloors": Number(this.tower.totalnofloors),
-                "description": this.tower.apartmentBlockNumber,
-                "apartmentId": this.sessionService.apartmentId,
-                "isActive": true,
-                "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-              }]
-            };
-            this.apartmentService.addApartmentBlock(params).subscribe(function (res) {
-              _this17.isDrawerLoader = true;
+            this.message = null;
 
-              if (res.message) {
-                _this17.closeDrawer();
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
 
-                _this17.getTowerList();
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
 
-                _this17.sharedService.openSnackBar('Tower Created Successfully', 'success');
-              } else {
-                _this17.sharedService.openSnackBar(res.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this17.isDrawerLoader = true;
+              this._changeDetectorRef.markForCheck();
+            } else {
+              this.isDrawerLoader = false;
+              var params = {
+                apartmentBlocks: [{
+                  "apartmentBlockId": 0,
+                  "apartmentBlockNumber": this.tower.apartmentBlockNumber,
+                  "totalNounits": Number(this.tower.totalNounits),
+                  "totalnofloors": Number(this.tower.totalnofloors),
+                  "description": this.tower.apartmentBlockNumber,
+                  "apartmentId": this.sessionService.apartmentId,
+                  "isActive": true,
+                  "insertedBy": this.sessionService.userId,
+                  "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                  "updatedBy": null,
+                  "updatedOn": null
+                }]
+              };
+              this.apartmentService.addApartmentBlock(params).subscribe(function (res) {
+                _this17.isDrawerLoader = true;
 
-              _this17.sharedService.openSnackBar('Network Error', 'error');
-            });
+                if (res.message) {
+                  _this17.closeDrawer();
+
+                  _this17.getTowerList();
+
+                  _this17.sharedService.openSnackBar('Tower Created Successfully', 'success');
+                } else {
+                  _this17.sharedService.openSnackBar(res.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this17.isDrawerLoader = true;
+
+                _this17.sharedService.openSnackBar('Network Error', 'error');
+              });
+            }
           }
         }, {
           key: "updateTower",
           value: function updateTower() {
             var _this18 = this;
 
-            this.isDataLoaded = false;
-            this.tower.totalNounits = Number(this.tower.totalNounits);
-            this.tower.totalnofloors = Number(this.tower.totalnofloors);
-            var params = {
-              apartmentBlock: this.tower
-            };
-            this.apartmentService.updateApartmentBlock(params).subscribe(function (res) {
-              _this18.isDrawerLoader = true;
+            this.message = null;
 
-              if (res.code == 200) {
-                _this18.closeDrawer();
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
 
-                _this18.getTowerList();
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
 
-                _this18.sharedService.openSnackBar(res.responseData.value.message, 'success');
-              } else {
-                _this18.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
-              }
-            }, function (error) {
-              _this18.isDrawerLoader = true;
+              this._changeDetectorRef.markForCheck();
+            } else {
+              this.isDrawerLoader = false;
+              this.tower.totalNounits = Number(this.tower.totalNounits);
+              this.tower.totalnofloors = Number(this.tower.totalnofloors);
+              var params = {
+                apartmentBlock: this.tower
+              };
+              this.apartmentService.updateApartmentBlock(params).subscribe(function (res) {
+                _this18.isDrawerLoader = true;
 
-              _this18.sharedService.openSnackBar('Network Error', 'error');
-            });
+                if (res.code == 200) {
+                  _this18.closeDrawer();
+
+                  _this18.getTowerList();
+
+                  _this18.sharedService.openSnackBar(res.responseData.value.message, 'success');
+                } else {
+                  _this18.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this18.isDrawerLoader = true;
+
+                _this18.sharedService.openSnackBar('Network Error', 'error');
+              });
+            }
           }
         }, {
           key: "getTowerList",
@@ -1653,6 +1706,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
+        }, {
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
 
@@ -1669,6 +1724,10 @@
             "static": false
           }]
         }],
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['addTowerForm']
+        }],
         onEditTower: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onEditTower', ['$event.detail']]
@@ -1680,10 +1739,11 @@
         /*! raw-loader!./add-tower.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/profile-settings/components/add-floor-unit/add-tower/add-tower.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_9__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-tower.component.scss */
         "./src/app/modules/ams/profile-settings/components/add-floor-unit/add-tower/add-tower.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], AddTowerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_6__["ApartmentService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddTowerComponent);
 
       function editTower(row) {
         var event = new CustomEvent('onEditTower', {
@@ -2211,6 +2271,12 @@
       var src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! src/app/modules/ui/help-tooltip/help-tooltip.module */
       "./src/app/modules/ui/help-tooltip/help-tooltip.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      /*! src/app/modules/ui/message/message.module */
+      "./src/app/modules/ui/message/message.module.ts");
 
       var ProfileSettingsModule = function ProfileSettingsModule() {
         _classCallCheck(this, ProfileSettingsModule);
@@ -2221,7 +2287,7 @@
         //AddUnitWrapperComponent,
         _profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"], _components_add_block_wrapper_add_block_add_block_component__WEBPACK_IMPORTED_MODULE_6__["AddBlockComponent"], _components_add_floor_unit_add_floor_unit_component__WEBPACK_IMPORTED_MODULE_8__["AddFloorUnitComponent"], _components_add_floor_unit_graphic_add_floor_unit_graphic_component__WEBPACK_IMPORTED_MODULE_9__["AddFloorUnitGraphicComponent"], _components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"], _components_add_floor_unit_add_tower_add_tower_component__WEBPACK_IMPORTED_MODULE_12__["AddTowerComponent"], _components_add_floor_unit_add_block_unit_add_block_unit_component__WEBPACK_IMPORTED_MODULE_13__["AddBlockUnitComponent"]],
         entryComponents: [_components_add_property_dialog_add_property_dialog_component__WEBPACK_IMPORTED_MODULE_10__["AddPropertyDialogComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__["HelpTooltipModule"], _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_14__["HelpTooltipModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_15__["CondoMessageModule"], _profile_settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileSettingsRoutingModule"]],
         bootstrap: [_profile_settings_component__WEBPACK_IMPORTED_MODULE_5__["ProfileSettingsComponent"]]
       })], ProfileSettingsModule);
       /***/

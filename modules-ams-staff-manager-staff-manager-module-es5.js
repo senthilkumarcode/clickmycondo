@@ -1318,7 +1318,7 @@
             var _this11 = this;
 
             // Set TimeZone 
-            this.activateRouter.parent.parent.parent.data.subscribe(function (data) {
+            this.activateRouter.parent.parent.data.subscribe(function (data) {
               if (data) _this11.staff.timeZone = data.initialData.apartment.timesettings;else _this11.staff.timeZone = '';
             });
 
