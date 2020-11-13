@@ -362,7 +362,7 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 "dob": "",
                 "joinedOn": "",
                 "bloodGroup": "",
-                "phoneNumber": this.user.phoneNumber.number,
+                "phoneNumber": this.user.phoneNumber ? this.user.phoneNumber.number : '',
                 "emergencyContactNumber": "",
                 "emergencyContactPerson": "",
                 "emergencyContactNumberSecondary": "",
@@ -379,8 +379,8 @@ let AddUsersResidentComponent = class AddUsersResidentComponent {
                 "isDocSubmitted": false,
                 "readyForApproval": false,
                 "timeZone": this.user.timeZone,
-                "phonecountrycode": this.user.phoneNumber.countryCode,
-                "phonecountrycodeno": this.user.phoneNumber.dialCode
+                "phonecountrycode": this.user.phoneNumber ? this.user.phoneNumber.countryCode : '',
+                "phonecountrycodeno": this.user.phoneNumber ? this.user.phoneNumber.dialCode : ''
             };
             let params = {
                 user: userDetails

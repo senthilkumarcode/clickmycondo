@@ -437,9 +437,13 @@
               this.ticketService.addTicket(params).subscribe(function (res) {
                 if (res.message) {
                   if (_this3.sessionService.isAdmin()) {
-                    _this3.router.navigate(['/ams/helpdesk/ticket/open-tickets']);
+                    _this3.router.navigate(['open-tickets'], {
+                      relativeTo: _this3.acticateRoute.parent
+                    });
                   } else {
-                    _this3.router.navigate(['/user/servicedesk/my-tickets']);
+                    _this3.router.navigate(['my-tickets'], {
+                      relativeTo: _this3.acticateRoute.parent
+                    });
                   }
 
                   _this3.sharedService.openSnackBar('Ticket added successfully', 'success');

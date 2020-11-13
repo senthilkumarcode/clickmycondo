@@ -276,10 +276,10 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
             this.ticketService.addTicket(params).subscribe((res) => {
                 if (res.message) {
                     if (this.sessionService.isAdmin()) {
-                        this.router.navigate(['/ams/helpdesk/ticket/open-tickets']);
+                        this.router.navigate(['open-tickets'], { relativeTo: this.acticateRoute.parent });
                     }
                     else {
-                        this.router.navigate(['/user/servicedesk/my-tickets']);
+                        this.router.navigate(['my-tickets'], { relativeTo: this.acticateRoute.parent });
                     }
                     this.sharedService.openSnackBar('Ticket added successfully', 'success');
                 }

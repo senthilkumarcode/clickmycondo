@@ -4324,7 +4324,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"currently-checked-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">Currently Checked-In Visitors</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/visitor/info/checkin\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Visitor</span>\n                        </button>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.visitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.visitorPhone}}</span>\n                                    <span class=\"d-md-inline-block d-none\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.passNumber}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                            <div class=\"icon\" (click)=\"checkOut(item.visitorId)\">\n                                <mat-icon svgIcon=\"feather:check-square\"></mat-icon>\n                            </div>\n                            <a class=\"mt-2\" href=\"javascript:void(0)\" (click)=\"editVisitor(item.visitorId)\">Edit</a>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">Pass ID</p>\n                                <p class=\"right\">{{item.passNumber}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">IN Time</p>\n                                <p class=\"right\">{{getDateTime(item.visitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Expected Out</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Visit Type</p>\n                                <p class=\"right\">{{item.visitTypeName}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Tower</p>\n                                <p class=\"right\">{{item.block_Unit}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"currently-checked-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">Currently Checked-In Visitors</h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" routerLink=\"/ams/visitor/checkin\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Visitor</span>\n                        </button>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.visitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.visitorPhone}}</span>\n                                    <span class=\"d-md-inline-block d-none\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.passNumber}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                            <div class=\"icon\" (click)=\"checkOut(item.visitorId)\">\n                                <mat-icon svgIcon=\"feather:check-square\"></mat-icon>\n                            </div>\n                            <a class=\"mt-2\" href=\"javascript:void(0)\" (click)=\"editVisitor(item.visitorId)\">Edit</a>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">Pass ID</p>\n                                <p class=\"right\">{{item.passNumber}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">IN Time</p>\n                                <p class=\"right\">{{getDateTime(item.visitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Expected Out</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Visit Type</p>\n                                <p class=\"right\">{{item.visitTypeName}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Tower</p>\n                                <p class=\"right\">{{item.block_Unit}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>";
       /***/
     },
 
@@ -4344,7 +4344,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"expected-user-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        \n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n\n                <div>\n                    <h4 class=\"mb-2\">Expected Visitors</h4>\n                    <p class=\"text-secondary mb-1\" *ngIf=\"visitorList.length != 0\">{{totalItems}} results</p>\n                </div>\n\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n\n        \n\n            <div class=\"bg-card shadow mb-4\" *ngIf=\"visitorList.length == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                    <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none text-primary link\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                            <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">Pass ID</p>\n                                <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Expected IN</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Expected OUT</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Visit Type</p>\n                                <p class=\"right\">{{item.visitType_Label}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length != 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"expected-user-visitor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        \n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n\n                <div>\n                    <h4 class=\"mb-2\">Expected Visitors</h4>\n                    <p class=\"text-secondary mb-1\" *ngIf=\"visitorList.length != 0\">{{totalItems}} results</p>\n                </div>\n\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n\n        \n\n            <div class=\"bg-card shadow\" *ngIf=\"visitorList.length == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                    <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none text-primary link\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        <div class=\"ml-auto actions d-flex align-items-center\">\n                            <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                            <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">Pass ID</p>\n                                <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Expected IN</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Expected OUT</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-4 item\">\n                                <p class=\"font-medium\">Visit Type</p>\n                                <p class=\"right\">{{item.visitType_Label}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length != 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>\n";
       /***/
     },
 
@@ -4384,7 +4384,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<condo-message class=\"mb-5\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n\n\t\t\t<h4 class=\"mb-4\">\n\t\t\t\t<span *ngIf=\"!isEdit\">Create Expected Visitor</span>\n\t\t\t\t<span *ngIf=\"isEdit\">Edit Expected Visitor</span>\n\t\t\t</h4>\n\n\t\t\t<form #expectedVisitorForm=\"ngForm\"  name=\"expectedVisitorForm\" (ngSubmit)=\"submitExpectedVisitorForm(expectedVisitorForm)\" novalidate>\n\t\t\t\t\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Visit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVisitType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedStaff($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t[min]=\"currentDate\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t\t[min]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Category\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">\n\t\t\t\t\t\t\t\t<span *ngIf=\"!isEdit\">Submit</span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"isEdit\">Update</span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<a class=\"ml-2\" mat-stroked-button (click)=\"back()\">Cancel</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\n\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<condo-message class=\"mb-5\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Create Expected Visitor</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Edit Expected Visitor</span>\n\t\t\t\t</h4>\n\t\t\t\t<!-- <a class=\"ml-auto\" mat-button (click)=\"back()\" [color]=\"'primary'\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t<span>Back</span>\n\t\t\t\t</a> -->\n\t\t\t</div>\n\n\t\t\t<form #expectedVisitorForm=\"ngForm\"  name=\"expectedVisitorForm\" (ngSubmit)=\"submitExpectedVisitorForm(expectedVisitorForm)\" novalidate>\n\t\t\t\t\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Visit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVisitType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedStaff($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" \n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t[min]=\"currentDate\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" autocomplete=\"off\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t\t[min]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Category\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">\n\t\t\t\t\t\t\t\t<span *ngIf=\"!isEdit\">Submit</span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"isEdit\">Update</span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<a class=\"ml-2\" mat-stroked-button (click)=\"back()\">Cancel</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\n\n\t</div>\n</div>";
       /***/
     },
 
@@ -4404,7 +4404,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"expected-visitor-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"expected-visitor-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>From Date</label>\n                                <input class=\"form-control\" name=\"eventDateFrom\" [owlDateTime]=\"eventDateFrom\" [owlDateTimeTrigger]=\"eventDateFrom\" placeholder=\"From Date\" \n                                [(ngModel)]=\"filterField.fromDate\" autocomplete=\"off\">\n                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateFrom></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateFrom\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>To Date</label>\n                                <input class=\"form-control\" name=\"eventDateTo\" [owlDateTime]=\"eventDateTo\" [owlDateTimeTrigger]=\"eventDateTo\" placeholder=\"To Date\" \n                                [(ngModel)]=\"filterField.toDate\" [min]=\"filterField.fromDate\" autocomplete=\"off\">\n                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateTo></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateTo\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\t\t\t<div class=\"main\">\n                \n               <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n                    <div class=\"d-flex mb-4\">\n                        <div>\n                            <h4 class=\"mb-2\">Expected Visitors</h4>\n                            <p class=\"text-secondary mb-1\">{{totalItems}} results from {{getDate(filterField.fromDate)}} to {{getDate(filterField.toDate)}}</p>\n                        </div>\n                    </div>\n\n                    <div class=\"d-flex mb-4\">\n                        <div class=\"d-flex ml-auto\">\n                            <div class=\"mr-3\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                            </div>\n                            <div class=\"mr-3 ml-auto\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                                </button>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                        <div class=\"visitor-item\">\n                            <div class=\"d-flex\">\n                                <div class=\"media\">\n                                    <div class=\"icon\">\n                                        <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                                    </div>\n                                    <div class=\"media-body\">\n                                        <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                        <p class=\"pb-1 text-secondary others\">\n                                            <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                            <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none link text-primary\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                        </p>\n                                    </div>\n                                </div>\n                                <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                                    <div class=\"icon\" (click)=\"checkIn(item)\">\n                                        <mat-icon svgIcon=\"feather:check-square\"></mat-icon>\n                                    </div>\n                                    <div class=\"actions d-flex mt-3\">\n                                        <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                                        <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"border-top visitor-extras\">\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                        <p class=\"font-medium\">Pass ID</p>\n                                        <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected IN</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                                    </div>\n                                    <div class=\"ccol-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected OUT</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Visit Type</p>\n                                        <p class=\"right\">{{item.visitType_Label}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Tower</p>\n                                        <p class=\"right\">{{item.block_Unit}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                    </div>\n\n               </ng-container>\n\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"expected-visitor-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"expected-visitor-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Filter </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>From Date</label>\n                                <input class=\"form-control\" name=\"eventDateFrom\" [owlDateTime]=\"eventDateFrom\" [owlDateTimeTrigger]=\"eventDateFrom\" placeholder=\"From Date\" \n                                [(ngModel)]=\"filterField.fromDate\" (ngModelChange)=\"fromDateChange($event)\" autocomplete=\"off\">\n                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateFrom></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateFrom\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"input-box\">\n                                <label>To Date</label>\n                                <input class=\"form-control\" name=\"eventDateTo\" [owlDateTime]=\"eventDateTo\" [owlDateTimeTrigger]=\"eventDateTo\" placeholder=\"To Date\" \n                                [(ngModel)]=\"filterField.toDate\" [min]=\"filterField.fromDate\" autocomplete=\"off\">\n                                <owl-date-time [pickerType]=\"'calendar'\" #eventDateTo></owl-date-time>\n                                <div class=\"date-btn\" [owlDateTimeTrigger]=\"eventDateTo\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Clear</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n            <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n\t\t\t<div class=\"main\">\n                \n               <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n                    <div class=\"d-flex mb-4\">\n                        <div>\n                            <h4 class=\"mb-2\">Expected Visitors</h4>\n                            <p class=\"text-secondary mb-1\">{{totalItems}} results from {{getDate(filterField.fromDate)}} to {{getDate(filterField.toDate)}}</p>\n                        </div>\n                    </div>\n\n                    <div class=\"d-flex mb-4\">\n                        <div class=\"d-flex ml-auto\">\n                            <div class=\"mr-3\">\n                                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                            </div>\n                            <div class=\"mr-3 ml-auto\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon><span class=\"button-name\">Expected Visitor</span>\n                                </button>\n                            </div>\n                            <div>\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n                                    <mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon><span class=\"button-name\">Filter</span>\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n\n                    <div class=\"bg-card shadow\" *ngIf=\"visitorList.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>\n\n                    <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                        <div class=\"visitor-item\">\n                            <div class=\"d-flex\">\n                                <div class=\"media\">\n                                    <div class=\"icon\">\n                                        <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                                    </div>\n                                    <div class=\"media-body\">\n                                        <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                        <p class=\"pb-1 text-secondary others\">\n                                            <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                            <span (click)=\"viewPass(item.expectedVisitorId)\" class=\"d-md-inline-block d-none link text-primary\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                        </p>\n                                    </div>\n                                </div>\n                                <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                                    <div class=\"icon\" (click)=\"checkIn(item)\">\n                                        <mat-icon svgIcon=\"feather:check-square\"></mat-icon>\n                                    </div>\n                                    <div class=\"actions d-flex mt-3\">\n                                        <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                                        <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"border-top visitor-extras\">\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                        <p class=\"font-medium\">Pass ID</p>\n                                        <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected IN</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                                    </div>\n                                    <div class=\"ccol-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Expected OUT</p>\n                                        <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Visit Type</p>\n                                        <p class=\"right\">{{item.visitType_Label}}</p>\n                                    </div>\n                                    <div class=\"col-sm-12 col-md-3 item\">\n                                        <p class=\"font-medium\">Tower & Unit</p>\n                                        <p class=\"right\">{{item.block_Unit}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n\n                    <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                        <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                                [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>\n                    </div>\n\n               </ng-container>\n\n            </div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n";
       /***/
     },
 
@@ -4424,7 +4424,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"frequent-vendor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">\n                        <span *ngIf=\"urlType == 'frequent-visitor-list'\">Frequent Visitor List</span>\n                        <span *ngIf=\"urlType == 'vendor-pass-list'\">Vendor Pass List</span>\n                    </h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon>\n                            <span class=\"button-name\" *ngIf=\"urlType == 'frequent-visitor-list'\">Frequent Visitor</span>\n                            <span class=\"button-name\" *ngIf=\"urlType == 'vendor-pass-list'\">Vendor Pass</span>\n                        </button>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                    <span class=\"d-md-inline-block d-none link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        \n                        <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                            <div class=\"icon\" (click)=\"checkIn(item)\" *ngIf=\"isAdmin\">\n                                <mat-icon svgIcon=\"feather:check-square\"></mat-icon>\n                            </div>\n                            <div class=\"actions d-flex mt-3\">\n                                <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                                <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">Pass ID</p>\n                                <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\" *ngIf=\"urlType == 'vendor-pass-list'\">\n                                <p class=\"font-medium\">Expected IN</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-3 item\" *ngIf=\"urlType == 'vendor-pass-list'\">\n                                <p class=\"font-medium\">Expected OUT</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Visit Type</p>\n                                <p class=\"right\">{{item.visitType_Label}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Tower</p>\n                                <p class=\"right\">{{item.block_Unit}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"frequent-vendor-list-wrapper\">\n    <app-loader *ngIf=\"!isVisitorDataLoaded\"></app-loader>\n    <div class=\"main\">\n        <ng-container *ngIf=\"isVisitorDataLoaded\">\n\n            <div class=\"d-flex mb-4\">\n                <div>\n                    <h4 class=\"mb-2\">\n                        <span *ngIf=\"urlType == 'frequent-visitor-list'\">Frequent Visitor List</span>\n                        <span *ngIf=\"urlType == 'vendor-pass-list'\">Vendor Pass List</span>\n                    </h4>\n                    <p class=\"text-secondary mb-1\">{{totalItems}} results</p>\n                </div>\n            </div>\n\n            <div class=\"d-flex mb-4\">\n                <div class=\"d-flex ml-auto\">\n                    <div class=\"mr-3\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchData\">\n                    </div>\n                    <div class=\"mr-3 ml-auto\">\n                        <button mat-flat-button [color]=\"'primary'\" (click)=\"navigateToCreate()\">\n                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon>\n                            <span class=\"button-name\" *ngIf=\"urlType == 'frequent-visitor-list'\">Frequent Visitor</span>\n                            <span class=\"button-name\" *ngIf=\"urlType == 'vendor-pass-list'\">Vendor Pass</span>\n                        </button>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"bg-card shadow\" *ngIf=\"visitorList.length == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>\n\n            <div class=\"bg-card shadow mb-3\" *ngFor=\" let item of visitorList | simpleSearch: searchData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n\n                <div class=\"visitor-item\">\n                    <div class=\"d-flex\">\n                        <div class=\"media\">\n                            <div class=\"icon\">\n                                <mat-icon svgIcon=\"heroicons_outline:user-circle\"></mat-icon>\n                            </div>\n                            <div class=\"media-body\">\n                                <h5 class=\"mb-2\">{{item.expectedVisitorName}}</h5>\n                                <p class=\"pb-1 text-secondary others\">\n                                    <span class=\"mr-4\"><mat-icon svgIcon=\"heroicons_outline:phone\"></mat-icon>{{item.expectedVisitorPhone}}</span>\n                                    <span class=\"d-md-inline-block d-none link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\"><mat-icon svgIcon=\"dripicons:user-id\"></mat-icon>{{item.visitorPassId}}</span>\n                                </p>\n                            </div>\n                        </div>\n                        \n                        <div class=\"ml-auto check d-flex flex-column align-items-center\">\n                            <div class=\"icon\" (click)=\"checkIn(item)\" *ngIf=\"isAdmin\">\n                                <mat-icon svgIcon=\"feather:check-square\"></mat-icon>\n                            </div>\n                            <div class=\"actions d-flex mt-3\">\n                                <mat-icon class=\"mr-2\" [color]=\"'primary'\" svgIcon=\"feather:edit\" (click)=\"editVisitor(item.expectedVisitorId)\"></mat-icon>\n                                <mat-icon class=\"delete\" svgIcon=\"feather:trash\" (click)=\"deleteVisitor(item.expectedVisitorId, i)\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"border-top visitor-extras\">\n                        <div class=\"row\">\n                            <div class=\"col-sm-12 col-md-3 item d-block d-md-none\">\n                                <p class=\"font-medium\">Pass ID</p>\n                                <p class=\"right link text-primary\" (click)=\"viewPass(item.expectedVisitorId)\">{{item.visitorPassId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\" *ngIf=\"urlType == 'vendor-pass-list'\">\n                                <p class=\"font-medium\">Expected IN</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorInTime)}}</p>\n                            </div>\n                            <div class=\"ccol-sm-12 col-md-3 item\" *ngIf=\"urlType == 'vendor-pass-list'\">\n                                <p class=\"font-medium\">Expected OUT</p>\n                                <p class=\"right\">{{getDateTime(item.expectedVisitorOutTime)}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Visit Type</p>\n                                <p class=\"right\">{{item.visitType_Label}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 item\">\n                                <p class=\"font-medium\">Tower & Unit</p>\n                                <p class=\"right\">{{item.block_Unit}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n\n            <div class=\"bg-card shadow p-0\" *ngIf=\"visitorList.length > 0\">\n                <app-pagination [totalItems]=\"totalItems\" [ItemStartIndex]=\"ItemStartIndex\"\n                        [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\" (outputParams)=\"getIndexParams($event)\">\n            </app-pagination>\n            </div>\n\n        </ng-container>\n    </div>\n</div>\n";
       /***/
     },
 
@@ -4647,9 +4647,21 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var CreateVendorFrquentVisitorComponent = /*#__PURE__*/function () {
-        function CreateVendorFrquentVisitorComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef) {
+        function CreateVendorFrquentVisitorComponent(apartmentService, visitorService, lookupService, sessionService, staffService, router, activateRouter, sharedService, _changeDetectorRef, dialog) {
           var _this5 = this;
 
           _classCallCheck(this, CreateVendorFrquentVisitorComponent);
@@ -4663,6 +4675,7 @@
           this.activateRouter = activateRouter;
           this.sharedService = sharedService;
           this._changeDetectorRef = _changeDetectorRef;
+          this.dialog = dialog;
           this.visitor = {};
           this.message = null;
           this.isDataLoaded = true;
@@ -4865,16 +4878,29 @@
         }, {
           key: "back",
           value: function back() {
-            if (this.urlType == 'vendor-pass-create') this.router.navigate(['vendor-pass-list'], {
-              relativeTo: this.activateRouter.parent
-            });else if (this.urlType == 'frequent-visitor-create') this.router.navigate(['frequent-visitor-list'], {
-              relativeTo: this.activateRouter.parent
+            var _this6 = this;
+
+            var message = "Are you sure, you want to exit the screen ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_12__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                if (_this6.urlType == 'vendor-pass-create') _this6.router.navigate(['vendor-pass-list'], {
+                  relativeTo: _this6.activateRouter.parent
+                });else if (_this6.urlType == 'frequent-visitor-create') _this6.router.navigate(['frequent-visitor-list'], {
+                  relativeTo: _this6.activateRouter.parent
+                });
+              }
             });
           }
         }, {
           key: "createExpectedVisitor",
           value: function createExpectedVisitor() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.message = null;
 
@@ -4919,31 +4945,31 @@
                 })
               };
               this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
-                _this6.isDataLoaded = true;
+                _this7.isDataLoaded = true;
 
                 if (res.message) {
                   var id, type;
                   id = res.message.split('#');
-                  if (_this6.urlType == 'vendor-pass-create') type = 'vendor';else if (_this6.urlType == 'frequent-visitor-create') type = 'frequent';
+                  if (_this7.urlType == 'vendor-pass-create') type = 'vendor';else if (_this7.urlType == 'frequent-visitor-create') type = 'frequent';
 
-                  _this6.router.navigate(['confirm-expected-visitor', id[0], type], {
-                    relativeTo: _this6.activateRouter.parent,
+                  _this7.router.navigate(['confirm-expected-visitor', id[0], type], {
+                    relativeTo: _this7.activateRouter.parent,
                     queryParams: {
                       method: 'Created'
                     }
                   });
                 } else {
-                  _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this6.sharedService.openSnackBar('Server Error', 'error');
+                _this7.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateExpectedVisitor",
           value: function updateExpectedVisitor() {
-            var _this7 = this;
+            var _this8 = this;
 
             this.message = null;
 
@@ -4971,20 +4997,20 @@
                 })
               };
               this.visitorService.updateExpectedVisitor(visitor).subscribe(function (res) {
-                _this7.isDataLoaded = true;
+                _this8.isDataLoaded = true;
 
                 if (res.message) {
                   var type;
-                  if (_this7.urlType == 'vendor-pass-create') type = 'vendor';else if (_this7.urlType == 'frequent-visitor-create') type = 'frequent';
+                  if (_this8.urlType == 'vendor-pass-create') type = 'vendor';else if (_this8.urlType == 'frequent-visitor-create') type = 'frequent';
 
-                  _this7.router.navigate(['confirm-expected-visitor', _this7.visitor.expectedVisitorId, type], {
-                    relativeTo: _this7.activateRouter.parent,
+                  _this8.router.navigate(['confirm-expected-visitor', _this8.visitor.expectedVisitorId, type], {
+                    relativeTo: _this8.activateRouter.parent,
                     queryParams: {
                       method: 'Updated'
                     }
                   });
                 } else {
-                  _this7.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this8.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -4992,7 +5018,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this8 = this;
+            var _this9 = this;
 
             this.resetField();
 
@@ -5003,7 +5029,7 @@
                 LookupTypeId: 15
               };
               this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-                _this8.visitTypeList = res;
+                _this9.visitTypeList = res;
               }); //Staffs List
 
               var staffParms = {
@@ -5011,7 +5037,7 @@
                 RoleTypeId: this.sessionService.roleTypeId
               };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-                _this8.staffsList = res;
+                _this9.staffsList = res;
                 ;
               });
             } else {
@@ -5027,21 +5053,21 @@
                 expectedVisitorId: this.activateRouter.params['value'].id
               };
               this.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
-                _this8.visitor = res[0];
-                _this8.visitor.expectedVisitorPhone = {
-                  'countryCode': _this8.visitor.phonecountrycode,
+                _this9.visitor = res[0];
+                _this9.visitor.expectedVisitorPhone = {
+                  'countryCode': _this9.visitor.phonecountrycode,
                   'number': res[0].expectedVisitorPhone
                 };
 
-                if (_this8.isAdmin) {
-                  _this8.getTowers().then(function (res) {
+                if (_this9.isAdmin) {
+                  _this9.getTowers().then(function (res) {
                     if (res.length > 0) {
-                      _this8.towerList = res;
-                      if (_this8.visitor.apartmentUnitId) _this8.getUnits('edit');else _this8.isDataLoaded = true;
+                      _this9.towerList = res;
+                      if (_this9.visitor.apartmentUnitId) _this9.getUnits('edit');else _this9.isDataLoaded = true;
                     }
                   });
                 } else {
-                  _this8.isDataLoaded = true;
+                  _this9.isDataLoaded = true;
                 }
               });
             } else {
@@ -5049,7 +5075,7 @@
                 //Tower List 
                 this.getTowers().then(function (res) {
                   if (res.length > 0) {
-                    _this8.towerList = res;
+                    _this9.towerList = res;
                   }
                 });
               }
@@ -5061,7 +5087,7 @@
               LookupTypeId: this.urlType == 'frequent-visitor-create' ? 202 : 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this8.visitCategoryList = res;
+              _this9.visitCategoryList = res;
             });
           }
         }, {
@@ -5093,6 +5119,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]
         }];
       };
 
@@ -5110,7 +5138,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./create-vendor-frquent-visitor.component.scss */
         "./src/app/modules/common/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], CreateVendorFrquentVisitorComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_13__["MatDialog"]])], CreateVendorFrquentVisitorComponent);
       /***/
     },
 
@@ -5259,7 +5287,7 @@
         }, {
           key: "checkOut",
           value: function checkOut(id) {
-            var _this9 = this;
+            var _this10 = this;
 
             var message = "Are you sure, you want to Check Out?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__["ConfirmDialogModel"]("Confirm Action", message);
@@ -5270,8 +5298,8 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this9.router.navigate(["checkout/".concat(id)], {
-                  relativeTo: _this9.activeRouter.parent
+                _this10.router.navigate(["checkout/".concat(id)], {
+                  relativeTo: _this10.activeRouter.parent
                 });
               }
             });
@@ -5279,7 +5307,7 @@
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.isVisitorDataLoaded = false;
             var apartmentParams = {
@@ -5287,32 +5315,32 @@
             };
             this.visitorService.getYetToCheckoutVisitorsByApartmentId(apartmentParams).subscribe(function (res) {
               if (res.length > 0) {
-                _this10.visitorList = res.reverse();
-                _this10.totalItems = _this10.visitorList.length;
+                _this11.visitorList = res.reverse();
+                _this11.totalItems = _this11.visitorList.length;
 
-                if (_this10.totalItems > _this10.itemLimit) {
-                  _this10.ItemEndIndex = _this10.itemLimit;
+                if (_this11.totalItems > _this11.itemLimit) {
+                  _this11.ItemEndIndex = _this11.itemLimit;
                 } else {
-                  _this10.ItemEndIndex = _this10.totalItems;
+                  _this11.ItemEndIndex = _this11.totalItems;
                 }
 
-                _this10.isVisitorDataLoaded = true;
+                _this11.isVisitorDataLoaded = true;
               } else {
-                _this10.isVisitorDataLoaded = true;
+                _this11.isVisitorDataLoaded = true;
               }
             }, function (error) {
-              _this10.isVisitorDataLoaded = true;
+              _this11.isVisitorDataLoaded = true;
 
-              _this10.sharedService.openSnackBar('Server Error', 'error');
+              _this11.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this12 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this11.timeZone = timeZone;
+              return _this12.timeZone = timeZone;
             });
             this.getVisitorList();
           }
@@ -5517,7 +5545,7 @@
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this12 = this;
+            var _this13 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
@@ -5525,30 +5553,30 @@
             };
             this.visitorService.getExpectedVisitorsByApartmentUnitId(param).subscribe(function (res) {
               if (res.length > 0) {
-                _this12.visitorList = res;
-                _this12.totalItems = _this12.visitorList.length;
+                _this13.visitorList = res;
+                _this13.totalItems = _this13.visitorList.length;
 
-                if (_this12.totalItems > _this12.itemLimit) {
-                  _this12.ItemEndIndex = _this12.itemLimit;
+                if (_this13.totalItems > _this13.itemLimit) {
+                  _this13.ItemEndIndex = _this13.itemLimit;
                 } else {
-                  _this12.ItemEndIndex = _this12.totalItems;
+                  _this13.ItemEndIndex = _this13.totalItems;
                 }
 
-                _this12.isVisitorDataLoaded = true;
+                _this13.isVisitorDataLoaded = true;
               } else {
-                _this12.isVisitorDataLoaded = true;
+                _this13.isVisitorDataLoaded = true;
               }
             }, function (error) {
-              _this12.isVisitorDataLoaded = true;
+              _this13.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this13.timeZone = timeZone;
+              return _this14.timeZone = timeZone;
             });
             this.getVisitorList(); //delete expected visitor
 
@@ -5556,30 +5584,30 @@
               if (item != null && item.id) {
                 var params = {
                   expectedVisitorId: item.id,
-                  deleteBy: _this13.sessionService.userId
+                  deleteBy: _this14.sessionService.userId
                 };
 
-                _this13.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
+                _this14.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
                   if (res.message) {
-                    _this13.sharedService.setUnitListDeleteIndex(null);
+                    _this14.sharedService.setUnitListDeleteIndex(null);
 
-                    _this13.visitorList = _this13.visitorList.filter(function (visitor) {
+                    _this14.visitorList = _this14.visitorList.filter(function (visitor) {
                       return visitor.expectedVisitorId != item.id;
                     });
-                    _this13.totalItems = _this13.visitorList.length;
+                    _this14.totalItems = _this14.visitorList.length;
 
-                    if (_this13.totalItems > _this13.itemLimit) {
-                      _this13.ItemEndIndex = _this13.itemLimit;
+                    if (_this14.totalItems > _this14.itemLimit) {
+                      _this14.ItemEndIndex = _this14.itemLimit;
                     } else {
-                      _this13.ItemEndIndex = _this13.totalItems;
+                      _this14.ItemEndIndex = _this14.totalItems;
                     }
 
-                    _this13.sharedService.openSnackBar(res.message, 'success');
+                    _this14.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this13.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this14.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this13.sharedService.openSnackBar('Server Error', 'error');
+                  _this14.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -5729,7 +5757,7 @@
 
       var ExpVisitorConfirmComponent = /*#__PURE__*/function () {
         function ExpVisitorConfirmComponent(router, activateRoute, visitorService, sharedService, sessionService) {
-          var _this14 = this;
+          var _this15 = this;
 
           _classCallCheck(this, ExpVisitorConfirmComponent);
 
@@ -5743,7 +5771,7 @@
           this.visitorStructure = {};
           this.activateRoute.queryParams.subscribe(function (params) {
             if (params) {
-              _this14.method = params.method;
+              _this15.method = params.method;
             }
           });
         }
@@ -5770,30 +5798,30 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this15.timeZone = timeZone;
+              return _this16.timeZone = timeZone;
             });
             var params = {
               expectedVisitorId: this.activateRoute.params['value'].id
             };
             this.visitorService.getExpectedVisitorById(params).subscribe(function (res) {
-              _this15.isDataLoaded = true;
-              _this15.visitor = res[0];
-              var type = _this15.activateRoute.params['value'].type;
-              _this15.pageType = type;
+              _this16.isDataLoaded = true;
+              _this16.visitor = res[0];
+              var type = _this16.activateRoute.params['value'].type;
+              _this16.pageType = type;
 
-              if (type == 'frequent' && _this15.sessionService.isAdmin()) {
-                _this15.visitorStructure = {
+              if (type == 'frequent' && _this16.sessionService.isAdmin()) {
+                _this16.visitorStructure = {
                   name: 'Frequent Visitor',
                   createBtnName: 'Create another frequent visitor',
-                  createBtnUrl: '/ams/visitor/info/frequent-visitor-create',
+                  createBtnUrl: '/ams/visitor/frequent-visitor-create',
                   viewBtnName: 'View list of frequent visitor',
-                  viewBtnUrl: '/ams/visitor/info/frequent-visitor-list'
+                  viewBtnUrl: '/ams/visitor/frequent-visitor-list'
                 };
-              } else if (type == 'frequent' && !_this15.sessionService.isAdmin()) {
-                _this15.visitorStructure = {
+              } else if (type == 'frequent' && !_this16.sessionService.isAdmin()) {
+                _this16.visitorStructure = {
                   name: 'Frequent Visitor',
                   createBtnName: 'Create another frequent visitor',
                   createBtnUrl: '/user/visitor/frequent-visitor-create',
@@ -5801,23 +5829,23 @@
                   viewBtnUrl: '/user/visitor/frequent-visitor-list'
                 };
               } else if (type == 'vendor') {
-                _this15.visitorStructure = {
+                _this16.visitorStructure = {
                   name: 'Vendor Pass',
                   createBtnName: 'Create another vendor pass',
-                  createBtnUrl: '/ams/visitor/info/vendor-pass-create',
+                  createBtnUrl: '/ams/visitor/vendor-pass-create',
                   viewBtnName: 'View list of vendor pass',
-                  viewBtnUrl: '/ams/visitor/info/vendor-pass-list'
+                  viewBtnUrl: '/ams/visitor/vendor-pass-list'
                 };
-              } else if (type == 'expected' && _this15.sessionService.isAdmin()) {
-                _this15.visitorStructure = {
+              } else if (type == 'expected' && _this16.sessionService.isAdmin()) {
+                _this16.visitorStructure = {
                   name: 'Expected Visitor',
                   createBtnName: 'Create another expected visitor',
-                  createBtnUrl: '/ams/visitor/info/create-expected-visitor',
+                  createBtnUrl: '/ams/visitor/create-expected-visitor',
                   viewBtnName: 'View list of expected visitor',
-                  viewBtnUrl: '/ams/visitor/info/expected-visitor-list'
+                  viewBtnUrl: '/ams/visitor/expected-visitor-list'
                 };
-              } else if (type == 'expected' && !_this15.sessionService.isAdmin()) {
-                _this15.visitorStructure = {
+              } else if (type == 'expected' && !_this16.sessionService.isAdmin()) {
+                _this16.visitorStructure = {
                   name: 'Expected Visitor',
                   createBtnName: 'Create another expected visitor',
                   createBtnUrl: '/user/visitor/create-expected-visitor',
@@ -5828,13 +5856,13 @@
 
               var message;
 
-              if (_this15.method) {
-                message = "".concat(_this15.visitorStructure.name, " ").concat(_this15.method, ". Please share the below details to your visitor");
+              if (_this16.method) {
+                message = "".concat(_this16.visitorStructure.name, " ").concat(_this16.method, ". Please share the below details to your visitor");
               } else {
-                message = "".concat(_this15.visitorStructure.name, ". Please share the below details to your visitor");
+                message = "".concat(_this16.visitorStructure.name, ". Please share the below details to your visitor");
               }
 
-              _this15.message = {
+              _this16.message = {
                 appearance: 'outline',
                 content: message,
                 shake: false,
@@ -5842,9 +5870,9 @@
                 type: 'success'
               };
             }, function (error) {
-              _this15.isDataLoaded = true;
+              _this16.isDataLoaded = true;
 
-              _this15.sharedService.openSnackBar('Server Error', 'error');
+              _this16.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }]);
@@ -6005,9 +6033,21 @@
 
 
       var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var ExpVisitorCreateChekinComponent = /*#__PURE__*/function () {
-        function ExpVisitorCreateChekinComponent(router, activateRouter, apartmentService, visitorService, lookupService, sessionService, staffService, sharedService) {
+        function ExpVisitorCreateChekinComponent(router, activateRouter, apartmentService, visitorService, lookupService, sessionService, staffService, sharedService, dialog) {
           _classCallCheck(this, ExpVisitorCreateChekinComponent);
 
           this.router = router;
@@ -6018,6 +6058,7 @@
           this.sessionService = sessionService;
           this.staffService = staffService;
           this.sharedService = sharedService;
+          this.dialog = dialog;
           this.visitor = {};
           this.expectedDurationInfo = '';
           this.visitTypeList = [];
@@ -6213,6 +6254,7 @@
         }, {
           key: "resetField",
           value: function resetField() {
+            if (this.form) this.form.reset();
             this.visitor = {};
             this.visitor.visitTypeId = null;
             this.visitor.visitorCategoryId = null;
@@ -6225,7 +6267,7 @@
         }, {
           key: "submitExpectedVisitorForm",
           value: function submitExpectedVisitorForm(form) {
-            var _this16 = this;
+            var _this17 = this;
 
             this.message = null;
 
@@ -6268,19 +6310,19 @@
                   })
                 };
                 this.visitorService.addExpectedVisitor(params).subscribe(function (res) {
-                  _this16.isDataLoaded = true;
+                  _this17.isDataLoaded = true;
 
                   if (res.message) {
                     var id = res.message.split('#');
 
-                    _this16.router.navigate(['confirm-expected-visitor', id[0], 'expected'], {
-                      relativeTo: _this16.activateRouter.parent,
+                    _this17.router.navigate(['confirm-expected-visitor', id[0], 'expected'], {
+                      relativeTo: _this17.activateRouter.parent,
                       queryParams: {
                         method: 'Created'
                       }
                     });
                   } else {
-                    _this16.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this17.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               } else {
@@ -6291,17 +6333,17 @@
                   })
                 };
                 this.visitorService.updateExpectedVisitor(visitor).subscribe(function (res) {
-                  _this16.isDataLoaded = true;
+                  _this17.isDataLoaded = true;
 
                   if (res.message) {
-                    _this16.router.navigate(['confirm-expected-visitor', _this16.activateRouter.params['value'].id, 'expected'], {
-                      relativeTo: _this16.activateRouter.parent,
+                    _this17.router.navigate(['confirm-expected-visitor', _this17.activateRouter.params['value'].id, 'expected'], {
+                      relativeTo: _this17.activateRouter.parent,
                       queryParams: {
                         method: 'Updated'
                       }
                     });
                   } else {
-                    _this16.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this17.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -6310,10 +6352,23 @@
         }, {
           key: "back",
           value: function back() {
-            if (this.sessionService.isAdmin()) this.router.navigate(['expected-visitor-list'], {
-              relativeTo: this.activateRouter.parent
-            });else this.router.navigate(['expected-visitor-user-list'], {
-              relativeTo: this.activateRouter.parent
+            var _this18 = this;
+
+            var message = "Are you sure, you want to exit the screen ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                if (_this18.sessionService.isAdmin()) _this18.router.navigate(['expected-visitor-list'], {
+                  relativeTo: _this18.activateRouter.parent
+                });else _this18.router.navigate(['expected-visitor-user-list'], {
+                  relativeTo: _this18.activateRouter.parent
+                });
+              }
             });
           }
         }, {
@@ -6327,7 +6382,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this17 = this;
+            var _this19 = this;
 
             this.resetField();
 
@@ -6338,7 +6393,7 @@
                 LookupTypeId: 15
               };
               this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-                _this17.visitTypeList = res;
+                _this19.visitTypeList = res;
               }); //Staffs List
 
               var staffParms = {
@@ -6346,7 +6401,7 @@
                 RoleTypeId: this.sessionService.roleTypeId
               };
               this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-                _this17.staffsList = res;
+                _this19.staffsList = res;
                 ;
               });
             } else {
@@ -6363,23 +6418,23 @@
                 expectedVisitorId: this.activateRouter.params['value'].id
               };
               this.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
-                _this17.visitor = res[0];
-                _this17.visitor.expectedVisitorPhone = {
-                  'countryCode': _this17.visitor.phonecountrycode,
+                _this19.visitor = res[0];
+                _this19.visitor.expectedVisitorPhone = {
+                  'countryCode': _this19.visitor.phonecountrycode,
                   'number': res[0].expectedVisitorPhone
                 };
 
-                _this17.expectedDurationChange();
+                _this19.expectedDurationChange();
 
-                if (_this17.isAdmin()) {
-                  _this17.getTowers().subscribe(function (res) {
+                if (_this19.isAdmin()) {
+                  _this19.getTowers().subscribe(function (res) {
                     if (res.length > 0) {
-                      _this17.towerList = res;
-                      if (_this17.visitor.apartmentUnitId) _this17.getUnits('edit');else _this17.isDataLoaded = true;
+                      _this19.towerList = res;
+                      if (_this19.visitor.apartmentUnitId) _this19.getUnits('edit');else _this19.isDataLoaded = true;
                     }
                   });
                 } else {
-                  _this17.isDataLoaded = true;
+                  _this19.isDataLoaded = true;
                 }
               });
             } else {
@@ -6389,7 +6444,7 @@
                 //Tower List 
                 this.getTowers().subscribe(function (res) {
                   if (res.length > 0) {
-                    _this17.towerList = res;
+                    _this19.towerList = res;
                   }
                 });
               }
@@ -6401,7 +6456,7 @@
               LookupTypeId: 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this17.visitCategoryList = res;
+              _this19.visitCategoryList = res;
             });
           }
         }]);
@@ -6426,6 +6481,8 @@
           type: src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]
         }];
       };
 
@@ -6445,7 +6502,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./exp-visitor-create-chekin.component.scss */
         "./src/app/modules/common/visitor/components/exp-visitor-create-chekin/exp-visitor-create-chekin.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]])], ExpVisitorCreateChekinComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_7__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_6__["StaffService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]])], ExpVisitorCreateChekinComponent);
       /***/
     },
 
@@ -6600,7 +6657,9 @@
         _createClass(ExpVisitorListComponent, [{
           key: "navigateToCreate",
           value: function navigateToCreate() {
-            this.router.navigate(['/ams/visitor/info/create-expected-visitor']);
+            this.router.navigate(['create-expected-visitor'], {
+              relativeTo: this.activateRouter.parent
+            });
           }
         }, {
           key: "getDate",
@@ -6637,7 +6696,7 @@
         }, {
           key: "checkIn",
           value: function checkIn(item) {
-            var _this18 = this;
+            var _this20 = this;
 
             var message = "Are you sure you want to Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogModel"]("Confirm Action", message);
@@ -6648,32 +6707,12 @@
             });
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
-                _this18.router.navigate(["checkin/".concat(item.expectedVisitorId)], {
-                  relativeTo: _this18.activateRouter.parent,
+                _this20.router.navigate(["checkin/".concat(item.expectedVisitorId)], {
+                  relativeTo: _this20.activateRouter.parent,
                   queryParams: {
                     access: 'expected'
                   }
                 });
-              }
-            });
-          }
-        }, {
-          key: "onCopyWith",
-          value: function onCopyWith(detail) {
-            var _this19 = this;
-
-            var message = "Are you sure, you want to copy the details?";
-            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["ConfirmDialogModel"]("Confirm Action", message);
-            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_4__["CommonConfirmModalComponent"], {
-              panelClass: 'material-dialog-medium',
-              disableClose: true,
-              data: dialogData
-            });
-            dialogRef.afterClosed().subscribe(function (dialogResult) {
-              if (dialogResult) {
-                var dataRecord = _this19.datagrid.getrowdata(detail.rowId);
-
-                _this19.router.navigate(["/ams/visitor/info/expected-visitor/copy/".concat(dataRecord.expectedVisitorId)]);
               }
             });
           }
@@ -6697,6 +6736,13 @@
             this.matDrawer.close();
           }
         }, {
+          key: "fromDateChange",
+          value: function fromDateChange(event) {
+            if (moment__WEBPACK_IMPORTED_MODULE_11__(this.filterField.toDate).diff(this.filterField.fromDate) < 0) {
+              this.filterField.toDate = '';
+            }
+          }
+        }, {
           key: "clearFilter",
           value: function clearFilter() {
             this.filterField = {
@@ -6708,7 +6754,7 @@
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this20 = this;
+            var _this21 = this;
 
             this.isVisitorDataLoaded = false;
             var params = {
@@ -6718,30 +6764,30 @@
             };
             this.visitorService.getAllYetToComeExpectedVisitorsByApartmentIdDate(params).subscribe(function (res) {
               if (Array.isArray(res)) {
-                _this20.visitorList = res.reverse();
-                _this20.totalItems = _this20.visitorList.length;
+                _this21.visitorList = res.reverse();
+                _this21.totalItems = _this21.visitorList.length;
 
-                if (_this20.totalItems > _this20.itemLimit) {
-                  _this20.ItemEndIndex = _this20.itemLimit;
+                if (_this21.totalItems > _this21.itemLimit) {
+                  _this21.ItemEndIndex = _this21.itemLimit;
                 } else {
-                  _this20.ItemEndIndex = _this20.totalItems;
+                  _this21.ItemEndIndex = _this21.totalItems;
                 }
               }
 
-              _this20.isVisitorDataLoaded = true;
+              _this21.isVisitorDataLoaded = true;
             }, function (error) {
-              _this20.isVisitorDataLoaded = true;
+              _this21.isVisitorDataLoaded = true;
 
-              _this20.sharedService.openSnackBar('Server Error', 'error');
+              _this21.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this21.timeZone = timeZone;
+              return _this22.timeZone = timeZone;
             });
             this.getVisitorList(); //delete expected visitor
 
@@ -6749,32 +6795,32 @@
               if (item != null && item.id) {
                 var params = {
                   expectedVisitorId: item.id,
-                  deleteBy: _this21.sessionService.userId
+                  deleteBy: _this22.sessionService.userId
                 };
 
-                _this21.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
-                  _this21.sharedService.setUnitListDeleteIndex(null);
+                _this22.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
+                  _this22.sharedService.setUnitListDeleteIndex(null);
 
                   if (res.message) {
-                    _this21.visitorList = _this21.visitorList.filter(function (visitor) {
+                    _this22.visitorList = _this22.visitorList.filter(function (visitor) {
                       return visitor.expectedVisitorId != item.id;
                     });
-                    _this21.totalItems = _this21.visitorList.length;
+                    _this22.totalItems = _this22.visitorList.length;
 
-                    if (_this21.totalItems > _this21.itemLimit) {
-                      _this21.ItemEndIndex = _this21.itemLimit;
+                    if (_this22.totalItems > _this22.itemLimit) {
+                      _this22.ItemEndIndex = _this22.itemLimit;
                     } else {
-                      _this21.ItemEndIndex = _this21.totalItems;
+                      _this22.ItemEndIndex = _this22.totalItems;
                     }
 
-                    _this21.sharedService.openSnackBar(res.message, 'success');
+                    _this22.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this21.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this22.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this21.sharedService.setUnitListDeleteIndex(null);
+                  _this22.sharedService.setUnitListDeleteIndex(null);
 
-                  _this21.sharedService.openSnackBar('Server Error', 'error');
+                  _this22.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -6819,10 +6865,6 @@
           args: ['datagrid', {
             "static": false
           }]
-        }],
-        onCopyWith: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
-          args: ['window:onCopyWith', ['$event.detail']]
         }]
       };
       ExpVisitorListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -6950,7 +6992,7 @@
 
       var FrequentVendorListComponent = /*#__PURE__*/function () {
         function FrequentVendorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
-          var _this22 = this;
+          var _this23 = this;
 
           _classCallCheck(this, FrequentVendorListComponent);
 
@@ -6968,7 +7010,7 @@
           this.itemLimit = 10;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
           this.activeRouter.url.subscribe(function (data) {
-            _this22.urlType = data[0].path;
+            _this23.urlType = data[0].path;
           });
         }
 
@@ -7005,7 +7047,7 @@
         }, {
           key: "checkIn",
           value: function checkIn(item) {
-            var _this23 = this;
+            var _this24 = this;
 
             var message = "Are you sure you want to Check In?";
             var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_10__["ConfirmDialogModel"]("Confirm Action", message);
@@ -7017,10 +7059,10 @@
             dialogRef.afterClosed().subscribe(function (dialogResult) {
               if (dialogResult) {
                 var pageAccess;
-                if (_this23.urlType == 'frequent-visitor-list') pageAccess = 'frequent';else if (_this23.urlType == 'vendor-pass-list') pageAccess = 'vendor';
+                if (_this24.urlType == 'frequent-visitor-list') pageAccess = 'frequent';else if (_this24.urlType == 'vendor-pass-list') pageAccess = 'vendor';
 
-                _this23.router.navigate(["checkin/".concat(item.expectedVisitorId)], {
-                  relativeTo: _this23.activeRouter.parent,
+                _this24.router.navigate(["checkin/".concat(item.expectedVisitorId)], {
+                  relativeTo: _this24.activeRouter.parent,
                   queryParams: {
                     access: pageAccess
                   }
@@ -7079,38 +7121,38 @@
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this24 = this;
+            var _this25 = this;
 
             var visitorList;
             if (this.urlType == 'frequent-visitor-list') visitorList = this.getFrequentVisitorList();else if (this.urlType == 'vendor-pass-list') visitorList = this.getVendorPassList();
             visitorList.subscribe(function (res) {
               if (res.length > 0) {
-                _this24.visitorList = res.reverse();
-                _this24.totalItems = _this24.visitorList.length;
+                _this25.visitorList = res.reverse();
+                _this25.totalItems = _this25.visitorList.length;
 
-                if (_this24.totalItems > _this24.itemLimit) {
-                  _this24.ItemEndIndex = _this24.itemLimit;
+                if (_this25.totalItems > _this25.itemLimit) {
+                  _this25.ItemEndIndex = _this25.itemLimit;
                 } else {
-                  _this24.ItemEndIndex = _this24.totalItems;
+                  _this25.ItemEndIndex = _this25.totalItems;
                 }
 
-                _this24.isVisitorDataLoaded = true;
+                _this25.isVisitorDataLoaded = true;
               } else {
-                _this24.isVisitorDataLoaded = true;
+                _this25.isVisitorDataLoaded = true;
               }
             }, function (error) {
-              _this24.isVisitorDataLoaded = true;
+              _this25.isVisitorDataLoaded = true;
 
-              _this24.sharedService.openSnackBar('Server Error', 'error');
+              _this25.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this25.timeZone = timeZone;
+              return _this26.timeZone = timeZone;
             });
             this.getVisitorList(); //delete expected visitor
 
@@ -7118,30 +7160,30 @@
               if (item != null && item.id) {
                 var params = {
                   expectedVisitorId: item.id,
-                  deleteBy: _this25.sessionService.userId
+                  deleteBy: _this26.sessionService.userId
                 };
 
-                _this25.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
+                _this26.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
                   if (res.message) {
-                    _this25.sharedService.setUnitListDeleteIndex(null);
+                    _this26.sharedService.setUnitListDeleteIndex(null);
 
-                    _this25.visitorList = _this25.visitorList.filter(function (visitor) {
+                    _this26.visitorList = _this26.visitorList.filter(function (visitor) {
                       return visitor.expectedVisitorId != item.id;
                     });
-                    _this25.totalItems = _this25.visitorList.length;
+                    _this26.totalItems = _this26.visitorList.length;
 
-                    if (_this25.totalItems > _this25.itemLimit) {
-                      _this25.ItemEndIndex = _this25.itemLimit;
+                    if (_this26.totalItems > _this26.itemLimit) {
+                      _this26.ItemEndIndex = _this26.itemLimit;
                     } else {
-                      _this25.ItemEndIndex = _this25.totalItems;
+                      _this26.ItemEndIndex = _this26.totalItems;
                     }
 
-                    _this25.sharedService.openSnackBar(res.message, 'success');
+                    _this26.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this25.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this26.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this25.sharedService.openSnackBar('Server Error', 'error');
+                  _this26.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -7306,7 +7348,7 @@
 
       var UserVisitorListComponent = /*#__PURE__*/function () {
         function UserVisitorListComponent(router, injector, visitorService, sessionService, dialog, sharedService, activeRouter) {
-          var _this26 = this;
+          var _this27 = this;
 
           _classCallCheck(this, UserVisitorListComponent);
 
@@ -7321,7 +7363,7 @@
           this.visitorSearch = '';
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_3__["ModalService"]);
           this.activeRouter.url.subscribe(function (data) {
-            _this26.urlType = data[0].path;
+            _this27.urlType = data[0].path;
           });
         }
 
@@ -7333,7 +7375,9 @@
         }, {
           key: "navigateToCreate",
           value: function navigateToCreate() {
-            if (this.isAdmin()) this.router.navigate(['/ams/visitor/info/create-expected-visitor']);else this.router.navigate(['/user/visitor/create-expected-visitor']);
+            if (this.isAdmin()) this.router.navigate(['create-expected-visitor'], {
+              relativeTo: this.activeRouter.parent
+            });else this.router.navigate(['/user/visitor/create-expected-visitor']);
           }
         }, {
           key: "getPrintParams",
@@ -7343,7 +7387,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this27 = this;
+            var _this28 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -7356,7 +7400,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this27.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this28.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -7367,7 +7411,7 @@
         }, {
           key: "getVisitorCheckedIn",
           value: function getVisitorCheckedIn() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.isVisitorDataLoaded = false;
             var param = {
@@ -7375,30 +7419,6 @@
               BlockUnitId: this.sessionService.apartmentBlockUnitID
             };
             this.visitorService.getYetToCheckoutVisitorsByApartmentId(param).subscribe(function (res) {
-              if (res.length > 0) {
-                var tableData = {
-                  localdata: res.reverse(),
-                  datatype: "array"
-                };
-                _this28.totalItems = tableData.localdata.length;
-                _this28.visitorList = new jqx.dataAdapter(tableData);
-              }
-
-              _this28.isVisitorDataLoaded = true;
-            }, function (error) {
-              _this28.isVisitorDataLoaded = true;
-            });
-          }
-        }, {
-          key: "getVisitorHistory",
-          value: function getVisitorHistory() {
-            var _this29 = this;
-
-            this.isVisitorDataLoaded = false;
-            var param = {
-              ApartmentID: this.sessionService.apartmentId
-            };
-            this.visitorService.getReportsForVisitorsCheckedInMultiFilter(param).subscribe(function (res) {
               if (res.length > 0) {
                 var tableData = {
                   localdata: res.reverse(),
@@ -7414,9 +7434,33 @@
             });
           }
         }, {
+          key: "getVisitorHistory",
+          value: function getVisitorHistory() {
+            var _this30 = this;
+
+            this.isVisitorDataLoaded = false;
+            var param = {
+              ApartmentID: this.sessionService.apartmentId
+            };
+            this.visitorService.getReportsForVisitorsCheckedInMultiFilter(param).subscribe(function (res) {
+              if (res.length > 0) {
+                var tableData = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this30.totalItems = tableData.localdata.length;
+                _this30.visitorList = new jqx.dataAdapter(tableData);
+              }
+
+              _this30.isVisitorDataLoaded = true;
+            }, function (error) {
+              _this30.isVisitorDataLoaded = true;
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this31 = this;
 
             if (this.urlType == 'expected-visitor-user-checked-in') this.getVisitorCheckedIn();else if (this.urlType == 'expected-visitor-user-history') this.getVisitorHistory();
 
@@ -7479,20 +7523,20 @@
               if (item != null && item.id) {
                 var params = {
                   expectedVisitorId: item.id,
-                  deleteBy: _this30.sessionService.userId
+                  deleteBy: _this31.sessionService.userId
                 };
 
-                _this30.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
+                _this31.visitorService.deleteExpectedVisitorById(params).subscribe(function (res) {
                   if (res.message) {
-                    _this30.sharedService.setUnitListDeleteIndex(null);
+                    _this31.sharedService.setUnitListDeleteIndex(null);
 
-                    _this30.datagrid.deleterow(item.index);
+                    _this31.datagrid.deleterow(item.index);
 
-                    _this30.datagrid.refresh();
+                    _this31.datagrid.refresh();
 
-                    _this30.sharedService.openSnackBar(res.message, 'success');
+                    _this31.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this30.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this31.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
                   console.log(error);
@@ -7673,10 +7717,22 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
+      /* harmony import */
+
+
+      var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      /*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */
+      "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
+      /* harmony import */
+
+
+      var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      /*! @angular/material/dialog */
+      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 
       var VisitorCreateCheckinComponent = /*#__PURE__*/function () {
-        function VisitorCreateCheckinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router, sharedService, _changeDetectorRef) {
-          var _this31 = this;
+        function VisitorCreateCheckinComponent(apartmentService, visitorService, lookupService, sessionService, staffService, activateRouter, router, sharedService, _changeDetectorRef, dialog) {
+          var _this32 = this;
 
           _classCallCheck(this, VisitorCreateCheckinComponent);
 
@@ -7689,6 +7745,7 @@
           this.router = router;
           this.sharedService = sharedService;
           this._changeDetectorRef = _changeDetectorRef;
+          this.dialog = dialog;
           this.visitor = {};
           this.expectedDurationInfo = '';
           this.visitTypeList = [];
@@ -7707,16 +7764,16 @@
 
           this.activateRouter.params.subscribe(function (param) {
             if (param.id && param.type) {
-              _this31.isDataLoaded = false;
-              _this31.urlType = param.type;
+              _this32.isDataLoaded = false;
+              _this32.urlType = param.type;
               var id = parseInt(param.id);
-              if (param.type == 'checkin') _this31.checkInLogic(id);else if (param.type == 'checkout' || param.type == 'edit') _this31.checkoutLogic(id);
+              if (param.type == 'checkin') _this32.checkInLogic(id);else if (param.type == 'checkout' || param.type == 'edit') _this32.checkoutLogic(id);
             }
           }); // Data Coming From
 
           this.activateRouter.queryParams.subscribe(function (query) {
             if (query && query.access) {
-              _this31.pageComingFrom = query.access;
+              _this32.pageComingFrom = query.access;
             }
           });
         }
@@ -7724,99 +7781,112 @@
         _createClass(VisitorCreateCheckinComponent, [{
           key: "checkInLogic",
           value: function checkInLogic(id) {
-            var _this32 = this;
+            var _this33 = this;
 
             var visitor = {
               expectedVisitorId: id
             };
             this.visitorService.getExpectedVisitorById(visitor).subscribe(function (res) {
-              _this32.visitor.visitTypeId = res[0].visitTypeId;
-              _this32.visitor.apartmentUnitId = res[0].apartmentUnitId;
-              _this32.visitor.tomeetStaffId = res[0].tomeetStaffId;
-              _this32.visitor.visitorName = res[0].expectedVisitorName;
-              _this32.visitor.visitorCount = res[0].expectedVisitorCount;
-              _this32.visitor.visitorPhone = {
+              _this33.visitor.visitTypeId = res[0].visitTypeId;
+              _this33.visitor.apartmentUnitId = res[0].apartmentUnitId;
+              _this33.visitor.tomeetStaffId = res[0].tomeetStaffId;
+              _this33.visitor.visitorName = res[0].expectedVisitorName;
+              _this33.visitor.visitorCount = res[0].expectedVisitorCount;
+              _this33.visitor.visitorPhone = {
                 'number': res[0].expectedVisitorPhone,
                 'countryCode': res[0].phonecountrycode
               };
-              _this32.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
-              _this32.visitor.visitorOutTime = res[0].expectedVisitorOutTime;
-              _this32.visitor.expectedDuration = res[0].expectedDuration;
-              _this32.visitor.expectedVisitorInTime = res[0].expectedVisitorInTime;
-              _this32.visitor.expectedVisitorOutTime = res[0].expectedVisitorOutTime;
-              _this32.visitor.passNumber = res[0].visitorPassId;
-              _this32.visitor.visitorPassId = res[0].visitorPassId;
-              _this32.visitor.visitorCategoryId = res[0].visitorCategoryId;
-              _this32.visitor.purpose = res[0].purpose;
-              _this32.visitor.expectedVisitorId = id;
+              _this33.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
+              _this33.visitor.visitorOutTime = res[0].expectedVisitorOutTime;
+              _this33.visitor.expectedDuration = res[0].expectedDuration;
+              _this33.visitor.expectedVisitorInTime = res[0].expectedVisitorInTime;
+              _this33.visitor.expectedVisitorOutTime = res[0].expectedVisitorOutTime;
+              _this33.visitor.passNumber = res[0].visitorPassId;
+              _this33.visitor.visitorPassId = res[0].visitorPassId;
+              _this33.visitor.visitorCategoryId = res[0].visitorCategoryId;
+              _this33.visitor.purpose = res[0].purpose;
+              _this33.visitor.expectedVisitorId = id;
 
-              _this32.expectedDurationChange();
+              _this33.expectedDurationChange();
 
-              _this32.getTowers().then(function (res) {
+              _this33.getTowers().then(function (res) {
                 if (res.length > 0) {
-                  _this32.towerList = res;
+                  _this33.towerList = res;
 
-                  if (_this32.visitor.apartmentUnitId) {
-                    _this32.getUnits('edit');
+                  if (_this33.visitor.apartmentUnitId) {
+                    _this33.getUnits('edit');
                   } else {
-                    _this32.isDataLoaded = true;
+                    _this33.isDataLoaded = true;
                   }
                 }
               });
             }, function (error) {
-              _this32.sharedService.openSnackBar('Server Error', 'error');
+              _this33.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "checkoutLogic",
           value: function checkoutLogic(id) {
-            var _this33 = this;
+            var _this34 = this;
 
             var visitor = {
               visitorId: id
             };
             this.visitorService.getVisitorById(visitor).subscribe(function (res) {
-              _this33.visitor = res[0];
-              _this33.visitor.visitorPhone = {
-                'countryCode': _this33.visitor.phonecountrycode,
-                'number': _this33.visitor.visitorPhone
+              _this34.visitor = res[0];
+              _this34.visitor.visitorPhone = {
+                'countryCode': _this34.visitor.phonecountrycode,
+                'number': _this34.visitor.visitorPhone
               };
-              if (_this33.urlType == 'checkout') _this33.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).toISOString();
+              if (_this34.urlType == 'checkout') _this34.visitor.visitorOutTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date()).toISOString();
 
-              _this33.expectedDurationChange();
+              _this34.expectedDurationChange();
 
-              if (_this33.visitor.apartmentUnitId) {
-                _this33.getTowers().then(function (res) {
+              if (_this34.visitor.apartmentUnitId) {
+                _this34.getTowers().then(function (res) {
                   if (res.length > 0) {
-                    _this33.towerList = res;
+                    _this34.towerList = res;
 
-                    _this33.getUnits('edit');
+                    _this34.getUnits('edit');
                   }
                 });
               } else {
-                _this33.isDataLoaded = true;
+                _this34.isDataLoaded = true;
               }
             }, function (error) {
-              _this33.isDataLoaded = true;
+              _this34.isDataLoaded = true;
 
-              _this33.sharedService.openSnackBar('Server Error', 'error');
+              _this34.sharedService.openSnackBar('Server Error', 'error');
 
-              _this33.router.navigate(['checkout'], {
-                relativeTo: _this33.activateRouter.parent
+              _this34.router.navigate(['checkout'], {
+                relativeTo: _this34.activateRouter.parent
               });
             });
           }
         }, {
           key: "navigateBack",
           value: function navigateBack() {
-            if (this.pageComingFrom == 'frequent') this.router.navigate(['frequent-visitor-list'], {
-              relativeTo: this.activateRouter.parent
-            });else if (this.pageComingFrom == 'vendor') this.router.navigate(['vendor-pass-list'], {
-              relativeTo: this.activateRouter.parent
-            });else if (this.pageComingFrom == 'expected') this.router.navigate(['expected-visitor-list'], {
-              relativeTo: this.activateRouter.parent
-            });else if (this.urlType == 'checkout' || this.urlType == 'edit') this.router.navigate(['checkout'], {
-              relativeTo: this.activateRouter.parent
+            var _this35 = this;
+
+            var message = "Are you sure, you want to exit the screen ?";
+            var dialogData = new src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["ConfirmDialogModel"]("Confirm Action", message);
+            var dialogRef = this.dialog.open(src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_13__["CommonConfirmModalComponent"], {
+              panelClass: 'material-dialog-medium',
+              disableClose: true,
+              data: dialogData
+            });
+            dialogRef.afterClosed().subscribe(function (dialogResult) {
+              if (dialogResult) {
+                if (_this35.pageComingFrom == 'frequent') _this35.router.navigate(['frequent-visitor-list'], {
+                  relativeTo: _this35.activateRouter.parent
+                });else if (_this35.pageComingFrom == 'vendor') _this35.router.navigate(['vendor-pass-list'], {
+                  relativeTo: _this35.activateRouter.parent
+                });else if (_this35.pageComingFrom == 'expected') _this35.router.navigate(['expected-visitor-list'], {
+                  relativeTo: _this35.activateRouter.parent
+                });else if (_this35.urlType == 'checkout' || _this35.urlType == 'edit') _this35.router.navigate(['checkout'], {
+                  relativeTo: _this35.activateRouter.parent
+                });
+              }
             });
           }
         }, {
@@ -8008,6 +8078,7 @@
         }, {
           key: "resetField",
           value: function resetField() {
+            if (this.form) this.form.reset();
             this.visitor = {};
             this.visitor.visitorInTime = moment__WEBPACK_IMPORTED_MODULE_6__(new Date());
             this.visitor.visitTypeId = null;
@@ -8021,7 +8092,7 @@
         }, {
           key: "createCheckIn",
           value: function createCheckIn() {
-            var _this34 = this;
+            var _this36 = this;
 
             this.message = null;
 
@@ -8070,16 +8141,16 @@
                 })
               };
               this.visitorService.addVisitor(params).subscribe(function (res) {
-                _this34.isDataLoaded = true;
+                _this36.isDataLoaded = true;
 
                 if (res.message) {
-                  _this34.sharedService.openSnackBar('Visitor Checked IN', 'success');
+                  _this36.sharedService.openSnackBar('Visitor Checked IN', 'success');
 
-                  _this34.router.navigate(['checkout'], {
-                    relativeTo: _this34.activateRouter.parent
+                  _this36.router.navigate(['checkout'], {
+                    relativeTo: _this36.activateRouter.parent
                   });
                 } else {
-                  _this34.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this36.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -8087,7 +8158,7 @@
         }, {
           key: "updateCheckIn",
           value: function updateCheckIn() {
-            var _this35 = this;
+            var _this37 = this;
 
             this.message = null;
 
@@ -8115,16 +8186,16 @@
                 })
               };
               this.visitorService.updateVisitor(params).subscribe(function (res) {
-                _this35.isDataLoaded = true;
+                _this37.isDataLoaded = true;
 
                 if (res.message) {
-                  _this35.sharedService.openSnackBar(res.message, 'success');
+                  _this37.sharedService.openSnackBar(res.message, 'success');
 
-                  _this35.router.navigate(['checkout'], {
-                    relativeTo: _this35.activateRouter.parent
+                  _this37.router.navigate(['checkout'], {
+                    relativeTo: _this37.activateRouter.parent
                   });
                 } else {
-                  _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this37.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
             }
@@ -8132,7 +8203,7 @@
         }, {
           key: "createCheckOut",
           value: function createCheckOut() {
-            var _this36 = this;
+            var _this38 = this;
 
             this.isDataLoaded = true;
             var visitorDetails = {
@@ -8142,22 +8213,22 @@
             };
             this.visitorService.checkOutVisitor(visitorDetails).subscribe(function (res) {
               if (res.message) {
-                _this36.sharedService.openSnackBar(res.message, 'success');
+                _this38.sharedService.openSnackBar(res.message, 'success');
 
-                _this36.router.navigate(['history'], {
-                  relativeTo: _this36.activateRouter.parent
+                _this38.router.navigate(['history'], {
+                  relativeTo: _this38.activateRouter.parent
                 });
               } else {
-                _this36.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this38.sharedService.openSnackBar(res.errorMessage, 'error');
               }
 
-              _this36.isDataLoaded = false;
+              _this38.isDataLoaded = false;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this37 = this;
+            var _this39 = this;
 
             //visit type
             var visitParams = {
@@ -8165,14 +8236,14 @@
               LookupTypeId: 15
             };
             this.lookupService.getLookupValueByLookupTypeId(visitParams).subscribe(function (res) {
-              _this37.visitTypeList = res;
+              _this39.visitTypeList = res;
             }); //TowerList
 
             if (this.urlType == 'create') {
               this.resetField();
               this.getTowers().then(function (res) {
                 if (res.length > 0) {
-                  _this37.towerList = res;
+                  _this39.towerList = res;
                 }
               });
             } // Staffs List
@@ -8183,7 +8254,7 @@
               RoleTypeId: this.sessionService.roleTypeId
             };
             this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              _this37.staffsList = res;
+              _this39.staffsList = res;
               ;
             }); //Visit Category
 
@@ -8192,7 +8263,7 @@
               LookupTypeId: this.pageComingFrom == 'frequent' ? 202 : 100
             };
             this.lookupService.getLookupValueByLookupTypeId(visitCategoryParams).subscribe(function (res) {
-              _this37.visitCategoryList = res;
+              _this39.visitCategoryList = res;
             });
           }
         }]);
@@ -8219,6 +8290,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
+        }, {
+          type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]
         }];
       };
 
@@ -8238,7 +8311,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./visitor-create-checkin.component.scss */
         "./src/app/modules/common/visitor/components/visitor-create-checkin/visitor-create-checkin.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], VisitorCreateCheckinComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Visitor__WEBPACK_IMPORTED_MODULE_4__["VisitorService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_2__["LookupService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_8__["StaffService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_12__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_14__["MatDialog"]])], VisitorCreateCheckinComponent);
       /***/
     },
 
@@ -8362,7 +8435,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this38 = this;
+            var _this40 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -8375,7 +8448,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this38.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this40.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -8386,7 +8459,7 @@
         }, {
           key: "getCheckOutHistoryList",
           value: function getCheckOutHistoryList() {
-            var _this39 = this;
+            var _this41 = this;
 
             this.isVisitorDataLoaded = false;
             var apartmentParams = {
@@ -8398,17 +8471,17 @@
                   localdata: res.reverse(),
                   datatype: "array"
                 };
-                _this39.totalItems = tableData.localdata.length;
-                _this39.visitorList = new jqx.dataAdapter(tableData);
+                _this41.totalItems = tableData.localdata.length;
+                _this41.visitorList = new jqx.dataAdapter(tableData);
               }
 
-              _this39.isVisitorDataLoaded = true;
+              _this41.isVisitorDataLoaded = true;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this40 = this;
+            var _this42 = this;
 
             this.getCheckOutHistoryList();
 
@@ -8485,8 +8558,8 @@
               cellsrenderer: function cellsrenderer(row, column, value) {
                 var label, status, isVendor, frequentVisitor, expectedVisitorId;
                 isVendor = value;
-                frequentVisitor = _this40.visitorList.loadedData[row].isFrequentvisitor;
-                expectedVisitorId = _this40.visitorList.loadedData[row].expectedVisitorId;
+                frequentVisitor = _this42.visitorList.loadedData[row].isFrequentvisitor;
+                expectedVisitorId = _this42.visitorList.loadedData[row].expectedVisitorId;
 
                 if (isVendor) {
                   label = 'Vendor Pass';
@@ -8684,6 +8757,7 @@
         }, {
           key: "closeDrawer",
           value: function closeDrawer() {
+            if (this.form) this.form.reset();
             this.matDrawer.close();
             this.clickMode = '';
             this.visitor = {};
@@ -8691,7 +8765,7 @@
         }, {
           key: "submitVisitorCategoryForm",
           value: function submitVisitorCategoryForm() {
-            var _this41 = this;
+            var _this43 = this;
 
             this.isDrawerLoader = false;
 
@@ -8710,21 +8784,21 @@
                 }
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this41.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
                 if (res.code == 200) {
-                  _this41.closeDrawer();
+                  _this43.closeDrawer();
 
-                  _this41.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
+                  _this43.sharedService.openSnackBar('Visitor Type Created Successfully', 'success');
 
-                  _this41.getVisitorList();
+                  _this43.getVisitorList();
                 } else {
-                  _this41.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                  _this43.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                 }
               }, function (error) {
-                _this41.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
-                _this41.sharedService.openSnackBar('Network Error', 'error');
+                _this43.sharedService.openSnackBar('Network Error', 'error');
               });
             } else {
               var _params = {
@@ -8742,28 +8816,28 @@
                 }
               };
               this.lookupService.updateLookupValue(_params).subscribe(function (res) {
-                _this41.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
                 if (res.message) {
-                  _this41.closeDrawer();
+                  _this43.closeDrawer();
 
-                  _this41.getVisitorList();
+                  _this43.getVisitorList();
 
-                  _this41.sharedService.openSnackBar(res.message, 'success');
+                  _this43.sharedService.openSnackBar(res.message, 'success');
                 } else {
-                  _this41.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this43.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               }, function (error) {
-                _this41.isDrawerLoader = true;
+                _this43.isDrawerLoader = true;
 
-                _this41.sharedService.openSnackBar('Network Error', 'error');
+                _this43.sharedService.openSnackBar('Network Error', 'error');
               });
             }
           }
         }, {
           key: "getVisitorList",
           value: function getVisitorList() {
-            var _this42 = this;
+            var _this44 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -8771,39 +8845,39 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this42.isDataLoaded = true;
-              _this42.visitorCategoryList = res;
-              _this42.totalItems = res.length;
+              _this44.isDataLoaded = true;
+              _this44.visitorCategoryList = res;
+              _this44.totalItems = res.length;
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this43 = this;
+            var _this45 = this;
 
             this.getVisitorList(); //delete item
 
             this.apiSubscibe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this43.isDataLoaded = false;
+                _this45.isDataLoaded = false;
                 var params = {
                   lookupValueId: item.id,
-                  updateUserId: parseInt(_this43.sessionService.userId)
+                  updateUserId: parseInt(_this45.sessionService.userId)
                 };
 
-                _this43.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this43.sharedService.setUnitListDeleteIndex(null);
+                _this45.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this45.sharedService.setUnitListDeleteIndex(null);
 
-                  _this43.isDataLoaded = true;
+                  _this45.isDataLoaded = true;
 
                   if (res.message) {
-                    _this43.getVisitorList();
+                    _this45.getVisitorList();
 
-                    _this43.clickMode = ''; //close input box
+                    _this45.clickMode = ''; //close input box
 
-                    _this43.sharedService.openSnackBar(res.message, 'success');
+                    _this45.sharedService.openSnackBar(res.message, 'success');
                   } else {
-                    _this43.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this45.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 });
               }
@@ -8837,6 +8911,10 @@
           args: ['matDrawer', {
             "static": true
           }]
+        }],
+        form: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"],
+          args: ['addVisitorCategoryForm']
         }]
       };
       VisitorSetupComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
