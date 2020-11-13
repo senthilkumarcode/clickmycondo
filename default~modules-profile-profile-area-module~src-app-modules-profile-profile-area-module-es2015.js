@@ -3039,9 +3039,12 @@ let ProfileTimezoneComponent = class ProfileTimezoneComponent {
     submitTimeSettingsform(form) {
         this.isDataLoaded = false;
         let params = {
-            user: this.user
+            apartmentId: this.sessionService.apartmentId,
+            userid: this.sessionService.profileUserId,
+            timezone: this.user.timeZone,
+            updatedBy: this.sessionService.userId
         };
-        this.userService.updateUser(params).subscribe((res) => {
+        this.userService.updateUserTimezone(params).subscribe((res) => {
             if (res.message) {
                 this.isDataLoaded = true;
                 this.sessionService.zone = this.user.timeZone;

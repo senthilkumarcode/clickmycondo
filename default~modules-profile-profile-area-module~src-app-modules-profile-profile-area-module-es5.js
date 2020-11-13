@@ -4749,9 +4749,12 @@
 
             this.isDataLoaded = false;
             var params = {
-              user: this.user
+              apartmentId: this.sessionService.apartmentId,
+              userid: this.sessionService.profileUserId,
+              timezone: this.user.timeZone,
+              updatedBy: this.sessionService.userId
             };
-            this.userService.updateUser(params).subscribe(function (res) {
+            this.userService.updateUserTimezone(params).subscribe(function (res) {
               if (res.message) {
                 _this42.isDataLoaded = true;
                 _this42.sessionService.zone = _this42.user.timeZone;
