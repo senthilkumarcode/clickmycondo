@@ -1711,7 +1711,19 @@
               };
               this.genMaintService.addGenMaintenancePlanComments(params).subscribe(function (res) {
                 if (res.message) {
-                  _this22.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                  _this22.customFieldComment = '';
+
+                  _this22.sharedService.openSnackBar('Comment Added Successfully', 'success'); //CommentList 
+
+
+                  var _params = {
+                    apartmentId: _this22.sessionService.apartmentId,
+                    genMaintenancePlanId: _this22.selectedList.id
+                  };
+
+                  _this22.genMaintService.getGenMaintenancePlanCommentsByGenMaintenancePlanId(_params).subscribe(function (comment) {
+                    _this22.selectedList.comments = comment;
+                  });
                 } else {
                   _this22.sharedService.openSnackBar(res.errorMessage, 'error');
                 }

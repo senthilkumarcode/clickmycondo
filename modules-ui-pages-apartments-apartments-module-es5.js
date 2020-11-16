@@ -285,10 +285,11 @@
             };
             this.isRouting = true;
             this.staffService.getStaffByUserId(params).subscribe(function (res) {
-              _this2.sessionService.secLevelId = res[0].secLevelId;
+              console.log(res);
 
               if (!isNaN(_this2.sessionService.secLevelId)) {
-                // Hide the message
+                _this2.sessionService.secLevelId = res[0].secLevelId; // Hide the message
+
                 _this2.message = null;
                 var _params = {
                   ApartmentId: _this2.sessionService.apartmentId,

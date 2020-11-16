@@ -1190,7 +1190,16 @@ let OperationalMaintananceListComponent = class OperationalMaintananceListCompon
             };
             this.genMaintService.addGenMaintenancePlanComments(params).subscribe((res) => {
                 if (res.message) {
+                    this.customFieldComment = '';
                     this.sharedService.openSnackBar('Comment Added Successfully', 'success');
+                    //CommentList 
+                    let params = {
+                        apartmentId: this.sessionService.apartmentId,
+                        genMaintenancePlanId: this.selectedList.id,
+                    };
+                    this.genMaintService.getGenMaintenancePlanCommentsByGenMaintenancePlanId(params).subscribe((comment) => {
+                        this.selectedList.comments = comment;
+                    });
                 }
                 else {
                     this.sharedService.openSnackBar(res.errorMessage, 'error');
