@@ -281,15 +281,9 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-      /*! src/app/shared/services/shared-toaster.service */
-      "./src/app/shared/services/shared-toaster.service.ts");
 
       var SecurityActiveAlertsComponent = /*#__PURE__*/function () {
-        function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog, SharedToaster) {
+        function SecurityActiveAlertsComponent(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog) {
           _classCallCheck(this, SecurityActiveAlertsComponent);
 
           this.userService = userService;
@@ -299,7 +293,6 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.dialog = dialog;
-          this.SharedToaster = SharedToaster;
           this.alertList = [];
           this.isAlertsLoaded = false;
           this.isAlertUpdated = false;
@@ -663,8 +656,6 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]
-        }, {
-          type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]
         }];
       };
 
@@ -676,7 +667,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./security-active-alerts.component.scss */
         "./src/app/modules/ams/security/components/security-active-alerts/security-active-alerts.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]])], SecurityActiveAlertsComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])], SecurityActiveAlertsComponent);
       /***/
     },
 
@@ -789,15 +780,9 @@
       var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! src/app/shared/services/shared-toaster.service */
-      "./src/app/shared/services/shared-toaster.service.ts");
 
       var SecurityHistoryComponent = /*#__PURE__*/function () {
-        function SecurityHistoryComponent(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog, SharedToaster) {
+        function SecurityHistoryComponent(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog) {
           _classCallCheck(this, SecurityHistoryComponent);
 
           this.userService = userService;
@@ -807,7 +792,6 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.dialog = dialog;
-          this.SharedToaster = SharedToaster;
           this.alertList = [];
           this.isAlertsLoaded = false;
           this.isAlertUpdated = false;
@@ -1123,8 +1107,6 @@
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]
         }, {
           type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]
-        }, {
-          type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]
         }];
       };
 
@@ -1136,7 +1118,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./security-history.component.scss */
         "./src/app/modules/ams/security/components/security-history/security-history.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"], src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]])], SecurityHistoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_3__["ApartmentService"], src_app_api_controllers_Alert__WEBPACK_IMPORTED_MODULE_4__["AlertService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"], _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])], SecurityHistoryComponent);
 
       function getClassName(value) {
         var name = value.split('-');
@@ -3194,75 +3176,6 @@
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_modules_ams_security_security_setup_security_setup_module__WEBPACK_IMPORTED_MODULE_4__["SecuritySetupModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_11__["CondoCardModule"], _security_routing_module__WEBPACK_IMPORTED_MODULE_3__["SecurityRoutingModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_12__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__["ListModule"]],
         bootstrap: [_security_component__WEBPACK_IMPORTED_MODULE_6__["SecurityComponent"]]
       })], SecurityModule);
-      /***/
-    },
-
-    /***/
-    "./src/app/shared/services/shared-toaster.service.ts":
-    /*!***********************************************************!*\
-      !*** ./src/app/shared/services/shared-toaster.service.ts ***!
-      \***********************************************************/
-
-    /*! exports provided: SharedToasterService */
-
-    /***/
-    function srcAppSharedServicesSharedToasterServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "SharedToasterService", function () {
-        return SharedToasterService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/material/snack-bar */
-      "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
-
-      var SharedToasterService = /*#__PURE__*/function () {
-        function SharedToasterService(snackBar) {
-          _classCallCheck(this, SharedToasterService);
-
-          this.snackBar = snackBar;
-        }
-
-        _createClass(SharedToasterService, [{
-          key: "openSnackBar",
-          value: function openSnackBar(message, action) {
-            this.snackBar.open(message, action, {
-              duration: 2000
-            });
-          }
-        }]);
-
-        return SharedToasterService;
-      }();
-
-      SharedToasterService.ctorParameters = function () {
-        return [{
-          type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]
-        }];
-      };
-
-      SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])], SharedToasterService);
       /***/
     }
   }]);

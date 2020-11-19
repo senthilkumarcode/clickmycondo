@@ -140,8 +140,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_components_common_confirm_modal_common_confirm_modal_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/components/common-confirm-modal/common-confirm-modal.component */ "./src/app/shared/components/common-confirm-modal/common-confirm-modal.component.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
-
 
 
 
@@ -155,7 +153,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
-    constructor(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog, SharedToaster) {
+    constructor(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog) {
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.alertService = alertService;
@@ -163,7 +161,6 @@ let SecurityActiveAlertsComponent = class SecurityActiveAlertsComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.dialog = dialog;
-        this.SharedToaster = SharedToaster;
         this.alertList = [];
         this.isAlertsLoaded = false;
         this.isAlertUpdated = false;
@@ -472,8 +469,7 @@ SecurityActiveAlertsComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] },
-    { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"] }
 ];
 SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -487,8 +483,7 @@ SecurityActiveAlertsComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__dec
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_11__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"],
-        src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_12__["SharedToasterService"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_10__["MatDialog"]])
 ], SecurityActiveAlertsComponent);
 
 
@@ -530,8 +525,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/dialog.js");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/services/shared-toaster.service */ "./src/app/shared/services/shared-toaster.service.ts");
-
 
 
 
@@ -544,7 +537,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let SecurityHistoryComponent = class SecurityHistoryComponent {
-    constructor(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog, SharedToaster) {
+    constructor(userService, apartmentService, alertService, lookupService, sharedService, sessionService, dialog) {
         this.userService = userService;
         this.apartmentService = apartmentService;
         this.alertService = alertService;
@@ -552,7 +545,6 @@ let SecurityHistoryComponent = class SecurityHistoryComponent {
         this.sharedService = sharedService;
         this.sessionService = sessionService;
         this.dialog = dialog;
-        this.SharedToaster = SharedToaster;
         this.alertList = [];
         this.isAlertsLoaded = false;
         this.isAlertUpdated = false;
@@ -828,8 +820,7 @@ SecurityHistoryComponent.ctorParameters = () => [
     { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] },
-    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] },
-    { type: src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"] }
+    { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"] }
 ];
 SecurityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -843,8 +834,7 @@ SecurityHistoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
         src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_10__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"],
-        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"],
-        src_app_shared_services_shared_toaster_service__WEBPACK_IMPORTED_MODULE_11__["SharedToasterService"]])
+        _angular_material_dialog__WEBPACK_IMPORTED_MODULE_9__["MatDialog"]])
 ], SecurityHistoryComponent);
 
 function getClassName(value) {
@@ -2186,46 +2176,6 @@ SecurityModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         bootstrap: [_security_component__WEBPACK_IMPORTED_MODULE_6__["SecurityComponent"]]
     })
 ], SecurityModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/shared/services/shared-toaster.service.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/shared/services/shared-toaster.service.ts ***!
-  \***********************************************************/
-/*! exports provided: SharedToasterService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SharedToasterService", function() { return SharedToasterService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material/snack-bar */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/snack-bar.js");
-
-
-
-let SharedToasterService = class SharedToasterService {
-    constructor(snackBar) {
-        this.snackBar = snackBar;
-    }
-    openSnackBar(message, action) {
-        this.snackBar.open(message, action, {
-            duration: 2000,
-        });
-    }
-};
-SharedToasterService.ctorParameters = () => [
-    { type: _angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"] }
-];
-SharedToasterService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_snack_bar__WEBPACK_IMPORTED_MODULE_2__["MatSnackBar"]])
-], SharedToasterService);
 
 
 

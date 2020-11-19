@@ -4037,7 +4037,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<condo-message class=\"mb-5\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Create Expected Visitor</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Edit Expected Visitor</span>\n\t\t\t\t</h4>\n\t\t\t\t<!-- <a class=\"ml-auto\" mat-button (click)=\"back()\" [color]=\"'primary'\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t<span>Back</span>\n\t\t\t\t</a> -->\n\t\t\t</div>\n\n\t\t\t<form #expectedVisitorForm=\"ngForm\"  name=\"expectedVisitorForm\" (ngSubmit)=\"submitExpectedVisitorForm(expectedVisitorForm)\" novalidate>\n\t\t\t\t\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Visit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVisitType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedStaff($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Date/Time of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control h-0\" name=\"visitorInTime\" [owlDateTime]=\"visitorInTime\"\n\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorInTime\" [min]=\"currentDate\" (ngModelChange)=\"expectedDurationChange()\">\n\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"visitorInTime\" [owlDateTimeTrigger]=\"visitorInTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t[value]=\"visitor.expectedVisitorInTime | userDateTimeFormat:timeZone.picker\" autocomplete=\"off\"/>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorInTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorInTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Out-Time<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control h-0\" name=\"visitorOutTime\" [owlDateTime]=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t\tplaceholder=\"Date Time\" [(ngModel)]=\"visitor.expectedVisitorOutTime\" (ngModelChange)=\"expectedDurationChange()\"\n\t\t\t\t\t\t\t\t\t[min]=\"visitor.expectedVisitorInTime\" required>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" type=\"text\" name=\"visitorOutTime\" [owlDateTimeTrigger]=\"visitorOutTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t[value]=\"visitor.expectedVisitorOutTime | userDateTimeFormat:timeZone.picker\" autocomplete=\"off\"/>\n\t\t\t\t\t\t\t\t<owl-date-time #visitorOutTime></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"visitorOutTime\">\n\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Category\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"text-right\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">\n\t\t\t\t\t\t\t\t<span *ngIf=\"!isEdit\">Submit</span>\n\t\t\t\t\t\t\t\t<span *ngIf=\"isEdit\">Update</span>\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t<a class=\"ml-2\" mat-button (click)=\"back()\">Cancel</a>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\n\n\t</div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"checkin-visitor-wrapper\">\n\t<div class=\"main\">\n\t\t\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<condo-message class=\"mb-5\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n                    {{message.content}}\n\t\t\t</condo-message>\n\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<h4>\n\t\t\t\t\t<span *ngIf=\"!isEdit\">Create Expected Visitor</span>\n\t\t\t\t\t<span *ngIf=\"isEdit\">Edit Expected Visitor</span>\n\t\t\t\t</h4>\n\t\t\t\t<!-- <a class=\"ml-auto\" mat-button (click)=\"back()\" [color]=\"'primary'\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'arrow_back'\"></mat-icon>\n\t\t\t\t\t<span>Back</span>\n\t\t\t\t</a> -->\n\t\t\t</div>\n\n\t\t\t<form #expectedVisitorForm=\"ngForm\"  name=\"expectedVisitorForm\" (ngSubmit)=\"submitExpectedVisitorForm(expectedVisitorForm)\" novalidate>\n\t\t\t\t\n\t\t\t\t<div class=\"bg-card shadow\" *ngIf=\"isAdmin()\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Type\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Visit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitTypeList\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitTypeId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedVisitType($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Unit Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"towerList\"\n\t\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\t\tfieldId=\"block_Id\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"block.blockId && visitor.visitTypeId && visitor.visitTypeId == 50\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"unitList\"\n\t\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.apartmentUnitId\"\n\t\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.apartmentUnitId\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Primary Name</label>\n\t\t\t\t\t\t\t\t<input type=\"text\" [disabled]=\"true\" class=\"form-control\" placeholder=\"Primary Name\" [value]=\"block.primaryName\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<!-- Community Visitor -->\n\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"visitor.visitTypeId && visitor.visitTypeId == 51\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Staff\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Staff\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"staffsList\"\n\t\t\t\t\t\t\t\tfieldValue=\"staffName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.tomeetStaffId\"\n\t\t\t\t\t\t\t\tfieldId=\"staffId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedStaff($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"bg-card shadow\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Name<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Visitor Name\" name=\"visitorName\" [(ngModel)]=\"visitor.expectedVisitorName\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Visitor Count<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Visitor Count\" name=\"visitorCount\" [(ngModel)]=\"visitor.expectedVisitorCount\" required>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div> \n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t[selectedCountryISO]=\"selectedCountryISO\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"visitor.expectedVisitorPhone\" name=\"phone\">\n\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"Expected Date/Time of Visit\"\n\t\t\t\t\t\t\t\tfieldName=\"visitorInTime\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorInTime\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorInDate($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\t\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"Expected Out/Time of Visit\"\n\t\t\t\t\t\t\t\tfieldName=\"visitorOutTime\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\ttype=\"dateTime\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.expectedVisitorOutTime\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getExpectedVisitorOutDate($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Expected Duration of Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<input class=\"form-control\" placeholder=\"Duration Info\" name=\"durationInfo\" [value]=\"expectedDurationInfo\" [disabled]=\"true\">\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\tlabelText=\"Expected Visit Category\"\n\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Category\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t[fieldList]=\"visitCategoryList | orderBy : 'lookupValueName'\"\n\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"visitor.visitorCategoryId\"\n\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getSelectedCategory($event)\" \n\t\t\t\t\t\t\t></condo-select>\n\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t<label>Reason for Visit<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t<textarea  type=\"text\" class=\"form-control purpose-box\" placeholder=\"Enter purpose\" name=\"visitorpurpose\" [(ngModel)]=\"visitor.purpose\" required></textarea>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"mt-4 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">\n\t\t\t\t\t\t<span *ngIf=\"!isEdit\">Submit</span>\n\t\t\t\t\t\t<span *ngIf=\"isEdit\">Update</span>\n\t\t\t\t\t</button>\n\t\t\t\t\t<a class=\"ml-2\" mat-button (click)=\"back()\">Cancel</a>\n\t\t\t\t</div>\n\t\t\t</form>\n\n\t\t</ng-container>\n\t\n\n\t</div>\n</div>");
 
 /***/ }),
 
@@ -4129,6 +4129,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -5161,6 +5174,14 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
             }
         }
     }
+    getExpectedVisitorInDate(event) {
+        this.visitor.expectedVisitorInTime = event;
+        this.expectedDurationChange();
+    }
+    getExpectedVisitorOutDate(event) {
+        this.visitor.expectedVisitorOutTime = event;
+        this.expectedDurationChange();
+    }
     expectedDurationChange() {
         if (this.visitor.expectedVisitorInTime && this.visitor.expectedVisitorOutTime) {
             let inDate = moment__WEBPACK_IMPORTED_MODULE_12__(this.visitor.expectedVisitorInTime);
@@ -5170,8 +5191,6 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
             let hours = diffDuration.asHours();
             this.visitor.expectedDuration = Math.round(hours);
         }
-        else
-            this.visitor.expectedVisitorOutTime = '';
     }
     isSingleDigit(digit) {
         if (digit <= 0) {
@@ -7140,14 +7159,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/user-visitor-list/user-visitor-list.component */ "./src/app/modules/common/visitor/components/user-visitor-list/user-visitor-list.component.ts");
 /* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
-/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
-/* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/common/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
-/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
-/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/common/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
-/* harmony import */ var _components_exp_visitor_confirm_exp_visitor_confirm_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/exp-visitor-confirm/exp-visitor-confirm.component */ "./src/app/modules/common/visitor/components/exp-visitor-confirm/exp-visitor-confirm.component.ts");
-/* harmony import */ var _components_frequent_vendor_list_frequent_vendor_list_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/frequent-vendor-list/frequent-vendor-list.component */ "./src/app/modules/common/visitor/components/frequent-vendor-list/frequent-vendor-list.component.ts");
-/* harmony import */ var _components_currently_checkedin_list_currently_checkedin_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/currently-checkedin-list/currently-checkedin-list.component */ "./src/app/modules/common/visitor/components/currently-checkedin-list/currently-checkedin-list.component.ts");
-/* harmony import */ var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/visitor-history/visitor-history.component */ "./src/app/modules/common/visitor/components/visitor-history/visitor-history.component.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+/* harmony import */ var ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ngx-intl-tel-input */ "./node_modules/ngx-intl-tel-input/__ivy_ngcc__/fesm2015/ngx-intl-tel-input.js");
+/* harmony import */ var _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/exp-user-visitor-list/exp-user-visitor-list.component */ "./src/app/modules/common/visitor/components/exp-user-visitor-list/exp-user-visitor-list.component.ts");
+/* harmony import */ var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! src/app/modules/ui/message/message.module */ "./src/app/modules/ui/message/message.module.ts");
+/* harmony import */ var _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component */ "./src/app/modules/common/visitor/components/create-vendor-frquent-visitor/create-vendor-frquent-visitor.component.ts");
+/* harmony import */ var _components_exp_visitor_confirm_exp_visitor_confirm_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/exp-visitor-confirm/exp-visitor-confirm.component */ "./src/app/modules/common/visitor/components/exp-visitor-confirm/exp-visitor-confirm.component.ts");
+/* harmony import */ var _components_frequent_vendor_list_frequent_vendor_list_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/frequent-vendor-list/frequent-vendor-list.component */ "./src/app/modules/common/visitor/components/frequent-vendor-list/frequent-vendor-list.component.ts");
+/* harmony import */ var _components_currently_checkedin_list_currently_checkedin_list_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/currently-checkedin-list/currently-checkedin-list.component */ "./src/app/modules/common/visitor/components/currently-checkedin-list/currently-checkedin-list.component.ts");
+/* harmony import */ var _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/visitor-history/visitor-history.component */ "./src/app/modules/common/visitor/components/visitor-history/visitor-history.component.ts");
+
 
 
 
@@ -7182,12 +7203,12 @@ VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             _components_exp_visitor_create_chekin_exp_visitor_create_chekin_component__WEBPACK_IMPORTED_MODULE_10__["ExpVisitorCreateChekinComponent"],
             _components_exp_visitor_list_exp_visitor_list_component__WEBPACK_IMPORTED_MODULE_11__["ExpVisitorListComponent"],
             _components_user_visitor_list_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_12__["UserVisitorListComponent"],
-            _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_16__["ExpUserVisitorListComponent"],
-            _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_18__["CreateVendorFrquentVisitorComponent"],
-            _components_exp_visitor_confirm_exp_visitor_confirm_component__WEBPACK_IMPORTED_MODULE_19__["ExpVisitorConfirmComponent"],
-            _components_frequent_vendor_list_frequent_vendor_list_component__WEBPACK_IMPORTED_MODULE_20__["FrequentVendorListComponent"],
-            _components_currently_checkedin_list_currently_checkedin_list_component__WEBPACK_IMPORTED_MODULE_21__["CurrentlyCheckedinListComponent"],
-            _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_22__["VisitorHistoryComponent"]
+            _components_exp_user_visitor_list_exp_user_visitor_list_component__WEBPACK_IMPORTED_MODULE_17__["ExpUserVisitorListComponent"],
+            _components_create_vendor_frquent_visitor_create_vendor_frquent_visitor_component__WEBPACK_IMPORTED_MODULE_19__["CreateVendorFrquentVisitorComponent"],
+            _components_exp_visitor_confirm_exp_visitor_confirm_component__WEBPACK_IMPORTED_MODULE_20__["ExpVisitorConfirmComponent"],
+            _components_frequent_vendor_list_frequent_vendor_list_component__WEBPACK_IMPORTED_MODULE_21__["FrequentVendorListComponent"],
+            _components_currently_checkedin_list_currently_checkedin_list_component__WEBPACK_IMPORTED_MODULE_22__["CurrentlyCheckedinListComponent"],
+            _components_visitor_history_visitor_history_component__WEBPACK_IMPORTED_MODULE_23__["VisitorHistoryComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -7197,12 +7218,165 @@ VisitorModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_8__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_14__["SelectModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_13__["ListModule"],
-            ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_15__["NgxIntlTelInputModule"],
-            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_17__["CondoMessageModule"]
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_15__["DatepickerModule"].forRoot(),
+            ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_16__["NgxIntlTelInputModule"],
+            src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_18__["CondoMessageModule"]
         ],
         bootstrap: [_visitor_component__WEBPACK_IMPORTED_MODULE_6__["VisitorComponent"]]
     })
 ], VisitorModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
+  \***************************************************************/
+/*! exports provided: DatepickerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function() { return DatepickerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+let DatepickerComponent = class DatepickerComponent {
+    constructor(sharedService) {
+        this.sharedService = sharedService;
+        this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    isFieldRequired() {
+        return this.fieldRequired == "required" ? true : false;
+    }
+    onPickerChange() {
+        this.fieldParams.emit(this.fieldModel);
+    }
+    camelCase(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
+            return index === 0 ? word.toLowerCase() : word.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+    ngOnInit() {
+        this.index = this.sharedService.guid().replace(/-/g, '');
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+    }
+    ngAfterViewInit() {
+    }
+    ngOnChanges() {
+    }
+};
+DatepickerComponent.ctorParameters = () => [
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
+];
+DatepickerComponent.propDecorators = {
+    labelText: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldRequired: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldName: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    type: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    components: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"], args: ['dateTimeElem',] }]
+};
+DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-datepicker',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./datepicker.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"], useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"] }],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./datepicker.component.scss */ "./src/app/modules/ui/datepicker/datepicker.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
+], DatepickerComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.module.ts":
+/*!************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
+  \************************************************************/
+/*! exports provided: DatepickerModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatepickerModule", function() { return DatepickerModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/material */ "./src/app/material.ts");
+/* harmony import */ var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datepicker.component */ "./src/app/modules/ui/datepicker/datepicker.component.ts");
+/* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+/* harmony import */ var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/pipe/shared.pipe */ "./src/app/shared/pipe/shared.pipe.ts");
+/* harmony import */ var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/owl/custom-date-time-adapter */ "./src/app/core/owl/custom-date-time-adapter.ts");
+var DatepickerModule_1;
+
+
+
+
+
+
+
+
+
+
+let DatepickerModule = DatepickerModule_1 = class DatepickerModule {
+    static forRoot() {
+        return {
+            ngModule: DatepickerModule_1,
+            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
+        };
+    }
+};
+DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
+        ],
+        exports: [
+            _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
+        ],
+        providers: [
+            { provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"], useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"] }
+        ],
+        bootstrap: [
+            _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]
+        ]
+    })
+], DatepickerModule);
 
 
 
