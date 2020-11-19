@@ -842,8 +842,8 @@ let AddStaffComponent = class AddStaffComponent {
                 "vehicleId": null,
                 "healthIssue": this.staff.healthIssue,
                 "comments": this.staff.comments,
-                "plannedEntryTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime).format('HH:mm'),
-                "plannedExitTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedExitTime).format('HH:mm'),
+                "plannedEntryTime": this.staff.plannedEntryTime ? moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime).format('HH:mm') : '',
+                "plannedExitTime": this.staff.plannedExitTime ? moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedExitTime).format('HH:mm') : '',
                 "jobStartDate": this.staff.jobStartDate,
                 "jobEndDate": this.staff.jobEndDate,
                 "mtwtfss": "",
@@ -943,8 +943,8 @@ let AddStaffComponent = class AddStaffComponent {
             "vehicleId": null,
             "healthIssue": this.staff.healthIssue,
             "comments": this.staff.comments,
-            "plannedEntryTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime).format('HH:mm'),
-            "plannedExitTime": moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedExitTime).format('HH:mm'),
+            "plannedEntryTime": this.staff.plannedEntryTime ? moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedEntryTime).format('HH:mm') : '',
+            "plannedExitTime": this.staff.plannedExitTime ? moment__WEBPACK_IMPORTED_MODULE_8__(this.staff.plannedExitTime).format('HH:mm') : '',
             "jobStartDate": this.staff.jobStartDate,
             "jobEndDate": this.staff.jobEndDate,
             "mtwtfss": "string",
@@ -2223,10 +2223,16 @@ let StaffMaintainStaffComponent = class StaffMaintainStaffComponent {
             return '<div style="padding: 14px">' + value + '</div>';
         };
         this.columnData = [{
+                text: 'StaffNo',
+                datafield: 'serialNo',
+                width: 150,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            }, {
                 text: 'Staff Name',
                 datafield: 'firstName',
                 width: 150,
-                pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             }, {
