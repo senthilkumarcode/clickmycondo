@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-auto-monthly-invoice-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Create Automatic Monthly Invoice</h4>\n\t\t<div>\n\t\t\t<form>\n\t\t\t\t<div class=\"bg-card shadow\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Date Of Bill Creation</label>\n                                <input class=\"form-control\" name=\"dateOfBill\" [owlDateTime]=\"dateOfBill\" [owlDateTimeTrigger]=\"dateOfBill\"\n                                placeholder=\"Date\" [(ngModel)]=\"invoice.billCreationDate\" autocomplete=\"off\">\n                                <owl-date-time #dateOfBill [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                        <div class=\"col-sm-4\">\n                            <div class=\"input-box\">\n                                <label>Due Date</label>\n                                <input class=\"form-control\" name=\"dueDate\" [owlDateTime]=\"dueDate\" [owlDateTimeTrigger]=\"dueDate\"\n                                    placeholder=\"Date\" [(ngModel)]=\"invoice.dueDate\" autocomplete=\"off\">\n                                <owl-date-time #dueDate [pickerType]=\"'calendar'\"></owl-date-time>\n                                <div class=\"date-btn\">\n                                    <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\t\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right pr-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"addForm()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"bg-card shadow p-0\">\n                    <div class=\"invoice-card-wrapper\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n\t\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\t\t<div class=\"p-0 invoice-header\">\n\t\t\t\t\t\t\t\t<div class=\"wp-180 heads\">Bill Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Amount For Calc</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Fixed Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-200 heads\">GL Account</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-220 heads\">Description</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Tax</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Vat</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-80 heads\">Actions</div>\n                            </div>\n                            <div class=\"p-0 invoice-fields\" *ngFor=\"let item of invoice.autoInvoiceItem; let i = index;\">\n                                <div class=\"form\">\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Bill Amount Type{{index}}\"\n                                            fieldPlaceholder=\"Select Amount...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"billAmountList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.typeId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"billAmountChange($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"amountCalculation{{i}}\" placeholder=\"Amount\" \n                                            [(ngModel)]=\"item.varAmount\" [disabled]=\"item.typeId == 386\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"fixedAmount{{i}}\" placeholder=\"Fixed\" \n                                            [(ngModel)]=\"item.fixedAmount\" [disabled]=\"item.typeId == 387 || item.typeId == 388\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"GL Account{{index}}\"\n                                            fieldPlaceholder=\"Select GL Account..\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"glAccountList\"\n                                            fieldValue=\"customLabel\"\n                                            [fieldModel]=\"item.glaccountId\"\n                                            fieldId=\"glaccountId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setGlAccount($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" type=\"text\" name=\"description{{i}}\" placeholder=\"Description\" [(ngModel)]=\"item.description\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Tax {{index}}\"\n                                            fieldPlaceholder=\"Tax...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"taxPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.taxId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setTax($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"VAT {{index}}\"\n                                            fieldPlaceholder=\"Vat...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"vatPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.vatId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setVat($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads actions\">\n                                        <mat-icon class=\"link\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"removeInvoice(i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n                </div>\n                <div class=\"bg-card shadow\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Sq.m - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Consumption (Water) - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Power Units Consumption - Maintain Entry in utilities Menu</p>                     \n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addAutoinvoiceConfig()\">Save & Preview Invoice For All Units</button>\n                                <button class=\"ml-3\" mat-flat-button [color]=\"'accent'\">Create Final Invoice</button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\t\t\t</form>\n        </div>\n        <div *ngIf=\"invoiceTable\">\n            <app-view-monthly-invoice></app-view-monthly-invoice>\n        </div>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-auto-monthly-invoice-wrapper\">\n\t<div class=\"main\">\n        <h4 class=\"mb-4\">Create Automatic Monthly Invoice</h4>\n\t\t<div>\n\t\t\t<form>\n\t\t\t\t<div class=\"bg-card shadow\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-4\">\n\n                            <app-datepicker\n                                labelText=\"Date Of Bill Creation\"\n                                fieldName=\"dateOfBill\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"invoice.billCreationDate\"\n                                (fieldParams)=\"getCreationDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n\n                        </div>\n                        <div class=\"col-sm-4\">\n\n                            <app-datepicker\n                                labelText=\"Due Date\"\n                                fieldName=\"dueDate\"\n                                [fieldRequired]=\"'null'\"\n                                type=\"date\"\n                                [fieldModel]=\"invoice.dueDate\"\n                                (fieldParams)=\"getDueDate($event)\">\n\t\t\t\t\t\t    </app-datepicker>\n\n                        </div>\n                    </div>\t\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right pr-3\">\n                                <button mat-flat-button [color]=\"'accent'\" (click)=\"addForm()\">\n                                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                                </button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"bg-card shadow p-0\">\n                    <div class=\"invoice-card-wrapper\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n\t\t\t\t\t\t<div class=\"invoice-table\">\n\t\t\t\t\t\t\t<div class=\"p-0 invoice-header\">\n\t\t\t\t\t\t\t\t<div class=\"wp-180 heads\">Bill Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Amount For Calc</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Fixed Amount</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-200 heads\">GL Account</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-220 heads\">Description</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Tax</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-120 heads\">Vat</div>\n\t\t\t\t\t\t\t\t<div class=\"wp-80 heads\">Actions</div>\n                            </div>\n                            <div class=\"p-0 invoice-fields\" *ngFor=\"let item of invoice.autoInvoiceItem; let i = index;\">\n                                <div class=\"form\">\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Bill Amount Type{{index}}\"\n                                            fieldPlaceholder=\"Select Amount...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"billAmountList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.typeId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"billAmountChange($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"amountCalculation{{i}}\" placeholder=\"Amount\" \n                                            [(ngModel)]=\"item.varAmount\" [disabled]=\"item.typeId == 386\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" OnlyNumber=\"true\" name=\"fixedAmount{{i}}\" placeholder=\"Fixed\" \n                                            [(ngModel)]=\"item.fixedAmount\" [disabled]=\"item.typeId == 387 || item.typeId == 388\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"GL Account{{index}}\"\n                                            fieldPlaceholder=\"Select GL Account..\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"glAccountList\"\n                                            fieldValue=\"customLabel\"\n                                            [fieldModel]=\"item.glaccountId\"\n                                            fieldId=\"glaccountId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setGlAccount($event, item)\" \n\t\t                                ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <div class=\"input-container\">\n                                            <input class=\"form-control\" type=\"text\" name=\"description{{i}}\" placeholder=\"Description\" [(ngModel)]=\"item.description\">\n                                        </div>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"Tax {{index}}\"\n                                            fieldPlaceholder=\"Tax...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"taxPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.taxId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setTax($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads\">\n                                        <condo-select \n                                            labelText=\"VAT {{index}}\"\n                                            fieldPlaceholder=\"Vat...\"\n                                            [fieldRequired]=\"'required'\"\n                                            [fieldList]=\"vatPecentageDataList\"\n                                            fieldValue=\"lookupValueName\"\n                                            [fieldModel]=\"item.vatId\"\n                                            fieldId=\"lookupValueId\"\n                                            [isLabel]=\"'false'\"\n                                            (fieldParams)=\"setVat($event, item)\" \n                                        ></condo-select>\n                                    </div>\n                                    <div class=\"heads actions\">\n                                        <mat-icon class=\"link\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"removeInvoice(i)\"></mat-icon>\n                                    </div>\n                                </div>\n                            </div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n                </div>\n                <div class=\"bg-card shadow\" *ngIf=\"invoice.autoInvoiceItem.length > 0\">\n                    <div class=\"row\">\n                        <div class=\"col-sm-12\">\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Sq.m - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Consumption (Water) - Maintain Sq.m in each unit to calculate the cost per Unit</p>\n                            <p class=\"text-muted\"><span class=\"required\">*</span> Based on Power Units Consumption - Maintain Entry in utilities Menu</p>                     \n                        </div>\n                        <div class=\"col-sm-12\">\n                            <div class=\"text-right\">\n                                <button mat-flat-button [color]=\"'primary'\" (click)=\"addAutoinvoiceConfig()\">Save & Preview Invoice For All Units</button>\n                                <button class=\"ml-3\" mat-flat-button [color]=\"'accent'\">Create Final Invoice</button>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\t\t\t</form>\n        </div>\n        <div *ngIf=\"invoiceTable\">\n            <app-view-monthly-invoice></app-view-monthly-invoice>\n        </div>\n\t</div>\n</div>";
       /***/
     },
 
@@ -43,6 +43,26 @@
 
 
       __webpack_exports__["default"] = "<div>\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex\">\n                <div>\n                    <h4>Preview Invoices</h4>\n                    <p>{{totalItems}} results</p>\n                </div>\n                <div class=\"ml-auto d-none d-md-block mr-3\">\n                    <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"invoiceData\" (ngModelChange)=\"onGlSearchFilter()\">\n                </div>\n                <div>\n                    <app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n                </div>\n            </div>\n        </div>\n        <div CondoCardBody>\n            <jqxGrid \n                    [theme]=\"'material'\" \n                    [width]=\"'100%'\"\n                    [rowsheight]=\"48\"\n                    [autoheight]=\"true\"\n                    [pageable]=\"true\" \n                    [filterable]=\"true\" \n                    [sortable]=\"true\" \n                    [source]=\"prevInvoiceDataList\"\n                    [columns]=\"prevColumnData\"\n                    [enablehover]=\"false\"\n                #datagrid>\n            </jqxGrid>\n        </div>\n    </condo-card>\n\n    <ng-template #viewInvoiceDetailsRef>\n        <div class=\"invoice-info info-modal-box rel\">\n            <div class=\"d-flex p-4\">\n                <h4>Invoice Info</h4>\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n            <app-loader *ngIf=\"!isInvoicePrintLoaded\"></app-loader>\n            <ng-container *ngIf=\"isInvoicePrintLoaded\">\n                <div id=\"InvoiceElement\">\n                    <div class=\"text-center bg-cool-gray-100 p-4\">\n                        <h4 class=\"pb-3\">{{apartmentDetails.apartmentName}}</h4>\n                        <h6>{{apartmentDetails.address1}}</h6>\n                        <div class=\"mt-2\">\n                            <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Mobile No:</span>{{apartmentDetails.phoneNumber}}</p>\n                            <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Email:</span>{{apartmentDetails.emailId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"bg-card p-0 border-bottom\">\n                        <div class=\"d-flex pt-4 pb-4 border-bottom\">\n                            <div class=\"pl-4\">\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Tower Unit:</span> {{prevInvoice.apartmentBlockNumber}}</p>\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Contact Person:</span> {{prevInvoice.primaryContact}}</p>\n                            </div>\n                            <div class=\"ml-auto pr-4\">\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice ID:</span> {{prevInvoice.custInvoiceId}}</p>\n                                <p class=\"text-secondary\"><span class=\"font-medium mr-2\">Invoice Date:</span> {{getDate(invoice.postedOn)}}</p>\n                            </div>\n                        </div>\n                        <div class=\"\">{{invoice.length}}</div>\n                        <table class=\"table card-table\" [ngClass]=\"isMobileView()\">\n                            <thead>\n                                <tr>\n                                    <th>Income Accounts</th>\n                                    <th>Rate</th>\n                                    <th>Comments</th>\n                                    <th>Discount</th>\n                                    <th>Tax</th>\n                                    <th>Amount</th>\n                                </tr>\n                            </thead>\n                            <tbody>\n                                <tr *ngFor=\"let item of prevInvoice.invoiceGLAccounts; let i = index\">\n                                    <td>{{item.glaccountName}}</td>\n                                    <td>{{item.amount}}</td>\n                                    <td>{{item.comments}}</td>\n                                    <td>{{item.discountAmount}} ({{item.discountTypeId}})</td>\n                                    <td>{{item.vatamount}} <!-- [{{ getVatType(custTaxDetails[i])}}%] --></td>\n                                    <td>{{item.lineItemTotal + item.vatamount}}</td>\n                                </tr>\n                                <tr>\n                                    <td colspan=\"5\">Final Discount:</td>\n                                    <td>{{invoice.invoicefinalinputdiscount}} ({{invoice.finalDiscountTypeName}})</td>\n                                </tr>\n                                <tr class=\"total font-medium\">\n                                    <td colspan=\"5\">Total Amount:</td>\n                                    <td>{{invoice.custInvoiceAmount}}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </div>\n                </div>\n                <div class=\"text-center m-5\">\n                    <button class=\"print\" mat-flat-button [color]=\"'primary'\" (click)=\"printInvoice()\">\n                        <mat-icon class=\"mr-2\" svgIcon=\"feather:printer\"></mat-icon>\n                        Print\n                    </button>\n                </div>\n            </ng-container>\n    \n    \n        </div>\n    </ng-template>\n</div>";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
+    /*!*******************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
+      \*******************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesUiDatepickerDatepickerComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>";
       /***/
     },
 
@@ -204,6 +224,16 @@
           key: "setVat",
           value: function setVat(event, data) {
             data.vatId = event[0].lookupValueId;
+          }
+        }, {
+          key: "getCreationDate",
+          value: function getCreationDate(event) {
+            this.invoice.billCreationDate = event;
+          }
+        }, {
+          key: "getDueDate",
+          value: function getDueDate(event) {
+            this.invoice.dueDate = event;
           }
         }, {
           key: "getInvoiceArray",
@@ -444,25 +474,31 @@
       /* harmony import */
 
 
-      var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
+      /* harmony import */
+
+
+      var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/shared.module */
       "./src/app/shared/shared.module.ts");
       /* harmony import */
 
 
-      var _income_auto_invoices_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _income_auto_invoices_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./income-auto-invoices-routing.module */
       "./src/app/modules/ams/income-tracker/income-auto-invoices/income-auto-invoices-routing.module.ts");
       /* harmony import */
 
 
-      var _create_monthly_invoice_create_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _create_monthly_invoice_create_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./create-monthly-invoice/create-monthly-invoice.component */
       "./src/app/modules/ams/income-tracker/income-auto-invoices/create-monthly-invoice/create-monthly-invoice.component.ts");
       /* harmony import */
 
 
-      var _view_monthly_invoice_view_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _view_monthly_invoice_view_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./view-monthly-invoice/view-monthly-invoice.component */
       "./src/app/modules/ams/income-tracker/income-auto-invoices/view-monthly-invoice/view-monthly-invoice.component.ts");
 
@@ -471,8 +507,8 @@
       };
 
       IncomeAutoInvoicesModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_create_monthly_invoice_create_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_8__["CreateMonthlyInvoiceComponent"], _view_monthly_invoice_view_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_9__["ViewMonthlyInvoiceComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_3__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_4__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_5__["ListModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _income_auto_invoices_routing_module__WEBPACK_IMPORTED_MODULE_7__["IncomeAutoInvoicesRoutingModule"]]
+        declarations: [_create_monthly_invoice_create_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_9__["CreateMonthlyInvoiceComponent"], _view_monthly_invoice_view_monthly_invoice_component__WEBPACK_IMPORTED_MODULE_10__["ViewMonthlyInvoiceComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_7__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_3__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_4__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_5__["ListModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_6__["DatepickerModule"].forRoot(), _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _income_auto_invoices_routing_module__WEBPACK_IMPORTED_MODULE_8__["IncomeAutoInvoicesRoutingModule"]]
       })], IncomeAutoInvoicesModule);
       /***/
     },
@@ -835,6 +871,280 @@
       };
 
       window.downloadInvoiceEvent = downloadInvoiceEvent;
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.component.scss":
+    /*!*****************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
+      \*****************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.component.ts":
+    /*!***************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
+      \***************************************************************/
+
+    /*! exports provided: DatepickerComponent */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function () {
+        return DatepickerComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+
+      var DatepickerComponent = /*#__PURE__*/function () {
+        function DatepickerComponent(sharedService) {
+          _classCallCheck(this, DatepickerComponent);
+
+          this.sharedService = sharedService;
+          this.fieldClass = '';
+          this.fieldReadonly = false;
+          this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        }
+
+        _createClass(DatepickerComponent, [{
+          key: "isFieldRequired",
+          value: function isFieldRequired() {
+            return this.fieldRequired == "required" ? true : false;
+          }
+        }, {
+          key: "onPickerChange",
+          value: function onPickerChange() {
+            this.fieldParams.emit(this.fieldModel);
+          }
+        }, {
+          key: "camelCase",
+          value: function camelCase(str) {
+            return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+              return index === 0 ? word.toLowerCase() : word.toUpperCase();
+            }).replace(/\s+/g, '');
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this6 = this;
+
+            this.index = this.sharedService.guid().replace(/-/g, '');
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this6.timeZone = timeZone;
+            });
+          }
+        }, {
+          key: "ngAfterViewInit",
+          value: function ngAfterViewInit() {}
+        }, {
+          key: "ngOnChanges",
+          value: function ngOnChanges() {
+            console.log(this.fieldModel);
+          }
+        }]);
+
+        return DatepickerComponent;
+      }();
+
+      DatepickerComponent.ctorParameters = function () {
+        return [{
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }];
+      };
+
+      DatepickerComponent.propDecorators = {
+        labelText: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldRequired: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldName: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        type: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldClass: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldReadonly: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldModel: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldParams: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }],
+        components: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"],
+          args: ['dateTimeElem']
+        }]
+      };
+      DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-datepicker',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./datepicker.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{
+          provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"],
+          useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]
+        }],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./datepicker.component.scss */
+        "./src/app/modules/ui/datepicker/datepicker.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], DatepickerComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.module.ts":
+    /*!************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
+      \************************************************************/
+
+    /*! exports provided: DatepickerModule */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DatepickerModule", function () {
+        return DatepickerModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/material */
+      "./src/app/material.ts");
+      /* harmony import */
+
+
+      var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./datepicker.component */
+      "./src/app/modules/ui/datepicker/datepicker.component.ts");
+      /* harmony import */
+
+
+      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @busacca/ng-pick-datetime */
+      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+      /* harmony import */
+
+
+      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/pipe/shared.pipe */
+      "./src/app/shared/pipe/shared.pipe.ts");
+      /* harmony import */
+
+
+      var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/owl/custom-date-time-adapter */
+      "./src/app/core/owl/custom-date-time-adapter.ts");
+
+      var DatepickerModule_1;
+
+      var DatepickerModule = DatepickerModule_1 = /*#__PURE__*/function () {
+        function DatepickerModule() {
+          _classCallCheck(this, DatepickerModule);
+        }
+
+        _createClass(DatepickerModule, null, [{
+          key: "forRoot",
+          value: function forRoot() {
+            return {
+              ngModule: DatepickerModule_1,
+              providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
+            };
+          }
+        }]);
+
+        return DatepickerModule;
+      }();
+
+      DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        exports: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        providers: [{
+          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"],
+          useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"]
+        }],
+        bootstrap: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]]
+      })], DatepickerModule);
       /***/
     }
   }]);

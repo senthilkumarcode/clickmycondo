@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date From*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date To*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"PostingdateTo\" [owlDateTime]=\"PostingdateTo\" [owlDateTimeTrigger]=\"PostingdateTo\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateTo\" autocomplete=\"off\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingdateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingdateTo\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}}</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-journal-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsForm = \"ngForm\" name=\"incomeReportsForm\" (ngSubmit)=\"submitIncomeReportsForm(incomeReportsForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\tfieldName=\"PostingDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateFrom($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingDateTo($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h5>Reports</h5>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"reportsDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n");
 
 /***/ }),
 
@@ -75,6 +75,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"income-security-deposit-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDepositLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDepositLoaded\">\n\n\t\t\t<condo-card>\n\n\t\t\t\t<div CondoCardHeader>\n\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<h4>Security Deposit</h4>\n\t\t\t\t\t\t\t<p class=\"text-secondary\">{{totalItems}} Results</p>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"mr-3 ml-auto\">\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"securityDepositData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"addSecurityDeposit()\" #addSecurityDepositElem>\n\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>\n\t\t\t\t\t\t\t\tAdd Security Deposit\n\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t\t<div CondoCardBody>\n\n\t\t\t\t\t<jqxGrid \n\t\t\t\t\t\t[theme]=\"'material'\" \n\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t[pageable]=\"true\" \n\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t[sortable]=\"true\" \n\t\t\t\t\t\t[source]=\"securityDepositDataList\"\n\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t</jqxGrid> \n\n\t\t\t\t</div>\n\n\t\t\t</condo-card>\n\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n\n<ng-template #addSecurityDepositPanel>\n\n\t<div class=\"bg-card popover-card\">\n\t\t<app-income-add-security-deposit\n\t\t\t[deposit]=\"deposit\" \n\t\t\t[isEdit]=\"isEditDeposit\" \n\t\t\t(outputParams)=\"getSecurityDepositParams($event)\">\n\t\t</app-income-add-security-deposit>\n\t</div>\n\n</ng-template>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -290,12 +303,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 /* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
-/* harmony import */ var _income_actions_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./income-actions.component */ "./src/app/modules/ams/income-tracker/income-actions/income-actions.component.ts");
-/* harmony import */ var _income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./income-customer-advances/income-customer-advances.component */ "./src/app/modules/ams/income-tracker/income-actions/income-customer-advances/income-customer-advances.component.ts");
-/* harmony import */ var _income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./income-security-deposit/income-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component.ts");
-/* harmony import */ var _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./income-journal/income-journal.component */ "./src/app/modules/ams/income-tracker/income-actions/income-journal/income-journal.component.ts");
-/* harmony import */ var _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./income-add-customer-advance/income-add-customer-advance.component */ "./src/app/modules/ams/income-tracker/income-actions/income-add-customer-advance/income-add-customer-advance.component.ts");
-/* harmony import */ var _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./income-add-security-deposit/income-add-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+/* harmony import */ var _income_actions_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./income-actions.component */ "./src/app/modules/ams/income-tracker/income-actions/income-actions.component.ts");
+/* harmony import */ var _income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./income-customer-advances/income-customer-advances.component */ "./src/app/modules/ams/income-tracker/income-actions/income-customer-advances/income-customer-advances.component.ts");
+/* harmony import */ var _income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./income-security-deposit/income-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component.ts");
+/* harmony import */ var _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./income-journal/income-journal.component */ "./src/app/modules/ams/income-tracker/income-actions/income-journal/income-journal.component.ts");
+/* harmony import */ var _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./income-add-customer-advance/income-add-customer-advance.component */ "./src/app/modules/ams/income-tracker/income-actions/income-add-customer-advance/income-add-customer-advance.component.ts");
+/* harmony import */ var _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./income-add-security-deposit/income-add-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-add-security-deposit/income-add-security-deposit.component.ts");
+
 
 
 
@@ -317,19 +332,19 @@ let IncomeActionsModule = class IncomeActionsModule {
 IncomeActionsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _income_actions_component__WEBPACK_IMPORTED_MODULE_9__["IncomeActionsComponent"],
-            _income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_10__["IncomeCustomerAdvancesComponent"],
-            _income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_11__["IncomeSecurityDepositComponent"],
-            _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_12__["IncomeJournalComponent"],
-            _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_13__["IncomeAddCustomerAdvanceComponent"],
-            _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_14__["IncomeAddSecurityDepositComponent"]
+            _income_actions_component__WEBPACK_IMPORTED_MODULE_10__["IncomeActionsComponent"],
+            _income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_11__["IncomeCustomerAdvancesComponent"],
+            _income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_12__["IncomeSecurityDepositComponent"],
+            _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_13__["IncomeJournalComponent"],
+            _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_14__["IncomeAddCustomerAdvanceComponent"],
+            _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_15__["IncomeAddSecurityDepositComponent"]
         ],
         exports: [
-            _income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_10__["IncomeCustomerAdvancesComponent"],
-            _income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_11__["IncomeSecurityDepositComponent"],
-            _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_12__["IncomeJournalComponent"],
-            _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_13__["IncomeAddCustomerAdvanceComponent"],
-            _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_14__["IncomeAddSecurityDepositComponent"]
+            _income_customer_advances_income_customer_advances_component__WEBPACK_IMPORTED_MODULE_11__["IncomeCustomerAdvancesComponent"],
+            _income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_12__["IncomeSecurityDepositComponent"],
+            _income_journal_income_journal_component__WEBPACK_IMPORTED_MODULE_13__["IncomeJournalComponent"],
+            _income_add_customer_advance_income_add_customer_advance_component__WEBPACK_IMPORTED_MODULE_14__["IncomeAddCustomerAdvanceComponent"],
+            _income_add_security_deposit_income_add_security_deposit_component__WEBPACK_IMPORTED_MODULE_15__["IncomeAddSecurityDepositComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -338,9 +353,10 @@ IncomeActionsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__["SelectModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__["ListModule"],
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__["DatepickerModule"].forRoot(),
             _income_actions_routing_module__WEBPACK_IMPORTED_MODULE_5__["IncomeActionsRoutingModule"]
         ],
-        bootstrap: [_income_actions_component__WEBPACK_IMPORTED_MODULE_9__["IncomeActionsComponent"]]
+        bootstrap: [_income_actions_component__WEBPACK_IMPORTED_MODULE_10__["IncomeActionsComponent"]]
     })
 ], IncomeActionsModule);
 
@@ -1081,6 +1097,12 @@ let IncomeJournalComponent = class IncomeJournalComponent {
     getPrintParams(event) {
         this.datagrid.exportdata(event, 'JournalData');
     }
+    getPostingDateFrom(event) {
+        this.report.PostingdateFrom = event;
+    }
+    getPostingDateTo(event) {
+        this.report.PostingdateTo = event;
+    }
     onGlSearchFilter() {
         if (this.reportsData != "") {
             let filtergroup = new jqx.filter();
@@ -1571,6 +1593,163 @@ let editSecurityDepositEvent = row => {
     window.dispatchEvent(event);
 };
 window.editSecurityDepositEvent = editSecurityDepositEvent;
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
+  \***************************************************************/
+/*! exports provided: DatepickerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function() { return DatepickerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+let DatepickerComponent = class DatepickerComponent {
+    constructor(sharedService) {
+        this.sharedService = sharedService;
+        this.fieldClass = '';
+        this.fieldReadonly = false;
+        this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    isFieldRequired() {
+        return this.fieldRequired == "required" ? true : false;
+    }
+    onPickerChange() {
+        this.fieldParams.emit(this.fieldModel);
+    }
+    camelCase(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
+            return index === 0 ? word.toLowerCase() : word.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+    ngOnInit() {
+        this.index = this.sharedService.guid().replace(/-/g, '');
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+    }
+    ngAfterViewInit() {
+    }
+    ngOnChanges() {
+        console.log(this.fieldModel);
+    }
+};
+DatepickerComponent.ctorParameters = () => [
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
+];
+DatepickerComponent.propDecorators = {
+    labelText: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldRequired: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldName: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    type: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldReadonly: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    components: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"], args: ['dateTimeElem',] }]
+};
+DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-datepicker',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./datepicker.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"], useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"] }],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./datepicker.component.scss */ "./src/app/modules/ui/datepicker/datepicker.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
+], DatepickerComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.module.ts":
+/*!************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
+  \************************************************************/
+/*! exports provided: DatepickerModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatepickerModule", function() { return DatepickerModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/material */ "./src/app/material.ts");
+/* harmony import */ var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datepicker.component */ "./src/app/modules/ui/datepicker/datepicker.component.ts");
+/* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+/* harmony import */ var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/pipe/shared.pipe */ "./src/app/shared/pipe/shared.pipe.ts");
+/* harmony import */ var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/owl/custom-date-time-adapter */ "./src/app/core/owl/custom-date-time-adapter.ts");
+var DatepickerModule_1;
+
+
+
+
+
+
+
+
+
+
+let DatepickerModule = DatepickerModule_1 = class DatepickerModule {
+    static forRoot() {
+        return {
+            ngModule: DatepickerModule_1,
+            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
+        };
+    }
+};
+DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
+        ],
+        exports: [
+            _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
+        ],
+        providers: [
+            { provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"], useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"] }
+        ],
+        bootstrap: [
+            _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]
+        ]
+    })
+], DatepickerModule);
+
 
 
 /***/ })

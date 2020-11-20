@@ -22,7 +22,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-post-collection-wrapper mt-4\">\n\n\t<div class=\"card clear mb-5\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Post Collection</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<form #postExpenseCollectionForm = \"ngForm\" name=\"postExpenseCollectionForm\" (ngSubmit)=\"submitExpensePostCollectionForm(postExpenseCollectionForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Payment Amount*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" \n\t\t\t\t\t\t\t\tclass=\"form-control\" \n\t\t\t\t\t\t\t\tplaceholder=\"Enter text\"\n\t\t\t\t\t\t\t\t[customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" \n\t\t\t\t\t\t\t\tname=\"collectionAmount\" [(ngModel)]=\"collection.paymentAmount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Instrument Type*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"InstrumentType\" \n\t\t\t\t\t\t\t        id=\"InstrumentType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"collection.instrumentTypeId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of instrumentTypeListData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Post On*</label>\n\t\t\t                    <input class=\"form-control\" name=\"collectionPostOn\" [owlDateTime]=\"collectionPostOn\" [owlDateTimeTrigger]=\"collectionPostOn\" placeholder=\"Date\" [(ngModel)]=\"collection.postOn\">\n\t\t\t\t\t\t\t\t<owl-date-time #collectionPostOn [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"collectionPostOn\">\n  \t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n  \t\t\t\t\t\t\t\t</div>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"expense-post-collection-wrapper mt-4\">\n\n\t<div class=\"card clear mb-5\">\n\t\t\n\t\t<div class=\"card-header\">\n\t\t\t<div class=\"float-left\">\n    \t\t\t<h5>Post Collection</h5>\n    \t\t</div>\n\t\t</div>\n\n\t\t<form #postExpenseCollectionForm = \"ngForm\" name=\"postExpenseCollectionForm\" (ngSubmit)=\"submitExpensePostCollectionForm(postExpenseCollectionForm)\"  novalidate>\n\n\t\t\t<div class=\"card-body\">\n\t\t\t\t\n\t\t\t\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t\t\t\t<app-alert-message [message]=\"alertMessage\" [isError]=\"isError\" ></app-alert-message>\n\n\t\t\t\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t                    <label>Payment Amount*</label>\n\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" \n\t\t\t\t\t\t\t\tclass=\"form-control\" \n\t\t\t\t\t\t\t\tplaceholder=\"Enter text\"\n\t\t\t\t\t\t\t\t[customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" \n\t\t\t\t\t\t\t\tname=\"collectionAmount\" [(ngModel)]=\"collection.paymentAmount\" required>\n\t                \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t                   <label>Instrument Type*</label>\n\t\t\t                   <select \n\t\t\t\t\t\t\t        name=\"InstrumentType\" \n\t\t\t\t\t\t\t        id=\"InstrumentType\" \n\t\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t\t        [(ngModel)]=\"collection.instrumentTypeId\" required>\n\t\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t\t        <option *ngFor=\"let item of instrumentTypeListData\" [value]=\"item.lookupValueId\">{{ item.lookupValueName }}</option>\n\t\t\t\t\t\t\t    </select>\n\t\t            \t\t</div>\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\tlabelText=\"Post On\"\n\t\t\t\t\t\t\t\tfieldName=\"collectionPostOn\"\n\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t[fieldModel]=\"collection.postOn\"\n\t\t\t\t\t\t\t\t(fieldParams)=\"getCollectionPostOn($event)\">\n\t\t\t\t\t\t\t</app-datepicker>\n\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>\n\n\n\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t                <label>Comments</label>\n\t\t\t\t                <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\" required>\n\t\t\t\t    \t\t</div>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t</ng-container>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</div>\n\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -400,10 +413,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
 /* harmony import */ var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/ui/select/select.module */ "./src/app/modules/ui/select/select.module.ts");
 /* harmony import */ var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/modules/ui/list/list.module */ "./src/app/modules/ui/list/list.module.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _expense_pay_invoice_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./expense-pay-invoice-routing.module */ "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice-routing.module.ts");
-/* harmony import */ var _expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./expense-pay-invoice.component */ "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice.component.ts");
-/* harmony import */ var _expense_post_payment_expense_post_payment_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./expense-post-payment/expense-post-payment.component */ "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-post-payment/expense-post-payment.component.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _expense_pay_invoice_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./expense-pay-invoice-routing.module */ "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice-routing.module.ts");
+/* harmony import */ var _expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./expense-pay-invoice.component */ "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice.component.ts");
+/* harmony import */ var _expense_post_payment_expense_post_payment_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./expense-post-payment/expense-post-payment.component */ "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-post-payment/expense-post-payment.component.ts");
+
 
 
 
@@ -420,18 +435,19 @@ let ExpensePayInvoiceModule = class ExpensePayInvoiceModule {
 };
 ExpensePayInvoiceModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_9__["ExpensePayInvoiceComponent"], _expense_post_payment_expense_post_payment_component__WEBPACK_IMPORTED_MODULE_10__["ExpensePostPaymentComponent"]],
+        declarations: [_expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_10__["ExpensePayInvoiceComponent"], _expense_post_payment_expense_post_payment_component__WEBPACK_IMPORTED_MODULE_11__["ExpensePostPaymentComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_7__["RouterModule"].forChild(_expense_pay_invoice_routing_module__WEBPACK_IMPORTED_MODULE_8__["routes"]),
+            _angular_router__WEBPACK_IMPORTED_MODULE_8__["RouterModule"].forChild(_expense_pay_invoice_routing_module__WEBPACK_IMPORTED_MODULE_9__["routes"]),
             src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_4__["CondoCardModule"],
             src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_5__["SelectModule"],
             src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_6__["ListModule"],
-            _expense_pay_invoice_routing_module__WEBPACK_IMPORTED_MODULE_8__["ExpensePayInvoiceRoutingModule"]
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__["DatepickerModule"].forRoot(),
+            _expense_pay_invoice_routing_module__WEBPACK_IMPORTED_MODULE_9__["ExpensePayInvoiceRoutingModule"]
         ],
         bootstrap: [
-            _expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_9__["ExpensePayInvoiceComponent"]
+            _expense_pay_invoice_component__WEBPACK_IMPORTED_MODULE_10__["ExpensePayInvoiceComponent"]
         ]
     })
 ], ExpensePayInvoiceModule);
@@ -494,6 +510,9 @@ let ExpensePostPaymentComponent = class ExpensePostPaymentComponent {
         this.maxCollectionAmount = 0;
         this.isMultipleEntry = false;
         this.collectionParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](false);
+    }
+    getCollectionPostOn(event) {
+        this.collection.postOn = event;
     }
     submitExpensePostCollectionForm(form) {
         var custInvoiceObjArray = [];
@@ -612,6 +631,163 @@ ExpensePostPaymentComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decor
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
 ], ExpensePostPaymentComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
+  \***************************************************************/
+/*! exports provided: DatepickerComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function() { return DatepickerComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
+
+
+
+let DatepickerComponent = class DatepickerComponent {
+    constructor(sharedService) {
+        this.sharedService = sharedService;
+        this.fieldClass = '';
+        this.fieldReadonly = false;
+        this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    isFieldRequired() {
+        return this.fieldRequired == "required" ? true : false;
+    }
+    onPickerChange() {
+        this.fieldParams.emit(this.fieldModel);
+    }
+    camelCase(str) {
+        return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
+            return index === 0 ? word.toLowerCase() : word.toUpperCase();
+        }).replace(/\s+/g, '');
+    }
+    ngOnInit() {
+        this.index = this.sharedService.guid().replace(/-/g, '');
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+    }
+    ngAfterViewInit() {
+    }
+    ngOnChanges() {
+        console.log(this.fieldModel);
+    }
+};
+DatepickerComponent.ctorParameters = () => [
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
+];
+DatepickerComponent.propDecorators = {
+    labelText: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldRequired: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldName: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    type: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldClass: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldReadonly: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldModel: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
+    fieldParams: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"] }],
+    components: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"], args: ['dateTimeElem',] }]
+};
+DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-datepicker',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./datepicker.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html")).default,
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"], useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"] }],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./datepicker.component.scss */ "./src/app/modules/ui/datepicker/datepicker.component.scss")).default]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
+], DatepickerComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/modules/ui/datepicker/datepicker.module.ts":
+/*!************************************************************!*\
+  !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
+  \************************************************************/
+/*! exports provided: DatepickerModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatepickerModule", function() { return DatepickerModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/material */ "./src/app/material.ts");
+/* harmony import */ var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datepicker.component */ "./src/app/modules/ui/datepicker/datepicker.component.ts");
+/* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+/* harmony import */ var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/pipe/shared.pipe */ "./src/app/shared/pipe/shared.pipe.ts");
+/* harmony import */ var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/owl/custom-date-time-adapter */ "./src/app/core/owl/custom-date-time-adapter.ts");
+var DatepickerModule_1;
+
+
+
+
+
+
+
+
+
+
+let DatepickerModule = DatepickerModule_1 = class DatepickerModule {
+    static forRoot() {
+        return {
+            ngModule: DatepickerModule_1,
+            providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
+        };
+    }
+};
+DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
+        ],
+        exports: [
+            _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
+            _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
+        ],
+        providers: [
+            { provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"], useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"] }
+        ],
+        bootstrap: [
+            _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]
+        ]
+    })
+], DatepickerModule);
 
 
 

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n\t\n\t<div class=\"main\">\n\n\t\t<h5 class=\"mb-4\">Customer Journal Entries</h5>\n\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form #incomeReportsCustomerForm = \"ngForm\" name=\"incomeReportsCustomerForm\" (ngSubmit)=\"submitIncomeReportsCustomerForm(incomeReportsCustomerForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockData\"\n\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.apartmentBlockId\"\n\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockUnitData\"\n\t\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t\t[isDisabled]=\"!isBlockSelected\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Document Date From</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"documentDateFrom\" [owlDateTime]=\"documentDateFrom\" [owlDateTimeTrigger]=\"documentDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Document Date To</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"documentDateTo\" [owlDateTime]=\"documentDateTo\" [owlDateTimeTrigger]=\"documentDateTo\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateTo\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateTo\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date From*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\tname=\"PostingDateFrom\" \n\t\t\t\t\t\t\t[owlDateTime]=\"PostingDateFrom\" \n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"PostingDateFrom\" \n\t\t\t\t\t\t\tplaceholder=\"Date\" \n\t\t\t\t\t\t\t[(ngModel)]=\"report.PostingdateFrom\" \n\t\t\t\t\t\t\trequired autocomplete=\"off\">\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Posting Date To*</label>\n\t\t\t\t\t\t\t<input class=\"form-control\" \n\t\t\t\t\t\t\tname=\"PostingdateTo\" \n\t\t\t\t\t\t\t[owlDateTime]=\"PostingdateTo\" \n\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"PostingdateTo\" \n\t\t\t\t\t\t\tplaceholder=\"Date\" \n\t\t\t\t\t\t\t[(ngModel)]=\"report.PostingdateTo\" \n\t\t\t\t\t\t\tautocomplete=\"off\"\n\t\t\t\t\t\t\trequired>\n\t\t\t\t\t\t\t<owl-date-time #PostingdateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingdateTo\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Gl Account\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t[fieldList]=\"glAccountsDataList\"\n\t\t\t\t\t\t\tfieldValue=\"glaccountName\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.GLaccountID\"\n\t\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedGlAccount($event)\" \n\t\t\t\t\t\t></condo-select>\t\t\n\t\t\t\t\t</div>\n\t\t\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\t\t</div>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<condo-card *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<div CondoCardHeader>\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Reports</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t<p class=\"pt-3 text-hint\" *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"font-medium text-primary\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"font-medium text-primary\">{{getDate(report.documentDateTo)}}</span> </p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\n\t\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('custInvoiceId')\">Customer Invoice Id<span [ngClass]=\"getFieldOrderBy('custInvoiceId')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlock')\">Tower No<span [ngClass]=\"getFieldOrderBy('apartmentBlock')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlockUnitNumber')\">Unit No<span [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('clearingDocumentNumber')\">Clearing Document No <span [ngClass]=\"getFieldOrderBy('clearingDocumentNumber')\"></span></th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{report.custInvoiceId}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.apartmentBlock}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.apartmentBlockUnitNumber}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDateTime(report.entryDateTime)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.clearingDocumentNumber}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t\t<h6 class=\"p-4 text-secondary\">No Records Found</h6>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</div>\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-customer-reports\">\n\t\n\t<div class=\"main\">\n\n\t\t<h5 class=\"mb-4\">Customer Journal Entries</h5>\n\n\t\t<div class=\"bg-card shadow\">\n\t\t\t<form #incomeReportsCustomerForm = \"ngForm\" name=\"incomeReportsCustomerForm\" (ngSubmit)=\"submitIncomeReportsCustomerForm(incomeReportsCustomerForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockData\"\n\t\t\t\t\t\t\tfieldValue=\"apartmentBlockNumber\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.apartmentBlockId\"\n\t\t\t\t\t\t\tfieldId=\"apartmentBlockId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockUnitData\"\n\t\t\t\t\t\t\tfieldValue=\"apartmentBlockUnitNumber\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"apartmentBlockUnitId\"\n\t\t\t\t\t\t\t[isDisabled]=\"!isBlockSelected\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Document Date From\"\n\t\t\t\t\t\t\tfieldName=\"documentDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.documentDateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getDocumentFromDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Document Date From\"\n\t\t\t\t\t\t\tfieldName=\"documentDateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.documentDateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getDocumentToDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\tfieldName=\"PostingDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingFromDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingToDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Gl Account\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t[fieldList]=\"glAccountsDataList\"\n\t\t\t\t\t\t\tfieldValue=\"glaccountName\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.GLaccountID\"\n\t\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedGlAccount($event)\" \n\t\t\t\t\t\t></condo-select>\t\t\n\t\t\t\t\t</div>\n\t\t\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button  [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\t\t</div>\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<condo-card *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<div CondoCardHeader>\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Reports</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t<p class=\"pt-3 text-hint\" *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"font-medium text-primary\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"font-medium text-primary\">{{getDate(report.documentDateTo)}}</span> </p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\n\t\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('custInvoiceId')\">Customer Invoice Id<span [ngClass]=\"getFieldOrderBy('custInvoiceId')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlock')\">Tower No<span [ngClass]=\"getFieldOrderBy('apartmentBlock')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('apartmentBlockUnitNumber')\">Unit No<span [ngClass]=\"getFieldOrderBy('apartmentBlockUnitNumber')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t\t\t<th scope=\"col\" (click)=\"sortUnitData('clearingDocumentNumber')\">Clearing Document No <span [ngClass]=\"getFieldOrderBy('clearingDocumentNumber')\"></span></th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t\t\t<td class=\"name\">{{report.custInvoiceId}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.apartmentBlock}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.apartmentBlockUnitNumber}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDateTime(report.entryDateTime)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t\t\t<td class=\"grey\">{{report.clearingDocumentNumber}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t\t<h6 class=\"p-4 text-secondary\">No Records Found</h6>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</div>\n\n\n</div>\n";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-vendor-reports\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Vendor Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsVendorForm = \"ngForm\" name=\"incomeReportsVendorForm\" (ngSubmit)=\"submitIncomeReportsVendorForm(incomeReportsVendorForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Document Date From</label>\n\t\t                    <input class=\"form-control\" name=\"documentDateFrom\" [owlDateTime]=\"documentDateFrom\" [owlDateTimeTrigger]=\"documentDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateFrom\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Document Date To</label>\n\t\t                    <input class=\"form-control\" name=\"documentDateTo\" [owlDateTime]=\"documentDateTo\" [owlDateTimeTrigger]=\"documentDateTo\" placeholder=\"Date\" [(ngModel)]=\"report.documentDateTo\">\n\t\t\t\t\t\t\t<owl-date-time #documentDateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"documentDateTo\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date From*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingDateFrom\" [owlDateTime]=\"PostingDateFrom\" [owlDateTimeTrigger]=\"PostingDateFrom\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateFrom\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingDateFrom [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingDateFrom\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t                    <label>Posting Date To*</label>\n\t\t                    <input class=\"form-control\" name=\"PostingdateTo\" [owlDateTime]=\"PostingdateTo\" [owlDateTimeTrigger]=\"PostingdateTo\" placeholder=\"Date\" [(ngModel)]=\"report.PostingdateTo\" required>\n\t\t\t\t\t\t\t<owl-date-time #PostingdateTo [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"PostingdateTo\">\n\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t</div>\n\t\t        \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Vendor</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"vendorName\" \n\t\t\t\t\t\t        id=\"vendorName\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.vendorId\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of vendorData\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Gl Account</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"glAccountNo\" \n\t\t\t\t\t\t        id=\"glAccountNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.GLaccountID\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountsDataList\" [value]=\"item.glaccountId\">{{ item.glaccountName }} {{item.glaccountId}}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<div ConcoCardHeader>\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Reports</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t<p class=\"pt-3 text-hint\" *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"font-medium text-primary\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"font-medium text-primary\">{{getDate(report.documentDateTo)}}</span> </p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\n\t\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('vendorName')\">Vendor Name<span [ngClass]=\"getFieldOrderBy('vendorName')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('vendorInvoiceId')\">Vendor Invoice Id<span [ngClass]=\"getFieldOrderBy('vendorInvoiceId')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('documentNumber')\">Document No<span [ngClass]=\"getFieldOrderBy('documentNumber')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t\t\t   <th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t\t\t  <td class=\"name\">{{report.vendorName}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.vendorInvoiceId}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.documentNumber}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDateTime(report.entryDateTime)}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t\t<h6 class=\"p-4 text-secondary\">No Records Found</h6>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</div>\n\n\n</div>\n";
+      __webpack_exports__["default"] = "<div class=\"income-tracker-reports-vendor-reports\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">Vendor Journal Entries</h4>\n\n\t\t<div class=\"bg-card shadow\">\n\n\t\t\t<form #incomeReportsVendorForm = \"ngForm\" name=\"incomeReportsVendorForm\" (ngSubmit)=\"submitIncomeReportsVendorForm(incomeReportsVendorForm)\"  novalidate>\n\n\t\t\t\t<div class=\"row\">\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Document Date From\"\n\t\t\t\t\t\t\tfieldName=\"documentDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.documentDateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getDocumentFromDate($event)\">\n                        </app-datepicker>\n\t\t\t\t\t\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Document Date To\"\n\t\t\t\t\t\t\tfieldName=\"documentDateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.documentDateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getDocumentToDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date From\"\n\t\t\t\t\t\t\tfieldName=\"PostingDateFrom\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateFrom\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingFromDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posting Date To\"\n\t\t\t\t\t\t\tfieldName=\"PostingdateTo\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"report.PostingdateTo\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostingToDate($event)\">\n                        </app-datepicker>\n\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Vendor</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"vendorName\" \n\t\t\t\t\t\t        id=\"vendorName\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.vendorId\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of vendorData\" [value]=\"item.vendorId\">{{ item.vendorName }}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"select-box\">\n\t\t                    <label>Gl Account</label>\n\t\t                    <select \n\t\t\t\t\t\t        name=\"glAccountNo\" \n\t\t\t\t\t\t        id=\"glAccountNo\" \n\t\t\t\t\t\t        class=\"form-control\"\n\t\t\t\t\t\t        [(ngModel)]=\"report.GLaccountID\">\n\t\t\t\t\t\t        <option value=\"\" disabled selected hidden>Select</option>\n\t\t\t\t\t\t        <option *ngFor=\"let item of glAccountsDataList\" [value]=\"item.glaccountId\">{{ item.glaccountName }} {{item.glaccountId}}</option>\n\t\t\t\t\t\t\t</select>\n\t            \t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Generate</button>\n\t\t\t\t\t</div>\n\n\t\t\t\t</div>\n\n\t\t\t</form>\n\n\t\t</div>\n\n\t\t<condo-card *ngIf=\"isDataLoaded && !isReportSubmitted\">\n\n\t\t\t<div ConcoCardHeader>\n\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<h4>Reports</h4>\n\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t<p class=\"pt-3 text-hint\" *ngIf=\"!isReportSubmitted\">Transactions From <span class=\"font-medium text-primary\">{{getDate(report.documentDateFrom)}}</span> To <span class=\"font-medium text-primary\">{{getDate(report.documentDateTo)}}</span> </p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"reportsData\" (ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t\t<div CondoCardBody>\n\n\t\t\t\t<table class=\"table table-stretch table-responsive\">\n\t\t\t\t\t<thead>\n\t\t\t\t\t\t<tr>\n\t\t\t\t\t\t  \n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('vendorName')\">Vendor Name<span [ngClass]=\"getFieldOrderBy('vendorName')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('vendorInvoiceId')\">Vendor Invoice Id<span [ngClass]=\"getFieldOrderBy('vendorInvoiceId')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('creditAmount')\">Credit Amount<span [ngClass]=\"getFieldOrderBy('creditAmount')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('debitAmount')\">Debit Amount<span [ngClass]=\"getFieldOrderBy('debitAmount')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('glaccountname')\">Gl Account Name<span [ngClass]=\"getFieldOrderBy('glaccountname')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('documentDate')\">Document Date<span [ngClass]=\"getFieldOrderBy('documentDate')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('documentNumber')\">Document No<span [ngClass]=\"getFieldOrderBy('documentNumber')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('enteredByName')\">Entered By<span [ngClass]=\"getFieldOrderBy('enteredByName')\"></span></th>\n\t\t\t\t\t\t   <th scope=\"col\" (click)=\"sortUnitData('entryDateTime')\">Entry Date & Time<span [ngClass]=\"getFieldOrderBy('entryDateTime')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('postingDate')\">Posting Date<span [ngClass]=\"getFieldOrderBy('postingDate')\"></span></th>\n\t\t\t\t\t\t  <th scope=\"col\" (click)=\"sortUnitData('clearingDate')\">Clearing Date<span [ngClass]=\"getFieldOrderBy('clearingDate')\"></span></th>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>\n\t\t\t\t\t<tbody>\n\t\t\t\t\t\t<tr *ngFor=\"let report of reportsDataList | simpleSearch: reportsData | sort : unitFieldType: unitOrder| slice:ItemStartIndex:ItemEndIndex  ; let i = index\">\n\t\t\t\t\t\t  <td class=\"name\">{{report.vendorName}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.vendorInvoiceId}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.creditAmount}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.debitAmount}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.glaccountname}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDate(report.documentDate)}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.documentNumber}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{report.enteredByName}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDateTime(report.entryDateTime)}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDate(report.postingDate)}}</td>\n\t\t\t\t\t\t  <td class=\"grey\">{{getDate(report.clearingDate)}}</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t\t<div class=\"button-wrapper border-top\" *ngIf=\"isNoItemsAvailable()\">\n\t\t\t\t\t<h6 class=\"p-4 text-secondary\">No Records Found</h6>\n\t\t\t\t</div>\n\t\t\t\t<app-pagination \n\t\t\t\t\t[totalItems]=\"totalItems\"  \n\t\t\t\t\t[ItemStartIndex]=\"ItemStartIndex\"\n\t\t\t\t\t[ItemEndIndex] = \"ItemEndIndex\"\n\t\t\t\t\t[itemLimit] = \"itemLimit\"\n\t\t\t\t\t(outputParams) = \"getIndexParams($event)\">\t\n\t\t\t\t</app-pagination>\n\n\t\t\t</div>\n\n\t\t</condo-card>\n\n\t</div>\n\n\n</div>\n";
       /***/
     },
 
@@ -63,6 +63,26 @@
 
 
       __webpack_exports__["default"] = "<div class=\"reports-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t\t<h4 class=\"mb-4\">Select the reports</h4>\n\t\t\t\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-sm-6 mb-4\" *ngFor=\"let report of reportsDataList; let i = index\">\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t<condo-card>\n\t\n\t\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t\t<a class=\"t-no-decor\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/income/reports/{{report.type}}\" \n\t\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">\n\t\t\t\t\t\t\t\t<h6 class=\"mb-2\">{{report.lookupValueName}}</h6>\n\t\t\t\t\t\t\t\t<p>{{report.description}}</p>\n\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t\t<div class=\"p-4 bg-cool-gray-50\"></div>\n\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t</condo-card>\n\t\n\t\t\t\t</div>\n\t\t\t</div>\n\t\n\t\t</ng-container>\n\n\t</div>\n\n</div>\n";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
+    /*!*******************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
+      \*******************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesUiDatepickerDatepickerComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"currentDate\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>";
       /***/
     },
 
@@ -196,49 +216,55 @@
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var _income_reports_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _income_reports_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./income-reports-routing.module */
       "./src/app/modules/ams/income-tracker/income-reports/income-reports-routing.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/modules/ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/modules/ui/select/select.module */
       "./src/app/modules/ui/select/select.module.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! src/app/modules/ui/list/list.module */
       "./src/app/modules/ui/list/list.module.ts");
       /* harmony import */
 
 
-      var _income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./income-tracker-reports.component */
       "./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports.component.ts");
       /* harmony import */
 
 
-      var _income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./income-tracker-reports-customer/income-tracker-reports-customer.component */
       "./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports-customer/income-tracker-reports-customer.component.ts");
       /* harmony import */
 
 
-      var _income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./income-tracker-reports-vendor/income-tracker-reports-vendor.component */
       "./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports-vendor/income-tracker-reports-vendor.component.ts");
 
@@ -247,9 +273,9 @@
       };
 
       IncomeReportsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_9__["IncomeTrackerReportsComponent"], _income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_10__["IncomeTrackerReportsCustomerComponent"], _income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_11__["IncomeTrackerReportsVendorComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_income_reports_routing_module__WEBPACK_IMPORTED_MODULE_5__["routes"]), src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_6__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_7__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_8__["ListModule"], _income_reports_routing_module__WEBPACK_IMPORTED_MODULE_5__["IncomeReportsRoutingModule"]],
-        bootstrap: [_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_9__["IncomeTrackerReportsComponent"]]
+        declarations: [_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_10__["IncomeTrackerReportsComponent"], _income_tracker_reports_customer_income_tracker_reports_customer_component__WEBPACK_IMPORTED_MODULE_11__["IncomeTrackerReportsCustomerComponent"], _income_tracker_reports_vendor_income_tracker_reports_vendor_component__WEBPACK_IMPORTED_MODULE_12__["IncomeTrackerReportsVendorComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild(_income_reports_routing_module__WEBPACK_IMPORTED_MODULE_6__["routes"]), src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_7__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_8__["SelectModule"], src_app_modules_ui_list_list_module__WEBPACK_IMPORTED_MODULE_9__["ListModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_4__["DatepickerModule"].forRoot(), _income_reports_routing_module__WEBPACK_IMPORTED_MODULE_6__["IncomeReportsRoutingModule"]],
+        bootstrap: [_income_tracker_reports_component__WEBPACK_IMPORTED_MODULE_10__["IncomeTrackerReportsComponent"]]
       })], IncomeReportsModule);
       /***/
     },
@@ -378,6 +404,26 @@
           value: function sortUnitData(type) {
             this.unitFieldType = type;
             this.unitOrder = !this.unitOrder;
+          }
+        }, {
+          key: "getDocumentFromDate",
+          value: function getDocumentFromDate(event) {
+            this.report.documentDateFrom = event;
+          }
+        }, {
+          key: "getDocumentToDate",
+          value: function getDocumentToDate(event) {
+            this.report.documentDateTo = event;
+          }
+        }, {
+          key: "getPostingFromDate",
+          value: function getPostingFromDate(event) {
+            this.report.PostingdateFrom = event;
+          }
+        }, {
+          key: "getPostingToDate",
+          value: function getPostingToDate(event) {
+            this.report.PostingdateTo = event;
           }
         }, {
           key: "getFieldOrderBy",
@@ -677,6 +723,26 @@
             } else return '';
           }
         }, {
+          key: "getDocumentFromDate",
+          value: function getDocumentFromDate(event) {
+            this.report.documentDateFrom = event;
+          }
+        }, {
+          key: "getDocumentToDate",
+          value: function getDocumentToDate(event) {
+            this.report.documentDateTo = event;
+          }
+        }, {
+          key: "getPostingFromDate",
+          value: function getPostingFromDate(event) {
+            this.report.PostingdateFrom = event;
+          }
+        }, {
+          key: "getPostingToDate",
+          value: function getPostingToDate(event) {
+            this.report.PostingdateTo = event;
+          }
+        }, {
           key: "isMobileView",
           value: function isMobileView() {
             return window.innerWidth <= 767 ? 'table-responsive' : '';
@@ -892,6 +958,280 @@
         /*! ./income-tracker-reports.component.scss */
         "./src/app/modules/ams/income-tracker/income-reports/income-tracker-reports.component.scss"))["default"]]
       }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])], IncomeTrackerReportsComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.component.scss":
+    /*!*****************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
+      \*****************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.component.ts":
+    /*!***************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
+      \***************************************************************/
+
+    /*! exports provided: DatepickerComponent */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function () {
+        return DatepickerComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+
+      var DatepickerComponent = /*#__PURE__*/function () {
+        function DatepickerComponent(sharedService) {
+          _classCallCheck(this, DatepickerComponent);
+
+          this.sharedService = sharedService;
+          this.fieldClass = '';
+          this.fieldReadonly = false;
+          this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        }
+
+        _createClass(DatepickerComponent, [{
+          key: "isFieldRequired",
+          value: function isFieldRequired() {
+            return this.fieldRequired == "required" ? true : false;
+          }
+        }, {
+          key: "onPickerChange",
+          value: function onPickerChange() {
+            this.fieldParams.emit(this.fieldModel);
+          }
+        }, {
+          key: "camelCase",
+          value: function camelCase(str) {
+            return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+              return index === 0 ? word.toLowerCase() : word.toUpperCase();
+            }).replace(/\s+/g, '');
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this6 = this;
+
+            this.index = this.sharedService.guid().replace(/-/g, '');
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this6.timeZone = timeZone;
+            });
+          }
+        }, {
+          key: "ngAfterViewInit",
+          value: function ngAfterViewInit() {}
+        }, {
+          key: "ngOnChanges",
+          value: function ngOnChanges() {
+            console.log(this.fieldModel);
+          }
+        }]);
+
+        return DatepickerComponent;
+      }();
+
+      DatepickerComponent.ctorParameters = function () {
+        return [{
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }];
+      };
+
+      DatepickerComponent.propDecorators = {
+        labelText: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldRequired: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldName: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        type: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldClass: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldReadonly: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldModel: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldParams: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }],
+        components: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"],
+          args: ['dateTimeElem']
+        }]
+      };
+      DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-datepicker',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./datepicker.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{
+          provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"],
+          useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]
+        }],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./datepicker.component.scss */
+        "./src/app/modules/ui/datepicker/datepicker.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], DatepickerComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.module.ts":
+    /*!************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
+      \************************************************************/
+
+    /*! exports provided: DatepickerModule */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DatepickerModule", function () {
+        return DatepickerModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/material */
+      "./src/app/material.ts");
+      /* harmony import */
+
+
+      var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./datepicker.component */
+      "./src/app/modules/ui/datepicker/datepicker.component.ts");
+      /* harmony import */
+
+
+      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @busacca/ng-pick-datetime */
+      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+      /* harmony import */
+
+
+      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/pipe/shared.pipe */
+      "./src/app/shared/pipe/shared.pipe.ts");
+      /* harmony import */
+
+
+      var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/owl/custom-date-time-adapter */
+      "./src/app/core/owl/custom-date-time-adapter.ts");
+
+      var DatepickerModule_1;
+
+      var DatepickerModule = DatepickerModule_1 = /*#__PURE__*/function () {
+        function DatepickerModule() {
+          _classCallCheck(this, DatepickerModule);
+        }
+
+        _createClass(DatepickerModule, null, [{
+          key: "forRoot",
+          value: function forRoot() {
+            return {
+              ngModule: DatepickerModule_1,
+              providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
+            };
+          }
+        }]);
+
+        return DatepickerModule;
+      }();
+
+      DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        exports: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        providers: [{
+          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"],
+          useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"]
+        }],
+        bootstrap: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]]
+      })], DatepickerModule);
       /***/
     }
   }]);
