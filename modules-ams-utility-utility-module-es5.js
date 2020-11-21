@@ -376,23 +376,13 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_7__);
-      /* harmony import */
-
-
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
 
       var AddInsuranceComponent = /*#__PURE__*/function () {
         function AddInsuranceComponent(router, utilityTrackerService, apartmentService, sharedService, sessionService) {
@@ -430,11 +420,11 @@
               "insuranceNumber": this.insuranceCharge.InsuranceNo,
               "totalCost": this.insuranceCharge.TotalCost,
               "costPerAptUnit": this.insuranceCharge.CostPerApt,
-              "dateEntered": moment__WEBPACK_IMPORTED_MODULE_7__(this.insuranceCharge.DateEntered).utcOffset(this.timeZone.offset).format(),
+              "dateEntered": this.insuranceCharge.DateEntered,
               "comments": this.insuranceCharge.Comments,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -486,7 +476,7 @@
               return _this2.timeZone = timeZone;
             });
             this.insuranceCharge = {};
-            this.insuranceCharge.DateEntered = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
+            this.insuranceCharge.DateEntered = moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString();
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -620,23 +610,13 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-      /* harmony import */
-
-
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
 
       var ElectricityReadingComponent = /*#__PURE__*/function () {
         function ElectricityReadingComponent(router, route, utilityTrackerService, lookupService, apartmentService, sharedService, sessionService) {
@@ -672,11 +652,11 @@
 
             var electric_period = {
               "apartmentId": this.sessionService.apartmentId,
-              "periodFrom": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.fromDate).utcOffset(this.timeZone.offset).format(),
-              "periodTo": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.toDate).utcOffset(this.timeZone.offset).format(),
+              "periodFrom": this.electricReading.fromDate,
+              "periodTo": this.electricReading.toDate,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatedBy": 0,
               "updatedOn": null
             };
@@ -705,11 +685,11 @@
                 "currReading": this.electricReading.CurrReading,
                 "electricalUnitPerAptUnit": this.electricReading.ElectricalUnit,
                 "costPerAptUnit": this.electricReading.CostPerApt,
-                "dateTaken": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.DateTaken).utcOffset(this.timeZone.offset).format(),
+                "dateTaken": this.electricReading.DateTaken,
                 "comments": this.electricReading.comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -744,11 +724,11 @@
                 "currReading": this.electricReading.CurrReading,
                 "electricalUnitPerAptUnit": this.electricReading.ElectricalUnitPerApT,
                 "costPerAptUnit": this.electricReading.CostPerApt,
-                "dateTaken": moment__WEBPACK_IMPORTED_MODULE_8__(this.electricReading.DateTaken).utcOffset(this.timeZone.offset).format(),
+                "dateTaken": this.electricReading.DateTaken,
                 "comments": this.electricReading.Comments,
                 "isActive": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
               };
@@ -818,7 +798,7 @@
               return _this5.timeZone = timeZone;
             });
             this.electricReading = {};
-            this.electricReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+            this.electricReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
@@ -1363,33 +1343,23 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_8__);
-      /* harmony import */
-
-
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_8__);
       /* harmony import */
 
 
-      var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! rxjs */
       "./node_modules/rxjs/_esm2015/index.js");
       /* harmony import */
 
 
-      var rxjs_operators__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! rxjs/operators */
       "./node_modules/rxjs/_esm2015/operators/index.js");
 
@@ -1403,7 +1373,7 @@
           this.sharedService = sharedService;
           this.sessionService = sessionService;
           this.refreshEmitList = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          this.calculateSubject = new rxjs__WEBPACK_IMPORTED_MODULE_10__["Subject"]();
+          this.calculateSubject = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
           this.isError = false;
           this.alertMessage = "";
           this.isEdit = false;
@@ -1448,11 +1418,11 @@
               "units": this.waterReading.units,
               "unitNumber": null,
               "cost": parseInt(this.waterReading.cost),
-              "dateTaken": moment__WEBPACK_IMPORTED_MODULE_8__(this.waterReading.dateTaken).utcOffset(this.timeZone.offset).format(),
+              "dateTaken": this.waterReading.dateTaken,
               "comments": this.waterReading.comments,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -1518,7 +1488,7 @@
 
             this.waterReading.prevReading = this.unit.water_charge.prevReading;
             this.waterReading.currReading = this.unit.water_charge.currReading;
-            this.waterReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString();
+            this.waterReading.dateTaken = moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString();
             this.unitTypeId = ""; //get unit type
 
             var params = {
@@ -1531,7 +1501,7 @@
                 _this10.getUnitType(_this10.unit.unitType);
               }, 1000);
             }, function (error) {});
-            this.calculateSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_11__["debounceTime"])(500)).subscribe(function (searchTextValue) {
+            this.calculateSubject.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["debounceTime"])(500)).subscribe(function (searchTextValue) {
               _this10.calculateUnitPerAptFrmCurReading();
             });
           }
@@ -1661,27 +1631,17 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_6__);
-      /* harmony import */
-
-
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
@@ -1718,11 +1678,11 @@
             this.waterReadingPeriodID = null;
             var water_reading_period = {
               "apartmentId": this.sessionService.apartmentId,
-              "periodFrom": moment__WEBPACK_IMPORTED_MODULE_6__(this.waterReadingFromDate).utcOffset(this.timeZone.offset).format(),
-              "periodTo": moment__WEBPACK_IMPORTED_MODULE_6__(this.waterReadingToDate).utcOffset(this.timeZone.offset).format(),
+              "periodFrom": this.waterReadingFromDate,
+              "periodTo": this.waterReadingToDate,
               "isActive": true,
               "insertedBy": parseInt(this.sessionService.userId),
-              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
+              "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
               "updatedBy": null,
               "updatedOn": null
             };
@@ -1780,7 +1740,7 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]
         }];
       };
 
@@ -1800,7 +1760,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./water-reading.component.scss */
         "./src/app/modules/ams/utility/components/utility-add-reading/water-reading/water-reading.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_4__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_8__["ActivatedRoute"]])], WaterReadingComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_2__["ApartmentService"], src_app_api_controllers_UtilityTracker__WEBPACK_IMPORTED_MODULE_4__["UtilityTrackerService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_router__WEBPACK_IMPORTED_MODULE_7__["ActivatedRoute"]])], WaterReadingComponent);
       /***/
     },
 

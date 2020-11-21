@@ -74,7 +74,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"op-maintenance-setup-category-wrapper\">\n    <div class=\"bg-card shadow p-0\">\n        <condo-card>\n            <div CondoCardHeader>\n        <div class=\"d-flex \">\n            <div>\n                <h4>Category</h4>\n                <p class=\"text-secondary\">{{totalItems}} Items</p>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchCategory\">\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form>\n            <table class=\"table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                <tr>\n                    <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceCategoryName')\">Category Name <span\n                        [ngClass]=\"getFieldOrderBy('genMaintenanceCategoryName')\"></span></th>\n                    <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span\n                        [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                    <th scope=\"col\">Action</th>\n                </tr>\n                </thead>\n                <tbody >\n                <ng-container>\n                    <tr class=\"shadow\">\n                        <td class=\"td-container\">\n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"maintenanceCategoryName\" [(ngModel)]=\"row.genMaintenanceCategoryName\">\n                                            <help-tooltip title=\"maintenanceCategoryName\"></help-tooltip>\n                                        </div>\n                    </td>\n                    <td class=\"td-container\">                       \n                        <div class=\"input-box\">\n                            <input type=\"text\" class=\"form-control\" name=\"categoryDescription\" [(ngModel)]=\"row.description\">\n                            <help-tooltip title=\"categoryDescription\"></help-tooltip>\n                        </div>\n                    </td>\n    \n                    <td class=\"td-container\">\n                      \n                        <mat-icon   class=\"mt-3 pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                        [ngClass]=\"!row.genMaintenanceCategoryName\n                        || !row.description?'custom-icon-disabled':''\" (click)=\"addCategory(row)\"></mat-icon>\n                    </td>\n                    </tr>\n                </ng-container>\n                <ng-container\n                    *ngFor=\"let list of categoriesData | simpleSearch: searchCategory | sort : unitFieldType: unitOrder;let categoryIndex=index\">\n                    <tr>\n                    <td>\n                        <span [ngClass]=\"opIndex == categoryIndex?'d-none':''\">\n                        {{list.genMaintenanceCategoryName}}\n                        </span>                       \n                        <div class=\"input-box\" *ngIf=\"opIndex == categoryIndex\">\n                            <input type=\"text\" class=\"form-control\" name=\"genMaintenanceCategoryName\"\n                            [(ngModel)]=\"list.genMaintenanceCategoryName\">\n                        </div>   \n                    </td>    \n                    <td>\n                        <span [ngClass]=\"opIndex == categoryIndex?'d-none':''\">\n                        {{list.description}}\n                        </span>                      \n                        <div class=\"input-box\" *ngIf=\"opIndex == categoryIndex\">\n                            <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n                        </div>\n                    </td>\n    \n                    <td>\n                        <div class=\"d-flex  align-items-center\">                        \n                        <span [ngClass]=\"opIndex == categoryIndex?'d-none':''\">\n                        <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\"  (click)=\"opIndex = categoryIndex;setCurrentData(list)\"></mat-icon>\n                       </span>\n                       <div class=\"pt-3 d-flex\">\n                        <mat-icon  class=\"pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                        [ngClass]=\"!list.genMaintenanceCategoryName || !list.description?'custom-icon-disabled':''\"\n                        *ngIf=\"opIndex == categoryIndex\" (click)=\"updateCategory(list)\"></mat-icon>\n\t\t\t\t\t\t\n                        <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" title=\"cancel\" *ngIf=\"opIndex == categoryIndex\"\n                        (click)=\"opIndex = -1;cancelCategory(categoryIndex,'category')\"></mat-icon>\n                    </div>                       \n                       <span  [ngClass]=\"opIndex == categoryIndex?'d-none':''\">\n                        <mat-icon [svgIcon]=\"'feather:trash'\"  class=\"pt-2 text-red-900\"   (click)=\"deleteRow(index,list)\"\n                       ></mat-icon>\n                      </span>\n                    </div>\n                    </td>\n                    </tr>\n                </ng-container>\n                </tbody>\n            </table>          \n        </form>\n    </div>\n    </condo-card>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"op-maintenance-setup-category-wrapper\">\n    <div class=\"bg-card shadow p-0\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex \">\n                    <div>\n                        <h4>Category</h4>\n                        <p class=\"text-secondary\">{{totalItems}} Items</p>\n                    </div>\n                    <div class=\"ml-auto d-flex\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchCategory\">\n                        <button class=\"ml-2\" mat-flat-button [color]=\"'primary'\" (click)=\"addForm()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <form>\n                    <table class=\"table\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                        <tr>\n                            <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceCategoryName')\">Category Name <span\n                                [ngClass]=\"getFieldOrderBy('genMaintenanceCategoryName')\"></span></th>\n                            <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span\n                                [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                            <th scope=\"col\">Action</th>\n                        </tr>\n                        </thead>\n                        <tbody >\n                            <!-- Fields -->\n                            <ng-container *ngFor=\"let item of newItemList; let i = index;\">\n                                <tr class=\"shadow\">\n                                    <td class=\"td-container\">\n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"maintenanceCategoryName{{i}}\" [(ngModel)]=\"item.genMaintenanceCategoryName\">\n                                            <help-tooltip title=\"maintenanceCategoryName\"></help-tooltip>\n                                        </div>\n                                    </td>\n                                    <td class=\"td-container\">                       \n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"categoryDescription{{i}}\" [(ngModel)]=\"item.description\">\n                                            <help-tooltip title=\"categoryDescription\"></help-tooltip>\n                                        </div>\n                                    </td>\n                                    <td class=\"td-container\">\n                                        <mat-icon (click)=\"addCategory(item)\" svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                        <mat-icon class=\"ml-2\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"closeForm()\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </ng-container>\n                            <ng-container *ngFor=\"let list of categoriesData | simpleSearch: searchCategory | slice:ItemStartIndex:ItemEndIndex;let i=index\">\n                                <tr>\n                                    <td>\n                                        <span *ngIf=\"showFields != i\">{{list.genMaintenanceCategoryName}}</span>  \n                                        <div *ngIf=\"showFields == i\">\n                                            <div class=\"input-box\">\n                                                <input type=\"text\" class=\"form-control\" name=\"genMaintenanceCategoryName\"\n                                                [(ngModel)]=\"list.genMaintenanceCategoryName\">\n                                            </div>  \n                                        </div>\n                                    </td>    \n                                    <td>\n                                        <span *ngIf=\"showFields != i\">{{list.description}}</span> \n                                        <div *ngIf=\"showFields == i\">\n                                            <div class=\"input-box\">\n                                                <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n                                            </div>\n                                        </div>\n                                    </td>\n                    \n                                    <td class=\"simple-actions\">\n                                        <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center\" [color]=\"'primary'\"  [svgIcon]=\"'feather:edit'\" (click)=\"showFields = i;closeForm(list);\"  title=\"Edit\"></mat-icon>\n                                        <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center ml-2\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteRow(i,list)\" title=\"Delete\"></mat-icon>\n                                        <button mat-flat-button *ngIf=\"showFields == i\" (click)=\"updateCategory(list)\" [disabled]=\"!list.genMaintenanceCategoryName\">\n                                            <mat-icon svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                        </button>\n                                        <mat-icon *ngIf=\"showFields == i\" class=\"ml-2\" [svgIcon]=\"'close'\" (click)=\"showFields = -1;cancelCategory(i)\"  title=\"Close\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </ng-container>\n                        </tbody>\n                    </table>\n                    <div class=\"bg-card shadow\" *ngIf=\"categoriesData.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>     \n                    <app-pagination *ngIf=\"categoriesData.length > 0 \" [totalItems]=\"totalItems\"\n                        [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n                        (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>     \n                </form>\n            </div>\n        </condo-card>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -1579,13 +1579,13 @@ let OpMaintenanceSetupCategoryComponent = class OpMaintenanceSetupCategoryCompon
         this.sharedService = sharedService;
         this.genMaintService = genMaintService;
         this.categoriesData = [];
-        this.row = {};
         this.ItemStartIndex = 0;
         this.itemLimit = 10;
         this.unitFieldType = "unitno";
         this.unitOrder = false;
-        this.tempCategoriesData = [];
         this.currentData = {};
+        this.newItemList = [];
+        this.showFields = -1;
         this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]);
     }
     getIndexParams(event) {
@@ -1607,15 +1607,26 @@ let OpMaintenanceSetupCategoryComponent = class OpMaintenanceSetupCategoryCompon
     isMobileView() {
         return window.innerWidth <= 767 ? 'table-responsive' : '';
     }
+    addForm() {
+        let data = {
+            genMaintenanceCategoryName: '',
+            description: '',
+        };
+        this.newItemList.push(data);
+        this.showFields = -1;
+    }
+    closeForm(list) {
+        this.newItemList = [];
+        this.setCurrentData(list);
+    }
     deleteRow(index, data) {
-        this.modalService.showConfirmModal(data.genMaintenanceCategoryId);
+        this.modalService.showConfirmModal({ id: data.genMaintenanceCategoryId, index: index });
     }
     getAllCategory() {
         this.isAssetLoaded = true;
         this.genMaintService.getAllGenMaintenanceCategory().subscribe((res) => {
-            if (res) {
-                this.categoriesData = res ? res : [];
-                this.tempCategoriesData = this.categoriesData;
+            if (Array.isArray(res)) {
+                this.categoriesData = res;
                 this.totalItems = this.categoriesData.length;
                 if (this.totalItems > this.itemLimit) {
                     this.ItemEndIndex = this.itemLimit;
@@ -1627,32 +1638,32 @@ let OpMaintenanceSetupCategoryComponent = class OpMaintenanceSetupCategoryCompon
         });
     }
     addCategory(data) {
-        let reqObj = {};
-        reqObj = {
-            "genMaintenanceCategoryId": 0,
-            "apartmentId": this.sessionService.apartmentId,
-            "genMaintenanceCategoryName": data.genMaintenanceCategoryName,
-            "description": data.description,
-            "isActive": true,
-            "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": new Date().toISOString,
-            "updatedBy": 0,
-            "updatedOn": new Date().toISOString,
-        };
-        let params = {};
-        params.model = reqObj;
-        this.genMaintService.addGenMaintenanceCategory(params).subscribe((resp) => {
-            if (!isNaN(resp.message)) {
-                this.sharedService.setAlertMessage("Category added successfully");
-                this.isAssetLoaded = false;
-                this.row = {};
-                this.getAllCategory();
-            }
-            else if (resp.message)
-                this.sharedService.setAlertMessage(resp.message);
-            else
-                this.sharedService.setAlertMessage(resp.errorMessage);
-        });
+        if (data.genMaintenanceCategoryName) {
+            let params = {
+                model: {
+                    "genMaintenanceCategoryId": 0,
+                    "apartmentId": this.sessionService.apartmentId,
+                    "genMaintenanceCategoryName": data.genMaintenanceCategoryName,
+                    "description": data.description,
+                    "isActive": true,
+                    "insertedBy": parseInt(this.sessionService.userId),
+                    "insertedOn": new Date().toISOString,
+                    "updatedBy": 0,
+                    "updatedOn": new Date().toISOString,
+                }
+            };
+            this.genMaintService.addGenMaintenanceCategory(params).subscribe((resp) => {
+                if (!isNaN(resp.message)) {
+                    this.sharedService.openSnackBar("Category added successfully", 'success');
+                    this.isAssetLoaded = false;
+                    this.getAllCategory();
+                }
+                else
+                    this.sharedService.openSnackBar(resp.errorMessage, 'error');
+            }, (error) => {
+                this.sharedService.openSnackBar('Server Error', 'error');
+            });
+        }
     }
     updateCategory(data) {
         let reqObj = {};
@@ -1673,37 +1684,46 @@ let OpMaintenanceSetupCategoryComponent = class OpMaintenanceSetupCategoryCompon
             if (resp.message) {
                 this.isAssetLoaded = false;
                 this.opIndex = -1;
-                this.sharedService.setAlertMessage(resp.message);
+                this.sharedService.openSnackBar(resp.message, 'success');
             }
             else
-                this.sharedService.setAlertMessage(resp.errorMessage);
+                this.sharedService.openSnackBar(resp.errorMessage, 'error');
+        }, (error) => {
+            this.sharedService.openSnackBar('Server Error', 'error');
         });
     }
     setCurrentData(data) {
         this.currentData = Object.assign({}, data);
     }
-    cancelCategory(index, type) {
+    cancelCategory(index) {
         this.categoriesData.splice(index, 1, this.currentData);
     }
     ngOnInit() {
         this.getAllCategory();
-        this.sharedService.unitlistdeleteindexcast.subscribe(id => {
-            if (id != null) {
+        this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(data => {
+            if (data && data.id != null) {
                 let param = {
-                    genMaintenanceCategoryId: id,
-                    deleteBy: parseInt(this.sessionService.userId)
+                    genMaintenanceCategoryId: data.id,
+                    deleteBy: this.sessionService.userId
                 };
                 this.genMaintService.deleteGenMaintenanceCategory(param).subscribe((res) => {
-                    setTimeout(() => {
-                        this.sharedService.setAlertMessage("Category deleted successfully");
-                        this.sharedService.setUnitListDeleteIndex(null);
-                        this.getAllCategory();
-                    }, 500);
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    if (res.message) {
+                        this.sharedService.openSnackBar("Category deleted successfully", 'success');
+                        this.categoriesData.splice(data.index, 1);
+                    }
+                    else {
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
+                    }
                 }, error => {
-                    console.log(error);
+                    this.sharedService.setUnitListDeleteIndex(null);
+                    this.sharedService.openSnackBar('Server Error', 'error');
                 });
             }
         });
+    }
+    ngOnDestroy() {
+        this.apiSubscribe.unsubscribe();
     }
 };
 OpMaintenanceSetupCategoryComponent.ctorParameters = () => [

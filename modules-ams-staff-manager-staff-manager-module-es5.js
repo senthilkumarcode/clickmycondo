@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"staff-add-staff-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t</h4>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"!isEditStaff\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"emailIdCheck\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"resetField()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<ng-container *ngIf=\"!isStaffSubmitted\">\n\t\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" *ngIf=\"isValidEmail\">\n\n\t\t\t\t<mat-accordion> \n\t\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" [disabled]=\"isValidEmail\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"staff.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"staff.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.userPhoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"vendorType\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Vendor Name\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Vendor Name\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"vendorList\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"vendorName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.vendorId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"vendorId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setVendor($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeAdmin\" [(ngModel)]=\"roleTypeId\" [value]=\"1\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeAdmin\">Admin</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeStaff\" [(ngModel)]=\"roleTypeId\" [value]=\"3\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeStaff\">Staff</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEmailExist\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"Staffpassword\" [(ngModel)]=\"staff.password\" autocomplete=\"new-password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"userRolesData\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setUserRole($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Menu Control\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Menu Control\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"menuControlList\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.secLevelId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"secLevelId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setMenuControl($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Job Title\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Job Title\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"staffCategoryData\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setCategory($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Blood Group\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.bloodGroup\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setBloodGroup($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t\t\t\t<help-tooltip title=\"vehicleID\"></help-tooltip>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Base Pay</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Job Start Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobStartDate\" [owlDateTime]=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobStartDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobStartDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobStartDate\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Job End Date</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"jobEndDate\" [owlDateTime]=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"jobEndDate\" placeholder=\"Date\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #jobEndDate [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"jobEndDate\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedEntryTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedExitTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t</mat-accordion>\n\t\n\t\t\t\t<submit-button class=\"float-right mt-3\" [isSubmit]=\"isStaffSubmitted\" (click)=\"submitAddStaffForm()\">{{isEditStaff ? 'Update' : 'Submit'}}</submit-button>\n\t\n\t\t\t</form>\n\t\t</ng-container>\n\t</div>\n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"staff-add-staff-wrapper\">\n\n\t<div class=\"main\">\n\n\t\t<h4 class=\"mb-4\">\n\t\t\t<span *ngIf=\"!isEditStaff\">Add Staff</span>\n\t\t\t<span *ngIf=\"isEditStaff\">Edit Staff</span>\n\t\t</h4>\n\t\t<div class=\"bg-card shadow\" *ngIf=\"!isEditStaff\">\n\t\t\t<form>\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-6\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Email\" name=\"emailRegister\"\n\t\t\t\t\t\t\t\t[(ngModel)]=\"emailIdCheck\" [disabled]=\"isValidEmail\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"col-sm-3 d-flex align-items-center\">\n\t\t\t\t\t\t<button *ngIf=\"!isValidEmail\" mat-flat-button [color]=\"'primary'\" (click)=\"checkEmail()\">Check</button>\n\t\t\t\t\t\t<button *ngIf=\"isValidEmail\" mat-flat-button [color]=\"'accent'\" (click)=\"resetField()\">Change</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</form>\n        </div>\n\t\t<app-loader *ngIf=\"isStaffSubmitted\"></app-loader>\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<ng-container *ngIf=\"!isStaffSubmitted\">\n\t\t\t<form #addStaffForm=\"ngForm\" name=\"addStaffForm\" *ngIf=\"isValidEmail\">\n\n\t\t\t\t<mat-accordion> \n\t\t\t\t\t<mat-expansion-panel [expanded]=\"true\">\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Basic Info</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>First Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"firstName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.firstName\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Last Name*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"lastName\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.lastName\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Email*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"staffEmail\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.emailId\" [disabled]=\"isValidEmail\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Gender*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"male\" [(ngModel)]=\"staff.genderId\" [value]=\"43\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"male\">Male</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"genderType\" id=\"female\" [(ngModel)]=\"staff.genderId\" [value]=\"44\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"female\">Female</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Is Vendor*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"Yes\" [(ngModel)]=\"vendorType\" [value]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"Yes\">Yes</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"vendorType\" id=\"No\" [(ngModel)]=\"vendorType\" [value]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"getVendorList()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"No\">No</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Phone/Mobile No<span class=\"required\">*</span></label>\n\t\t\t\t\t\t\t\t\t\t<ngx-intl-tel-input [inputId]=\"'userMobile'\"\n\t\t\t\t\t\t\t\t\t\t\t[preferredCountries]=\"preferredCountries\"\n\t\t\t\t\t\t\t\t\t\t\t[enableAutoCountrySelect]=\"true\" [enablePlaceholder]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[searchCountryFlag]=\"true\"\n\t\t\t\t\t\t\t\t\t\t\t[searchCountryField]=\"[SearchCountryField.Iso2, SearchCountryField.Name]\"\n\t\t\t\t\t\t\t\t\t\t\t[selectFirstCountry]=\"false\"\n\t\t\t\t\t\t\t\t\t\t\t[selectedCountryISO]=\"CountryISO.Philippines\" [maxLength]=\"15\"\n\t\t\t\t\t\t\t\t\t\t\t[phoneValidation]=\"false\" [separateDialCode]=\"separateDialCode\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.userPhoneNumber\" name=\"phone\">\n\t\t\t\t\t\t\t\t\t\t</ngx-intl-tel-input>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"vendorType\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Vendor Name\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Vendor Name\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"vendorList\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"vendorName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.vendorId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"vendorId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setVendor($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box radio-box\">\n\t\t\t\t\t\t\t\t\t\t<label>User Type*</label>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeAdmin\" [(ngModel)]=\"roleTypeId\" [value]=\"1\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeAdmin\">Admin</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t\t\t<input name=\"userType\" id=\"userTypeStaff\" [(ngModel)]=\"roleTypeId\" [value]=\"3\"\n\t\t\t\t\t\t\t\t\t\t\t\ttype=\"radio\" (change)=\"changeRoleType()\" required>\n\t\t\t\t\t\t\t\t\t\t\t<label class=\"radio-inline\" for=\"userTypeStaff\">Staff</label>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"!isEmailExist\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Password*</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"password\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"Staffpassword\" [(ngModel)]=\"staff.password\" autocomplete=\"new-password\" required>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"userRolesData\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setUserRole($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleId\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Menu Control\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Menu Control\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"menuControlDropDownList\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"customLabel\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.secLevelId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"secLevelId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setMenuControl($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Job Title\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Job Title\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"staffCategoryData\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.staffCategoryId\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setCategory($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Personal Info</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Date Of Birth</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"staffDOB\" [owlDateTime]=\"staffDOB\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"staffDOB\" placeholder=\"Date\" [(ngModel)]=\"staff.dob\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #staffDOB [pickerType]=\"'calendar'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"staffDOB\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Alternate Contact Number</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"alternateContact\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.alternateContact\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Address</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\" name=\"address\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.address\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\t\tlabelText=\"Blood Group\"\n\t\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Blood Group\"\n\t\t\t\t\t\t\t\t\t\t[fieldList]=\"bloodGroupData\"\n\t\t\t\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.bloodGroup\"\n\t\t\t\t\t\t\t\t\t\tfieldId=\"lookupValueName\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setBloodGroup($event)\" \n\t\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vehicle ID</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n\t\t\t\t\t\t\t\t\t\t\tname=\"staffVehicleId\" [(ngModel)]=\"staff.vehicleId\">\n\t\t\t\t\t\t\t\t\t\t\t<help-tooltip title=\"vehicleID\"></help-tooltip>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Health Issue Notes ( 35 characters)</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"healthIssue\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.healthIssue\"></textarea>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"staffComments\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.comments\"></textarea>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Salary & Leave</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Base Pay</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"basePay\" [(ngModel)]=\"staff.basePay\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Allowance 1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance1\" [(ngModel)]=\"staff.allowance1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Allowance 2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance2\" [(ngModel)]=\"staff.allowance2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Allowance 3</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"allowance3\" [(ngModel)]=\"staff.allowance3\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Overtime Pay Per Hour</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"overtimePayperhour\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.overtimePayperhour\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Deduction 1</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction1\" [(ngModel)]=\"staff.deduction1\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Deduction 2</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction2\" [(ngModel)]=\"staff.deduction2\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Deduction 3</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"deduction3\" [(ngModel)]=\"staff.deduction3\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Salary Per Day</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"perDaySalary\" [(ngModel)]=\"staff.perDaySalary\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Vacation Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"vacationLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.vacationLeaveDays\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Sick Leave Days</label>\n\t\t\t\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n\t\t\t\t\t\t\t\t\t\t\tplaceholder=\"Enter value\" name=\"sickLeaveDays\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.sickLeaveDays\">\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t\t<mat-expansion-panel>\n\t\t\t\t\t\t<mat-expansion-panel-header>\n\t\t\t\t\t\t\t<mat-panel-title>Work Information</mat-panel-title>\n\t\t\t\t\t\t</mat-expansion-panel-header>\n\t\t\t\t\t\t<mat-panel-description>\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\tlabelText=\"Job Start Date\"\n\t\t\t\t\t\t\t\t\t\tfieldName=\"jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.jobStartDate\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setJobStartDate($event)\">\n\t\t\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\t\t\t\tlabelText=\"Job End Date\"\n\t\t\t\t\t\t\t\t\t\tfieldName=\"jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t\t\t\t[fieldModel]=\"staff.jobEndDate\"\n\t\t\t\t\t\t\t\t\t\t(fieldParams)=\"setJobEndDate($event)\">\n\t\t\t\t\t\t\t\t\t</app-datepicker>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Entry Time</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedEntryTime\" [owlDateTime]=\"plannedEntryTime\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedEntryTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedEntryTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedEntryTime\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t\t<label>Planned Exit Time</label>\n\t\t\t\t\t\t\t\t\t\t<input class=\"form-control\" name=\"plannedExitTime\" [owlDateTime]=\"plannedExitTime\"\n\t\t\t\t\t\t\t\t\t\t\t[owlDateTimeTrigger]=\"plannedExitTime\" placeholder=\"Date Time\"\n\t\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"staff.plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t<owl-date-time #plannedExitTime [pickerType]=\"'timer'\"></owl-date-time>\n\t\t\t\t\t\t\t\t\t\t<div class=\"date-btn\" [owlDateTimeTrigger]=\"plannedExitTime\">\n\t\t\t\t\t\t\t\t\t\t\t<mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</mat-panel-description>\n\t\t\t\t\t</mat-expansion-panel>\n\t\t\t\t</mat-accordion>\n\t\n\t\t\t\t<submit-button class=\"float-right mt-3\" [isSubmit]=\"isStaffSubmitted\" (click)=\"submitAddStaffForm()\">{{isEditStaff ? 'Update' : 'Submit'}}</submit-button>\n\t\n\t\t\t</form>\n\t\t</ng-container>\n\t</div>\n\n</div>";
       /***/
     },
 
@@ -283,6 +283,26 @@
 
 
       __webpack_exports__["default"] = "<router-outlet></router-outlet>";
+      /***/
+    },
+
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
+    /*!*******************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
+      \*******************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppModulesUiDatepickerDatepickerComponentHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>";
       /***/
     },
 
@@ -819,6 +839,7 @@
           this.CountryISO = ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"];
           this.preferredCountries = [ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedStates, ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_11__["CountryISO"].UnitedKingdom];
           this.menuControlList = [];
+          this.menuControlDropDownList = [];
           this.staff = {};
           this.message = null;
         }
@@ -932,7 +953,12 @@
         }, {
           key: "setUserRole",
           value: function setUserRole(event) {
+            var _this8 = this;
+
             this.roleId = event[0].roleId;
+            this.menuControlDropDownList = this.menuControlList.filter(function (data) {
+              return data.roleId == _this8.roleId;
+            });
           }
         }, {
           key: "setMenuControl",
@@ -948,6 +974,16 @@
           key: "setBloodGroup",
           value: function setBloodGroup(event) {
             this.staff.bloodGroup = event[0].lookupValueName;
+          }
+        }, {
+          key: "setJobStartDate",
+          value: function setJobStartDate(event) {
+            this.staff.jobStartDate = event;
+          }
+        }, {
+          key: "setJobEndDate",
+          value: function setJobEndDate(event) {
+            this.staff.jobEndDate = event;
           }
         }, {
           key: "deleteStaff",
@@ -1017,7 +1053,7 @@
         }, {
           key: "addUser",
           value: function addUser() {
-            var _this8 = this;
+            var _this9 = this;
 
             if (this.userId) {
               this.updateUser();
@@ -1065,21 +1101,21 @@
 
               this.userService.addUser(userParams).subscribe(function (res) {
                 if (res && res.responseData && res.responseData.statusCode === 200) {
-                  _this8.userId = res.responseData.value.message;
+                  _this9.userId = res.responseData.value.message;
 
-                  _this8.addStaff();
+                  _this9.addStaff();
                 }
               }, function (error) {
-                _this8.isStaffSubmitted = false;
+                _this9.isStaffSubmitted = false;
 
-                _this8.sharedService.openSnackBar('Server Error', 'error');
+                _this9.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "updateUser",
           value: function updateUser() {
-            var _this9 = this;
+            var _this10 = this;
 
             var userParams = {
               user: {
@@ -1122,26 +1158,26 @@
 
             this.userService.updateUser(userParams).subscribe(function (res) {
               if (res.message) {
-                if (!_this9.isEditStaff) {
-                  _this9.addStaff();
+                if (!_this10.isEditStaff) {
+                  _this10.addStaff();
                 } else {
-                  _this9.updateStaff();
+                  _this10.updateStaff();
                 }
               } else {
-                _this9.isStaffSubmitted = false;
+                _this10.isStaffSubmitted = false;
 
-                _this9.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this10.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this9.isStaffSubmitted = false;
+              _this10.isStaffSubmitted = false;
 
-              _this9.sharedService.openSnackBar('Server Error', 'error');
+              _this10.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "addStaff",
           value: function addStaff() {
-            var _this10 = this;
+            var _this11 = this;
 
             var staffParams = {
               staff: {
@@ -1198,10 +1234,10 @@
               if (res.message) {
                 var roleParams = {
                   userRole: {
-                    "userId": _this10.userId,
-                    "roleId": Number(_this10.roleId),
+                    "userId": _this11.userId,
+                    "roleId": Number(_this11.roleId),
                     "isActive": true,
-                    "insertedBy": parseInt(_this10.sessionService.userId),
+                    "insertedBy": parseInt(_this11.sessionService.userId),
                     "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()().toISOString(),
                     "updatedBy": null,
                     "updatedOn": null,
@@ -1209,51 +1245,51 @@
                   }
                 };
 
-                _this10.userService.addUserRole(roleParams).subscribe(function (res) {
+                _this11.userService.addUserRole(roleParams).subscribe(function (res) {
                   if (res.message) {
                     var emailDetails = {
-                      emailAddress: _this10.staff.emailId,
-                      Name: _this10.staff.firstName,
+                      emailAddress: _this11.staff.emailId,
+                      Name: _this11.staff.firstName,
                       Subject: 'User Created',
                       TextMessage: 'User Created'
                     };
 
-                    _this10.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
-                      _this10.isStaffSubmitted = false;
+                    _this11.emailSendService.sendEmail(emailDetails).subscribe(function (res) {
+                      _this11.isStaffSubmitted = false;
 
-                      _this10.sharedService.openSnackBar("Staff added successfully", 'success');
+                      _this11.sharedService.openSnackBar("Staff added successfully", 'success');
 
-                      _this10.router.navigate(['ams/staff/maintain-staff']);
+                      _this11.router.navigate(['ams/staff/maintain-staff']);
                     }, function (error) {
-                      _this10.isStaffSubmitted = false;
+                      _this11.isStaffSubmitted = false;
 
-                      _this10.sharedService.openSnackBar("Server Error", 'error');
+                      _this11.sharedService.openSnackBar("Server Error", 'error');
                     });
                   } else {
-                    _this10.isStaffSubmitted = false;
+                    _this11.isStaffSubmitted = false;
 
-                    _this10.sharedService.openSnackBar(res.errorMessage, 'error');
+                    _this11.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this10.isStaffSubmitted = false;
+                  _this11.isStaffSubmitted = false;
 
-                  _this10.sharedService.openSnackBar("Server Error", 'error');
+                  _this11.sharedService.openSnackBar("Server Error", 'error');
                 });
               } else {
-                _this10.isStaffSubmitted = false;
+                _this11.isStaffSubmitted = false;
 
-                _this10.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this11.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this10.isStaffSubmitted = false;
+              _this11.isStaffSubmitted = false;
 
-              _this10.sharedService.openSnackBar('Server Error', 'error');
+              _this11.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "updateStaff",
           value: function updateStaff() {
-            var _this11 = this;
+            var _this12 = this;
 
             var staffDetails = {
               "staffId": Number(this.route.params['value'].id),
@@ -1310,17 +1346,17 @@
             }; //edit staff
 
             this.staffService.updateStaff(staffParams).subscribe(function (res) {
-              _this11.isStaffSubmitted = false;
+              _this12.isStaffSubmitted = false;
 
               if (res.message) {
-                _this11.sharedService.openSnackBar("Staff updated successfully", 'success');
+                _this12.sharedService.openSnackBar("Staff updated successfully", 'success');
 
-                _this11.router.navigate(['ams/staff/maintain-staff']);
+                _this12.router.navigate(['ams/staff/maintain-staff']);
               }
             }, function (error) {
-              _this11.isStaffSubmitted = false;
+              _this12.isStaffSubmitted = false;
 
-              _this11.sharedService.openSnackBar('Server Error', 'error');
+              _this12.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -1356,11 +1392,11 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this12 = this;
+            var _this13 = this;
 
             // Set TimeZone 
             this.activateRouter.parent.parent.data.subscribe(function (data) {
-              if (data) _this12.staff.timeZone = data.initialData.apartment.timesettings;else _this12.staff.timeZone = '';
+              if (data) _this13.staff.timeZone = data.initialData.apartment.timesettings;else _this13.staff.timeZone = '';
             });
 
             if (this.route.params['value'].id != undefined) {
@@ -1370,35 +1406,35 @@
                 staffId: this.route.params['value'].id
               };
               this.staffService.getStaffByStaffId(getStaffParam).subscribe(function (res) {
-                _this12.isValidEmail = true;
-                _this12.staff = res[0];
-                _this12.userId = _this12.staff.userId;
-                _this12.staff.address = _this12.staff.address1;
-                _this12.roleTypeId = _this12.staff.roleTypeId;
-                _this12.roleId = _this12.staff.roleId;
+                _this13.isValidEmail = true;
+                _this13.staff = res[0];
+                _this13.userId = _this13.staff.userId;
+                _this13.staff.address = _this13.staff.address1;
+                _this13.roleTypeId = _this13.staff.roleTypeId;
+                _this13.roleId = _this13.staff.roleId;
 
-                _this12.getUserRoleList();
+                _this13.getUserRoleList();
 
-                _this12.staff.userPhoneNumber = {
-                  number: _this12.staff.phoneNumber,
-                  countryCode: _this12.staff.phonecountrycode
+                _this13.staff.userPhoneNumber = {
+                  number: _this13.staff.phoneNumber,
+                  countryCode: _this13.staff.phonecountrycode
                 };
 
-                if (_this12.staff.vendorId) {
-                  _this12.vendorType = true;
+                if (_this13.staff.vendorId) {
+                  _this13.vendorType = true;
 
-                  _this12.getVendorList();
+                  _this13.getVendorList();
                 }
 
-                if (_this12.staff.plannedEntryTime) {
-                  _this12.staff.plannedEntryTime = moment__WEBPACK_IMPORTED_MODULE_8__(_this12.staff.plannedEntryTime, 'HH:mm:ss').format();
+                if (_this13.staff.plannedEntryTime) {
+                  _this13.staff.plannedEntryTime = moment__WEBPACK_IMPORTED_MODULE_8__(_this13.staff.plannedEntryTime, 'HH:mm:ss').format();
                 }
 
-                if (_this12.staff.plannedExitTime) {
-                  _this12.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_8__(_this12.staff.plannedEntryTime, 'HH:mm:ss').format();
+                if (_this13.staff.plannedExitTime) {
+                  _this13.staff.plannedExitTime = moment__WEBPACK_IMPORTED_MODULE_8__(_this13.staff.plannedEntryTime, 'HH:mm:ss').format();
                 }
               }, function (error) {
-                _this12.sharedService.openSnackBar('Server Error', 'error');
+                _this13.sharedService.openSnackBar('Server Error', 'error');
               });
             } //Blood Group
 
@@ -1408,7 +1444,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this12.bloodGroupData = res;
+              _this13.bloodGroupData = res;
             }); //Category 
 
             var categoryParams = {
@@ -1416,7 +1452,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryParams).subscribe(function (res) {
-              _this12.staffCategoryData = res;
+              _this13.staffCategoryData = res;
             }); //menu control list
 
             var menuControlParam = {
@@ -1424,9 +1460,9 @@
             };
             this.screenService.getAllDefaultMenuRoleSecLevelbyApartmentId(menuControlParam).subscribe(function (resp) {
               if (resp.length > 0) {
-                _this12.menuControlList = resp;
+                _this13.menuControlList = resp;
 
-                _this12.menuControlList.forEach(function (data) {
+                _this13.menuControlList.forEach(function (data) {
                   data.customLabel = "".concat(data.roleName, " ").concat(data.secLevelName);
                 });
               }
@@ -1752,7 +1788,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this13 = this;
+            var _this14 = this;
 
             if (this.entryData != "") {
               var filtergroup = new jqx.filter();
@@ -1765,7 +1801,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this13.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this14.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -1783,10 +1819,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this14.timeZone = timeZone;
+              return _this15.timeZone = timeZone;
             });
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -1814,7 +1850,7 @@
               datafield: 'inTime',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this14.timeZone.offset, 'hours').format(_this14.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this15.timeZone.offset, 'hours').format(_this15.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1822,7 +1858,7 @@
               datafield: 'outTime',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this14.timeZone.offset, 'hours').format(_this14.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this15.timeZone.offset, 'hours').format(_this15.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1863,58 +1899,58 @@
             };
             this.staffService.getAllAttendancesByApartmentId(params).subscribe(function (res) {
               //filter active true items
-              _this14.entryListData = res.filter(function (data) {
+              _this15.entryListData = res.filter(function (data) {
                 return data.isActive;
               });
-              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this14.entryListData, function (item) {
-                _this14.staffService.getStaffByStaffId(item.staffId).subscribe(function (staff) {
-                  _this14.staffDetails.push(staff[0]);
+              underscore__WEBPACK_IMPORTED_MODULE_7__["each"](_this15.entryListData, function (item) {
+                _this15.staffService.getStaffByStaffId(item.staffId).subscribe(function (staff) {
+                  _this15.staffDetails.push(staff[0]);
                 });
               });
-              _this14.gridSourceData = {
-                localdata: _this14.entryListData,
+              _this15.gridSourceData = {
+                localdata: _this15.entryListData,
                 datatype: "array"
               };
-              _this14.entryListData = new jqx.dataAdapter(_this14.gridSourceData);
+              _this15.entryListData = new jqx.dataAdapter(_this15.gridSourceData);
               var dataListparams = {
-                apartmentId: _this14.sessionService.apartmentId
+                apartmentId: _this15.sessionService.apartmentId
               }; //get all gates
 
-              _this14.staffService.getAllGatesByApartmentId(dataListparams).subscribe(function (res) {
-                _this14.gateDataList = res;
+              _this15.staffService.getAllGatesByApartmentId(dataListparams).subscribe(function (res) {
+                _this15.gateDataList = res;
               });
 
               var officialListparams = {
                 LookupTypeId: 26,
-                ApartmentId: _this14.sessionService.apartmentId
+                ApartmentId: _this15.sessionService.apartmentId
               }; //get all offical staff 
 
-              _this14.lookupService.getLookupValueByLookupTypeId(officialListparams).subscribe(function (res) {
-                _this14.officalStaffsDataList = res.filter(function (item) {
+              _this15.lookupService.getLookupValueByLookupTypeId(officialListparams).subscribe(function (res) {
+                _this15.officalStaffsDataList = res.filter(function (item) {
                   return item.isActive;
                 });
               }, function (error) {});
 
               var personalListparams = {
                 LookupTypeId: 27,
-                ApartmentId: _this14.sessionService.apartmentId
+                ApartmentId: _this15.sessionService.apartmentId
               }; //get all personal staffs 
 
-              _this14.lookupService.getLookupValueByLookupTypeId(personalListparams).subscribe(function (res) {
-                _this14.personalStaffsDataList = res.filter(function (item) {
+              _this15.lookupService.getLookupValueByLookupTypeId(personalListparams).subscribe(function (res) {
+                _this15.personalStaffsDataList = res.filter(function (item) {
                   return item.isActive;
                 });
               }, function (error) {});
 
-              _this14.totalItems = _this14.entryListData.length;
+              _this15.totalItems = _this15.entryListData.length;
 
-              if (_this14.totalItems > _this14.itemLimit) {
-                _this14.ItemEndIndex = _this14.itemLimit;
+              if (_this15.totalItems > _this15.itemLimit) {
+                _this15.ItemEndIndex = _this15.itemLimit;
               } else {
-                _this14.ItemEndIndex = _this14.totalItems;
+                _this15.ItemEndIndex = _this15.totalItems;
               }
 
-              _this14.isEntryDataLoaded = true;
+              _this15.isEntryDataLoaded = true;
             });
           }
         }]);
@@ -2106,7 +2142,7 @@
         }, {
           key: "submitGateForm",
           value: function submitGateForm(form) {
-            var _this15 = this;
+            var _this16 = this;
 
             this.isGateLoaded = false;
 
@@ -2126,11 +2162,11 @@
               };
               this.staffService.addGate(params).subscribe(function (res) {
                 if (res.message) {
-                  _this15.isGateLoaded = true;
+                  _this16.isGateLoaded = true;
 
-                  _this15.sharedService.setAlertMessage("Gate added Successfully!");
+                  _this16.sharedService.setAlertMessage("Gate added Successfully!");
 
-                  _this15.getAllGates();
+                  _this16.getAllGates();
                 }
               }, function (error) {});
             } else {
@@ -2150,11 +2186,11 @@
               };
               this.staffService.updateGate(_params2).subscribe(function (res) {
                 if (res.message) {
-                  _this15.isGateLoaded = true;
+                  _this16.isGateLoaded = true;
 
-                  _this15.sharedService.setAlertMessage("Gate updated Successfully!");
+                  _this16.sharedService.setAlertMessage("Gate updated Successfully!");
 
-                  _this15.getAllGates();
+                  _this16.getAllGates();
                 }
               }, function (error) {});
             }
@@ -2162,22 +2198,22 @@
         }, {
           key: "getAllGates",
           value: function getAllGates() {
-            var _this16 = this;
+            var _this17 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllGatesByApartmentId(params).subscribe(function (res) {
-              _this16.isGateTableLoaded = true;
-              _this16.gateListData = res.filter(function (item) {
+              _this17.isGateTableLoaded = true;
+              _this17.gateListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this16.totalItems = _this16.gateListData.length;
+              _this17.totalItems = _this17.gateListData.length;
 
-              if (_this16.totalItems > _this16.itemLimit) {
-                _this16.ItemEndIndex = _this16.itemLimit;
+              if (_this17.totalItems > _this17.itemLimit) {
+                _this17.ItemEndIndex = _this17.itemLimit;
               } else {
-                _this16.ItemEndIndex = _this16.totalItems;
+                _this17.ItemEndIndex = _this17.totalItems;
               }
             }, function (error) {});
           }
@@ -2189,12 +2225,12 @@
         }, {
           key: "addGate",
           value: function addGate() {
-            var _this17 = this;
+            var _this18 = this;
 
             this.isEditGate = false;
             this.isAddGateLoaded = false;
             setTimeout(function () {
-              _this17.isAddGateLoaded = true;
+              _this18.isAddGateLoaded = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.add-gate-card');
@@ -2208,16 +2244,16 @@
         }, {
           key: "editGate",
           value: function editGate(id) {
-            var _this18 = this;
+            var _this19 = this;
 
             this.isEditGate = true;
             this.isGateLoaded = false;
             this.staffService.getGateByGateId(id).subscribe(function (res) {
-              _this18.isGateLoaded = true;
-              _this18.gate = res[0];
-              _this18.isAddGateLoaded = false;
+              _this19.isGateLoaded = true;
+              _this19.gate = res[0];
+              _this19.isAddGateLoaded = false;
               setTimeout(function () {
-                _this18.isAddGateLoaded = true;
+                _this19.isAddGateLoaded = true;
               }, 10);
               setTimeout(function () {
                 var elem = document.querySelector('.add-gate-card');
@@ -2237,27 +2273,27 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this19 = this;
+            var _this20 = this;
 
             this.gate = {};
             this.getAllGates(); // delete gate
 
             this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null) {
-                _this19.isGateTableLoaded = false;
+                _this20.isGateTableLoaded = false;
                 var params = {
                   gateId: item.gateId,
-                  deleteBy: parseInt(_this19.sessionService.userId)
+                  deleteBy: parseInt(_this20.sessionService.userId)
                 };
 
-                _this19.staffService.deleteGate(params).subscribe(function (res) {
-                  _this19.gateListData = _this19.gateListData.filter(function (type) {
+                _this20.staffService.deleteGate(params).subscribe(function (res) {
+                  _this20.gateListData = _this20.gateListData.filter(function (type) {
                     return type.gateId !== item.gateId;
                   });
 
-                  _this19.sharedService.setUnitListDeleteIndex(null);
+                  _this20.sharedService.setUnitListDeleteIndex(null);
 
-                  _this19.isGateTableLoaded = true;
+                  _this20.isGateTableLoaded = true;
                 });
               }
             });
@@ -2491,7 +2527,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this20 = this;
+            var _this21 = this;
 
             if (this.staffData != "") {
               var filtergroup = new jqx.filter();
@@ -2504,7 +2540,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this20.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this21.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2522,7 +2558,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this21 = this;
+            var _this22 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -2575,23 +2611,23 @@
             }];
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
               //filter inactive true items
-              _this21.staffListData = res.filter(function (data) {
+              _this22.staffListData = res.filter(function (data) {
                 return !data.isActive;
               });
-              _this21.gridSourceData = {
-                localdata: _this21.staffListData,
+              _this22.gridSourceData = {
+                localdata: _this22.staffListData,
                 datatype: "array"
               };
-              _this21.staffListData = new jqx.dataAdapter(_this21.gridSourceData);
-              _this21.totalItems = _this21.staffListData.length;
+              _this22.staffListData = new jqx.dataAdapter(_this22.gridSourceData);
+              _this22.totalItems = _this22.staffListData.length;
 
-              if (_this21.totalItems > _this21.itemLimit) {
-                _this21.ItemEndIndex = _this21.itemLimit;
+              if (_this22.totalItems > _this22.itemLimit) {
+                _this22.ItemEndIndex = _this22.itemLimit;
               } else {
-                _this21.ItemEndIndex = _this21.totalItems;
+                _this22.ItemEndIndex = _this22.totalItems;
               }
 
-              _this21.isStaffDataLoaded = true;
+              _this22.isStaffDataLoaded = true;
             });
             var staffParams = {
               LookupTypeId: 25,
@@ -2599,7 +2635,7 @@
             }; //staff type
 
             this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-              _this21.staffTypeData = res.filter(function (item) {
+              _this22.staffTypeData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2609,7 +2645,7 @@
             }; //offical category type
 
             this.lookupService.getLookupValueByLookupTypeId(staffOfficialParams).subscribe(function (res) {
-              _this21.staffOfficalCategoryData = res.filter(function (item) {
+              _this22.staffOfficalCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2619,7 +2655,7 @@
             }; //personal category type
 
             this.lookupService.getLookupValueByLookupTypeId(staffPersonalParams).subscribe(function (res) {
-              _this21.staffPersonalCategoryData = res.filter(function (item) {
+              _this22.staffPersonalCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -2919,7 +2955,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter() {
-            var _this22 = this;
+            var _this23 = this;
 
             if (this.staffData != "") {
               var filtergroup = new jqx.filter();
@@ -2932,7 +2968,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this22.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this23.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -2957,7 +2993,7 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this23 = this;
+            var _this24 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -3015,7 +3051,7 @@
             }; //staff type
 
             this.lookupService.getLookupValueByLookupTypeId(staffParams).subscribe(function (res) {
-              _this23.staffTypeData = res.filter(function (item) {
+              _this24.staffTypeData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -3025,7 +3061,7 @@
             }; //offical category type
 
             this.lookupService.getLookupValueByLookupTypeId(officialParams).subscribe(function (res) {
-              _this23.staffOfficalCategoryData = res.filter(function (item) {
+              _this24.staffOfficalCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {});
@@ -3035,7 +3071,7 @@
             }; //personal category type
 
             this.lookupService.getLookupValueByLookupTypeId(officialCategoryParams).subscribe(function (res) {
-              _this23.staffPersonalCategoryData = res.filter(function (item) {
+              _this24.staffPersonalCategoryData = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {}); // delete item
@@ -3044,20 +3080,20 @@
               if (id != null) {
                 var params = {
                   staffId: id,
-                  deleteBy: parseInt(_this23.sessionService.userId)
+                  deleteBy: parseInt(_this24.sessionService.userId)
                 };
 
-                _this23.staffService.deleteStaff(params).subscribe(function (res) {
+                _this24.staffService.deleteStaff(params).subscribe(function (res) {
                   // _.each(this.staffListData, (type)=>{
                   //   if(type.staffId == id){
                   //     type.isActive = false;
                   //   }
                   // })
-                  _this23.sharedService.openSnackBar("Staff deleted", 'success');
+                  _this24.sharedService.openSnackBar("Staff deleted", 'success');
 
-                  _this23.sharedService.setUnitListDeleteIndex(null);
+                  _this24.sharedService.setUnitListDeleteIndex(null);
 
-                  _this23.getAllStaff();
+                  _this24.getAllStaff();
                 }, function (error) {
                   console.log(error);
                 });
@@ -3072,20 +3108,20 @@
         }, {
           key: "getAllStaff",
           value: function getAllStaff() {
-            var _this24 = this;
+            var _this25 = this;
 
             this.staffService.getAllStaffsByApartmentId(this.params).subscribe(function (res) {
               //filter active true items
-              _this24.staffListData = res.filter(function (data) {
+              _this25.staffListData = res.filter(function (data) {
                 return data.isActive;
               });
-              _this24.totalItems = _this24.staffListData.length;
-              _this24.gridSourceData = {
-                localdata: _this24.staffListData,
+              _this25.totalItems = _this25.staffListData.length;
+              _this25.gridSourceData = {
+                localdata: _this25.staffListData,
                 datatype: "array"
               };
-              _this24.staffListData = new jqx.dataAdapter(_this24.gridSourceData);
-              _this24.isStaffDataLoaded = true;
+              _this25.staffListData = new jqx.dataAdapter(_this25.gridSourceData);
+              _this25.isStaffDataLoaded = true;
             });
           }
         }]);
@@ -3513,25 +3549,25 @@
         _createClass(AssociateStaffComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this25.timeZone = timeZone;
+              return _this26.timeZone = timeZone;
             });
             this.getAssociateStaff();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
-                  updateUserId: parseInt(_this25.sessionService.userId)
+                  updateUserId: parseInt(_this26.sessionService.userId)
                 };
 
-                _this25.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this25.sharedService.openSnackBar('Associate Category Deleted Successfully', 'success');
+                _this26.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this26.sharedService.openSnackBar('Associate Category Deleted Successfully', 'success');
 
-                  _this25.sharedService.setUnitListDeleteIndex(null);
+                  _this26.sharedService.setUnitListDeleteIndex(null);
 
-                  _this25.getAssociateStaff();
+                  _this26.getAssociateStaff();
                 }, function (error) {});
               }
             });
@@ -3539,7 +3575,7 @@
         }, {
           key: "getAssociateStaff",
           value: function getAssociateStaff() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.isCategoryDataLoaded = false;
             var params = {
@@ -3547,10 +3583,10 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this26.categoryOffcialListData = res.filter(function (item) {
+              _this27.categoryOffcialListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this26.isCategoryDataLoaded = true;
+              _this27.isCategoryDataLoaded = true;
             }, function (error) {});
           }
         }, {
@@ -3577,7 +3613,7 @@
         }, {
           key: "submitAssociate",
           value: function submitAssociate() {
-            var _this27 = this;
+            var _this28 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -3595,13 +3631,13 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this27.sharedService.openSnackBar('Associate Category Added', 'Suceess');
+                _this28.sharedService.openSnackBar('Associate Category Added', 'Suceess');
 
-                _this27.isShowForm = false;
+                _this28.isShowForm = false;
 
-                _this27.matDrawer.toggle();
+                _this28.matDrawer.toggle();
 
-                _this27.getAssociateStaff();
+                _this28.getAssociateStaff();
               });
             } else {
               var _details3 = {
@@ -3620,13 +3656,13 @@
                 lookupvalue: _details3
               };
               this.lookupService.updateLookupValue(_params3).subscribe(function (res) {
-                _this27.sharedService.openSnackBar('Associate Category Updated', 'Suceess');
+                _this28.sharedService.openSnackBar('Associate Category Updated', 'Suceess');
 
-                _this27.isShowForm = false;
+                _this28.isShowForm = false;
 
-                _this27.matDrawer.toggle();
+                _this28.matDrawer.toggle();
 
-                _this27.getAssociateStaff();
+                _this28.getAssociateStaff();
               });
             }
           }
@@ -3779,25 +3815,25 @@
         _createClass(PersonalStaffComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this28 = this;
+            var _this29 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this28.timeZone = timeZone;
+              return _this29.timeZone = timeZone;
             });
             this.getAssociateStaff();
             this.sharedService.unitlistdeleteindexcast.subscribe(function (lookupValueId) {
               if (lookupValueId != null) {
                 var params = {
                   lookupValueId: lookupValueId,
-                  updateUserId: parseInt(_this28.sessionService.userId)
+                  updateUserId: parseInt(_this29.sessionService.userId)
                 };
 
-                _this28.lookupService.deleteLookupvalue(params).subscribe(function (res) {
-                  _this28.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
+                _this29.lookupService.deleteLookupvalue(params).subscribe(function (res) {
+                  _this29.sharedService.openSnackBar('Personal Category Deleted Successfully', 'success');
 
-                  _this28.sharedService.setUnitListDeleteIndex(null);
+                  _this29.sharedService.setUnitListDeleteIndex(null);
 
-                  _this28.getAssociateStaff();
+                  _this29.getAssociateStaff();
                 }, function (error) {});
               }
             });
@@ -3805,7 +3841,7 @@
         }, {
           key: "getAssociateStaff",
           value: function getAssociateStaff() {
-            var _this29 = this;
+            var _this30 = this;
 
             this.isCategoryDataLoaded = false;
             var params = {
@@ -3813,10 +3849,10 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this29.categoryOffcialListData = res.filter(function (item) {
+              _this30.categoryOffcialListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this29.isCategoryDataLoaded = true;
+              _this30.isCategoryDataLoaded = true;
             }, function (error) {});
           }
         }, {
@@ -3843,7 +3879,7 @@
         }, {
           key: "submitAssociate",
           value: function submitAssociate() {
-            var _this30 = this;
+            var _this31 = this;
 
             if (!this.isEdit) {
               var details = {
@@ -3861,13 +3897,13 @@
                 lookupvalue: details
               };
               this.lookupService.addLookupValue(params).subscribe(function (res) {
-                _this30.sharedService.openSnackBar('Personal Category Added', 'Suceess');
+                _this31.sharedService.openSnackBar('Personal Category Added', 'Suceess');
 
-                _this30.isShowForm = false;
+                _this31.isShowForm = false;
 
-                _this30.matDrawer.toggle();
+                _this31.matDrawer.toggle();
 
-                _this30.getAssociateStaff();
+                _this31.getAssociateStaff();
               });
             } else {
               var _details4 = {
@@ -3886,13 +3922,13 @@
                 lookupvalue: _details4
               };
               this.lookupService.updateLookupValue(_params4).subscribe(function (res) {
-                _this30.sharedService.openSnackBar('Personal Category Updated', 'Suceess');
+                _this31.sharedService.openSnackBar('Personal Category Updated', 'Suceess');
 
-                _this30.isShowForm = false;
+                _this31.isShowForm = false;
 
-                _this30.matDrawer.toggle();
+                _this31.matDrawer.toggle();
 
-                _this30.getAssociateStaff();
+                _this31.getAssociateStaff();
               });
             }
           }
@@ -4203,7 +4239,7 @@
         }, {
           key: "submitShiftsForm",
           value: function submitShiftsForm(form) {
-            var _this31 = this;
+            var _this32 = this;
 
             this.isShiftsLoaded = false;
 
@@ -4224,11 +4260,11 @@
               };
               this.staffService.addShift(params).subscribe(function (res) {
                 if (res.message) {
-                  _this31.isShiftsLoaded = true;
+                  _this32.isShiftsLoaded = true;
 
-                  _this31.sharedService.setAlertMessage("Shift added Successfully!");
+                  _this32.sharedService.setAlertMessage("Shift added Successfully!");
 
-                  _this31.getAllShifts();
+                  _this32.getAllShifts();
                 }
               }, function (error) {});
             } else {
@@ -4249,11 +4285,11 @@
               };
               this.staffService.updateShift(_params5).subscribe(function (res) {
                 if (res.message) {
-                  _this31.isShiftsLoaded = true;
+                  _this32.isShiftsLoaded = true;
 
-                  _this31.sharedService.setAlertMessage("Shift updated Successfully!");
+                  _this32.sharedService.setAlertMessage("Shift updated Successfully!");
 
-                  _this31.getAllShifts();
+                  _this32.getAllShifts();
                 }
               }, function (error) {});
             }
@@ -4261,12 +4297,12 @@
         }, {
           key: "addShift",
           value: function addShift() {
-            var _this32 = this;
+            var _this33 = this;
 
             this.isEditShift = false;
             this.isAddShiftLoaded = false;
             setTimeout(function () {
-              _this32.isAddShiftLoaded = true;
+              _this33.isAddShiftLoaded = true;
             }, 10);
             setTimeout(function () {
               var elem = document.querySelector('.add-shift-card');
@@ -4280,11 +4316,11 @@
         }, {
           key: "editShift",
           value: function editShift(shift) {
-            var _this33 = this;
+            var _this34 = this;
 
             this.isAddShiftLoaded = false;
             setTimeout(function () {
-              _this33.isAddShiftLoaded = true;
+              _this34.isAddShiftLoaded = true;
             }, 10);
             this.isEditShift = true;
             this.shiftTypeId = shift.shiftTypeId;
@@ -4313,31 +4349,31 @@
         }, {
           key: "getAllShifts",
           value: function getAllShifts() {
-            var _this34 = this;
+            var _this35 = this;
 
             this.isShiftTableLoaded = false;
             var params = {
               apartmentId: this.sessionService.apartmentId
             };
             this.staffService.getAllShiftsByApartmentId(params).subscribe(function (res) {
-              _this34.shiftsListData = res.filter(function (item) {
+              _this35.shiftsListData = res.filter(function (item) {
                 return item.isActive;
               });
-              _this34.totalItems = _this34.shiftsListData.length;
+              _this35.totalItems = _this35.shiftsListData.length;
 
-              if (_this34.totalItems > _this34.itemLimit) {
-                _this34.ItemEndIndex = _this34.itemLimit;
+              if (_this35.totalItems > _this35.itemLimit) {
+                _this35.ItemEndIndex = _this35.itemLimit;
               } else {
-                _this34.ItemEndIndex = _this34.totalItems;
+                _this35.ItemEndIndex = _this35.totalItems;
               }
 
-              _this34.isShiftTableLoaded = true;
+              _this35.isShiftTableLoaded = true;
             }, function (error) {});
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this35 = this;
+            var _this36 = this;
 
             this.shift = {};
             this.getAllShifts();
@@ -4347,7 +4383,7 @@
             }; //shift type
 
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this35.shiftTypeList = res.filter(function (item) {
+              _this36.shiftTypeList = res.filter(function (item) {
                 return item.isActive;
               });
             }, function (error) {}); // delete item
@@ -4356,18 +4392,18 @@
               if (item != null) {
                 var params = {
                   shiftId: item.shiftId,
-                  deleteBy: parseInt(_this35.sessionService.userId)
+                  deleteBy: parseInt(_this36.sessionService.userId)
                 };
-                _this35.isShiftTableLoaded = false;
+                _this36.isShiftTableLoaded = false;
 
-                _this35.staffService.deleteShift(params).subscribe(function (res) {
-                  _this35.shiftsListData = _this35.shiftsListData.filter(function (type) {
+                _this36.staffService.deleteShift(params).subscribe(function (res) {
+                  _this36.shiftsListData = _this36.shiftsListData.filter(function (type) {
                     return type.shiftId !== item.shiftId;
                   });
 
-                  _this35.sharedService.setUnitListDeleteIndex(null);
+                  _this36.sharedService.setUnitListDeleteIndex(null);
 
-                  _this35.isShiftTableLoaded = true;
+                  _this36.isShiftTableLoaded = true;
                 }, function (error) {
                   console.log(error);
                 });
@@ -4843,6 +4879,12 @@
       var src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(
       /*! src/app/modules/ui/message/message.module */
       "./src/app/modules/ui/message/message.module.ts");
+      /* harmony import */
+
+
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
 
       var StaffManagerModule = function StaffManagerModule() {
         _classCallCheck(this, StaffManagerModule);
@@ -4850,9 +4892,297 @@
 
       StaffManagerModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_staff_manager_component__WEBPACK_IMPORTED_MODULE_5__["StaffManagerComponent"], _components_staff_setup_staff_setup_component__WEBPACK_IMPORTED_MODULE_6__["StaffSetupComponent"], _components_staff_maintain_staff_staff_maintain_staff_component__WEBPACK_IMPORTED_MODULE_7__["StaffMaintainStaffComponent"], _components_staff_inactive_staff_staff_inactive_staff_component__WEBPACK_IMPORTED_MODULE_8__["StaffInactiveStaffComponent"], _components_staff_attendance_staff_attendance_component__WEBPACK_IMPORTED_MODULE_9__["StaffAttendanceComponent"], _components_staff_payroll_staff_payroll_component__WEBPACK_IMPORTED_MODULE_10__["StaffPayrollComponent"], _components_staff_overtime_staff_overtime_component__WEBPACK_IMPORTED_MODULE_11__["StaffOvertimeComponent"], _components_staff_reports_staff_reports_component__WEBPACK_IMPORTED_MODULE_12__["StaffReportsComponent"], _components_add_staff_add_staff_component__WEBPACK_IMPORTED_MODULE_13__["AddStaffComponent"], _components_staff_gates_staff_gates_component__WEBPACK_IMPORTED_MODULE_14__["StaffGatesComponent"], _components_staff_shifts_staff_shifts_component__WEBPACK_IMPORTED_MODULE_15__["StaffShiftsComponent"], _components_add_entry_add_entry_component__WEBPACK_IMPORTED_MODULE_16__["AddEntryComponent"], _components_staff_setup_associate_staff_associate_staff_component__WEBPACK_IMPORTED_MODULE_19__["AssociateStaffComponent"], _components_staff_setup_personal_staff_personal_staff_component__WEBPACK_IMPORTED_MODULE_20__["PersonalStaffComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_22__["SelectModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_23__["CondoMessageModule"], _staff_manager_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffManagerRoutingModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_18__["NgxIntlTelInputModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_21__["HelpTooltipModule"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_17__["CondoCardModule"], src_app_modules_ui_select_select_module__WEBPACK_IMPORTED_MODULE_22__["SelectModule"], src_app_modules_ui_message_message_module__WEBPACK_IMPORTED_MODULE_23__["CondoMessageModule"], _staff_manager_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffManagerRoutingModule"], ngx_intl_tel_input__WEBPACK_IMPORTED_MODULE_18__["NgxIntlTelInputModule"], src_app_modules_ui_help_tooltip_help_tooltip_module__WEBPACK_IMPORTED_MODULE_21__["HelpTooltipModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_24__["DatepickerModule"].forRoot()],
         bootstrap: [_staff_manager_component__WEBPACK_IMPORTED_MODULE_5__["StaffManagerComponent"]]
       })], StaffManagerModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.component.scss":
+    /*!*****************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
+      \*****************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerComponentScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */";
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.component.ts":
+    /*!***************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
+      \***************************************************************/
+
+    /*! exports provided: DatepickerComponent */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerComponentTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function () {
+        return DatepickerComponent;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
+
+      var DatepickerComponent = /*#__PURE__*/function () {
+        function DatepickerComponent(sharedService) {
+          _classCallCheck(this, DatepickerComponent);
+
+          this.sharedService = sharedService;
+          this.labelText = '';
+          this.fieldClass = '';
+          this.fieldReadonly = false;
+          this.isDisabled = false;
+          this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        }
+
+        _createClass(DatepickerComponent, [{
+          key: "isFieldRequired",
+          value: function isFieldRequired() {
+            return this.fieldRequired == "required" ? true : false;
+          }
+        }, {
+          key: "onPickerChange",
+          value: function onPickerChange() {
+            this.fieldParams.emit(this.fieldModel);
+          }
+        }, {
+          key: "camelCase",
+          value: function camelCase(str) {
+            return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+              return index === 0 ? word.toLowerCase() : word.toUpperCase();
+            }).replace(/\s+/g, '');
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this37 = this;
+
+            this.index = this.sharedService.guid().replace(/-/g, '');
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this37.timeZone = timeZone;
+            });
+          }
+        }, {
+          key: "ngAfterViewInit",
+          value: function ngAfterViewInit() {}
+        }, {
+          key: "ngOnChanges",
+          value: function ngOnChanges() {}
+        }]);
+
+        return DatepickerComponent;
+      }();
+
+      DatepickerComponent.ctorParameters = function () {
+        return [{
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+        }];
+      };
+
+      DatepickerComponent.propDecorators = {
+        labelText: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldRequired: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldName: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        type: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldClass: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldReadonly: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldModel: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        min: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        max: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        isDisabled: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
+        }],
+        fieldParams: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
+        }],
+        components: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"],
+          args: ['dateTimeElem']
+        }]
+      };
+      DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-datepicker',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./datepicker.component.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html"))["default"],
+        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        viewProviders: [{
+          provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"],
+          useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]
+        }],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./datepicker.component.scss */
+        "./src/app/modules/ui/datepicker/datepicker.component.scss"))["default"]]
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], DatepickerComponent);
+      /***/
+    },
+
+    /***/
+    "./src/app/modules/ui/datepicker/datepicker.module.ts":
+    /*!************************************************************!*\
+      !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
+      \************************************************************/
+
+    /*! exports provided: DatepickerModule */
+
+    /***/
+    function srcAppModulesUiDatepickerDatepickerModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "DatepickerModule", function () {
+        return DatepickerModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! src/app/material */
+      "./src/app/material.ts");
+      /* harmony import */
+
+
+      var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./datepicker.component */
+      "./src/app/modules/ui/datepicker/datepicker.component.ts");
+      /* harmony import */
+
+
+      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @busacca/ng-pick-datetime */
+      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+      /* harmony import */
+
+
+      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! src/app/shared/pipe/shared.pipe */
+      "./src/app/shared/pipe/shared.pipe.ts");
+      /* harmony import */
+
+
+      var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/core/owl/custom-date-time-adapter */
+      "./src/app/core/owl/custom-date-time-adapter.ts");
+
+      var DatepickerModule_1;
+
+      var DatepickerModule = DatepickerModule_1 = /*#__PURE__*/function () {
+        function DatepickerModule() {
+          _classCallCheck(this, DatepickerModule);
+        }
+
+        _createClass(DatepickerModule, null, [{
+          key: "forRoot",
+          value: function forRoot() {
+            return {
+              ngModule: DatepickerModule_1,
+              providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
+            };
+          }
+        }]);
+
+        return DatepickerModule;
+      }();
+
+      DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        exports: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        providers: [{
+          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS"],
+          useValue: {
+            useUtc: true
+          }
+        }, {
+          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"],
+          useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"]
+        }],
+        bootstrap: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]]
+      })], DatepickerModule);
       /***/
     }
   }]);

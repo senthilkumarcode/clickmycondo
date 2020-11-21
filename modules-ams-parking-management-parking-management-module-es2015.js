@@ -1349,11 +1349,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
 /* harmony import */ var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Apartment */ "./src/app/api/controllers/Apartment.ts");
 /* harmony import */ var src_app_api_controllers_Staff__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/Staff */ "./src/app/api/controllers/Staff.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
-
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
 
 
 
@@ -1400,16 +1397,16 @@ let ParkingCreateParkingBookingComponent = class ParkingCreateParkingBookingComp
             "id": 0,
             "availabelParkingId": this.parkingAvailable.availabelParkingId,
             "rentedParkingAllocationTypeId": this.parkingAvailable.rentedParkingAllocationTypeId,
-            "startDate": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.startDate).utcOffset(this.timeZone.offset).format(),
-            "endDate": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.endDate).utcOffset(this.timeZone.offset).format(),
-            "startTime": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.startTime).format(this.timeZone.time24),
-            "endTime": moment__WEBPACK_IMPORTED_MODULE_11__(this.parkingAvailable.endTime).format(this.timeZone.time24),
+            "startDate": this.parkingAvailable.startDate,
+            "endDate": this.parkingAvailable.endDate,
+            "startTime": this.parkingAvailable.startTime,
+            "endTime": this.parkingAvailable.endTime,
             "totalFee": this.parkingAvailable.totalFee,
             "isCancelled": true,
             "refundAmount": 0,
             "isActive": true,
             "insertedBy": parseInt(this.sessionService.userId),
-            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+            "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
             "updatedBy": null,
             "updatedOn": null,
             "visitorId": 0,
