@@ -5421,20 +5421,28 @@
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @busacca/ng-pick-datetime */
+      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
 
       var DatepickerComponent = /*#__PURE__*/function () {
-        function DatepickerComponent(sharedService) {
+        function DatepickerComponent(dateTimeAdapter, sharedService) {
           _classCallCheck(this, DatepickerComponent);
 
+          this.dateTimeAdapter = dateTimeAdapter;
           this.sharedService = sharedService;
           this.labelText = '';
           this.fieldClass = '';
           this.fieldReadonly = false;
           this.isDisabled = false;
           this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          this.timeZonesData = [];
         }
 
         _createClass(DatepickerComponent, [{
@@ -5463,6 +5471,27 @@
             this.sharedService.timezonecast.subscribe(function (timeZone) {
               return _this48.timeZone = timeZone;
             });
+            var data = this.sharedService.getTimeZone();
+            var picker = data.picker;
+            /*let utcData = [];
+                 this.timeZonesData.forEach(item => {
+              let utcArray = item.utc;
+              utcArray.forEach(utc => {
+                utcData.push(utc)
+              });
+            });
+                 let region = utcData.filter( region => {
+              return region == picker.canonicalName
+            })
+            
+            let region = this.timeZonesData.filter( item => {
+              if(item.indexOf(picker.canonicalName) != -1){
+                return item
+              }
+            })
+                 console.log(region);*/
+
+            this.dateTimeAdapter.setLocale('en-US');
           }
         }, {
           key: "ngAfterViewInit",
@@ -5477,7 +5506,9 @@
 
       DatepickerComponent.ctorParameters = function () {
         return [{
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
+          type: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__["DateTimeAdapter"]
+        }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
         }];
       };
 
@@ -5533,7 +5564,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./datepicker.component.scss */
         "./src/app/modules/ui/datepicker/datepicker.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], DatepickerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__["DateTimeAdapter"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])], DatepickerComponent);
       /***/
     },
 
@@ -5604,12 +5635,6 @@
       var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/pipe/shared.pipe */
       "./src/app/shared/pipe/shared.pipe.ts");
-      /* harmony import */
-
-
-      var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/core/owl/custom-date-time-adapter */
-      "./src/app/core/owl/custom-date-time-adapter.ts");
 
       var DatepickerModule_1;
 
@@ -5640,9 +5665,6 @@
           useValue: {
             useUtc: true
           }
-        }, {
-          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"],
-          useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"]
         }],
         bootstrap: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]]
       })], DatepickerModule);
