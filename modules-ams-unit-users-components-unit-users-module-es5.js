@@ -2061,9 +2061,9 @@
           },
           canActivate: [src_app_core_auth_guards_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]],
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | src-app-modules-profile-profile-area-module */
-            "default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-pay-invoice-expense-pay~0472cbb0"), __webpack_require__.e("default~modules-profile-profile-area-module~src-app-modules-profile-profile-area-module")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/profile/profile-area.module */
             "./src/app/modules/profile/profile-area.module.ts")).then(function (m) {
               return m.ProfileAreaModule;

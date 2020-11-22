@@ -363,9 +363,9 @@
         }, {
           path: 'post-invoice',
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */
-            "default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-pay-invoice-expense-pay~0472cbb0"), __webpack_require__.e("default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */
             "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(function (m) {
               return m.IncomePostInvoiceModule;

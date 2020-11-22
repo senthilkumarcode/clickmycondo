@@ -82,9 +82,9 @@
         children: [{
           path: 'pay-invoice',
           loadChildren: function loadChildren() {
-            return __webpack_require__.e(
+            return Promise.all(
             /*! import() | src-app-modules-ams-expense-tracker-expense-pay-invoice-expense-pay-invoice-module */
-            "default~modules-ams-expense-tracker-expense-pay-invoice-expense-pay-invoice-module~src-app-modules-a~4a6c83aa").then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-pay-invoice-expense-pay~0472cbb0"), __webpack_require__.e("default~modules-ams-expense-tracker-expense-pay-invoice-expense-pay-invoice-module~src-app-modules-a~4a6c83aa")]).then(__webpack_require__.bind(null,
             /*! src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice.module */
             "./src/app/modules/ams/expense-tracker/expense-pay-invoice/expense-pay-invoice.module.ts")).then(function (m) {
               return m.ExpensePayInvoiceModule;

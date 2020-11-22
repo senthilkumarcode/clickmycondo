@@ -225,7 +225,7 @@ const routes = [
         component: _income_posts_component__WEBPACK_IMPORTED_MODULE_3__["IncomePostsComponent"],
         children: [
             { path: '', redirectTo: 'post-invoice', pathMatch: 'full' },
-            { path: 'post-invoice', loadChildren: () => __webpack_require__.e(/*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */ "default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12").then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */ "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(m => m.IncomePostInvoiceModule) },
+            { path: 'post-invoice', loadChildren: () => Promise.all(/*! import() | src-app-modules-ams-income-tracker-income-post-invoice-income-post-invoice-module */[__webpack_require__.e("default~modules-ams-assets-assets-module~modules-ams-expense-tracker-expense-pay-invoice-expense-pay~0472cbb0"), __webpack_require__.e("default~modules-ams-income-tracker-income-post-invoice-income-post-invoice-module~src-app-modules-am~f6562e12")]).then(__webpack_require__.bind(null, /*! src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module */ "./src/app/modules/ams/income-tracker/income-post-invoice/income-post-invoice.module.ts")).then(m => m.IncomePostInvoiceModule) },
             { path: 'add-credit', component: _income_create_credit_income_create_credit_component__WEBPACK_IMPORTED_MODULE_4__["IncomeCreateCreditComponent"] }
         ]
     }

@@ -7,26 +7,6 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["modules-ui-pages-user-registration-user-registration-module"], {
     /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html":
-    /*!*******************************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html ***!
-      \*******************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppModulesUiDatepickerDatepickerComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>";
-      /***/
-    },
-
-    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/pages/user-registration/user-approval-pending/user-approval-pending.component.html":
     /*!*****************************************************************************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/pages/user-registration/user-approval-pending/user-approval-pending.component.html ***!
@@ -63,316 +43,6 @@
 
 
       __webpack_exports__["default"] = "<div class=\"new-user-registration content-layout fullwidth-basic-normal-scroll\">\n    <div class=\"main\">\n        <app-loader class=\"mt-4\" *ngIf=\"!isDataLoaded\"></app-loader>\n        <div *ngIf=\"isDataLoaded\">\n            <div class=\"bg-card shadow\">\n                <div class=\"row\">\n                    <div class=\"col-md-2\">\n                        <img class=\"img-fluid\" src=\"assets/images/join-cover-new.jpg\" alt=\"\">\n                    </div>\n                    <div class=\"col-md-7 d-flex align-items-center\">\n                        <h6 class=\"font-medium\">Please fill the below form to activate your online account</h6>\n                    </div>\n                </div>\n                <div class=\"text-right font-medium mt-3\">\n                    <a class=\"link\" (click)=\"logout()\">Logout</a>\n                </div>\n            </div>\n            <condo-message class=\"mb-3\" *ngIf=\"message\"\n                [appearance]=\"message.appearance\"\n                [showIcon]=\"message.showIcon\"\n                [type]=\"message.type\"\n                [@shake]=\"message.shake\">\n                {{message.content}}\n             </condo-message>\n            <condo-card>\n                <div CondoCardHeader>\n                    <div>\n                        <h4>User Registration</h4>\n                    </div>\n                </div>\n                <div CondoCardBody>\n                    <div class=\"userRegistrationUpdate p-5\">\n                        <div class=\"mb-4\">\n                            <form #userRegisterForm=\"ngForm\">\n                                <div class=\"row\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>First Name*</label>\n                                            <input type=\"text\" class=\"form-control\" [value]=\"userInfo.firstName\" placeholder=\"Enter value\"\n                                                name=\"firstName\" required disabled>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Last Name*</label>\n                                            <input type=\"text\" class=\"form-control\" [value]=\"userInfo.lastName\" placeholder=\"Enter value\"\n                                                name=\"lastName\" required disabled>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n\n                                        <app-datepicker\n                                            labelText=\"Date Of Birth\"\n                                            fieldName=\"staffDOB\"\n                                            [fieldRequired]=\"'null'\"\n                                            type=\"date\"\n                                            [fieldModel]=\"userInfo.dob\"\n                                            (fieldParams)=\"getUserInfoDOB($event)\">\n                                        </app-datepicker>\n\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Address</label>\n                                            <input type=\"text\" class=\"form-control\" [(ngModel)]=\"userInfo.address1\" placeholder=\"Enter value\"\n                                                name=\"address\">\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Email*</label>\n                                            <input type=\"email\" class=\"form-control\" [value]=\"userInfo.emailId\" placeholder=\"Enter value\"\n                                                name=\"staffEmail\" required disabled>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box\">\n                                            <label>Contact Number</label>\n                                            <input type=\"text\" [(ngModel)]=\"userInfo.phoneNumber\" class=\"form-control\"\n                                                placeholder=\"Enter value\" name=\"contactNumber\" disabled>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"select-box\">\n                                            <label>Blood Group</label>\n                                            <select name=\"bloodGroup\" id=\"bloodGroup\" [(ngModel)]=\"userInfo.bloodGroup\" class=\"form-control\">\n                                                <option value=\"\" disabled selected hidden>Select</option>\n                                                <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                                </option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"input-box radio-box\">\n                                            <label>Gender*</label>\n                                            <div class=\"form-group\">\n                                                <input name=\"genderType\" id=\"male\" [(ngModel)]=\"userInfo.genderId\" [value]=\"43\" type=\"radio\"\n                                                    required>\n                                                <label class=\"radio-inline\" for=\"male\">Male</label>\n                                            </div>\n                                            <div class=\"form-group\">\n                                                <input name=\"genderType\" id=\"female\" [(ngModel)]=\"userInfo.genderId\" [value]=\"44\" type=\"radio\"\n                                                    required>\n                                                <label class=\"radio-inline\" for=\"female\">Female</label>\n                                            </div>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\" *ngIf=\"userType && userType == 2\">\n\n                                        <app-datepicker\n                                            labelText=\"Lease Date\"\n                                            fieldName=\"LeaseDate\"\n                                            [fieldRequired]=\"'null'\"\n                                            type=\"date\"\n                                            [fieldModel]=\"leaseDate\"\n                                            (fieldParams)=\"getLeaseDate($event)\">\n                                        </app-datepicker>\n\n                                    </div> \n                                    <div class=\"col-sm-4\" *ngIf=\"userType && userType == 4\">\n\n                                        <app-datepicker\n                                            labelText=\"Registration Date\"\n                                            fieldName=\"RegistrationDate\"\n                                            [fieldRequired]=\"'null'\"\n                                            type=\"date\"\n                                            [fieldModel]=\"registrationDate\"\n                                            (fieldParams)=\"getRegistrationDate($event)\">\n                                        </app-datepicker>\n\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                        <div class=\"mb-4\">\n                            <form>\n                                <div class=\"d-flex\">\n                                    <h4>Documents</h4>\n                                    <div class=\"ml-auto add-button\">\n                                        <button mat-flat-button [color]=\"'accent'\" (click)=\"addDocument()\">\n                                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon>\n                                            <span>Document</span>\n                                        </button>\n                                    </div>\n                                </div>\n                                <div class=\"mb-5\" *ngFor=\"let data of documentList;let i= index\">\n                                    <div class=\"row align-items-sm-end\">\n                                        <div class=\"col-sm-4\">\n                                            <condo-select \n                                                labelText=\"Document Category {{i}}\"\n                                                fieldPlaceholder=\"Document Category\"\n                                                [fieldList]=\"documentCategoryList | orderBy : 'lookupValueName'\"\n                                                fieldValue=\"lookupValueName\"\n                                                [fieldModel]=\"data.userDocumentCategoryId\"\n                                                fieldId=\"lookupValueId\"\n                                                (fieldParams)=\"setDocCategory($event,data)\" \n                                            ></condo-select>  \n                                        </div>\n                                        <div class=\"col-sm-8\">\t\n                                            <app-upload [fileIds]=\"data.fileIds\" [isEdit]=\"false\" (outputParams)=\"getFileIds($event,data)\"\n                                                [multiple]=\"true\"\n                                            ></app-upload>\n                                        </div>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                        <div class=\"mb-5\">\n                            <form #familyMemberForm=\"ngForm\">\n                                <mat-accordion>\n                                    <mat-expansion-panel [expanded]=\"isOpenPanel\">\n                                        <mat-expansion-panel-header>\n                                            <mat-panel-title>\n                                                Add Family Members Details\n                                            </mat-panel-title>\n                                        </mat-expansion-panel-header>\n                                            <div class=\"row\">\n                                                <div class=\"col-sm-12\">\n                                                    <div class=\"text-right add-button\">\n                                                        <button mat-flat-button [color]=\"'accent'\" (click)=\"addFamily()\">\n                                                            <mat-icon class=\"mr-2\" svgIcon=\"heroicons_solid:plus\"></mat-icon>\n                                                            <span>Member</span>\n                                                        </button>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                            <div class=\"row\" *ngFor=\"let family of addFamilyList;let i = index;\">\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"input-box\">\n                                                        <label>First Name*</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                            name=\"firstName{{i}}\" [(ngModel)]=\"family.firstName\" required>\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"input-box\">\n                                                        <label>Middle Name</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                            name=\"middleName{{i}}\" [(ngModel)]=\"family.middleName\">\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"input-box\">\n                                                        <label>Last Name*</label>\n                                                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter value\"\n                                                            name=\"lastName{{i}}\" [(ngModel)]=\"family.lastName\" required>\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"input-box\">\n                                                        <label>Phone/Mobile</label> \n                                                        <input type=\"number\" OnlyNumber=\"true\" class=\"form-control\"\n                                                            placeholder=\"Enter value\" name=\"phoneNo{{i}}\" [(ngModel)]=\"family.phoneNumber\">\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"select-box\">\n                                                        <label>Relationship*</label>\n                                                        <select name=\"relationship{{i}}\" id=\"relationship\" class=\"form-control\"\n                                                            [(ngModel)]=\"family.relationship\">\n                                                            <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                                                            <option *ngFor=\"let item of relationshipList\">{{ item }}\n                                                            </option>\n                                                        </select>\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"input-box\">\n                                                        <label>Email</label>\n                                                        <input type=\"email\" class=\"form-control\" placeholder=\"Enter value\" name=\"email{{i}}\"\n                                                            [(ngModel)]=\"family.emailId\">\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n\n                                                    <app-datepicker\n                                                        labelText=\"Date Of Birth\"\n                                                        fieldName=\"userDOB{{i}}\"\n                                                        [fieldRequired]=\"'null'\"\n                                                        type=\"date\"\n                                                        [fieldModel]=\"family.dob\"\n                                                        (fieldParams)=\"getFamilyDOB($event)\">\n                                                    </app-datepicker>\n\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"input-box radio-box\">\n                                                        <label>Gender*</label>\n                                                        <div class=\"form-group\">\n                                                            <input name=\"genderType{{i}}\" id=\"male{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                                value=\"43\" type=\"radio\" required>\n                                                            <label class=\"radio-inline\" for=\"male{{i}}\">Male</label>\n                                                        </div>\n                                                        <div class=\"form-group\">\n                                                            <input name=\"genderType{{i}}\" id=\"female{{i}}\" [(ngModel)]=\"family.genderType\"\n                                                                value=\"44\" type=\"radio\" required>\n                                                            <label class=\"radio-inline\" for=\"female{{i}}\">Female</label>\n                                                        </div>\n                                                    </div>\n                                                </div>\n                                                <div class=\"col-sm-6\">\n                                                    <div class=\"select-box\">\n                                                        <label>Blood Group</label>\n                                                        <select name=\"bloodGroup{{i}}\" id=\"bloodGroup\" class=\"form-control\"\n                                                            [(ngModel)]=\"family.bloodGroup\">\n                                                            <option [ngValue]=\"null\" disabled selected hidden>Select</option>\n                                                            <option *ngFor=\"let item of bloodGroupData\">{{ item.lookupValueName }}\n                                                            </option>\n                                                        </select>\n                                                    </div>\n                                                </div>\n                                            </div>\n                                    </mat-expansion-panel>\n                                </mat-accordion>\n                            </form>\n                        </div>\n                        <div class=\"mb-4\">\n                            <form #termsForm=\"ngForm\">\n                                <div class=\"row\">\n                                    <div class=\"col-sm-12\">\n                                      <div class=\"input-box\">\n                                        <label>Terms and Condition</label>\n                                        <textarea name=\"terms\" [value]=\"termsConditions\" readonly></textarea>\n                                      </div>\n                                    </div>\n                                    <div class=\"col-sm-12\">\n                                      <div class=\"input-box d-inline-block\">\n                                        <div class=\"form-group\">\n                                          <div class=\"form-check\">\n                                            <input type=\"checkbox\" class=\"form-check-input\" id=\"acceptTerms\" name=\"acceptTerms\"\n                                             [(ngModel)]=\"acceptTerms\" required>\n                                            <label class=\"form-check-label tiny\" for=\"acceptTerms\">I agree to the terms and condition<span class=\"required\">*</span></label>\n                                          </div>\n                                        </div>\n                                      </div>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                        <div class=\"text-right mr-4\">\n                            <button class=\"mt-4\" [disabled]=\"!userRegisterForm.valid\" mat-flat-button [color]=\"'primary'\" (click)=\"updateUser()\">Submit</button>\n                        </div>\n                    </div>\n                </div>\n            </condo-card>\n        </div>\n    </div>\n</div>";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ui/datepicker/datepicker.component.scss":
-    /*!*****************************************************************!*\
-      !*** ./src/app/modules/ui/datepicker/datepicker.component.scss ***!
-      \*****************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppModulesUiDatepickerDatepickerComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvdWkvZGF0ZXBpY2tlci9kYXRlcGlja2VyLmNvbXBvbmVudC5zY3NzIn0= */";
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ui/datepicker/datepicker.component.ts":
-    /*!***************************************************************!*\
-      !*** ./src/app/modules/ui/datepicker/datepicker.component.ts ***!
-      \***************************************************************/
-
-    /*! exports provided: DatepickerComponent */
-
-    /***/
-    function srcAppModulesUiDatepickerDatepickerComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DatepickerComponent", function () {
-        return DatepickerComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-      /* harmony import */
-
-
-      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @busacca/ng-pick-datetime */
-      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-
-      var DatepickerComponent = /*#__PURE__*/function () {
-        function DatepickerComponent(dateTimeAdapter, sharedService) {
-          _classCallCheck(this, DatepickerComponent);
-
-          this.dateTimeAdapter = dateTimeAdapter;
-          this.sharedService = sharedService;
-          this.labelText = '';
-          this.fieldClass = '';
-          this.fieldReadonly = false;
-          this.isDisabled = false;
-          this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          this.timeZonesData = [];
-        }
-
-        _createClass(DatepickerComponent, [{
-          key: "isFieldRequired",
-          value: function isFieldRequired() {
-            return this.fieldRequired == "required" ? true : false;
-          }
-        }, {
-          key: "onPickerChange",
-          value: function onPickerChange() {
-            this.fieldParams.emit(this.fieldModel);
-          }
-        }, {
-          key: "camelCase",
-          value: function camelCase(str) {
-            return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-              return index === 0 ? word.toLowerCase() : word.toUpperCase();
-            }).replace(/\s+/g, '');
-          }
-        }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            var _this = this;
-
-            this.index = this.sharedService.guid().replace(/-/g, '');
-            this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this.timeZone = timeZone;
-            });
-            var data = this.sharedService.getTimeZone();
-            var picker = data.picker;
-            /*let utcData = [];
-                 this.timeZonesData.forEach(item => {
-              let utcArray = item.utc;
-              utcArray.forEach(utc => {
-                utcData.push(utc)
-              });
-            });
-                 let region = utcData.filter( region => {
-              return region == picker.canonicalName
-            })
-            
-            let region = this.timeZonesData.filter( item => {
-              if(item.indexOf(picker.canonicalName) != -1){
-                return item
-              }
-            })
-                 console.log(region);*/
-
-            this.dateTimeAdapter.setLocale('en-US');
-          }
-        }, {
-          key: "ngAfterViewInit",
-          value: function ngAfterViewInit() {}
-        }, {
-          key: "ngOnChanges",
-          value: function ngOnChanges() {}
-        }]);
-
-        return DatepickerComponent;
-      }();
-
-      DatepickerComponent.ctorParameters = function () {
-        return [{
-          type: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__["DateTimeAdapter"]
-        }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]
-        }];
-      };
-
-      DatepickerComponent.propDecorators = {
-        labelText: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        fieldRequired: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        fieldName: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        type: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        fieldClass: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        fieldReadonly: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        fieldModel: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        min: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        max: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        isDisabled: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"]
-        }],
-        fieldParams: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"]
-        }],
-        components: [{
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"],
-          args: ['dateTimeElem']
-        }]
-      };
-      DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-datepicker',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./datepicker.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html"))["default"],
-        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        viewProviders: [{
-          provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"],
-          useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"]
-        }],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./datepicker.component.scss */
-        "./src/app/modules/ui/datepicker/datepicker.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__["DateTimeAdapter"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_4__["SharedService"]])], DatepickerComponent);
-      /***/
-    },
-
-    /***/
-    "./src/app/modules/ui/datepicker/datepicker.module.ts":
-    /*!************************************************************!*\
-      !*** ./src/app/modules/ui/datepicker/datepicker.module.ts ***!
-      \************************************************************/
-
-    /*! exports provided: DatepickerModule */
-
-    /***/
-    function srcAppModulesUiDatepickerDatepickerModuleTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "DatepickerModule", function () {
-        return DatepickerModule;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-      /* harmony import */
-
-
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-      /* harmony import */
-
-
-      var src_app_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! src/app/material */
-      "./src/app/material.ts");
-      /* harmony import */
-
-
-      var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./datepicker.component */
-      "./src/app/modules/ui/datepicker/datepicker.component.ts");
-      /* harmony import */
-
-
-      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! @busacca/ng-pick-datetime */
-      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
-      /* harmony import */
-
-
-      var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-      /*! src/app/shared/pipe/shared.pipe */
-      "./src/app/shared/pipe/shared.pipe.ts");
-
-      var DatepickerModule_1;
-
-      var DatepickerModule = DatepickerModule_1 = /*#__PURE__*/function () {
-        function DatepickerModule() {
-          _classCallCheck(this, DatepickerModule);
-        }
-
-        _createClass(DatepickerModule, null, [{
-          key: "forRoot",
-          value: function forRoot() {
-            return {
-              ngModule: DatepickerModule_1,
-              providers: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["DatePipe"]]
-            };
-          }
-        }]);
-
-        return DatepickerModule;
-      }();
-
-      DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
-        exports: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
-        providers: [{
-          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS"],
-          useValue: {
-            useUtc: true
-          }
-        }],
-        bootstrap: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]]
-      })], DatepickerModule);
       /***/
     },
 
@@ -486,23 +156,23 @@
         _createClass(UserApprovalPendingComponent, [{
           key: "logout",
           value: function logout() {
-            var _this2 = this;
+            var _this = this;
 
             this.authService.logout().subscribe(function (res) {
-              _this2.router.navigate(['/login']);
+              _this.router.navigate(['/login']);
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this3 = this;
+            var _this2 = this;
 
             // Subscribe to config changes
             this._condoConfigService.config$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this._unsubscribeAll)).subscribe(function (config) {
               // Update the selected theme class name on body
               var themeName = 'condo-theme-' + config.theme;
 
-              _this3._document.body.classList.add(themeName);
+              _this2._document.body.classList.add(themeName);
             });
           }
         }]);
@@ -683,7 +353,7 @@
 
       var UserRegistrationFormComponent = /*#__PURE__*/function () {
         function UserRegistrationFormComponent(_condoConfigService, _document, apartmentService, authService, lookupService, sharedService, userService, router, _changeDetectorRef, documentService, sessionService) {
-          var _this4 = this;
+          var _this3 = this;
 
           _classCallCheck(this, UserRegistrationFormComponent);
 
@@ -716,7 +386,7 @@
             apartmentBlockUnitUserId: this.sessionService.apartmentBlockUnitUserId
           };
           this.apartmentService.getApartmentBlockUnitUserByApartmentBlockUnitUserId(blockUnit).subscribe(function (res) {
-            if (res.length > 0) _this4.blockUnitInfo = res[0];
+            if (res.length > 0) _this3.blockUnitInfo = res[0];
           });
         }
 
@@ -743,10 +413,10 @@
         }, {
           key: "logout",
           value: function logout() {
-            var _this5 = this;
+            var _this4 = this;
 
             this.authService.logout().subscribe(function (res) {
-              _this5.router.navigate(['/login']);
+              _this4.router.navigate(['/login']);
             });
           }
         }, {
@@ -778,7 +448,7 @@
         }, {
           key: "updateUser",
           value: function updateUser() {
-            var _this6 = this;
+            var _this5 = this;
 
             this.message = null;
 
@@ -806,27 +476,27 @@
               };
               this.userService.updateUser(params).subscribe(function (res) {
                 if (res.message) {
-                  _this6.createDocument();
+                  _this5.createDocument();
 
-                  _this6.updateBlockUnitUser();
+                  _this5.updateBlockUnitUser();
 
-                  _this6.addFamilyDetails();
+                  _this5.addFamilyDetails();
                 } else {
-                  _this6.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this5.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
 
-                _this6.isDataLoaded = true;
+                _this5.isDataLoaded = true;
               }, function (error) {
-                _this6.isDataLoaded = true;
+                _this5.isDataLoaded = true;
 
-                _this6.sharedService.openSnackBar('Server Error', 'error');
+                _this5.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
         }, {
           key: "createDocument",
           value: function createDocument() {
-            var _this7 = this;
+            var _this6 = this;
 
             this.isDataLoaded = false;
             this.documentList.forEach(function (doc) {
@@ -834,15 +504,15 @@
 
               if (doc.fileIds && doc.userDocumentCategoryId) {
                 var uploadDetails = {
-                  "ApartmentId": _this7.sessionService.apartmentId,
-                  "ApartmentBlockUnitId": _this7.sessionService.apartmentBlockUnitID,
+                  "ApartmentId": _this6.sessionService.apartmentId,
+                  "ApartmentBlockUnitId": _this6.sessionService.apartmentBlockUnitID,
                   "UserDocumentCategoryId": doc.userDocumentCategoryId,
                   "UserDocumentTypeId": 1,
                   "UserDocumentAccessibleToId": 1,
                   "UserDocumentName": 'File',
                   "Description": 'File',
                   "IsActive": true,
-                  "InsertedBy": _this7.sessionService.userId,
+                  "InsertedBy": _this6.sessionService.userId,
                   "InsertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                   "UpdatedBy": null,
                   "UpdatedOn": null,
@@ -851,21 +521,21 @@
                   "files": null,
                   "FileDetailsIds": doc.fileIds
                 };
-                multipleApiCall.push(_this7.documentService.addUserDocument(uploadDetails));
+                multipleApiCall.push(_this6.documentService.addUserDocument(uploadDetails));
                 Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
                   if (res.length > 0) {
                     res.forEach(function (fileRes) {
                       if (fileRes.responseData && fileRes.responseData.value.errorMessage) {
-                        _this7.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
+                        _this6.sharedService.openSnackBar(res.responseData.value.errorMessage, 'error');
                       }
                     });
                   }
 
-                  _this7.isDataLoaded = true;
+                  _this6.isDataLoaded = true;
                 }, function (error) {
-                  _this7.isDataLoaded = true;
+                  _this6.isDataLoaded = true;
 
-                  _this7.sharedService.openSnackBar('Server Error', 'error');
+                  _this6.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -873,7 +543,7 @@
         }, {
           key: "updateBlockUnitUser",
           value: function updateBlockUnitUser() {
-            var _this8 = this;
+            var _this7 = this;
 
             this.isDataLoaded = false;
             var params = {
@@ -885,25 +555,25 @@
               })
             };
             this.apartmentService.updateApartmentBlockUnitUser(params).subscribe(function (res) {
-              _this8.isDataLoaded = true;
+              _this7.isDataLoaded = true;
 
               if (res.message) {
-                _this8.sharedService.openSnackBar('Admin received the request and will contact shortly', 'success');
+                _this7.sharedService.openSnackBar('Admin received the request and will contact shortly', 'success');
 
-                _this8.router.navigate(['/user/registration/approval-pending']);
+                _this7.router.navigate(['/user/registration/approval-pending']);
               } else {
-                _this8.sharedService.openSnackBar(res.errorMessage, 'error');
+                _this7.sharedService.openSnackBar(res.errorMessage, 'error');
               }
             }, function (error) {
-              _this8.isDataLoaded = true;
+              _this7.isDataLoaded = true;
 
-              _this8.sharedService.openSnackBar('Server Error', 'error');
+              _this7.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "addFamilyDetails",
           value: function addFamilyDetails() {
-            var _this9 = this;
+            var _this8 = this;
 
             this.isDataLoaded = false;
             var multipleApiCall = [];
@@ -913,14 +583,14 @@
                 "middleName": key.middleName,
                 "lastName": key.lastName,
                 "relationship": key.relationship,
-                "relatedUserId": parseInt(_this9.sessionService.userId),
+                "relatedUserId": parseInt(_this8.sessionService.userId),
                 "emailId": key.emailId,
                 "genderId": parseInt(key.genderType),
                 "dob": key.dob,
                 "bloodGroup": key.bloodGroup,
                 "phoneNumber": key.phoneNumber ? key.phoneNumber.toString() : '',
                 "isActive": true,
-                "insertedBy": parseInt(_this9.sessionService.userId),
+                "insertedBy": parseInt(_this8.sessionService.userId),
                 "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_15___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
@@ -928,56 +598,56 @@
               var params = {
                 userFamilyMember: details
               };
-              multipleApiCall.push(_this9.userService.addUserFamilyMember(params));
+              multipleApiCall.push(_this8.userService.addUserFamilyMember(params));
             });
             Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["forkJoin"]).apply(void 0, multipleApiCall).subscribe(function (res) {
               res.forEach(function (data) {
                 if (data.errorMessage) {
-                  _this9.sharedService.openSnackBar(res.errorMessage, 'error');
+                  _this8.sharedService.openSnackBar(res.errorMessage, 'error');
                 }
               });
-              _this9.isDataLoaded = true;
+              _this8.isDataLoaded = true;
             }, function (error) {
-              _this9.isDataLoaded = true;
+              _this8.isDataLoaded = true;
 
-              _this9.sharedService.openSnackBar("Server Error", 'error');
+              _this8.sharedService.openSnackBar("Server Error", 'error');
             });
           }
         }, {
           key: "getUserInfo",
           value: function getUserInfo() {
-            var _this10 = this;
+            var _this9 = this;
 
             var params = {
               userid: this.sessionService.userId
             };
             this.userService.getUserById(params).subscribe(function (res) {
               if (res.length > 0) {
-                _this10.userInfo = res[0];
+                _this9.userInfo = res[0];
               }
 
-              _this10.isDataLoaded = true;
+              _this9.isDataLoaded = true;
             }, function (error) {
-              _this10.isDataLoaded = true;
+              _this9.isDataLoaded = true;
 
-              _this10.sharedService.openSnackBar('Server Error', 'error');
+              _this9.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this11 = this;
+            var _this10 = this;
 
             // Subscribe to config changes
             this._condoConfigService.config$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["takeUntil"])(this._unsubscribeAll)).subscribe(function (config) {
               document.querySelector('body').className = '';
 
-              _this11._document.body.classList.add('condo-splash-screen-hidden'); // Update the selected theme class name on body
+              _this10._document.body.classList.add('condo-splash-screen-hidden'); // Update the selected theme class name on body
 
 
               var themeName = 'condo-theme-' + config.theme;
 
-              _this11._document.body.classList.add(themeName);
+              _this10._document.body.classList.add(themeName);
             });
 
             this.getUserInfo(); //Blood Group
@@ -987,7 +657,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(groupParams).subscribe(function (res) {
-              _this11.bloodGroupData = res;
+              _this10.bloodGroupData = res;
             }); //Document Category List
 
             var params = {
@@ -995,7 +665,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(params).subscribe(function (res) {
-              _this11.documentCategoryList = res;
+              _this10.documentCategoryList = res;
             }); //Terms and Condition
 
             this.apartmentService.getAllTermsConditionsByApartmentIdTermsNo({
@@ -1003,7 +673,7 @@
               TermsNo: "3"
             }).subscribe(function (res) {
               if (res.length > 0) {
-                _this11.termsConditions = res[0].termsTemplate;
+                _this10.termsConditions = res[0].termsTemplate;
               }
             });
           }
