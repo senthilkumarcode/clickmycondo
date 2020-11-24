@@ -326,19 +326,12 @@
               //   item.roleName = item.userInfo[0].roleName
               //   item.userId = item.userInfo[0].userId
               // })
+              //this.approvedUsersNormalData = this.approvedUsersData;
 
-              _this3.approvedUsersNormalData = _this3.approvedUsersData;
               _this3.totalItems = _this3.approvedUsersData.length;
 
               if (_this3.totalItems > _this3.itemLimit) {
-                if (type == 'initial') _this3.ItemEndIndex = _this3.itemLimit; // else {
-                //   let event = {
-                //     ItemStartIndex : this.ItemStartIndex,
-                //     ItemEndIndex : this.ItemEndIndex,
-                //     itemLimit : 10,
-                //   }
-                //   this.getIndexParams(event)
-                // }
+                if (type == 'initial' || type == 'block') _this3.ItemEndIndex = _this3.itemLimit;
               } else {
                 _this3.ItemEndIndex = _this3.totalItems;
               }

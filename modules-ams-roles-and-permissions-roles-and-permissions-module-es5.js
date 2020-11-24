@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #rolesForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"p-5\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Type*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleTypeId\" class=\"form-control\" required>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" value=\"{{item.value}}\">{{item?.name}}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\"\n\t\t\t\t\t\t\t\t\t\trows=\"3\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button\n\t\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/roles-type-list\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Cancel</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t\t<!-- <button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"updateRole()\">Update</button> -->\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t[appearance]=\"message.appearance\"\n\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t[type]=\"message.type\"\n\t\t\t[@shake]=\"message.shake\">\n\t\t\t{{message.content}}\n\t\t</condo-message>\n\t\t<form #rolesForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<h4>Create Roles</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"p-5\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Type*</label>\n\t\t\t\t\t\t\t\t\t<select name=\"roleTypeId\" [(ngModel)]=\"roleInfo.roleTypeId\" class=\"form-control\" required>\n\t\t\t\t\t\t\t\t\t\t<option *ngFor=\"let item of allRoles\" [ngValue]=\"item.value\">{{item?.name}}\n\t\t\t\t\t\t\t\t\t\t</option>\n\t\t\t\t\t\t\t\t\t</select>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Roles Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleInfo.roleName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"roleInfo.description\" cols=\"10\"\n\t\t\t\t\t\t\t\t\t\trows=\"3\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button\n\t\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/roles-type-list\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Cancel</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"updateRole()\">Update</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -42,7 +42,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #rolesForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t\t</condo-message>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<h4>Create Menu Control</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"p-5\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"Role Type\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Role Type\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"allRoles\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleTypeId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"value\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setRoleType($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"roleList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setRole($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Menu Control Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\"\n\t\t\t\t\t\t\t\t\t\trows=\"3\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button\n\t\t\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/role-permissions-list\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Cancel</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"updateRole()\">Update</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n\t<div class=\"main\">\n\t\t<form #rolesForm=\"ngForm\" name=\"addSlotForm\" novalidate>\n\t\t\t<condo-message class=\"mb-3\" *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t{{message.content}}\n\t\t\t</condo-message>\n\t\t\t<condo-card>\n\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<h4>Create Menu Control</h4>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t<div class=\"p-5\">\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"Role Type\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select Role Type\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"allRoles\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"name\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleTypeId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"value\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setRoleType($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"roleTypeId\">\n\t\t\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\t\t\tlabelText=\"{{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\tfieldPlaceholder=\"Select {{roleTypeId == 1 ? 'Admin' : 'Staff'}} Role\"\n\t\t\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t\t\t[fieldList]=\"roleList\"\n\t\t\t\t\t\t\t\t\tfieldValue=\"roleName\"\n\t\t\t\t\t\t\t\t\t[fieldModel]=\"roleId\"\n\t\t\t\t\t\t\t\t\tfieldId=\"roleId\"\n\t\t\t\t\t\t\t\t\t(fieldParams)=\"setRole($event)\" \n\t\t\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t\t\t<label>Menu Control Name*</label>\n\t\t\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" name=\"roleName\" [(ngModel)]=\"roleName\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<!-- <div class=\"col-sm-4\">\n\t\t\t\t\t\t\t\t<div class=\"select-box\">\n\t\t\t\t\t\t\t\t\t<label>Description</label>\n\t\t\t\t\t\t\t\t\t<textarea name=\"description\" [(ngModel)]=\"description\" cols=\"10\"\n\t\t\t\t\t\t\t\t\t\trows=\"3\"></textarea>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div> -->\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t<div class=\"col-sm-12 d-flex justify-content-end\">\n\t\t\t\t\t\t\t\t<button class=\"mr-3\" mat-flat-button\n\t\t\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/role-permissions-list\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Cancel</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"addRole()\">Submit</button>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" *ngIf=\"!isCreate\"\n\t\t\t\t\t\t\t\t\t(click)=\"updateRole()\">Update</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</condo-card>\n\t\t</form>\n\t</div>\n</div>";
       /***/
     },
 
@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isShowRoleList\"></app-loader>\n\t\t<condo-card *ngIf=\"isShowRoleList\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<h4>Roles for Staff & Admin</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"roleTypeSearch\"\n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" href=\"javascript:void(0)\"\n\t\t\t\t\trouterLink=\"/ams/roles-permissions/role-type\" routerLinkActive=\"active\"\n\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Create Role</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleTypeList\" [columns]=\"roleHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isShowRoleList\"></app-loader>\n\t\t<condo-card *ngIf=\"isShowRoleList\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<h4>Roles for Staff & Admin</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"roleTypeSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" href=\"javascript:void(0)\"\n\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/role-type\" routerLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Create Role</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleTypeList\" [columns]=\"roleHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -82,7 +82,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isShowRoleList\"></app-loader>\n\t\t<condo-card *ngIf=\"isShowRoleList\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<h4>Roles And Permissions</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto d-none d-md-block mr-3\">\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"roleSearch\"\n\t\t\t\t\t\t(ngModelChange)=\"onGlSearchFilter()\">\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/configure-roles\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Add Menu Control</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleList\" [columns]=\"roleHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-aa-unit-to-unit-allocation-wrapper\">\n\t<div class=\"main\">\n\t\t<app-loader *ngIf=\"!isShowRoleList\"></app-loader>\n\t\t<condo-card *ngIf=\"isShowRoleList\">\n\t\t\t<div CondoCardHeader>\n\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t<div class=\"d-flex align-items-center\">\n\t\t\t\t\t\t<h4>Roles And Permissions</h4>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t<app-table-search [input]=\"roleSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" href=\"javascript:void(0)\"\n\t\t\t\t\t\t\trouterLink=\"/ams/roles-permissions/configure-roles\" routerLinkActive=\"active\"\n\t\t\t\t\t\t\t[routerLinkActiveOptions]=\"{exact:true}\">Add Menu Control</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div CondoCardBody>\n\t\t\t\t<jqxGrid [theme]=\"'material'\" [width]=\"'100%'\" [rowsheight]=\"48\" [autoheight]=\"true\" [pageable]=\"true\"\n\t\t\t\t\t[filterable]=\"true\" [sortable]=\"true\" [source]=\"roleList\" [columns]=\"roleHeader\"\n\t\t\t\t\t[columnsresize]=\"true\" [enablehover]=\"false\" #datagrid>\n\t\t\t\t</jqxGrid>\n\t\t\t</div>\n\t\t</condo-card>\n\t</div>\n</div>";
       /***/
     },
 
@@ -102,7 +102,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                        <p>{{menuList.length}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <button mat-flat-button \n                        routerLink=\"/ams/roles-permissions/role-permissions-list\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Back to Role List</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"p-5\" *ngIf=\"isDataLoaded\" > \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [value]=\"item\"\n                                    [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [value]=\"item\"\n                                    [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\">\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\"\n                                    [value]=\"item\">\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"parking-create-parking-slot-wrapper\">\n    <div class=\"main\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex\">\n                    <div>\n                        <h4>Set Permissions</h4>\n                        <p>{{menuList.length}} results</p>\n                    </div>\n                    <div class=\"ml-auto d-none d-md-block mr-3\">\n                        <button mat-flat-button \n                        routerLink=\"/ams/roles-permissions/role-permissions-list\" \n\t\t\t\t\t\trouterLinkActive=\"active\"\n\t\t\t\t\t\t[routerLinkActiveOptions] = \"{exact:true}\">Back to Role List</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <app-loader *ngIf=\"!isDataLoaded\" ></app-loader>\n                <div class=\"p-5\" *ngIf=\"isDataLoaded\" > \n                    <div class=\"row\">\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Menu</h5>\n                            <mat-selection-list #menu [multiple]=\"false\" (selectionChange)=\"changeMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of menuList;let i=index\" [value]=\"item\"\n                                    [selected]=\"item.menuName === selectedMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\" checked>\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.menuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\">\n                            <h5 class=\"mb-4\">Sub-Menu</h5>\n                            <mat-selection-list #submenu [multiple]=\"false\" (selectionChange)=\"changeSubMenu($event)\">\n                                <mat-list-option *ngFor=\"let item of subMenuList\" [value]=\"item\"\n                                    [selected]=\"item.subMenuName === selectedSubMenuName\">\n                                    <!-- <div class=\"form-check recur-check float-left\">\n                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"{{item}}\" name=\"{{item}}\">\n                                        <label class=\"form-check-label tiny\" for=\"{{item}}\">{{item}}</label>\n                                    </div> -->\n                                    {{item?.subMenuName}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                        <div class=\"col-md-4 col-lg-4 col-sm-6 col-xs-6\" *ngIf=\"actionList && actionList.length\">\n                            <h5 class=\"mb-4\">Action</h5>\n                            <mat-selection-list #menuActions (selectionChange)=\"changeActions($event)\">\n                                <mat-list-option *ngFor=\"let item of actionList\" [selected]=\"item.checked\"\n                                    [value]=\"item\">\n                                    {{item?.name | uppercase}}\n                                </mat-list-option>\n                            </mat-selection-list>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </condo-card>\n    </div>\n</div>";
       /***/
     },
 
@@ -166,46 +166,40 @@
       /* harmony import */
 
 
-      var src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/api/controllers/Screen */
-      "./src/app/api/controllers/Screen.ts");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/core/session/session.service */
       "./src/app/core/session/session.service.ts");
       /* harmony import */
 
 
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/shared/services/shared.service */
       "./src/app/shared/services/shared.service.ts");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
       /* harmony import */
 
 
-      var src_condo_animations__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var src_condo_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
 
       var AddRoleComponent = /*#__PURE__*/function () {
-        function AddRoleComponent(userService, router, activatedRoute, sessionService, sharedService, _changeDetectorRef, screenService) {
+        function AddRoleComponent(userService, router, activatedRoute, sessionService, sharedService, _changeDetectorRef) {
           _classCallCheck(this, AddRoleComponent);
 
           this.userService = userService;
@@ -214,59 +208,16 @@
           this.sessionService = sessionService;
           this.sharedService = sharedService;
           this._changeDetectorRef = _changeDetectorRef;
-          this.screenService = screenService;
           this.allRoles = [];
           this.isCreate = true;
+          this.roleInfo = {};
           this.message = null;
         }
 
         _createClass(AddRoleComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {
-            if (this.activatedRoute.params['value'].id != undefined) {
-              this.roleId = this.activatedRoute.params['value'].id;
-              this.isCreate = false;
-              this.getRole();
-            }
-
-            this.getAllRoles();
-          }
-        }, {
-          key: "getRole",
-          value: function getRole() {
-            var _this = this;
-
-            var queryParamBase = {
-              roleId: this.roleId
-            };
-            this.userService.getRoleByRoleId(queryParamBase).subscribe(function (resp) {
-              _this.menuRole = resp[0];
-              _this.roleTypeId = _this.menuRole.roleId;
-              _this.roleName = _this.menuRole.roleName;
-              _this.description = _this.menuRole.description;
-            });
-          }
-        }, {
-          key: "getAllRoles",
-          value: function getAllRoles() {
-            var _this2 = this;
-
-            this.userService.getAllRoleTypes().subscribe(function (resp) {
-              _this2.allRoles = resp;
-
-              if (_this2.allRoles && _this2.allRoles.length) {
-                _this2.allRoles.filter(function (key) {
-                  if (key.value == 2 || key.value == 4 || key.value == 5) {
-                    _this2.allRoles.splice(_this2.allRoles.indexOf(key), 1);
-                  }
-                });
-              }
-            });
-          }
-        }, {
           key: "addRole",
           value: function addRole() {
-            var _this3 = this;
+            var _this = this;
 
             this.message = null;
 
@@ -289,26 +240,106 @@
               var addRoleParam = {
                 "roleId": 0,
                 "apartmentId": this.sessionService.apartmentId,
-                "roleName": this.roleName,
-                "description": this.description,
+                "roleName": this.roleInfo.roleName,
+                "description": this.roleInfo.description,
                 "isActive": true,
                 "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
-                "updatedBy": this.sessionService.userId,
-                "updatedOn": "2020-08-09T06:22:21.539Z",
-                "roleTypeId": this.roleTypeId
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null,
+                "roleTypeId": this.roleInfo.roleTypeId
               };
               var roleParam = {
                 role: addRoleParam
               };
               this.userService.addRole(roleParam).subscribe(function (resp) {
-                _this3.sharedService.openSnackBar('Role Added Successfully', 'success');
+                if (resp.message) {
+                  _this.router.navigate(['roles-type-list'], {
+                    relativeTo: _this.activatedRoute.parent
+                  });
 
-                _this3.roleTypeId = null;
-                _this3.roleName = '';
-                _this3.description = '';
+                  _this.sharedService.openSnackBar('Role Added Successfully', 'success');
+                } else _this.sharedService.openSnackBar(resp.errorMessage, 'error');
+              }, function (error) {
+                _this.sharedService.openSnackBar('Server Error', 'error');
               });
             }
+          }
+        }, {
+          key: "updateRole",
+          value: function updateRole() {
+            var _this2 = this;
+
+            this.message = null;
+
+            if (!this.form.valid) {
+              window.scroll({
+                top: 0,
+                behavior: 'smooth'
+              }); // Show the validation message
+
+              this.message = {
+                appearance: 'outline',
+                content: "Fill the Required Fields",
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              }; //Mark for check
+
+              this._changeDetectorRef.markForCheck();
+            } else {
+              var addRoleParam = {
+                "roleId": this.roleInfo.roleId,
+                "apartmentId": this.sessionService.apartmentId,
+                "roleName": this.roleInfo.roleName,
+                "description": this.roleInfo.description,
+                "isActive": true,
+                "insertedBy": this.roleInfo.insertedBy,
+                "insertedOn": this.roleInfo.insertedOn,
+                "updatedBy": this.sessionService.userId,
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "roleTypeId": this.roleInfo.roleTypeId
+              };
+              var roleParam = {
+                role: addRoleParam
+              };
+              this.userService.updateRole(roleParam).subscribe(function (resp) {
+                if (resp.message) {
+                  _this2.router.navigate(['roles-type-list'], {
+                    relativeTo: _this2.activatedRoute.parent
+                  });
+
+                  _this2.sharedService.openSnackBar(resp.message, 'success');
+                } else _this2.sharedService.openSnackBar(resp.errorMessage, 'error');
+              }, function (error) {
+                _this2.sharedService.openSnackBar('Server Error', 'error');
+              });
+            }
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this3 = this;
+
+            if (this.activatedRoute.params['value'].id != undefined) {
+              this.isCreate = false;
+              var queryParamBase = {
+                roleId: this.activatedRoute.params['value'].id
+              };
+              this.userService.getRoleByRoleId(queryParamBase).subscribe(function (resp) {
+                _this3.roleInfo = resp[0];
+              });
+            }
+
+            this.userService.getAllRoleTypes().subscribe(function (resp) {
+              if (Array.isArray(resp)) {
+                _this3.allRoles = resp.filter(function (data) {
+                  if (data.value == 1 || data.value == 3) {
+                    return data;
+                  }
+                });
+              }
+            });
           }
         }]);
 
@@ -319,17 +350,15 @@
         return [{
           type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
-          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
+          type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"]
         }, {
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
-        }, {
-          type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]
         }];
       };
 
@@ -345,11 +374,11 @@
         /*! raw-loader!./add-role.component.html */
         "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ams/roles-and-permissions/add-role/add-role.component.html"))["default"],
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
-        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_8__["CondoAnimations"],
+        animations: src_condo_animations__WEBPACK_IMPORTED_MODULE_7__["CondoAnimations"],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-role.component.scss */
         "./src/app/modules/ams/roles-and-permissions/add-role/add-role.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])], AddRoleComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_2__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_4__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddRoleComponent);
       /***/
     },
 
@@ -444,15 +473,22 @@
       var src_condo_animations__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/@condo/animations */
       "./src/@condo/animations/index.ts");
+      /* harmony import */
+
+
+      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! src/app/shared/services/shared.service */
+      "./src/app/shared/services/shared.service.ts");
 
       var ConfigureRolesComponent = /*#__PURE__*/function () {
-        function ConfigureRolesComponent(userService, router, activatedRoute, sessionService, _changeDetectorRef, screenService) {
+        function ConfigureRolesComponent(userService, router, activatedRoute, sessionService, sharedService, _changeDetectorRef, screenService) {
           _classCallCheck(this, ConfigureRolesComponent);
 
           this.userService = userService;
           this.router = router;
           this.activatedRoute = activatedRoute;
           this.sessionService = sessionService;
+          this.sharedService = sharedService;
           this._changeDetectorRef = _changeDetectorRef;
           this.screenService = screenService;
           this.allRoles = [];
@@ -541,7 +577,15 @@
                   };
 
                   _this5.screenService.addMenuRoleSecLevel(roleSecLevelParam).subscribe(function (resp) {
-                    _this5.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+                    if (resp.message) {
+                      _this5.sharedService.openSnackBar('Menu Control Added Successfully', 'success');
+
+                      _this5.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+                    } else {
+                      _this5.sharedService.openSnackBar(resp.errorMessage, 'error');
+                    }
+                  }, function (error) {
+                    _this5.sharedService.openSnackBar('Server Error', 'error');
                   });
                 }
               });
@@ -575,8 +619,8 @@
                 "apartmentId": this.sessionService.apartmentId,
                 "name": this.roleName,
                 "isActive": true,
-                "insertedBy": 0,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "insertedBy": this.menuRole.insertedBy,
+                "insertedOn": this.menuRole.insertedOn,
                 "updatedBy": this.sessionService.userId,
                 "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
               };
@@ -584,7 +628,15 @@
                 menuSecLevel: updataParam
               };
               this.screenService.updateMenuSecLevel(updateRoleParam).subscribe(function (resp) {
-                _this6.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+                if (resp.message) {
+                  _this6.sharedService.openSnackBar('Menu Control Updated', 'success');
+
+                  _this6.router.navigate(['/ams/roles-permissions/role-permissions-list']);
+                } else {
+                  _this6.sharedService.openSnackBar(resp.errorMessage, 'error');
+                }
+              }, function (error) {
+                _this6.sharedService.openSnackBar('Server Error', 'error');
               });
             }
           }
@@ -604,6 +656,9 @@
                 _this7.menuRole = resp[0];
                 _this7.roleId = _this7.menuRole.roleId;
                 _this7.roleName = _this7.menuRole.roleName;
+                _this7.roleTypeId = _this7.menuRole.roleTypeId;
+
+                _this7.getRoleList();
               });
             }
 
@@ -632,6 +687,8 @@
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]
         }, {
+          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"]
+        }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }, {
           type: src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]
@@ -654,7 +711,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./configure-roles.component.scss */
         "./src/app/modules/ams/roles-and-permissions/configure-roles/configure-roles.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])], ConfigureRolesComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_4__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_8__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"], src_app_api_controllers_Screen__WEBPACK_IMPORTED_MODULE_3__["ScreenService"]])], ConfigureRolesComponent);
       /***/
     },
 
@@ -770,8 +827,65 @@
             this.router.navigateByUrl('/ams/roles-permissions/edit-role-type/' + roleId);
           }
         }, {
+          key: "onDeleteRole",
+          value: function onDeleteRole(detail) {
+            var dataRecord = this.datagrid.getrowdata(detail.rowId);
+            var roleId = dataRecord.roleId;
+            this.modalService.showConfirmModal(roleId);
+          }
+        }, {
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this8 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.roleHeader.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this8.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
+          key: "getRolePermissionList",
+          value: function getRolePermissionList() {
+            var _this9 = this;
+
+            this.isShowRoleList = false;
+            var param = {
+              ApartmentId: this.sessionService.apartmentId
+            };
+            this.userService.getAllRoles(param).subscribe(function (resp) {
+              var refMenuData = resp.filter(function (data) {
+                return data.isActive;
+              });
+              var gridSourceData = {
+                localdata: refMenuData,
+                datatype: "array"
+              };
+              _this9.roleTypeList = new jqx.dataAdapter(gridSourceData);
+              _this9.isShowRoleList = true;
+              _this9.isEnableCreate = true;
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            var _this10 = this;
+
+            this.getRolePermissionList();
+
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
             };
@@ -804,57 +918,39 @@
               align: 'center',
               width: 120,
               cellsrenderer: function cellsrenderer(row) {
-                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a></div>';
+                return '<div class="simple-actions"><a href="javascript:void(0)" class="mr-2" onClick="onEditRole(' + row + ')"><i class="fa fa-pencil icon edit" aria-hidden="true"></i></a>' + '<a href="javascript:void(0)" class="mr-2" onClick="onDeleteRole(' + row + ')"><i class="fa fa-trash icon delete" aria-hidden="true"></i></a>' + '</div>';
               },
               renderer: columnrenderer
             }];
-            this.getRolePermissionList();
-          }
-        }, {
-          key: "getRolePermissionList",
-          value: function getRolePermissionList() {
-            var _this8 = this;
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
+              if (id != null) {
+                var params = {
+                  roleId: id,
+                  deleteBy: _this10.sessionService.userId
+                };
 
-            this.isShowRoleList = false;
-            var param = {
-              ApartmentId: this.sessionService.apartmentId
-            };
-            this.userService.getAllRoles(param).subscribe(function (resp) {
-              var refMenuData = resp.filter(function (data) {
-                return data.isActive;
-              });
-              var gridSourceData = {
-                localdata: refMenuData,
-                datatype: "array"
-              };
-              _this8.roleTypeList = new jqx.dataAdapter(gridSourceData);
-              _this8.isShowRoleList = true;
-              _this8.isEnableCreate = true;
+                _this10.userService.deleteRole(params).subscribe(function (res) {
+                  _this10.sharedService.setUnitListDeleteIndex(null);
+
+                  if (res.message) {
+                    _this10.getRolePermissionList();
+
+                    _this10.sharedService.openSnackBar('Role deleted Successfully', 'success');
+                  } else {
+                    _this10.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this10.sharedService.setUnitListDeleteIndex(null);
+
+                  _this10.sharedService.openSnackBar('Server Error', 'error');
+                });
+              }
             });
           }
         }, {
-          key: "onGlSearchFilter",
-          value: function onGlSearchFilter() {
-            var _this9 = this;
-
-            if (this.roleTypeSearch != "") {
-              var filtergroup = new jqx.filter();
-              var filter_or_operator = 1;
-              var filtervalue = this.roleTypeSearch;
-              var filtercondition = 'contains';
-              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-              filtergroup.operator = 'or';
-              filtergroup.addfilter(filter_or_operator, filterData);
-              this.datagrid.showfiltercolumnbackground(false);
-              this.roleHeader.forEach(function (item) {
-                if (item.datafield != 'Actions') {
-                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-              });
-              this.datagrid.applyfilters();
-            } else {
-              this.datagrid.clearfilters();
-            }
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 
@@ -885,6 +981,10 @@
         onEditRole: [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
           args: ['window:onEditRole', ['$event.detail']]
+        }],
+        onDeleteRole: [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"],
+          args: ['window:onDeleteRole', ['$event.detail']]
         }]
       };
       RoleTypeListComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -907,6 +1007,17 @@
       }
 
       window.onEditRole = onEditRole;
+
+      function onDeleteRole(row) {
+        var event = new CustomEvent('onDeleteRole', {
+          detail: {
+            rowId: row
+          }
+        });
+        window.dispatchEvent(event);
+      }
+
+      window.onDeleteRole = onDeleteRole;
       /***/
     },
 
@@ -1015,6 +1126,30 @@
         }
 
         _createClass(RolesAndPermissionsListComponent, [{
+          key: "onGlSearchFilter",
+          value: function onGlSearchFilter(event) {
+            var _this11 = this;
+
+            if (event != "") {
+              var filtergroup = new jqx.filter();
+              var filter_or_operator = 1;
+              var filtervalue = event;
+              var filtercondition = 'contains';
+              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
+              filtergroup.operator = 'or';
+              filtergroup.addfilter(filter_or_operator, filterData);
+              this.datagrid.showfiltercolumnbackground(false);
+              this.roleHeader.forEach(function (item) {
+                if (item.datafield != 'Actions') {
+                  _this11.datagrid.addfilter(item.datafield, filtergroup, true);
+                }
+              });
+              this.datagrid.applyfilters();
+            } else {
+              this.datagrid.clearfilters();
+            }
+          }
+        }, {
           key: "navigateToPermission",
           value: function navigateToPermission(detail) {
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
@@ -1040,9 +1175,31 @@
             this.modalService.showConfirmModal(menuRoleSecLevelId);
           }
         }, {
+          key: "getRolePermissionList",
+          value: function getRolePermissionList() {
+            var _this12 = this;
+
+            this.isShowRoleList = false;
+            var param = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.screenService.getAllDefaultMenuRoleSecLevelbyApartmentId(param).subscribe(function (resp) {
+              var refMenuData = resp.filter(function (data) {
+                return data.isActive;
+              });
+              var gridSourceData = {
+                localdata: refMenuData,
+                datatype: "array"
+              };
+              _this12.roleList = new jqx.dataAdapter(gridSourceData);
+              _this12.isShowRoleList = true;
+              _this12.isEnableCreate = true;
+            });
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this10 = this;
+            var _this13 = this;
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
               return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -1088,13 +1245,23 @@
               if (id != null) {
                 var params = {
                   menuRoleSecLevelId: id,
-                  deleteBy: parseInt(_this10.sessionService.userId)
+                  deleteBy: parseInt(_this13.sessionService.userId)
                 };
 
-                _this10.screenService.deleteMenuRoleSecLevel(params).subscribe(function (res) {
-                  _this10.getRolePermissionList();
+                _this13.screenService.deleteMenuRoleSecLevel(params).subscribe(function (res) {
+                  _this13.sharedService.setUnitListDeleteIndex(null);
+
+                  if (res.message) {
+                    _this13.getRolePermissionList();
+
+                    _this13.sharedService.openSnackBar(res.message, 'success');
+                  } else {
+                    _this13.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
                 }, function (error) {
-                  console.log(error);
+                  _this13.sharedService.setUnitListDeleteIndex(null);
+
+                  _this13.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
             });
@@ -1104,52 +1271,6 @@
           key: "ngOnDestroy",
           value: function ngOnDestroy() {
             this.apiSubscribe.unsubscribe();
-          }
-        }, {
-          key: "getRolePermissionList",
-          value: function getRolePermissionList() {
-            var _this11 = this;
-
-            this.isShowRoleList = false;
-            var param = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.screenService.getAllDefaultMenuRoleSecLevelbyApartmentId(param).subscribe(function (resp) {
-              var refMenuData = resp.filter(function (data) {
-                return data.isActive;
-              });
-              var gridSourceData = {
-                localdata: refMenuData,
-                datatype: "array"
-              };
-              _this11.roleList = new jqx.dataAdapter(gridSourceData);
-              _this11.isShowRoleList = true;
-              _this11.isEnableCreate = true;
-            });
-          }
-        }, {
-          key: "onGlSearchFilter",
-          value: function onGlSearchFilter() {
-            var _this12 = this;
-
-            if (this.roleSearch != "") {
-              var filtergroup = new jqx.filter();
-              var filter_or_operator = 1;
-              var filtervalue = this.roleSearch;
-              var filtercondition = 'contains';
-              var filterData = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
-              filtergroup.operator = 'or';
-              filtergroup.addfilter(filter_or_operator, filterData);
-              this.datagrid.showfiltercolumnbackground(false);
-              this.roleHeader.forEach(function (item) {
-                if (item.datafield != 'Actions') {
-                  _this12.datagrid.addfilter(item.datafield, filtergroup, true);
-                }
-              });
-              this.datagrid.applyfilters();
-            } else {
-              this.datagrid.clearfilters();
-            }
           }
         }]);
 
@@ -1551,13 +1672,13 @@
         _createClass(SetPermissionsComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this13 = this;
+            var _this14 = this;
 
             this.activatedRoute.queryParams.subscribe(function (params) {
-              _this13.secLevelId = params['secLevelId'];
-              _this13.roleId = params['roleId'];
+              _this14.secLevelId = params['secLevelId'];
+              _this14.roleId = params['roleId'];
 
-              _this13.getScreenList();
+              _this14.getScreenList();
             });
             this.actionList = [{
               name: 'add',
@@ -1580,7 +1701,7 @@
         }, {
           key: "getScreenList",
           value: function getScreenList() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.isDataLoaded = false;
             var queryParamBase = {
@@ -1589,21 +1710,21 @@
               secLevelId: parseInt(this.secLevelId)
             };
             this.screenService.getMenuFunctionByRoleIdMultiFilter(queryParamBase).subscribe(function (resp) {
-              _this14.menuList = resp.responseData.value;
+              _this15.menuList = resp.responseData.value;
 
-              if (_this14.menuList && _this14.menuList.length) {
-                _this14.selectedMenuName = _this14.menuList[0].menuName;
+              if (_this15.menuList && _this15.menuList.length) {
+                _this15.selectedMenuName = _this15.menuList[0].menuName;
 
-                _this14.changeMenu('');
+                _this15.changeMenu('');
               }
 
-              _this14.isDataLoaded = true;
+              _this15.isDataLoaded = true;
             });
           }
         }, {
           key: "changeMenu",
           value: function changeMenu(event) {
-            var _this15 = this;
+            var _this16 = this;
 
             if (event) {
               this.selectedMenuName = event.option.value ? event.option.value.menuName : '';
@@ -1611,11 +1732,11 @@
 
             if (this.selectedMenuName) {
               this.menuList.filter(function (key) {
-                if (key.menuName == _this15.selectedMenuName) {
-                  _this15.subMenuList = key.subMenuNames;
-                  _this15.selectedSubMenuName = _this15.subMenuList.length ? _this15.subMenuList[0].subMenuName : '';
+                if (key.menuName == _this16.selectedMenuName) {
+                  _this16.subMenuList = key.subMenuNames;
+                  _this16.selectedSubMenuName = _this16.subMenuList.length ? _this16.subMenuList[0].subMenuName : '';
 
-                  _this15.changeSubMenu('');
+                  _this16.changeSubMenu('');
                 }
               });
             }
@@ -1623,17 +1744,17 @@
         }, {
           key: "changeSubMenu",
           value: function changeSubMenu(event) {
-            var _this16 = this;
+            var _this17 = this;
 
             if (event) {
               this.actions = event.option.value ? event.option.value.actions : {};
               this.mapActions();
             } else {
               this.subMenuList.filter(function (key) {
-                if (_this16.selectedSubMenuName == key.subMenuName) {
-                  _this16.actions = key.actions;
+                if (_this17.selectedSubMenuName == key.subMenuName) {
+                  _this17.actions = key.actions;
 
-                  _this16.mapActions();
+                  _this17.mapActions();
                 }
               });
             }
@@ -1653,7 +1774,7 @@
         }, {
           key: "changeActions",
           value: function changeActions(event) {
-            var _this17 = this;
+            var _this18 = this;
 
             if (event.option.value) {
               var queryParamBase = {
@@ -1663,7 +1784,7 @@
                 updatedBy: this.sessionService.roleId
               };
               this.screenService.updateMenuSecLevelFunctionMapping(queryParamBase).subscribe(function (resp) {
-                _this17.sharedService.openSnackBar("".concat(event.option.value.name, " Permission Updated!"), 'success');
+                _this18.sharedService.openSnackBar("".concat(event.option.value.name, " Permission Updated!"), 'success');
               });
             }
           }

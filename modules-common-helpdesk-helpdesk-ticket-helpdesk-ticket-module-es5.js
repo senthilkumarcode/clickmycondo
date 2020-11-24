@@ -1054,6 +1054,7 @@
               params.ticketStatusIds = "34";
             } else if (this.urlType == 'unassigned') {
               params.isStaffassigned = false;
+              params.ticketStatusIds = "32"; //open tickets
             } else if (this.urlType == 'assigned-to-me') {
               this.getTicketByAssignedUser();
               return;

@@ -188,19 +188,11 @@ let UnitUsersApprovedComponent = class UnitUsersApprovedComponent {
             //   item.roleName = item.userInfo[0].roleName
             //   item.userId = item.userInfo[0].userId
             // })
-            this.approvedUsersNormalData = this.approvedUsersData;
+            //this.approvedUsersNormalData = this.approvedUsersData;
             this.totalItems = this.approvedUsersData.length;
             if (this.totalItems > this.itemLimit) {
-                if (type == 'initial')
+                if (type == 'initial' || type == 'block')
                     this.ItemEndIndex = this.itemLimit;
-                // else {
-                //   let event = {
-                //     ItemStartIndex : this.ItemStartIndex,
-                //     ItemEndIndex : this.ItemEndIndex,
-                //     itemLimit : 10,
-                //   }
-                //   this.getIndexParams(event)
-                // }
             }
             else {
                 this.ItemEndIndex = this.totalItems;
