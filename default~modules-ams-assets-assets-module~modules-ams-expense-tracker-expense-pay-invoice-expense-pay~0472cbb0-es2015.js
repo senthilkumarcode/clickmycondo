@@ -6485,7 +6485,7 @@ OwlNativeDateTimeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"fieldModel\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"selectedDate | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"selectedDate | userDateTimeFormat:timeZone.picker\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -6767,15 +6767,13 @@ let CustomDateTimeAdapter = class CustomDateTimeAdapter extends _busacca_ng_pick
         return new Date();
     }
     format(date, displayFormat) {
-        console.log(date);
         let data = this.sharedService.getTimeZone();
         let picker = data.picker;
-        //this.locale = picker.language;
         const timeZoneOffset = moment__WEBPACK_IMPORTED_MODULE_4__(date).tz(picker.canonicalName).format('Z');
         if (!this.isValid(date)) {
             throw Error('JSNativeDate: Cannot format invalid date.');
         }
-        return moment__WEBPACK_IMPORTED_MODULE_4__["utc"](date).utcOffset(timeZoneOffset).format(picker.time);
+        return moment__WEBPACK_IMPORTED_MODULE_4__(date).format(picker.time);
         /*if (this.locale == 'en-US') {
             const dateEnglishWithoutTime = ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + '-' +
               date.getFullYear();
@@ -6869,9 +6867,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
-/* harmony import */ var src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/modules/profile/data/timezone/data */ "./src/app/modules/profile/data/timezone/data.ts");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
+/* harmony import */ var src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/modules/profile/data/timezone/data */ "./src/app/modules/profile/data/timezone/data.ts");
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+
 
 
 
@@ -6879,21 +6880,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DatepickerComponent = class DatepickerComponent {
-    constructor(dateTimeAdapter, sharedService) {
+    constructor(dateTimeAdapter, sharedService, _changeDetectorRef) {
         this.dateTimeAdapter = dateTimeAdapter;
         this.sharedService = sharedService;
+        this._changeDetectorRef = _changeDetectorRef;
         this.labelText = '';
         this.fieldClass = '';
         this.fieldReadonly = false;
         this.isDisabled = false;
         this.fieldParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_4__["timeZones"];
+        this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_5__["timeZones"];
     }
     isFieldRequired() {
         return this.fieldRequired == "required" ? true : false;
     }
     onPickerChange() {
-        this.fieldParams.emit(this.fieldModel);
+        let picker = this.timeZone.picker;
+        let utcDate = moment__WEBPACK_IMPORTED_MODULE_3__(this.selectedDate).subtract(picker.offset, 'hours').format().split('+');
+        this.fieldParams.emit(utcDate[0]);
     }
     camelCase(str) {
         return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
@@ -6902,41 +6906,19 @@ let DatepickerComponent = class DatepickerComponent {
     }
     ngOnInit() {
         this.index = this.sharedService.guid().replace(/-/g, '');
-        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        let data = this.sharedService.getTimeZone();
-        let picker = data.picker;
-        /* let totalRegionsData = [];
-        let selectedRegionList = picker.regions;
-        let selectedRegion:any;
-    
-    
-        this.timeZonesData.forEach(item => {
-          let utcArray = item.utc;
-          utcArray.forEach(utc => {
-            totalRegionsData.push(utc)
-          });
-        });
-    
-        totalRegionsData.forEach(region => {
-          if(selectedRegionList.includes(region)){
-            selectedRegion = region
-          }
-        }) */
-        let timeZone = picker.timeZone;
-        let locale = this.timeZonesData.filter(item => {
-            return item.value == timeZone;
-        });
-        //this.dateTimeAdapter.setLocale(picker.language);
-        //console.log(picker.language)
-    }
-    ngAfterViewInit() {
     }
     ngOnChanges() {
+        this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
+        let picker = this.timeZone.picker;
+        this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).add(picker.offset, 'hours').toISOString().replace('Z', '');
+        //console.log(this.fieldModel)
+        //console.log(this.selectedDate)
     }
 };
 DatepickerComponent.ctorParameters = () => [
-    { type: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__["DateTimeAdapter"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] }
+    { type: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"] },
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
 ];
 DatepickerComponent.propDecorators = {
     labelText: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -6957,11 +6939,13 @@ DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         selector: 'app-datepicker',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./datepicker.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/modules/ui/datepicker/datepicker.component.html")).default,
         encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+        changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
         viewProviders: [{ provide: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ControlContainer"], useExisting: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgForm"] }],
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./datepicker.component.scss */ "./src/app/modules/ui/datepicker/datepicker.component.scss")).default]
     }),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_3__["DateTimeAdapter"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"]])
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"],
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
 ], DatepickerComponent);
 
 
@@ -7025,7 +7009,7 @@ DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0_
             _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
         ],
         providers: [
-            { provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS"], useValue: { useUtc: true } },
+            //{ provide: OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS, useValue: { useUtc: true } },
             //{ provide: DateTimeAdapter, useClass: MomentDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE] },
             { provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"], useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"] },
         ],
