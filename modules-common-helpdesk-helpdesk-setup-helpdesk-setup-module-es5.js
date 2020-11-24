@@ -321,7 +321,7 @@
                   escalationDays: 0
                 };
                 addTicket.push(Object.assign(Object.assign({}, esclator), esclatorMain));
-              } else if (i == 1 && this.ticketCategoryData.staffTwo && this.ticketCategoryData.escalationDaysOne) {
+              } else if (i == 1 && this.ticketCategoryData.staffTwo && this.ticketCategoryData.escalationDaysOne || i == 1 && this.ticketCategoryData.ticketManagerIdOne) {
                 var _esclatorMain = {
                   ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerIdOne : 0,
                   userId: this.ticketCategoryData.staffTwo,
@@ -329,7 +329,7 @@
                   escalationDays: this.ticketCategoryData.escalationDaysOne
                 };
                 addTicket.push(Object.assign(Object.assign({}, esclator), _esclatorMain));
-              } else if (i == 2 && this.ticketCategoryData.staffThree && this.ticketCategoryData.escalationDaysTwo) {
+              } else if (i == 2 && this.ticketCategoryData.staffThree && this.ticketCategoryData.escalationDaysTwo || i == 2 && this.ticketCategoryData.ticketManagerIdTwo) {
                 var _esclatorMain2 = {
                   ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerIdTwo : 0,
                   userId: this.ticketCategoryData.staffThree,
@@ -612,15 +612,22 @@
       var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
 
       var CommonCategoryComponent = /*#__PURE__*/function () {
-        function CommonCategoryComponent(dialog, sharedService, ticketService, sessionService, injector) {
+        function CommonCategoryComponent(dialog, sharedService, ticketService, sessionService, lookupService, injector) {
           _classCallCheck(this, CommonCategoryComponent);
 
           this.dialog = dialog;
           this.sharedService = sharedService;
           this.ticketService = ticketService;
           this.sessionService = sessionService;
+          this.lookupService = lookupService;
           this.injector = injector;
           this.commonFilter = "";
           this.isDataLoaded = true;
@@ -707,7 +714,34 @@
                 _this8.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
-                  datatype: "array"
+                  datatype: "array",
+                  datafields: [{
+                    name: 'ticketCategoryId',
+                    type: 'number'
+                  }, {
+                    name: 'ticketCategoryName',
+                    type: 'string'
+                  }, {
+                    name: 'userNameZero',
+                    type: 'string',
+                    map: 'escalationLevelId0>userName'
+                  }, {
+                    name: 'userNameOne',
+                    type: 'string',
+                    map: 'escalationLevelId1>userName'
+                  }, {
+                    name: 'dayOne',
+                    type: 'number',
+                    map: 'escalationLevelId1>escalationDays'
+                  }, {
+                    name: 'userNameTwo',
+                    type: 'string',
+                    map: 'escalationLevelId2>userName'
+                  }, {
+                    name: 'dayTwo',
+                    type: 'number',
+                    map: 'escalationLevelId2>escalationDays'
+                  }]
                 };
                 _this8.commonListData = new jqx.dataAdapter(data);
               }
@@ -743,50 +777,32 @@
               renderer: columnrendererCommon
             }, {
               text: 'Supervisor',
-              datafield: "escalationLevelId0",
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this9.commonListData.loadedData[row].escalationLevelId0;
-                if (field && field.userName) value = field.userName;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: "userNameZero",
+              cellsrenderer: cellsrendererCommon,
               minwidth: 150,
               renderer: columnrendererCommon
             }, {
               text: 'Level-1',
-              datafield: 'escalationLevelId1',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this9.commonListData.loadedData[row].escalationLevelId1;
-                if (field && field.userName) value = field.userName;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: "userNameOne",
+              cellsrenderer: cellsrendererCommon,
               minwidth: 150,
               renderer: columnrendererCommon
             }, {
               text: 'L1 escdays',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this9.commonListData.loadedData[row].escalationLevelId1;
-                if (field && field.escalationDays) value = field.escalationDays;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: 'dayOne',
+              cellsrenderer: cellsrendererCommon,
               width: 120,
               renderer: columnrendererCommon
             }, {
               text: 'Level-2',
-              datafield: 'escalationLevelId2',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this9.commonListData.loadedData[row].escalationLevelId2;
-                if (field && field.userName) value = field.userName;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: "userNameTwo",
+              cellsrenderer: cellsrendererCommon,
               minwidth: 150,
               renderer: columnrendererCommon
             }, {
               text: 'L2 escdays',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this9.commonListData.loadedData[row].escalationLevelId2;
-                if (field && field.escalationDays) value = field.escalationDays;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: 'dayTwo',
+              cellsrenderer: cellsrendererCommon,
               width: 120,
               renderer: columnrendererCommon
             }, {
@@ -802,25 +818,38 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
-                var params = {
-                  apartmentId: _this9.sessionService.apartmentId,
-                  ticketCategoryId: item.id,
-                  deleteBy: _this9.sessionService.userId
+                var category = {
+                  lookupValueId: item.id,
+                  updateUserId: parseInt(_this9.sessionService.userId)
                 };
 
-                _this9.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this9.lookupService.deleteLookupvalue(category).subscribe(function (res) {
                   _this9.sharedService.setUnitListDeleteIndex(null);
 
-                  if (res.code == 200) {
-                    _this9.commondatagrid.deleterow(item.index);
+                  if (res.message) {
+                    var params = {
+                      apartmentId: _this9.sessionService.apartmentId,
+                      ticketCategoryId: item.id,
+                      deleteBy: _this9.sessionService.userId
+                    };
 
-                    _this9.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                    _this9.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                      if (res.code == 200) {
+                        _this9.commondatagrid.deleterow(item.index);
+
+                        _this9.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                      } else {
+                        _this9.sharedService.openSnackBar(res.statusMessage, 'error');
+                      }
+                    }, function (error) {
+                      _this9.sharedService.setUnitListDeleteIndex(null);
+
+                      _this9.sharedService.openSnackBar('Server Error', 'error');
+                    });
                   } else {
-                    _this9.sharedService.openSnackBar(res.statusMessage, 'error');
+                    _this9.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this9.sharedService.setUnitListDeleteIndex(null);
-
                   _this9.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
@@ -845,6 +874,8 @@
           type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }];
@@ -874,7 +905,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./common-category.component.scss */
         "./src/app/modules/common/helpdesk/helpdesk-setup/common-category/common-category.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], CommonCategoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])], CommonCategoryComponent);
 
       function showConfirmDeleteEventCommon(row) {
         var event = new CustomEvent('onCommonCatDelete', {
@@ -1276,14 +1307,21 @@
       var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! src/app/shared/services/modal.service */
       "./src/app/shared/services/modal.service.ts");
+      /* harmony import */
+
+
+      var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! src/app/api/controllers/Lookup */
+      "./src/app/api/controllers/Lookup.ts");
 
       var PrivateCategoryComponent = /*#__PURE__*/function () {
-        function PrivateCategoryComponent(dialog, sharedService, ticketService, injector, sessionService) {
+        function PrivateCategoryComponent(dialog, sharedService, ticketService, lookupService, injector, sessionService) {
           _classCallCheck(this, PrivateCategoryComponent);
 
           this.dialog = dialog;
           this.sharedService = sharedService;
           this.ticketService = ticketService;
+          this.lookupService = lookupService;
           this.injector = injector;
           this.sessionService = sessionService;
           this.privateFilter = '';
@@ -1371,7 +1409,34 @@
                 _this12.totalItems = res.length;
                 var data = {
                   localdata: res.reverse(),
-                  datatype: "array"
+                  datatype: "array",
+                  datafields: [{
+                    name: 'ticketCategoryId',
+                    type: 'number'
+                  }, {
+                    name: 'ticketCategoryName',
+                    type: 'string'
+                  }, {
+                    name: 'userNameZero',
+                    type: 'string',
+                    map: 'escalationLevelId0>userName'
+                  }, {
+                    name: 'userNameOne',
+                    type: 'string',
+                    map: 'escalationLevelId1>userName'
+                  }, {
+                    name: 'dayOne',
+                    type: 'number',
+                    map: 'escalationLevelId1>escalationDays'
+                  }, {
+                    name: 'userNameTwo',
+                    type: 'string',
+                    map: 'escalationLevelId2>userName'
+                  }, {
+                    name: 'dayTwo',
+                    type: 'number',
+                    map: 'escalationLevelId2>escalationDays'
+                  }]
                 };
                 _this12.privateListData = new jqx.dataAdapter(data);
               }
@@ -1407,50 +1472,32 @@
               renderer: columnrendererPrivate
             }, {
               text: 'Supervisor',
-              datafield: "escalationLevelId0",
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this13.privateListData.loadedData[row].escalationLevelId0;
-                if (field && field.userName) value = field.userName;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: "userNameZero",
+              cellsrenderer: cellsrendererPrivate,
               minwidth: 150,
               renderer: columnrendererPrivate
             }, {
               text: 'Level-1',
-              datafield: 'escalationLevelId1',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this13.privateListData.loadedData[row].escalationLevelId1;
-                if (field && field.userName) value = field.userName;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: "userNameOne",
+              cellsrenderer: cellsrendererPrivate,
               minwidth: 150,
               renderer: columnrendererPrivate
             }, {
               text: 'L1 escdays',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this13.privateListData.loadedData[row].escalationLevelId1;
-                if (field && field.escalationDays) value = field.escalationDays;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: 'dayOne',
+              cellsrenderer: cellsrendererPrivate,
               width: 120,
               renderer: columnrendererPrivate
             }, {
               text: 'Level-2',
-              datafield: 'escalationLevelId2',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this13.privateListData.loadedData[row].escalationLevelId2;
-                if (field && field.userName) value = field.userName;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: "userNameTwo",
+              cellsrenderer: cellsrendererPrivate,
               minwidth: 150,
               renderer: columnrendererPrivate
             }, {
               text: 'L2 escdays',
-              cellsrenderer: function cellsrenderer(row, column, value) {
-                var field = _this13.privateListData.loadedData[row].escalationLevelId2;
-                if (field && field.escalationDays) value = field.escalationDays;else value = '';
-                return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-              },
+              datafield: 'dayTwo',
+              cellsrenderer: cellsrendererPrivate,
               width: 120,
               renderer: columnrendererPrivate
             }, {
@@ -1466,25 +1513,38 @@
 
             this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (item) {
               if (item != null && item.id) {
-                var params = {
-                  apartmentId: _this13.sessionService.apartmentId,
-                  ticketCategoryId: item.id,
-                  deleteBy: _this13.sessionService.userId
+                var category = {
+                  lookupValueId: item.id,
+                  updateUserId: parseInt(_this13.sessionService.userId)
                 };
 
-                _this13.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                _this13.lookupService.deleteLookupvalue(category).subscribe(function (res) {
                   _this13.sharedService.setUnitListDeleteIndex(null);
 
-                  if (res.code == 200) {
-                    _this13.privatedatagrid.deleterow(item.index);
+                  if (res.message) {
+                    var params = {
+                      apartmentId: _this13.sessionService.apartmentId,
+                      ticketCategoryId: item.id,
+                      deleteBy: _this13.sessionService.userId
+                    };
 
-                    _this13.sharedService.openSnackBar('Private Category Deleted Successfully', 'success');
+                    _this13.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
+                      if (res.code == 200) {
+                        _this13.privatedatagrid.deleterow(item.index);
+
+                        _this13.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                      } else {
+                        _this13.sharedService.openSnackBar(res.statusMessage, 'error');
+                      }
+                    }, function (error) {
+                      _this13.sharedService.setUnitListDeleteIndex(null);
+
+                      _this13.sharedService.openSnackBar('Server Error', 'error');
+                    });
                   } else {
-                    _this13.sharedService.openSnackBar(res.statusMessage, 'error');
+                    _this13.sharedService.openSnackBar(res.errorMessage, 'error');
                   }
                 }, function (error) {
-                  _this13.sharedService.setUnitListDeleteIndex(null);
-
                   _this13.sharedService.openSnackBar('Server Error', 'error');
                 });
               }
@@ -1507,6 +1567,8 @@
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"]
         }, {
           type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"]
+        }, {
+          type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"]
         }, {
           type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]
         }, {
@@ -1538,7 +1600,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./private-category.component.scss */
         "./src/app/modules/common/helpdesk/helpdesk-setup/private-category/private-category.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], PrivateCategoryComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"], src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])], PrivateCategoryComponent);
 
       function showConfirmDeleteEventPrivate(row) {
         var event = new CustomEvent('onPrivateCatDelete', {

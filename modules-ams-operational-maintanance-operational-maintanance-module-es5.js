@@ -134,7 +134,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"op-maintenance-setup-category-wrapper\">\n    <div class=\"bg-card shadow p-0\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex \">\n                    <div>\n                        <h4>Category</h4>\n                        <p class=\"text-secondary\">{{totalItems}} Items</p>\n                    </div>\n                    <div class=\"ml-auto d-flex\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchCategory\">\n                        <button class=\"ml-2\" mat-flat-button [color]=\"'primary'\" (click)=\"addForm()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <form>\n                    <table class=\"table\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                        <tr>\n                            <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceCategoryName')\">Category Name <span\n                                [ngClass]=\"getFieldOrderBy('genMaintenanceCategoryName')\"></span></th>\n                            <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span\n                                [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                            <th scope=\"col\">Action</th>\n                        </tr>\n                        </thead>\n                        <tbody >\n                            <!-- Fields -->\n                            <ng-container *ngFor=\"let item of newItemList; let i = index;\">\n                                <tr class=\"shadow\">\n                                    <td class=\"td-container\">\n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"maintenanceCategoryName{{i}}\" [(ngModel)]=\"item.genMaintenanceCategoryName\">\n                                            <help-tooltip title=\"maintenanceCategoryName\"></help-tooltip>\n                                        </div>\n                                    </td>\n                                    <td class=\"td-container\">                       \n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"categoryDescription{{i}}\" [(ngModel)]=\"item.description\">\n                                            <help-tooltip title=\"categoryDescription\"></help-tooltip>\n                                        </div>\n                                    </td>\n                                    <td class=\"td-container\">\n                                        <mat-icon (click)=\"addCategory(item)\" svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                        <mat-icon class=\"ml-2\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"closeForm()\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </ng-container>\n                            <ng-container *ngFor=\"let list of categoriesData | simpleSearch: searchCategory | slice:ItemStartIndex:ItemEndIndex;let i=index\">\n                                <tr>\n                                    <td>\n                                        <span *ngIf=\"showFields != i\">{{list.genMaintenanceCategoryName}}</span>  \n                                        <div *ngIf=\"showFields == i\">\n                                            <div class=\"input-box\">\n                                                <input type=\"text\" class=\"form-control\" name=\"genMaintenanceCategoryName\"\n                                                [(ngModel)]=\"list.genMaintenanceCategoryName\">\n                                            </div>  \n                                        </div>\n                                    </td>    \n                                    <td>\n                                        <span *ngIf=\"showFields != i\">{{list.description}}</span> \n                                        <div *ngIf=\"showFields == i\">\n                                            <div class=\"input-box\">\n                                                <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n                                            </div>\n                                        </div>\n                                    </td>\n                    \n                                    <td class=\"simple-actions\">\n                                        <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center\" [color]=\"'primary'\"  [svgIcon]=\"'feather:edit'\" (click)=\"showFields = i;closeForm(list);\"  title=\"Edit\"></mat-icon>\n                                        <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center ml-2\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteRow(i,list)\" title=\"Delete\"></mat-icon>\n                                        <button mat-flat-button *ngIf=\"showFields == i\" (click)=\"updateCategory(list)\" [disabled]=\"!list.genMaintenanceCategoryName\">\n                                            <mat-icon svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                        </button>\n                                        <mat-icon *ngIf=\"showFields == i\" class=\"ml-2\" [svgIcon]=\"'close'\" (click)=\"showFields = -1;cancelCategory(i)\"  title=\"Close\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </ng-container>\n                        </tbody>\n                    </table>\n                    <div class=\"bg-card shadow\" *ngIf=\"categoriesData.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>     \n                    <app-pagination *ngIf=\"categoriesData.length > 0 \" [totalItems]=\"totalItems\"\n                        [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n                        (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>     \n                </form>\n            </div>\n        </condo-card>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"op-maintenance-setup-category-wrapper\">\n    <div class=\"bg-card shadow p-0\">\n        <condo-card>\n            <div CondoCardHeader>\n                <div class=\"d-flex \">\n                    <div>\n                        <h4>Category</h4>\n                        <p class=\"text-secondary\">{{totalItems}} Items</p>\n                    </div>\n                    <div class=\"ml-auto d-flex\">\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchCategory\">\n                        <button class=\"ml-2\" mat-flat-button [color]=\"'primary'\" (click)=\"addForm()\">\n                            <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add</button>\n                    </div>\n                </div>\n            </div>\n            <div CondoCardBody>\n                <form>\n                    <table class=\"table\" [ngClass]=\"isMobileView()\">\n                        <thead>\n                        <tr>\n                            <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceCategoryName')\">Category Name <span\n                                [ngClass]=\"getFieldOrderBy('genMaintenanceCategoryName')\"></span></th>\n                            <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span\n                                [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                            <th scope=\"col\">Action</th>\n                        </tr>\n                        </thead>\n                        <tbody >\n                            <!-- Fields -->\n                            <ng-container *ngFor=\"let item of newItemList; let i = index;\">\n                                <tr class=\"shadow\">\n                                    <td class=\"td-container\">\n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"maintenanceCategoryName{{i}}\" [(ngModel)]=\"item.genMaintenanceCategoryName\">\n                                            <help-tooltip title=\"maintenanceCategoryName\"></help-tooltip>\n                                        </div>\n                                    </td>\n                                    <td class=\"td-container\">                       \n                                        <div class=\"input-box\">\n                                            <input type=\"text\" class=\"form-control\" name=\"categoryDescription{{i}}\" [(ngModel)]=\"item.description\">\n                                            <help-tooltip title=\"categoryDescription\"></help-tooltip>\n                                        </div>\n                                    </td>\n                                    <td class=\"td-container\">\n                                        <mat-icon (click)=\"addCategory(item)\" svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                        <mat-icon class=\"ml-2\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"closeForm()\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </ng-container>\n                            <ng-container *ngFor=\"let list of categoriesData | simpleSearch: searchCategory | slice:ItemStartIndex:ItemEndIndex;let i=index\">\n                                <tr>\n                                    <td>\n                                        <span *ngIf=\"showFields != i\">{{list.genMaintenanceCategoryName}}</span>  \n                                        <div *ngIf=\"showFields == i\">\n                                            <div class=\"input-box\">\n                                                <input type=\"text\" class=\"form-control\" name=\"genMaintenanceCategoryName\"\n                                                [(ngModel)]=\"list.genMaintenanceCategoryName\">\n                                            </div>  \n                                        </div>\n                                    </td>    \n                                    <td>\n                                        <span *ngIf=\"showFields != i\">{{list.description}}</span> \n                                        <div *ngIf=\"showFields == i\">\n                                            <div class=\"input-box\">\n                                                <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n                                            </div>\n                                        </div>\n                                    </td>\n                    \n                                    <td class=\"simple-actions\">\n                                        <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center\" [color]=\"'primary'\"  [svgIcon]=\"'feather:edit'\" (click)=\"showFields = i;closeForm(list);\"  title=\"Edit\"></mat-icon>\n                                        <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center ml-2\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteRow(i,list)\" title=\"Delete\"></mat-icon>\n                                        <button mat-flat-button *ngIf=\"showFields == i\" (click)=\"updateCategory(list)\" [disabled]=\"!list.genMaintenanceCategoryName\">\n                                            <mat-icon svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                        </button>\n                                        <mat-icon *ngIf=\"showFields == i\" class=\"ml-2\" [svgIcon]=\"'close'\" (click)=\"showFields = -1;cancelCategory(i)\"  title=\"Close\"></mat-icon>\n                                    </td>\n                                </tr>\n                            </ng-container>\n                        </tbody>\n                    </table>\n                    <div class=\"bg-card shadow mb-0\" *ngIf=\"categoriesData.length == 0\">\n                        <h6 class=\"text-secondary\">No Results found</h6>\n                    </div>     \n                    <app-pagination *ngIf=\"categoriesData.length > 0 \" [totalItems]=\"totalItems\"\n                        [ItemStartIndex]=\"ItemStartIndex\" [ItemEndIndex]=\"ItemEndIndex\" [itemLimit]=\"itemLimit\"\n                        (outputParams)=\"getIndexParams($event)\">\n                    </app-pagination>     \n                </form>\n            </div>\n        </condo-card>\n    </div>\n</div>";
       /***/
     },
 
@@ -154,7 +154,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"op-maintenance-setup-sub-category-wrapper\">\n    <div class=\"bg-card shadow p-0\">\n        <condo-card>\n        <div CondoCardHeader>\n        <div class=\"d-flex mb-4\">\n            <div>\n                <h4>Sub Category</h4>\n                <p class=\"text-secondary\">{{subTotalItems}} Items</p>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchSubCategory\">\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form>\n            <table class=\"table\" [ngClass]=\"isMobileView()\">\n            <thead>\n                <tr>\n                <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceCategoryId')\">Category Name <span\n                    [ngClass]=\"getFieldOrderBy('genMaintenanceCategoryId')\"></span></th>\n                <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceSubCategoryName')\">Sub category <span\n                    [ngClass]=\"getFieldOrderBy('genMaintenanceSubCategoryName')\"></span></th>\n                <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span\n                    [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                <th scope=\"col\" (click)=\"sortUnitData('frequency')\">Frequency in (Days) <span\n                    [ngClass]=\"getFieldOrderBy('frequency')\"></span></th>\n                <th scope=\"col\">Action</th>\n                </tr>\n            </thead>\n            <tbody >\n                <ng-container>\n                <tr class=\"shadow\">\n                    <td>                   \n                    <div class=\"input-box\">\n                        <select class=\"form-control\" name=\"subCatgoryId\" [(ngModel)]=\"subCatgory.genMaintenanceCategoryId\" >\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of  categoriesData\" [value]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n                        </select>\n                    </div>\n                    </td>\n                    <td>\n                   \n                    <div class=\"input-box\">\n                        <input type=\"text\" class=\"form-control\" name=\"subCategoryName\"\n                        [(ngModel)]=\"subCatgory.genMaintenanceSubCategoryName\">\n                    </div>\n                    \n                    </td>\n                    <td>\n                   \n                    <div class=\"input-box\">\n                        <input type=\"text\" class=\"form-control\" name=\"subCategoryDescription\"\n                        [(ngModel)]=\"subCatgory.description\">\n                    </div>\n                    </td>\n                    <td>                  \n                    <div class=\"input-box\">\n                        <input type=\"text\" class=\"form-control\"  name=\"subFrequency\" [(ngModel)]=\"subCatgory.frequency\"\n                        OnlyNumber=\"true\">\n                    </div>\n                    </td>\n                    <td>                   \n                        <mat-icon   class=\"mt-3 pt-1\" svgIcon=\"mat_outline:save\" title=\"save\"\n                        [ngClass]=\"!subCatgory.genMaintenanceCategoryId || \n                        !subCatgory.genMaintenanceSubCategoryName || !subCatgory.description \n                        ?'custom-icon-disabled':''\" (click)=\"addSubCategory(subCatgory)\"></mat-icon>\n                    </td>\n                </tr>\n                </ng-container>\n                <ng-container\n                *ngFor=\"let list of subCategoriesData | simpleSearch: searchSubCategory | sort : unitFieldType: unitOrder ;let subCategoryIndex=index\">\n                <tr>\n                    <td>\n                    <span [ngClass]=\"opSubIndex == subCategoryIndex?'d-none':''\">\n                        <span *ngFor=\" let cat of categoriesData\">\n                            <span\n                                *ngIf=\"cat.genMaintenanceCategoryId == list.genMaintenanceCategoryId\">{{cat.genMaintenanceCategoryName}}\n                            </span>\n                        </span>\n                    </span>\n                  \n                    <div class=\"input-box\" *ngIf=\"opSubIndex == subCategoryIndex\">\n                        <select  class=\"form-control\"  name=\"genMaintenanceCategoryId\" [(ngModel)]=\"list.genMaintenanceCategoryId\" >\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of  categoriesData\" [value]=\"item.genMaintenanceCategoryId\">\n                                {{ item.genMaintenanceCategoryName }}</option>\n                        </select>\n                    </div>\n                    </td>\n                    <td>\n                    <span [ngClass]=\"opSubIndex == subCategoryIndex?'d-none':''\">\n                        {{list.genMaintenanceSubCategoryName}}\n                    </span>\n                   \n                    <div class=\"input-box\" *ngIf=\"opSubIndex == subCategoryIndex\">\n                        <input type=\"text\" class=\"form-control\" name=\"genMaintenanceSubCategoryName\"\n                        [(ngModel)]=\"list.genMaintenanceSubCategoryName\">\n                    </div>\n                    </td>\n                    <td>\n                    <span [ngClass]=\"opSubIndex == subCategoryIndex?'d-none':''\">\n                        {{list.description}}\n                    </span>\n                  \n                    <div class=\"input-box\" *ngIf=\"opSubIndex == subCategoryIndex\">\n                        <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n                    </div>\n                    </td>\n                    <td>\n                    <span [ngClass]=\"opSubIndex == subCategoryIndex?'d-none':''\">\n                        {{list.frequency}}\n                    </span>\n                  \n                    <div class=\"input-box\" *ngIf=\"opSubIndex == subCategoryIndex\">\n                        <input type=\"text\" class=\"form-control\" name=\"frequency\" [(ngModel)]=\"list.frequency\" OnlyNumber=\"true\">\n                    </div>\n                    </td>\n                    <td>\n                        <div class=\"d-flex  align-items-center\">  \n                   \n                    <span [ngClass]=\"opSubIndex == subCategoryIndex?'d-none':''\">\n                        <mat-icon [svgIcon]=\"'feather:edit'\"  class=\"pt-2\"  (click)=\"opSubIndex = subCategoryIndex;setCurrentData(list)\" ></mat-icon>\n                       </span>\n                       <div class=\"d-flex pt-3\">\n                        <mat-icon   class=\"pt-1\" [ngClass]=\"!list.genMaintenanceCategoryId || \n                        !list.genMaintenanceSubCategoryName || !list.description \n                        ?'custom-icon-disabled':''\" *ngIf=\"opSubIndex == subCategoryIndex\"\n                     (click)=\"updateSubCategory(list)\" svgIcon=\"mat_outline:save\" title=\"save\"></mat-icon>\n                     \n                        <mat-icon [svgIcon]=\"'close'\" class=\"pt-1\" title=\"cancel\" *ngIf=\"opSubIndex == subCategoryIndex\"\n                        (click)=\"opSubIndex = -1;cancelCategory(subCategoryIndex,'subCategory')\"></mat-icon>\n                        </div>\n                    \n                        <span  [ngClass]=\"opSubIndex == subCategoryIndex?'d-none':''\">\n                            <mat-icon [svgIcon]=\"'feather:trash'\"  class=\"pt-2 text-red-900\" (click)=\"deleteSubRow(index,list)\" ></mat-icon>\n                          </span>\n\n                    </div>\n                    </td>\n                </tr>\n                </ng-container>\n            </tbody>\n            </table>\n      \n        </form>\n    </div>\n </condo-card>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"op-maintenance-setup-sub-category-wrapper\">\n    <div class=\"bg-card shadow p-0\">\n        <condo-card>\n        <div CondoCardHeader>\n        <div class=\"d-flex mb-4\">\n            <div>\n                <h4>Sub Category</h4>\n                <p class=\"text-secondary\">{{subTotalItems}} Items</p>\n            </div>\n            <div class=\"ml-auto d-flex\">\n                <input type=\"text\" class=\"form-control\" placeholder=\"Search...\" [(ngModel)]=\"searchSubCategory\">\n                <button class=\"ml-2\" mat-flat-button [color]=\"'primary'\" (click)=\"addForm()\">\n                    <mat-icon class=\"mr-2\" [svgIcon]=\"'add'\"></mat-icon>Add\n                </button>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form>\n            <table class=\"table\" [ngClass]=\"isMobileView()\">\n                <thead>\n                    <tr>\n                    <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceCategoryId')\">Category Name <span\n                        [ngClass]=\"getFieldOrderBy('genMaintenanceCategoryId')\"></span></th>\n                    <th scope=\"col\" (click)=\"sortUnitData('genMaintenanceSubCategoryName')\">Sub category <span\n                        [ngClass]=\"getFieldOrderBy('genMaintenanceSubCategoryName')\"></span></th>\n                    <th scope=\"col\" (click)=\"sortUnitData('description')\">Description <span\n                        [ngClass]=\"getFieldOrderBy('description')\"></span></th>\n                    <th scope=\"col\" (click)=\"sortUnitData('frequency')\">Frequency in (Days) <span\n                        [ngClass]=\"getFieldOrderBy('frequency')\"></span></th>\n                    <th scope=\"col\">Action</th>\n                    </tr>\n                </thead>\n                <tbody >\n                    <ng-container *ngFor=\"let field of newItemList; let i = index;\">\n                        <tr class=\"shadow\">\n                            <td>                   \n                                <div class=\"input-box\">\n                                    <select class=\"form-control\" name=\"subCatgoryId{{i}}\" [(ngModel)]=\"field.genMaintenanceCategoryId\">\n                                        <option value=\"\" disabled selected hidden>Select</option>\n                                        <option *ngFor=\"let item of  categoriesData\" [value]=\"item.genMaintenanceCategoryId\">{{ item.genMaintenanceCategoryName }}</option>\n                                    </select>\n                                </div>\n                            </td>\n                            <td>\n                                <div class=\"input-box\">\n                                    <input type=\"text\" class=\"form-control\" name=\"subCategoryName{{i}}\" [(ngModel)]=\"field.genMaintenanceSubCategoryName\">\n                                </div>\n                            </td>\n                            <td>\n                                <div class=\"input-box\">\n                                    <input type=\"text\" class=\"form-control\" name=\"subCategoryDescription{{i}}\" [(ngModel)]=\"field.description\">\n                                </div>\n                            </td>\n                            <td>                  \n                                <div class=\"input-box\">\n                                    <input type=\"text\" class=\"form-control\"  name=\"subFrequency{{i}}\" [(ngModel)]=\"field.frequency\" OnlyNumber=\"true\">\n                                </div>\n                            </td>\n                            <td> \n                                <mat-icon (click)=\"addSubCategory(field)\" svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                                <mat-icon class=\"ml-2\" [svgIcon]=\"'close'\" title=\"Close\" (click)=\"closeForm()\"></mat-icon>\n                            </td>\n                        </tr>\n                    </ng-container>\n                    <ng-container *ngFor=\"let list of subCategoriesData | simpleSearch: searchSubCategory | slice:subItemStartIndex:subItemEndIndex;let i=index\">\n                    <tr>\n                        <td>\n                            <span  *ngIf=\"showFields != i\">\n                                <span *ngFor=\" let cat of categoriesData\">\n                                    <span *ngIf=\"cat.genMaintenanceCategoryId == list.genMaintenanceCategoryId\">{{cat.genMaintenanceCategoryName}}</span>\n                                </span>\n                            </span>\n                            <div class=\"input-box\" *ngIf=\"showFields == i\">\n                                <select  class=\"form-control\"  name=\"genMaintenanceCategoryId\" [(ngModel)]=\"list.genMaintenanceCategoryId\" >\n                                    <option value=\"\" disabled selected hidden>Select</option>\n                                    <option *ngFor=\"let item of  categoriesData\" [value]=\"item.genMaintenanceCategoryId\">\n                                        {{ item.genMaintenanceCategoryName }}</option>\n                                </select>\n                            </div>\n                        </td>\n                        <td>\n                            <span *ngIf=\"showFields != i\">{{list.genMaintenanceSubCategoryName}}</span>\n                            <div class=\"input-box\" *ngIf=\"showFields == i\">\n                                <input type=\"text\" class=\"form-control\" name=\"genMaintenanceSubCategoryName\"\n                                [(ngModel)]=\"list.genMaintenanceSubCategoryName\">\n                            </div>\n                        </td>\n                        <td>\n                            <span *ngIf=\"showFields != i\"> {{list.description}}</span>\n                            <div class=\"input-box\" *ngIf=\"showFields == i\">\n                                <input type=\"text\" class=\"form-control\" name=\"description\" [(ngModel)]=\"list.description\">\n                            </div>\n                        </td>\n                        <td>\n                            <span *ngIf=\"showFields != i\"> {{list.frequency}}</span>\n                            <div class=\"input-box\" *ngIf=\"showFields == i\">\n                                <input type=\"text\" class=\"form-control\" name=\"frequency\" [(ngModel)]=\"list.frequency\" OnlyNumber=\"true\">\n                            </div>\n                        </td>\n                        <td class=\"simple-actions\">\n                            <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center\" [color]=\"'primary'\"  [svgIcon]=\"'feather:edit'\" (click)=\"showFields = i;closeForm(list);\"  title=\"Edit\"></mat-icon>\n                            <mat-icon *ngIf=\"showFields != i\" class=\"d-flex mt-1 link align-items-center ml-2\" [color]=\"'warn'\" [svgIcon]=\"'feather:trash'\" (click)=\"deleteSubRow(i,list)\" title=\"Delete\"></mat-icon>\n                            <button mat-flat-button *ngIf=\"showFields == i\" (click)=\"updateSubCategory(list)\">\n                                <mat-icon svgIcon=\"mat_outline:save\" title=\"Save\"></mat-icon>\n                            </button>\n                            <mat-icon *ngIf=\"showFields == i\" class=\"ml-2\" [svgIcon]=\"'close'\" (click)=\"showFields = -1;cancelCategory(i)\"  title=\"Close\"></mat-icon>\n                        </td>\n                    </tr>\n                    </ng-container>\n                </tbody>\n            </table>\n            <div class=\"bg-card shadow mb-0\" *ngIf=\"subCategoriesData.length == 0\">\n                <h6 class=\"text-secondary\">No Results found</h6>\n            </div>     \n            <app-pagination *ngIf=\"subCategoriesData.length > 0 \" [totalItems]=\"subTotalItems\"\n                [ItemStartIndex]=\"subItemStartIndex\" [ItemEndIndex]=\"subItemEndIndex\" [itemLimit]=\"subItemLimit\"\n                (outputParams)=\"getIndexParamsSubcategory($event)\">\n            </app-pagination>  \n      \n        </form>\n    </div>\n </condo-card>\n    </div>\n</div>";
       /***/
     },
 
@@ -2289,7 +2289,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n\n.td-container {\n  position: relative;\n  width: 30% !important;\n  padding-bottom: 23px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Utc2V0dXAvb3AtbWFpbnRlbmFuY2Utc2V0dXAtY2F0ZWdvcnkvb3AtbWFpbnRlbmFuY2Utc2V0dXAtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxvQkFBQTtFQUNBLFlBQUE7QUFDRDs7QUFFQztFQUNDLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSxvQkFBQTtBQUNGIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Utc2V0dXAvb3AtbWFpbnRlbmFuY2Utc2V0dXAtY2F0ZWdvcnkvb3AtbWFpbnRlbmFuY2Utc2V0dXAtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VzdG9tLWljb24tZGlzYWJsZWR7XG5cdHBvaW50ZXItZXZlbnRzOm5vbmU7XG5cdG9wYWNpdHk6MC40O1xuXHR9XG5cdFxuXHQudGQtY29udGFpbmVye1xuXHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0XHR3aWR0aDogMzAlICFpbXBvcnRhbnQ7XG5cdFx0cGFkZGluZy1ib3R0b206IDIzcHg7XG5cdH1cblxuIl19 */";
+      __webpack_exports__["default"] = ".td-container {\n  position: relative;\n  width: 30% !important;\n  padding-bottom: 23px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Utc2V0dXAvb3AtbWFpbnRlbmFuY2Utc2V0dXAtY2F0ZWdvcnkvb3AtbWFpbnRlbmFuY2Utc2V0dXAtY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUM7RUFDQyxrQkFBQTtFQUNBLHFCQUFBO0VBQ0Esb0JBQUE7QUFERiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL29wZXJhdGlvbmFsLW1haW50YW5hbmNlL29wZXJhdGlvbmFsLW1haW50YW5hbmNlLXNldHVwL29wLW1haW50ZW5hbmNlLXNldHVwLWNhdGVnb3J5L29wLW1haW50ZW5hbmNlLXNldHVwLWNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG5cdFxuXHQudGQtY29udGFpbmVye1xuXHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0XHR3aWR0aDogMzAlICFpbXBvcnRhbnQ7XG5cdFx0cGFkZGluZy1ib3R0b206IDIzcHg7XG5cdH1cblxuIl19 */";
       /***/
     },
 
@@ -2462,6 +2462,8 @@
                   _this28.isAssetLoaded = false;
 
                   _this28.getAllCategory();
+
+                  _this28.newItemList = [];
                 } else _this28.sharedService.openSnackBar(resp.errorMessage, 'error');
               }, function (error) {
                 _this28.sharedService.openSnackBar('Server Error', 'error');
@@ -2589,7 +2591,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".custom-icon-disabled {\n  pointer-events: none;\n  opacity: 0.4;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hbXMvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Uvb3BlcmF0aW9uYWwtbWFpbnRhbmFuY2Utc2V0dXAvb3AtbWFpbnRlbmFuY2Utc2V0dXAtc3ViY2F0ZWdvcnkvb3AtbWFpbnRlbmFuY2Utc2V0dXAtc3ViY2F0ZWdvcnkuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxvQkFBQTtFQUNBLFlBQUE7QUFDRCIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL29wZXJhdGlvbmFsLW1haW50YW5hbmNlL29wZXJhdGlvbmFsLW1haW50YW5hbmNlLXNldHVwL29wLW1haW50ZW5hbmNlLXNldHVwLXN1YmNhdGVnb3J5L29wLW1haW50ZW5hbmNlLXNldHVwLXN1YmNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbS1pY29uLWRpc2FibGVke1xuXHRwb2ludGVyLWV2ZW50czpub25lO1xuXHRvcGFjaXR5OjAuNDtcbiAgfSJdfQ== */";
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL21vZHVsZXMvYW1zL29wZXJhdGlvbmFsLW1haW50YW5hbmNlL29wZXJhdGlvbmFsLW1haW50YW5hbmNlLXNldHVwL29wLW1haW50ZW5hbmNlLXNldHVwLXN1YmNhdGVnb3J5L29wLW1haW50ZW5hbmNlLXNldHVwLXN1YmNhdGVnb3J5LmNvbXBvbmVudC5zY3NzIn0= */";
       /***/
     },
 
@@ -2664,17 +2666,35 @@
           this.subItemLimit = 10;
           this.categoriesData = [];
           this.subCategoriesData = [];
-          this.tempSubCategoriesData = [];
-          this.subCatgory = {};
           this.currentData = {};
+          this.newItemList = [];
+          this.showFields = -1;
           this.modalService = this.injector.get(src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_4__["ModalService"]);
         }
 
         _createClass(OpMaintenanceSetupSubcategoryComponent, [{
+          key: "addForm",
+          value: function addForm() {
+            var data = {
+              genMaintenanceCategoryId: null,
+              genMaintenanceSubCategoryName: '',
+              description: '',
+              frequency: null
+            };
+            this.newItemList.push(data);
+            this.showFields = -1;
+          }
+        }, {
+          key: "closeForm",
+          value: function closeForm(list) {
+            this.newItemList = [];
+            this.setCurrentData(list);
+          }
+        }, {
           key: "getIndexParamsSubcategory",
           value: function getIndexParamsSubcategory(event) {
-            this.subItemStartIndex = event.itemStartIndex;
-            this.subItemEndIndex = event.itemEndIndex;
+            this.subItemStartIndex = event.ItemStartIndex;
+            this.subItemEndIndex = event.ItemEndIndex;
             this.subItemLimit = event.itemLimit;
           }
         }, {
@@ -2698,8 +2718,10 @@
         }, {
           key: "deleteSubRow",
           value: function deleteSubRow(index, data) {
-            this.deleteSubCatgory = true;
-            this.modalService.showConfirmModal(data.genMaintenanceSubCategoryId);
+            this.modalService.showConfirmModal({
+              id: data.genMaintenanceSubCategoryId,
+              index: index
+            });
           }
         }, {
           key: "getAllCategory",
@@ -2720,10 +2742,10 @@
 
             this.isAssetLoaded = true;
             this.genMaintService.getAllGenMaintenanceSubCategory().subscribe(function (res) {
-              if (res) {
-                _this32.isAssetLoaded = false;
-                _this32.subCategoriesData = res ? res : [];
-                _this32.tempSubCategoriesData = res ? res : [];
+              _this32.isAssetLoaded = false;
+
+              if (Array.isArray(res)) {
+                _this32.subCategoriesData = res;
                 _this32.subTotalItems = _this32.subCategoriesData.length;
 
                 if (_this32.subTotalItems > _this32.subItemLimit) {
@@ -2756,13 +2778,15 @@
             params.model = reqObj;
             this.genMaintService.addGenMaintenanceSubCategory(params).subscribe(function (resp) {
               if (!isNaN(resp.message)) {
-                _this33.sharedService.setAlertMessage("Sub Category added successfully");
+                _this33.sharedService.openSnackBar("Sub Category added successfully", 'success');
 
                 _this33.isAssetLoaded = false;
-                _this33.subCatgory = {};
+                _this33.newItemList = [];
 
                 _this33.getAllSubCategory();
-              } else if (resp.message) _this33.sharedService.setAlertMessage(resp.message);else _this33.sharedService.setAlertMessage(resp.errorMessage);
+              } else _this33.sharedService.openSnackBar(resp.errorMessage, 'error');
+            }, function (error) {
+              _this33.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -2788,12 +2812,13 @@
             this.genMaintService.updateGenMaintenanceSubCategory(params).subscribe(function (resp) {
               if (resp.message) {
                 _this34.isAssetLoaded = false;
-                _this34.opSubIndex = -1;
 
                 _this34.getAllSubCategory();
 
-                _this34.sharedService.setAlertMessage(resp.message);
-              } else _this34.sharedService.setAlertMessage(resp.errorMessage);
+                _this34.sharedService.openSnackBar(resp.message, 'success');
+              } else _this34.sharedService.openSnackBar(resp.errorMessage, 'error');
+            }, function (error) {
+              _this34.sharedService.openSnackBar('Server Error', 'error');
             });
           }
         }, {
@@ -2803,7 +2828,7 @@
           }
         }, {
           key: "cancelCategory",
-          value: function cancelCategory(index, type) {
+          value: function cancelCategory(index) {
             this.subCategoriesData.splice(index, 1, this.currentData);
           }
         }, {
@@ -2813,32 +2838,35 @@
 
             this.getAllCategory();
             this.getAllSubCategory();
-            this.sharedService.unitlistdeleteindexcast.subscribe(function (id) {
-              if (id != null) {
-                var param = {};
+            this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(function (data) {
+              if (data && data.id) {
+                var param = {
+                  genMaintenanceSubCategoryId: data.id,
+                  deleteBy: _this35.sessionService.userId
+                };
 
-                if (_this35.deleteSubCatgory == true) {
-                  param = {
-                    genMaintenanceSubCategoryId: id,
-                    deleteBy: parseInt(_this35.sessionService.userId)
-                  };
+                _this35.genMaintService.deleteGenMaintenanceSubCategory(param).subscribe(function (res) {
+                  _this35.sharedService.setUnitListDeleteIndex(null);
 
-                  _this35.genMaintService.deleteGenMaintenanceSubCategory(param).subscribe(function (res) {
-                    setTimeout(function () {
-                      _this35.sharedService.setAlertMessage(" Sub Category deleted successfully");
+                  if (res.message) {
+                    _this35.sharedService.openSnackBar("Sub Category deleted successfully", 'success');
 
-                      _this35.sharedService.setUnitListDeleteIndex(null);
+                    _this35.subCategoriesData.splice(data.index, 1);
+                  } else {
+                    _this35.sharedService.openSnackBar(res.errorMessage, 'error');
+                  }
+                }, function (error) {
+                  _this35.sharedService.setUnitListDeleteIndex(null);
 
-                      _this35.getAllSubCategory();
-
-                      _this35.deleteSubCatgory = false;
-                    }, 500);
-                  }, function (error) {
-                    console.log(error);
-                  });
-                }
+                  _this35.sharedService.openSnackBar('Server Error', 'error');
+                });
               }
             });
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            this.apiSubscribe.unsubscribe();
           }
         }]);
 

@@ -209,7 +209,7 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
                 };
                 addTicket.push(Object.assign(Object.assign({}, esclator), esclatorMain));
             }
-            else if (i == 1 && this.ticketCategoryData.staffTwo && this.ticketCategoryData.escalationDaysOne) {
+            else if (i == 1 && this.ticketCategoryData.staffTwo && this.ticketCategoryData.escalationDaysOne || (i == 1 && this.ticketCategoryData.ticketManagerIdOne)) {
                 let esclatorMain = {
                     ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerIdOne : 0,
                     userId: this.ticketCategoryData.staffTwo,
@@ -218,7 +218,7 @@ let AddTicketCategoryComponent = class AddTicketCategoryComponent {
                 };
                 addTicket.push(Object.assign(Object.assign({}, esclator), esclatorMain));
             }
-            else if (i == 2 && this.ticketCategoryData.staffThree && this.ticketCategoryData.escalationDaysTwo) {
+            else if (i == 2 && this.ticketCategoryData.staffThree && this.ticketCategoryData.escalationDaysTwo || (i == 2 && this.ticketCategoryData.ticketManagerIdTwo)) {
                 let esclatorMain = {
                     ticketManagerId: this.data.mode == 'edit' ? this.ticketCategoryData.ticketManagerIdTwo : 0,
                     userId: this.ticketCategoryData.staffThree,
@@ -410,6 +410,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+
 
 
 
@@ -420,11 +422,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CommonCategoryComponent = class CommonCategoryComponent {
-    constructor(dialog, sharedService, ticketService, sessionService, injector) {
+    constructor(dialog, sharedService, ticketService, sessionService, lookupService, injector) {
         this.dialog = dialog;
         this.sharedService = sharedService;
         this.ticketService = ticketService;
         this.sessionService = sessionService;
+        this.lookupService = lookupService;
         this.injector = injector;
         this.commonFilter = "";
         this.isDataLoaded = true;
@@ -486,7 +489,34 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                 this.totalItems = res.length;
                 let data = {
                     localdata: res.reverse(),
-                    datatype: "array"
+                    datatype: "array",
+                    datafields: [{
+                            name: 'ticketCategoryId',
+                            type: 'number'
+                        }, {
+                            name: 'ticketCategoryName',
+                            type: 'string'
+                        }, {
+                            name: 'userNameZero',
+                            type: 'string',
+                            map: 'escalationLevelId0>userName'
+                        }, {
+                            name: 'userNameOne',
+                            type: 'string',
+                            map: 'escalationLevelId1>userName'
+                        }, {
+                            name: 'dayOne',
+                            type: 'number',
+                            map: 'escalationLevelId1>escalationDays'
+                        }, {
+                            name: 'userNameTwo',
+                            type: 'string',
+                            map: 'escalationLevelId2>userName'
+                        }, {
+                            name: 'dayTwo',
+                            type: 'number',
+                            map: 'escalationLevelId2>escalationDays'
+                        }],
                 };
                 this.commonListData = new jqx.dataAdapter(data);
             }
@@ -513,65 +543,32 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                 renderer: columnrendererCommon
             }, {
                 text: 'Supervisor',
-                datafield: "escalationLevelId0",
-                cellsrenderer: (row, column, value) => {
-                    let field = this.commonListData.loadedData[row].escalationLevelId0;
-                    if (field && field.userName)
-                        value = field.userName;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: "userNameZero",
+                cellsrenderer: cellsrendererCommon,
                 minwidth: 150,
                 renderer: columnrendererCommon
             }, {
                 text: 'Level-1',
-                datafield: 'escalationLevelId1',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.commonListData.loadedData[row].escalationLevelId1;
-                    if (field && field.userName)
-                        value = field.userName;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: "userNameOne",
+                cellsrenderer: cellsrendererCommon,
                 minwidth: 150,
                 renderer: columnrendererCommon
             }, {
                 text: 'L1 escdays',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.commonListData.loadedData[row].escalationLevelId1;
-                    if (field && field.escalationDays)
-                        value = field.escalationDays;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: 'dayOne',
+                cellsrenderer: cellsrendererCommon,
                 width: 120,
                 renderer: columnrendererCommon
             }, {
                 text: 'Level-2',
-                datafield: 'escalationLevelId2',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.commonListData.loadedData[row].escalationLevelId2;
-                    if (field && field.userName)
-                        value = field.userName;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: "userNameTwo",
+                cellsrenderer: cellsrendererCommon,
                 minwidth: 150,
                 renderer: columnrendererCommon
             }, {
                 text: 'L2 escdays',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.commonListData.loadedData[row].escalationLevelId2;
-                    if (field && field.escalationDays)
-                        value = field.escalationDays;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: 'dayTwo',
+                cellsrenderer: cellsrendererCommon,
                 width: 120,
                 renderer: columnrendererCommon
             }, {
@@ -587,22 +584,35 @@ let CommonCategoryComponent = class CommonCategoryComponent {
         //Delete Category
         this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(item => {
             if (item != null && item.id) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    ticketCategoryId: item.id,
-                    deleteBy: this.sessionService.userId
+                let category = {
+                    lookupValueId: item.id,
+                    updateUserId: parseInt(this.sessionService.userId)
                 };
-                this.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe((res) => {
+                this.lookupService.deleteLookupvalue(category).subscribe((res) => {
                     this.sharedService.setUnitListDeleteIndex(null);
-                    if (res.code == 200) {
-                        this.commondatagrid.deleterow(item.index);
-                        this.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                    if (res.message) {
+                        let params = {
+                            apartmentId: this.sessionService.apartmentId,
+                            ticketCategoryId: item.id,
+                            deleteBy: this.sessionService.userId
+                        };
+                        this.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe((res) => {
+                            if (res.code == 200) {
+                                this.commondatagrid.deleterow(item.index);
+                                this.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                            }
+                            else {
+                                this.sharedService.openSnackBar(res.statusMessage, 'error');
+                            }
+                        }, (error) => {
+                            this.sharedService.setUnitListDeleteIndex(null);
+                            this.sharedService.openSnackBar('Server Error', 'error');
+                        });
                     }
                     else {
-                        this.sharedService.openSnackBar(res.statusMessage, 'error');
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
                 }, (error) => {
-                    this.sharedService.setUnitListDeleteIndex(null);
                     this.sharedService.openSnackBar('Server Error', 'error');
                 });
             }
@@ -617,6 +627,7 @@ CommonCategoryComponent.ctorParameters = () => [
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] }
 ];
 CommonCategoryComponent.propDecorators = {
@@ -634,6 +645,7 @@ CommonCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"]])
 ], CommonCategoryComponent);
 
@@ -844,6 +856,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/api/controllers/Ticket */ "./src/app/api/controllers/Ticket.ts");
 /* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
 /* harmony import */ var src_app_shared_services_modal_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/services/modal.service */ "./src/app/shared/services/modal.service.ts");
+/* harmony import */ var src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/Lookup */ "./src/app/api/controllers/Lookup.ts");
+
 
 
 
@@ -854,10 +868,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let PrivateCategoryComponent = class PrivateCategoryComponent {
-    constructor(dialog, sharedService, ticketService, injector, sessionService) {
+    constructor(dialog, sharedService, ticketService, lookupService, injector, sessionService) {
         this.dialog = dialog;
         this.sharedService = sharedService;
         this.ticketService = ticketService;
+        this.lookupService = lookupService;
         this.injector = injector;
         this.sessionService = sessionService;
         this.privateFilter = '';
@@ -920,7 +935,34 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                 this.totalItems = res.length;
                 let data = {
                     localdata: res.reverse(),
-                    datatype: "array"
+                    datatype: "array",
+                    datafields: [{
+                            name: 'ticketCategoryId',
+                            type: 'number'
+                        }, {
+                            name: 'ticketCategoryName',
+                            type: 'string'
+                        }, {
+                            name: 'userNameZero',
+                            type: 'string',
+                            map: 'escalationLevelId0>userName'
+                        }, {
+                            name: 'userNameOne',
+                            type: 'string',
+                            map: 'escalationLevelId1>userName'
+                        }, {
+                            name: 'dayOne',
+                            type: 'number',
+                            map: 'escalationLevelId1>escalationDays'
+                        }, {
+                            name: 'userNameTwo',
+                            type: 'string',
+                            map: 'escalationLevelId2>userName'
+                        }, {
+                            name: 'dayTwo',
+                            type: 'number',
+                            map: 'escalationLevelId2>escalationDays'
+                        }],
                 };
                 this.privateListData = new jqx.dataAdapter(data);
             }
@@ -947,65 +989,32 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                 renderer: columnrendererPrivate
             }, {
                 text: 'Supervisor',
-                datafield: "escalationLevelId0",
-                cellsrenderer: (row, column, value) => {
-                    let field = this.privateListData.loadedData[row].escalationLevelId0;
-                    if (field && field.userName)
-                        value = field.userName;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: "userNameZero",
+                cellsrenderer: cellsrendererPrivate,
                 minwidth: 150,
                 renderer: columnrendererPrivate
             }, {
                 text: 'Level-1',
-                datafield: 'escalationLevelId1',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.privateListData.loadedData[row].escalationLevelId1;
-                    if (field && field.userName)
-                        value = field.userName;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: "userNameOne",
+                cellsrenderer: cellsrendererPrivate,
                 minwidth: 150,
                 renderer: columnrendererPrivate
             }, {
                 text: 'L1 escdays',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.privateListData.loadedData[row].escalationLevelId1;
-                    if (field && field.escalationDays)
-                        value = field.escalationDays;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: 'dayOne',
+                cellsrenderer: cellsrendererPrivate,
                 width: 120,
                 renderer: columnrendererPrivate
             }, {
                 text: 'Level-2',
-                datafield: 'escalationLevelId2',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.privateListData.loadedData[row].escalationLevelId2;
-                    if (field && field.userName)
-                        value = field.userName;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: "userNameTwo",
+                cellsrenderer: cellsrendererPrivate,
                 minwidth: 150,
                 renderer: columnrendererPrivate
             }, {
                 text: 'L2 escdays',
-                cellsrenderer: (row, column, value) => {
-                    let field = this.privateListData.loadedData[row].escalationLevelId2;
-                    if (field && field.escalationDays)
-                        value = field.escalationDays;
-                    else
-                        value = '';
-                    return '<div class="jqx-custom-inner-cell">' + value + '</div>';
-                },
+                datafield: 'dayTwo',
+                cellsrenderer: cellsrendererPrivate,
                 width: 120,
                 renderer: columnrendererPrivate
             }, {
@@ -1021,22 +1030,35 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
         //Delete Category
         this.apiSubscribe = this.sharedService.unitlistdeleteindexcast.subscribe(item => {
             if (item != null && item.id) {
-                let params = {
-                    apartmentId: this.sessionService.apartmentId,
-                    ticketCategoryId: item.id,
-                    deleteBy: this.sessionService.userId
+                let category = {
+                    lookupValueId: item.id,
+                    updateUserId: parseInt(this.sessionService.userId)
                 };
-                this.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe((res) => {
+                this.lookupService.deleteLookupvalue(category).subscribe((res) => {
                     this.sharedService.setUnitListDeleteIndex(null);
-                    if (res.code == 200) {
-                        this.privatedatagrid.deleterow(item.index);
-                        this.sharedService.openSnackBar('Private Category Deleted Successfully', 'success');
+                    if (res.message) {
+                        let params = {
+                            apartmentId: this.sessionService.apartmentId,
+                            ticketCategoryId: item.id,
+                            deleteBy: this.sessionService.userId
+                        };
+                        this.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe((res) => {
+                            if (res.code == 200) {
+                                this.privatedatagrid.deleterow(item.index);
+                                this.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                            }
+                            else {
+                                this.sharedService.openSnackBar(res.statusMessage, 'error');
+                            }
+                        }, (error) => {
+                            this.sharedService.setUnitListDeleteIndex(null);
+                            this.sharedService.openSnackBar('Server Error', 'error');
+                        });
                     }
                     else {
-                        this.sharedService.openSnackBar(res.statusMessage, 'error');
+                        this.sharedService.openSnackBar(res.errorMessage, 'error');
                     }
                 }, (error) => {
-                    this.sharedService.setUnitListDeleteIndex(null);
                     this.sharedService.openSnackBar('Server Error', 'error');
                 });
             }
@@ -1050,6 +1072,7 @@ PrivateCategoryComponent.ctorParameters = () => [
     { type: _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"] },
     { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"] },
     { type: src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"] },
+    { type: src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"] },
     { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"] },
     { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"] }
 ];
@@ -1067,6 +1090,7 @@ PrivateCategoryComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"],
         src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_7__["SharedService"],
         src_app_api_controllers_Ticket__WEBPACK_IMPORTED_MODULE_6__["TicketService"],
+        src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_9__["LookupService"],
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injector"],
         src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_2__["SessionService"]])
 ], PrivateCategoryComponent);

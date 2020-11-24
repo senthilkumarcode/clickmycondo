@@ -126,6 +126,8 @@ let HelpdeskCreateTicketComponent = class HelpdeskCreateTicketComponent {
         this.blockList = [];
         this.blockUnitList = [];
         this.statusTypeList = [];
+        //comment
+        this.ticketComment = '';
         this.ticketCommentList = [];
         this.oldData = {};
         this.acticateRoute.params.subscribe((data) => {

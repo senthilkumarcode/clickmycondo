@@ -241,7 +241,9 @@
           };
           this.blockList = [];
           this.blockUnitList = [];
-          this.statusTypeList = [];
+          this.statusTypeList = []; //comment
+
+          this.ticketComment = '';
           this.ticketCommentList = [];
           this.oldData = {};
           this.acticateRoute.params.subscribe(function (data) {
