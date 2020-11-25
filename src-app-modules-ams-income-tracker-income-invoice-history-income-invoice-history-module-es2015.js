@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n");
 
 /***/ }),
 
@@ -83,15 +83,17 @@ let IncomeHistoryReverseComponent = class IncomeHistoryReverseComponent {
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
-        this.isReceiptSubmitted = true;
-        this.isError = false;
-        this.alertMessage = "";
+        this.isDataLoaded = true;
+        this.isReceiptSubmitted = false;
         this.childEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     goBack() {
         this._incomeInvoiceHistoryComponent._selectPanelOverlayRef.detach();
+        if (this.isReceiptSubmitted)
+            this._incomeInvoiceHistoryComponent.getInvoiceDataList();
     }
     submitReverseIncomeHistoryForm(form) {
+        this.isDataLoaded = false;
         this.isReceiptSubmitted = false;
         let details = {
             "apartmentId": this.sessionService.apartmentId,
@@ -114,24 +116,27 @@ let IncomeHistoryReverseComponent = class IncomeHistoryReverseComponent {
             custTransReversal: details
         };
         this.accountsService.addCustTransReversal(params).subscribe((res) => {
-            if (res.message) {
+            this.isDataLoaded = true;
+            if (res.code == 200) {
+                this.goBack();
                 this.isReceiptSubmitted = true;
-                this.sharedService.setAlertMessage("Invoice reversed successfully");
+                this.sharedService.openSnackBar('Invoice reversed successfully', 'success');
             }
             else {
-                this.isReceiptSubmitted = true;
-                this.isError = true;
-                this.alertMessage = res.errorMessage;
+                let message = res.message;
+                this.isReceiptSubmitted = false;
+                this.sharedService.openSnackBar(message, 'error');
             }
         }, error => {
+            this.isDataLoaded = true;
             this.isReceiptSubmitted = true;
-            this.isError = true;
-            this.alertMessage = "Some error occured";
+            this.sharedService.openSnackBar('Some error occured', 'error');
         }, () => {
             this.childEvent.emit(true);
         });
     }
     ngOnInit() {
+        this.invoice.comment = "";
     }
 };
 IncomeHistoryReverseComponent.ctorParameters = () => [
@@ -422,6 +427,20 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
             }
         });
     }
+    getInvoiceDataList() {
+        this.isInvoiceDataLoaded = false;
+        this.isInvoiceDataFilterLoaded = false;
+        var params = {
+            ApartmentBlockUnitID: this.route.params['value'].id
+        };
+        this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
+            var invoiceDataList = res;
+            invoiceDataList.forEach(item => {
+                return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
+            });
+            this.getAccountHistoryData(invoiceDataList);
+        });
+    }
     ngOnInit() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
         this.accountsService.getAllGlAccounts().subscribe((res) => {
@@ -438,16 +457,6 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 return item.apartmentBlockUnitId == this.route.params['value'].id;
             });
             this.isAccountDataLoaded = true;
-        });
-        var params = {
-            ApartmentBlockUnitID: this.route.params['value'].id
-        };
-        this.accountsService.getAccountHistoryByApartmentUnitId(params).subscribe((res) => {
-            var invoiceDataList = res;
-            invoiceDataList.forEach(item => {
-                return item.reversalId != null ? item.isReverseIdAvailable = true : item.isReverseIdAvailable = false;
-            });
-            this.getAccountHistoryData(invoiceDataList);
         });
         var cellsrenderer = (row, column, value) => {
             return '<div class="jqx-custom-inner-cell">' + value + '</div>';
@@ -531,6 +540,7 @@ let IncomeInvoiceHistoryComponent = class IncomeInvoiceHistoryComponent {
                 },
                 renderer: columnrenderer
             }];
+        this.getInvoiceDataList();
     }
 };
 IncomeInvoiceHistoryComponent.ctorParameters = () => [
@@ -569,7 +579,7 @@ let getStatusClassName = value => {
     return value ? 'text-purple-100 bg-purple-500' : 'd-none';
 };
 let getReverseStatus = value => {
-    return value ? 'disabled' : '';
+    return value ? 'disabled op-35' : '';
 };
 let editReverseEvent = row => {
     let event = new CustomEvent('onEditReverse', {

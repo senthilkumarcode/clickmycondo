@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isAdvanceSubmitted\"></app-loader>\n\t\t\n\t<ng-container *ngIf=\"isAdvanceSubmitted\">\n\n\t\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm(addCustomerAdvanceForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<!-- <div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Account\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"glAccountsDataList\"\n\t\t\t\t\t\tfieldValue=\"glaccountName\"\n\t\t\t\t\t\t[fieldModel]=\"advance.glaccountId\"\n\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t(fieldParams)=\"getGlAccount($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t\t\n\t\t\t\t</div>  -->\n\n\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-customer-advance-wrapper\">\n\t\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\t\t\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<form #addCustomerAdvanceForm = \"ngForm\" name=\"addCustomerAdvanceForm\" (ngSubmit)=\"submitAddCustomerAdvanceForm(addCustomerAdvanceForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"advance.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"advance.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form> \n\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\n\t<app-loader *ngIf=\"!isDepositSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isDepositSubmitted\">\n\n\t\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm(addSecuityDepositForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t<!-- <div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\n\t\t\t\t\t<condo-select \n\t\t\t\t\t\tlabelText=\"Account\"\n\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t[fieldList]=\"glAccountsDataList\"\n\t\t\t\t\t\tfieldValue=\"glaccountName\"\n\t\t\t\t\t\t[fieldModel]=\"deposit.glaccountId\"\n\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t(fieldParams)=\"getGlAccount($event)\" \n\t\t\t\t\t></condo-select>\n\t\t\t\t\t\n\t\t\t\t</div> -->\n\n\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" class=\"btn blue\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\t\t\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-add-security-deposit-wrapper\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\n\t\t<form #addSecuityDepositForm = \"ngForm\" name=\"addSecuityDepositForm\" (ngSubmit)=\"submitAddSecuityDepositForm(addSecuityDepositForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex mb-4\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\t\n\n\t\t\t\t<div class=\"col-sm-12\" *ngIf=\"!isEdit\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Amount*</label>\n\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" class=\"form-control\" placeholder=\"Enter text\" name=\"advanceAmount\" [(ngModel)]=\"deposit.amount\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"deposit.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\n\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" class=\"btn blue\">Submit</button>\n\t\t\t\t</div>\n\n\t\t\t</div>\n\n\t\t</form>\n\n\t</ng-container>\n\t\t\n</div>");
 
 /***/ }),
 
@@ -399,6 +399,7 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
         this.accountsService = accountsService;
         this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.isDataLoaded = false;
         this.isAdvanceSubmitted = false;
         this.isError = false;
         this.alertMessage = "";
@@ -421,8 +422,12 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
     }
     goBack() {
         this._incomeCustomerAdvancesComponent._selectPanelOverlayRef.detach();
+        if (this.isAdvanceSubmitted) {
+            this._incomeCustomerAdvancesComponent.getCustomerAdvancesData();
+        }
     }
     submitAddCustomerAdvanceForm(form) {
+        this.isDataLoaded = false;
         if (!this.isEdit) {
             let details = {
                 "apartmentId": this.sessionService.apartmentId,
@@ -445,17 +450,20 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 custAdvance: details
             };
             this.accountsService.addAdvance(params).subscribe((res) => {
-                if (res.error == 'Sucess') {
+                this.isDataLoaded = true;
+                if (res.code == 200) {
                     this.isAdvanceSubmitted = true;
-                    this.sharedService.setAlertMessage("Customer Advance added successfully");
-                    this.outputParams.emit(true);
                     this.goBack();
+                    this.sharedService.openSnackBar("Customer Advance added successfully", 'success');
                 }
                 else {
-                    this.isAdvanceSubmitted = true;
+                    this.isAdvanceSubmitted = false;
+                    this.sharedService.openSnackBar(res.message, 'error');
                 }
             }, error => {
-                this.isAdvanceSubmitted = true;
+                this.isDataLoaded = true;
+                this.isAdvanceSubmitted = false;
+                this.sharedService.openSnackBar('Some error occured', 'error');
             });
         }
         else {
@@ -482,17 +490,20 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
                 custAdvance: details
             };
             this.accountsService.updateAdvance(params).subscribe((res) => {
-                if (res) {
+                this.isDataLoaded = true;
+                if (res.code == 200) {
                     this.isAdvanceSubmitted = true;
-                    this.sharedService.setAlertMessage("Customer Advance updated successfully");
-                    this.outputParams.emit(true);
                     this.goBack();
+                    this.sharedService.openSnackBar("Customer Advance updated successfully", 'success');
                 }
                 else {
-                    this.isAdvanceSubmitted = true;
+                    this.isAdvanceSubmitted = false;
+                    this.sharedService.openSnackBar(res.message, 'error');
                 }
             }, error => {
-                this.isAdvanceSubmitted = true;
+                this.isDataLoaded = true;
+                this.isAdvanceSubmitted = false;
+                this.sharedService.openSnackBar('Some error occured', 'error');
             });
         }
     }
@@ -501,10 +512,8 @@ let IncomeAddCustomerAdvanceComponent = class IncomeAddCustomerAdvanceComponent 
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
             });
-            this.isAdvanceSubmitted = true;
+            this.isDataLoaded = true;
         });
-    }
-    ngOnChanges(changes) {
     }
 };
 IncomeAddCustomerAdvanceComponent.ctorParameters = () => [
@@ -567,9 +576,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component */ "./src/app/modules/ams/income-tracker/income-actions/income-security-deposit/income-security-deposit.component.ts");
 /* harmony import */ var src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/api/controllers/Accounts */ "./src/app/api/controllers/Accounts.ts");
-/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
-/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
+/* harmony import */ var src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/core/session/session.service */ "./src/app/core/session/session.service.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_7__);
+
 
 
 
@@ -578,11 +589,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent {
-    constructor(route, _incomeSecurityDepositComponent, accountsService, sessionService) {
+    constructor(route, _incomeSecurityDepositComponent, accountsService, sharedService, sessionService) {
         this.route = route;
         this._incomeSecurityDepositComponent = _incomeSecurityDepositComponent;
         this.accountsService = accountsService;
+        this.sharedService = sharedService;
         this.sessionService = sessionService;
+        this.isDataLoaded = false;
         this.isDepositSubmitted = false;
         this.glAccountIndicator = "Cust_Invoice";
         this.isError = false;
@@ -594,8 +607,12 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
     }
     goBack() {
         this._incomeSecurityDepositComponent._selectPanelOverlayRef.detach();
+        if (this.isDepositSubmitted) {
+            this._incomeSecurityDepositComponent.getSecurityDepositData();
+        }
     }
     submitAddSecuityDepositForm(form) {
+        this.isDataLoaded = false;
         if (!this.isEdit) {
             let details = {
                 "apartmentId": this.sessionService.apartmentId,
@@ -611,7 +628,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "comment2": this.deposit.comment,
                 "active": true,
                 "insertedBy": parseInt(this.sessionService.userId),
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString(),
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString(),
                 "updatedBy": null,
                 "updatedOn": null
             };
@@ -619,16 +636,20 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 custSecurity: details
             };
             this.accountsService.addSecurityDeposit(params).subscribe((res) => {
-                if (res.error = "Sucess") {
+                this.isDataLoaded = true;
+                if (res.code = 200) {
                     this.isDepositSubmitted = true;
-                    this.outputParams.emit(true);
                     this.goBack();
+                    this.sharedService.openSnackBar("Security Deposit added successfully", 'success');
                 }
                 else {
-                    this.isDepositSubmitted = true;
+                    this.isDepositSubmitted = false;
+                    this.sharedService.openSnackBar(res.message, 'error');
                 }
             }, error => {
-                this.isDepositSubmitted = true;
+                this.isDataLoaded = true;
+                this.isDepositSubmitted = false;
+                this.sharedService.openSnackBar("Some error occured", 'error');
             });
         }
         else {
@@ -649,22 +670,26 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
                 "insertedBy": this.deposit.insertedBy,
                 "insertedOn": this.deposit.insertedOn,
                 "updatedBy": parseInt(this.sessionService.userId),
-                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_6___default()().toISOString()
+                "updatedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_7___default()().toISOString()
             };
             let params = {
                 custSecurity: details
             };
             this.accountsService.updateSecurityDeposit(params).subscribe((res) => {
-                if (res) {
+                this.isDataLoaded = true;
+                if (res.code = 200) {
                     this.isDepositSubmitted = true;
-                    this.outputParams.emit(true);
                     this.goBack();
+                    this.sharedService.openSnackBar("Security Deposit updated successfully", 'success');
                 }
                 else {
-                    this.isDepositSubmitted = true;
+                    this.isDepositSubmitted = false;
+                    this.sharedService.openSnackBar(res.message, 'error');
                 }
             }, error => {
-                this.isDepositSubmitted = true;
+                this.isDataLoaded = true;
+                this.isDepositSubmitted = false;
+                this.sharedService.openSnackBar("Some error occured", 'error');
             });
         }
     }
@@ -678,7 +703,7 @@ let IncomeAddSecurityDepositComponent = class IncomeAddSecurityDepositComponent 
             this.glAccountsDataList = res.filter(item => {
                 return item.isActive && this.sessionService.apartmentId && item.indicator == this.glAccountIndicator;
             });
-            this.isDepositSubmitted = true;
+            this.isDataLoaded = true;
         });
     }
     ngOnChanges(changes) {
@@ -689,7 +714,8 @@ IncomeAddSecurityDepositComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
     { type: src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"] },
     { type: src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"] },
-    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"] },
+    { type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"] }
 ];
 IncomeAddSecurityDepositComponent.propDecorators = {
     deposit: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -706,7 +732,8 @@ IncomeAddSecurityDepositComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["_
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
         src_app_modules_ams_income_tracker_income_actions_income_security_deposit_income_security_deposit_component__WEBPACK_IMPORTED_MODULE_3__["IncomeSecurityDepositComponent"],
         src_app_api_controllers_Accounts__WEBPACK_IMPORTED_MODULE_4__["AccountsService"],
-        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_5__["SessionService"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_5__["SharedService"],
+        src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_6__["SessionService"]])
 ], IncomeAddSecurityDepositComponent);
 
 

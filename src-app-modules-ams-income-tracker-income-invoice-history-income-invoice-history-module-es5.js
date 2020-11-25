@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isReceiptSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isReceiptSubmitted\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
+      __webpack_exports__["default"] = "\n<div class=\"bg-card popover-card\">\n\n\t<app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n\t<ng-container *ngIf=\"isDataLoaded\">\n\t\t<form #reverseIncomeHistoryForm = \"ngForm\" name=\"reverseIncomeHistoryForm\" (ngSubmit)=\"submitReverseIncomeHistoryForm(reverseIncomeHistoryForm)\"  novalidate>\n\t\t\t\n\t\t\t<div class=\"d-flex\">\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<button mat-icon-button\n\t\t\t\t\t\t(click)=\"goBack()\">\n\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<div class=\"row\">\n\t\t\t\t\n\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comment\" [(ngModel)]=\"invoice.comment\" required>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\n\t\t\t\t<div class=\"col-sm-12 text-right\">\n\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" >Submit</button> \n\t\t\t\t</div>\n\t\n\t\t\t</div>\n\t\n\t\t</form>\n\t</ng-container>\n\n</div>\n\n";
       /***/
     },
 
@@ -160,9 +160,8 @@
           this.accountsService = accountsService;
           this.sharedService = sharedService;
           this.sessionService = sessionService;
-          this.isReceiptSubmitted = true;
-          this.isError = false;
-          this.alertMessage = "";
+          this.isDataLoaded = true;
+          this.isReceiptSubmitted = false;
           this.childEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         }
 
@@ -170,12 +169,15 @@
           key: "goBack",
           value: function goBack() {
             this._incomeInvoiceHistoryComponent._selectPanelOverlayRef.detach();
+
+            if (this.isReceiptSubmitted) this._incomeInvoiceHistoryComponent.getInvoiceDataList();
           }
         }, {
           key: "submitReverseIncomeHistoryForm",
           value: function submitReverseIncomeHistoryForm(form) {
             var _this = this;
 
+            this.isDataLoaded = false;
             this.isReceiptSubmitted = false;
             var details = {
               "apartmentId": this.sessionService.apartmentId,
@@ -198,26 +200,34 @@
               custTransReversal: details
             };
             this.accountsService.addCustTransReversal(params).subscribe(function (res) {
-              if (res.message) {
+              _this.isDataLoaded = true;
+
+              if (res.code == 200) {
+                _this.goBack();
+
                 _this.isReceiptSubmitted = true;
 
-                _this.sharedService.setAlertMessage("Invoice reversed successfully");
+                _this.sharedService.openSnackBar('Invoice reversed successfully', 'success');
               } else {
-                _this.isReceiptSubmitted = true;
-                _this.isError = true;
-                _this.alertMessage = res.errorMessage;
+                var message = res.message;
+                _this.isReceiptSubmitted = false;
+
+                _this.sharedService.openSnackBar(message, 'error');
               }
             }, function (error) {
+              _this.isDataLoaded = true;
               _this.isReceiptSubmitted = true;
-              _this.isError = true;
-              _this.alertMessage = "Some error occured";
+
+              _this.sharedService.openSnackBar('Some error occured', 'error');
             }, function () {
               _this.childEvent.emit(true);
             });
           }
         }, {
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            this.invoice.comment = "";
+          }
         }]);
 
         return IncomeHistoryReverseComponent;
@@ -663,28 +673,12 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getInvoiceDataList",
+          value: function getInvoiceDataList() {
             var _this5 = this;
 
-            this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this5.timeZone = timeZone;
-            });
-            this.accountsService.getAllGlAccounts().subscribe(function (res) {
-              var glAccountListData = res.filter(function (item) {
-                return item.apartmentId == _this5.sessionService.apartmentId;
-              });
-              _this5.glAccountListData = glAccountListData;
-            });
-            var accountListParams = {
-              apartmentId: this.sessionService.apartmentId
-            };
-            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
-              _this5.accountDataList = res.filter(function (item) {
-                return item.apartmentBlockUnitId == _this5.route.params['value'].id;
-              });
-              _this5.isAccountDataLoaded = true;
-            });
+            this.isInvoiceDataLoaded = false;
+            this.isInvoiceDataFilterLoaded = false;
             var params = {
               ApartmentBlockUnitID: this.route.params['value'].id
             };
@@ -695,6 +689,30 @@
               });
 
               _this5.getAccountHistoryData(invoiceDataList);
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this6 = this;
+
+            this.sharedService.timezonecast.subscribe(function (timeZone) {
+              return _this6.timeZone = timeZone;
+            });
+            this.accountsService.getAllGlAccounts().subscribe(function (res) {
+              var glAccountListData = res.filter(function (item) {
+                return item.apartmentId == _this6.sessionService.apartmentId;
+              });
+              _this6.glAccountListData = glAccountListData;
+            });
+            var accountListParams = {
+              apartmentId: this.sessionService.apartmentId
+            };
+            this.accountsService.getIncomeTrackerSubLedgersByApartmentId(accountListParams).subscribe(function (res) {
+              _this6.accountDataList = res.filter(function (item) {
+                return item.apartmentBlockUnitId == _this6.route.params['value'].id;
+              });
+              _this6.isAccountDataLoaded = true;
             });
 
             var cellsrenderer = function cellsrenderer(row, column, value) {
@@ -710,7 +728,7 @@
               datafield: 'postedDate',
               width: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this6.timeZone.offset, 'hours').format(_this6.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -766,6 +784,7 @@
               },
               renderer: columnrenderer
             }];
+            this.getInvoiceDataList();
           }
         }]);
 
@@ -827,7 +846,7 @@
       };
 
       var getReverseStatus = function getReverseStatus(value) {
-        return value ? 'disabled' : '';
+        return value ? 'disabled op-35' : '';
       };
 
       var editReverseEvent = function editReverseEvent(row) {
@@ -1127,10 +1146,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this6.timeZone = timeZone;
+              return _this7.timeZone = timeZone;
             });
             this.resetFilter();
           }

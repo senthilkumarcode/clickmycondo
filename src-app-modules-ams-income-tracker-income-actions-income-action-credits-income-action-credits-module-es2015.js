@@ -461,6 +461,13 @@ let IncomeActionCreditListComponent = class IncomeActionCreditListComponent {
                 renderer: columnrenderer
             },
             {
+                text: 'Debit Amount',
+                datafield: 'debitAmount',
+                width: 150,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
                 text: 'Comments',
                 datafield: 'comment',
                 minwidth: 180,
