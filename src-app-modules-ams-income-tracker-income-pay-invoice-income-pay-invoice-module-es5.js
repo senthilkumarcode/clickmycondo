@@ -267,6 +267,7 @@
           value: function onCheckInvoiceRow(detail) {
             var _this2 = this;
 
+            var length = 0;
             var allDataRecords = this.datagrid.getrows();
             var dataRecord = this.datagrid.getrowdata(detail.rowId);
             dataRecord.checked = detail.checked;
@@ -284,6 +285,21 @@
             this.isInvoiceSelected = allDataRecords.some(function (item) {
               return item.checked;
             });
+
+            var allChecker = function allChecker(allDataRecords) {
+              return allDataRecords.every(function (item) {
+                return item.checked === true;
+              });
+            };
+
+            if (allChecker) {
+              $("#selectAllDefaulters").prop("checked", true);
+            }
+
+            if (!this.isInvoiceSelected) {
+              $("#selectAllDefaulters").prop("checked", false);
+            }
+
             setTimeout(function () {
               var elem = document.querySelector('.post-collection-comp');
               var scrollTo = elem.getBoundingClientRect().top - 100;

@@ -1796,7 +1796,8 @@
         }, {
           key: "getDateFormat",
           value: function getDateFormat(date) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
+            //date format hard-coded for api purpose
+            return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format('YYYY/MM/DD');
           }
         }, {
           key: "submitIncomeReportsForm",
@@ -1848,10 +1849,22 @@
             };
 
             this.columnData = [{
+              text: 'Document Number',
+              datafield: 'documentNumber',
+              width: 180,
+              pinned: true,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
+              text: 'Document Type',
+              datafield: 'gldocumentDesc',
+              width: 180,
+              cellsrenderer: cellsrenderer,
+              renderer: columnrenderer
+            }, {
               text: 'Customer Invoice Id',
               datafield: 'custInvoiceId',
               width: 180,
-              pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {

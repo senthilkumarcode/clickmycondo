@@ -216,7 +216,7 @@ let IncomeSubledgerComponent = class IncomeSubledgerComponent {
             {
                 text: 'Bill to Party',
                 datafield: 'billToParty',
-                minwidth: 180,
+                width: 180,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },

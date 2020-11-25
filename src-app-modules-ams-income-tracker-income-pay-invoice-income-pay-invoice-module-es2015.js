@@ -149,6 +149,7 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         }, 100);
     }
     onCheckInvoiceRow(detail) {
+        let length = 0;
         let allDataRecords = this.datagrid.getrows();
         var dataRecord = this.datagrid.getrowdata(detail.rowId);
         dataRecord.checked = detail.checked;
@@ -164,6 +165,13 @@ let IncomePayInvoiceComponent = class IncomePayInvoiceComponent {
         this.isInvoiceSelected = allDataRecords.some(item => {
             return item.checked;
         });
+        let allChecker = allDataRecords => allDataRecords.every(item => item.checked === true);
+        if (allChecker) {
+            $("#selectAllDefaulters").prop("checked", true);
+        }
+        if (!this.isInvoiceSelected) {
+            $("#selectAllDefaulters").prop("checked", false);
+        }
         setTimeout(() => {
             var elem = document.querySelector('.post-collection-comp');
             var scrollTo = elem.getBoundingClientRect().top - 100;

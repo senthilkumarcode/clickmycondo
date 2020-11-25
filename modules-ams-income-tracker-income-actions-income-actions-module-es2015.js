@@ -1139,7 +1139,8 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         }
     }
     getDateFormat(date) {
-        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format(this.timeZone.date);
+        //date format hard-coded for api purpose
+        return moment__WEBPACK_IMPORTED_MODULE_9__(date).add(this.timeZone.offset, 'hours').format('YYYY/MM/DD');
     }
     submitIncomeReportsForm(form) {
         this.isReportSubmitted = true;
@@ -1178,11 +1179,26 @@ let IncomeJournalComponent = class IncomeJournalComponent {
         var columnrenderer = (value) => {
             return '<div style="padding: 14px">' + value + '</div>';
         };
-        this.columnData = [{
+        this.columnData = [
+            {
+                text: 'Document Number',
+                datafield: 'documentNumber',
+                width: 180,
+                pinned: true,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
+                text: 'Document Type',
+                datafield: 'gldocumentDesc',
+                width: 180,
+                cellsrenderer: cellsrenderer,
+                renderer: columnrenderer
+            },
+            {
                 text: 'Customer Invoice Id',
                 datafield: 'custInvoiceId',
                 width: 180,
-                pinned: true,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
             },
@@ -1220,7 +1236,8 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 width: 180,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-            }, {
+            },
+            {
                 text: 'Document Date',
                 datafield: 'documentDate',
                 width: 180,
@@ -1228,13 +1245,15 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
-            }, {
+            },
+            {
                 text: 'Entered By',
                 datafield: 'enteredByName',
                 width: 120,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-            }, {
+            },
+            {
                 text: 'Entry Date & Time',
                 datafield: 'entryDateTime',
                 width: 180,
@@ -1260,13 +1279,15 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                     return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
-            }, {
+            },
+            {
                 text: 'Clearing Document No',
                 datafield: 'clearingDocumentNumber',
                 width: 180,
                 cellsrenderer: cellsrenderer,
                 renderer: columnrenderer
-            }];
+            }
+        ];
         this.report.GLaccountID = "";
         this.report.GLDocumentTypeID = "";
         let blockParams = {

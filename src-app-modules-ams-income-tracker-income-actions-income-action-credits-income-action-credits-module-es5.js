@@ -678,35 +678,39 @@
               return '<div style="padding: 14px">' + value + '</div>';
             };
 
+            var columnWidth = function columnWidth() {
+              return window.innerWidth <= 576 ? '150' : 'auto';
+            };
+
             this.columnData = [{
               text: 'S.No',
               datafield: 'sNo',
-              width: 120,
+              width: 150,
               pinned: true,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Balance',
               datafield: 'balance',
-              width: 120,
+              width: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Credit Amount',
               datafield: 'creditAmount',
-              width: 150,
+              width: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Debit Amount',
               datafield: 'debitAmount',
-              width: 150,
+              width: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
               text: 'Comments',
               datafield: 'comment',
-              minwidth: 180,
+              width: 200,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             },

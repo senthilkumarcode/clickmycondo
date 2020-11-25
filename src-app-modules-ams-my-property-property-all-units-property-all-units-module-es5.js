@@ -1024,7 +1024,7 @@
             }, {
               text: 'Unit Type',
               datafield: 'unitType',
-              minwidth: 120,
+              width: 120,
               cellsrenderer: cellsrenderer,
               renderer: columnrenderer
             }, {
