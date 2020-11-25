@@ -28,7 +28,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"main\">\n    <condo-card>\n        <div CondoCardHeader>\n            <div class=\"d-flex flex-wrap\">\n                <div class=\"d-flex align-items-center\">\n                    <h4>Add Violation</h4>\n                </div>\n                <div class=\"ml-auto d-md-block mr-3\">\n                    <select class=\"form-control\" name=\"selectedCategory\" placeholder=\"Search Category\" [(ngModel)]=\"selectedCategory\" >\n                        <option *ngFor=\"let item of categoryList\" value=\"{{item.value}}\">{{item?.name}}</option>\n                    </select>\n                </div>\n                <div class=\"mr-2\">\n                    <button mat-flat-button [disabled]=\"!selectedCategory\" (click)=\"openCategory()\" [color]=\"'primary'\">Open</button>\n                </div>\n            </div>\n            <!-- <div class=\"row\">\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchWorkPermit()\" role=\"button\" data-toggle=\"dropdown\" id=\"addWorkPermits\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search WorkPermits</span>\n                </a>        \n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchFacility()\" role=\"button\" data-toggle=\"dropdown\" id=\"addFacility\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Facility Booking</span>\n                </a>\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchparkingSlot()\" role=\"button\" data-toggle=\"dropdown\" id=\"addParking\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Parking Slots</span>\n                </a>\n                <a class=\"btn lime-green  col-sm-2 btn-srch\" href=\"javascript:void(0)\"\n                    (click)=\"openSearchBlockUnit()\" role=\"button\" data-toggle=\"dropdown\" id=\"addBlockUnit\"\n                    aria-haspopup=\"true\" aria-expanded=\"false\">\n                    <span>Search Block/Unit</span>\n                </a>\n            </div> -->\n        </div>\n        <div CondoCardBody>\n            <form #createDirectoryTypeForm=\"ngForm\" class=\"p-5\" name=\"createDirectoryTypeForm\" novalidate>\n\n                <div class=\"row\">\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Primary Contact Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"primaryContactName\"\n                                [(ngModel)]=\"violationData.primaryContactName\"\n                                value=\"{{violationData.primaryContactName}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Unit / Tower</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"UnitTower\"\n                                [(ngModel)]=\"violationData.UnitTower\" value=\"{{violationData.UnitTower}}\">\n                        </div>\n                    </div>\n                </div>\n                <!-- <mat-divider></mat-divider> -->\n                <div class=\"row\">\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Violation Category</label>\n                            <select name=\"violationCategory\" id=\"violationCategory\" class=\"form-control\" required\n                                [(ngModel)]=\"violationData.violationCategory\" (change)=\"onChangeCategoryID($event)\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                                item.lookupValueName }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"select-box\">\n                            <label>Violation Rule No</label>\n                            <select name=\"violationRuleNo\" id=\"violationRuleNo\" class=\"form-control\" required\n                                [(ngModel)]=\"violationData.violationRuleNo\" (change)=\"onChangeCategoryID($event)\">\n                                <option value=\"\" disabled selected hidden>Select</option>\n                                <option *ngFor=\"let item of ruleListData\" [value]=\"item.id\">{{ item.name }}</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Comments</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationComments\"\n                                [(ngModel)]=\"violationData.violationComments\"\n                                value=\"{{violationData.violationComments}}\" required>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Notice On</label>\n                            <!-- <app-simple-date-box [(ngModel)]=\"violationData.violationNoticedOn\" name=\"violationNotice\"\n                                [dateModel]=\"violationNoticedOn\"\n                                (inputChange)=\"onDateChange($event, 'violationNoticedOn')\"></app-simple-date-box> -->\n                                    <input class=\"form-control\" name=\"violationNotice\" [owlDateTime]=\"violationNotice\" [owlDateTimeTrigger]=\"violationNotice\"\n                                      placeholder=\"Date\" [(ngModel)]=\"violationData.violationNoticedOn\" required>\n                                    <owl-date-time #violationNotice [pickerType]=\"'calendar'\"></owl-date-time>\n                                    <div class=\"date-btn\" [owlDateTimeTrigger]=\"violationNotice\">\n                                      <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                                    </div>\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Violation Occurence</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationOccurence\"\n                                [(ngModel)]=\"violationData.violationOccurence\"\n                                value=\"{{violationData.violationOccurence}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Unit Owner Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitOwnerName\"\n                                [(ngModel)]=\"violationData.unitOwnerName\" value=\"{{violationData.unitOwnerName}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Penality Amount</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"penaltyAmt\"\n                                [(ngModel)]=\"violationData.penaltyAmt\" value=\"{{violationData.penaltyAmt}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Raised By</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"raisedBy\"\n                                [(ngModel)]=\"violationData.raisedBy\" value=\"{{violationData.raisedBy}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Invoice No</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceNo\"\n                                [(ngModel)]=\"violationData.invoiceNo\" value=\"{{violationData.invoiceNo}}\">\n                        </div>\n                    </div>\n                    <div class=\"col-lg-3 col-md-3 col-sm-4 col-xs-6\">\n                        <div class=\"input-box\">\n                            <label>Invoice Trigger</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceTrigger\" readonly\n                                [(ngModel)]=\"violationData.invoiceTrigger\" value=\"{{violationData.invoiceTrigger}}\">\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"row\">\n                    <div class=\"col-md-12 col-xs-12 col-sm-12 d-flex justify-content-end\">\n                        <button [disabled]=\"createDirectoryTypeForm.invalid\" mat-flat-button [color]=\"'primary'\"\n                            (click)=\"onSubmit()\">Submit</button>\n                    </div>\n                </div>\n\n            </form>\n        </div>\n    </condo-card>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"main\">\n\n    <div class=\"d-flex align-items-center\">\n        <h4>Add Violation</h4>\n        <div class=\"ml-auto\">\n            <select class=\"form-control\" name=\"selectedCategory\" placeholder=\"Search Category\" [(ngModel)]=\"selectedCategory\" >\n                <option *ngFor=\"let item of categoryList\" value=\"{{item.value}}\">{{item?.name}}</option>\n            </select>\n        </div>\n        <div class=\"ml-3\">\n            <button mat-flat-button [disabled]=\"!selectedCategory\" (click)=\"openCategory()\" [color]=\"'primary'\">Open</button>\n        </div>\n    </div>\n\n    <form #createDirectoryTypeForm=\"ngForm\" class=\"p-4\" name=\"createDirectoryTypeForm\" novalidate>\n\n    <div class=\"bg-card shadow mt-4\">\n        \n\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>Primary Contact Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"primaryContactName\"\n                            [(ngModel)]=\"violationData.primaryContactName\"\n                            value=\"{{violationData.primaryContactName}}\">\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"select-box\">\n                        <label>Unit / Tower</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"UnitTower\"\n                            [(ngModel)]=\"violationData.UnitTower\" value=\"{{violationData.UnitTower}}\">\n                    </div>\n                </div>\n            </div>\n            <!-- <mat-divider></mat-divider> -->\n            <div class=\"row\">\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Violation Category</label>\n                        <select name=\"violationCategory\" id=\"violationCategory\" class=\"form-control\" required\n                            [(ngModel)]=\"violationData.violationCategory\" (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                            item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"select-box\">\n                        <label>Violation Rule No</label>\n                        <select name=\"violationRuleNo\" id=\"violationRuleNo\" class=\"form-control\" required\n                            [(ngModel)]=\"violationData.violationRuleNo\" (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of ruleListData\" [value]=\"item.id\">{{ item.name }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Violation Comments</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationComments\"\n                            [(ngModel)]=\"violationData.violationComments\"\n                            value=\"{{violationData.violationComments}}\" required>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n\n                    <app-datepicker\n                        labelText=\"Violation Notice On\"\n                        fieldName=\"violationNotice\"\n                        [fieldRequired]=\"'required'\"\n                        type=\"date\"\n                        [fieldModel]=\"violationData.violationNoticedOn\"\n                        (fieldParams)=\"getViolationNoticedOn($event)\">\n                    </app-datepicker>\n\n                    \n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Violation Occurence</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationOccurence\"\n                            [(ngModel)]=\"violationData.violationOccurence\"\n                            value=\"{{violationData.violationOccurence}}\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Unit Owner Name</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitOwnerName\"\n                            [(ngModel)]=\"violationData.unitOwnerName\" value=\"{{violationData.unitOwnerName}}\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Penality Amount</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"penaltyAmt\"\n                            [(ngModel)]=\"violationData.penaltyAmt\" value=\"{{violationData.penaltyAmt}}\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Raised By</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"raisedBy\"\n                            [(ngModel)]=\"violationData.raisedBy\" value=\"{{violationData.raisedBy}}\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Invoice No</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceNo\"\n                            [(ngModel)]=\"violationData.invoiceNo\" value=\"{{violationData.invoiceNo}}\">\n                    </div>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"input-box\">\n                        <label>Invoice Trigger</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceTrigger\" readonly\n                            [(ngModel)]=\"violationData.invoiceTrigger\" value=\"{{violationData.invoiceTrigger}}\">\n                    </div>\n                </div>\n            </div>\n\n            \n\n        \n    </div>\n\n    <div class=\"text-right mt-4\">\n        <button [disabled]=\"createDirectoryTypeForm.invalid\" mat-flat-button [color]=\"'primary'\"\n            (click)=\"onSubmit()\">Submit</button>\n    </div>\n\n</form>\n\n</div>";
       /***/
     },
 
@@ -208,7 +208,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<condo-card>\n    <div CondoCardHeader>\n        <div class=\"d-flex\">\n            <div>\n                <h4>Edit Violation</h4>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #createForm=\"ngForm\" name=\"createForm\" class=\"p-5\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-md-3\">\n                    <div class=\"select-box\">\n                        <label>\n                            Primary Contact Name\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"primaryContactName\" readonly\n                            [(ngModel)]=\"violationData.primaryContactName\" value=\"{{violationData.primaryContactName}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"select-box\">\n                        <label>\n                            Unit Number\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"UnitTower\" readonly\n                            [(ngModel)]=\"violationData.UnitTower\" value=\"{{violationData.UnitTower}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"select-box\">\n                        <label>\n                            Violation Category\n                        </label>\n                        <select name=\"category\" id=\"category\" class=\"form-control\" required\n                            [(ngModel)]=\"violationData.violationCategory\" (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation Rule No\n                        </label>\n                        <select name=\"category\" id=\"category\" class=\"form-control\" required\n                            [(ngModel)]=\"violationData.violationRuleNo\" (change)=\"onChangeRule($event)\"\n                            [ngModelOptions]=\"{standalone: true}\" [value]=\"violationData.violationRuleNo\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of ruleListData\" [value]=\"item.id\">{{ item.name }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation Comments\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationComments\"\n                            [(ngModel)]=\"violationData.violationComments\" value=\"{{violationData.violationComments}}\"\n                            required>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation noticed on\n                        </label>\n                        <input class=\"form-control\" name=\"selectedToDate\" [owlDateTime]=\"bookingToDate\"\n                            [owlDateTimeTrigger]=\"bookingToDate\" placeholder=\"Time\"\n                            [(ngModel)]=\"violationData.violationNoticedOn\" [ngModelOptions]=\"{standalone: true}\">\n                        <owl-date-time [pickerType]=\"'calendar'\" #bookingToDate></owl-date-time>\n                        <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingToDate\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation Occurence\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationOccurence\" readonly\n                            [(ngModel)]=\"violationData.violationOccurence\" value=\"{{violationData.violationOccurence}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Unit Owner Name\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitOwnerName\" readonly\n                            [(ngModel)]=\"violationData.unitOwnerName\" value=\"{{violationData.unitOwnerName}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Penalty Amt\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"penaltyAmt\" readonly\n                            [(ngModel)]=\"violationData.penaltyAmt\" [value]=\"violationData.penaltyAmt\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Raised By\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"raisedBy\" readonly\n                            [(ngModel)]=\"violationData.raisedByName\" value=\"{{violationData.raisedByName}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Invoice No\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceNo\" readonly\n                            [(ngModel)]=\"violationData.invoiceNo\" value=\"{{violationData.invoiceNo}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Invoice Trigger\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceTrigger\" readonly\n                            [(ngModel)]=\"violationData.invoiceTrigger\" value=\"{{violationData.invoiceTrigger}}\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">\n                        Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</condo-card>";
+      __webpack_exports__["default"] = "<condo-card>\n    <div CondoCardHeader>\n        <div class=\"d-flex\">\n            <div>\n                <h4>Edit Violation</h4>\n            </div>\n            <div class=\"ml-auto d-none d-md-block mr-3\">\n\n                <mat-icon class=\"ml-auto\" [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n            </div>\n        </div>\n    </div>\n    <div CondoCardBody>\n        <form #createForm=\"ngForm\" name=\"createForm\" class=\"p-5\" novalidate>\n            <div class=\"row\">\n                <div class=\"col-md-3\">\n                    <div class=\"select-box\">\n                        <label>\n                            Primary Contact Name\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"primaryContactName\" readonly\n                            [(ngModel)]=\"violationData.primaryContactName\" value=\"{{violationData.primaryContactName}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"select-box\">\n                        <label>\n                            Unit Number\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"UnitTower\" readonly\n                            [(ngModel)]=\"violationData.UnitTower\" value=\"{{violationData.UnitTower}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"select-box\">\n                        <label>\n                            Violation Category\n                        </label>\n                        <select name=\"category\" id=\"category\" class=\"form-control\" required\n                            [(ngModel)]=\"violationData.violationCategory\" (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                item.lookupValueName }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation Rule No\n                        </label>\n                        <select name=\"category\" id=\"category\" class=\"form-control\" required\n                            [(ngModel)]=\"violationData.violationRuleNo\" (change)=\"onChangeRule($event)\"\n                            [ngModelOptions]=\"{standalone: true}\" [value]=\"violationData.violationRuleNo\">\n                            <option value=\"\" disabled selected hidden>Select</option>\n                            <option *ngFor=\"let item of ruleListData\" [value]=\"item.id\">{{ item.name }}</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation Comments\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationComments\"\n                            [(ngModel)]=\"violationData.violationComments\" value=\"{{violationData.violationComments}}\"\n                            required>\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n\n                    <app-datepicker\n                        labelText=\"Violation Notice On\"\n                        fieldName=\"violationNotice\"\n                        [fieldRequired]=\"'required'\"\n                        type=\"date\"\n                        [fieldModel]=\"violationData.violationNoticedOn\"\n                        (fieldParams)=\"getViolationNoticedOn($event)\">\n\t\t\t\t\t</app-datepicker>\n\n                    \n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Violation Occurence\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"violationOccurence\" readonly\n                            [(ngModel)]=\"violationData.violationOccurence\" value=\"{{violationData.violationOccurence}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Unit Owner Name\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"unitOwnerName\" readonly\n                            [(ngModel)]=\"violationData.unitOwnerName\" value=\"{{violationData.unitOwnerName}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Penalty Amt\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"penaltyAmt\" readonly\n                            [(ngModel)]=\"violationData.penaltyAmt\" [value]=\"violationData.penaltyAmt\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Raised By\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"raisedBy\" readonly\n                            [(ngModel)]=\"violationData.raisedByName\" value=\"{{violationData.raisedByName}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Invoice No\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceNo\" readonly\n                            [(ngModel)]=\"violationData.invoiceNo\" value=\"{{violationData.invoiceNo}}\">\n                    </div>\n                </div>\n                <div class=\"col-md-3\">\n                    <div class=\"input-box\">\n                        <label>\n                            Invoice Trigger\n                        </label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"Enter\" name=\"invoiceTrigger\" readonly\n                            [(ngModel)]=\"violationData.invoiceTrigger\" value=\"{{violationData.invoiceTrigger}}\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md-12\">\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"onSubmit()\">\n                        Submit</button>\n                </div>\n            </div>\n        </form>\n    </div>\n</condo-card>";
       /***/
     },
 
@@ -228,7 +228,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"payment-dues-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">View Violation</h4>\n        <div class=\"bg-card shadow mb-4\">\n            <form #viewviolationFilter=\"ngForm\" name=\"viewviolationFilter\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>\n                                Filter By\n                            </label>\n                            <select name=\"filterBy\" id=\"filterBy\" class=\"form-control\" [(ngModel)]=\"filterBy\">\n                                <option value=\"\" selected>Select</option>\n                                <option value=\"today\">Today</option>\n                                <option value=\"yesterday\">Yesterday</option>\n                                <option value=\"last7days\">Last 7 days</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>From</label>\n                            <input class=\"form-control\" name=\"selectedfromDate\" [owlDateTime]=\"bookingDate\"\n                                [owlDateTimeTrigger]=\"bookingDate\" placeholder=\"Time\" [(ngModel)]=\"selectedfromDate\"\n                                (ngModelChange)=\"onfromDateChange($event)\">\n                            <owl-date-time #bookingDate [pickerType]=\"'calendar'\"></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingDate\">\n                                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div class=\"input-box\">\n                            <label>To</label>\n                            <input class=\"form-control\" name=\"selectedToDate\" [owlDateTime]=\"bookingToDate\"\n                                [owlDateTimeTrigger]=\"bookingToDate\" placeholder=\"Time\" [(ngModel)]=\"selectedToDate\"\n                                (ngModelChange)=\"onToDateChange($event)\">\n                            <owl-date-time [pickerType]=\"'calendar'\" #bookingToDate></owl-date-time>\n                            <div class=\"date-btn\" [owlDateTimeTrigger]=\"bookingToDate\">\n                                <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <label class=\"pt-4\"> Tower</label>\n                        <select name=\"tower\" class=\"form-control\" [(ngModel)]=\"selectedBlockNumerId\"\n                            (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" selected>Select</option>\n                            <option *ngFor=\"let item of blockListData\" [value]=\"item.apartmentBlockId\">{{\n                                item.apartmentBlockNumber }}</option>\n                        </select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <label class=\"pt-4\">Violation Category</label>\n                        <select name=\"category\" class=\"form-control\" [(ngModel)]=\"selectedVioaltionCategory\"\n                            (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" selected>Select</option>\n                            <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                item.lookupValueName }}</option>\n\n                        </select>\n                    </div>\n                    <div class=\"col-sm-4 d-flex flex-column justify-content-center\">\n                        <div class=\"input-box\">\n                            <mat-checkbox [(ngModel)]=\"selectDisputed\" (change)=\"onDispute()\">Show disputed\n                            </mat-checkbox>\n                        </div>\n                        <div class=\"input-box\">\n                            <mat-checkbox [(ngModel)]=\"selectWaivedOff\" (change)=\"onwaivedOff()\">Waived Off\n                            </mat-checkbox>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <mat-accordion>\n            <mat-expansion-panel\n                *ngFor=\"let item of allViolationListData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                <mat-expansion-panel-header>\n                    <mat-panel-title>\n                        {{item.data.violationCategory}}\n                    </mat-panel-title>\n                    <mat-panel-description>\n                        {{item.data.tower_unitname}}\n                    </mat-panel-description>\n                </mat-expansion-panel-header>\n                <div class=\"dues d-flex align-items-center\">\n                    <div class=\"details\">\n                        <div class=\"row mb-3\">\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Id</p>\n                                <p class=\"text-secondary\">{{item.data.id}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Inserted By</p>\n                                <p class=\"text-secondary\">{{item.data.securityPerson}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Inserted on</p>\n                                <p class=\"text-secondary\">{{item.insertedOn}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Violation Occurence</p>\n                                <p class=\"text-secondary\">{{item.data.violationOccurrence}} Time</p>\n                            </div>\n                        </div>\n                        <div class=\"row mb-3\">\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Amount</p>\n                                <p class=\"text-secondary\">{{item.data.penaltyAmount}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Dispute Id</p>\n                                <p class=\"text-secondary\">{{item.data.disputeId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Comments</p>\n                                <p class=\"text-secondary\">{{item.data.disputeComments}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Status</p>\n                                <p class=\"text-secondary\">{{item.data.disputeStatus}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <mat-action-row>\n                    <button mat-flat-button [color]=\"'primary'\"\n                        (click)=\"updateviolationstatus(item.data.id,404)\">Waiveoff\n                        Penalty</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateviolationstatus(item.data.id,405)\">Cancel\n                        Violation</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"openDispute(item.data)\">Create\n                        Dispute</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateviolationstatus(item.data.id,403)\">Cancel\n                        Dispute</button>\n                    <button mat-flat-button [color]=\"'primary'\"\n                        (click)=\"updateviolationstatus(item.data.id,1046)\">Reject\n                        violation</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateviolationstatus(item.data.id,406)\">Close\n                        violation</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"onEditOpen(item.data.id)\">Edit\n                        Violation</button>\n                </mat-action-row>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"payment-dues-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">View Violation</h4>\n        <div class=\"bg-card shadow\">\n            <form #viewviolationFilter=\"ngForm\" name=\"viewviolationFilter\">\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <div class=\"select-box\">\n                            <label>\n                                Filter By\n                            </label>\n                            <select name=\"filterBy\" id=\"filterBy\" class=\"form-control\" [(ngModel)]=\"filterBy\">\n                                <option value=\"\" selected>Select</option>\n                                <option value=\"today\">Today</option>\n                                <option value=\"yesterday\">Yesterday</option>\n                                <option value=\"last7days\">Last 7 days</option>\n                            </select>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n\n                        <app-datepicker\n                            labelText=\"From\"\n                            fieldName=\"selectedfromDate\"\n                            [fieldRequired]=\"'required'\"\n                            type=\"date\"\n                            [fieldModel]=\"selectedfromDate\"\n                            (fieldParams)=\"getSelectedfromDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n                        \n                    </div>\n                    <div class=\"col-sm-4\">\n\n                        <app-datepicker\n                            labelText=\"From\"\n                            fieldName=\"selectedToDate\"\n                            [fieldRequired]=\"'required'\"\n                            type=\"date\"\n                            [fieldModel]=\"selectedtoDate\"\n                            (fieldParams)=\"getSelectedToDate($event)\">\n\t\t\t\t\t\t</app-datepicker>\n\n                        \n                    </div>\n                    <div class=\"col-sm-4\">\n                        <label class=\"pt-4\"> Tower</label>\n                        <select name=\"tower\" class=\"form-control\" [(ngModel)]=\"selectedBlockNumerId\"\n                            (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" selected>Select</option>\n                            <option *ngFor=\"let item of blockListData\" [value]=\"item.apartmentBlockId\">{{\n                                item.apartmentBlockNumber }}</option>\n                        </select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <label class=\"pt-4\">Violation Category</label>\n                        <select name=\"category\" class=\"form-control\" [(ngModel)]=\"selectedVioaltionCategory\"\n                            (change)=\"onChangeCategoryID($event)\">\n                            <option value=\"\" selected>Select</option>\n                            <option *ngFor=\"let item of allViolationCategory\" [value]=\"item.lookupValueId\">{{\n                                item.lookupValueName }}</option>\n\n                        </select>\n                    </div>\n                    <div class=\"col-sm-4 d-flex flex-column justify-content-center\">\n                        <div class=\"input-box\">\n                            <mat-checkbox [(ngModel)]=\"selectDisputed\" (change)=\"onDispute()\">Show disputed\n                            </mat-checkbox>\n                        </div>\n                        <div class=\"input-box\">\n                            <mat-checkbox [(ngModel)]=\"selectWaivedOff\" (change)=\"onwaivedOff()\">Waived Off\n                            </mat-checkbox>\n                        </div>\n                    </div>\n                </div>\n            </form>\n        </div>\n        <app-loader *ngIf=\"isDataLoaded\"></app-loader>\n        <mat-accordion>\n            <mat-expansion-panel\n                *ngFor=\"let item of allViolationListData | slice:ItemStartIndex:ItemEndIndex; let i = index\">\n                <mat-expansion-panel-header>\n                    <mat-panel-title>\n                        {{item.data.violationCategory}}\n                    </mat-panel-title>\n                    <mat-panel-description>\n                        {{item.data.tower_unitname}}\n                    </mat-panel-description>\n                </mat-expansion-panel-header>\n                <div class=\"dues d-flex align-items-center\">\n                    <div class=\"details\">\n                        <div class=\"row mb-3\">\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Id</p>\n                                <p class=\"text-secondary\">{{item.data.id}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Inserted By</p>\n                                <p class=\"text-secondary\">{{item.data.securityPerson}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Inserted on</p>\n                                <p class=\"text-secondary\">{{item.insertedOn}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Violation Occurence</p>\n                                <p class=\"text-secondary\">{{item.data.violationOccurrence}} Time</p>\n                            </div>\n                        </div>\n                        <div class=\"row mb-3\">\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Amount</p>\n                                <p class=\"text-secondary\">{{item.data.penaltyAmount}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Dispute Id</p>\n                                <p class=\"text-secondary\">{{item.data.disputeId}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Comments</p>\n                                <p class=\"text-secondary\">{{item.data.disputeComments}}</p>\n                            </div>\n                            <div class=\"col-sm-12 col-md-3 column\">\n                                <p class=\"font-medium\">Status</p>\n                                <p class=\"text-secondary\">{{item.data.disputeStatus}}</p>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <mat-action-row>\n                    <button mat-flat-button [color]=\"'primary'\"\n                        (click)=\"updateviolationstatus(item.data.id,404)\">Waiveoff\n                        Penalty</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateviolationstatus(item.data.id,405)\">Cancel\n                        Violation</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"openDispute(item.data)\">Create\n                        Dispute</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateviolationstatus(item.data.id,403)\">Cancel\n                        Dispute</button>\n                    <button mat-flat-button [color]=\"'primary'\"\n                        (click)=\"updateviolationstatus(item.data.id,1046)\">Reject\n                        violation</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"updateviolationstatus(item.data.id,406)\">Close\n                        violation</button>\n                    <button mat-flat-button [color]=\"'primary'\" (click)=\"onEditOpen(item.data.id)\">Edit\n                        Violation</button>\n                </mat-action-row>\n            </mat-expansion-panel>\n        </mat-accordion>\n    </div>\n</div>";
       /***/
     },
 
@@ -420,45 +420,28 @@
       /* harmony import */
 
 
-      var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
-      /* harmony import */
-
-
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! moment-timezone */
       "./node_modules/moment-timezone/index.js");
       /* harmony import */
 
 
-      var moment_timezone__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_12__);
+      var moment_timezone__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_11__);
       /* harmony import */
 
 
-      var src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-      /*! src/app/api/controllers/User */
-      "./src/app/api/controllers/User.ts");
-      /* harmony import */
-
-
-      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! src/app/api/controllers/Apartment */
       "./src/app/api/controllers/Apartment.ts");
 
       var AddViolationComponent = /*#__PURE__*/function () {
-        function AddViolationComponent(dialog, violationService, lookupService, sharedService, userService, apartmentService, sessionService, cdr) {
+        function AddViolationComponent(dialog, violationService, lookupService, sharedService, apartmentService, sessionService, cdr) {
           _classCallCheck(this, AddViolationComponent);
 
           this.dialog = dialog;
           this.violationService = violationService;
           this.lookupService = lookupService;
           this.sharedService = sharedService;
-          this.userService = userService;
           this.apartmentService = apartmentService;
           this.sessionService = sessionService;
           this.cdr = cdr;
@@ -467,31 +450,19 @@
           this.isError = false;
           this.isAccountAdded = false;
           this.categoryList = [];
-          this.violationData = {
-            primaryContactName: '',
-            UnitTower: '',
-            ParkingSlot: '',
-            violationCategory: '',
-            violationRuleNo: '',
-            violationComments: '',
-            violationNoticedOn: '',
-            violationOccurence: '',
-            unitOwnerName: '',
-            penaltyAmt: '',
-            raisedBy: '',
-            invoiceNo: '',
-            invoiceTrigger: '',
-            uploadImage: '',
-            apartmentBlockUnitId: 0,
-            apartmentBlockId: 0
-          };
           this.selectedInput = "";
           this.columnField = {};
         }
 
         _createClass(AddViolationComponent, [{
+          key: "getViolationNoticedOn",
+          value: function getViolationNoticedOn(event) {
+            this.violationData.violationNoticedOn = event;
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
+            this.violationData = {};
             this.isViolationLoaded = true;
             this.isAccountAdded = true;
             this.categoryList = [{
@@ -521,16 +492,6 @@
             return window.innerWidth <= 767 ? 'table-responsive' : '';
           }
         }, {
-          key: "getUser",
-          value: function getUser() {
-            var userParams = {
-              userid: this.sessionService.userId
-            };
-            this.userService.getUserById(userParams).subscribe(function (res) {// this.user = res[0];
-              // this.violationData.raisedByName = res[0].firstName + res[0].middleName + res[0].lastName;
-            });
-          }
-        }, {
           key: "getAllViolation",
           value: function getAllViolation() {
             var statusparams = {
@@ -540,17 +501,6 @@
             this.violationService.getAllViolationsByStatus(statusparams).subscribe(function (res) {
               var list = res;
             });
-          }
-        }, {
-          key: "onDateChange",
-          value: function onDateChange(event, type) {
-            if (event != null) {
-              this.selectedInput = type;
-              this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_11__(event).format("DD/MM/YYYY");
-              this.violationData.violationNoticedOn = moment__WEBPACK_IMPORTED_MODULE_11__(event).format("DD/MM/YYYY");
-            } else {
-              this.columnField = {};
-            }
           }
         }, {
           key: "openCategory",
@@ -575,16 +525,6 @@
               default:
                 break;
             }
-          }
-        }, {
-          key: "getDate",
-          value: function getDate(receipt, date) {
-            // this.violationData.map(obj=> {
-            //    if(obj.violationNoticedOn == receipt.violationNoticedOn){
-            //      obj.violationNoticedOn = moment(date).format("DD/MM/YYYY");
-            //    }
-            // });
-            return moment__WEBPACK_IMPORTED_MODULE_11__(date).format("DD/MM/YYYY");
           }
         }, {
           key: "openSearchFacility",
@@ -696,23 +636,7 @@
           key: "onChangeCategoryID",
           value: function onChangeCategoryID(event) {
             this.getViolationRule(event);
-          } // onChangeRule(event) {
-          //   let list = this.allViolationData;
-          //   if(this.violationData.apartmentBlockUnitId !== 0){
-          //     list= list.filter(x=>x.apartmentBlockUnitId === this.violationData.apartmentBlockUnitId);
-          //   } 
-          //   if(this.violationData.violationCategory !== '0'){
-          //     // tslint:disable-next-line:radix
-          //     list= list.filter(x=>x.violationCategoryId === parseInt(this.violationData.violationCategory));
-          //   } 
-          //   if(this.violationData.violationRuleNo!== '0' ){
-          //     // tslint:disable-next-line:radix
-          //     list= list.filter(x=>x.violationRuleId === parseInt(this.violationData.violationRuleNo)).sort((a,b) => 0 - (a > b ? 1 : -1));
-          //   }
-          //   this.violationData.violationOccurence = list[0].violationOccurrence === undefined ?  0 : list[0].violationOccurrence;
-          //   this.violationData.penaltyAmt = list[0].penaltyAmt === undefined ? 0 : list[0].penaltyAmt;
-          // }
-
+          }
         }, {
           key: "uploadImage_new",
           value: function uploadImage_new(e) {
@@ -778,7 +702,7 @@
                 apartmentBlockUnitId: this.violationData.apartmentBlockUnitId === 0 ? null : this.violationData.apartmentBlockUnitId,
 
                 /** format: date-time */
-                noticedOn: this.violationData.violationNoticedOn === "" ? moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString() : this.violationData.violationNoticedOn,
+                noticedOn: this.violationData.violationNoticedOn === "" ? moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString() : this.violationData.violationNoticedOn,
 
                 /** format: double */
                 penaltyAmt: parseInt(this.violationData.penaltyAmt),
@@ -794,13 +718,13 @@
                 insertedBy: parseInt(this.sessionService.userId),
 
                 /** format: date-time */
-                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+                insertedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
 
                 /** format: int32 */
                 updatedBy: parseInt(this.sessionService.userId),
 
                 /** format: date-time */
-                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_12___default()().toISOString(),
+                updatedOn: moment_timezone__WEBPACK_IMPORTED_MODULE_11___default()().toISOString(),
 
                 /** format: int32 */
                 violationOccurrence: parseInt(this.violationData.violationOccurence),
@@ -830,25 +754,6 @@
             this.violationService.addViolations(params).subscribe(function (res) {
               if (res) {
                 _this8.sharedService.openSnackBar(res.message, 'success');
-
-                _this8.violationData = {
-                  primaryContactName: '',
-                  UnitTower: '',
-                  ParkingSlot: '',
-                  violationCategory: '',
-                  violationRuleNo: '',
-                  violationComments: '',
-                  violationNoticedOn: '',
-                  violationOccurence: '',
-                  unitOwnerName: '',
-                  penaltyAmt: '',
-                  raisedBy: '',
-                  invoiceNo: '',
-                  invoiceTrigger: '',
-                  uploadImage: '',
-                  apartmentBlockUnitId: 0,
-                  apartmentBlockId: 0
-                };
               } else {}
             });
           }
@@ -867,9 +772,7 @@
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
         }, {
-          type: src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"]
-        }, {
-          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"]
+          type: src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"]
         }, {
           type: src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"]
         }, {
@@ -885,7 +788,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./add-violation.component.scss */
         "./src/app/modules/ams/violation/components/add-violation/add-violation.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_User__WEBPACK_IMPORTED_MODULE_13__["UserService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_14__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddViolationComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], src_app_api_controllers_Violation__WEBPACK_IMPORTED_MODULE_4__["ViolationService"], src_app_api_controllers_Lookup__WEBPACK_IMPORTED_MODULE_5__["LookupService"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], src_app_api_controllers_Apartment__WEBPACK_IMPORTED_MODULE_12__["ApartmentService"], src_app_core_session_session_service__WEBPACK_IMPORTED_MODULE_7__["SessionService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], AddViolationComponent);
       /***/
     },
 
@@ -3885,6 +3788,11 @@
         }
 
         _createClass(EditViolationComponent, [{
+          key: "getViolationNoticedOn",
+          value: function getViolationNoticedOn(event) {
+            this.violationData.violationNoticedOn = event;
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             this.getViolationCategory();
@@ -4266,6 +4174,16 @@
         }
 
         _createClass(ViewViolationComponent, [{
+          key: "getSelectedfromDate",
+          value: function getSelectedfromDate(event) {
+            this.selectedfromDate = event;
+          }
+        }, {
+          key: "getSelectedToDate",
+          value: function getSelectedToDate(event) {
+            this.selectedtoDate = event;
+          }
+        }, {
           key: "ngOnInit",
           value: function ngOnInit() {
             var _this45 = this;
@@ -4308,19 +4226,18 @@
           value: function onChangeCategoryID(event) {
             this.getAllViolation();
           }
-        }, {
-          key: "onfromDateChange",
-          value: function onfromDateChange(event, type) {
+          /*onfromDateChange(event, type) {
             if (event != null) {
               this.selectedInput = type;
-              this.columnField[type] = moment__WEBPACK_IMPORTED_MODULE_4__(event).toISOString();
-              this.selectedfromDate = moment__WEBPACK_IMPORTED_MODULE_4__(event).toISOString();
-            } else {
+              this.columnField[type] = moment(event).toISOString();
+              this.selectedfromDate = moment(event).toISOString();
+            }
+            else {
               this.columnField = {};
             }
-
             this.getAllViolation();
-          }
+          }*/
+
         }, {
           key: "onToDateChange",
           value: function onToDateChange(event, type) {
@@ -6491,109 +6408,115 @@
       /* harmony import */
 
 
-      var _violation_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/app/modules/ui/datepicker/datepicker.module */
+      "./src/app/modules/ui/datepicker/datepicker.module.ts");
+      /* harmony import */
+
+
+      var _violation_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./violation-routing.module */
       "./src/app/modules/ams/violation/violation-routing.module.ts");
       /* harmony import */
 
 
-      var _violation_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _violation_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./violation.component */
       "./src/app/modules/ams/violation/violation.component.ts");
       /* harmony import */
 
 
-      var _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./components/violation-setup/violation-setup.component */
       "./src/app/modules/ams/violation/components/violation-setup/violation-setup.component.ts");
       /* harmony import */
 
 
-      var _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./components/view-violation/view-violation.component */
       "./src/app/modules/ams/violation/components/view-violation/view-violation.component.ts");
       /* harmony import */
 
 
-      var _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
       /*! ./components/view-violation/edit-violation/edit-violation.component */
       "./src/app/modules/ams/violation/components/view-violation/edit-violation/edit-violation.component.ts");
       /* harmony import */
 
 
-      var _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      var _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./components/stop-privilege/stop-privilege.component */
       "./src/app/modules/ams/violation/components/stop-privilege/stop-privilege.component.ts");
       /* harmony import */
 
 
-      var _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      var _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
       /*! ./components/add-violation/add-violation.component */
       "./src/app/modules/ams/violation/components/add-violation/add-violation.component.ts");
       /* harmony import */
 
 
-      var _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      var _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
       /*! ./components/add-violation/searc-workpermits/searc-workpermits.component */
       "./src/app/modules/ams/violation/components/add-violation/searc-workpermits/searc-workpermits.component.ts");
       /* harmony import */
 
 
-      var _components_add_violation_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+      var _components_add_violation_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! ./components/add-violation/search-blockunit/search-blockunit.component */
       "./src/app/modules/ams/violation/components/add-violation/search-blockunit/search-blockunit.component.ts");
       /* harmony import */
 
 
-      var _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+      var _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
       /*! ./components/add-violation/search-facility/search-facility.component */
       "./src/app/modules/ams/violation/components/add-violation/search-facility/search-facility.component.ts");
       /* harmony import */
 
 
-      var _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+      var _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
       /*! ./components/add-violation/search-parkingslots/search-parkingslots.component */
       "./src/app/modules/ams/violation/components/add-violation/search-parkingslots/search-parkingslots.component.ts");
       /* harmony import */
 
 
-      var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+      var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! src/app/shared/shared.module */
       "./src/app/shared/shared.module.ts");
       /* harmony import */
 
 
-      var _components_violation_setup_select_check_all_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+      var _components_violation_setup_select_check_all_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! ./components/violation-setup/select-check-all.component */
       "./src/app/modules/ams/violation/components/violation-setup/select-check-all.component.ts");
       /* harmony import */
 
 
-      var _components_violation_setup_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _components_violation_setup_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! ./components/violation-setup/edit-privilege/edit-privilege.component */
       "./src/app/modules/ams/violation/components/violation-setup/edit-privilege/edit-privilege.component.ts");
       /* harmony import */
 
 
-      var _components_violation_setup_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _components_violation_setup_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
       /*! ./components/violation-setup/edit-category/edit-category.component */
       "./src/app/modules/ams/violation/components/violation-setup/edit-category/edit-category.component.ts");
       /* harmony import */
 
 
-      var _components_view_violation_create_dispute_create_dispute_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _components_view_violation_create_dispute_create_dispute_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
       /*! ./components/view-violation/create-dispute/create-dispute.component */
       "./src/app/modules/ams/violation/components/view-violation/create-dispute/create-dispute.component.ts");
       /* harmony import */
 
 
-      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+      var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
       /*! src/app/modules/ui/card/card.module */
       "./src/app/modules/ui/card/card.module.ts");
       /* harmony import */
 
 
-      var _components_user_violation_user_violation_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+      var _components_user_violation_user_violation_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(
       /*! ./components/user-violation/user-violation.component */
       "./src/app/modules/ams/violation/components/user-violation/user-violation.component.ts");
 
@@ -6602,8 +6525,8 @@
       };
 
       ViolationModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_violation_component__WEBPACK_IMPORTED_MODULE_4__["ViolationComponent"], _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_5__["ViolationSetupComponent"], _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_6__["ViewViolationComponent"], _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_7__["EditViolationComponent"], _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_8__["StopPrivilegeComponent"], _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_9__["AddViolationComponent"], _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_10__["SearcWorkpermitsComponent"], _components_add_violation_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_11__["SearchBlockunitComponent"], _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_12__["SearchFacilityComponent"], _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_13__["SearchParkingslotsComponent"], _components_violation_setup_select_check_all_component__WEBPACK_IMPORTED_MODULE_15__["SelectCheckAllComponent"], _components_violation_setup_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_16__["EditPrivilegeComponent"], _components_violation_setup_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_17__["EditCategoryComponent"], _components_view_violation_create_dispute_create_dispute_component__WEBPACK_IMPORTED_MODULE_18__["CreateDisputeComponent"], _components_user_violation_user_violation_component__WEBPACK_IMPORTED_MODULE_20__["UserViolationComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_14__["SharedModule"], _violation_routing_module__WEBPACK_IMPORTED_MODULE_3__["ViolationRoutingModule"], src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_19__["CondoCardModule"]]
+        declarations: [_violation_component__WEBPACK_IMPORTED_MODULE_5__["ViolationComponent"], _components_violation_setup_violation_setup_component__WEBPACK_IMPORTED_MODULE_6__["ViolationSetupComponent"], _components_view_violation_view_violation_component__WEBPACK_IMPORTED_MODULE_7__["ViewViolationComponent"], _components_view_violation_edit_violation_edit_violation_component__WEBPACK_IMPORTED_MODULE_8__["EditViolationComponent"], _components_stop_privilege_stop_privilege_component__WEBPACK_IMPORTED_MODULE_9__["StopPrivilegeComponent"], _components_add_violation_add_violation_component__WEBPACK_IMPORTED_MODULE_10__["AddViolationComponent"], _components_add_violation_searc_workpermits_searc_workpermits_component__WEBPACK_IMPORTED_MODULE_11__["SearcWorkpermitsComponent"], _components_add_violation_search_blockunit_search_blockunit_component__WEBPACK_IMPORTED_MODULE_12__["SearchBlockunitComponent"], _components_add_violation_search_facility_search_facility_component__WEBPACK_IMPORTED_MODULE_13__["SearchFacilityComponent"], _components_add_violation_search_parkingslots_search_parkingslots_component__WEBPACK_IMPORTED_MODULE_14__["SearchParkingslotsComponent"], _components_violation_setup_select_check_all_component__WEBPACK_IMPORTED_MODULE_16__["SelectCheckAllComponent"], _components_violation_setup_edit_privilege_edit_privilege_component__WEBPACK_IMPORTED_MODULE_17__["EditPrivilegeComponent"], _components_violation_setup_edit_category_edit_category_component__WEBPACK_IMPORTED_MODULE_18__["EditCategoryComponent"], _components_view_violation_create_dispute_create_dispute_component__WEBPACK_IMPORTED_MODULE_19__["CreateDisputeComponent"], _components_user_violation_user_violation_component__WEBPACK_IMPORTED_MODULE_21__["UserViolationComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_15__["SharedModule"], _violation_routing_module__WEBPACK_IMPORTED_MODULE_4__["ViolationRoutingModule"], src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_3__["DatepickerModule"].forRoot(), src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"]]
       })], ViolationModule);
       /***/
     }

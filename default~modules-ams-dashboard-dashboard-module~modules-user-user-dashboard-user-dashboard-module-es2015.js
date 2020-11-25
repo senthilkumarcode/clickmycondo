@@ -8272,7 +8272,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"date-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"text-right\">\n            <mat-icon [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form #dashboardFilter=\"ngForm\" name=\"dashboardFilter\" *ngIf=\"data != 'unapprove' && data != 'unassigned' && data != 'openaged' && data != 'panicAlerts'\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>From Date</label>\n                        <input class=\"form-control\" name=\"Startdate\" [owlDateTime]=\"Startdate\"\n                        [owlDateTimeTrigger]=\"Startdate\" [(ngModel)]=\"dashboard.fromDate\" placeholder=\"From Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Startdate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label>To Date</label>\n                        <input class=\"form-control\" name=\"Enddate\" [owlDateTime]=\"Enddate\"\n                        [owlDateTimeTrigger]=\"Enddate\" [(ngModel)]=\"dashboard.toDate\" placeholder=\"To Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Enddate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                   <div class=\"float-right\">\n                        <button mat-flat-button  [color]=\"'primary'\" [disabled]=\"dashboardFilter.invalid\" (click)=\"onConfirm()\">Filter</button>\n                   </div>\n                </div>\n            </div>\n        </form>\n        <form #dateFilter=\"ngForm\" name=\"dateFilter\" *ngIf=\"data == 'unapprove' ||  data == 'unassigned' || data == 'openaged' || data == 'panicAlerts'\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label *ngIf=\"data == 'unapprove' || data == 'openaged'\">Date</label>\n                        <label *ngIf=\"data == 'unassigned' || data == 'panicAlerts'\">From</label>\n                        <input class=\"form-control\" name=\"Fromdate\" [owlDateTime]=\"Fromdate\"\n                        [owlDateTimeTrigger]=\"Fromdate\" [(ngModel)]=\"dashboard.date\" placeholder=\"From Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Fromdate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\" *ngIf=\"data == 'openaged'\">\n                    <div class=\"input-box\">\n                        <label>No of Days</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"No of days\" name=\"noOfDays\" [(ngModel)]=\"dashboard.noOfDays\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                   <div class=\"float-right\">\n                        <button mat-flat-button  [color]=\"'primary'\"  [disabled]=\"dateFilter.invalid\" (click)=\"onConfirm()\">Filter</button>\n                   </div>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"date-modal-wrapper\">\n    <div class=\"bg-card shadow mb-0\">\n        <div class=\"text-right\">\n            <mat-icon [svgIcon]=\"'close'\" mat-dialog-close></mat-icon>\n        </div>\n        <form #dashboardFilter=\"ngForm\" name=\"dashboardFilter\" *ngIf=\"data != 'unapprove' && data != 'unassigned' && data != 'openaged' && data != 'panicAlerts'\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n\n                    <app-datepicker\n                        labelText=\"From Date\"\n                        fieldName=\"Startdate\"\n                        [fieldRequired]=\"'required'\"\n                        type=\"date\"\n                        [fieldModel]=\"dashboard.fromDate\"\n                        (fieldParams)=\"getDashboardStartDate($event)\">\n                    </app-datepicker>\n                    \n                </div>\n                <div class=\"col-sm-6\">\n\n                    <app-datepicker\n                        labelText=\"To Date\"\n                        fieldName=\"Enddate\"\n                        [fieldRequired]=\"'required'\"\n                        type=\"date\"\n                        [fieldModel]=\"dashboard.Enddate\"\n                        (fieldParams)=\"getDashboardEndDate($event)\">\n                    </app-datepicker>\n                    \n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                   <div class=\"float-right\">\n                        <button mat-flat-button  [color]=\"'primary'\" [disabled]=\"dashboardFilter.invalid\" (click)=\"onConfirm()\">Filter</button>\n                   </div>\n                </div>\n            </div>\n        </form>\n        <form #dateFilter=\"ngForm\" name=\"dateFilter\" *ngIf=\"data == 'unapprove' ||  data == 'unassigned' || data == 'openaged' || data == 'panicAlerts'\">\n            <div class=\"row\">\n                <div class=\"col-sm-6\">\n                    <div class=\"input-box\">\n                        <label *ngIf=\"data == 'unapprove' || data == 'openaged'\">Date</label>\n                        <label *ngIf=\"data == 'unassigned' || data == 'panicAlerts'\">From</label>\n                        <input class=\"form-control\" name=\"Fromdate\" [owlDateTime]=\"Fromdate\"\n                        [owlDateTimeTrigger]=\"Fromdate\" [(ngModel)]=\"dashboard.date\" placeholder=\"From Date\" autocomplete=\"off\" required>\n                        <owl-date-time #Fromdate [pickerType]=\"'calendar'\"></owl-date-time>\n                        <div class=\"date-btn\">\n                            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"col-sm-6\" *ngIf=\"data == 'openaged'\">\n                    <div class=\"input-box\">\n                        <label>No of Days</label>\n                        <input type=\"text\" class=\"form-control\" placeholder=\"No of days\" name=\"noOfDays\" [(ngModel)]=\"dashboard.noOfDays\">\n                    </div>\n                </div>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-sm-12\">\n                   <div class=\"float-right\">\n                        <button mat-flat-button  [color]=\"'primary'\"  [disabled]=\"dateFilter.invalid\" (click)=\"onConfirm()\">Filter</button>\n                   </div>\n                </div>\n            </div>\n        </form>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -11263,6 +11263,12 @@ let DateModelComponent = class DateModelComponent {
             apartmentId: this.sessionService.apartmentId,
         };
     }
+    getDashboardStartDate(event) {
+        this.dashboard.fromDate = event;
+    }
+    getDashboardEndDate(event) {
+        this.dashboard.Enddate = event;
+    }
     onConfirm() {
         if (this.data == 'unapprove' || this.data == 'openaged' || this.data == 'panicAlerts' || this.data == 'unassigned') {
             this.dashboard.date = this.dashboard.date.toISOString();
@@ -11886,25 +11892,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/material/grid-list */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/grid-list.js");
-/* harmony import */ var _dashboard_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard.component */ "./src/app/modules/ams/dashboard/dashboard.component.ts");
-/* harmony import */ var _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/dashboard/admin-dashboard/admin-dashboard.component */ "./src/app/modules/ams/dashboard/components/dashboard/admin-dashboard/admin-dashboard.component.ts");
-/* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
-/* harmony import */ var _components_shared_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/shared/date-model/date-model.component */ "./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.ts");
-/* harmony import */ var _components_shared_dash_pie_chart_dash_pie_chart_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/shared/dash-pie-chart/dash-pie-chart.component */ "./src/app/modules/ams/dashboard/components/shared/dash-pie-chart/dash-pie-chart.component.ts");
-/* harmony import */ var _components_shared_dash_income_chart_dash_income_chart_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/shared/dash-income-chart/dash-income-chart.component */ "./src/app/modules/ams/dashboard/components/shared/dash-income-chart/dash-income-chart.component.ts");
-/* harmony import */ var _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/dashboard/custom-dashboard/custom-dashboard.component */ "./src/app/modules/ams/dashboard/components/dashboard/custom-dashboard/custom-dashboard.component.ts");
-/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
-/* harmony import */ var _components_shared_admin_dash_first_row_admin_dash_first_row_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/shared/admin-dash-first-row/admin-dash-first-row.component */ "./src/app/modules/ams/dashboard/components/shared/admin-dash-first-row/admin-dash-first-row.component.ts");
-/* harmony import */ var _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/shared/dash-meeting/dash-meeting.component */ "./src/app/modules/ams/dashboard/components/shared/dash-meeting/dash-meeting.component.ts");
-/* harmony import */ var _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/shared/dash-broad-cast/dash-broad-cast.component */ "./src/app/modules/ams/dashboard/components/shared/dash-broad-cast/dash-broad-cast.component.ts");
-/* harmony import */ var angular2gridster__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! angular2gridster */ "./node_modules/angular2gridster/__ivy_ngcc__/fesm2015/angular2gridster.js");
-/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
-/* harmony import */ var _components_shared_admin_widget_two_admin_widget_two_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/shared/admin-widget-two/admin-widget-two.component */ "./src/app/modules/ams/dashboard/components/shared/admin-widget-two/admin-widget-two.component.ts");
-/* harmony import */ var _components_shared_recent_violation_widget_recent_violation_widget_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/shared/recent-violation-widget/recent-violation-widget.component */ "./src/app/modules/ams/dashboard/components/shared/recent-violation-widget/recent-violation-widget.component.ts");
-/* harmony import */ var _components_shared_emergency_alerts_widget_emergency_alerts_widget_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/shared/emergency-alerts-widget/emergency-alerts-widget.component */ "./src/app/modules/ams/dashboard/components/shared/emergency-alerts-widget/emergency-alerts-widget.component.ts");
-/* harmony import */ var _components_shared_workpermit_widget_workpermit_widget_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/shared/workpermit-widget/workpermit-widget.component */ "./src/app/modules/ams/dashboard/components/shared/workpermit-widget/workpermit-widget.component.ts");
-/* harmony import */ var _components_shared_facility_widget_facility_widget_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/shared/facility-widget/facility-widget.component */ "./src/app/modules/ams/dashboard/components/shared/facility-widget/facility-widget.component.ts");
-/* harmony import */ var _components_shared_admin_widget_three_admin_widget_three_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/shared/admin-widget-three/admin-widget-three.component */ "./src/app/modules/ams/dashboard/components/shared/admin-widget-three/admin-widget-three.component.ts");
+/* harmony import */ var src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/modules/ui/datepicker/datepicker.module */ "./src/app/modules/ui/datepicker/datepicker.module.ts");
+/* harmony import */ var _dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard.component */ "./src/app/modules/ams/dashboard/dashboard.component.ts");
+/* harmony import */ var _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/dashboard/admin-dashboard/admin-dashboard.component */ "./src/app/modules/ams/dashboard/components/dashboard/admin-dashboard/admin-dashboard.component.ts");
+/* harmony import */ var src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/api/controllers/DashBoard */ "./src/app/api/controllers/DashBoard.ts");
+/* harmony import */ var _components_shared_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/shared/date-model/date-model.component */ "./src/app/modules/ams/dashboard/components/shared/date-model/date-model.component.ts");
+/* harmony import */ var _components_shared_dash_pie_chart_dash_pie_chart_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/shared/dash-pie-chart/dash-pie-chart.component */ "./src/app/modules/ams/dashboard/components/shared/dash-pie-chart/dash-pie-chart.component.ts");
+/* harmony import */ var _components_shared_dash_income_chart_dash_income_chart_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/shared/dash-income-chart/dash-income-chart.component */ "./src/app/modules/ams/dashboard/components/shared/dash-income-chart/dash-income-chart.component.ts");
+/* harmony import */ var _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/dashboard/custom-dashboard/custom-dashboard.component */ "./src/app/modules/ams/dashboard/components/dashboard/custom-dashboard/custom-dashboard.component.ts");
+/* harmony import */ var _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/cdk/drag-drop */ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/drag-drop.js");
+/* harmony import */ var _components_shared_admin_dash_first_row_admin_dash_first_row_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/shared/admin-dash-first-row/admin-dash-first-row.component */ "./src/app/modules/ams/dashboard/components/shared/admin-dash-first-row/admin-dash-first-row.component.ts");
+/* harmony import */ var _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/shared/dash-meeting/dash-meeting.component */ "./src/app/modules/ams/dashboard/components/shared/dash-meeting/dash-meeting.component.ts");
+/* harmony import */ var _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/shared/dash-broad-cast/dash-broad-cast.component */ "./src/app/modules/ams/dashboard/components/shared/dash-broad-cast/dash-broad-cast.component.ts");
+/* harmony import */ var angular2gridster__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! angular2gridster */ "./node_modules/angular2gridster/__ivy_ngcc__/fesm2015/angular2gridster.js");
+/* harmony import */ var src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! src/app/modules/ui/card/card.module */ "./src/app/modules/ui/card/card.module.ts");
+/* harmony import */ var _components_shared_admin_widget_two_admin_widget_two_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/shared/admin-widget-two/admin-widget-two.component */ "./src/app/modules/ams/dashboard/components/shared/admin-widget-two/admin-widget-two.component.ts");
+/* harmony import */ var _components_shared_recent_violation_widget_recent_violation_widget_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/shared/recent-violation-widget/recent-violation-widget.component */ "./src/app/modules/ams/dashboard/components/shared/recent-violation-widget/recent-violation-widget.component.ts");
+/* harmony import */ var _components_shared_emergency_alerts_widget_emergency_alerts_widget_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/shared/emergency-alerts-widget/emergency-alerts-widget.component */ "./src/app/modules/ams/dashboard/components/shared/emergency-alerts-widget/emergency-alerts-widget.component.ts");
+/* harmony import */ var _components_shared_workpermit_widget_workpermit_widget_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/shared/workpermit-widget/workpermit-widget.component */ "./src/app/modules/ams/dashboard/components/shared/workpermit-widget/workpermit-widget.component.ts");
+/* harmony import */ var _components_shared_facility_widget_facility_widget_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/shared/facility-widget/facility-widget.component */ "./src/app/modules/ams/dashboard/components/shared/facility-widget/facility-widget.component.ts");
+/* harmony import */ var _components_shared_admin_widget_three_admin_widget_three_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/shared/admin-widget-three/admin-widget-three.component */ "./src/app/modules/ams/dashboard/components/shared/admin-widget-three/admin-widget-three.component.ts");
+
 
 
 
@@ -11937,44 +11945,45 @@ let DashboardModule = class DashboardModule {
 DashboardModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [
-            _dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"],
-            _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["AdminDashboardComponent"],
-            _components_shared_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_10__["DateModelComponent"],
-            _components_shared_dash_pie_chart_dash_pie_chart_component__WEBPACK_IMPORTED_MODULE_11__["DashPieChartComponent"],
-            _components_shared_dash_income_chart_dash_income_chart_component__WEBPACK_IMPORTED_MODULE_12__["DashIncomeChartComponent"],
-            _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_13__["CustomDashboardComponent"],
-            _components_shared_admin_dash_first_row_admin_dash_first_row_component__WEBPACK_IMPORTED_MODULE_15__["AdminDashFirstRowComponent"],
-            _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_16__["DashMeetingComponent"],
-            _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_17__["DashBroadCastComponent"],
-            _components_shared_admin_widget_two_admin_widget_two_component__WEBPACK_IMPORTED_MODULE_20__["AdminWidgetTwoComponent"],
-            _components_shared_recent_violation_widget_recent_violation_widget_component__WEBPACK_IMPORTED_MODULE_21__["RecentViolationWidgetComponent"],
-            _components_shared_emergency_alerts_widget_emergency_alerts_widget_component__WEBPACK_IMPORTED_MODULE_22__["EmergencyAlertsWidgetComponent"],
-            _components_shared_workpermit_widget_workpermit_widget_component__WEBPACK_IMPORTED_MODULE_23__["WorkpermitWidgetComponent"],
-            _components_shared_facility_widget_facility_widget_component__WEBPACK_IMPORTED_MODULE_24__["FacilityWidgetComponent"],
-            _components_shared_admin_widget_three_admin_widget_three_component__WEBPACK_IMPORTED_MODULE_25__["AdminWidgetThreeComponent"]
+            _dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
+            _components_dashboard_admin_dashboard_admin_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["AdminDashboardComponent"],
+            _components_shared_date_model_date_model_component__WEBPACK_IMPORTED_MODULE_11__["DateModelComponent"],
+            _components_shared_dash_pie_chart_dash_pie_chart_component__WEBPACK_IMPORTED_MODULE_12__["DashPieChartComponent"],
+            _components_shared_dash_income_chart_dash_income_chart_component__WEBPACK_IMPORTED_MODULE_13__["DashIncomeChartComponent"],
+            _components_dashboard_custom_dashboard_custom_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["CustomDashboardComponent"],
+            _components_shared_admin_dash_first_row_admin_dash_first_row_component__WEBPACK_IMPORTED_MODULE_16__["AdminDashFirstRowComponent"],
+            _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_17__["DashMeetingComponent"],
+            _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_18__["DashBroadCastComponent"],
+            _components_shared_admin_widget_two_admin_widget_two_component__WEBPACK_IMPORTED_MODULE_21__["AdminWidgetTwoComponent"],
+            _components_shared_recent_violation_widget_recent_violation_widget_component__WEBPACK_IMPORTED_MODULE_22__["RecentViolationWidgetComponent"],
+            _components_shared_emergency_alerts_widget_emergency_alerts_widget_component__WEBPACK_IMPORTED_MODULE_23__["EmergencyAlertsWidgetComponent"],
+            _components_shared_workpermit_widget_workpermit_widget_component__WEBPACK_IMPORTED_MODULE_24__["WorkpermitWidgetComponent"],
+            _components_shared_facility_widget_facility_widget_component__WEBPACK_IMPORTED_MODULE_25__["FacilityWidgetComponent"],
+            _components_shared_admin_widget_three_admin_widget_three_component__WEBPACK_IMPORTED_MODULE_26__["AdminWidgetThreeComponent"]
         ],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(_dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__["routes"]),
-            angular2gridster__WEBPACK_IMPORTED_MODULE_18__["GridsterModule"].forRoot(),
+            angular2gridster__WEBPACK_IMPORTED_MODULE_19__["GridsterModule"].forRoot(),
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
             _dashboard_routing_module__WEBPACK_IMPORTED_MODULE_3__["DashboardRoutingModule"],
             _angular_material_grid_list__WEBPACK_IMPORTED_MODULE_6__["MatGridListModule"],
-            _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_14__["DragDropModule"],
-            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_19__["CondoCardModule"],
+            src_app_modules_ui_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__["DatepickerModule"].forRoot(),
+            _angular_cdk_drag_drop__WEBPACK_IMPORTED_MODULE_15__["DragDropModule"],
+            src_app_modules_ui_card_card_module__WEBPACK_IMPORTED_MODULE_20__["CondoCardModule"],
         ],
         providers: [
-            src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_9__["DashBoardService"]
+            src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_10__["DashBoardService"]
         ],
-        bootstrap: [_dashboard_component__WEBPACK_IMPORTED_MODULE_7__["DashboardComponent"]],
+        bootstrap: [_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"]],
         exports: [
-            src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_9__["DashBoardService"],
-            _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_16__["DashMeetingComponent"],
-            _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_17__["DashBroadCastComponent"],
-            _components_shared_recent_violation_widget_recent_violation_widget_component__WEBPACK_IMPORTED_MODULE_21__["RecentViolationWidgetComponent"],
-            _components_shared_emergency_alerts_widget_emergency_alerts_widget_component__WEBPACK_IMPORTED_MODULE_22__["EmergencyAlertsWidgetComponent"],
-            _components_shared_workpermit_widget_workpermit_widget_component__WEBPACK_IMPORTED_MODULE_23__["WorkpermitWidgetComponent"],
-            _components_shared_facility_widget_facility_widget_component__WEBPACK_IMPORTED_MODULE_24__["FacilityWidgetComponent"]
+            src_app_api_controllers_DashBoard__WEBPACK_IMPORTED_MODULE_10__["DashBoardService"],
+            _components_shared_dash_meeting_dash_meeting_component__WEBPACK_IMPORTED_MODULE_17__["DashMeetingComponent"],
+            _components_shared_dash_broad_cast_dash_broad_cast_component__WEBPACK_IMPORTED_MODULE_18__["DashBroadCastComponent"],
+            _components_shared_recent_violation_widget_recent_violation_widget_component__WEBPACK_IMPORTED_MODULE_22__["RecentViolationWidgetComponent"],
+            _components_shared_emergency_alerts_widget_emergency_alerts_widget_component__WEBPACK_IMPORTED_MODULE_23__["EmergencyAlertsWidgetComponent"],
+            _components_shared_workpermit_widget_workpermit_widget_component__WEBPACK_IMPORTED_MODULE_24__["WorkpermitWidgetComponent"],
+            _components_shared_facility_widget_facility_widget_component__WEBPACK_IMPORTED_MODULE_25__["FacilityWidgetComponent"]
         ]
     })
 ], DashboardModule);
