@@ -294,7 +294,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"mb-4\">Set Time</h4>\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n\n            <div class=\"bg-card shadow\">\n                \n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                            <condo-select \n                                labelText=\"Select Time Zone\"\n                                fieldPlaceholder=\"Select\"\n                                [fieldRequired]=\"'null'\"\n                                [fieldList]=\"timeZonesData\"\n                                fieldValue=\"customLabel\"\n                                [fieldModel]=\"user.timeZone\"\n                                fieldId=\"abbr\"\n                                [isClear]=\"false\"\n                                (fieldParams)=\"getSelectedZone($event)\" \n                            ></condo-select>\n                        </div>\n                    </div>\n            </div>\n\n            <div class=\"float-right mt-4\">\n                <button mat-flat-button [color]=\"'primary'\">Submit</button>\n            </div>\n\n        </form>\n\n    </ng-container> \n\n</div>";
+      __webpack_exports__["default"] = "<div class=\"profile-timezone-wrapper p-5\">\n\n    <app-loader *ngIf=\"!isDataLoaded\"></app-loader>\n\n    <ng-container *ngIf=\"isDataLoaded\">\n\n        <h4 class=\"mb-4\">Set Time</h4>\n\n        <form #timeSettingsform = \"ngForm\" name=\"timeSettingsform\" (ngSubmit)=\"submitTimeSettingsform(timeSettingsform)\" novalidate>\n\n            <div class=\"bg-card shadow\">\n                \n                    <div class=\"row\">\n                        <div class=\"col-sm-6\">\n                            <condo-select \n                                labelText=\"Select Time Zone\"\n                                fieldPlaceholder=\"Select\"\n                                [fieldRequired]=\"'null'\"\n                                [fieldList]=\"timeZonesData\"\n                                fieldValue=\"customLabel\"\n                                [fieldModel]=\"user.timeZone\"\n                                fieldId=\"id\"\n                                [isClear]=\"false\"\n                                (fieldParams)=\"getSelectedZone($event)\" \n                            ></condo-select>\n                        </div>\n                    </div>\n            </div>\n\n            <div class=\"float-right mt-4\">\n                <button mat-flat-button [color]=\"'primary'\">Submit</button>\n            </div>\n\n        </form>\n\n    </ng-container> \n\n</div>";
       /***/
     },
 
@@ -4766,7 +4766,7 @@
         _createClass(ProfileTimezoneComponent, [{
           key: "getSelectedZone",
           value: function getSelectedZone(event) {
-            this.user.timeZone = event[0].abbr;
+            this.user.timeZone = event[0].id;
           }
         }, {
           key: "submitTimeSettingsform",
@@ -4807,7 +4807,7 @@
             });
 
             this.timeZonesData = src_app_modules_profile_data_timezone_data__WEBPACK_IMPORTED_MODULE_3__["timeZones"].map(function (data) {
-              data.customLabel = "".concat(data.value, " ").concat(data.abbr, " ").concat(data.text);
+              data.customLabel = "".concat(data.region, " ").concat(data.text);
               return data;
             });
           }

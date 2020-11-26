@@ -436,7 +436,7 @@
               datafield: 'dueDate',
               minwidth: 100,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this3.timeZone.offset, 'hours').format(_this3.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__["utc"](value).tz(_this3.timeZone.region).format(_this3.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

@@ -1048,7 +1048,7 @@
               datafield: 'insertedOn',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {

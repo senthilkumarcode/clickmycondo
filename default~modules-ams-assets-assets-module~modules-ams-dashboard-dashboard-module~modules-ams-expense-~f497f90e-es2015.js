@@ -6485,362 +6485,7 @@ OwlNativeDateTimeModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵ
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker:fieldModel\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"selectedDate | userDateTimeFormat:timeZone.picker:fieldModel\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"selectedDate | userDateTimeFormat:timeZone.picker:fieldModel\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
-
-/***/ }),
-
-/***/ "./src/app/core/owl/custom-date-time-adapter.ts":
-/*!******************************************************!*\
-  !*** ./src/app/core/owl/custom-date-time-adapter.ts ***!
-  \******************************************************/
-/*! exports provided: CustomDateTimeAdapter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CustomDateTimeAdapter", function() { return CustomDateTimeAdapter; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
-/* harmony import */ var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/shared.service */ "./src/app/shared/services/shared.service.ts");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-/*import { Injectable } from '@angular/core';
-import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { UserDateFormatPipe } from 'src/app/shared/pipe/shared.pipe';
-import { DateTimeAdapter, MomentDateTimeAdapter } from '@busacca/ng-pick-datetime';
-
-@Injectable({
-    providedIn: 'root'
-})
-
-
-export class CustomDateTimeAdapter extends DateTimeAdapter<any> {
-  format(date: Date): string {
-    const pipe = new UserDateFormatPipe();
-    console.log(date);
-    return pipe.transform(date);
-  }
-}*/
-
-
-
-
-
-let CustomDateTimeAdapter = class CustomDateTimeAdapter extends _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_2__["DateTimeAdapter"] {
-    constructor(sharedService) {
-        super();
-        this.sharedService = sharedService;
-        /** The default date names to use if Intl API is not available. */
-        this.DEFAULT_DATE_NAMES = this.range(31, i => String(i + 1));
-        this.DEFAULT_MONTH_NAMES = {
-            'long': [
-                'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December'
-            ],
-            'short': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            'narrow': ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
-        };
-        this.DEFAULT_DAY_OF_WEEK_NAMES = {
-            'long': ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            'short': ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            'narrow': ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-        };
-        this.ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|(?:(?:\+|-)\d{2}:\d{2}))?)?$/;
-        this.SUPPORTS_INTL_API = typeof Intl !== 'undefined';
-        this.useUtcForDisplay = !(typeof document === 'object' && !!document &&
-            /(msie|trident)/i.test(navigator.userAgent));
-    }
-    /*__assign = (this && this.__assign) || Object.assign || function (t) {
-        for (let s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (const p in s) {
-                if (Object.prototype.hasOwnProperty.call(s, p)) {
-                    t[p] = s[p];
-                }
-            }
-        }
-        return t;
-    };*/
-    getYear(date) {
-        return date.getFullYear();
-    }
-    getMonth(date) {
-        return date.getMonth();
-    }
-    getDay(date) {
-        return date.getDay();
-    }
-    getDate(date) {
-        return date.getDate();
-    }
-    getHours(date) {
-        return date.getHours();
-    }
-    getMinutes(date) {
-        return date.getMinutes();
-    }
-    getSeconds(date) {
-        return date.getSeconds();
-    }
-    getTime(date) {
-        return date.getTime();
-    }
-    getNumDaysInMonth(date) {
-        const lastDateOfMonth = this.createDateWithOverflow(this.getYear(date), this.getMonth(date) + 1, 0);
-        return this.getDate(lastDateOfMonth);
-    }
-    getDateNames() {
-        if (this.SUPPORTS_INTL_API) {
-            const dtf = new Intl.DateTimeFormat(this.locale, { day: 'numeric', timeZone: 'utc' });
-            return this.range(31, i => this._stripDirectionalityCharacters(this._format(dtf, new Date(2017, 0, i + 1))));
-        }
-        return this.DEFAULT_DATE_NAMES;
-    }
-    createDateWithOverflow(year, month, date, hours, minutes, seconds) {
-        if (hours === void 0) {
-            hours = 0;
-        }
-        if (minutes === void 0) {
-            minutes = 0;
-        }
-        if (seconds === void 0) {
-            seconds = 0;
-        }
-        const result = new Date(year, month, date, hours, minutes, seconds);
-        if (year >= 0 && year < 100) {
-            result.setFullYear(this.getYear(result) - 1900);
-        }
-        return result;
-    }
-    differenceInCalendarDays(dateLeft, dateRight) {
-        if (this.isValid(dateLeft) && this.isValid(dateRight)) {
-            const dateLeftStartOfDay = this.createDate(this.getYear(dateLeft), this.getMonth(dateLeft), this.getDate(dateLeft));
-            const dateRightStartOfDay = this.createDate(this.getYear(dateRight), this.getMonth(dateRight), this.getDate(dateRight));
-            const timeStampLeft = this.getTime(dateLeftStartOfDay) - dateLeftStartOfDay.getTimezoneOffset() * this.milliseondsInMinute;
-            const timeStampRight = this.getTime(dateRightStartOfDay) - dateRightStartOfDay.getTimezoneOffset() * this.milliseondsInMinute;
-            return Math.round((timeStampLeft - timeStampRight) / this.millisecondsInDay);
-        }
-        else {
-            return null;
-        }
-    }
-    getYearName(date) {
-        if (this.SUPPORTS_INTL_API) {
-            const dtf = new Intl.DateTimeFormat(this.locale, { year: 'numeric' });
-            return this.stripDirectionalityCharacters(dtf.format(date));
-        }
-        return String(this.getYear(date));
-    }
-    stripDirectionalityCharacters(str) {
-        return str.replace(/[\u200e\u200f]/g, '');
-    }
-    getMonthNames(style) {
-        const _this = this;
-        if (this.SUPPORTS_INTL_API) {
-            const dtf_1 = new Intl.DateTimeFormat(this.locale, { month: style });
-            return this.range(12, function (i) {
-                return _this.stripDirectionalityCharacters(dtf_1.format(new Date(2017, i, 1)));
-            });
-        }
-        return this.DEFAULT_MONTH_NAMES[style];
-    }
-    range(longitud, valueFunction) {
-        const valuesArray = Array(longitud);
-        for (let i = 0; i < longitud; i++) {
-            valuesArray[i] = valueFunction(i);
-        }
-        return valuesArray;
-    }
-    getDayOfWeekNames(style) {
-        const _this = this;
-        if (this.SUPPORTS_INTL_API) {
-            const dtf_2 = new Intl.DateTimeFormat(this.locale, { weekday: style });
-            return this.range(7, function (i) {
-                return _this.stripDirectionalityCharacters(dtf_2.format(new Date(2017, 0, i + 1)));
-            });
-        }
-        return this.DEFAULT_DAY_OF_WEEK_NAMES[style];
-    }
-    toIso8601(date) {
-        return date.toISOString();
-    }
-    isEqual(dateLeft, dateRight) {
-        if (this.isValid(dateLeft) && this.isValid(dateRight)) {
-            return dateLeft.getTime() === dateRight.getTime();
-        }
-        else {
-            return false;
-        }
-    }
-    isSameDay(dateLeft, dateRight) {
-        if (this.isValid(dateLeft) && this.isValid(dateRight)) {
-            const dateLeftStartOfDay = this.clone(dateLeft);
-            const dateRightStartOfDay = this.clone(dateRight);
-            dateLeftStartOfDay.setHours(0, 0, 0, 0);
-            dateRightStartOfDay.setHours(0, 0, 0, 0);
-            return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
-        }
-        else {
-            return false;
-        }
-    }
-    isValid(date) {
-        return date && !isNaN(date.getTime());
-    }
-    invalid() {
-        return new Date(NaN);
-    }
-    isDateInstance(obj) {
-        return obj instanceof Date;
-    }
-    addCalendarYears(date, amount) {
-        return this.addCalendarMonths(date, amount * 12);
-    }
-    addCalendarMonths(date, amount) {
-        const result = this.clone(date);
-        amount = Number(amount);
-        const desiredMonth = result.getMonth() + amount;
-        const dateWithDesiredMonth = new Date(0);
-        dateWithDesiredMonth.setFullYear(result.getFullYear(), desiredMonth, 1);
-        dateWithDesiredMonth.setHours(0, 0, 0, 0);
-        const daysInMonth = this.getNumDaysInMonth(dateWithDesiredMonth);
-        result.setMonth(desiredMonth, Math.min(daysInMonth, result.getDate()));
-        return result;
-    }
-    addCalendarDays(date, amount) {
-        const result = this.clone(date);
-        amount = Number(amount);
-        result.setDate(result.getDate() + amount);
-        return result;
-    }
-    setHours(date, amount) {
-        const result = this.clone(date);
-        result.setHours(amount);
-        return result;
-    }
-    setMinutes(date, amount) {
-        const result = this.clone(date);
-        result.setMinutes(amount);
-        return result;
-    }
-    setSeconds(date, amount) {
-        const result = this.clone(date);
-        result.setSeconds(amount);
-        return result;
-    }
-    createDate(year, month, date, hours, minutes, seconds) {
-        if (hours === void 0) {
-            hours = 0;
-        }
-        if (minutes === void 0) {
-            minutes = 0;
-        }
-        if (seconds === void 0) {
-            seconds = 0;
-        }
-        if (month < 0 || month > 11) {
-            throw Error('Invalid month index \"' + month + '\". Month index has to be between 0 and 11.');
-        }
-        if (date < 1) {
-            throw Error('Invalid date \"' + date + '\". Date has to be greater than 0.');
-        }
-        if (hours < 0 || hours > 23) {
-            throw Error('Invalid hours \"' + hours + '\". Hours has to be between 0 and 23.');
-        }
-        if (minutes < 0 || minutes > 59) {
-            throw Error('Invalid minutes \"' + minutes + '\". Minutes has to between 0 and 59.');
-        }
-        if (seconds < 0 || seconds > 59) {
-            throw Error('Invalid seconds \"' + seconds + '\". Seconds has to be between 0 and 59.');
-        }
-        const result = this.createDateWithOverflow(year, month, date, hours, minutes, seconds);
-        if (result.getMonth() !== month) {
-            throw Error('Invalid date \"' + date + '\" for month with index \"' + month + '\".');
-        }
-        return result;
-    }
-    clone(date) {
-        return new Date(date.getTime());
-    }
-    now() {
-        return new Date();
-    }
-    format(date, displayFormat) {
-        let data = this.sharedService.getTimeZone();
-        let picker = data.picker;
-        if (!this.isValid(date)) {
-            throw Error('JSNativeDate: Cannot format invalid date.');
-        }
-        //if only date object
-        if (date.getHours() == 0)
-            return moment__WEBPACK_IMPORTED_MODULE_4__(date).format(picker.date);
-        else
-            return moment__WEBPACK_IMPORTED_MODULE_4__(date).format(picker.time);
-        /*if (this.locale == 'en-US') {
-            const dateEnglishWithoutTime = ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + '-' +
-              date.getFullYear();
-            return dateEnglishWithoutTime;
-        }
-        const dateWithoutTime = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
-          date.getFullYear();
-        return dateWithoutTime; */
-    }
-    parse(value, parseFormat) {
-        if (typeof value === 'number') {
-            return new Date(value);
-        }
-        return value ? new Date(Date.parse(value)) : null;
-    }
-    deserialize(value) {
-        if (typeof value === 'string') {
-            if (!value) {
-                return null;
-            }
-            if (this.ISO_8601_REGEX.test(value)) {
-                const date = new Date(value);
-                if (this.isValid(date)) {
-                    return date;
-                }
-            }
-        }
-        return super.deserialize.call(this, value);
-    }
-    /**
-     * Strip out unicode LTR and RTL characters. Edge and IE insert these into formatted dates while
-     * other browsers do not. We remove them to make output consistent and because they interfere with
-     * date parsing.
-     * @param str The string to strip direction characters from.
-     * @returns The stripped string.
-     */
-    _stripDirectionalityCharacters(str) {
-        return str.replace(/[\u200e\u200f]/g, '');
-    }
-    /**
-     * When converting Date object to string, javascript built-in functions may return wrong
-     * results because it applies its internal DST rules. The DST rules around the world change
-     * very frequently, and the current valid rule is not always valid in previous years though.
-     * We work around this problem building a new Date object which has its internal UTC
-     * representation with the local date and time.
-     * @param dtf Intl.DateTimeFormat object, containg the desired string format. It must have
-     *    timeZone set to 'utc' to work fine.
-     * @param date Date from which we want to get the string representation according to dtf
-     * @returns A Date object with its UTC representation based on the passed in date info
-     */
-    _format(dtf, date) {
-        const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds()));
-        return dtf.format(d);
-    }
-};
-CustomDateTimeAdapter.ctorParameters = () => [
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"] }
-];
-CustomDateTimeAdapter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])
-], CustomDateTimeAdapter);
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -6883,10 +6528,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let DatepickerComponent = class DatepickerComponent {
-    constructor(dateTimeAdapter, sharedService, _changeDetectorRef) {
+    constructor(dateTimeAdapter, sharedService) {
         this.dateTimeAdapter = dateTimeAdapter;
         this.sharedService = sharedService;
-        this._changeDetectorRef = _changeDetectorRef;
         this.labelText = '';
         this.fieldClass = '';
         this.fieldReadonly = false;
@@ -6898,9 +6542,10 @@ let DatepickerComponent = class DatepickerComponent {
         return this.fieldRequired == "required" ? true : false;
     }
     onPickerChange() {
-        let picker = this.timeZone.picker;
-        let utcDate = moment__WEBPACK_IMPORTED_MODULE_3__(this.selectedDate).subtract(picker.offset, 'hours').format().split('+');
-        this.fieldParams.emit(utcDate[0]);
+        //let picker = this.timeZone.picker;
+        //let utcDate:any = moment(this.selectedDate).subtract(picker.offset, 'hours').format().split('+');
+        //this.fieldParams.emit(utcDate[0])
+        this.fieldParams.emit(moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.selectedDate));
     }
     camelCase(str) {
         return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
@@ -6912,14 +6557,21 @@ let DatepickerComponent = class DatepickerComponent {
     }
     ngOnChanges() {
         this.sharedService.timezonecast.subscribe(timeZone => this.timeZone = timeZone);
-        let picker = this.timeZone.picker;
-        this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).add(picker.offset, 'hours').toISOString().replace('Z', '');
+        this.dateTimeAdapter.setLocale(this.timeZone.language);
+        if (this.fieldModel == undefined) {
+            this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__().tz(this.timeZone.region);
+        }
+        else {
+            this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).tz(this.timeZone.region);
+        }
+        //console.log(this.fieldModel)
+        //console.log(this.selectedDate)
+        //this.selectedDate = moment.utc(this.fieldModel).add(picker.offset, 'hours').toISOString().replace('Z', '')
     }
 };
 DatepickerComponent.ctorParameters = () => [
     { type: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"] },
-    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"] }
+    { type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"] }
 ];
 DatepickerComponent.propDecorators = {
     labelText: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"] }],
@@ -6945,8 +6597,7 @@ DatepickerComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./datepicker.component.scss */ "./src/app/modules/ui/datepicker/datepicker.component.scss")).default]
     }),
     Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"],
-        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"],
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
+        src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])
 ], DatepickerComponent);
 
 
@@ -6971,7 +6622,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _datepicker_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./datepicker.component */ "./src/app/modules/ui/datepicker/datepicker.component.ts");
 /* harmony import */ var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @busacca/ng-pick-datetime */ "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
 /* harmony import */ var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/pipe/shared.pipe */ "./src/app/shared/pipe/shared.pipe.ts");
-/* harmony import */ var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/core/owl/custom-date-time-adapter */ "./src/app/core/owl/custom-date-time-adapter.ts");
 var DatepickerModule_1;
 
 
@@ -6993,7 +6643,7 @@ let DatepickerModule = DatepickerModule_1 = class DatepickerModule {
 };
 DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserTimeFormatPipe"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
@@ -7006,13 +6656,15 @@ DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0_
             _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"],
             src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"],
             src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"],
+            src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserTimeFormatPipe"],
             _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"],
             _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]
         ],
         providers: [
-            //{ provide: OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS, useValue: { useUtc: true } },
-            //{ provide: DateTimeAdapter, useClass: MomentDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE] },
-            { provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"], useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"] },
+        //{ provide: OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS, useValue: { useUtc: true } },
+        //{ provide: DateTimeAdapter, useClass: MomentDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE] },
+        //{ provide: DateTimeAdapter, useClass: CustomDateTimeAdapter },
+        //{ provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'}
         ],
         bootstrap: [
             _datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]

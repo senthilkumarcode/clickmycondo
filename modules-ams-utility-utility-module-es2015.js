@@ -1428,7 +1428,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
                 datafield: 'periodFrom',
                 width: 200,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__["utc"](value).tz(this.timeZone.region).format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1437,7 +1437,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
                 datafield: 'periodTo',
                 width: 200,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__["utc"](value).tz(this.timeZone.region).format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1552,7 +1552,7 @@ let UtilityHistoryComponent = class UtilityHistoryComponent {
                 datafield: 'dateEntered',
                 width: 250,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__["utc"](value).tz(this.timeZone.region).format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             }

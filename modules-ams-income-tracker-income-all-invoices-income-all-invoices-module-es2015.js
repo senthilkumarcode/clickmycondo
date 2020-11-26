@@ -398,7 +398,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 datafield: 'insertedOn',
                 minwidth: 120,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {
@@ -444,7 +444,7 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 minwidth: 120,
                 renderer: columnrenderer,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
             },
             {
@@ -529,10 +529,6 @@ let IncomeAllInvoicesComponent = class IncomeAllInvoicesComponent {
                 };
                 this.isInvoiceDataLoaded = true;
             }
-            /*this.getSourceDataAdapter = (datafield: string): any => {
-              let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
-              return dataAdapter;
-            }*/
         });
     }
 };

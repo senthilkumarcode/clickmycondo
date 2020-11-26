@@ -1260,7 +1260,7 @@
               text: 'Date Requested',
               datafield: 'insertedOn',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__(value).add(_this14.timeZone.offset, 'hours').format(_this14.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this14.timeZone.region).format(_this14.timeZone.time) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer

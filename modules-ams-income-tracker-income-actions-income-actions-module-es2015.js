@@ -1242,7 +1242,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'documentDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1258,7 +1258,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'entryDateTime',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1267,7 +1267,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'postingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },
@@ -1276,7 +1276,7 @@ let IncomeJournalComponent = class IncomeJournalComponent {
                 datafield: 'clearingDate',
                 width: 180,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             },

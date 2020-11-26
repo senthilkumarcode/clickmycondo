@@ -1920,7 +1920,7 @@
               datafield: 'inTime',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__["utc"](value).tz(_this18.timeZone.region).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1928,7 +1928,7 @@
               datafield: 'outTime',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__["utc"](value).tz(_this18.timeZone.region).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {

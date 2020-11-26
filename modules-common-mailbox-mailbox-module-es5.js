@@ -909,7 +909,7 @@
         _createClass(MailboxDetailsComponent, [{
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_13__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_13__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",
@@ -1478,7 +1478,7 @@
         _createClass(MailboxListComponent, [{
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_4__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_4__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",

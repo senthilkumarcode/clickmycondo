@@ -295,7 +295,7 @@ let IncomeViewDefaultersComponent = class IncomeViewDefaultersComponent {
                 datafield: 'dueDate',
                 minwidth: 100,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_8__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 renderer: columnrenderer
             }, {

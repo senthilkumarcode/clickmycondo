@@ -1153,23 +1153,23 @@
         var _super = _createSuper(MomentDateTimeAdapter);
 
         function MomentDateTimeAdapter(owlDateTimeLocale, options) {
-          var _this2;
+          var _this;
 
           _classCallCheck(this, MomentDateTimeAdapter);
 
-          _this2 = _super.call(this);
-          _this2.owlDateTimeLocale = owlDateTimeLocale;
-          _this2.options = options;
+          _this = _super.call(this);
+          _this.owlDateTimeLocale = owlDateTimeLocale;
+          _this.options = options;
 
-          _this2.setLocale(owlDateTimeLocale || moment.locale());
+          _this.setLocale(owlDateTimeLocale || moment.locale());
 
-          return _this2;
+          return _this;
         }
 
         _createClass(MomentDateTimeAdapter, [{
           key: "setLocale",
           value: function setLocale(locale) {
-            var _this3 = this;
+            var _this2 = this;
 
             _get(_getPrototypeOf(MomentDateTimeAdapter.prototype), "setLocale", this).call(this, locale);
 
@@ -1181,7 +1181,7 @@
               shortDaysOfWeek: momentLocaleData.weekdaysShort(),
               narrowDaysOfWeek: momentLocaleData.weekdaysMin(),
               dates: range(31, function (i) {
-                return _this3.createDate(2017, 0, i + 1).format('D');
+                return _this2.createDate(2017, 0, i + 1).format('D');
               })
             };
           }
@@ -1636,13 +1636,13 @@
         }, {
           key: "watchStateChanges",
           value: function watchStateChanges() {
-            var _this4 = this;
+            var _this3 = this;
 
             this.stateChanges.unsubscribe();
             var inputDisabled = this.dtPicker && this.dtPicker.dtInput ? this.dtPicker.dtInput.disabledChange : Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["of"])();
             var pickerDisabled = this.dtPicker ? this.dtPicker.disabledChange : Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["of"])();
             this.stateChanges = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["merge"])(pickerDisabled, inputDisabled).subscribe(function () {
-              _this4.changeDetector.markForCheck();
+              _this3.changeDetector.markForCheck();
             });
           }
         }, {
@@ -1847,7 +1847,7 @@
 
       var OwlCalendarComponent = /*#__PURE__*/function () {
         function OwlCalendarComponent(elmRef, pickerIntl, ngZone, cdRef, dateTimeAdapter, dateTimeFormats) {
-          var _this5 = this;
+          var _this4 = this;
 
           _classCallCheck(this, OwlCalendarComponent);
 
@@ -1897,7 +1897,7 @@
            * */
 
           this.dateFilterForViews = function (date) {
-            return !!date && (!_this5.dateFilter || _this5.dateFilter(date)) && (!_this5.minDate || _this5.dateTimeAdapter.compare(date, _this5.minDate) >= 0) && (!_this5.maxDate || _this5.dateTimeAdapter.compare(date, _this5.maxDate) <= 0);
+            return !!date && (!_this4.dateFilter || _this4.dateFilter(date)) && (!_this4.minDate || _this4.dateTimeAdapter.compare(date, _this4.minDate) >= 0) && (!_this4.maxDate || _this4.dateTimeAdapter.compare(date, _this4.maxDate) <= 0);
           };
 
           this.intlChangesSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
@@ -1909,7 +1909,7 @@
 
           this.moveFocusOnNextTick = false;
           this.intlChangesSub = this.pickerIntl.changes.subscribe(function () {
-            _this5.cdRef.markForCheck();
+            _this4.cdRef.markForCheck();
           });
         }
 
@@ -2035,11 +2035,11 @@
         }, {
           key: "focusActiveCell",
           value: function focusActiveCell() {
-            var _this6 = this;
+            var _this5 = this;
 
             this.ngZone.runOutsideAngular(function () {
-              _this6.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-                _this6.elmRef.nativeElement.querySelector('.owl-dt-calendar-cell-active').focus();
+              _this5.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
+                _this5.elmRef.nativeElement.querySelector('.owl-dt-calendar-cell-active').focus();
               });
             });
           }
@@ -2126,11 +2126,11 @@
             return this._selecteds;
           },
           set: function set(values) {
-            var _this7 = this;
+            var _this6 = this;
 
             this._selecteds = values.map(function (v) {
-              v = _this7.dateTimeAdapter.deserialize(v);
-              return _this7.getValidDate(v);
+              v = _this6.dateTimeAdapter.deserialize(v);
+              return _this6.getValidDate(v);
             });
           }
         }, {
@@ -2608,11 +2608,11 @@
         }, {
           key: "focus",
           value: function focus() {
-            var _this8 = this;
+            var _this7 = this;
 
             this.ngZone.runOutsideAngular(function () {
-              _this8.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-                _this8.elmRef.nativeElement.focus();
+              _this7.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
+                _this7.elmRef.nativeElement.focus();
               });
             });
           }
@@ -3816,7 +3816,7 @@
 
       var OwlDateTime = /*#__PURE__*/function () {
         function OwlDateTime(dateTimeAdapter, dateTimeFormats) {
-          var _this9 = this;
+          var _this8 = this;
 
           _classCallCheck(this, OwlDateTime);
 
@@ -3884,7 +3884,7 @@
            * */
 
           this.dateTimeChecker = function (dateTime) {
-            return !!dateTime && (!_this9.dateTimeFilter || _this9.dateTimeFilter(dateTime)) && (!_this9.minDateTime || _this9.dateTimeAdapter.compare(dateTime, _this9.minDateTime) >= 0) && (!_this9.maxDateTime || _this9.dateTimeAdapter.compare(dateTime, _this9.maxDateTime) <= 0);
+            return !!dateTime && (!_this8.dateTimeFilter || _this8.dateTimeFilter(dateTime)) && (!_this8.minDateTime || _this8.dateTimeAdapter.compare(dateTime, _this8.minDateTime) >= 0) && (!_this8.maxDateTime || _this8.dateTimeAdapter.compare(dateTime, _this8.maxDateTime) <= 0);
           };
 
           if (!this.dateTimeAdapter) {
@@ -4176,7 +4176,7 @@
 
       var OwlDialogRef = /*#__PURE__*/function () {
         function OwlDialogRef(overlayRef, container, id, location) {
-          var _this10 = this;
+          var _this9 = this;
 
           _classCallCheck(this, OwlDialogRef);
 
@@ -4195,33 +4195,33 @@
           this.container.animationStateChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["filter"])(function (event) {
             return event.phaseName === 'done' && event.toState === 'enter';
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-            _this10._afterOpen$.next();
+            _this9._afterOpen$.next();
 
-            _this10._afterOpen$.complete();
+            _this9._afterOpen$.complete();
           });
           this.container.animationStateChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["filter"])(function (event) {
             return event.phaseName === 'done' && event.toState === 'exit';
           }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-            _this10.overlayRef.dispose();
+            _this9.overlayRef.dispose();
 
-            _this10.locationChanged.unsubscribe();
+            _this9.locationChanged.unsubscribe();
 
-            _this10._afterClosed$.next(_this10.result);
+            _this9._afterClosed$.next(_this9.result);
 
-            _this10._afterClosed$.complete();
+            _this9._afterClosed$.complete();
 
-            _this10.componentInstance = null;
+            _this9.componentInstance = null;
           });
           this.overlayRef.keydownEvents().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["filter"])(function (event) {
-            return event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__["ESCAPE"] && !_this10.disableClose;
+            return event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__["ESCAPE"] && !_this9.disableClose;
           })).subscribe(function () {
-            return _this10.close();
+            return _this9.close();
           });
 
           if (location) {
             this.locationChanged = location.subscribe(function () {
-              if (_this10.container.config.closeOnNavigation) {
-                _this10.close();
+              if (_this9.container.config.closeOnNavigation) {
+                _this9.close();
               }
             });
           }
@@ -4230,17 +4230,17 @@
         _createClass(OwlDialogRef, [{
           key: "close",
           value: function close(dialogResult) {
-            var _this11 = this;
+            var _this10 = this;
 
             this.result = dialogResult;
             this.container.animationStateChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["filter"])(function (event) {
               return event.phaseName === 'start';
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-              _this11._beforeClose$.next(dialogResult);
+              _this10._beforeClose$.next(dialogResult);
 
-              _this11._beforeClose$.complete();
+              _this10._beforeClose$.complete();
 
-              _this11.overlayRef.detachBackdrop();
+              _this10.overlayRef.detachBackdrop();
             });
             this.container.startExitAnimation();
           }
@@ -4354,25 +4354,25 @@
         var _super2 = _createSuper(OwlDialogContainerComponent);
 
         function OwlDialogContainerComponent(changeDetector, elementRef, focusTrapFactory, document) {
-          var _this12;
+          var _this11;
 
           _classCallCheck(this, OwlDialogContainerComponent);
 
-          _this12 = _super2.call(this);
-          _this12.changeDetector = changeDetector;
-          _this12.elementRef = elementRef;
-          _this12.focusTrapFactory = focusTrapFactory;
-          _this12.document = document;
+          _this11 = _super2.call(this);
+          _this11.changeDetector = changeDetector;
+          _this11.elementRef = elementRef;
+          _this11.focusTrapFactory = focusTrapFactory;
+          _this11.document = document;
           /** ID of the element that should be considered as the dialog's label. */
 
-          _this12.ariaLabelledBy = null;
+          _this11.ariaLabelledBy = null;
           /** Emits when an animation state changes. */
 
-          _this12.animationStateChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this12.isAnimating = false;
-          _this12.state = 'enter'; // for animation purpose
+          _this11.animationStateChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this11.isAnimating = false;
+          _this11.state = 'enter'; // for animation purpose
 
-          _this12.params = {
+          _this11.params = {
             x: '0px',
             y: '0px',
             ox: '50%',
@@ -4381,8 +4381,8 @@
           }; // A variable to hold the focused element before the dialog was open.
           // This would help us to refocus back to element when the dialog was closed.
 
-          _this12.elementFocusedBeforeDialogWasOpened = null;
-          return _this12;
+          _this11.elementFocusedBeforeDialogWasOpened = null;
+          return _this11;
         }
 
         _createClass(OwlDialogContainerComponent, [{
@@ -4478,12 +4478,12 @@
         }, {
           key: "savePreviouslyFocusedElement",
           value: function savePreviouslyFocusedElement() {
-            var _this13 = this;
+            var _this12 = this;
 
             if (this.document) {
               this.elementFocusedBeforeDialogWasOpened = this.document.activeElement;
               Promise.resolve().then(function () {
-                return _this13.elementRef.nativeElement.focus();
+                return _this12.elementRef.nativeElement.focus();
               });
             }
           }
@@ -4872,7 +4872,7 @@
 
       var OwlDialogService = /*#__PURE__*/function () {
         function OwlDialogService(overlay, injector, location, scrollStrategy, defaultOptions, parentDialog, overlayContainer) {
-          var _this14 = this;
+          var _this13 = this;
 
           _classCallCheck(this, OwlDialogService);
 
@@ -4893,12 +4893,12 @@
            */
 
           this.afterAllClosed = Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["defer"])(function () {
-            return _this14._openDialogsAtThisLevel.length ? _this14._afterAllClosed : _this14._afterAllClosed.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["startWith"])(undefined));
+            return _this13._openDialogsAtThisLevel.length ? _this13._afterAllClosed : _this13._afterAllClosed.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["startWith"])(undefined));
           });
 
           if (!parentDialog && location) {
             location.subscribe(function () {
-              return _this14.closeAll();
+              return _this13.closeAll();
             });
           }
         }
@@ -4908,7 +4908,7 @@
         _createClass(OwlDialogService, [{
           key: "open",
           value: function open(componentOrTemplateRef, config) {
-            var _this15 = this;
+            var _this14 = this;
 
             config = applyConfigDefaults(config, this.defaultOptions);
 
@@ -4926,7 +4926,7 @@
 
             this.openDialogs.push(dialogRef);
             dialogRef.afterClosed().subscribe(function () {
-              return _this15.removeOpenDialog(dialogRef);
+              return _this14.removeOpenDialog(dialogRef);
             });
             this.afterOpen.next(dialogRef);
             return dialogRef;
@@ -5218,26 +5218,26 @@
         var _super3 = _createSuper(OwlDateTimeComponent);
 
         function OwlDateTimeComponent(overlay, viewContainerRef, dialogService, ngZone, changeDetector, dateTimeAdapter, defaultScrollStrategy, dateTimeFormats, document) {
-          var _this16;
+          var _this15;
 
           _classCallCheck(this, OwlDateTimeComponent);
 
-          _this16 = _super3.call(this, dateTimeAdapter, dateTimeFormats);
-          _this16.overlay = overlay;
-          _this16.viewContainerRef = viewContainerRef;
-          _this16.dialogService = dialogService;
-          _this16.ngZone = ngZone;
-          _this16.changeDetector = changeDetector;
-          _this16.dateTimeAdapter = dateTimeAdapter;
-          _this16.defaultScrollStrategy = defaultScrollStrategy;
-          _this16.dateTimeFormats = dateTimeFormats;
-          _this16.document = document;
+          _this15 = _super3.call(this, dateTimeAdapter, dateTimeFormats);
+          _this15.overlay = overlay;
+          _this15.viewContainerRef = viewContainerRef;
+          _this15.dialogService = dialogService;
+          _this15.ngZone = ngZone;
+          _this15.changeDetector = changeDetector;
+          _this15.dateTimeAdapter = dateTimeAdapter;
+          _this15.defaultScrollStrategy = defaultScrollStrategy;
+          _this15.dateTimeFormats = dateTimeFormats;
+          _this15.document = document;
           /** Custom class for the picker backdrop. */
 
-          _this16.backdropClass = [];
+          _this15.backdropClass = [];
           /** Custom class for the picker overlay pane. */
 
-          _this16.panelClass = [];
+          _this15.panelClass = [];
           /**
            * Set the type of the dateTime picker
            *      'both' -- show both calendar and timer
@@ -5247,58 +5247,58 @@
            * @type {'both' | 'calendar' | 'timer'}
            * */
 
-          _this16._pickerType = 'both';
+          _this15._pickerType = 'both';
           /**
            * Whether the picker open as a dialog
            * @default {false}
            * @type {boolean}
            * */
 
-          _this16._pickerMode = 'popup';
+          _this15._pickerMode = 'popup';
           /** Whether the calendar is open. */
 
-          _this16._opened = false;
+          _this15._opened = false;
           /**
            * Callback when the picker is closed
            * */
 
-          _this16.afterPickerClosed = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this15.afterPickerClosed = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           /**
            * Callback when the picker is open
            * */
 
-          _this16.afterPickerOpen = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this15.afterPickerOpen = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           /**
            * Emits selected year in multi-year view
            * This doesn't imply a change on the selected date.
            * */
 
-          _this16.yearSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this15.yearSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           /**
            * Emits selected month in year view
            * This doesn't imply a change on the selected date.
            * */
 
-          _this16.monthSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this15.monthSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           /**
            * Emit when the selected value has been confirmed
            * */
 
-          _this16.confirmSelectedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this15.confirmSelectedChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           /**
            * Emits when the date time picker is disabled.
            * */
 
-          _this16.disabledChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this16.dtInputSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
-          _this16.hidePickerStreamSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
-          _this16.confirmSelectedStreamSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
-          _this16.pickerOpenedStreamSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
+          _this15.disabledChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this15.dtInputSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
+          _this15.hidePickerStreamSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
+          _this15.confirmSelectedStreamSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
+          _this15.pickerOpenedStreamSub = rxjs__WEBPACK_IMPORTED_MODULE_0__["Subscription"].EMPTY;
           /** The element that was focused before the date time picker was opened. */
 
-          _this16.focusedElementBeforeOpen = null;
-          _this16._selecteds = [];
-          return _this16;
+          _this15.focusedElementBeforeOpen = null;
+          _this15._selecteds = [];
+          return _this15;
         }
 
         _createClass(OwlDateTimeComponent, [{
@@ -5318,7 +5318,7 @@
         }, {
           key: "registerInput",
           value: function registerInput(input) {
-            var _this17 = this;
+            var _this16 = this;
 
             if (this._dtInput) {
               throw Error('A Owl DateTimePicker can only be associated with a single input.');
@@ -5327,16 +5327,16 @@
             this._dtInput = input;
             this.dtInputSub = this._dtInput.valueChange.subscribe(function (value) {
               if (Array.isArray(value)) {
-                _this17.selecteds = value;
+                _this16.selecteds = value;
               } else {
-                _this17.selected = value;
+                _this16.selected = value;
               }
             });
           }
         }, {
           key: "open",
           value: function open() {
-            var _this18 = this;
+            var _this17 = this;
 
             if (this._opened || this.disabled) {
               return;
@@ -5367,11 +5367,11 @@
             this.pickerContainer.picker = this; // Listen to picker container's hidePickerStream
 
             this.hidePickerStreamSub = this.pickerContainer.hidePickerStream.subscribe(function () {
-              _this18.close();
+              _this17.close();
             }); // Listen to picker container's confirmSelectedStream
 
             this.confirmSelectedStreamSub = this.pickerContainer.confirmSelectedStream.subscribe(function (event) {
-              _this18.confirmSelect(event);
+              _this17.confirmSelect(event);
             });
           }
           /**
@@ -5429,7 +5429,7 @@
         }, {
           key: "close",
           value: function close() {
-            var _this19 = this;
+            var _this18 = this;
 
             if (!this._opened) {
               return;
@@ -5464,12 +5464,12 @@
             }
 
             var completeClose = function completeClose() {
-              if (_this19._opened) {
-                _this19._opened = false;
+              if (_this18._opened) {
+                _this18._opened = false;
 
-                _this19.afterPickerClosed.emit(null);
+                _this18.afterPickerClosed.emit(null);
 
-                _this19.focusedElementBeforeOpen = null;
+                _this18.focusedElementBeforeOpen = null;
               }
             };
 
@@ -5512,7 +5512,7 @@
         }, {
           key: "openAsDialog",
           value: function openAsDialog() {
-            var _this20 = this;
+            var _this19 = this;
 
             this.dialogRef = this.dialogService.open(OwlDateTimeContainerComponent, {
               autoFocus: false,
@@ -5523,12 +5523,12 @@
             });
             this.pickerContainer = this.dialogRef.componentInstance;
             this.dialogRef.afterOpen().subscribe(function () {
-              _this20.afterPickerOpen.emit(null);
+              _this19.afterPickerOpen.emit(null);
 
-              _this20._opened = true;
+              _this19._opened = true;
             });
             this.dialogRef.afterClosed().subscribe(function () {
-              return _this20.close();
+              return _this19.close();
             });
           }
           /**
@@ -5539,7 +5539,7 @@
         }, {
           key: "openAsPopup",
           value: function openAsPopup() {
-            var _this21 = this;
+            var _this20 = this;
 
             if (!this.pickerContainerPortal) {
               this.pickerContainerPortal = new _angular_cdk_portal__WEBPACK_IMPORTED_MODULE_6__["ComponentPortal"](OwlDateTimeContainerComponent, this.viewContainerRef);
@@ -5554,20 +5554,20 @@
               this.pickerContainer = componentRef.instance; // Update the position once the calendar has rendered.
 
               this.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-                _this21.popupRef.updatePosition();
+                _this20.popupRef.updatePosition();
               }); // emit open stream
 
               this.pickerOpenedStreamSub = this.pickerContainer.pickerOpenedStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-                _this21.afterPickerOpen.emit(null);
+                _this20.afterPickerOpen.emit(null);
 
-                _this21._opened = true;
+                _this20._opened = true;
               });
             }
           }
         }, {
           key: "createPopup",
           value: function createPopup() {
-            var _this22 = this;
+            var _this21 = this;
 
             var overlayConfig = new _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_5__["OverlayConfig"]({
               positionStrategy: this.createPopupPositionStrategy(),
@@ -5578,9 +5578,9 @@
             });
             this.popupRef = this.overlay.create(overlayConfig);
             Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["merge"])(this.popupRef.backdropClick(), this.popupRef.detachments(), this.popupRef.keydownEvents().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["filter"])(function (event) {
-              return event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__["ESCAPE"] || _this22._dtInput && event.altKey && event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__["UP_ARROW"];
+              return event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__["ESCAPE"] || _this21._dtInput && event.altKey && event.keyCode === _angular_cdk_keycodes__WEBPACK_IMPORTED_MODULE_7__["UP_ARROW"];
             }))).subscribe(function () {
-              return _this22.close();
+              return _this21.close();
             });
           }
           /**
@@ -5981,7 +5981,7 @@
 
       var OwlDateTimeInputDirective = /*#__PURE__*/function () {
         function OwlDateTimeInputDirective(elmRef, renderer, dateTimeAdapter, dateTimeFormats) {
-          var _this23 = this;
+          var _this22 = this;
 
           _classCallCheck(this, OwlDateTimeInputDirective);
 
@@ -6027,9 +6027,9 @@
 
 
           this.parseValidator = function () {
-            return _this23.lastValueValid ? null : {
+            return _this22.lastValueValid ? null : {
               'owlDateTimeParse': {
-                'text': _this23.elmRef.nativeElement.value
+                'text': _this22.elmRef.nativeElement.value
               }
             };
           };
@@ -6037,23 +6037,23 @@
 
 
           this.minValidator = function (control) {
-            if (_this23.isInSingleMode) {
-              var controlValue = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value));
+            if (_this22.isInSingleMode) {
+              var controlValue = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value));
 
-              return !_this23.min || !controlValue || _this23.dateTimeAdapter.compare(_this23.min, controlValue) <= 0 ? null : {
+              return !_this22.min || !controlValue || _this22.dateTimeAdapter.compare(_this22.min, controlValue) <= 0 ? null : {
                 'owlDateTimeMin': {
-                  'min': _this23.min,
+                  'min': _this22.min,
                   'actual': controlValue
                 }
               };
-            } else if (_this23.isInRangeMode && control.value) {
-              var controlValueFrom = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value[0]));
+            } else if (_this22.isInRangeMode && control.value) {
+              var controlValueFrom = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value[0]));
 
-              var controlValueTo = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value[1]));
+              var controlValueTo = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value[1]));
 
-              return !_this23.min || !controlValueFrom || !controlValueTo || _this23.dateTimeAdapter.compare(_this23.min, controlValueFrom) <= 0 ? null : {
+              return !_this22.min || !controlValueFrom || !controlValueTo || _this22.dateTimeAdapter.compare(_this22.min, controlValueFrom) <= 0 ? null : {
                 'owlDateTimeMin': {
-                  'min': _this23.min,
+                  'min': _this22.min,
                   'actual': [controlValueFrom, controlValueTo]
                 }
               };
@@ -6063,23 +6063,23 @@
 
 
           this.maxValidator = function (control) {
-            if (_this23.isInSingleMode) {
-              var controlValue = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value));
+            if (_this22.isInSingleMode) {
+              var controlValue = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value));
 
-              return !_this23.max || !controlValue || _this23.dateTimeAdapter.compare(_this23.max, controlValue) >= 0 ? null : {
+              return !_this22.max || !controlValue || _this22.dateTimeAdapter.compare(_this22.max, controlValue) >= 0 ? null : {
                 'owlDateTimeMax': {
-                  'max': _this23.max,
+                  'max': _this22.max,
                   'actual': controlValue
                 }
               };
-            } else if (_this23.isInRangeMode && control.value) {
-              var controlValueFrom = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value[0]));
+            } else if (_this22.isInRangeMode && control.value) {
+              var controlValueFrom = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value[0]));
 
-              var controlValueTo = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value[1]));
+              var controlValueTo = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value[1]));
 
-              return !_this23.max || !controlValueFrom || !controlValueTo || _this23.dateTimeAdapter.compare(_this23.max, controlValueTo) >= 0 ? null : {
+              return !_this22.max || !controlValueFrom || !controlValueTo || _this22.dateTimeAdapter.compare(_this22.max, controlValueTo) >= 0 ? null : {
                 'owlDateTimeMax': {
-                  'max': _this23.max,
+                  'max': _this22.max,
                   'actual': [controlValueFrom, controlValueTo]
                 }
               };
@@ -6089,9 +6089,9 @@
 
 
           this.filterValidator = function (control) {
-            var controlValue = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value));
+            var controlValue = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value));
 
-            return !_this23._dateTimeFilter || !controlValue || _this23._dateTimeFilter(controlValue) ? null : {
+            return !_this22._dateTimeFilter || !controlValue || _this22._dateTimeFilter(controlValue) ? null : {
               'owlDateTimeFilter': true
             };
           };
@@ -6102,15 +6102,15 @@
 
 
           this.rangeValidator = function (control) {
-            if (_this23.isInSingleMode || !control.value) {
+            if (_this22.isInSingleMode || !control.value) {
               return null;
             }
 
-            var controlValueFrom = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value[0]));
+            var controlValueFrom = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value[0]));
 
-            var controlValueTo = _this23.getValidDate(_this23.dateTimeAdapter.deserialize(control.value[1]));
+            var controlValueTo = _this22.getValidDate(_this22.dateTimeAdapter.deserialize(control.value[1]));
 
-            return !controlValueFrom || !controlValueTo || _this23.dateTimeAdapter.compare(controlValueFrom, controlValueTo) <= 0 ? null : {
+            return !controlValueFrom || !controlValueTo || _this22.dateTimeAdapter.compare(controlValueFrom, controlValueTo) <= 0 ? null : {
               'owlDateTimeRange': true
             };
           };
@@ -6134,7 +6134,7 @@
           }
 
           this.localeSub = this.dateTimeAdapter.localeChanges.subscribe(function () {
-            _this23.value = _this23.value;
+            _this22.value = _this22.value;
           });
         }
         /**
@@ -6152,29 +6152,29 @@
         }, {
           key: "ngAfterContentInit",
           value: function ngAfterContentInit() {
-            var _this24 = this;
+            var _this23 = this;
 
             this.dtPickerSub = this.dtPicker.confirmSelectedChange.subscribe(function (selecteds) {
               if (Array.isArray(selecteds)) {
-                _this24.values = selecteds;
+                _this23.values = selecteds;
               } else {
-                _this24.value = selecteds;
+                _this23.value = selecteds;
               }
 
-              _this24.onModelChange(selecteds);
+              _this23.onModelChange(selecteds);
 
-              _this24.onModelTouched();
+              _this23.onModelTouched();
 
-              _this24.dateTimeChange.emit({
-                source: _this24,
+              _this23.dateTimeChange.emit({
+                source: _this23,
                 value: selecteds,
-                input: _this24.elmRef.nativeElement
+                input: _this23.elmRef.nativeElement
               });
 
-              _this24.dateTimeInput.emit({
-                source: _this24,
+              _this23.dateTimeInput.emit({
+                source: _this23,
                 value: selecteds,
-                input: _this24.elmRef.nativeElement
+                input: _this23.elmRef.nativeElement
               });
             });
           }
@@ -6559,12 +6559,12 @@
             return this._values;
           },
           set: function set(values) {
-            var _this25 = this;
+            var _this24 = this;
 
             if (values && values.length > 0) {
               this._values = values.map(function (v) {
-                v = _this25.dateTimeAdapter.deserialize(v);
-                return _this25.getValidDate(v);
+                v = _this24.dateTimeAdapter.deserialize(v);
+                return _this24.getValidDate(v);
               });
               this.lastValueValid = (!this._values[0] || this.dateTimeAdapter.isValid(this._values[0])) && (!this._values[1] || this.dateTimeAdapter.isValid(this._values[1]));
             } else {
@@ -6995,11 +6995,11 @@
         }, {
           key: "focusActiveCell",
           value: function focusActiveCell() {
-            var _this26 = this;
+            var _this25 = this;
 
             this.ngZone.runOutsideAngular(function () {
-              _this26.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
-                _this26.elmRef.nativeElement.querySelector('.owl-dt-calendar-cell-active').focus();
+              _this25.ngZone.onStable.asObservable().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["take"])(1)).subscribe(function () {
+                _this25.elmRef.nativeElement.querySelector('.owl-dt-calendar-cell-active').focus();
               });
             });
           }
@@ -7213,15 +7213,15 @@
         _createClass(OwlMonthViewComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this27 = this;
+            var _this26 = this;
 
             this.generateWeekDays();
             this.localeSub = this.dateTimeAdapter.localeChanges.subscribe(function () {
-              _this27.generateWeekDays();
+              _this26.generateWeekDays();
 
-              _this27.generateCalendar();
+              _this26.generateCalendar();
 
-              _this27.cdRef.markForCheck();
+              _this26.cdRef.markForCheck();
             });
           }
         }, {
@@ -7473,7 +7473,7 @@
         }, {
           key: "setSelectedDates",
           value: function setSelectedDates() {
-            var _this28 = this;
+            var _this27 = this;
 
             this.selectedDates = [];
 
@@ -7489,8 +7489,8 @@
 
             if (this.isInRangeMode && this.selecteds) {
               this.selectedDates = this.selecteds.map(function (selected) {
-                if (_this28.dateTimeAdapter.isValid(selected)) {
-                  var _dayDiff = _this28.dateTimeAdapter.differenceInCalendarDays(selected, _this28.firstDateOfMonth);
+                if (_this27.dateTimeAdapter.isValid(selected)) {
+                  var _dayDiff = _this27.dateTimeAdapter.differenceInCalendarDays(selected, _this27.firstDateOfMonth);
 
                   return _dayDiff + 1;
                 } else {
@@ -7555,11 +7555,11 @@
             return this._selecteds;
           },
           set: function set(values) {
-            var _this29 = this;
+            var _this28 = this;
 
             this._selecteds = values.map(function (v) {
-              v = _this29.dateTimeAdapter.deserialize(v);
-              return _this29.getValidDate(v);
+              v = _this28.dateTimeAdapter.deserialize(v);
+              return _this28.getValidDate(v);
             });
             this.setSelectedDates();
           }
@@ -7947,12 +7947,12 @@
         _createClass(OwlYearViewComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this30 = this;
+            var _this29 = this;
 
             this.localeSub = this.dateTimeAdapter.localeChanges.subscribe(function () {
-              _this30.generateMonthList();
+              _this29.generateMonthList();
 
-              _this30.cdRef.markForCheck();
+              _this29.cdRef.markForCheck();
             });
           }
         }, {
@@ -8760,7 +8760,7 @@
         }, {
           key: "setSelectedYears",
           value: function setSelectedYears() {
-            var _this31 = this;
+            var _this30 = this;
 
             this._selectedYears = [];
 
@@ -8770,8 +8770,8 @@
 
             if (this.isInRangeMode && this.selecteds) {
               this._selectedYears = this.selecteds.map(function (selected) {
-                if (_this31.dateTimeAdapter.isValid(selected)) {
-                  return _this31.dateTimeAdapter.getYear(selected);
+                if (_this30.dateTimeAdapter.isValid(selected)) {
+                  return _this30.dateTimeAdapter.getYear(selected);
                 } else {
                   return null;
                 }
@@ -8857,11 +8857,11 @@
             return this._selecteds;
           },
           set: function set(values) {
-            var _this32 = this;
+            var _this31 = this;
 
             this._selecteds = values.map(function (v) {
-              v = _this32.dateTimeAdapter.deserialize(v);
-              return _this32.getValidDate(v);
+              v = _this31.dateTimeAdapter.deserialize(v);
+              return _this31.getValidDate(v);
             });
             this.setSelectedYears();
           }
@@ -9276,13 +9276,13 @@
         _createClass(OwlTimerBoxComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this33 = this;
+            var _this32 = this;
 
             this.inputStreamSub = this.inputStream.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["debounceTime"])(500), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["distinctUntilChanged"])()).subscribe(function (val) {
               if (val) {
                 var inputValue = Object(_angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_8__["coerceNumberProperty"])(val, 0);
 
-                _this33.updateValueViaInput(inputValue);
+                _this32.updateValueViaInput(inputValue);
               }
             });
           }
@@ -9657,14 +9657,14 @@
         var _super4 = _createSuper(OwlDateTimeInlineComponent);
 
         function OwlDateTimeInlineComponent(changeDetector, dateTimeAdapter, dateTimeFormats) {
-          var _this34;
+          var _this33;
 
           _classCallCheck(this, OwlDateTimeInlineComponent);
 
-          _this34 = _super4.call(this, dateTimeAdapter, dateTimeFormats);
-          _this34.changeDetector = changeDetector;
-          _this34.dateTimeAdapter = dateTimeAdapter;
-          _this34.dateTimeFormats = dateTimeFormats;
+          _this33 = _super4.call(this, dateTimeAdapter, dateTimeFormats);
+          _this33.changeDetector = changeDetector;
+          _this33.dateTimeAdapter = dateTimeAdapter;
+          _this33.dateTimeFormats = dateTimeFormats;
           /**
            * Set the type of the dateTime picker
            *      'both' -- show both calendar and timer
@@ -9674,29 +9674,29 @@
            * @type {'both' | 'calendar' | 'timer'}
            * */
 
-          _this34._pickerType = 'both';
-          _this34._disabled = false;
-          _this34._selectMode = 'single';
-          _this34._values = [];
+          _this33._pickerType = 'both';
+          _this33._disabled = false;
+          _this33._selectMode = 'single';
+          _this33._values = [];
           /**
            * Emits selected year in multi-year view
            * This doesn't imply a change on the selected date.
            * */
 
-          _this34.yearSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this33.yearSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
           /**
            * Emits selected month in year view
            * This doesn't imply a change on the selected date.
            * */
 
-          _this34.monthSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-          _this34._selecteds = [];
+          _this33.monthSelected = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+          _this33._selecteds = [];
 
-          _this34.onModelChange = function () {};
+          _this33.onModelChange = function () {};
 
-          _this34.onModelTouched = function () {};
+          _this33.onModelTouched = function () {};
 
-          return _this34;
+          return _this33;
         }
 
         _createClass(OwlDateTimeInlineComponent, [{
@@ -9857,13 +9857,13 @@
             return this._values;
           },
           set: function set(values) {
-            var _this35 = this;
+            var _this34 = this;
 
             if (values && values.length > 0) {
               values = values.map(function (v) {
-                v = _this35.dateTimeAdapter.deserialize(v);
-                v = _this35.getValidDate(v);
-                return v ? _this35.dateTimeAdapter.clone(v) : null;
+                v = _this34.dateTimeAdapter.deserialize(v);
+                v = _this34.getValidDate(v);
+                return v ? _this34.dateTimeAdapter.clone(v) : null;
               });
               this._values = _toConsumableArray(values);
               this.selecteds = _toConsumableArray(values);
@@ -10268,19 +10268,19 @@
         var _super5 = _createSuper(NativeDateTimeAdapter);
 
         function NativeDateTimeAdapter(owlDateTimeLocale, platform) {
-          var _thisSuper, _this36;
+          var _thisSuper, _this35;
 
           _classCallCheck(this, NativeDateTimeAdapter);
 
-          _this36 = _super5.call(this);
-          _this36.owlDateTimeLocale = owlDateTimeLocale;
+          _this35 = _super5.call(this);
+          _this35.owlDateTimeLocale = owlDateTimeLocale;
 
-          _get((_thisSuper = _assertThisInitialized(_this36), _getPrototypeOf(NativeDateTimeAdapter.prototype)), "setLocale", _thisSuper).call(_thisSuper, owlDateTimeLocale); // IE does its own time zone correction, so we disable this on IE.
+          _get((_thisSuper = _assertThisInitialized(_this35), _getPrototypeOf(NativeDateTimeAdapter.prototype)), "setLocale", _thisSuper).call(_thisSuper, owlDateTimeLocale); // IE does its own time zone correction, so we disable this on IE.
 
 
-          _this36.useUtcForDisplay = !platform.TRIDENT;
-          _this36._clampDate = platform.TRIDENT || platform.EDGE;
-          return _this36;
+          _this35.useUtcForDisplay = !platform.TRIDENT;
+          _this35._clampDate = platform.TRIDENT || platform.EDGE;
+          return _this35;
         }
 
         _createClass(NativeDateTimeAdapter, [{
@@ -10358,7 +10358,7 @@
         }, {
           key: "getMonthNames",
           value: function getMonthNames(style) {
-            var _this37 = this;
+            var _this36 = this;
 
             if (SUPPORTS_INTL_API) {
               var dtf = new Intl.DateTimeFormat(this.locale, {
@@ -10366,7 +10366,7 @@
                 timeZone: 'utc'
               });
               return range$1(12, function (i) {
-                return _this37.stripDirectionalityCharacters(_this37._format(dtf, new Date(2017, i, 1)));
+                return _this36.stripDirectionalityCharacters(_this36._format(dtf, new Date(2017, i, 1)));
               });
             }
 
@@ -10375,7 +10375,7 @@
         }, {
           key: "getDayOfWeekNames",
           value: function getDayOfWeekNames(style) {
-            var _this38 = this;
+            var _this37 = this;
 
             if (SUPPORTS_INTL_API) {
               var dtf = new Intl.DateTimeFormat(this.locale, {
@@ -10383,7 +10383,7 @@
                 timeZone: 'utc'
               });
               return range$1(7, function (i) {
-                return _this38.stripDirectionalityCharacters(_this38._format(dtf, new Date(2017, 0, i + 1)));
+                return _this37.stripDirectionalityCharacters(_this37._format(dtf, new Date(2017, 0, i + 1)));
               });
             }
 
@@ -10392,7 +10392,7 @@
         }, {
           key: "getDateNames",
           value: function getDateNames() {
-            var _this39 = this;
+            var _this38 = this;
 
             if (SUPPORTS_INTL_API) {
               var dtf = new Intl.DateTimeFormat(this.locale, {
@@ -10400,7 +10400,7 @@
                 timeZone: 'utc'
               });
               return range$1(31, function (i) {
-                return _this39.stripDirectionalityCharacters(_this39._format(dtf, new Date(2017, 0, i + 1)));
+                return _this38.stripDirectionalityCharacters(_this38._format(dtf, new Date(2017, 0, i + 1)));
               });
             }
 
@@ -10852,520 +10852,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone.picker:fieldModel\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"selectedDate | userDateTimeFormat:timeZone.picker:fieldModel\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"selectedDate | userDateTimeFormat:timeZone.picker:fieldModel\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>";
-      /***/
-    },
-
-    /***/
-    "./src/app/core/owl/custom-date-time-adapter.ts":
-    /*!******************************************************!*\
-      !*** ./src/app/core/owl/custom-date-time-adapter.ts ***!
-      \******************************************************/
-
-    /*! exports provided: CustomDateTimeAdapter */
-
-    /***/
-    function srcAppCoreOwlCustomDateTimeAdapterTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "CustomDateTimeAdapter", function () {
-        return CustomDateTimeAdapter;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-      /* harmony import */
-
-
-      var _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @busacca/ng-pick-datetime */
-      "./node_modules/@busacca/ng-pick-datetime/__ivy_ngcc__/fesm2015/busacca-ng-pick-datetime.js");
-      /* harmony import */
-
-
-      var src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! src/app/shared/services/shared.service */
-      "./src/app/shared/services/shared.service.ts");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! moment */
-      "./node_modules/moment/moment.js");
-      /* harmony import */
-
-
-      var moment__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_4__);
-      /*import { Injectable } from '@angular/core';
-      import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-      import { UserDateFormatPipe } from 'src/app/shared/pipe/shared.pipe';
-      import { DateTimeAdapter, MomentDateTimeAdapter } from '@busacca/ng-pick-datetime';
-      
-      @Injectable({
-          providedIn: 'root'
-      })
-      
-      
-      export class CustomDateTimeAdapter extends DateTimeAdapter<any> {
-        format(date: Date): string {
-          const pipe = new UserDateFormatPipe();
-          console.log(date);
-          return pipe.transform(date);
-        }
-      }*/
-
-
-      var CustomDateTimeAdapter = /*#__PURE__*/function (_busacca_ng_pick_date) {
-        _inherits(CustomDateTimeAdapter, _busacca_ng_pick_date);
-
-        var _super6 = _createSuper(CustomDateTimeAdapter);
-
-        function CustomDateTimeAdapter(sharedService) {
-          var _this40;
-
-          _classCallCheck(this, CustomDateTimeAdapter);
-
-          _this40 = _super6.call(this);
-          _this40.sharedService = sharedService;
-          /** The default date names to use if Intl API is not available. */
-
-          _this40.DEFAULT_DATE_NAMES = _this40.range(31, function (i) {
-            return String(i + 1);
-          });
-          _this40.DEFAULT_MONTH_NAMES = {
-            'long': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            'short': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            'narrow': ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D']
-          };
-          _this40.DEFAULT_DAY_OF_WEEK_NAMES = {
-            'long': ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            'short': ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-            'narrow': ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-          };
-          _this40.ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|(?:(?:\+|-)\d{2}:\d{2}))?)?$/;
-          _this40.SUPPORTS_INTL_API = typeof Intl !== 'undefined';
-          _this40.useUtcForDisplay = !(typeof document === 'object' && !!document && /(msie|trident)/i.test(navigator.userAgent));
-          return _this40;
-        }
-        /*__assign = (this && this.__assign) || Object.assign || function (t) {
-            for (let s, i = 1, n = arguments.length; i < n; i++) {
-                s = arguments[i];
-                for (const p in s) {
-                    if (Object.prototype.hasOwnProperty.call(s, p)) {
-                        t[p] = s[p];
-                    }
-                }
-            }
-            return t;
-        };*/
-
-
-        _createClass(CustomDateTimeAdapter, [{
-          key: "getYear",
-          value: function getYear(date) {
-            return date.getFullYear();
-          }
-        }, {
-          key: "getMonth",
-          value: function getMonth(date) {
-            return date.getMonth();
-          }
-        }, {
-          key: "getDay",
-          value: function getDay(date) {
-            return date.getDay();
-          }
-        }, {
-          key: "getDate",
-          value: function getDate(date) {
-            return date.getDate();
-          }
-        }, {
-          key: "getHours",
-          value: function getHours(date) {
-            return date.getHours();
-          }
-        }, {
-          key: "getMinutes",
-          value: function getMinutes(date) {
-            return date.getMinutes();
-          }
-        }, {
-          key: "getSeconds",
-          value: function getSeconds(date) {
-            return date.getSeconds();
-          }
-        }, {
-          key: "getTime",
-          value: function getTime(date) {
-            return date.getTime();
-          }
-        }, {
-          key: "getNumDaysInMonth",
-          value: function getNumDaysInMonth(date) {
-            var lastDateOfMonth = this.createDateWithOverflow(this.getYear(date), this.getMonth(date) + 1, 0);
-            return this.getDate(lastDateOfMonth);
-          }
-        }, {
-          key: "getDateNames",
-          value: function getDateNames() {
-            var _this41 = this;
-
-            if (this.SUPPORTS_INTL_API) {
-              var dtf = new Intl.DateTimeFormat(this.locale, {
-                day: 'numeric',
-                timeZone: 'utc'
-              });
-              return this.range(31, function (i) {
-                return _this41._stripDirectionalityCharacters(_this41._format(dtf, new Date(2017, 0, i + 1)));
-              });
-            }
-
-            return this.DEFAULT_DATE_NAMES;
-          }
-        }, {
-          key: "createDateWithOverflow",
-          value: function createDateWithOverflow(year, month, date, hours, minutes, seconds) {
-            if (hours === void 0) {
-              hours = 0;
-            }
-
-            if (minutes === void 0) {
-              minutes = 0;
-            }
-
-            if (seconds === void 0) {
-              seconds = 0;
-            }
-
-            var result = new Date(year, month, date, hours, minutes, seconds);
-
-            if (year >= 0 && year < 100) {
-              result.setFullYear(this.getYear(result) - 1900);
-            }
-
-            return result;
-          }
-        }, {
-          key: "differenceInCalendarDays",
-          value: function differenceInCalendarDays(dateLeft, dateRight) {
-            if (this.isValid(dateLeft) && this.isValid(dateRight)) {
-              var dateLeftStartOfDay = this.createDate(this.getYear(dateLeft), this.getMonth(dateLeft), this.getDate(dateLeft));
-              var dateRightStartOfDay = this.createDate(this.getYear(dateRight), this.getMonth(dateRight), this.getDate(dateRight));
-              var timeStampLeft = this.getTime(dateLeftStartOfDay) - dateLeftStartOfDay.getTimezoneOffset() * this.milliseondsInMinute;
-              var timeStampRight = this.getTime(dateRightStartOfDay) - dateRightStartOfDay.getTimezoneOffset() * this.milliseondsInMinute;
-              return Math.round((timeStampLeft - timeStampRight) / this.millisecondsInDay);
-            } else {
-              return null;
-            }
-          }
-        }, {
-          key: "getYearName",
-          value: function getYearName(date) {
-            if (this.SUPPORTS_INTL_API) {
-              var dtf = new Intl.DateTimeFormat(this.locale, {
-                year: 'numeric'
-              });
-              return this.stripDirectionalityCharacters(dtf.format(date));
-            }
-
-            return String(this.getYear(date));
-          }
-        }, {
-          key: "stripDirectionalityCharacters",
-          value: function stripDirectionalityCharacters(str) {
-            return str.replace(/[\u200e\u200f]/g, '');
-          }
-        }, {
-          key: "getMonthNames",
-          value: function getMonthNames(style) {
-            var _this = this;
-
-            if (this.SUPPORTS_INTL_API) {
-              var dtf_1 = new Intl.DateTimeFormat(this.locale, {
-                month: style
-              });
-              return this.range(12, function (i) {
-                return _this.stripDirectionalityCharacters(dtf_1.format(new Date(2017, i, 1)));
-              });
-            }
-
-            return this.DEFAULT_MONTH_NAMES[style];
-          }
-        }, {
-          key: "range",
-          value: function range(longitud, valueFunction) {
-            var valuesArray = Array(longitud);
-
-            for (var i = 0; i < longitud; i++) {
-              valuesArray[i] = valueFunction(i);
-            }
-
-            return valuesArray;
-          }
-        }, {
-          key: "getDayOfWeekNames",
-          value: function getDayOfWeekNames(style) {
-            var _this = this;
-
-            if (this.SUPPORTS_INTL_API) {
-              var dtf_2 = new Intl.DateTimeFormat(this.locale, {
-                weekday: style
-              });
-              return this.range(7, function (i) {
-                return _this.stripDirectionalityCharacters(dtf_2.format(new Date(2017, 0, i + 1)));
-              });
-            }
-
-            return this.DEFAULT_DAY_OF_WEEK_NAMES[style];
-          }
-        }, {
-          key: "toIso8601",
-          value: function toIso8601(date) {
-            return date.toISOString();
-          }
-        }, {
-          key: "isEqual",
-          value: function isEqual(dateLeft, dateRight) {
-            if (this.isValid(dateLeft) && this.isValid(dateRight)) {
-              return dateLeft.getTime() === dateRight.getTime();
-            } else {
-              return false;
-            }
-          }
-        }, {
-          key: "isSameDay",
-          value: function isSameDay(dateLeft, dateRight) {
-            if (this.isValid(dateLeft) && this.isValid(dateRight)) {
-              var dateLeftStartOfDay = this.clone(dateLeft);
-              var dateRightStartOfDay = this.clone(dateRight);
-              dateLeftStartOfDay.setHours(0, 0, 0, 0);
-              dateRightStartOfDay.setHours(0, 0, 0, 0);
-              return dateLeftStartOfDay.getTime() === dateRightStartOfDay.getTime();
-            } else {
-              return false;
-            }
-          }
-        }, {
-          key: "isValid",
-          value: function isValid(date) {
-            return date && !isNaN(date.getTime());
-          }
-        }, {
-          key: "invalid",
-          value: function invalid() {
-            return new Date(NaN);
-          }
-        }, {
-          key: "isDateInstance",
-          value: function isDateInstance(obj) {
-            return obj instanceof Date;
-          }
-        }, {
-          key: "addCalendarYears",
-          value: function addCalendarYears(date, amount) {
-            return this.addCalendarMonths(date, amount * 12);
-          }
-        }, {
-          key: "addCalendarMonths",
-          value: function addCalendarMonths(date, amount) {
-            var result = this.clone(date);
-            amount = Number(amount);
-            var desiredMonth = result.getMonth() + amount;
-            var dateWithDesiredMonth = new Date(0);
-            dateWithDesiredMonth.setFullYear(result.getFullYear(), desiredMonth, 1);
-            dateWithDesiredMonth.setHours(0, 0, 0, 0);
-            var daysInMonth = this.getNumDaysInMonth(dateWithDesiredMonth);
-            result.setMonth(desiredMonth, Math.min(daysInMonth, result.getDate()));
-            return result;
-          }
-        }, {
-          key: "addCalendarDays",
-          value: function addCalendarDays(date, amount) {
-            var result = this.clone(date);
-            amount = Number(amount);
-            result.setDate(result.getDate() + amount);
-            return result;
-          }
-        }, {
-          key: "setHours",
-          value: function setHours(date, amount) {
-            var result = this.clone(date);
-            result.setHours(amount);
-            return result;
-          }
-        }, {
-          key: "setMinutes",
-          value: function setMinutes(date, amount) {
-            var result = this.clone(date);
-            result.setMinutes(amount);
-            return result;
-          }
-        }, {
-          key: "setSeconds",
-          value: function setSeconds(date, amount) {
-            var result = this.clone(date);
-            result.setSeconds(amount);
-            return result;
-          }
-        }, {
-          key: "createDate",
-          value: function createDate(year, month, date, hours, minutes, seconds) {
-            if (hours === void 0) {
-              hours = 0;
-            }
-
-            if (minutes === void 0) {
-              minutes = 0;
-            }
-
-            if (seconds === void 0) {
-              seconds = 0;
-            }
-
-            if (month < 0 || month > 11) {
-              throw Error('Invalid month index \"' + month + '\". Month index has to be between 0 and 11.');
-            }
-
-            if (date < 1) {
-              throw Error('Invalid date \"' + date + '\". Date has to be greater than 0.');
-            }
-
-            if (hours < 0 || hours > 23) {
-              throw Error('Invalid hours \"' + hours + '\". Hours has to be between 0 and 23.');
-            }
-
-            if (minutes < 0 || minutes > 59) {
-              throw Error('Invalid minutes \"' + minutes + '\". Minutes has to between 0 and 59.');
-            }
-
-            if (seconds < 0 || seconds > 59) {
-              throw Error('Invalid seconds \"' + seconds + '\". Seconds has to be between 0 and 59.');
-            }
-
-            var result = this.createDateWithOverflow(year, month, date, hours, minutes, seconds);
-
-            if (result.getMonth() !== month) {
-              throw Error('Invalid date \"' + date + '\" for month with index \"' + month + '\".');
-            }
-
-            return result;
-          }
-        }, {
-          key: "clone",
-          value: function clone(date) {
-            return new Date(date.getTime());
-          }
-        }, {
-          key: "now",
-          value: function now() {
-            return new Date();
-          }
-        }, {
-          key: "format",
-          value: function format(date, displayFormat) {
-            var data = this.sharedService.getTimeZone();
-            var picker = data.picker;
-
-            if (!this.isValid(date)) {
-              throw Error('JSNativeDate: Cannot format invalid date.');
-            } //if only date object
-
-
-            if (date.getHours() == 0) return moment__WEBPACK_IMPORTED_MODULE_4__(date).format(picker.date);else return moment__WEBPACK_IMPORTED_MODULE_4__(date).format(picker.time);
-            /*if (this.locale == 'en-US') {
-                const dateEnglishWithoutTime = ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + '-' +
-                  date.getFullYear();
-                return dateEnglishWithoutTime;
-            }
-            const dateWithoutTime = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' +
-              date.getFullYear();
-            return dateWithoutTime; */
-          }
-        }, {
-          key: "parse",
-          value: function parse(value, parseFormat) {
-            if (typeof value === 'number') {
-              return new Date(value);
-            }
-
-            return value ? new Date(Date.parse(value)) : null;
-          }
-        }, {
-          key: "deserialize",
-          value: function deserialize(value) {
-            if (typeof value === 'string') {
-              if (!value) {
-                return null;
-              }
-
-              if (this.ISO_8601_REGEX.test(value)) {
-                var date = new Date(value);
-
-                if (this.isValid(date)) {
-                  return date;
-                }
-              }
-            }
-
-            return _get(_getPrototypeOf(CustomDateTimeAdapter.prototype), "deserialize", this).call(this, value);
-          }
-          /**
-           * Strip out unicode LTR and RTL characters. Edge and IE insert these into formatted dates while
-           * other browsers do not. We remove them to make output consistent and because they interfere with
-           * date parsing.
-           * @param str The string to strip direction characters from.
-           * @returns The stripped string.
-           */
-
-        }, {
-          key: "_stripDirectionalityCharacters",
-          value: function _stripDirectionalityCharacters(str) {
-            return str.replace(/[\u200e\u200f]/g, '');
-          }
-          /**
-           * When converting Date object to string, javascript built-in functions may return wrong
-           * results because it applies its internal DST rules. The DST rules around the world change
-           * very frequently, and the current valid rule is not always valid in previous years though.
-           * We work around this problem building a new Date object which has its internal UTC
-           * representation with the local date and time.
-           * @param dtf Intl.DateTimeFormat object, containg the desired string format. It must have
-           *    timeZone set to 'utc' to work fine.
-           * @param date Date from which we want to get the string representation according to dtf
-           * @returns A Date object with its UTC representation based on the passed in date info
-           */
-
-        }, {
-          key: "_format",
-          value: function _format(dtf, date) {
-            var d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds()));
-            return dtf.format(d);
-          }
-        }]);
-
-        return CustomDateTimeAdapter;
-      }(_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_2__["DateTimeAdapter"]);
-
-      CustomDateTimeAdapter.ctorParameters = function () {
-        return [{
-          type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]
-        }];
-      };
-
-      CustomDateTimeAdapter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_3__["SharedService"]])], CustomDateTimeAdapter);
+      __webpack_exports__["default"] = "<div class=\"input-box\">\n\n    <ng-container *ngIf=\"type == 'date'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date\"\n        [value]=\"fieldModel | userDateFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'calendar'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'dateTime'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\" type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userDateTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index></owl-date-time>\n        <div class=\"date-btn\"  [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:calendar\"></mat-icon>\n        </div>\n    </ng-container>\n\n    <ng-container *ngIf=\"type == 'time'\">\n        <label [ngClass]=\"labelText == '' ? 'd-none' : ''\" for=\"{{fieldName}}\">{{labelText}}<span *ngIf=\"isFieldRequired()\" class=\"ml-2 text-warn font-medium\">*</span></label>\n        <input class=\"form-control h-0\" name=\"{{fieldName}}\" [owlDateTime]=\"index\"\n        placeholder=\"Date Time\" [(ngModel)]=\"selectedDate\" [min]=\"min\" [max]=\"max\" [disabled]=\"isDisabled\" (ngModelChange)=\"onPickerChange()\" [required]=\"isFieldRequired() ? 'required' : null\">\n        <input class=\"form-control\" [ngClass]=\"fieldClass\"  type=\"text\" name=\"{{fieldName}}\" [owlDateTimeTrigger]=\"index\" placeholder=\"Date Time\"\n        [value]=\"fieldModel | userTimeFormat:timeZone\" [readonly]=\"fieldReadonly\" autocomplete=\"off\"/>\n        <owl-date-time #index [pickerType]=\"'timer'\"></owl-date-time>\n        <div class=\"date-btn\" [ngClass]=\"fieldClass\" [owlDateTimeTrigger]=\"index\">\n            <mat-icon svgIcon=\"feather:clock\"></mat-icon>\n        </div>\n    </ng-container>\n\n</div>";
       /***/
     },
 
@@ -11456,12 +10943,11 @@
       "./src/app/shared/services/shared.service.ts");
 
       var DatepickerComponent = /*#__PURE__*/function () {
-        function DatepickerComponent(dateTimeAdapter, sharedService, _changeDetectorRef) {
+        function DatepickerComponent(dateTimeAdapter, sharedService) {
           _classCallCheck(this, DatepickerComponent);
 
           this.dateTimeAdapter = dateTimeAdapter;
           this.sharedService = sharedService;
-          this._changeDetectorRef = _changeDetectorRef;
           this.labelText = '';
           this.fieldClass = '';
           this.fieldReadonly = false;
@@ -11478,9 +10964,10 @@
         }, {
           key: "onPickerChange",
           value: function onPickerChange() {
-            var picker = this.timeZone.picker;
-            var utcDate = moment__WEBPACK_IMPORTED_MODULE_3__(this.selectedDate).subtract(picker.offset, 'hours').format().split('+');
-            this.fieldParams.emit(utcDate[0]);
+            //let picker = this.timeZone.picker;
+            //let utcDate:any = moment(this.selectedDate).subtract(picker.offset, 'hours').format().split('+');
+            //this.fieldParams.emit(utcDate[0])
+            this.fieldParams.emit(moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.selectedDate));
           }
         }, {
           key: "camelCase",
@@ -11497,13 +10984,21 @@
         }, {
           key: "ngOnChanges",
           value: function ngOnChanges() {
-            var _this42 = this;
+            var _this39 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this42.timeZone = timeZone;
+              return _this39.timeZone = timeZone;
             });
-            var picker = this.timeZone.picker;
-            this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).add(picker.offset, 'hours').toISOString().replace('Z', '');
+            this.dateTimeAdapter.setLocale(this.timeZone.language);
+
+            if (this.fieldModel == undefined) {
+              this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__().tz(this.timeZone.region);
+            } else {
+              this.selectedDate = moment__WEBPACK_IMPORTED_MODULE_3__["utc"](this.fieldModel).tz(this.timeZone.region);
+            } //console.log(this.fieldModel)
+            //console.log(this.selectedDate)
+            //this.selectedDate = moment.utc(this.fieldModel).add(picker.offset, 'hours').toISOString().replace('Z', '')
+
           }
         }]);
 
@@ -11515,8 +11010,6 @@
           type: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"]
         }, {
           type: src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]
-        }, {
-          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]
         }];
       };
 
@@ -11573,7 +11066,7 @@
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! ./datepicker.component.scss */
         "./src/app/modules/ui/datepicker/datepicker.component.scss"))["default"]]
-      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])], DatepickerComponent);
+      }), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_4__["DateTimeAdapter"], src_app_shared_services_shared_service__WEBPACK_IMPORTED_MODULE_6__["SharedService"]])], DatepickerComponent);
       /***/
     },
 
@@ -11644,12 +11137,6 @@
       var src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! src/app/shared/pipe/shared.pipe */
       "./src/app/shared/pipe/shared.pipe.ts");
-      /* harmony import */
-
-
-      var src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-      /*! src/app/core/owl/custom-date-time-adapter */
-      "./src/app/core/owl/custom-date-time-adapter.ts");
 
       var DatepickerModule_1;
 
@@ -11672,15 +11159,14 @@
       }();
 
       DatepickerModule = DatepickerModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"]],
+        declarations: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserTimeFormatPipe"]],
         imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], src_app_material__WEBPACK_IMPORTED_MODULE_4__["MaterialModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
-        exports: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
+        exports: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateTimeFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserDateFormatPipe"], src_app_shared_pipe_shared_pipe__WEBPACK_IMPORTED_MODULE_7__["UserTimeFormatPipe"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlDateTimeModule"], _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["OwlMomentDateTimeModule"]],
         providers: [//{ provide: OWL_MOMENT_DATE_TIME_ADAPTER_OPTIONS, useValue: { useUtc: true } },
-        //{ provide: DateTimeAdapter, useClass: MomentDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE] },
-        {
-          provide: _busacca_ng_pick_datetime__WEBPACK_IMPORTED_MODULE_6__["DateTimeAdapter"],
-          useClass: src_app_core_owl_custom_date_time_adapter__WEBPACK_IMPORTED_MODULE_8__["CustomDateTimeAdapter"]
-        }],
+          //{ provide: DateTimeAdapter, useClass: MomentDateTimeAdapter, deps: [OWL_DATE_TIME_LOCALE] },
+          //{ provide: DateTimeAdapter, useClass: CustomDateTimeAdapter },
+          //{ provide: OWL_DATE_TIME_LOCALE, useValue: 'fr'}
+        ],
         bootstrap: [_datepicker_component__WEBPACK_IMPORTED_MODULE_5__["DatepickerComponent"]]
       })], DatepickerModule);
       /***/

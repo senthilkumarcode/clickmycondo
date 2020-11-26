@@ -1902,7 +1902,7 @@
               datafield: 'documentDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1916,7 +1916,7 @@
               datafield: 'entryDateTime',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1924,7 +1924,7 @@
               datafield: 'postingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -1932,7 +1932,7 @@
               datafield: 'clearingDate',
               width: 180,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__(value).add(_this13.timeZone.offset, 'hours').format(_this13.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(_this13.timeZone.region).format(_this13.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {

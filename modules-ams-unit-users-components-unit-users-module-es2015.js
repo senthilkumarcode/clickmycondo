@@ -752,7 +752,7 @@ let SignuprequestComponent = class SignuprequestComponent {
                 datafield: 'insertedOn',
                 width: 200,
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.date) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_10__["utc"](value).tz(this.timeZone.region).format(this.timeZone.date) + '</div>';
                 },
                 renderer: columnrenderer
             },

@@ -1714,7 +1714,7 @@
         }, {
           key: "getDate",
           value: function getDate(value) {
-            return moment__WEBPACK_IMPORTED_MODULE_9__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time);
+            return moment__WEBPACK_IMPORTED_MODULE_9__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time);
           }
         }, {
           key: "ngOnInit",

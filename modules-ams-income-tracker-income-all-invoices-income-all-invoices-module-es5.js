@@ -590,7 +590,7 @@
               datafield: 'insertedOn',
               minwidth: 120,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(_this5.timeZone.region).format(_this5.timeZone.time) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -633,7 +633,7 @@
               minwidth: 120,
               renderer: columnrenderer,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__(value).add(_this5.timeZone.offset, 'hours').format(_this5.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_14__["utc"](value).tz(_this5.timeZone.region).format(_this5.timeZone.time) + '</div>';
               }
             }, {
               text: 'Actions',
@@ -715,11 +715,6 @@
                 };
                 _this6.isInvoiceDataLoaded = true;
               }
-              /*this.getSourceDataAdapter = (datafield: string): any => {
-                let dataAdapter = new jqx.dataAdapter(this.gridSourceData, { uniqueDataFields: [datafield] });
-                return dataAdapter;
-              }*/
-
             });
           }
         }]);

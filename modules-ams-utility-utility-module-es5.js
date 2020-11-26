@@ -2165,7 +2165,7 @@
               datafield: 'periodFrom',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__["utc"](value).tz(_this18.timeZone.region).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2173,7 +2173,7 @@
               datafield: 'periodTo',
               width: 200,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__["utc"](value).tz(_this18.timeZone.region).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }, {
@@ -2274,7 +2274,7 @@
               datafield: 'dateEntered',
               width: 250,
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__(value).add(_this18.timeZone.offset, 'hours').format(_this18.timeZone.date) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_7__["utc"](value).tz(_this18.timeZone.region).format(_this18.timeZone.date) + '</div>';
               },
               renderer: columnrenderer
             }];

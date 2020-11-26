@@ -5186,9 +5186,6 @@ let ExpVisitorCreateChekinComponent = class ExpVisitorCreateChekinComponent {
             let inDate = moment__WEBPACK_IMPORTED_MODULE_12__(this.visitor.expectedVisitorInTime);
             let outDate = moment__WEBPACK_IMPORTED_MODULE_12__(this.visitor.expectedVisitorOutTime);
             let diffDuration = moment__WEBPACK_IMPORTED_MODULE_12__["duration"](outDate.diff(inDate));
-            console.log(this.visitor.expectedVisitorInTime);
-            console.log(this.visitor.expectedVisitorOutTime);
-            console.log(diffDuration);
             this.expectedDurationInfo = diffDuration.days() + " days " + this.isSingleDigit(diffDuration.hours()) + ":" + this.isSingleDigit(diffDuration.minutes()) + " hours";
             let hours = diffDuration.asHours();
             this.visitor.expectedDuration = Math.round(hours);

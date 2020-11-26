@@ -925,7 +925,7 @@ let HelpdeskTicketFilterComponent = class HelpdeskTicketFilterComponent {
                 text: 'Date Requested',
                 datafield: 'insertedOn',
                 cellsrenderer: (row, column, value) => {
-                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__(value).add(this.timeZone.offset, 'hours').format(this.timeZone.time) + '</div>';
+                    return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(this.timeZone.region).format(this.timeZone.time) + '</div>';
                 },
                 minwidth: 170,
                 renderer: columnrenderer
