@@ -2864,6 +2864,17 @@ let LoginComponent = class LoginComponent {
                     type: 'error'
                 };
             }
+        }, error => {
+            // Re-enable the form 
+            this.loginForm.enable();
+            // Show the error message
+            this.message = {
+                appearance: 'outline',
+                content: 'Network Error',
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
         });
     }
     ngOnInit() {

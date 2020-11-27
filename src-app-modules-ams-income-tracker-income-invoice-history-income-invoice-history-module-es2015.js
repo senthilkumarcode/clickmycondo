@@ -118,7 +118,6 @@ let IncomeHistoryReverseComponent = class IncomeHistoryReverseComponent {
         this.accountsService.addCustTransReversal(params).subscribe((res) => {
             this.isDataLoaded = true;
             if (res.code == 200) {
-                this.goBack();
                 this.isReceiptSubmitted = true;
                 this.sharedService.openSnackBar('Invoice reversed successfully', 'success');
             }
@@ -127,12 +126,12 @@ let IncomeHistoryReverseComponent = class IncomeHistoryReverseComponent {
                 this.isReceiptSubmitted = false;
                 this.sharedService.openSnackBar(message, 'error');
             }
+            this.goBack();
         }, error => {
             this.isDataLoaded = true;
             this.isReceiptSubmitted = true;
             this.sharedService.openSnackBar('Some error occured', 'error');
         }, () => {
-            this.childEvent.emit(true);
         });
     }
     ngOnInit() {

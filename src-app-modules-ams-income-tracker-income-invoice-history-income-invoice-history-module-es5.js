@@ -203,8 +203,6 @@
               _this.isDataLoaded = true;
 
               if (res.code == 200) {
-                _this.goBack();
-
                 _this.isReceiptSubmitted = true;
 
                 _this.sharedService.openSnackBar('Invoice reversed successfully', 'success');
@@ -214,14 +212,14 @@
 
                 _this.sharedService.openSnackBar(message, 'error');
               }
+
+              _this.goBack();
             }, function (error) {
               _this.isDataLoaded = true;
               _this.isReceiptSubmitted = true;
 
               _this.sharedService.openSnackBar('Some error occured', 'error');
-            }, function () {
-              _this.childEvent.emit(true);
-            });
+            }, function () {});
           }
         }, {
           key: "ngOnInit",

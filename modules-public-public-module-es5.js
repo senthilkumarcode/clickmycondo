@@ -4408,6 +4408,18 @@
                   type: 'error'
                 };
               }
+            }, function (error) {
+              // Re-enable the form 
+              _this10.loginForm.enable(); // Show the error message
+
+
+              _this10.message = {
+                appearance: 'outline',
+                content: 'Network Error',
+                shake: true,
+                showIcon: true,
+                type: 'error'
+              };
             });
           }
         }, {
