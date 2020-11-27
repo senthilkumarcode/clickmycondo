@@ -836,7 +836,7 @@
 
                     _this9.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                       if (res.code == 200) {
-                        _this9.commondatagrid.deleterow(item.index);
+                        _this9.getCommonCategoryList();
 
                         _this9.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
                       } else {
@@ -1532,9 +1532,9 @@
 
                     _this13.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe(function (res) {
                       if (res.code == 200) {
-                        _this13.privatedatagrid.deleterow(item.index);
+                        _this13.getPrivateCategoryList();
 
-                        _this13.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                        _this13.sharedService.openSnackBar('Private Category Deleted Successfully', 'success');
                       } else {
                         _this13.sharedService.openSnackBar(res.statusMessage, 'error');
                       }

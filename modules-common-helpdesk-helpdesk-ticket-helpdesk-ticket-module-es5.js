@@ -28,7 +28,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"help-desk-create-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span *ngIf=\"viewMode != 'edit'\">Create Ticket</span>\n            <span *ngIf=\"viewMode == 'edit'\">Edit Ticket</span>\n        </h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n        {{message.content}}\n        </condo-message>\n        <app-loader *ngIf=\"!isTrackerSubmitted\"></app-loader>\n        \n        <form #createHelpDeskForm=\"ngForm\" name=\"createHelpDeskForm\">\n            <!-- radio button in create Mode-->\n            <div class=\"bg-card shadow mb-3\" *ngIf=\"isTrackerSubmitted && isAdmin() && viewMode != 'edit'\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12 text-center\">\n                        <div class=\"input-box radio-box mb-0\">\n                            <h5 class=\"mt-3 mb-3\">Create Ticket For</h5>\n                            <div class=\"form-group\">\n                                <input  name=\"self\" id=\"Self\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"self\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Self\">Self</label>\n                                </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"User\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"owner\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"User\">Owner</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"tenant\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"tenant\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"staff\" id=\"Staff\" [(ngModel)]=\"createdBY\"  (change)=\"createdByChange()\" value=\"staff\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Staff\">Staff</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"admin\" id=\"Admin\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\" value=\"admin\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Admin\">Admin</label>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"bg-card shadow\" *ngIf=\"isTrackerSubmitted\">\n                <!-- Tower Information in Edit mode -->\n                <div class=\"row\" *ngIf=\"ticket.apartmentBlockUnitUserId && viewMode == 'edit'\">\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-5 text-center text-primary\">{{blockunitprimeName}}</h6>\n                    </div>\n                </div>\n                <!-- Ticket Id,Date and CreatedBy in Edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Ticket ID</label>\n                            <p>{{ticket.ticketId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Date Of Creation</label>\n                            <p>{{getTimeFormat(ticket.insertedOn)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Created By</label>\n                            <p>{{ticket.insertedby_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"Ticket Type\"\n                            fieldPlaceholder=\"Select Ticket Type\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketTypeId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketType($event)\" \n                         ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"ticket.ticketTypeId\">\n                        <condo-select \n                            labelText=\"Category\"\n                            fieldPlaceholder=\"Select Category\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketCategoryList | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketCategoryId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketCategory($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"Priority\"\n                            fieldPlaceholder=\"Select Priority\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"priortyTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketPriorityId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setPriority($event)\" \n                        ></condo-select>\n                    </div>\n                </div>\n                 <!-- supervisor in edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"Supervisor\"\n                            fieldPlaceholder=\"Select Supervisor\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"staffsList  | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticket.supervisorId\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"setSupervisor($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- staff and status  -->\n                <div class=\"row\">\n                    <div class=\"col-sm-6\" *ngIf=\"createdBY == 'staff'|| createdBY == 'admin' || viewMode == 'edit'\">\n                        <condo-select \n                            [labelText]=\"stafflabel\"\n                            fieldPlaceholder=\"Select Label\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"staffsList  | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticket.staffId\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"setStaff($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\" viewMode == 'edit'\">\n                        <condo-select \n                            labelText=\"Status\"\n                            fieldPlaceholder=\"Select Status\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"statusTypeList  | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketStatusId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setStatus($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- block and unit in create Mode-->\n                <div class=\"row\" *ngIf=\"(createdBY == 'tenant' || createdBY == 'owner') && (viewMode != 'edit' && this.isAdmin())\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockUnitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>Primary Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <!-- Description and upload File -->\n                <div class=\"row\">\n                    <div class=\"col-sm-8\">\n                        <div class=\"input-box\">\n                            <label>Subject<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"ticketSubject\" [(ngModel)]=\"ticket.title\" [disabled]=\"viewMode == 'edit' && isAdmin()\" required>\n                            <help-tooltip title=\"ticketSubject\"></help-tooltip>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description<span class=\"required\">*</span></label>\n                            <textarea placeholder=\"Enter value\" name=\"ticketDescription\" [(ngModel)]=\"ticket.description\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\t\n                        <div class=\"mb-5\">\n                            <app-upload [fileIds]=\"ticket.fileDetailsIds\" [isEdit]=\"viewMode == 'edit'\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"text-right\">\n                            <ng-container *ngIf=\"this.viewMode != 'edit'\">\n                                <button mat-flat-button  [color]=\"'primary'\" (click)=\"createTicket()\">Create</button>\n                                <button class=\"ml-2\" mat-button (click)=\"createdByChange()\">Clear</button>\n                            </ng-container>\n                            <ng-container *ngIf=\"this.viewMode == 'edit'\">\n                                <button *ngIf=\"this.viewMode == 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"updateTicket()\">Update</button>\n                                <button *ngIf=\"this.viewMode == 'edit'\" class=\"ml-2\" mat-button (click)=\"back()\">Back</button>\n                            </ng-container>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </form>\n\n        <!-- create comment box -->\n        <div class=\"bg-card shadow\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <form>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Add Comment</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"ticketComment\" [(ngModel)]=\"ticketComment\"\n\t\t\t\t\t\t\t\trequired></textarea>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'accent'\" [disabled]=\"ticketComment && ticketComment.length == 0\" (click)=\"createComment('comment')\">Add Comment</button>\n                    </div>\n\t\t\t\t</div>\n            </form>\n        </div>\n        <!-- comment List -->\n        <div class=\"timeline\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <ul>\n                <li  *ngFor=\"let data of ticketCommentList; let i=index\">\n                    <div class=\"content\">\n                        <div class=\"bg-card shadow\" [ngClass]=\"{'log-border': data.isLog}\">\n                            <div class=\"d-sm-flex\">\n                                <h6>{{data.insertedByName}}</h6>\n                                <span class=\"mt-2 mt-sm-0 ml-sm-3 text-secondary\">{{getTimeFormat(data.insertedOn)}}</span>\n                                <div class=\"mt-2 mt-sm-0 d-inline-block ml-3 status-badge bg-status-green-700 status-curve\">\n                                    <span class=\"font-bold text-status-green-900 text-uppercase\">{{data.insertedByRole}}</span>\n                                </div>\n                            </div>\n                            <p [innerHTML]=\"data.comments\" class=\"desp mt-2\"></p>\n                        </div>\n                    </div>\n                    <div class=\"initial-letter font-medium\" [ngClass]=\"i%2==0 ? 'bg-highlight-base' : 'bg-highlight-light'\">{{data.insertedByName | slice:0:2  | uppercase}}</div>        \n                    <!-- <div class=\"image\">\n                        <img src=\"assets/images/user-icon.svg\" width=\"32\"  height=\"32\"> \n                    </div> -->\n                </li>\n                <div class=\"clear\"></div>\n            </ul>\n        </div>\n    </div>\n</div>";
+      __webpack_exports__["default"] = "<div class=\"help-desk-create-wrapper\">\n    <div class=\"main\">\n        <h4 class=\"mb-4\">\n            <span *ngIf=\"viewMode != 'edit'\">Create Ticket</span>\n            <span *ngIf=\"viewMode == 'edit'\">Edit Ticket</span>\n        </h4>\n        <condo-message class=\"mb-3\" *ngIf=\"message\"\n            [appearance]=\"message.appearance\"\n            [showIcon]=\"message.showIcon\"\n            [type]=\"message.type\"\n            [@shake]=\"message.shake\">\n        {{message.content}}\n        </condo-message>\n        <app-loader *ngIf=\"!isTrackerSubmitted\"></app-loader>\n        \n        <form #createHelpDeskForm=\"ngForm\" name=\"createHelpDeskForm\">\n            <!-- radio button in create Mode-->\n            <div class=\"bg-card shadow mb-3\" *ngIf=\"isTrackerSubmitted && isAdmin() && viewMode != 'edit'\">\n                <div class=\"row\">\n                    <div class=\"col-sm-12 text-center\">\n                        <div class=\"input-box radio-box mb-0\">\n                            <h5 class=\"mt-3 mb-3\">Create Ticket For</h5>\n                            <div class=\"form-group\">\n                                <input  name=\"self\" id=\"Self\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"self\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Self\">Self</label>\n                                </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"User\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"owner\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"User\">Owner</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"user\" id=\"tenant\"  [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\"  value=\"tenant\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"tenant\">Tenant</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"staff\" id=\"Staff\" [(ngModel)]=\"createdBY\"  (change)=\"createdByChange()\" value=\"staff\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Staff\">Staff</label>\n                            </div>\n                            <div class=\"form-group\">\n                                <input  name=\"admin\" id=\"Admin\" [(ngModel)]=\"createdBY\" (change)=\"createdByChange()\" value=\"admin\" type=\"radio\" >\n                                <label class=\"radio-inline\" for=\"Admin\">Admin</label>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"bg-card shadow\" *ngIf=\"isTrackerSubmitted\">\n                <!-- Tower Information in Edit mode -->\n                <div class=\"row\" *ngIf=\"ticket.apartmentBlockUnitUserId && viewMode == 'edit'\">\n                    <div class=\"col-sm-12\">\n                        <h6 class=\"mb-5 text-center text-primary\">{{blockunitprimeName}}</h6>\n                    </div>\n                </div>\n                <!-- Ticket Id,Date and CreatedBy in Edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Ticket ID</label>\n                            <p>{{ticket.ticketId}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Date Of Creation</label>\n                            <p>{{getTimeFormat(ticket.insertedOn)}}</p>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <div  class=\"input-box\">\n                            <label>Created By</label>\n                            <p>{{ticket.insertedby_Label}}</p>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"Ticket Type\"\n                            fieldPlaceholder=\"Select Ticket Type\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketTypeId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketType($event)\" \n                         ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"ticket.ticketTypeId\">\n                        <condo-select \n                            labelText=\"Category\"\n                            fieldPlaceholder=\"Select Category\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"ticketCategoryList | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketCategoryId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setTicketCategory($event)\" \n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\">\n                        <condo-select \n                            labelText=\"Priority\"\n                            fieldPlaceholder=\"Select Priority\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"priortyTypeList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketPriorityId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setPriority($event)\" \n                        ></condo-select>\n                    </div>\n                </div>\n                 <!-- supervisor in edit Mode-->\n                <div class=\"row\" *ngIf=\"viewMode == 'edit'\">\n                    <div class=\"col-sm-6\">\n                        <condo-select \n                            labelText=\"Supervisor\"\n                            fieldPlaceholder=\"Select Supervisor\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"staffsList  | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticket.supervisorId\"\n                            fieldId=\"userId\"\n                            (fieldParams)=\"setSupervisor($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- staff and status  -->\n                <div class=\"row\">\n                    <div class=\"col-sm-6\" *ngIf=\"createdBY == 'staff'|| createdBY == 'admin' || viewMode == 'edit'\">\n                        <condo-select \n                            [labelText]=\"stafflabel\"\n                            fieldPlaceholder=\"Select Label\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"getStaffList()  | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"ticket.staffId\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"setStaff($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                        ></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\" viewMode == 'edit'\">\n                        <condo-select \n                            labelText=\"Status\"\n                            fieldPlaceholder=\"Select Status\"\n                            [fieldRequired]=\"'required'\"\n                            [fieldList]=\"statusTypeList  | orderBy : 'lookupValueName'\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"ticket.ticketStatusId\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"setStatus($event)\" \n                            [isDisabled]=\"!isAdmin()\"\n                        ></condo-select>\n                    </div>\n                </div>\n                <!-- block and unit in create Mode-->\n                <div class=\"row\" *ngIf=\"(createdBY == 'tenant' || createdBY == 'owner') && (viewMode != 'edit' && this.isAdmin())\">\n                    <div class=\"col-sm-4\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"Tower No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Tower\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockList\"\n\t\t\t\t\t\t\tfieldValue=\"block_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.blockId\"\n\t\t\t\t\t\t\tfieldId=\"block_Id\"\n                            (fieldParams)=\"setBlock($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.blockId\">\n                        <condo-select \n\t\t\t\t\t\t\tlabelText=\"Unit No\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Unit\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"blockUnitList\"\n\t\t\t\t\t\t\tfieldValue=\"bu_Label\"\n\t\t\t\t\t\t\t[fieldModel]=\"block.apartmentBlockUnitId\"\n\t\t\t\t\t\t\tfieldId=\"buId\"\n\t\t\t\t\t\t\t(fieldParams)=\"setBlockUnit($event)\" \n\t\t\t\t\t\t></condo-select>\n                    </div>\n                    <div class=\"col-sm-4\" *ngIf=\"block.apartmentBlockUnitId\">\n                        <div class=\"input-box\">\n                            <label>Primary Name</label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"primaryName\" [value]=\"block.primaryName\" disabled>\n                        </div>\n                    </div>\n                </div>\n                <!-- Description and upload File -->\n                <div class=\"row\">\n                    <div class=\"col-sm-8\">\n                        <div class=\"input-box\">\n                            <label>Subject<span class=\"required\">*</span></label>\n                            <input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"ticketSubject\" [(ngModel)]=\"ticket.title\" [disabled]=\"viewMode == 'edit' && isAdmin()\" required>\n                            <help-tooltip title=\"ticketSubject\"></help-tooltip>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"input-box\">\n                            <label>Description<span class=\"required\">*</span></label>\n                            <textarea placeholder=\"Enter value\" name=\"ticketDescription\" [(ngModel)]=\"ticket.description\" required></textarea>\n                        </div>\n                    </div>\n                    <div class=\"col-sm-12\">\t\n                        <div class=\"mb-5\">\n                            <app-upload [fileIds]=\"ticket.fileDetailsIds\" [isEdit]=\"viewMode == 'edit'\" (outputParams)=\"getFileIds($event)\"\n                                [multiple]=\"true\"\n                            ></app-upload>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-sm-12\">\n                        <div class=\"text-right\">\n                            <ng-container *ngIf=\"this.viewMode != 'edit'\">\n                                <button mat-flat-button  [color]=\"'primary'\" (click)=\"createTicket()\">Create</button>\n                                <button class=\"ml-2\" mat-button (click)=\"createdByChange()\">Clear</button>\n                            </ng-container>\n                            <ng-container *ngIf=\"this.viewMode == 'edit'\">\n                                <button *ngIf=\"this.viewMode == 'edit'\" mat-flat-button  [color]=\"'primary'\" (click)=\"updateTicket()\">Update</button>\n                                <button *ngIf=\"this.viewMode == 'edit'\" class=\"ml-2\" mat-button (click)=\"back()\">Back</button>\n                            </ng-container>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </form>\n\n        <!-- create comment box -->\n        <div class=\"bg-card shadow\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <form>\n                <div class=\"row\">\n\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Add Comment</label>\n\t\t\t\t\t\t\t<textarea placeholder=\"some text here\" name=\"ticketComment\" [(ngModel)]=\"ticketComment\"\n\t\t\t\t\t\t\t\trequired></textarea>\n\t\t\t\t\t\t</div>\n                    </div>\n                    <div class=\"col-sm-12\">\n                        <button class=\"float-right\"  mat-flat-button  [color]=\"'accent'\" [disabled]=\"ticketComment && ticketComment.length == 0\" (click)=\"createComment('comment')\">Add Comment</button>\n                    </div>\n\t\t\t\t</div>\n            </form>\n        </div>\n        <!-- comment List -->\n        <div class=\"timeline\" *ngIf=\"viewMode == 'edit' && isTrackerSubmitted\">\n            <ul>\n                <li  *ngFor=\"let data of ticketCommentList; let i=index\">\n                    <div class=\"content\">\n                        <div class=\"bg-card shadow\" [ngClass]=\"{'log-border': data.isLog}\">\n                            <div class=\"d-sm-flex\">\n                                <h6>{{data.insertedByName}}</h6>\n                                <span class=\"mt-2 mt-sm-0 ml-sm-3 text-secondary\">{{getTimeFormat(data.insertedOn)}}</span>\n                                <div class=\"mt-2 mt-sm-0 d-inline-block ml-3 status-badge bg-status-green-700 status-curve\">\n                                    <span class=\"font-bold text-status-green-900 text-uppercase\">{{data.insertedByRole}}</span>\n                                </div>\n                            </div>\n                            <p [innerHTML]=\"data.comments\" class=\"desp mt-2\"></p>\n                        </div>\n                    </div>\n                    <div class=\"initial-letter font-medium\" [ngClass]=\"i%2==0 ? 'bg-highlight-base' : 'bg-highlight-light'\">{{data.insertedByName | slice:0:2  | uppercase}}</div>        \n                    <!-- <div class=\"image\">\n                        <img src=\"assets/images/user-icon.svg\" width=\"32\"  height=\"32\"> \n                    </div> -->\n                </li>\n                <div class=\"clear\"></div>\n            </ul>\n        </div>\n    </div>\n</div>";
       /***/
     },
 
@@ -48,7 +48,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Status </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Ticket Status\"\n                            fieldPlaceholder=\"Status\"\n                            [fieldList]=\"ticketStatusList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"filterData.ticketStatus\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"dropDownSelect($event,'status')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Staff\"\n                            fieldPlaceholder=\"Staff\"\n                            [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"filterData.staff\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"dropDownSelect($event,'staff')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Supervisor\"\n                            fieldPlaceholder=\"Supervisor\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"filterData.supervisor\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"dropDownSelect($event,'supervisor')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t\t\t\t<!-- Indicator -->\n\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t<ul class=\"legends mb-4 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/common-ticket-icon.svg\"><span>Common</span></li>\n\t\t\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/private-ticket-icon.svg\"><span>Private</span></li>\n\t\t\t\t\t</ul>\n\t\t\t\t\n\t\t\t\t\t<ul class=\"legends mb-4 ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span><span>High</span></li>\n\t\t\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Medium</li>\n\t\t\t\t\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-purple-900\"></span>Low</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='all-tickets'\">All Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='open-tickets'\">Open, Assigned and Holded Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='closed-tickets'\">Closed Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='unassigned'\">Unassigned Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='assigned-to-me'\">My Tickets</span>\n\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"ticketSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"createTicketNavigate()\">Add Ticket</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-3\" *ngIf=\"urlType=='all-tickets' && isAdmin()\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid\n\t\t\t\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t[pageable]=\"true\"\n\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t[sortable]=\"true\"\n\t\t\t\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n";
+      __webpack_exports__["default"] = "<div class=\"helpdesk-all-tickets-wrapper content-layout right-sidebar-fullheight-basic-inner-scroll\">\n    <mat-drawer-container class=\"example-container\" [hasBackdrop]=\"true\" #matDrawer>\n        <mat-drawer class=\"col-lg-3 col-md-3 col-sm-3 col-xs-3 p-0\" #filter mode=\"over\" position=\"end\">\n\t\t\t<div class=\"helpdesk-filter-drawer\">\n\t\t\t\t<div class=\"title\">\n\t\t\t\t\t<h4> Status </h4>\n\t\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t\t<button mat-icon-button (click)=\"goBack()\">\n\t\t\t\t\t\t\t<mat-icon [svgIcon]=\"'close'\"></mat-icon>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<form>\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Ticket Status\"\n                            fieldPlaceholder=\"Status\"\n                            [fieldList]=\"ticketStatusList\"\n                            fieldValue=\"lookupValueName\"\n                            [fieldModel]=\"filterData.ticketStatus\"\n                            fieldId=\"lookupValueId\"\n                            (fieldParams)=\"dropDownSelect($event,'status')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Staff\"\n                            fieldPlaceholder=\"Staff\"\n                            [fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"filterData.staff\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"dropDownSelect($event,'staff')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<condo-select \n                            labelText=\"Supervisor\"\n                            fieldPlaceholder=\"Supervisor\"\n\t\t\t\t\t\t\t[fieldList]=\"staffsList | orderBy : 'staffName'\"\n                            fieldValue=\"customLabel\"\n                            [fieldModel]=\"filterData.supervisor\"\n                            fieldId=\"staffId\"\n                            (fieldParams)=\"dropDownSelect($event,'supervisor')\" \n                        \t></condo-select>  \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-sm-12\">\n\t\t\t\t\t\t\t<div class=\"text-right mt-4\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"filterApply()\">Apply</button>\n\t\t\t\t\t\t\t\t<button mat-button (click)=\"clearFilter()\">Cancel</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</form>\n\t\t\t</div>\n        </mat-drawer>\n        <mat-drawer-content>\n\t\t\t<div class=\"main\">\n\t\t\t\t<!-- Loader -->\n\t\t\t\t<app-loader *ngIf=\"!isTicketDataLoaded\"></app-loader>\n\t\t\t\t<!-- Indicator -->\n\t\t\t\t<div class=\"d-flex justify-content-end\">\n\t\t\t\t\t<ul class=\"legends mb-4 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/common-ticket-icon.svg\"><span>Common</span></li>\n\t\t\t\t\t\t<li class=\"list-inline-item\"><img class=\"mb-1 mr-1\" width=\"17\" src=\"assets/images/private-ticket-icon.svg\"><span>Private</span></li>\n\t\t\t\t\t</ul>\n\t\t\t\t\n\t\t\t\t\t<ul class=\"legends mb-4 ml-3 list-inline\" *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-orange-900\"></span><span>High</span></li>\n\t\t\t\t\t\t<li class=\"list-inline-item\"><span class=\"dots bg-green-900\"></span>Medium</li>\n\t\t\t\t\t\t<li class=\"list-inline-item mr-0\"><span class=\"dots bg-purple-900\"></span>Low</li>\n\t\t\t\t\t</ul>\n\t\t\t\t</div>\n\t\t\t\t<!-- Table -->\n\t\t\t\t<condo-card *ngIf=\"isTicketDataLoaded\">\n\t\t\t\t\t<div CondoCardHeader>\n\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<h4>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='all-tickets'\">All Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='open-tickets'\">Open, Assigned and On-Hold Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='closed-tickets'\">Closed Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='unassigned'\">Unassigned Tickets</span>\n\t\t\t\t\t\t\t\t\t<span *ngIf=\"urlType=='assigned-to-me'\">My Tickets</span>\n\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t<p>{{totalItems}} results</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-auto mr-3\">\n\t\t\t\t\t\t\t\t<app-table-search [input]=\"ticketSearch\" (outputParams)=\"onGlSearchFilter($event)\"></app-table-search>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"mr-3\">\n\t\t\t\t\t\t\t\t<app-print-dropdown (outputParams) =\"getPrintParams($event)\"></app-print-dropdown>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div>\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'primary'\" (click)=\"createTicketNavigate()\">Add Ticket</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"ml-3\" *ngIf=\"urlType=='all-tickets' && isAdmin()\">\n\t\t\t\t\t\t\t\t<button mat-flat-button [color]=\"'accent'\" (click)=\"filter.toggle()\">\n\t\t\t\t\t\t\t\t\t<mat-icon class=\"mr-2\" svgIcon=\"heroicons_outline:filter\"></mat-icon>Filter\n\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div CondoCardBody>\n\t\t\t\t\t\t<jqxGrid\n\t\t\t\t\t\t\t[theme]=\"'material'\"\n\t\t\t\t\t\t\t[width]=\"'100%'\"\n\t\t\t\t\t\t\t[rowsheight]=\"48\"\n\t\t\t\t\t\t\t[autoheight]=\"true\"\n\t\t\t\t\t\t\t[pageable]=\"true\"\n\t\t\t\t\t\t\t[filterable]=\"true\"\n\t\t\t\t\t\t\t[sortable]=\"true\"\n\t\t\t\t\t\t\t[source]=\"ticketListData\"\n\t\t\t\t\t\t\t[columns]=\"columnData\"\n\t\t\t\t\t\t\t[columnsresize]=\"true\"\n\t\t\t\t\t\t\t[enablehover]=\"false\"\n\t\t\t\t\t\t\t#datagrid>\n\t\t\t\t\t\t</jqxGrid>\n\t\t\t\t\t</div>\n\t\t\t\t</condo-card>\n\t\t\t</div>\n        </mat-drawer-content>\n    </mat-drawer-container>\n</div>\n\n";
       /***/
     },
 
@@ -232,6 +232,7 @@
           this.priortyTypeList = [];
           this.message = null; //staff
 
+          this.roleTypeStaffsList = [];
           this.staffsList = []; //block
 
           this.block = {
@@ -310,6 +311,7 @@
             this.ticketCategoryList = [];
             this.blockUnitList = [];
             this.createdBY = radioName;
+            if (this.createdBY == 'staff' || this.createdBY == 'admin') this.getStaff();
           }
         }, {
           key: "getCategoryList",
@@ -631,12 +633,45 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getStaff",
+          value: function getStaff() {
             var _this8 = this;
 
+            var staffParms = {};
+
+            if (this.viewMode == 'edit') {
+              staffParms.apartmentId = this.sessionService.apartmentId;
+            } else {
+              staffParms.apartmentId = this.sessionService.apartmentId;
+              staffParms.RoleTypeId = this.createdBY == 'staff' ? 3 : 1;
+            }
+
+            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
+              if (res.length) {
+                _this8.roleTypeStaffsList = res;
+
+                _this8.roleTypeStaffsList.forEach(function (item) {
+                  item.customLabel = "".concat(item.staffName, ", ").concat(item.roleName, " - ").concat(item.staffCategoryName);
+                });
+
+                if (_this8.viewMode == 'edit') {
+                  _this8.staffsList = _this8.roleTypeStaffsList;
+                }
+              }
+            });
+          }
+        }, {
+          key: "getStaffList",
+          value: function getStaffList() {
+            if (this.viewMode == 'edit') return this.staffsList;else return this.roleTypeStaffsList;
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this9 = this;
+
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this8.timeZone = timeZone;
+              return _this9.timeZone = timeZone;
             }); // Login Based View for admin or owner
 
             if (!this.isAdmin()) {
@@ -650,7 +685,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(ticketTypeParams).subscribe(function (res) {
-              _this8.ticketTypeList = res;
+              _this9.ticketTypeList = res;
             }); //priorityList
 
             var priority = {
@@ -658,21 +693,7 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
-              _this8.priortyTypeList = res;
-            }); //staff
-
-            var staffParms = {
-              apartmentId: this.sessionService.apartmentId,
-              RoleTypeId: this.sessionService.roleTypeId
-            };
-            this.staffService.getAllStaffs(staffParms).subscribe(function (res) {
-              if (res.length) {
-                _this8.staffsList = res;
-
-                _this8.staffsList.forEach(function (item) {
-                  item.customLabel = "".concat(item.staffName, ", ").concat(item.roleName, " - ").concat(item.staffCategoryName);
-                });
-              }
+              _this9.priortyTypeList = res;
             }); //Edit Mode
 
             if (this.viewMode == 'edit') {
@@ -683,48 +704,49 @@
                 var _a = res[0],
                     fileDetailsPath = _a.fileDetailsPath,
                     response = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(_a, ["fileDetailsPath"]);
-                _this8.ticket = response; //Get File Information
+                _this9.ticket = response; //Get File Information
 
                 if (fileDetailsPath && fileDetailsPath.length > 0) {
-                  _this8.ticket.fileDetailsIds = fileDetailsPath.reduce(function (acc, file, index) {
+                  _this9.ticket.fileDetailsIds = fileDetailsPath.reduce(function (acc, file, index) {
                     if (index == 0) {
                       return "".concat(file.fileDetailsId);
                     } else {
                       return "".concat(acc, ",").concat(file.fileDetailsId);
                     }
                   }, '');
-                } else _this8.ticket.fileDetailsIds = null; //owner or tenant edit mode
+                } else _this9.ticket.fileDetailsIds = null; //owner or tenant edit mode
 
 
-                if (_this8.ticket.apartmentBlockUnitUserId) {
-                  _this8.createdBY = 'owner';
-                  _this8.blockunitprimeName = "".concat(_this8.ticket.tower_Unit, " ").concat(_this8.ticket.primaryContactName);
+                if (_this9.ticket.apartmentBlockUnitUserId) {
+                  _this9.createdBY = 'owner';
+                  _this9.blockunitprimeName = "".concat(_this9.ticket.tower_Unit, " ").concat(_this9.ticket.primaryContactName);
                 } //staff Edit Mode
 
 
-                if (_this8.ticket.staffId) {
-                  _this8.createdBY = 'staff';
+                if (_this9.ticket.staffId) {
+                  _this9.createdBY = 'staff';
                 }
 
-                _this8.oldData = Object.assign({}, _this8.ticket); //log info
+                _this9.oldData = Object.assign({}, _this9.ticket); //log info
 
-                _this8.getCategoryList('edit');
+                _this9.getCategoryList('edit');
               });
               var statusParams = {
                 LookupTypeId: 9,
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this8.statusTypeList = res;
+                _this9.statusTypeList = res;
               });
               this.getCommentList();
+              this.getStaff();
             } else {
               //Tower
               var tower = {
                 apartmentId: this.sessionService.apartmentId
               };
               this.apartmentService.getApartmentBlockAndBlockUnitByApartmentId(tower).subscribe(function (res) {
-                _this8.blockList = res;
+                _this9.blockList = res;
               });
             }
           }
@@ -970,7 +992,7 @@
         }, {
           key: "onGlSearchFilter",
           value: function onGlSearchFilter(event) {
-            var _this9 = this;
+            var _this10 = this;
 
             if (event != "") {
               var filtergroup = new jqx.filter();
@@ -983,7 +1005,7 @@
               this.datagrid.showfiltercolumnbackground(false);
               this.columnData.forEach(function (item) {
                 if (item.datafield != 'Actions') {
-                  _this9.datagrid.addfilter(item.datafield, filtergroup, true);
+                  _this10.datagrid.addfilter(item.datafield, filtergroup, true);
                 }
               });
               this.datagrid.applyfilters();
@@ -994,7 +1016,7 @@
         }, {
           key: "filterApply",
           value: function filterApply() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.goBack();
             this.isTicketDataLoaded = false;
@@ -1004,62 +1026,6 @@
               assigntoSupervisorId: this.filterData.supervisor,
               assigntoStaffId: this.filterData.staff
             };
-            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
-              _this10.isTicketDataLoaded = true;
-
-              if (res.length > 0) {
-                res.sort(function (a, b) {
-                  return b.serialNo - a.serialNo;
-                });
-                var ticketInfo = {
-                  localdata: res,
-                  datatype: "array"
-                };
-                _this10.totalItems = ticketInfo.localdata.length;
-                _this10.ticketListData = new jqx.dataAdapter(ticketInfo);
-              }
-            }, function (error) {
-              _this10.isTicketDataLoaded = true;
-
-              _this10.sharedService.openSnackBar('Server Error', 'error');
-            });
-          }
-        }, {
-          key: "clearFilter",
-          value: function clearFilter() {
-            this.filterData.ticketStatus = null;
-            this.filterData.staff = null;
-            this.filterData.supervisor = null;
-            this.getTicketByAdmin();
-            this.goBack();
-          }
-        }, {
-          key: "goBack",
-          value: function goBack() {
-            this.matDrawer.close();
-          }
-        }, {
-          key: "getTicketByAdmin",
-          value: function getTicketByAdmin() {
-            var _this11 = this;
-
-            this.isTicketDataLoaded = false;
-            var params = {
-              apartmentId: this.sessionService.apartmentId
-            };
-
-            if (this.urlType == 'open-tickets') {
-              params.ticketStatusIds = "32,33,46";
-            } else if (this.urlType == 'closed-tickets') {
-              params.ticketStatusIds = "34";
-            } else if (this.urlType == 'unassigned') {
-              params.isStaffassigned = false;
-              params.ticketStatusIds = "32"; //open tickets
-            } else if (this.urlType == 'assigned-to-me') {
-              this.getTicketByAssignedUser();
-              return;
-            }
-
             this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this11.isTicketDataLoaded = true;
 
@@ -1081,15 +1047,42 @@
             });
           }
         }, {
-          key: "getTicketByAssignedUser",
-          value: function getTicketByAssignedUser() {
+          key: "clearFilter",
+          value: function clearFilter() {
+            this.filterData.ticketStatus = null;
+            this.filterData.staff = null;
+            this.filterData.supervisor = null;
+            this.getTicketByAdmin();
+            this.goBack();
+          }
+        }, {
+          key: "goBack",
+          value: function goBack() {
+            this.matDrawer.close();
+          }
+        }, {
+          key: "getTicketByAdmin",
+          value: function getTicketByAdmin() {
             var _this12 = this;
 
+            this.isTicketDataLoaded = false;
             var params = {
-              apartmentId: this.sessionService.apartmentId,
-              userId: this.sessionService.userId
+              apartmentId: this.sessionService.apartmentId
             };
-            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
+
+            if (this.urlType == 'open-tickets') {
+              params.ticketStatusIds = "32,33,46";
+            } else if (this.urlType == 'closed-tickets') {
+              params.ticketStatusIds = "34";
+            } else if (this.urlType == 'unassigned') {
+              params.isStaffassigned = false;
+              params.ticketStatusIds = "32"; //open tickets
+            } else if (this.urlType == 'assigned-to-me') {
+              this.getTicketByAssignedUser();
+              return;
+            }
+
+            this.ticketService.getAllTicketsByApartmentId(params).subscribe(function (res) {
               _this12.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -1097,7 +1090,7 @@
                   return b.serialNo - a.serialNo;
                 });
                 var ticketInfo = {
-                  localdata: res.reverse(),
+                  localdata: res,
                   datatype: "array"
                 };
                 _this12.totalItems = ticketInfo.localdata.length;
@@ -1110,15 +1103,15 @@
             });
           }
         }, {
-          key: "getTicketsByUser",
-          value: function getTicketsByUser() {
+          key: "getTicketByAssignedUser",
+          value: function getTicketByAssignedUser() {
             var _this13 = this;
 
             var params = {
               apartmentId: this.sessionService.apartmentId,
-              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+              userId: this.sessionService.userId
             };
-            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+            this.ticketService.getAllTicketsAssignedtoUserByApartmentId(params).subscribe(function (res) {
               _this13.isTicketDataLoaded = true;
 
               if (res.length > 0) {
@@ -1139,15 +1132,44 @@
             });
           }
         }, {
-          key: "ngOnInit",
-          value: function ngOnInit() {
+          key: "getTicketsByUser",
+          value: function getTicketsByUser() {
             var _this14 = this;
 
+            var params = {
+              apartmentId: this.sessionService.apartmentId,
+              blockunituserId: this.sessionService.apartmentBlockUnitUserId
+            };
+            this.ticketService.getTicketscreatedByblockunitUserId(params).subscribe(function (res) {
+              _this14.isTicketDataLoaded = true;
+
+              if (res.length > 0) {
+                res.sort(function (a, b) {
+                  return b.serialNo - a.serialNo;
+                });
+                var ticketInfo = {
+                  localdata: res.reverse(),
+                  datatype: "array"
+                };
+                _this14.totalItems = ticketInfo.localdata.length;
+                _this14.ticketListData = new jqx.dataAdapter(ticketInfo);
+              }
+            }, function (error) {
+              _this14.isTicketDataLoaded = true;
+
+              _this14.sharedService.openSnackBar('Server Error', 'error');
+            });
+          }
+        }, {
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            var _this15 = this;
+
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this14.timeZone = timeZone;
+              return _this15.timeZone = timeZone;
             });
             this.activateRouter.url.subscribe(function (data) {
-              _this14.urlType = data[0].path;
+              _this15.urlType = data[0].path;
             });
 
             if (this.isAdmin()) {
@@ -1260,7 +1282,7 @@
               text: 'Date Requested',
               datafield: 'insertedOn',
               cellsrenderer: function cellsrenderer(row, column, value) {
-                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this14.timeZone.region).format(_this14.timeZone.time) + '</div>';
+                return '<div class="jqx-custom-inner-cell">' + moment__WEBPACK_IMPORTED_MODULE_12__["utc"](value).tz(_this15.timeZone.region).format(_this15.timeZone.time) + '</div>';
               },
               minwidth: 170,
               renderer: columnrenderer
@@ -1286,7 +1308,7 @@
                   res.forEach(function (ele) {
                     ele.customLabel = "".concat(ele.staffName, ", ").concat(ele.roleName, " - ").concat(ele.staffCategoryName);
                   });
-                  _this14.staffsList = res;
+                  _this15.staffsList = res;
                 }
               }, function (error) {
                 console.log(error);
@@ -1297,7 +1319,7 @@
                 ApartmentId: this.sessionService.apartmentId
               };
               this.lookupService.getLookupValueByLookupTypeId(statusParams).subscribe(function (res) {
-                _this14.ticketStatusList = res;
+                _this15.ticketStatusList = res;
               });
             }
           }
@@ -1797,10 +1819,10 @@
         }, {
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.sharedService.timezonecast.subscribe(function (timeZone) {
-              return _this15.timeZone = timeZone;
+              return _this16.timeZone = timeZone;
             }); //24 is common type so we passed 17
             //27 is private type so we passed 16
 
@@ -1809,16 +1831,16 @@
               LookupTypeId: 17
             };
             this.lookupService.getLookupValueByLookupTypeId(categoryCommonParams).subscribe(function (res) {
-              _this15.ticketCommonCategoryList = res;
+              _this16.ticketCommonCategoryList = res;
               var categoryPrivateParams = {
-                ApartmentId: _this15.sessionService.apartmentId,
+                ApartmentId: _this16.sessionService.apartmentId,
                 LookupTypeId: 16
               };
 
-              _this15.lookupService.getLookupValueByLookupTypeId(categoryPrivateParams).subscribe(function (res) {
-                _this15.ticketPrivateCategoryList = res;
-                _this15.ticketCategoryList = _this15.ticketPrivateCategoryList.concat(_this15.ticketCommonCategoryList);
-                _this15.isTicketCategoryLoaded = true;
+              _this16.lookupService.getLookupValueByLookupTypeId(categoryPrivateParams).subscribe(function (res) {
+                _this16.ticketPrivateCategoryList = res;
+                _this16.ticketCategoryList = _this16.ticketPrivateCategoryList.concat(_this16.ticketCommonCategoryList);
+                _this16.isTicketCategoryLoaded = true;
               });
             });
             var params = {
@@ -1830,24 +1852,24 @@
                 res.sort(function (a, b) {
                   return b.serialNo - a.serialNo;
                 });
-                _this15.ticketListData = res;
+                _this16.ticketListData = res;
                 console.log(res);
 
-                if (_this15.totalItems > _this15.itemLimit) {
-                  _this15.ItemEndIndex = _this15.itemLimit;
+                if (_this16.totalItems > _this16.itemLimit) {
+                  _this16.ItemEndIndex = _this16.itemLimit;
                 } else {
-                  _this15.ItemEndIndex = _this15.totalItems;
+                  _this16.ItemEndIndex = _this16.totalItems;
                 }
 
-                _this15.totalItems = _this15.ticketListData.length;
-                _this15.isDataLoaded = true;
+                _this16.totalItems = _this16.ticketListData.length;
+                _this16.isDataLoaded = true;
               } else {
-                _this15.isDataLoaded = true;
+                _this16.isDataLoaded = true;
               }
             }, function (error) {
-              _this15.isDataLoaded = true;
+              _this16.isDataLoaded = true;
 
-              _this15.sharedService.openSnackBar('Server Error', 'error');
+              _this16.sharedService.openSnackBar('Server Error', 'error');
             }); //priorityList
 
             var priority = {
@@ -1855,8 +1877,8 @@
               ApartmentId: this.sessionService.apartmentId
             };
             this.lookupService.getLookupValueByLookupTypeId(priority).subscribe(function (res) {
-              _this15.priortyTypeList = res;
-              _this15.isTicketPriortyLoaded = true;
+              _this16.priortyTypeList = res;
+              _this16.isTicketPriortyLoaded = true;
             });
           }
         }]);

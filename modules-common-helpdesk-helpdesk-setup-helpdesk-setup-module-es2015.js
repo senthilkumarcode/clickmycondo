@@ -599,7 +599,7 @@ let CommonCategoryComponent = class CommonCategoryComponent {
                         };
                         this.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe((res) => {
                             if (res.code == 200) {
-                                this.commondatagrid.deleterow(item.index);
+                                this.getCommonCategoryList();
                                 this.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
                             }
                             else {
@@ -1046,8 +1046,8 @@ let PrivateCategoryComponent = class PrivateCategoryComponent {
                         };
                         this.ticketService.deleteTicketManagerByTicketCategoryId(params).subscribe((res) => {
                             if (res.code == 200) {
-                                this.privatedatagrid.deleterow(item.index);
-                                this.sharedService.openSnackBar('Common Category Deleted Successfully', 'success');
+                                this.getPrivateCategoryList();
+                                this.sharedService.openSnackBar('Private Category Deleted Successfully', 'success');
                             }
                             else {
                                 this.sharedService.openSnackBar(res.statusMessage, 'error');
