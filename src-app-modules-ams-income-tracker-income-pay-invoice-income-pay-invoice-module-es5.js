@@ -1149,7 +1149,7 @@
               blockUnitUserID: null
             };
             this.accountsService.getTotalBalanceAdvancesByBlockUnitUserId(custParams).subscribe(function (res) {
-              _this11.custBalance = res[0].balance;
+              _this11.custBalance = res[0].totalAdvance;
             });
             var securityDepositParams = {
               apartmentId: this.sessionService.apartmentId,
@@ -1157,7 +1157,7 @@
               blockUnitUserID: null
             };
             this.accountsService.getTotalBalanceSecurityDepositByBlockUnitUserId(securityDepositParams).subscribe(function (res) {
-              _this11.securityDepositBalance = res[0].balance;
+              _this11.securityDepositBalance = res[0].totalAdvance;
             });
           }
         }, {

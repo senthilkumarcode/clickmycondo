@@ -839,7 +839,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             blockUnitUserID: null
         };
         this.accountsService.getTotalBalanceAdvancesByBlockUnitUserId(custParams).subscribe((res) => {
-            this.custBalance = res[0].balance;
+            this.custBalance = res[0].totalAdvance;
         });
         let securityDepositParams = {
             apartmentId: this.sessionService.apartmentId,
@@ -847,7 +847,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             blockUnitUserID: null
         };
         this.accountsService.getTotalBalanceSecurityDepositByBlockUnitUserId(securityDepositParams).subscribe((res) => {
-            this.securityDepositBalance = res[0].balance;
+            this.securityDepositBalance = res[0].totalAdvance;
         });
     }
     ngOnChanges(changes) {
