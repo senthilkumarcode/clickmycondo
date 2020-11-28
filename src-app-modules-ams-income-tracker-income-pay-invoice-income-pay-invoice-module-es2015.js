@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-collection-wrapper mt-5\">\n\n\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\n\t\t<h4 class=\"mb-4\">Post Collection</h4>\n\n\t\t<form #postIncomeCollectionForm = \"ngForm\" name=\"postIncomeCollectionForm\" (ngSubmit)=\"submitIncomePostCollectionForm()\"  novalidate>\n\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Amount<span class=\"ml-2 text-warn font-medium\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" [customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" class=\"form-control\" #collectionAmount=\"ngModel\" placeholder=\"Enter text\" name=\"collectionAmount\" [(ngModel)]=\"collection.amount\" required [readonly]=\"isMultipleEntry\">\n\t\t\t\t\t\t\t<div *ngIf=\"collectionAmount.errors\">\n\t\t\t\t\t\t\t\t<p class=\"error\">Enter amount equal to or lesser than the selected entries</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<!-- <condo-select \n\t\t\t\t\t\t\tlabelText=\"Instrument Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"instrumentTypeListData\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.instrumentTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getInstrumentType($event)\" \n\t\t\t\t\t\t></condo-select> -->\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Gl Account\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t[fieldList]=\"glAccountListData\"\n\t\t\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.glaccountId\"\n\t\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedGlAccount($event)\" \n\t\t\t\t\t\t></condo-select>\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posted On\"\n\t\t\t\t\t\t\tfieldName=\"collectionPostOn\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.postOn\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostOn($event)\">\n                        </app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Payment Status\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Status\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"paymentStatusListData\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.collectionStatusId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPaymentStatus($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Payment Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Payment\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"paymentTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"label\"\n\t\t\t\t\t\t\t[fieldModel]=\"paymentTypeId\"\n\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPaymentType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCustomerAdvancesMode() || isCreditbalanceMode() || isSecurityDepositPaymentMode()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Balance</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"Balance\" [(ngModel)]=\"selectedCustBalance\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</div>\n\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button class=\"mt-4\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t</div>\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"income-post-collection-wrapper mt-5\">\n\n\t<app-loader *ngIf=\"!isCollectionSubmitted\"></app-loader>\n\n\t<ng-container *ngIf=\"isCollectionSubmitted\">\n\n\t\t<!-- Message -->\n\t\t<div class=\"mb-4\">\n\t\t\t<condo-message *ngIf=\"message\"\n\t\t\t\t[appearance]=\"message.appearance\"\n\t\t\t\t[showIcon]=\"message.showIcon\"\n\t\t\t\t[type]=\"message.type\"\n\t\t\t\t[@shake]=\"message.shake\">\n\t\t\t\t\t{{message.content}}\n\t\t\t</condo-message>\n\n\t\t</div>\n\n\t\t<h4 class=\"mb-4\">Post Collection</h4>\n\n\t\t<form #postIncomeCollectionForm = \"ngForm\" name=\"postIncomeCollectionForm\" (ngSubmit)=\"submitIncomePostCollectionForm()\"  novalidate>\n\n\t\t\t<div class=\"bg-card shadow\">\n\t\t\n\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Amount<span class=\"ml-2 text-warn font-medium\">*</span></label>\n\t\t\t\t\t\t\t<input type=\"number\" OnlyNumber=\"true\" [customMin] =\"minCollectionAmount\" [customMax] =\"maxCollectionAmount\" class=\"form-control\" #collectionAmount=\"ngModel\" placeholder=\"Enter text\" name=\"collectionAmount\" [(ngModel)]=\"collection.amount\" required [readonly]=\"isMultipleEntry\">\n\t\t\t\t\t\t\t<div *ngIf=\"collectionAmount.errors\">\n\t\t\t\t\t\t\t\t<p class=\"error\">Enter amount equal to or lesser than the selected entries</p>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<!-- <condo-select \n\t\t\t\t\t\t\tlabelText=\"Instrument Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Type\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"instrumentTypeListData\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.instrumentTypeId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getInstrumentType($event)\" \n\t\t\t\t\t\t></condo-select> -->\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Gl Account\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Account\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\t[fieldList]=\"glAccountListData\"\n\t\t\t\t\t\t\tfieldValue=\"comment\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.glaccountId\"\n\t\t\t\t\t\t\tfieldId=\"glaccountId\"\n\t\t\t\t\t\t\t[isDisabled]=\"false\"\n\t\t\t\t\t\t\t(fieldParams)=\"getSelectedGlAccount($event)\" \n\t\t\t\t\t\t></condo-select>\t\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<app-datepicker\n\t\t\t\t\t\t\tlabelText=\"Posted On\"\n\t\t\t\t\t\t\tfieldName=\"collectionPostOn\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'null'\"\n\t\t\t\t\t\t\ttype=\"date\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.postOn\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPostOn($event)\">\n                        </app-datepicker>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Payment Status\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Status\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"paymentStatusListData\"\n\t\t\t\t\t\t\tfieldValue=\"lookupValueName\"\n\t\t\t\t\t\t\t[fieldModel]=\"collection.collectionStatusId\"\n\t\t\t\t\t\t\tfieldId=\"lookupValueId\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPaymentStatus($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<condo-select \n\t\t\t\t\t\t\tlabelText=\"Payment Type\"\n\t\t\t\t\t\t\tfieldPlaceholder=\"Select Payment\"\n\t\t\t\t\t\t\t[fieldRequired]=\"'required'\"\n\t\t\t\t\t\t\t[fieldList]=\"paymentTypeList\"\n\t\t\t\t\t\t\tfieldValue=\"label\"\n\t\t\t\t\t\t\t[fieldModel]=\"paymentTypeId\"\n\t\t\t\t\t\t\tfieldId=\"id\"\n\t\t\t\t\t\t\t(fieldParams)=\"getPaymentType($event)\" \n\t\t\t\t\t\t></condo-select>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\" *ngIf=\"isCustomerAdvancesMode() || isCreditBalanceMode() || isSecurityDepositPaymentMode()\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Balance</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"Balance\" [(ngModel)]=\"selectedCustBalance\" readonly>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<div class=\"col-sm-4\">\n\t\t\t\t\t\t<div class=\"input-box\">\n\t\t\t\t\t\t\t<label>Comments</label>\n\t\t\t\t\t\t\t<input type=\"text\" class=\"form-control\" placeholder=\"Enter text\" name=\"comments\" [(ngModel)]=\"collection.comment\">\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\n\t\t\t\t</div>\n\t\t\n\t\t\t</div>\n\n\t\t\t<div class=\"text-right\">\n\t\t\t\t<button class=\"mt-4\" mat-flat-button [color]=\"'primary'\">Submit</button>\n\t\t\t</div>\n\t\t</form>\n\n\t</ng-container>\n\n</div>");
 
 /***/ }),
 
@@ -493,6 +493,8 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         this.maxCollectionAmount = 0;
         this.isMultipleEntry = false;
         this.collectionParams = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"](false);
+        // Set the defaults
+        this.message = null;
     }
     getInstrumentType(event) {
         this.collection.instrumentTypeId = event[0].lookupValueId;
@@ -518,7 +520,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
     isCustomerAdvancesMode() {
         return this.paymentTypeId == 3 ? true : false;
     }
-    isCreditbalanceMode() {
+    isCreditBalanceMode() {
         return this.paymentTypeId == 4 ? true : false;
     }
     isSecurityDepositPaymentMode() {
@@ -539,114 +541,19 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             this.selectedCustBalance = this.securityDepositBalance;
         }
     }
-    reduceCreditNoteAmount() {
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
-            let details = {
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
-                "blockUnitUserId": null,
-                "custCreditNoteId": null,
-                "glaccountId": this.collection.glaccountId,
-                "invoiceId": item,
-                "collectionId": null,
-                "transactionType": 1,
-                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
-                "comment": "",
-                "comment2": "",
-                "active": true,
-                "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-            };
-            let params = {
-                custCreditNote: details
-            };
-            this.accountsService.addCustCreditNotes(params).subscribe((res) => {
-                if (index == (this.invoiceIdArray.length - 1)) {
-                    this.addCollection();
-                }
-            }, error => {
-            });
-        });
-    }
-    reduceCustomerAdvancesAmount() {
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
-            let details = {
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
-                "blockUnitUserId": null,
-                "glaccountId": this.collection.glaccountId,
-                "invoiceId": item,
-                "collectionId": null,
-                "transactionType": 1,
-                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
-                "comment": "",
-                "comment2": "",
-                "active": true,
-                "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-            };
-            let params = {
-                custAdvance: details
-            };
-            this.accountsService.addAdvance(params).subscribe((res) => {
-                if (index == (this.invoiceIdArray.length - 1)) {
-                    this.addCollection();
-                }
-            }, error => {
-            });
-        });
-    }
-    reduceSecurityDepositAmount() {
-        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
-            let details = {
-                "apartmentId": this.sessionService.apartmentId,
-                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
-                "blockUnitUserId": null,
-                "securityDepositId": 0,
-                "glaccountId": this.collection.glaccountId,
-                "invoiceId": item,
-                "collectionId": null,
-                "transactionType": 1,
-                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
-                "comment": "",
-                "comment2": "",
-                "active": true,
-                "insertedBy": this.sessionService.userId,
-                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
-                "updatedBy": null,
-                "updatedOn": null
-            };
-            let params = {
-                custSecurity: details
-            };
-            this.accountsService.addSecurityDeposit(params).subscribe((res) => {
-                if (index == (this.invoiceIdArray.length - 1)) {
-                    this.addCollection();
-                }
-            }, error => {
-            });
-        });
-    }
     submitIncomePostCollectionForm() {
-        if (this.isCashMode()) {
-            this.reduceCreditNoteAmount();
+        if (this.isCashMode() || this.isChequeMode()) {
+            this.addCollection();
         }
         if (this.isCustomerAdvancesMode()) {
             this.reduceCustomerAdvancesAmount();
         }
+        if (this.isCreditBalanceMode()) {
+            this.reduceCreditNoteAmount();
+        }
         if (this.isSecurityDepositPaymentMode()) {
             this.reduceSecurityDepositAmount();
         }
-    }
-    getCollectionAmount(amount) {
-        if (!this.isMultipleEntry)
-            return this.collection.amount;
-        else
-            return amount;
     }
     addCollection() {
         var custInvoiceObjArray = [];
@@ -655,8 +562,8 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
                 "apartmentId": this.sessionService.apartmentId,
                 "collectionId": 0,
                 "invoiceId": item,
-                "glAccountId": 0,
-                "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
+                "glAccountId": parseInt(this.collection.glaccountId),
+                "instrumentTypeId": parseInt(this.collection.glaccountId),
                 "amount": this.getCollectionAmount(this.totalAmountArray[index]),
                 "comment": "",
                 "isActive": true,
@@ -673,7 +580,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             "receiptNumber": 0,
             "receiptDate": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "amount": parseInt(this.collection.amount),
-            "instrumentTypeId": parseInt(this.collection.instrumentTypeId),
+            "instrumentTypeId": parseInt(this.collection.glaccountId),
             "postOn": this.collection.postOn || moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
             "collectionAccountTypeId": 165,
             "depositSlipNumber": 1,
@@ -700,19 +607,168 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         this.accountsService.addCollection(params).subscribe((res) => {
             if (res.message) {
                 this.isCollectionSubmitted = true;
-                this.sharedService.setAlertMessage("Collection done successfully");
+                this.sharedService.openSnackBar('Collection done successfully', 'success');
                 this.collectionParams.emit(true);
             }
             else {
                 this.isCollectionSubmitted = true;
+                this.sharedService.openSnackBar('Collection Not Added', 'error');
             }
         }, error => {
             this.isCollectionSubmitted = true;
+            // Show the error message
+            this.message = {
+                appearance: 'outline',
+                content: 'Network Error',
+                shake: true,
+                showIcon: true,
+                type: 'error'
+            };
         });
+    }
+    reduceCustomerAdvancesAmount() {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            let details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "glaccountId": parseInt(this.collection.glaccountId),
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custAdvance: details
+            };
+            this.accountsService.addAdvance(params).subscribe((res) => {
+                if (res.code == 200) {
+                    if (index == (this.invoiceIdArray.length - 1)) {
+                        this.addCollection();
+                    }
+                }
+                else {
+                    this.isCollectionSubmitted = true;
+                    this.sharedService.openSnackBar(res.message, 'error');
+                }
+            }, error => {
+                // Show the error message
+                this.message = {
+                    appearance: 'outline',
+                    content: 'Network Error',
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
+        });
+    }
+    reduceCreditNoteAmount() {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            let details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "custCreditNoteId": null,
+                "glaccountId": parseInt(this.collection.glaccountId),
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custCreditNote: details
+            };
+            this.accountsService.addCustCreditNotes(params).subscribe((res) => {
+                if (res.code == 200) {
+                    if (index == (this.invoiceIdArray.length - 1)) {
+                        this.addCollection();
+                    }
+                }
+                else {
+                    this.isCollectionSubmitted = true;
+                    this.sharedService.openSnackBar(res.message, 'error');
+                }
+            }, error => {
+                // Show the error message
+                this.message = {
+                    appearance: 'outline',
+                    content: 'Network Error',
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
+        });
+    }
+    reduceSecurityDepositAmount() {
+        underscore__WEBPACK_IMPORTED_MODULE_7__["each"](this.invoiceIdArray, (item, index) => {
+            let details = {
+                "apartmentId": this.sessionService.apartmentId,
+                "apartmentBlockUnitId": parseInt(this.apartmentBlockUnitId),
+                "blockUnitUserId": null,
+                "securityDepositId": null,
+                "glaccountId": parseInt(this.collection.glaccountId),
+                "invoiceId": item,
+                "collectionId": null,
+                "transactionType": 1,
+                "amount": this.getCollectionAmount(this.totalAmountArray[index]),
+                "comment": "",
+                "comment2": "",
+                "active": true,
+                "insertedBy": this.sessionService.userId,
+                "insertedOn": moment_timezone__WEBPACK_IMPORTED_MODULE_8___default()().toISOString(),
+                "updatedBy": null,
+                "updatedOn": null
+            };
+            let params = {
+                custSecurity: details
+            };
+            this.accountsService.addSecurityDeposit(params).subscribe((res) => {
+                if (res.code == 200) {
+                    if (index == (this.invoiceIdArray.length - 1)) {
+                        this.addCollection();
+                    }
+                }
+                else {
+                    this.isCollectionSubmitted = true;
+                    this.sharedService.openSnackBar(res.message, 'error');
+                }
+            }, error => {
+                // Show the error message
+                this.message = {
+                    appearance: 'outline',
+                    content: 'Network Error',
+                    shake: true,
+                    showIcon: true,
+                    type: 'error'
+                };
+            });
+        });
+    }
+    getCollectionAmount(amount) {
+        if (!this.isMultipleEntry)
+            return this.collection.amount;
+        else
+            return amount;
     }
     ngOnInit() {
         this.collection = {};
-        this.collection.instrumentTypeId = "";
+        this.collection.glaccountId = "";
         this.collection.collectionAccountTypeId = "";
         this.collection.depositSlipNumber = "";
         this.collection.collectionStatusId = "";
@@ -776,7 +832,6 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
         };
         this.accountsService.getTotalCreditAmountByBlockUnitId(creditParams).subscribe((res) => {
             this.creditBalance = res[0].totalAmount;
-            console.log(res);
         });
         let custParams = {
             apartmentId: this.sessionService.apartmentId,
@@ -784,8 +839,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             blockUnitUserID: null
         };
         this.accountsService.getTotalBalanceAdvancesByBlockUnitUserId(custParams).subscribe((res) => {
-            this.custBalance = res[0].totalAmount;
-            console.log(res);
+            this.custBalance = res[0].balance;
         });
         let securityDepositParams = {
             apartmentId: this.sessionService.apartmentId,
@@ -793,8 +847,7 @@ let IncomePostCollectionComponent = class IncomePostCollectionComponent {
             blockUnitUserID: null
         };
         this.accountsService.getTotalBalanceSecurityDepositByBlockUnitUserId(securityDepositParams).subscribe((res) => {
-            this.securityDepositBalance = res[0].totalAmount;
-            console.log(res);
+            this.securityDepositBalance = res[0].balance;
         });
     }
     ngOnChanges(changes) {

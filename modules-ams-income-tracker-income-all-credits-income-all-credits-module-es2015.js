@@ -232,7 +232,7 @@ let IncomeAddCreditComponent = class IncomeAddCreditComponent {
                 this.accountsService.updateCustCreditNotes(params).subscribe((res) => {
                     if (res.message) {
                         this.isCreditSubmitted = true;
-                        this.sharedService.setAlertMessage("Credit Note updated successfully");
+                        this.sharedService.openSnackBar('Credit Note updated successfully', 'success');
                         // Go to the parent route
                         this._incomeCreditListComponent.isCreditAdded();
                         this.goBack();

@@ -347,7 +347,7 @@
                   if (res.message) {
                     _this5.isCreditSubmitted = true;
 
-                    _this5.sharedService.setAlertMessage("Credit Note updated successfully"); // Go to the parent route
+                    _this5.sharedService.openSnackBar('Credit Note updated successfully', 'success'); // Go to the parent route
 
 
                     _this5._incomeCreditListComponent.isCreditAdded();
